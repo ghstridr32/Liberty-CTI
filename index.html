@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liberty CTI — Strategic Cyber Threat Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #080c10;
+  --navy: #0d1520;
+  --paper: #f4efe6;
+  --cream: #ece7da;
+  --gold: #b8963e;
+  --gold-light: #d4af62;
+  --red: #8b1a1a;
+  --muted: #6b6355;
+  --rule: rgba(184,150,62,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.96); border-bottom: 1px solid var(--rule); }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
+.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+/* PAGE HERO */
+.page-hero { padding: 4rem 3rem 5rem; margin-top: 66px; background: var(--ink); position: relative; overflow: hidden; border-bottom: 1px solid var(--rule); }
+.page-hero::before {
+  content: 'Liberty CTI';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 22vw;
+  font-weight: 900;
+  color: rgba(184,150,62,0.03);
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px); background-size: 52px 52px; }
+.page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; }
+.eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+.eyebrow::before { content: '// '; opacity: 0.6; }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4vw, 4.4rem); font-weight: 900; line-height: 1.05; color: var(--paper); margin-bottom: 1.5rem; }
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
+.page-hero-body { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.68); line-height: 1.85; }
+.hero-right-col { padding-bottom: 0.5rem; }
+
+.hero-emblem-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.hero-emblem {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.96;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.55));
+  transition: transform 0.3s ease;
+}
+.hero-emblem:hover {
+  transform: scale(1.04);
+}
+
+.hero-pull-quote { border-left: 2px solid var(--gold); padding: 1.5rem 2rem; background: rgba(184,150,62,0.04); }
+.hero-pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 400; font-style: italic; color: rgba(244,239,230,0.82); line-height: 1.7; margin-bottom: 0.75rem; }
+.hero-pull-attr { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+
+/* SECTION UTILS */
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+.sec-eyebrow::before { content: '// '; opacity: 0.6; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; }
+h2 em { font-style: italic; color: var(--red); }
+.sec-lead { font-size: 1.05rem; font-weight: 300; line-height: 1.85; color: rgba(244,239,230,0.68); max-width: 680px; }
+
+/* MISSION SECTION */
+.mission { background: var(--ink); padding: 7rem 3rem; }
+.mission-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.mission h2 { color: var(--paper); }
+.mission-body { font-size: 0.95rem; font-weight: 300; color: rgba(244,239,230,0.62); line-height: 1.9; margin-bottom: 1.5rem; }
+.mission-body strong { color: var(--paper); font-weight: 500; }
+.mission-pillars { display: flex; flex-direction: column; gap: 2px; background: var(--rule); margin-top: 1.5rem; }
+.pillar { background: var(--ink); padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: background 0.3s; }
+.pillar:hover { background: rgba(184,150,62,0.04); }
+.pillar-num { font-family: 'Courier Prime', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em; padding-top: 0.2rem; flex-shrink: 0; }
+.pillar-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.35rem; }
+.pillar-body { font-size: 0.83rem; font-weight: 300; color: rgba(244,239,230,0.48); line-height: 1.65; }
+.mission-right { padding-top: 0.5rem; }
+.mission-distinction { background: var(--navy); border: 1px solid var(--rule); padding: 2.5rem; margin-bottom: 2.5rem; }
+.distinction-label { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: block; }
+.distinction-table { width: 100%; }
+.distinction-table tr { border-bottom: 1px solid rgba(244,239,230,0.05); }
+.distinction-table tr:last-child { border-bottom: none; }
+.distinction-table td { padding: 0.75rem 0; font-size: 0.82rem; font-weight: 300; line-height: 1.5; vertical-align: top; }
+.distinction-table td:first-child { color: rgba(244,239,230,0.35); width: 45%; padding-right: 1rem; font-family: 'Courier Prime', monospace; font-size: 0.72rem; }
+.distinction-table td:last-child { color: var(--paper); font-weight: 400; }
+.distinction-table td:last-child::before { content: '→ '; color: var(--gold); }
+
+/* INTEL STRIP */
+.intel-strip { background: var(--navy); padding: 1.5rem 3rem; display: flex; align-items: center; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.intel-item { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; padding: 0 0.5rem; }
+.intel-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--gold); line-height: 1; white-space: nowrap; }
+.intel-desc { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(244,239,230,0.4); line-height: 1.5; }
+.intel-sep { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+/* FOUNDERS SECTION */
+.founders { background: var(--paper); color: var(--ink); padding: 7rem 3rem; }
+.founders h2 { color: var(--ink); }
+.founders h2 em { color: var(--red); }
+.founders-intro { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 720px; margin-bottom: 4rem; }
+.fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(10,10,10,0.08); margin-bottom: 3rem; }
+.fc { background: var(--cream); padding: 3rem 2.5rem; position: relative; }
+.fc-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.fc-bar-luis { background: linear-gradient(90deg, var(--gold), transparent); }
+.fc-bar-angie { background: linear-gradient(90deg, var(--red), transparent); }
+.fc-label { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.fc-label-luis { color: var(--gold); }
+.fc-label-angie { color: var(--red); }
+.fc-name { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+.fc-rank { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 1.75rem; }
+.fc-bio { font-size: 0.92rem; font-weight: 300; color: #3a3530; line-height: 1.85; margin-bottom: 1.75rem; }
+.fc-creds { list-style: none; margin-bottom: 1.75rem; }
+.fc-creds li { font-family: 'Courier Prime', monospace; font-size: 0.67rem; color: #555048; display: flex; gap: 0.6rem; line-height: 1.55; margin-bottom: 0.45rem; }
+.fc-creds li::before { content: '▸'; flex-shrink: 0; }
+.fc-creds-luis li::before { color: var(--gold); }
+.fc-creds-angie li::before { color: var(--red); }
+.fc-edu-label { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; border-top: 1px solid rgba(10,10,10,0.1); padding-top: 1.25rem; }
+.fc-edu li { font-size: 0.78rem; font-weight: 300; color: #555048; line-height: 1.55; margin-bottom: 0.3rem; list-style: none; }
+.founders-statement { background: var(--ink); padding: 2.75rem 3rem; margin-top: 0; }
+.founders-statement p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; font-weight: 400; color: rgba(244,239,230,0.78); line-height: 1.75; text-align: center; max-width: 820px; margin: 0 auto; }
+.founders-statement p::before { content: '\201C'; color: var(--gold); font-size: 1.5rem; vertical-align: -0.2em; margin-right: 0.25rem; }
+.founders-statement p::after { content: '\201D'; color: var(--gold); font-size: 1.5rem; vertical-align: -0.2em; margin-left: 0.25rem; }
+
+/* APPROACH SECTION */
+.approach { background: var(--navy); padding: 7rem 3rem; }
+.approach h2 { color: var(--paper); }
+.approach-inner { max-width: 1200px; margin: 0 auto; }
+.approach-header { margin-bottom: 4rem; }
+.approach-header .sec-lead { color: rgba(244,239,230,0.62); }
+.approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); margin-bottom: 4rem; }
+.approach-card { background: var(--navy); padding: 2.5rem 2rem; position: relative; overflow: hidden; }
+.approach-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.approach-card:hover::after { transform: scaleX(1); }
+.approach-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: rgba(184,150,62,0.1); line-height: 1; margin-bottom: 0.5rem; }
+.approach-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--paper); margin-bottom: 0.75rem; }
+.approach-body { font-size: 0.83rem; font-weight: 300; color: rgba(244,239,230,0.48); line-height: 1.72; }
+.bulldog-box { background: rgba(184,150,62,0.06); border: 1px solid var(--rule); padding: 2.75rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+.bulldog-label { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+.bulldog-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--paper); margin-bottom: 1rem; line-height: 1.2; }
+.bulldog-body { font-size: 0.88rem; font-weight: 300; color: rgba(244,239,230,0.55); line-height: 1.8; }
+.bulldog-right { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); }
+.bq { background: var(--navy); padding: 1.5rem 1.25rem; text-align: center; }
+.bq-letter { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.35rem; }
+.bq-word { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,239,230,0.35); }
+
+/* PRODUCTS SECTION */
+.products { background: var(--cream); color: var(--ink); padding: 7rem 3rem; }
+.products h2 { color: var(--ink); }
+.products h2 em { color: var(--red); }
+.products-intro { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 640px; margin-bottom: 4rem; }
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(10,10,10,0.1); margin-bottom: 3rem; }
+.product-item { background: var(--cream); padding: 2.75rem 2.25rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.product-item:hover { background: #e6e0d2; }
+.product-tag { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+.product-tag::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+.product-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+.product-desc { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.78; margin-bottom: 1.5rem; }
+.product-features { list-style: none; }
+.product-features li { font-family: 'Courier Prime', monospace; font-size: 0.67rem; color: #777060; display: flex; gap: 0.6rem; line-height: 1.55; margin-bottom: 0.4rem; }
+.product-features li::before { content: '▸'; color: var(--gold); flex-shrink: 0; }
+.product-arrow { position: absolute; bottom: 1.75rem; right: 2.25rem; color: rgba(10,10,10,0.12); font-size: 1rem; transition: all 0.3s; }
+.product-item:hover .product-arrow { color: var(--gold); transform: translateX(4px); }
+.products-note { background: var(--ink); color: var(--paper); padding: 2.25rem 2.5rem; display: flex; gap: 2rem; align-items: center; }
+.products-note-icon { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); flex-shrink: 0; }
+.products-note-body { font-size: 0.85rem; font-weight: 300; color: rgba(244,239,230,0.6); line-height: 1.72; }
+.products-note-body strong { color: var(--paper); font-weight: 500; }
+
+/* VISION SECTION */
+.vision { background: var(--ink); padding: 7rem 3rem; position: relative; overflow: hidden; }
+.vision::before { content: '★'; position: absolute; right: -3rem; top: 50%; transform: translateY(-50%); font-size: 50vw; color: rgba(184,150,62,0.02); pointer-events: none; line-height: 1; }
+.vision-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.vision h2 { color: var(--paper); }
+.vision-body { font-size: 0.95rem; font-weight: 300; color: rgba(244,239,230,0.62); line-height: 1.9; margin-bottom: 1.5rem; }
+.vision-body strong { color: var(--paper); font-weight: 500; }
+.vision-closing { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: rgba(244,239,230,0.75); line-height: 1.7; padding-top: 1.5rem; border-top: 1px solid var(--rule); margin-top: 1.5rem; }
+.sector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); }
+.sector-item { background: rgba(13,21,32,0.9); padding: 1.75rem 1.5rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.sector-item:hover { background: rgba(184,150,62,0.06); }
+.sector-item::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold); transform: scaleY(0); transform-origin: top; transition: transform 0.4s; }
+.sector-item:hover::after { transform: scaleY(1); }
+.sector-icon { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.sector-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.4rem; }
+.sector-desc { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.38); line-height: 1.55; }
+
+/* CTA */
+.cta { background: var(--paper); color: var(--ink); padding: 7rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.cta::before { content: 'LIBERTY CTI'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 13vw; font-weight: 900; color: rgba(10,10,10,0.025); pointer-events: none; }
+.cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-emblem { width: 80px; margin: 0 auto 2rem; display: block; }
+.cta h2 { color: var(--ink); }
+.cta h2 em { color: var(--red); }
+.cta-body { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.78; margin-bottom: 2.75rem; }
+.cta-actions { display: flex; justify-content: center; gap: 1.25rem; }
+.btn-gold { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 0.9rem 1.9rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-dark { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-dark:hover { background: #1e2d40; }
+.btn-outline { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); border: 1px solid rgba(10,10,10,0.25); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-outline:hover { border-color: var(--ink); background: rgba(10,10,10,0.04); }
+
+/* FOOTER */
+footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px solid var(--rule); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.footer-emblem { width: 38px; object-fit: contain; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="IMG_6690.png" class="nav-emblem" alt="Liberty CTI">
+    <div class="nav-wordmark">Liberty <span>CTI</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/Liberty%20CTI%20Homepage.html" class="active">Home</a></li>
+    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/About%20Us/libertycti-about.html">About</a></li>
+    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/alamo_intelligence_system_graphic.html" >Intelligence</a></li>
+    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/alamo_threat_brief.html" style="color:#c0392b;">Alamo Threat Brief</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/libertycti-contact.html">Contact</a></li>
+    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/libertycti-briefing-request.html" class="nav-cta">Request Briefing</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-left reveal">
+      <span class="eyebrow">Strategic Cyber Threat Intelligence</span>
+      <h1>Intelligence for<br>Texas Decision-Makers<br>in an <em>Uncertain Threat Environment.</em></h1>
+      <div class="hero-rule"></div>
+      <p class="page-hero-body">Liberty CTI delivers strategic cyber threat intelligence to executives responsible for protecting critical industries across Texas. We assess who is targeting your organization, why they are doing it, and what they are likely to do next — before a crisis forces the decision.</p>
+      <div class="hero-actions" style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="libertycti-briefing-request.html" class="btn-gold">Request Executive Briefing</a>
+        <a href="#atb-preview" class="btn-outline hero-outline">View Intelligence</a>
+      </div>
+    </div>
+    <div class="hero-right-col reveal d2">
+      <div class="hero-emblem-wrap">
+        <img src="IMG_6690.png" alt="Liberty CTI Emblem" class="hero-emblem">
+      </div>
+      <div class="hero-pull-quote">
+        <p>Executives are overwhelmed with data but lack decision-ready intelligence. Liberty CTI bridges that gap — delivering the clarity required to act before threats materialize.</p>
+        <div class="hero-pull-attr">— Liberty CTI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLAGSHIP PRODUCT PREVIEW -->
+<section id="atb-preview" style="background:var(--navy); padding:5rem 3rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Flagship Intelligence Product</span>
+    <h2 class="reveal d1" style="color:var(--paper); margin-bottom:1rem;">The Alamo Threat Brief (ATB)</h2>
+    <p class="reveal d2" style="max-width:700px; color:rgba(244,239,230,0.65); line-height:1.8; margin-bottom:2rem;">A weekly intelligence product designed for Texas executives and security leaders. The ATB delivers concise, structured assessments of emerging cyber threats — including adversary intent, sector targeting, and implications for decision-makers.</p>
+    <div class="atb-grid reveal d2" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--rule); margin-bottom:2.5rem;">
+      <div style="background:var(--navy); padding:2rem;">
+        <div style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--paper); margin-bottom:0.5rem;">Current Threats</div>
+        <div style="font-size:0.85rem; color:rgba(244,239,230,0.5); line-height:1.7;">Key developments affecting Texas industry this week</div>
+      </div>
+      <div style="background:var(--navy); padding:2rem;">
+        <div style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--paper); margin-bottom:0.5rem;">Adversary Intent</div>
+        <div style="font-size:0.85rem; color:rgba(244,239,230,0.5); line-height:1.7;">What threat actors are trying to achieve — and why now</div>
+      </div>
+      <div style="background:var(--navy); padding:2rem;">
+        <div style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--paper); margin-bottom:0.5rem;">Executive Implications</div>
+        <div style="font-size:0.85rem; color:rgba(244,239,230,0.5); line-height:1.7;">What leadership teams should be thinking about next</div>
+      </div>
+    </div>
+    <div class="reveal d3" style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="libertycti-briefing-request.html" class="btn-dark">Request Access</a>
+      <a href="alamo_threat_brief.html" class="btn-outline">View Sample Brief</a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="mission-inner">
+    <div>
+      <span class="sec-eyebrow reveal">Our Mission</span>
+      <h2 class="reveal d1" style="color:var(--paper);">Closing the<br>Intelligence <em>Gap.</em></h2>
+      <p class="mission-body reveal d2">Texas is the eighth-largest economy in the world. Its energy infrastructure, financial networks, defense industrial base, and healthcare systems are not abstract targets — they are <strong>active priorities for foreign intelligence services and criminal organizations</strong> operating at scale.</p>
+      <p class="mission-body reveal d2">Our mission is to close the gap between what government agencies understand about these threats and what industry leaders are positioned to act on. We apply the same analytical tradecraft used at the highest levels of the U.S. Intelligence Community — adapted for commercial clients who need clarity, not clearances.</p>
+      <div class="mission-pillars reveal d3">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div><div class="pillar-title">Anticipate</div><div class="pillar-body">Identify threats before they materialize into operational crises that demand reactive response.</div></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div><div class="pillar-title">Attribute</div><div class="pillar-body">Understand who is responsible, with calibrated confidence and structured analytic tradecraft.</div></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div><div class="pillar-title">Advise</div><div class="pillar-body">Translate intelligence into actionable guidance for senior leaders and boards of directors.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mission-right reveal d2">
+      <div class="mission-distinction">
+        <span class="distinction-label">// The Liberty CTI Distinction</span>
+        <table class="distinction-table">
+          <tr>
+            <td>Traditional cybersecurity firms</td>
+            <td>Sell software, manage firewalls, respond to incidents</td>
+          </tr>
+          <tr>
+            <td>Managed security providers</td>
+            <td>Monitor networks and alert on known signatures</td>
+          </tr>
+          <tr>
+            <td>Incident response firms</td>
+            <td>Engage after the breach has occurred</td>
+          </tr>
+          <tr>
+            <td>Liberty CTI</td>
+            <td>Delivers intelligence on who is targeting you and what they plan to do — before they act</td>
+          </tr>
+        </table>
+      </div>
+      <p class="mission-body" style="font-size:0.88rem;">We are not a cybersecurity vendor. We do not sell software, manage firewalls, or respond to incidents. <strong>We produce intelligence</strong> — the kind that helps senior leaders understand the threat landscape before a crisis forces their hand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTEL STRIP -->
+<div class="intel-strip">
+  <div class="intel-item"><div class="intel-num">60</div><div class="intel-desc">Combined Years<br>Intelligence Service</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">345+</div><div class="intel-desc">Total Personnel<br>Commanded</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">5,000+</div><div class="intel-desc">Warfighters Trained<br>Annually</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">2</div><div class="intel-desc">White House &amp;<br>OSD Senior Roles</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">30+</div><div class="intel-desc">Combined<br>Assignments</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">2</div><div class="intel-desc">Russian & Spanish Language<br>Professionals</div></div>
+</div>
+
+<!-- FOUNDERS -->
+<section class="founders" id="founders">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Our Founders</span>
+    <h2 class="reveal d1">Built by Practitioners.<br><em>Not Vendors.</em></h2>
+    <p class="founders-intro reveal d2">Liberty CTI was founded by two career intelligence officers whose combined service spans every level of the U.S. national security apparatus — from the front lines of signals intelligence to the White House, the Pentagon, and command of the Air Force's sole Cyber Intelligence Threat Cell. They didn't study the threat. They tracked it.</p>
+
+    <div class="fc-grid reveal d2">
+      <div class="fc">
+        <div class="fc-bar fc-bar-luis"></div>
+        <div class="fc-label fc-label-luis">Co-Founder & Principal</div>
+        <div class="fc-name">Luis Maldonado</div>
+        <div class="fc-rank">Lieutenant Colonel, USAF (Ret.) · Russian Linguist · Cyber Intelligence Officer</div>
+        <p class="fc-bio">A native New Yorker who chose Texas after a career that took him across the globe in service to national security, Luis Maldonado spent three decades analyzing adversary cyber activity, leading intelligence teams, and briefing the nation's most senior decision-makers. He commanded a 270-person cyber intelligence squadron — one of the most technically demanding intelligence commands in the Air Force — responsible for identifying and assessing emerging threats across the full spectrum of adversary cyber operations.</p>
+        <p class="fc-bio">His career bridges the operational and the strategic. From the signals intelligence tradecraft of a Russian Linguist, to 300-plus briefings delivered as a Watch Officer inside the White House Situation Room, to senior legislative affairs positions shaping national intelligence policy at the National Security Council — Luis has operated at the precise intersection of intelligence analysis and executive decision-making throughout his career.</p>
+        <ul class="fc-creds fc-creds-luis">
+          <li>Commander, 35th Intelligence Squadron — 270-person cyber intelligence unit</li>
+          <li>White House Situation Room Watch Officer — 300+ senior briefings delivered</li>
+          <li>Director for Legislative Affairs, National Security Council</li>
+          <li>Senior assignments across NSA, Pentagon, and theater-level commands</li>
+          <li>Russian Linguist with origins in SIGINT collection and analysis</li>
+        </ul>
+        <div class="fc-edu-label">// Education</div>
+        <ul class="fc-edu">
+          <li>Master of Science, International Relations — Troy University</li>
+          <li>Graduate Certificate, Legislative Studies — Georgetown University</li>
+          <li>Bachelor of Arts, Russian Studies — Excelsior College</li>
+        </ul>
+      </div>
+      <div class="fc">
+        <div class="fc-bar fc-bar-angie"></div>
+        <div class="fc-label fc-label-angie">Co-Founder & Principal</div>
+        <div class="fc-name">Angie Maldonado</div>
+        <div class="fc-rank">Lieutenant Colonel, USAF (Ret.) · Russian Linguist · Senior National Security Officer</div>
+        <p class="fc-bio">Angie Maldonado brings a parallel depth of senior national security experience. A career Air Force officer, she served in demanding assignments that placed her at the intersection of executive decision-making, intelligence assessment, and rapid operational coordination at the highest levels of the U.S. government — including as a Military Assistant to the Deputy Secretary of Defense.</p>
+        <p class="fc-bio">Her roles required the kind of clear-eyed analysis and institutional credibility that senior leaders depend on when the stakes are highest. As a Russian Linguist with experience across intelligence and senior staff environments, Angie brings both the analytical foundation and the operational judgment essential to Liberty CTI's advisory practice. She brings that same standard of rigor and strategic perspective to every client engagement.</p>
+        <ul class="fc-creds fc-creds-angie">
+          <li>Commander, 324th Training Squadron — inducted 5,000 servicemembers per year</li>
+          <li>Military Assistant to the Deputy Secretary of Defense</li>
+          <li>Senior Pentagon staff roles in intelligence and national security affairs</li>
+          <li>Russian Linguist with SIGINT collection and intelligence background</li>
+          <li>Extensive leadership in rapid-tempo, high-stakes decision environments</li>
+          <li>Strategic intelligence and policy coordination at OSD level</li>
+        </ul>
+        <div class="fc-edu-label">// Education</div>
+        <ul class="fc-edu">
+          <li>Master of Science, Strategic Intelligence — National Intelligence University</li>
+          <li>Master of Science, International Relations — Troy University</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="founders-statement reveal">
+      <p>Liberty CTI was founded by two U.S. Air Force officers who spent their careers supporting national security decision-makers at the highest levels of government. Liberty CTI extends that experience — and that standard — into the private sector.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <div class="approach-header reveal">
+      <span class="sec-eyebrow">Our Approach</span>
+      <h2 style="color:var(--paper);">Intelligence First.<br><em>Always.</em></h2>
+      <p class="sec-lead">Most cybersecurity firms are built around technology. Their value proposition is software, detection, and response. That work is necessary — but it is not intelligence. Liberty CTI is built around analysis.</p>
+    </div>
+
+    <div class="approach-grid reveal d2">
+      <div class="approach-card">
+        <div class="approach-num">01</div>
+        <div class="approach-title">Geopolitical Context</div>
+        <p class="approach-body">Cyber threats do not emerge from a vacuum. We ground every assessment in the geopolitical environment — understanding how state competition, sanctions pressure, and military posture shape adversary targeting decisions before they manifest in the digital domain.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">02</div>
+        <div class="approach-title">Adversary Intent</div>
+        <p class="approach-body">We assess not just capabilities, but objectives. Understanding what an adversary is trying to achieve — and why they are targeting your sector now — is the intelligence that transforms reactive security into proactive organizational resilience.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">03</div>
+        <div class="approach-title">Calibrated Confidence</div>
+        <p class="approach-body">Our work is aligned with accepted Intelligence Community analytical practices. Every assessment carries calibrated confidence language, structured analytic tradecraft, and transparent sourcing. Our clients receive intelligence products, not marketing reports.</p>
+      </div>
+    </div>
+
+    <div class="bulldog-box reveal d3">
+      <div class="bulldog-left">
+        <span class="bulldog-label">// Analytical Framework</span>
+        <div class="bulldog-title">The Torch<br>Fusion Cycle</div>
+        <p class="bulldog-body">Every Liberty CTI intelligence product is produced through the Torch Fusion Cycle — a structured analytical methodology that fuses cyber indicators with geopolitical, financial, and behavioral intelligence across four disciplined analytical layers. The result is not a description of what happened. It is an assessment of what comes next — with the indicators to watch and the confidence to act on it.</p>
+      </div>
+      <div class="bulldog-right">
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">What</div></div>
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">Who</div></div>
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">Why</div></div>
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">What Next</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Intelligence Products</span>
+    <h2 class="reveal d1">Built for<br>Decision-Makers.<br><em>Not Analysts.</em></h2>
+    <p class="products-intro reveal d2">Liberty CTI produces intelligence in formats designed for senior leaders — concise, structured, and immediately actionable. Our products are built on the premise that the most valuable intelligence is the kind that informs a decision before a crisis makes that decision for you.</p>
+
+    <div class="product-grid reveal d2">
+      <div class="product-item">
+        <div class="product-tag">Flagship Product</div>
+        <div class="product-name">The Alamo Strategic Threat Brief</div>
+        <p class="product-desc">Liberty CTI's flagship strategic intelligence product — a regularly published assessment of emerging cyber threats targeting critical industries across Texas. Drawing on open-source intelligence, geopolitical analysis, and adversary behavioral modeling, the Brief delivers the situational awareness senior leaders need to anticipate rather than react to the threat environment.</p>
+        <ul class="product-features">
+          <li>Nation-state threat actor assessments with calibrated confidence</li>
+          <li>Sector-specific targeting analysis for energy, finance, defense, and healthcare</li>
+          <li>Geopolitical context connecting global developments to Texas risk</li>
+          <li>Executive-ready format aligned with IC analytical standards</li>
+        </ul>
+        <div class="product-arrow">→</div>
+      </div>
+      <div class="product-item">
+        <div class="product-tag">Strategic Framework</div>
+        <div class="product-name">The Alamo Defense Framework</div>
+        <p class="product-desc">Liberty CTI's strategic risk mitigation model — a structured methodology for helping organizations align their defensive priorities against the actual threat actors most likely to target them. Built on a foundational intelligence principle: strategic warning that is not acted upon early offers no protection at all.</p>
+        <ul class="product-features">
+          <li>Adversary targeting matrix matched to client sector and profile</li>
+          <li>Priority Intelligence Requirements (PIR) development</li>
+          <li>30/60/90-day threat horizon forecasting with watch indicators</li>
+          <li>Executive and board-level briefing formats available</li>
+        </ul>
+        <div class="product-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="products-note reveal d3">
+      <div class="products-note-icon">◈</div>
+      <div class="products-note-body">Liberty CTI also produces <strong>adversary intelligence briefings</strong>, <strong>sector-specific threat assessments</strong>, and <strong>bespoke strategic forecasts</strong> tailored to client industry and threat posture. All products are available on a subscription or advisory retainer basis. <strong>Contact us to discuss intelligence support aligned to your organization's needs.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision" id="vision">
+  <div class="vision-inner">
+    <div class="reveal">
+      <span class="sec-eyebrow">Our Vision</span>
+      <h2>Protecting the<br>Economic Engine<br>of <em>Texas.</em></h2>
+      <p class="vision-body">The threat landscape facing Texas's most critical industries is no longer shaped solely by opportunistic criminal actors. It is shaped by <strong>geopolitical competition</strong> — by foreign governments that view energy infrastructure, financial systems, and defense supply chains as legitimate targets in a contest that is already underway.</p>
+      <p class="vision-body">Organizations must understand these dynamics — not as background context, but as operational intelligence that informs investment, governance, and risk posture decisions at the board level. The question is no longer whether your sector is a target. The question is whether you understand who is targeting you and what they intend to achieve.</p>
+      <div class="vision-closing">
+        Strategic awareness is not a luxury. In the current environment, it is a requirement for organizational resilience.
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="sector-grid">
+        <div class="sector-item">
+          <div class="sector-icon">// Energy</div>
+          <div class="sector-name">Energy Infrastructure</div>
+          <div class="sector-desc">ERCOT, Permian Basin, Gulf Coast LNG, and downstream pipeline networks targeted by Volt Typhoon and Sandworm-affiliated actors.</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">// Finance</div>
+          <div class="sector-name">Financial Services</div>
+          <div class="sector-desc">Texas banking and capital markets exposed to Lazarus Group financial operations and IRGC-affiliated disruptive campaigns.</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">// Defense</div>
+          <div class="sector-name">Defense Industrial Base</div>
+          <div class="sector-desc">Texas DIB contractors targeted for technology theft and supply chain infiltration by PRC-sponsored APT campaigns.</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">// Healthcare</div>
+          <div class="sector-name">Healthcare Systems</div>
+          <div class="sector-desc">Texas Medical Center and regional health networks increasingly targeted by ransomware ecosystems and data exfiltration campaigns.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <img src="IMG_6690.png" class="cta-emblem reveal" alt="Liberty CTI">
+    <span class="sec-eyebrow reveal d1" style="justify-content:center;display:block;">// San Antonio, Texas</span>
+    <h2 class="reveal d2">Ready to Understand<br>the <em>Threat Landscape?</em></h2>
+    <p class="cta-body reveal d3">Liberty CTI works with a select group of organizations whose leadership understands that intelligence is not a cost center — it is a strategic function. If your organization is ready to move from reactive security to proactive intelligence, we would welcome the conversation.</p>
+    <div class="cta-actions reveal d3">
+      <a href="libertycti-briefing-request.html" class="btn-dark">Request a Briefing</a>
+      <a href="liberty_cti_homepage_revised.html" class="btn-outline">Return to Homepage</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-row">
+        <img src="IMG_6690.png" class="footer-emblem" alt="Liberty CTI">
+        <div class="footer-brand">Liberty <span>CTI</span></div>
+      </div>
+      <p class="footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Intelligence</div>
+      <ul class="footer-links">
+        <li><a href="alamo_threat_brief.html">The Alamo Threat Brief</a></li>
+        <li><a href="#">2027 Texas Strategic Threat Outlook</a></li>
+        <li><a href="#">The Alamo Defense Framework</a></li>
+        <li><a href="#">Strategic Sector Assessments (Premium)</a></li>
+        <li><a href="#">Executive Briefings</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About Liberty CTI</a></li>
+        <li><a href="#">Threat Actors</a></li>
+        <li><a href="#">Texas Focus</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="#">Request a Briefing</a></li>
+        <li><a href="#">Founding Client Inquiry</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        <li><a href="https://www.facebook.com/LibertyCTI" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/libertycti" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2027 Liberty CTI LLC · San Antonio, Texas · libertycti.com</div>
+    <div class="footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === `#${current}`) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
