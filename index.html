@@ -34,6 +34,51 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
 .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
 
+.nav-links .dropdown { position: relative; }
+.nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 260px;
+  background: rgba(8,12,16,0.98);
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0;
+  list-style: none;
+  z-index: 1000;
+}
+.nav-links .dropdown:hover .dropdown-menu { display: block; }
+.nav-links .dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+.nav-links .dropdown-menu li { margin: 0; }
+.nav-links .dropdown-menu a,
+.nav-links .dropdown-menu span {
+  display: block;
+  padding: 0.7rem 1rem;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.62);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links .dropdown-menu a:hover {
+  color: var(--gold);
+  background: rgba(184,150,62,0.06);
+}
+.nav-links .dropdown-menu .dropdown-placeholder span {
+  color: rgba(244,239,230,0.32);
+  cursor: default;
+}
+
+
 /* PAGE HERO */
 .page-hero { padding: 4rem 3rem 5rem; margin-top: 66px; background: var(--ink); position: relative; overflow: hidden; border-bottom: 1px solid var(--rule); }
 .page-hero::before {
@@ -255,17 +300,24 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="IMG_6690.png" class="nav-emblem" alt="Liberty CTI">
+    <img src="liberty-cti-emblem.png" class="nav-emblem" alt="Liberty CTI">
     <div class="nav-wordmark">Liberty <span>CTI</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/Liberty%20CTI%20Homepage.html" class="active">Home</a></li>
-    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/About%20Us/libertycti-about.html">About</a></li>
-    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/alamo_intelligence_system_graphic.html" >Intelligence</a></li>
-    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/alamo_threat_brief.html" style="color:#c0392b;">Alamo Threat Brief</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/libertycti-contact.html">Contact</a></li>
-    <li><a href="file:///C:/Users/Maldonado%20PC/OneDrive/Documents/Liberty%20CTI/Webpage/libertycti-briefing-request.html" class="nav-cta">Request Briefing</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="intelligence.html">Intelligence</a></li>
+    <li class="nav-item dropdown">
+    <a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
+    <ul class="dropdown-menu">
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-22-2026.html">Week of Mar 22, 2026</a></li>
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-16-2026.html">Week of Mar 16, 2026</a></li>
+    </ul>
+    </li>
+    <li><a href="texas-focus.html">Texas Focus</a></li>
+    <li><a href="Energy_data_AI.html">Energy · Data · AI</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="briefing-request.html" class="nav-cta">Request Briefing</a></li>
   </ul>
 </nav>
 
@@ -279,13 +331,13 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
       <div class="hero-rule"></div>
       <p class="page-hero-body">Liberty CTI delivers strategic cyber threat intelligence to executives responsible for protecting critical industries across Texas. We assess who is targeting your organization, why they are doing it, and what they are likely to do next — before a crisis forces the decision.</p>
       <div class="hero-actions" style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-        <a href="libertycti-briefing-request.html" class="btn-gold">Request Executive Briefing</a>
+        <a href="briefing-request.html" class="btn-gold">Request Executive Briefing</a>
         <a href="#atb-preview" class="btn-outline hero-outline">View Intelligence</a>
       </div>
     </div>
     <div class="hero-right-col reveal d2">
       <div class="hero-emblem-wrap">
-        <img src="IMG_6690.png" alt="Liberty CTI Emblem" class="hero-emblem">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI Emblem" class="hero-emblem">
       </div>
       <div class="hero-pull-quote">
         <p>Executives are overwhelmed with data but lack decision-ready intelligence. Liberty CTI bridges that gap — delivering the clarity required to act before threats materialize.</p>
@@ -571,13 +623,13 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
 <!-- CTA -->
 <section class="cta" id="contact">
   <div class="cta-inner">
-    <img src="IMG_6690.png" class="cta-emblem reveal" alt="Liberty CTI">
+    <img src="liberty-cti-emblem.png" class="cta-emblem reveal" alt="Liberty CTI">
     <span class="sec-eyebrow reveal d1" style="justify-content:center;display:block;">// San Antonio, Texas</span>
     <h2 class="reveal d2">Ready to Understand<br>the <em>Threat Landscape?</em></h2>
     <p class="cta-body reveal d3">Liberty CTI works with a select group of organizations whose leadership understands that intelligence is not a cost center — it is a strategic function. If your organization is ready to move from reactive security to proactive intelligence, we would welcome the conversation.</p>
     <div class="cta-actions reveal d3">
-      <a href="libertycti-briefing-request.html" class="btn-dark">Request a Briefing</a>
-      <a href="liberty_cti_homepage_revised.html" class="btn-outline">Return to Homepage</a>
+      <a href="briefing-request.html" class="btn-dark">Request a Briefing</a>
+      <a href="index.html" class="btn-outline">Return to Homepage</a>
     </div>
   </div>
 </section>
@@ -587,7 +639,7 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
   <div class="footer-inner">
     <div>
       <div class="footer-brand-row">
-        <img src="IMG_6690.png" class="footer-emblem" alt="Liberty CTI">
+        <img src="liberty-cti-emblem.png" class="footer-emblem" alt="Liberty CTI">
         <div class="footer-brand">Liberty <span>CTI</span></div>
       </div>
       <p class="footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
@@ -595,25 +647,24 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
     <div>
       <div class="footer-col-title">Intelligence</div>
       <ul class="footer-links">
-        <li><a href="alamo_threat_brief.html">The Alamo Threat Brief</a></li>
+        <li><a href="threat-brief.html">The Alamo Threat Brief</a></li>
         <li><a href="#">2027 Texas Strategic Threat Outlook</a></li>
-        <li><a href="#">The Alamo Defense Framework</a></li>
+        <li><a href="intelligence.html">The Alamo Defense Framework</a></li>
         <li><a href="#">Strategic Sector Assessments (Premium)</a></li>
-        <li><a href="#">Executive Briefings</a></li>
+        <li><a href="briefing-request.html">Executive Briefings</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Company</div>
       <ul class="footer-links">
-        <li><a href="#">About Liberty CTI</a></li>
-        <li><a href="#">Threat Actors</a></li>
+        <li><a href="about.html">About Liberty CTI</a></li>
         <li><a href="#">Texas Focus</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="#">Request a Briefing</a></li>
+        <li><a href="briefing-request.html">Request a Briefing</a></li>
         <li><a href="#">Founding Client Inquiry</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         <li><a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>

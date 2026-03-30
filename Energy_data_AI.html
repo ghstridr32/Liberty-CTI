@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy · Data · AI | Liberty CTI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:        #080c10;
+  --navy:       #0d1520;
+  --paper:      #f4efe6;
+  --cream:      #ece7da;
+  --gold:       #b8963e;
+  --gold-light: #d4af62;
+  --red:        #8b1a1a;
+  --muted:      #6b6355;
+  --rule:       rgba(184,150,62,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-light); text-decoration: underline; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.96); border-bottom: 1px solid var(--rule); }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); text-decoration: none; }
+.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
+.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+.nav-links .dropdown { position: relative; }
+.nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 260px;
+  background: rgba(8,12,16,0.98);
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0;
+  list-style: none;
+  z-index: 1000;
+}
+.nav-links .dropdown:hover .dropdown-menu { display: block; }
+.nav-links .dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+.nav-links .dropdown-menu li { margin: 0; }
+.nav-links .dropdown-menu a,
+.nav-links .dropdown-menu span {
+  display: block;
+  padding: 0.7rem 1rem;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.62);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links .dropdown-menu a:hover {
+  color: var(--gold);
+  background: rgba(184,150,62,0.06);
+}
+.nav-links .dropdown-menu .dropdown-placeholder span {
+  color: rgba(244,239,230,0.32);
+  cursor: default;
+}
+
+
+/* HERO */
+.hero { padding-top: 80px; min-height: 90vh; display: flex; align-items: stretch; position: relative; overflow: hidden; background: var(--navy); }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.04) 1px, transparent 1px); background-size: 52px 52px; }
+.hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 18% 55%, rgba(232,89,60,0.07) 0%, transparent 50%), radial-gradient(ellipse at 68% 20%, rgba(74,143,212,0.07) 0%, transparent 50%), radial-gradient(ellipse at 82% 72%, rgba(184,150,62,0.06) 0%, transparent 45%); }
+.hero-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 3; }
+.hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+.hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 7rem 3.5rem 6rem; }
+.hero-right { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 90vh; }
+.hero-right::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
+.hero-right::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 4; pointer-events: none; }
+.hero-viz { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+.eyebrow::before { content: '// '; opacity: 0.6; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 900; line-height: 1.0; color: var(--paper); margin-bottom: 2rem; max-width: 580px; }
+h1 em { font-style: italic; color: var(--gold); }
+.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 2rem; }
+.hero-lede { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.72); max-width: 520px; line-height: 1.82; margin-bottom: 1.25rem; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.55rem 1.1rem; border: 1px solid rgba(184,150,62,0.28); font-family: 'Courier Prime', monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); background: rgba(184,150,62,0.04); }
+.hero-badge::before { content: '●'; color: var(--gold); font-size: 0.45rem; }
+
+/* HERO VIZ ANIMATIONS */
+@keyframes nodePulse { 0%,100%{r:22;opacity:0.9} 50%{r:26;opacity:1} }
+@keyframes nodePulse2 { 0%,100%{r:20;opacity:0.85} 50%{r:24;opacity:1} }
+@keyframes orbitSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes dashFlow { from{stroke-dashoffset:200} to{stroke-dashoffset:0} }
+@keyframes threatDash { from{stroke-dashoffset:0} to{stroke-dashoffset:-120} }
+@keyframes centerPulse { 0%,100%{r:32;opacity:0.6} 50%{r:38;opacity:0.85} }
+@keyframes particleMove { 0%{offset-distance:0%} 100%{offset-distance:100%} }
+@keyframes fadeFlow { 0%,100%{opacity:0.2} 50%{opacity:0.6} }
+
+/* SHARED */
+section { padding: 5rem 3rem; }
+.sec-inner { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+.sec-eyebrow::before { content: '// '; opacity: 0.6; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
+h2 em { font-style: italic; color: var(--red); }
+.lead { font-size: 1rem; font-weight: 300; line-height: 1.82; color: rgba(244,239,230,0.58); max-width: 680px; }
+
+/* THREE PILLARS */
+.pillars { background: var(--ink); }
+.pillars h2 { color: var(--paper); }
+.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.pillar-card { background: var(--ink); padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.pillar-card:hover { background: rgba(184,150,62,0.03); }
+.pillar-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.pillar-card:hover::after { transform: scaleX(1); }
+.pillar-card.energy::after { background: #E8593C; }
+.pillar-card.data::after   { background: #4a8fd4; }
+.pillar-card.ai::after     { background: var(--gold); }
+.pillar-tag { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+.pillar-card.energy .pillar-tag { color: #E8593C; }
+.pillar-card.data   .pillar-tag { color: #4a8fd4; }
+.pillar-card.ai     .pillar-tag { color: var(--gold); }
+.pillar-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--paper); margin-bottom: 0.65rem; }
+.pillar-card p { font-size: 0.84rem; font-weight: 300; color: rgba(244,239,230,0.52); line-height: 1.72; }
+.pillar-card p + p { margin-top: 0.75rem; }
+.pillar-stat { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(184,150,62,0.1); }
+.pillar-stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; line-height: 1; margin-bottom: 0.2rem; }
+.pillar-card.energy .pillar-stat-num { color: rgba(232,89,60,0.65); }
+.pillar-card.data   .pillar-stat-num { color: rgba(74,143,212,0.65); }
+.pillar-card.ai     .pillar-stat-num { color: rgba(184,150,62,0.65); }
+.pillar-stat-label { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,230,0.28); }
+
+/* DIAGRAM */
+.convergence-viz { background: var(--navy); }
+.convergence-viz h2 { color: var(--paper); }
+.diagram-outer { margin-top: 2.5rem; max-width: 760px; margin-left: auto; margin-right: auto; }
+.diagram-caption { margin-top: 1.75rem; font-size: 0.84rem; font-weight: 300; color: rgba(244,239,230,0.38); line-height: 1.72; text-align: center; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+/* DEPENDENCY TABLE */
+.dependency { background: var(--ink); }
+.dependency h2 { color: var(--paper); }
+.dep-table { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 2px; background: var(--rule); }
+.dep-row { display: grid; grid-template-columns: 180px 1fr 1fr; background: var(--ink); }
+.dep-row.hdr { background: var(--navy); }
+.dep-cell { padding: 1.1rem 1.4rem; border-right: 1px solid rgba(184,150,62,0.08); }
+.dep-cell:last-child { border-right: none; }
+.dep-hdr-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(184,150,62,0.45); }
+.dep-sector { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--paper); display: flex; align-items: center; gap: 0.6rem; }
+.dep-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.dep-dot.energy { background: #E8593C; }
+.dep-dot.data   { background: #4a8fd4; }
+.dep-dot.ai     { background: var(--gold); }
+.dep-text { font-size: 0.83rem; font-weight: 300; color: rgba(244,239,230,0.52); line-height: 1.65; }
+.dep-risk { font-family: 'Courier Prime', monospace; font-size: 0.75rem; line-height: 1.55; }
+.dep-risk.high   { color: rgba(232,89,60,0.82); }
+.dep-risk.medium { color: rgba(184,150,62,0.8); }
+
+/* SCENARIOS */
+.scenarios { background: var(--navy); }
+.scenarios h2 { color: var(--paper); }
+.scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.scenario-card { background: var(--navy); padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.scenario-card:hover { background: rgba(184,150,62,0.03); }
+.scenario-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.scenario-card:hover::before { transform: scaleX(1); }
+.sec-tag { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+.scenario-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--paper); margin-bottom: 0.65rem; }
+.scenario-card p { font-size: 0.84rem; font-weight: 300; color: rgba(244,239,230,0.52); line-height: 1.72; }
+.cascade { margin-top: 1rem; padding: 0.75rem 0.9rem; border-left: 2px solid rgba(139,26,26,0.45); background: rgba(139,26,26,0.04); }
+.cascade-label { font-family: 'Courier Prime', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.28); margin-bottom: 0.3rem; display: block; }
+.cascade p { font-size: 0.8rem; color: rgba(244,239,230,0.58); }
+.kicker { display: block; margin-top: 1rem; padding: 0.65rem 0.85rem; background: rgba(139,26,26,0.08); border: 1px solid rgba(139,26,26,0.18); font-size: 0.8rem; font-weight: 500; font-style: italic; color: rgba(244,239,230,0.82); line-height: 1.45; }
+
+/* IMPLICATIONS */
+.implications { background: var(--ink); }
+.implications h2 { color: var(--paper); }
+.impl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.impl-card { background: var(--ink); padding: 2rem 1.75rem; }
+.impl-card::before { content: ''; display: block; width: 2rem; height: 2px; background: var(--gold); margin-bottom: 1.1rem; }
+.impl-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold-light); margin-bottom: 0.6rem; }
+.impl-card p { font-size: 0.84rem; font-weight: 300; color: rgba(244,239,230,0.5); line-height: 1.72; }
+
+/* ASSESSMENT */
+.assessment { background: var(--navy); }
+.assessment h2 { color: var(--paper); }
+.assess-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 2.5rem; }
+.domain-quote { padding: 1.5rem 2rem; border-left: 3px solid var(--gold); background: rgba(184,150,62,0.04); margin-bottom: 1.5rem; }
+.domain-quote p { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; font-weight: 700; color: var(--paper); line-height: 1.5; }
+.kiq-list { list-style: none; margin-top: 0.5rem; }
+.kiq-list li { font-family: 'Courier Prime', monospace; font-size: 0.76rem; letter-spacing: 0.04em; color: rgba(244,239,230,0.52); padding: 0.65rem 0; border-bottom: 1px solid rgba(244,239,230,0.06); display: flex; align-items: baseline; gap: 0.65rem; line-height: 1.55; }
+.kiq-list li::before { content: '▸'; color: var(--gold); flex-shrink: 0; }
+.kiq-list li strong { color: rgba(244,239,230,0.88); font-weight: 500; }
+
+/* CTA */
+.cta-section { background: var(--paper); color: var(--ink); padding: 6rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: 'LIBERTY CTI'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 13vw; font-weight: 900; color: rgba(10,10,10,0.022); pointer-events: none; }
+.cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-inner img { width: 70px; margin: 0 auto 2rem; display: block; }
+.cta-inner h2 { color: var(--ink); margin-bottom: 1.25rem; }
+.cta-inner h2 em { color: var(--red); }
+.cta-body { font-size: 0.97rem; font-weight: 300; color: var(--muted); line-height: 1.82; margin-bottom: 2.5rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+.cta-closing { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--ink); margin: 0 auto 2.5rem; max-width: 580px; line-height: 1.6; }
+.cta-actions { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+.btn-dark { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-dark:hover { background: #1e2d40; color: var(--paper); text-decoration: none; }
+.btn-outline { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); border: 1px solid rgba(10,10,10,0.25); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-outline:hover { border-color: var(--ink); background: rgba(10,10,10,0.04); text-decoration: none; }
+
+/* FOOTER */
+footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px solid var(--rule); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.footer-emblem { width: 38px; object-fit: contain; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .assess-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 5rem 2rem 5rem; min-height: 80vh; justify-content: flex-end; }
+}
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.25rem; }
+  section { padding: 4rem 1.5rem; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .scenario-grid { grid-template-columns: 1fr 1fr; }
+  .impl-grid { grid-template-columns: 1fr 1fr; }
+  .dep-row { grid-template-columns: 1fr; }
+  .dep-row.hdr { display: none; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .impl-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .cta-actions { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="liberty-cti-emblem.png" class="nav-emblem" alt="Liberty CTI">
+    <div class="nav-wordmark">Liberty <span>CTI</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="intelligence.html">Intelligence</a></li>
+    <li class="nav-item dropdown">
+    <a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
+    <ul class="dropdown-menu">
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-22-2026.html">Week of Mar 22, 2026</a></li>
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-16-2026.html">Week of Mar 16, 2026</a></li>
+    </ul>
+    </li>
+    <li><a href="texas-focus.html">Texas Focus</a></li>
+    <li><a href="Energy_data_AI.html" class="active">Energy · Data · AI</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="briefing-request.html" class="nav-cta">Request Briefing</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-layout">
+
+    <!-- LEFT: Text -->
+    <div class="hero-left">
+      <span class="eyebrow">Strategic Risk</span>
+      <h1>Energy · Data · <em>AI</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-lede">In Texas, three forces are converging into a single strategic risk environment. Energy infrastructure powers data centers. Data centers support AI. AI deepens dependence on both. Adversaries are not targeting individual companies — they are mapping where disruption in one layer cascades across the others.</p>
+      <p class="hero-lede">Modern cyber risk is no longer confined to networks. It exists at the intersection of physical and digital systems — and that intersection is concentrated here.</p>
+      <span class="hero-badge">IC analytical practices &nbsp;·&nbsp; Open source &nbsp;·&nbsp; Torch Fusion Cycle</span>
+    </div>
+
+    <!-- RIGHT: Animated convergence visualization -->
+    <div class="hero-right">
+      <div class="hero-viz">
+        <svg viewBox="20 20 480 480" xmlns="http://www.w3.org/2000/svg"
+             style="width:min(480px,90%);height:auto;display:block;position:relative;z-index:2;">
+          <defs>
+            <!-- Node glows -->
+            <radialGradient id="hg-e" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#E8593C" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#E8593C" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="hg-d" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#4a8fd4" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#4a8fd4" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="hg-a" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="hg-c" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#8b1a1a" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#8b1a1a" stop-opacity="0"/>
+            </radialGradient>
+            <!-- Threat arrow marker -->
+            <marker id="harrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+              <path d="M1 1L7 4L1 7" fill="none" stroke="#cc2222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- ── OUTER GRID RINGS (atmosphere) ── -->
+          <circle cx="260" cy="260" r="230" fill="none" stroke="rgba(184,150,62,0.06)" stroke-width="1" stroke-dasharray="3 6"/>
+          <circle cx="260" cy="260" r="195" fill="none" stroke="rgba(184,150,62,0.04)" stroke-width="0.5"/>
+
+          <!-- ── CONNECTION LINES (pulsing flow) ── -->
+          <line x1="130" y1="148" x2="390" y2="148"
+                stroke="#E8593C" stroke-width="1" stroke-dasharray="8 5" opacity="0.4">
+            <animate attributeName="stroke-dashoffset" from="0" to="-130" dur="2.2s" repeatCount="indefinite"/>
+          </line>
+          <line x1="130" y1="165" x2="215" y2="375"
+                stroke="#E8593C" stroke-width="1" stroke-dasharray="8 5" opacity="0.35">
+            <animate attributeName="stroke-dashoffset" from="0" to="-130" dur="2.8s" repeatCount="indefinite"/>
+          </line>
+          <line x1="390" y1="165" x2="305" y2="375"
+                stroke="#4a8fd4" stroke-width="1" stroke-dasharray="8 5" opacity="0.35">
+            <animate attributeName="stroke-dashoffset" from="0" to="-130" dur="3.1s" repeatCount="indefinite"/>
+          </line>
+          <line x1="130" y1="155" x2="245" y2="258" stroke="#E8593C" stroke-width="0.7" opacity="0.25">
+            <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.5s" repeatCount="indefinite"/>
+          </line>
+          <line x1="390" y1="155" x2="275" y2="258" stroke="#4a8fd4" stroke-width="0.7" opacity="0.25">
+            <animate attributeName="opacity" values="0.15;0.4;0.15" dur="3s" repeatCount="indefinite"/>
+          </line>
+          <line x1="260" y1="380" x2="260" y2="295" stroke="#C9A84C" stroke-width="0.7" opacity="0.25">
+            <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.8s" repeatCount="indefinite"/>
+          </line>
+
+          <!-- ── THREAT VECTORS ── -->
+          <line x1="30" y1="30" x2="118" y2="120"
+                stroke="#cc2222" stroke-width="1" stroke-dasharray="5 4" opacity="0.5"
+                marker-end="url(#harrow)">
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.5s" repeatCount="indefinite"/>
+          </line>
+          <line x1="490" y1="30" x2="402" y2="120"
+                stroke="#cc2222" stroke-width="1" stroke-dasharray="5 4" opacity="0.45"
+                marker-end="url(#harrow)">
+            <animate attributeName="opacity" values="0.25;0.65;0.25" dur="4s" repeatCount="indefinite"/>
+          </line>
+          <line x1="260" y1="498" x2="260" y2="416"
+                stroke="#cc2222" stroke-width="1" stroke-dasharray="5 4" opacity="0.4"
+                marker-end="url(#harrow)">
+            <animate attributeName="opacity" values="0.2;0.55;0.2" dur="3.8s" repeatCount="indefinite"/>
+          </line>
+
+          <!-- ── CENTER CONVERGENCE ZONE ── -->
+          <circle cx="260" cy="260" r="48" fill="url(#hg-c)" opacity="0.7">
+            <animate attributeName="r" values="44;52;44" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0.85;0.5" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="260" cy="260" r="28" fill="rgba(139,26,26,0.18)" stroke="#8b1a1a" stroke-width="1" stroke-dasharray="3 3" opacity="0.8">
+            <animateTransform attributeName="transform" type="rotate" from="0 260 260" to="360 260 260" dur="18s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="260" cy="260" r="14" fill="rgba(139,26,26,0.35)" stroke="rgba(200,50,50,0.5)" stroke-width="0.5"/>
+          <!-- Center label — bigger -->
+          <text x="260" y="254" text-anchor="middle" font-family="Courier New" font-size="9" font-weight="bold" fill="#cc2222" letter-spacing="1.5" opacity="0.9">HIGH-RISK</text>
+          <text x="260" y="267" text-anchor="middle" font-family="Courier New" font-size="9" font-weight="bold" fill="#cc2222" letter-spacing="1.5" opacity="0.9">ZONE</text>
+
+          <!-- ── ENERGY NODE (top-left) ── -->
+          <circle cx="130" cy="145" r="62" fill="url(#hg-e)" opacity="0.8"/>
+          <circle cx="130" cy="145" r="38" fill="rgba(232,89,60,0.12)" stroke="#E8593C" stroke-width="1" stroke-dasharray="5 3" opacity="0.6">
+            <animateTransform attributeName="transform" type="rotate" from="0 130 145" to="-360 130 145" dur="22s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="130" cy="145" fill="#E8593C" opacity="0.9">
+            <animate attributeName="r" values="20;24;20" dur="2.4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="130" cy="145" r="10" fill="rgba(255,255,255,0.15)"/>
+          <text x="130" y="151" text-anchor="middle" font-size="18" fill="rgba(255,255,255,0.9)">⚡</text>
+          <!-- Labels — bigger -->
+          <text x="130" y="98" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#E8593C">Energy</text>
+          <text x="130" y="114" text-anchor="middle" font-family="Courier New" font-size="10" fill="rgba(232,89,60,0.6)" letter-spacing="0.5">ERCOT · PERMIAN · LNG</text>
+
+          <!-- ── DATA CENTER NODE (top-right) ── -->
+          <circle cx="390" cy="145" r="62" fill="url(#hg-d)" opacity="0.8"/>
+          <circle cx="390" cy="145" r="38" fill="rgba(74,143,212,0.12)" stroke="#4a8fd4" stroke-width="1" stroke-dasharray="5 3" opacity="0.6">
+            <animateTransform attributeName="transform" type="rotate" from="0 390 145" to="360 390 145" dur="25s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="390" cy="145" fill="#4a8fd4" opacity="0.9">
+            <animate attributeName="r" values="20;24;20" dur="2.9s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="2.9s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="390" cy="145" r="10" fill="rgba(255,255,255,0.15)"/>
+          <text x="390" y="151" text-anchor="middle" font-size="18" fill="rgba(255,255,255,0.9)">🖥</text>
+          <text x="390" y="98" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#4a8fd4">Data Centers</text>
+          <text x="390" y="114" text-anchor="middle" font-family="Courier New" font-size="10" fill="rgba(74,143,212,0.6)" letter-spacing="0.5">CLOUD · HPC · COLOC</text>
+
+          <!-- ── AI NODE (bottom-center) ── -->
+          <circle cx="260" cy="393" r="62" fill="url(#hg-a)" opacity="0.8"/>
+          <circle cx="260" cy="393" r="38" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1" stroke-dasharray="5 3" opacity="0.6">
+            <animateTransform attributeName="transform" type="rotate" from="0 260 393" to="-360 260 393" dur="20s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="260" cy="393" fill="#C9A84C" opacity="0.9">
+            <animate attributeName="r" values="20;24;20" dur="3.3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="3.3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="260" cy="393" r="10" fill="rgba(255,255,255,0.15)"/>
+          <text x="260" y="399" text-anchor="middle" font-size="18" fill="rgba(255,255,255,0.9)">◈</text>
+          <text x="260" y="452" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#C9A84C">Artificial Intelligence</text>
+          <text x="260" y="468" text-anchor="middle" font-family="Courier New" font-size="10" fill="rgba(201,168,76,0.6)" letter-spacing="0.5">TRAINING · INFERENCE · DEMAND</text>
+
+          <!-- Threat source labels — bigger -->
+          <text x="24" y="26" font-family="Courier New" font-size="10" fill="#cc2222" opacity="0.75" font-weight="bold">NATION-STATE</text>
+          <text x="496" y="26" font-family="Courier New" font-size="10" fill="#cc2222" opacity="0.7" font-weight="bold" text-anchor="end">RANSOMWARE</text>
+          <text x="260" y="514" font-family="Courier New" font-size="10" fill="#cc2222" opacity="0.65" font-weight="bold" text-anchor="middle">ESPIONAGE</text>
+
+          <!-- Moving data particles on connection lines -->
+          <circle r="3" fill="#E8593C" opacity="0.7">
+            <animateMotion dur="2.2s" repeatCount="indefinite" path="M130,148 L390,148"/>
+          </circle>
+          <circle r="2.5" fill="#4a8fd4" opacity="0.65">
+            <animateMotion dur="3.1s" repeatCount="indefinite" path="M390,165 L305,375"/>
+          </circle>
+          <circle r="2.5" fill="#C9A84C" opacity="0.65">
+            <animateMotion dur="2.8s" repeatCount="indefinite" path="M130,165 L215,375"/>
+          </circle>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THREE PILLARS -->
+<section class="pillars" id="pillars">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">The Three Pillars</span>
+    <h2 class="reveal">Three Systems.<br>One <em>Shared Risk Environment.</em></h2>
+    <p class="lead reveal">Each system is critical on its own. Together, they form an interconnected infrastructure whose collective exposure exceeds the sum of its parts — and whose interdependency adversaries have explicitly mapped.</p>
+
+    <div class="pillar-grid">
+      <div class="pillar-card energy reveal">
+        <div class="pillar-tag">⚡ Energy Infrastructure</div>
+        <h3>The Foundation</h3>
+        <p>Texas energy infrastructure is the physical backbone on which every other system in this environment depends. ERCOT's isolated grid powers not only homes and businesses — it powers the data centers, industrial control systems, and communications networks the digital economy requires. Without reliable energy, nothing else operates.</p>
+        <p>The sector spans crude oil production in the Permian Basin, refining along the Gulf Coast, LNG export terminals serving global markets, and a wind and solar network that now rivals fossil fuel output.</p>
+        <div class="pillar-stat">
+          <div class="pillar-stat-num">~25%</div>
+          <div class="pillar-stat-label">of U.S. domestic energy production</div>
+        </div>
+      </div>
+      <div class="pillar-card data reveal d1">
+        <div class="pillar-tag">🖥️ Data Centers</div>
+        <h3>The Physical Internet</h3>
+        <p>Texas has emerged as one of the most significant data center corridors in the United States. Major hyperscale investments are concentrating national digital infrastructure here — in a state already managing complex energy constraints and a grid that operates in isolation from the rest of the country.</p>
+        <p>These facilities are not simply technology assets. They are the physical substrate of the digital economy — housing the cloud platforms, financial systems, and healthcare records that millions of Texas organizations rely on daily.</p>
+        <div class="pillar-stat">
+          <div class="pillar-stat-num">$40B+</div>
+          <div class="pillar-stat-label">planned hyperscale investment in Texas</div>
+        </div>
+      </div>
+      <div class="pillar-card ai reveal d2">
+        <div class="pillar-tag">◈ Artificial Intelligence</div>
+        <h3>The Accelerant</h3>
+        <p>AI is not simply another technology trend — it is an accelerant reshaping the risk equation of both pillars above it. Training and running large AI systems requires enormous, continuous power, intensifying pressure on energy infrastructure. It demands dense concentrations of specialized hardware, deepening the strategic value of data centers.</p>
+        <p>AI also expands the attack surface: new vulnerability categories, more sophisticated social engineering at scale, and compressed security review timelines across organizations racing to deploy it.</p>
+        <div class="pillar-stat">
+          <div class="pillar-stat-num">10×</div>
+          <div class="pillar-stat-label">energy demand vs. standard compute workloads</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONVERGENCE DIAGRAM -->
+<section class="convergence-viz" id="convergence">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Where Risk Concentrates</span>
+    <h2 class="reveal">The Intersection Is the <em>Target</em></h2>
+    <p class="lead reveal">The strategic risk is not in any single pillar. It is at the intersections — where the failure or compromise of one system propagates directly and rapidly into the others.</p>
+    <div class="diagram-outer reveal">
+      <svg viewBox="0 0 780 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+        <defs>
+          <radialGradient id="cg-e" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E8593C" stop-opacity="0.22"/><stop offset="100%" stop-color="#E8593C" stop-opacity="0"/></radialGradient>
+          <radialGradient id="cg-d" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4a8fd4" stop-opacity="0.22"/><stop offset="100%" stop-color="#4a8fd4" stop-opacity="0"/></radialGradient>
+          <radialGradient id="cg-a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C9A84C" stop-opacity="0.22"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></radialGradient>
+          <radialGradient id="cg-c" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#8b1a1a" stop-opacity="0.45"/><stop offset="100%" stop-color="#8b1a1a" stop-opacity="0"/></radialGradient>
+        </defs>
+        <ellipse cx="225" cy="185" rx="190" ry="168" fill="url(#cg-e)" opacity="0.9"/>
+        <ellipse cx="555" cy="185" rx="190" ry="168" fill="url(#cg-d)" opacity="0.9"/>
+        <ellipse cx="390" cy="345" rx="190" ry="168" fill="url(#cg-a)" opacity="0.9"/>
+        <ellipse cx="390" cy="252" rx="88" ry="76" fill="url(#cg-c)" opacity="0.8"/>
+        <ellipse cx="225" cy="185" rx="180" ry="160" fill="none" stroke="#E8593C" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+        <ellipse cx="555" cy="185" rx="180" ry="160" fill="none" stroke="#4a8fd4" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+        <ellipse cx="390" cy="345" rx="180" ry="160" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+        <text x="390" y="140" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Courier New" font-size="9" letter-spacing="1">GRID + CLOUD DEPENDENCY</text>
+        <text x="275" y="296" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Courier New" font-size="9" letter-spacing="1">POWER + COMPUTE</text>
+        <text x="505" y="296" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Courier New" font-size="9" letter-spacing="1">CLOUD + INFERENCE</text>
+        <text x="390" y="244" text-anchor="middle" fill="#cc2222" font-family="Courier New" font-size="10" font-weight="bold" letter-spacing="2">HIGHEST-RISK</text>
+        <text x="390" y="258" text-anchor="middle" fill="#cc2222" font-family="Courier New" font-size="10" font-weight="bold" letter-spacing="2">CONVERGENCE ZONE</text>
+        <text x="118" y="154" text-anchor="middle" fill="#E8593C" font-family="Georgia" font-size="14" font-weight="bold">Energy</text>
+        <text x="118" y="169" text-anchor="middle" fill="rgba(232,89,60,0.55)" font-family="Courier New" font-size="7.5" letter-spacing="1">ERCOT · PERMIAN · LNG</text>
+        <text x="662" y="154" text-anchor="middle" fill="#4a8fd4" font-family="Georgia" font-size="14" font-weight="bold">Data Centers</text>
+        <text x="662" y="169" text-anchor="middle" fill="rgba(74,143,212,0.55)" font-family="Courier New" font-size="7.5" letter-spacing="1">CLOUD · HPC · COLOC</text>
+        <text x="390" y="462" text-anchor="middle" fill="#C9A84C" font-family="Georgia" font-size="14" font-weight="bold">Artificial Intelligence</text>
+        <text x="390" y="477" text-anchor="middle" fill="rgba(201,168,76,0.55)" font-family="Courier New" font-size="7.5" letter-spacing="1">TRAINING · INFERENCE · DEMAND</text>
+        <line x1="42" y1="38" x2="205" y2="152" stroke="#cc2222" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.6"/>
+        <polygon points="205,152 192,145 198,158" fill="#cc2222" opacity="0.7"/>
+        <line x1="738" y1="38" x2="575" y2="152" stroke="#cc2222" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.6"/>
+        <polygon points="575,152 581,158 589,145" fill="#cc2222" opacity="0.7"/>
+        <line x1="390" y1="492" x2="390" y2="422" stroke="#cc2222" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.6"/>
+        <polygon points="390,422 383,436 397,436" fill="#cc2222" opacity="0.7"/>
+        <text x="30" y="32" fill="#cc2222" font-family="Courier New" font-size="8" font-weight="bold" opacity="0.8">NATION-STATE</text>
+        <text x="750" y="32" fill="#cc2222" font-family="Courier New" font-size="8" font-weight="bold" opacity="0.8" text-anchor="end">RANSOMWARE</text>
+        <text x="390" y="498" fill="#cc2222" font-family="Courier New" font-size="8" font-weight="bold" opacity="0.8" text-anchor="middle">ESPIONAGE</text>
+      </svg>
+      <p class="diagram-caption">The center zone — where all three systems intersect — represents the highest-risk environment in Texas. A single operation here produces simultaneous effects across energy, digital infrastructure, and AI. Adversaries with sufficient resources are actively mapping this intersection.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEPENDENCY TABLE -->
+<section class="dependency" id="dependencies">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">System Dependencies</span>
+    <h2 class="reveal">How Each System<br>Depends on the <em>Others</em></h2>
+    <p class="lead reveal">The interdependency runs in both directions. Understanding these links is essential to anticipating how an attack on one system propagates into the others.</p>
+    <div class="dep-table reveal">
+      <div class="dep-row hdr">
+        <div class="dep-cell"><span class="dep-hdr-label">Sector</span></div>
+        <div class="dep-cell"><span class="dep-hdr-label">Depends On</span></div>
+        <div class="dep-cell"><span class="dep-hdr-label">Cascade Risk if Disrupted</span></div>
+      </div>
+      <div class="dep-row">
+        <div class="dep-cell"><div class="dep-sector"><div class="dep-dot energy"></div>Energy</div></div>
+        <div class="dep-cell"><div class="dep-text">Digital control systems for pipeline, refining, and grid management. Cloud platforms for operations and logistics. AI systems for demand forecasting and predictive maintenance.</div></div>
+        <div class="dep-cell"><div class="dep-risk high">Grid failure cascades to data centers within minutes. Production disruption affects national fuel supply chains. LNG export interruptions impact global energy markets.</div></div>
+      </div>
+      <div class="dep-row" style="background:rgba(13,21,32,0.3);">
+        <div class="dep-cell"><div class="dep-sector"><div class="dep-dot data"></div>Data Centers</div></div>
+        <div class="dep-cell"><div class="dep-text">Uninterrupted power from ERCOT — a single hyperscale facility can consume as much electricity as a mid-sized city. Fiber infrastructure. Cooling systems that are themselves digitally managed.</div></div>
+        <div class="dep-cell"><div class="dep-risk high">Loss of a major facility disrupts cloud services for healthcare, finance, and logistics simultaneously. Cascading failure across co-located tenants amplifies impact far beyond the direct victim.</div></div>
+      </div>
+      <div class="dep-row">
+        <div class="dep-cell"><div class="dep-sector"><div class="dep-dot ai"></div>Artificial Intelligence</div></div>
+        <div class="dep-cell"><div class="dep-text">Dense compute infrastructure concentrated in a small number of facilities. Continuous, reliable power that exceeds most other workloads. Data pipelines from healthcare, finance, and energy systems feeding model training.</div></div>
+        <div class="dep-cell"><div class="dep-risk medium">AI disruption degrades real-time decision support across connected sectors. Training data compromise introduces long-term integrity risks. Model theft transfers competitive advantage to adversaries.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section class="scenarios" id="scenarios">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Threat Scenarios</span>
+    <h2 class="reveal">How Adversaries<br>Exploit the <em>Convergence</em></h2>
+    <p class="lead reveal">These scenarios reflect assessed adversary capabilities, documented behavioral patterns, and the specific infrastructure interdependencies present in Texas today.</p>
+    <div class="scenario-grid">
+      <div class="scenario-card reveal">
+        <div class="sec-tag">Most Dangerous</div>
+        <h3>Grid Disruption Cascades to Cloud Infrastructure</h3>
+        <p>A nation-state actor — consistent with documented Volt Typhoon pre-positioning — activates hidden access inside ERCOT-connected utility systems during a period of geopolitical tension. Timed disruptions force hyperscale data centers onto backup power, stressing both facility operations and the broader grid simultaneously.</p>
+        <div class="cascade">
+          <span class="cascade-label">Cascade Effect</span>
+          <p>Healthcare systems on the same cloud infrastructure lose access to patient records. Financial platforms fail. Energy trading operations are disrupted at the precise moment grid management is also degraded.</p>
+        </div>
+        <span class="kicker">"The goal is not to turn off the lights. It is to demonstrate the capability to do so — and hold it as leverage."</span>
+      </div>
+      <div class="scenario-card reveal d1">
+        <div class="sec-tag">Most Likely</div>
+        <h3>Data Center Breach Spreads Across Co-Located Tenants</h3>
+        <p>A ransomware group breaches a major Texas data center operator or shared cloud environment. Rather than targeting one tenant, the attacker exploits shared infrastructure or misconfigured access controls to reach multiple organizations in the same facility — including energy operators, health systems, and financial institutions.</p>
+        <div class="cascade">
+          <span class="cascade-label">Cascade Effect</span>
+          <p>Organizations that believed they had isolated systems discover shared exposure. A single breach generates simultaneous incidents across multiple sectors, overwhelming response capacity and creating secondary exploitation opportunities.</p>
+        </div>
+        <span class="kicker">"Co-location is convenience. It is also shared exposure. If your provider is the target, you are the casualty."</span>
+      </div>
+      <div class="scenario-card reveal d2">
+        <div class="sec-tag">Emerging Scenario</div>
+        <h3>AI Infrastructure Targeted for Long-Term Espionage</h3>
+        <p>Chinese state-sponsored groups extend collection operations to AI training infrastructure in Texas. The goal is not disruption but access — to models trained on proprietary energy, healthcare, or defense data; to the training datasets themselves; and to specialized hardware configurations that took years and billions of dollars to assemble.</p>
+        <div class="cascade">
+          <span class="cascade-label">Cascade Effect</span>
+          <p>Stolen models and data transfer years of competitive advantage. Organizations may not discover the theft for months or years. The harm manifests in adversary capabilities developed — not in a system going offline.</p>
+        </div>
+        <span class="kicker">"The most consequential AI attack may never look like an attack. It may look like a routine access event."</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPLICATIONS -->
+<section class="implications" id="implications">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">What This Means</span>
+    <h2 class="reveal">Three Things Every<br><em>Texas Executive</em> Should Know</h2>
+    <p class="lead reveal">Understanding the convergence layer changes what questions executives should be asking — and what intelligence is actually relevant to their organization's risk picture.</p>
+    <div class="impl-grid">
+      <div class="impl-card reveal">
+        <h3>Your Risk Perimeter Is Larger Than Your Organization</h3>
+        <p>If your operations depend on cloud infrastructure, AI services, or the Texas electric grid, your risk environment extends to the security posture of every provider in that chain. A breach at a co-located facility, a power disruption engineered by a foreign government, or a compromised AI platform can affect your organization without ever touching your own systems.</p>
+      </div>
+      <div class="impl-card reveal d1">
+        <h3>Sector Labels Understate Actual Exposure</h3>
+        <p>An energy company that relies on cloud platforms for operational data is also a technology risk. A healthcare system using AI for clinical decisions is also an AI infrastructure risk. A financial institution whose disaster recovery depends on a specific data center is also an energy risk. Sector-specific assessments that ignore cross-layer dependencies produce an incomplete picture.</p>
+      </div>
+      <div class="impl-card reveal d2">
+        <h3>Adversaries Target the Intersection, Not the Institution</h3>
+        <p>Sophisticated adversaries are not planning attacks on individual companies. They are mapping the convergence — identifying the nodes where disruption in one system produces cascading failure in the others. Organizations at those intersections carry strategic risk that their own security posture cannot fully address.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT -->
+<section class="assessment" id="assessment">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Liberty CTI Assessment</span>
+    <h2 class="reveal">The Convergence Is<br>Already a <em>Strategic Reality</em></h2>
+    <div class="assess-layout">
+      <div>
+        <div class="domain-quote reveal">
+          <p>"Texas is not building three separate risk environments. It is building one — at the intersection of the nation's most critical energy infrastructure, its fastest-growing data center corridor, and the most consequential technology shift of a generation."</p>
+        </div>
+        <p class="lead reveal">The convergence of energy, data, and AI in Texas is not a future concern — it is a present condition that adversaries are actively studying and mapping. The question is not whether this environment will be exploited. It is whether Texas organizations will understand it before that exploitation occurs.</p>
+        <p class="lead reveal" style="margin-top:1rem;">Liberty CTI tracks adversary activity across all three layers of this convergence — monitoring for the pre-attack indicators, access patterns, and geopolitical signals that precede convergence-layer operations. This is the intelligence that sector-specific monitoring alone cannot produce.</p>
+      </div>
+      <div class="reveal">
+        <p class="lead" style="color:rgba(244,239,230,0.42);margin-bottom:1.5rem;font-size:0.9rem;">Key intelligence questions Liberty CTI is tracking:</p>
+        <ul class="kiq-list">
+          <li><strong>Pre-positioning:</strong> Which nation-state groups have established hidden access inside Texas energy, data center, or AI infrastructure — and what does the pattern suggest about intended use?</li>
+          <li><strong>Grid-cloud dependency:</strong> What is the current threat picture against ERCOT-adjacent infrastructure, and how does it correlate with hyperscale data center concentration in the same corridors?</li>
+          <li><strong>AI targeting:</strong> What evidence exists of foreign government operations against Texas AI training infrastructure, model repositories, or organizations building frontier systems?</li>
+          <li><strong>Cascade scenarios:</strong> Which convergence-layer attack scenarios are adversaries most likely planning — based on documented capabilities and the specific interdependencies present in Texas?</li>
+          <li><strong>Early warning:</strong> What geopolitical and technical indicators should Texas executives monitor as leading signals of elevated convergence-layer risk?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <img src="liberty-cti-emblem.png" alt="Liberty CTI">
+    <h2>Intelligence Across<br>the <em>Full Convergence Layer</em></h2>
+    <p class="cta-body">Liberty CTI monitors adversary activity across energy, data, and AI infrastructure — producing intelligence that connects what is happening in each sector to the strategic risk environment they share. If your organization operates at the intersection of these systems, let's talk about what that means for your risk picture.</p>
+    <div class="cta-closing">"Understanding the convergence is not a technical exercise. It is how Texas executives stay ahead of the threat environment they are already operating in."</div>
+    <div class="cta-actions">
+      <a href="briefing-request.html" class="btn-dark">Request an Executive Briefing</a>
+      <a href="texas-focus.html" class="btn-outline">Read the Texas Focus</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-row">
+        <img src="liberty-cti-emblem.png" class="footer-emblem" alt="Liberty CTI">
+        <div class="footer-brand">Liberty <span>CTI</span></div>
+      </div>
+      <p class="footer-tagline">Predictive cyber threat intelligence for the organizations that power Texas and the United States. Built by practitioners who've done the work inside the wire.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Intelligence</div>
+      <ul class="footer-links">
+        <li><a href="threat-brief.html">The Alamo Threat Brief</a></li>
+        <li><a href="intelligence.html">Intelligence Products</a></li>
+        <li><a href="briefing-request.html">Executive Briefings</a></li>
+        <li><a href="texas-focus.html">Texas Focus</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Liberty CTI</a></li>
+        <li><a href="index.html#founders">Leadership</a></li>
+        <li><a href="index.html#threats">Threat Actors</a></li>
+        <li><a href="convergence.html">Energy · Data · AI</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel [at] libertycti.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2027 Liberty CTI, LLC. All rights reserved.</div>
+    <div class="footer-copy">San Antonio, Texas</div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

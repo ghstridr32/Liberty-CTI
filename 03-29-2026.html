@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alamo Threat Brief ATB-2026-13 | 29 March 2026 | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #08142A;
+    --navy-mid: #0D1F42;
+    --navy-light: #132554;
+    --gold: #C9A84C;
+    --gold-light: #E2C47A;
+    --gold-dim: #8A6E30;
+    --white: #F4F0E8;
+    --off-white: #EAE4D6;
+    --gray: #9A9080;
+    --red: #C1272D;
+    --red-dim: #7A1A1F;
+    --amber: #D4831A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--navy);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── CLASSIFICATION BANNER ── */
+  .class-banner {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 40px,
+        rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 41px);
+  }
+
+  .emblem-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 40px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .emblem-hero {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 22px rgba(201,168,76,0.45));
+  }
+
+  .masthead-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .masthead-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+    padding-bottom: 28px;
+  }
+  .masthead-brand { flex: 1; position: relative; }
+
+  .alamo-silhouette {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 320px;
+    opacity: 0.07;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .brand-name, .product-name {
+    position: relative;
+    z-index: 1;
+  }
+  .brand-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+
+  .masthead-meta {
+    display: flex;
+    gap: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    flex-wrap: wrap;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+  .meta-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .threat-level-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .tl-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tl-dots { display: flex; gap: 6px; }
+  .tl-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .tl-dot.active { background: var(--red); border-color: var(--red); box-shadow: 0 0 8px rgba(193,39,45,0.6); }
+  .tl-dot.active.gold { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
+  .tl-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── TICKER ── */
+  .ticker-strip {
+    background: var(--red-dim);
+    border-top: 1px solid var(--red);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    cursor: pointer;
+  }
+  .ticker-strip:hover .ticker-inner { animation-play-state: paused; }
+  .ticker-inner { display: inline-block; animation: ticker 45s linear infinite; }
+  .ticker-inner a.ticker-item {
+    display: inline;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--white);
+    letter-spacing: 1.5px;
+    padding: 0 60px;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .ticker-inner a.ticker-item:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .ticker-inner a.ticker-item::before { content: '◆ '; color: var(--gold); }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  .timestamp-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 14px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .timestamp-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .timestamp-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 6px rgba(201,168,76,0.7);
+    animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(201,168,76,0.7); }
+    50%       { opacity: 0.5; box-shadow: 0 0 2px rgba(201,168,76,0.3); }
+  }
+  .timestamp-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(201,168,76,0.65);
+    text-transform: uppercase;
+  }
+  .timestamp-text strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── SECTION RULES ── */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 24px;
+  }
+  .section-rule-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--navy), transparent); }
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    background: var(--navy);
+    padding: 4px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  h2.section-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  h3.sub-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-light);
+    margin: 28px 0 10px;
+    border-left: 3px solid var(--gold);
+    padding-left: 12px;
+  }
+  p { margin-bottom: 14px; color: #1a2840; }
+
+  /* ── INTRO DECK ── */
+  .intro-deck { border-top: 4px solid var(--gold); padding: 28px 0 0; margin-bottom: 12px; }
+  .intro-deck p { font-size: 17px; line-height: 1.75; color: #1a2840; font-weight: 300; }
+  .intro-deck strong { font-weight: 600; color: var(--navy); }
+
+  /* ── CENTERPIECE CALLOUT ── */
+  .centerpiece {
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-left: 6px solid var(--red);
+    padding: 32px 36px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .centerpiece::before {
+    content: 'THIS WEEK\'S CENTERPIECE ANALYSIS';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--red);
+    position: absolute;
+    top: -1px;
+    left: 36px;
+    background: var(--navy);
+    padding: 0 8px;
+    transform: translateY(-50%);
+    font-weight: 600;
+  }
+  .centerpiece-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .centerpiece p {
+    color: var(--off-white);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .centerpiece p:last-child { margin-bottom: 0; }
+  .centerpiece strong { color: var(--gold-light); }
+
+  /* ── KEY JUDGMENTS ── */
+  .kj-block {
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-left: 4px solid var(--gold);
+    padding: 32px 36px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .kj-block::before {
+    content: 'KEY JUDGMENTS';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    position: absolute;
+    top: -1px;
+    left: 36px;
+    background: var(--navy);
+    padding: 0 8px;
+    transform: translateY(-50%);
+  }
+  .kj-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+  .kj-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .kj-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-dim);
+    font-weight: 600;
+    white-space: nowrap;
+    padding-top: 3px;
+    min-width: 24px;
+  }
+  .kj-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    color: var(--off-white);
+    line-height: 1.65;
+  }
+  .kj-text strong { color: var(--gold-light); }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: rgba(193,39,45,0.06);
+    border: 1px solid rgba(193,39,45,0.3);
+    border-left: 4px solid var(--red);
+    padding: 20px 24px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .warning-box::before {
+    content: '⚠ CRITICAL INTELLIGENCE WARNING';
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--red);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .warning-box p { color: #1a2840; font-size: 15px; margin: 0; }
+
+  /* ── ASSESSMENT BOX ── */
+  .assessment-box {
+    background: rgba(8,20,42,0.05);
+    border: 1px solid rgba(8,20,42,0.12);
+    border-left: 3px solid var(--navy-light);
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .assessment-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--navy-mid);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .assessment-box p { margin: 0; font-size: 15px; font-style: italic; color: var(--navy); }
+
+  /* ── CONFIDENCE BADGES ── */
+  .conf {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+  /* On dark KJ backgrounds */
+  .conf-high { background: rgba(255,255,255,0.12); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.45); }
+  .conf-mod  { background: rgba(201,168,76,0.22);  color: var(--gold-light); border: 1px solid var(--gold); }
+  .conf-low  { background: rgba(154,144,128,0.2);  color: #C8BFB0; border: 1px solid #9A9080; }
+  /* On light backgrounds */
+  .pir-body .conf-high, .outlook-content .conf-high, .assessment-box .conf-high {
+    background: rgba(8,20,42,0.08); color: var(--navy); border: 1px solid var(--navy-light);
+  }
+  .pir-body .conf-mod, .outlook-content .conf-mod, .assessment-box .conf-mod {
+    background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid var(--gold-dim);
+  }
+  .pir-body .conf-low, .outlook-content .conf-low {
+    background: rgba(154,144,128,0.1); color: #6B6055; border: 1px solid var(--gray);
+  }
+
+  /* ── THREAT MATRIX ── */
+  .threat-matrix { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+  .threat-matrix thead tr { background: var(--navy); }
+  .threat-matrix th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 2px;
+    color: var(--gold); text-align: left;
+    padding: 12px 14px; font-weight: 600; text-transform: uppercase;
+  }
+  .threat-matrix td { padding: 11px 14px; border-bottom: 1px solid rgba(8,20,42,0.08); vertical-align: top; font-size: 13px; line-height: 1.5; }
+  .threat-matrix tbody tr:hover { background: rgba(8,20,42,0.03); }
+
+  .threat-level {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 1.5px; padding: 3px 8px;
+    border-radius: 2px; text-transform: uppercase; white-space: nowrap;
+  }
+  .tl-critical { background: rgba(193,39,45,0.12); color: var(--red); border: 1px solid rgba(193,39,45,0.3); }
+  .tl-high     { background: rgba(212,131,26,0.12); color: var(--amber); border: 1px solid rgba(212,131,26,0.3); }
+  .tl-elevated { background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); }
+
+  /* ── DOCTRINE BREAKDOWN ── */
+  .doctrine-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .doctrine-card { border: 1px solid rgba(8,20,42,0.12); padding: 18px 18px; background: #FAFAF7; }
+  .doctrine-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 3px;
+    color: var(--gold-dim); text-transform: uppercase;
+    margin-bottom: 8px; font-weight: 600;
+  }
+  .doctrine-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--navy); margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+  }
+  .doctrine-card p { font-size: 13px; color: #2a3a55; margin-bottom: 6px; }
+  .doctrine-card p:last-child { margin-bottom: 0; }
+
+  /* ── PIR RESPONSES ── */
+  .pir-block { border: 1px solid rgba(8,20,42,0.12); margin: 20px 0; overflow: hidden; }
+  .pir-header {
+    background: var(--navy-mid); padding: 12px 18px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .pir-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--gold); font-weight: 600;
+    background: rgba(201,168,76,0.15); padding: 3px 10px; border-radius: 2px;
+  }
+  .pir-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--off-white); letter-spacing: 1px;
+  }
+  .pir-body { padding: 18px 20px; background: #FAFAF7; border-top: 1px solid rgba(8,20,42,0.08); }
+  .pir-body p { margin-bottom: 10px; font-size: 14px; }
+  .pir-body p:last-child { margin-bottom: 0; }
+
+  /* ── TEXAS IMPLICATIONS ── */
+  .implication-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+  }
+  .implication-row:last-child { border-bottom: none; }
+  .implication-sector {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--gold-dim); padding: 14px 16px;
+    background: rgba(8,20,42,0.04);
+    border-right: 1px solid rgba(8,20,42,0.08);
+    display: flex; align-items: flex-start;
+    text-transform: uppercase; letter-spacing: 1px;
+    flex-direction: column; gap: 4px;
+  }
+  .implication-content { padding: 14px 18px; font-size: 14px; color: #1a2840; line-height: 1.65; }
+
+  /* ── OUTLOOK ── */
+  .outlook-row { display: grid; grid-template-columns: 120px 1fr; border-bottom: 1px solid rgba(8,20,42,0.08); }
+  .outlook-row:last-child { border-bottom: none; }
+  .outlook-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    color: var(--gold-dim); padding: 14px 16px;
+    background: rgba(8,20,42,0.04);
+    border-right: 1px solid rgba(8,20,42,0.08);
+    display: flex; align-items: flex-start;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .outlook-content { padding: 14px 18px; font-size: 14px; color: #1a2840; line-height: 1.6; }
+
+  /* ── SOURCE CITATIONS ── */
+  .src-block { background: #F7F5F0; border: 1px solid rgba(8,20,42,0.1); padding: 24px 28px; margin: 36px 0; }
+  .src-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--gold-dim); text-transform: uppercase;
+    border-bottom: 1px solid rgba(8,20,42,0.1);
+    padding-bottom: 12px; margin-bottom: 16px; font-weight: 600;
+  }
+  .src-item { display: grid; grid-template-columns: 80px 1fr; gap: 8px 16px; margin-bottom: 12px; font-size: 13px; align-items: start; }
+  .src-code { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--gold-dim); font-weight: 600; padding-top: 2px; }
+  .src-desc { color: #2a3a55; line-height: 1.55; }
+  a.src-link { color: var(--navy); text-decoration: underline; text-decoration-color: var(--gold-dim); text-underline-offset: 3px; }
+  a.src-link:hover { color: var(--gold-dim); text-decoration-color: var(--gold); }
+  a.src-link span { font-style: italic; }
+
+  /* ── ANALYTICAL QUALIFIERS ── */
+  .aq { font-weight: 700; color: var(--gold-light); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-left: 3px solid var(--gold); margin: 24px 0;
+    padding: 6px 0 6px 20px;
+    font-size: 17px; font-style: italic; color: var(--navy); line-height: 1.6;
+  }
+
+  /* ── DIVIDER ── */
+  .ruled-divider { border: none; border-top: 1px solid rgba(8,20,42,0.12); margin: 36px 0; }
+
+  /* ── FOOTER ── */
+  .brief-footer { background: var(--navy); padding: 36px 40px; margin-top: 60px; }
+  .footer-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+  .footer-brand { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+  .footer-legal { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: rgba(201,168,76,0.4); letter-spacing: 1.5px; text-align: right; line-height: 1.8; }
+
+  @media (max-width: 700px) {
+    .masthead-inner, .page-body, .brief-footer { padding-left: 20px; padding-right: 20px; }
+    .product-name { font-size: 30px; }
+    .doctrine-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-legal { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CLASSIFICATION BANNER -->
+<div class="class-banner">
+  LIBERTY CTI OPEN SOURCE ANALYSIS
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="emblem-wrap">
+    <img src="liberty-cti-emblem.png" class="emblem-hero" alt="Liberty CTI Emblem"
+         onerror="this.style.display='none'">
+  </div>
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <div class="masthead-brand">
+        <svg class="alamo-silhouette" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Alamo facade silhouette -->
+          <!-- Main building base -->
+          <rect x="60" y="110" width="380" height="110" fill="#C9A84C"/>
+          <!-- Central parapet / iconic curved top -->
+          <path d="M170,110 L170,70 Q172,55 185,50 Q200,42 215,48 Q222,44 230,42 Q245,38 255,38 Q265,38 270,42 Q278,44 285,48 Q300,42 315,50 Q328,55 330,70 L330,110 Z" fill="#C9A84C"/>
+          <!-- Parapet scroll details -->
+          <path d="M172,70 Q180,60 190,58 L190,110" fill="none" stroke="#C9A84C" stroke-width="1"/>
+          <path d="M328,70 Q320,60 310,58 L310,110" fill="none" stroke="#C9A84C" stroke-width="1"/>
+          <!-- Left wing -->
+          <rect x="60" y="90" width="110" height="130" fill="#C9A84C"/>
+          <!-- Left wing parapet steps -->
+          <rect x="60" y="80" width="30" height="15" fill="#C9A84C"/>
+          <rect x="90" y="72" width="30" height="22" fill="#C9A84C"/>
+          <rect x="120" y="84" width="50" height="10" fill="#C9A84C"/>
+          <!-- Right wing -->
+          <rect x="330" y="90" width="110" height="130" fill="#C9A84C"/>
+          <!-- Right wing parapet steps -->
+          <rect x="410" y="80" width="30" height="15" fill="#C9A84C"/>
+          <rect x="380" y="72" width="30" height="22" fill="#C9A84C"/>
+          <rect x="330" y="84" width="50" height="10" fill="#C9A84C"/>
+          <!-- Main doorway arch -->
+          <path d="M215,220 L215,155 Q215,135 230,130 Q245,125 255,125 Q265,125 270,130 Q285,135 285,155 L285,220 Z" fill="#08142A"/>
+          <!-- Window left -->
+          <rect x="140" y="130" width="35" height="45" rx="17" fill="#08142A"/>
+          <!-- Window right -->
+          <rect x="325" y="130" width="35" height="45" rx="17" fill="#08142A"/>
+          <!-- Left wing windows -->
+          <rect x="75" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <rect x="112" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <!-- Right wing windows -->
+          <rect x="363" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <rect x="400" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <!-- Ground line -->
+          <rect x="40" y="218" width="420" height="4" fill="#C9A84C"/>
+        </svg>
+        <div class="brand-name">Liberty Cyber Threat Intelligence · libertycti.com</div>
+        <div class="product-name">Alamo Threat Brief</div>
+      </div>
+    </div>
+    <div class="masthead-meta">
+      <div class="meta-item">
+        <span class="meta-label">Issue Date</span>
+        <span class="meta-value">29 MARCH 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Volume</span>
+        <span class="meta-value">ATB-2026-13</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sector Coverage</span>
+        <span class="meta-value">ALL SECTORS</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Cycle</span>
+        <span class="meta-value">CY2026 · PIR SET ACTIVE</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Torch Fusion Cycle</span>
+        <span class="meta-value">WHAT · WHO · WHY · WHAT NEXT</span>
+      </div>
+    </div>
+    <div class="threat-level-bar">
+      <span class="tl-label">Global Threat Level</span>
+      <div class="tl-dots">
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active gold"></div>
+      </div>
+      <span class="tl-status">CRITICAL — ESCALATING</span>
+    </div>
+    <div class="timestamp-bar">
+      <div class="timestamp-item">
+        <div class="timestamp-dot"></div>
+        <span class="timestamp-text">LAST UPDATED: <strong>29 MAR 2026 // 0600 CST</strong></span>
+      </div>
+      <div class="timestamp-item">
+        <span class="timestamp-text">COVERAGE PERIOD: <strong>23–29 MAR 2026</strong></span>
+      </div>
+      <div class="timestamp-item">
+        <span class="timestamp-text">NEXT ISSUE: <strong>05 APR 2026</strong></span>
+      </div>
+      <div class="timestamp-item">
+        <span class="timestamp-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-strip">
+  <div class="ticker-inner">
+    <a class="ticker-item" href="https://www.cnbc.com/2026/03/27/iran-hackers-fbi-director-kash-patel.html" target="_blank" rel="noopener">CONFIRMED: Handala (MOIS) breaches FBI Director Kash Patel's personal Gmail — 300+ emails published, photos released</a>
+    <a class="ticker-item" href="https://krebsonsecurity.com/2026/03/iran-backed-hackers-claim-wiper-attack-on-medtech-firm-stryker/" target="_blank" rel="noopener">Stryker wiper attack: Handala wiped 200,000+ devices across 79 countries using Microsoft Intune — FBI malware alert published</a>
+    <a class="ticker-item" href="https://techcrunch.com/2026/03/20/u-s-accuses-irans-government-of-operating-hacktivist-group-that-hacked-stryker/" target="_blank" rel="noopener">DOJ seizes 4 Handala domains March 19 — group reconstitutes new infrastructure within hours</a>
+    <a class="ticker-item" href="https://www.cbsnews.com/news/fbi-director-kash-patel-email-hackers-lran/" target="_blank" rel="noopener">State Dept. offers $10M reward for Handala identification — group declared MOIS-operated by DOJ</a>
+    <a class="ticker-item" href="https://unit42.paloaltonetworks.com/iranian-cyberattacks-2026/" target="_blank" rel="noopener">Palo Alto Unit 42 confirms: Handala is Void Manticore persona, MOIS-affiliated — opportunistic supply chain footholds now documented</a>
+    <a class="ticker-item" href="https://www.hipaajournal.com/stryker-cyberattack-iran/" target="_blank" rel="noopener">Texas healthcare sector: Stryker attack methodology directly replicable against Texas Medical Center ecosystem vendors</a>
+    <a class="ticker-item" href="https://www.cnbc.com/2026/03/27/iran-hackers-fbi-director-kash-patel.html" target="_blank" rel="noopener">CONFIRMED: Handala (MOIS) breaches FBI Director Kash Patel's personal Gmail — 300+ emails published, photos released</a>
+    <a class="ticker-item" href="https://krebsonsecurity.com/2026/03/iran-backed-hackers-claim-wiper-attack-on-medtech-firm-stryker/" target="_blank" rel="noopener">Stryker wiper attack: Handala wiped 200,000+ devices across 79 countries using Microsoft Intune — FBI malware alert published</a>
+    <a class="ticker-item" href="https://techcrunch.com/2026/03/20/u-s-accuses-irans-government-of-operating-hacktivist-group-that-hacked-stryker/" target="_blank" rel="noopener">DOJ seizes 4 Handala domains March 19 — group reconstitutes new infrastructure within hours</a>
+    <a class="ticker-item" href="https://www.cbsnews.com/news/fbi-director-kash-patel-email-hackers-lran/" target="_blank" rel="noopener">State Dept. offers $10M reward for Handala identification — group declared MOIS-operated by DOJ</a>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- INTRO -->
+  <div class="intro-deck">
+    <p>
+      This issue of the <strong>Alamo Threat Brief</strong> covers the period <strong>23–29 March 2026</strong>. The centerpiece this week is Iran's MOIS-operated Handala network — now confirmed by the U.S. Department of Justice as a state intelligence front — and its two most consequential operations of the conflict: the <strong>Stryker wiper attack</strong> (the most significant Iranian cyberattack against a U.S. company since the war began) and the <strong>breach of FBI Director Kash Patel's personal email</strong>. Together, these two operations reveal a sophisticated, multi-track Iranian cyber doctrine that every Texas executive needs to understand — regardless of sector.
+    </p>
+  </div>
+
+  <!-- ─────────────────── CENTERPIECE ─────────────────── -->
+  <div class="centerpiece">
+    <div class="centerpiece-title">Iran's Handala Network: State Intelligence Dressed as Hacktivism</div>
+    <p>
+      On 27 March 2026, Iran-linked hackers publicly released over 300 emails, personal photographs, and documents from FBI Director Kash Patel's personal Gmail account. The operation was claimed by Handala Hack Team — the same group that three weeks earlier executed a destructive wiper attack against Stryker, a Fortune 300 medical technology company, wiping data from more than <strong>200,000 devices across 79 countries</strong>.
+    </p>
+    <p>
+      These two operations are not isolated incidents. They are sequential moves in a deliberate, multi-track operational campaign. The U.S. Department of Justice has formally confirmed what intelligence researchers already assessed: <strong>Handala is not a hacktivist collective — it is an operational persona run by Iran's Ministry of Intelligence and Security (MOIS)</strong>, assessed by Palo Alto Networks to be part of the threat cluster known as Void Manticore. The "hacktivist" framing is deliberate cover that gives Tehran plausible deniability while achieving strategic signaling.
+    </p>
+    <p>
+      For Texas executives: the lesson is not that the FBI director got hacked. The lesson is that the same actor who wiped a $25 billion medical technology company's global network — using nothing more sophisticated than <strong>compromised Microsoft Intune credentials</strong> — is now operating freely against U.S. targets, has reconstituted its infrastructure within hours of a federal takedown, and has explicitly declared it will continue. <strong>Any Texas organization using Microsoft 365 device management at enterprise scale is operating in the same risk environment as Stryker.</strong>
+    </p>
+  </div>
+
+  <!-- ─────────────────── KEY JUDGMENTS ─────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section I</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Key Judgments</h2>
+
+  <div class="kj-block">
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that Handala — a confirmed MOIS-operated persona — <span class="aq">almost certainly</span> will continue offensive cyber operations against U.S. targets regardless of U.S. government domain seizures or legal actions. DomainTools confirmed Handala reconstituted new operational domains within hours of the DOJ's March 19 seizure. The group explicitly stated: <em>"We decided to respond to their seizure."</em> Takedowns are attrition, not termination.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        The Stryker attack methodology — credential compromise via infostealer malware, privilege escalation in Microsoft Active Directory, mass device wipe via Microsoft Intune — <span class="aq">very likely</span> represents a replicable playbook now available to multiple MOIS-affiliated actors. The FBI has published technical malware indicators. Texas healthcare organizations, energy sector operators, and defense contractors using Microsoft 365 with Intune-based device management face <strong>elevated and immediate exposure</strong> to this attack pattern.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        The Patel Gmail breach reveals a persistent Iranian long-cycle collection operation against U.S. national security officials that <span class="aq">almost certainly</span> predates the current conflict. NBC News reporting confirms the emails were organized into folders last modified in May 2025 — nine months before the current war. The metadata indicates this was a pre-staged operation held in reserve and deployed for maximum psychological and political effect at a moment of conflict escalation.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-4</span>
+      <div class="kj-text">
+        Handala's operational pattern — targeting life-critical sectors (healthcare, water, energy), using supply-chain footholds to reach downstream victims, and following attacks with amplified propaganda — <span class="aq">likely</span> signals that Texas Medical Center ecosystem vendors and mid-tier Texas healthcare suppliers are <strong>higher-probability targets</strong> than large hospital networks directly. Palo Alto's Unit 42 explicitly documented Handala's preference for supply-chain access to reach downstream victims.
+        <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-5</span>
+      <div class="kj-text">
+        Iran's cyber doctrine in the current conflict is executing <span class="aq">almost certainly</span> along three simultaneous tracks: <strong>Track 1</strong> — destructive state operations (Stryker wiper) for maximum real-world disruption; <strong>Track 2</strong> — hack-and-leak influence operations (Patel Gmail) for psychological effect and political embarrassment; <strong>Track 3</strong> — ongoing ICS/OT reconnaissance targeting energy and critical infrastructure for future disruptive positioning. Texas faces exposure across all three tracks.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────── HANDALA DOCTRINE ─────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section II</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Handala / MOIS: Three-Track Operational Doctrine</h2>
+
+  <p>Understanding Handala requires setting aside the hacktivist framing entirely. This is a Ministry of Intelligence and Security operation. Its "hacktivist" persona serves a specific function: it allows Iran to conduct aggressive cyber operations while maintaining deniability at the state level, creates a psychological effect that amplifies actual damage through propaganda, and generates a public information channel to threaten, embarrass, and demoralize adversaries.</p>
+
+  <div class="doctrine-grid">
+    <div class="doctrine-card">
+      <div class="doctrine-card-label">Track 1 — Disruptive</div>
+      <div class="doctrine-card-title">Wiper Operations</div>
+      <p><strong>Target:</strong> Stryker (Fortune 300, March 11)</p>
+      <p><strong>Method:</strong> Infostealer credential theft → Active Directory privilege escalation → Microsoft Intune mass device wipe</p>
+      <p><strong>Scale:</strong> 200,000+ devices across 79 countries. Order processing, manufacturing, and shipping disrupted globally.</p>
+      <p><strong>Texas relevance:</strong> Any large Texas enterprise using Intune-based device management is operating on the same attack surface.</p>
+    </div>
+    <div class="doctrine-card">
+      <div class="doctrine-card-label">Track 2 — Influence</div>
+      <div class="doctrine-card-title">Hack-and-Leak Operations</div>
+      <p><strong>Target:</strong> FBI Director Kash Patel personal Gmail (March 27)</p>
+      <p><strong>Method:</strong> Long-cycle credential collection (pre-staged May 2025), released for maximum political impact during wartime</p>
+      <p><strong>Effect:</strong> Embarrassment of senior U.S. law enforcement; signal to other officials they are vulnerable; public proof of capability</p>
+      <p><strong>Texas relevance:</strong> Executive personal email hygiene is an operational security imperative, not just a personal matter.</p>
+    </div>
+    <div class="doctrine-card">
+      <div class="doctrine-card-label">Track 3 — Positioning</div>
+      <div class="doctrine-card-title">ICS/OT Reconnaissance</div>
+      <p><strong>Targets:</strong> Energy infrastructure, water systems, PLCs with Israeli-made or U.S.-affiliated components</p>
+      <p><strong>Method:</strong> Default credential attacks on internet-exposed ICS devices; CyberAv3ngers ladder logic deployment</p>
+      <p><strong>Effect:</strong> Pre-positioned access for potential future disruptive execution</p>
+      <p><strong>Texas relevance:</strong> Gulf Coast LNG terminals, ERCOT-connected utilities, petrochemical SCADA systems — directly in scope.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    "Groups like Handala blur the line between hacktivism and state operations, giving governments plausible deniability while still achieving strategic signaling. These campaigns are rarely isolated — they are part of a broader pressure strategy designed to create disruption across multiple industries that support national stability."<br><br>
+    — Palo Alto Networks Unit 42, March 2026
+  </div>
+
+  <!-- ─────────────────── STRYKER ANALYSIS ─────────────────── -->
+  <h3 class="sub-head">The Stryker Attack — What Texas Executives Must Understand</h3>
+
+  <p>The Stryker attack is the most instructive operational case study of the current conflict for Texas business leaders. Stryker is a $25 billion Fortune 300 company with a global security organization, 56,000 employees, and DoD/VA contracts. It was brought to its knees not by sophisticated zero-day exploitation, but by a chain of failures that are present in the overwhelming majority of enterprise Microsoft 365 environments.</p>
+
+  <div class="warning-box">
+    <p>
+      The attack chain: <strong>Stage 1</strong> — Infostealer malware (masquerading as legitimate apps including Pictory, KeePass, and Telegram) delivered credential theft capability. <strong>Stage 2</strong> — Persistent implant established. <strong>Stage 3</strong> — Attackers used stolen credentials to access Stryker's Microsoft Active Directory and gained administrative rights to Microsoft Intune, the company's enterprise device management platform. <strong>Stage 4</strong> — Remote wipe command issued across all enrolled devices globally. The FBI has published malware indicators for all stages.
+    </p>
+  </div>
+
+  <p>Stryker initially stated there was "no indication of ransomware or malware." Further investigation by Palo Alto Networks Unit 42 later identified that a malicious file was used to run commands and hide attacker activity within the environment. This is a critical lesson: <strong>absence of evidence is not evidence of absence</strong> when a sophisticated MOIS-affiliated actor has been operating inside your environment.</p>
+
+  <p>The recovery impact was concrete. Stryker confirmed the attack disrupted order processing, manufacturing, and shipments globally. An SEC 8-K filing confirmed disruptions were expected to continue. Employees were told to remove Microsoft Intune from personal devices immediately — a signal of how far the compromise extended into personal device ecosystems under bring-your-own-device policies.</p>
+
+  <!-- ─────────────────── PATEL BREACH ANALYSIS ─────────────────── -->
+  <h3 class="sub-head">The Patel Breach — The Strategic Intelligence Reading</h3>
+
+  <p>The operational value of the Patel breach to Iran is minimal. The emails are a decade old, contain no government information, and the FBI confirmed they involve no classified material. This is not an intelligence coup. It is a psychological operation executed with precision.</p>
+
+  <p>Three analytical observations matter for Texas executives:</p>
+
+  <p><strong>1. Pre-staged collection.</strong> The email files were organized into folders with metadata last modified in May 2025 — nine months before the current war began. Iran had this material in hand, held it, and released it at the most politically damaging moment: the week that the DOJ announced it had taken down Handala's websites. The message was explicit: "We decided to respond to their seizure." This is disciplined operational tradecraft, not reactive hacktivism.</p>
+
+  <p><strong>2. The whack-a-mole problem is real.</strong> Check Point's Gil Messing characterized the DOJ domain seizures as striking Handala "where it matters" — but also acknowledged "in the past they've managed to bypass takedown by bringing up new channels instead." DomainTools confirmed new Handala domains were active within hours of the March 19 seizures. The group's infrastructure is distributed, redundant, and fast to reconstitute. Federal enforcement actions are necessary but insufficient to neutralize the threat.</p>
+
+  <p><strong>3. This is a signal to every U.S. executive.</strong> Check Point's assessment was direct: the hack-and-leak against Patel was designed to make senior officials "feel vulnerable." For Texas C-suite and board-level executives — who routinely handle sensitive business correspondence via personal email, personal phones, and personal cloud storage — this is not an abstract warning. Personal digital hygiene is now a material business risk.</p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">Liberty CTI Assessment — Handala / MOIS Threat Trajectory</div>
+    <p>Liberty CTI assesses with HIGH CONFIDENCE that Handala's operational tempo will very likely remain elevated through at least the next 60 days, conditioned on the continuation of the Iran-U.S.-Israel military conflict. The group's rapid infrastructure reconstitution following the DOJ March 19 seizure, its pre-staged operational reserve (evidenced by the Patel email metadata), and its explicit declaratory statements confirm an organization operating with strategic patience and tactical resilience. The $10M State Department reward and continued law enforcement pressure are likely to drive Handala toward higher-impact operations designed to demonstrate survivability. <span class="conf conf-high">HIGH CONFIDENCE</span></p>
+  </div>
+
+  <!-- ─────────────────── TEXAS IMPLICATIONS ─────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section III</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Texas Sector Implications — This Week</h2>
+
+  <div style="border: 1px solid rgba(8,20,42,0.12); margin: 24px 0;">
+    <div class="implication-row">
+      <div class="implication-sector">⚡ Energy<br><span style="font-size:9px; opacity:0.6;">CRITICAL</span></div>
+      <div class="implication-content">The Stryker attack is a direct preview of what a Handala operation against a Texas energy company looks like. Enterprise Microsoft 365 environments with Intune device management are the attack surface. Gulf Coast LNG operators, Permian Basin producers, and ERCOT-connected utilities should immediately audit Intune administrative access, enforce phishing-resistant MFA on all M365 admin accounts, and review BYOD policies. ICS/OT Track 3 operations continue in parallel — energy infrastructure faces simultaneous exposure to both enterprise IT wiper attacks and industrial control system reconnaissance.</div>
+    </div>
+    <div class="implication-row">
+      <div class="implication-sector">♥ Healthcare<br><span style="font-size:9px; opacity:0.6;">CRITICAL</span></div>
+      <div class="implication-content">The Texas Medical Center is the largest medical complex in the world and relies on a dense ecosystem of medical technology vendors — many of whom are Stryker competitors or customers with similar Microsoft 365 configurations. Handala explicitly targeted Stryker because of its Israeli acquisition (OrthoSpace, 2019) and DoD/VA contracts. TMC-affiliated vendors with Israeli technology partnerships, Israeli-made equipment in their product lines, or federal healthcare contracts are now priority-assessed targets. The Stryker wiper malware indicators published by the FBI should be immediately operationalized by TMC security operations teams.</div>
+    </div>
+    <div class="implication-row">
+      <div class="implication-sector">🏛 Finance<br><span style="font-size:9px; opacity:0.6;">HIGH</span></div>
+      <div class="implication-content">The Patel breach is the most directly relevant development for Texas financial sector executives this week. The operational lesson — that personal Gmail accounts of senior officials can be compromised and held for strategic release — applies directly to bank executives, energy company CFOs, and defense contractor leadership whose personal communications may be of intelligence value to MOIS. USAA, Frost Bank, and DFW-based financial institutions should treat personal executive email hygiene as a board-level risk topic, not an individual IT matter.</div>
+    </div>
+    <div class="implication-row">
+      <div class="implication-sector">🛡 Defense<br><span style="font-size:9px; opacity:0.6;">HIGH</span></div>
+      <div class="implication-content">San Antonio's Tier 2/3 defense contractor ecosystem — Port San Antonio tenants, JBSA supply chain, 16th Air Force support vendors — faces compounded risk this week. Handala has specifically targeted organizations with Israeli technology partnerships and U.S. government contracts — both characteristics common across the San Antonio defense industrial base. Meanwhile, China's Volt Typhoon continues its steady-state collection against defense networks. The Iran conflict is providing both MOIS and PRC MSS with simultaneous collection opportunities while U.S. security operations attention is divided.</div>
+    </div>
+  </div>
+
+  <!-- ─────────────────── PIR RESPONSES ─────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section IV</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Priority Intelligence Requirement Responses</h2>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-4</span>
+      <span class="pir-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response — Updated:</strong> Handala's three-track doctrine is now confirmed at operational scale. Track 1 (Stryker wiper, March 11) produced the most significant destructive cyberattack against a U.S. company in the current conflict. Track 2 (Patel Gmail, March 27) demonstrates pre-staged influence operations executed with strategic timing. Track 3 (ICS reconnaissance via CyberAv3ngers) continues at baseline. The DOJ's March 19 confirmation that Handala is a MOIS-operated persona — not an independent hacktivist group — eliminates attribution ambiguity. Iran is directly responsible for all three operational tracks. <span class="conf conf-high">HIGH CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-1</span>
+      <span class="pir-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response:</strong> The Stryker and Patel operations reveal that Iran is now retaliating for <em>cyber enforcement actions</em> as well as kinetic strikes. The Patel breach was explicitly framed as retaliation for the DOJ's domain seizures of Handala's infrastructure on March 19. This is a significant analytical update: <span class="aq">the trigger set for Iranian cyber retaliation now includes U.S. law enforcement actions against Iranian cyber infrastructure</span>, not only military strikes. Texas organizations adjacent to or supportive of U.S. government cybersecurity enforcement (including CISA, FBI, and DOJ partner organizations) should assess their own exposure accordingly. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-5</span>
+      <span class="pir-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response:</strong> The Stryker attack methodology directly implicates the Texas Medical Center vendor ecosystem. Stryker is a medical device company with DoD contracts and an Israeli acquisition — a target profile shared by multiple TMC suppliers and medical technology vendors operating in Texas. The attack required no zero-day capability: <span class="aq">compromised Microsoft enterprise credentials are sufficient to execute a global wiper attack</span>. Texas organizations at most risk this week: healthcare technology vendors with Israeli partnerships or federal contracts; any enterprise operating Microsoft 365 with Intune device management and limited MFA enforcement on admin accounts. <span class="conf conf-high">HIGH CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <!-- ─────────────────── OUTLOOK ─────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section V</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Strategic Forecast — 30 / 60 / 90-Day Outlook</h2>
+
+  <div style="border: 1px solid rgba(8,20,42,0.12); margin: 24px 0;">
+    <div class="outlook-row">
+      <div class="outlook-period">30 DAYS<br><span style="font-size:9px;opacity:0.6;">APR 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> Handala continues operations. The $10M State Department reward and continued federal pressure <span class="aq">likely</span> motivates a high-profile demonstrative strike intended to prove operational continuity. Healthcare or defense sector targets are assessed as most probable, given Handala's pattern of targeting organizations with Israeli technology connections and U.S. federal contracts — both attributes common in Texas. Microsoft 365 wiper-style attacks against a Texas-based organization are now a credible near-term scenario, not a theoretical one.<br><br>
+        <strong>Watch for:</strong> FBI flash alerts or CISA advisories specifically referencing Intune/Active Directory compromise by MOIS-affiliated actors — would signal active exploitation in the U.S. domestic environment beyond Stryker. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="outlook-row">
+      <div class="outlook-period">60 DAYS<br><span style="font-size:9px; opacity:0.6;">MAY 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> Iran's operational posture bifurcates based on conflict trajectory. If a ceasefire framework emerges, Handala's operational tempo <span class="aq">likely</span> decreases but does not cease — pre-staged collection continues and may be deployed for post-conflict political leverage. If the conflict continues: Track 1 wiper operations against additional U.S. critical sector organizations are <span class="aq">likely</span>; Track 3 ICS operations move closer to disruptive execution in energy sector targets. Texas Gulf Coast energy infrastructure remains the highest-consequence potential target.<br><br>
+        <strong>Key uncertainty:</strong> Iran's internal leadership consolidation following Khamenei's death may produce a period of operational autonomy for MOIS units outside of Tehran — potentially leading to less coordinated but more frequent attacks. <span class="conf conf-low">LOW-MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="outlook-row">
+      <div class="outlook-period">90 DAYS<br><span style="font-size:9px; opacity:0.6;">JUN 2026</span></div>
+      <div class="outlook-content">
+        <strong>Core Assessment:</strong> The Stryker attack has permanently altered the risk calculus for enterprise Microsoft 365 environments in the United States. This attack methodology — credential theft, Intune abuse, mass device wipe — is now a documented, proven, and replicable playbook. It will be adopted by criminal ransomware groups, other nation-state actors, and MOIS-affiliated cells operating outside Iran. Texas organizations that respond to Stryker the way many responded to SolarWinds — by watching and waiting — will face this threat vector from a position of unchanged exposure.<br><br>
+        <strong>Liberty CTI assessment:</strong> The organizations that act in the next 30–60 days — auditing Intune admin access, enforcing phishing-resistant MFA, reviewing BYOD policies, and implementing executive personal device security programs — will be materially better positioned than those that treat the Stryker attack as someone else's problem. <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────── SOURCE CITATIONS ─────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section VI</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Source Citations — In Alignment with Accepted IC Sourcing Practices</h2>
+  <p style="font-size:13px; color:#666; margin-bottom:4px; font-family:'IBM Plex Mono', monospace;">All sources are open-source. Liberty CTI does not use or disclose non-public or classified information.</p>
+
+  <div class="src-block">
+    <div class="src-header">SOURCE REFERENCE CITATIONS — OPEN SOURCE INTELLIGENCE BASIS — ATB-2026-13 — IN ALIGNMENT WITH ACCEPTED IC SOURCING PRACTICES</div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-01</span>
+      <span class="src-desc"><a href="https://www.cnbc.com/2026/03/27/iran-hackers-fbi-director-kash-patel.html" target="_blank" rel="noopener" class="src-link"><span>Reuters/CNBC: "Iran-linked hackers breach FBI Director Kash Patel's personal email"</span></a> — March 27, 2026. Primary source for Patel breach confirmation, Handala identification, Check Point assessment, and personal Gmail account attribution. RELIABILITY: HIGH (FBI confirmation, Reuters/CNBC corroboration). RELEVANCE: CRITICAL to KJ-3, Centerpiece.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-02</span>
+      <span class="src-desc"><a href="https://www.nbcnews.com/tech/security/iranian-hackers-publish-emails-allegedly-stolen-kash-patel-rcna265490" target="_blank" rel="noopener" class="src-link"><span>NBC News: "Iranian hackers publish emails allegedly stolen from Kash Patel"</span></a> — March 27, 2026. Primary source for email metadata analysis (folders last modified May 2025), breach timeline, and BYOD scope of Stryker compromise. RELIABILITY: HIGH. RELEVANCE: CRITICAL to KJ-3.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-03</span>
+      <span class="src-desc"><a href="https://krebsonsecurity.com/2026/03/iran-backed-hackers-claim-wiper-attack-on-medtech-firm-stryker/" target="_blank" rel="noopener" class="src-link"><span>Krebs on Security: "Iran-Backed Hackers Claim Wiper Attack on Medtech Firm Stryker"</span></a> — March 2026. Primary source for Stryker attack technical analysis, Microsoft Intune abuse vector, Palo Alto Networks Void Manticore/Handala link, and attack scope characterization. RELIABILITY: HIGH. RELEVANCE: CRITICAL to KJ-2, Doctrine Section.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-04</span>
+      <span class="src-desc"><a href="https://techcrunch.com/2026/03/20/u-s-accuses-irans-government-of-operating-hacktivist-group-that-hacked-stryker/" target="_blank" rel="noopener" class="src-link"><span>TechCrunch: "US accuses Iran's government of operating hacktivist group that hacked Stryker"</span></a> — March 20, 2026. Primary source for DOJ formal attribution of Handala to MOIS, domain seizure details, and DomainTools confirmation of rapid infrastructure reconstitution. RELIABILITY: HIGH (DOJ primary source). RELEVANCE: CRITICAL to KJ-1, KJ-5.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-05</span>
+      <span class="src-desc"><a href="https://www.securityweek.com/stryker-says-malicious-file-found-during-probe-into-iran-linked-attack/" target="_blank" rel="noopener" class="src-link"><span>SecurityWeek: "Stryker Says Malicious File Found During Probe Into Iran-Linked Attack"</span></a> — March 24, 2026. Primary source for Stryker updated investigation findings, FBI malware alert (Stage 1/2 implants), Palo Alto Unit 42 containment assessment, and attack chain technical reconstruction. RELIABILITY: HIGH. RELEVANCE: CRITICAL to KJ-2, Warning Box analysis.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-06</span>
+      <span class="src-desc"><a href="https://unit42.paloaltonetworks.com/iranian-cyberattacks-2026/" target="_blank" rel="noopener" class="src-link"><span>Palo Alto Networks Unit 42: "Threat Brief: March 2026 Escalation of Cyber Risk Related to Iran"</span></a> — March 26, 2026 (updated). Primary source for Handala = Void Manticore attribution, MOIS operational structure, Electronic Operations Room formation, supply-chain targeting doctrine, and hacktivist group volume data. RELIABILITY: AUTHORITATIVE (commercial intelligence firm with primary visibility). RELEVANCE: CRITICAL to Doctrine Section, KJ-4.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-07</span>
+      <span class="src-desc"><a href="https://techcrunch.com/2026/03/11/stryker-hack-pro-iran-hacktivist-group-handala-says-it-is-behind-attack/" target="_blank" rel="noopener" class="src-link"><span>TechCrunch: "Pro-Iran hacktivist group says it is behind attack on medical tech giant Stryker"</span></a> — March 11, 2026. Primary source for Stryker attack initial reporting, CISA Acting Director statement, IBM X-Force Handala toolkit characterization. RELIABILITY: HIGH. RELEVANCE: HIGH to Healthcare sector assessment.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-08</span>
+      <span class="src-desc"><a href="https://www.cbsnews.com/news/fbi-director-kash-patel-email-hackers-lran/" target="_blank" rel="noopener" class="src-link"><span>CBS News: "FBI Director Kash Patel's personal email breached by hackers linked to Iran"</span></a> — March 27, 2026. Source for State Dept. $10M reward announcement, domain reconstitution timeline, and DOJ framing of Handala as psychological operations front. RELIABILITY: HIGH. RELEVANCE: HIGH to KJ-1, Outlook.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-09</span>
+      <span class="src-desc"><a href="https://www.hipaajournal.com/stryker-cyberattack-iran/" target="_blank" rel="noopener" class="src-link"><span>HIPAA Journal: "Iran Linked Hacking Group Wipes Data of U.S. Medical Device Manufacturer"</span></a> — March 2026. Source for Stryker SEC 8-K filing details, order processing/manufacturing/shipping disruption confirmation, March 15 containment update, and broader healthcare sector implications. RELIABILITY: HIGH. RELEVANCE: HIGH to Healthcare sector assessment, KJ-2.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-10</span>
+      <span class="src-desc"><a href="https://www.nbcnews.com/tech/security/iran-cyber-attack-stryker-us-company-risk-war-fbi-handala-rcna264332" target="_blank" rel="noopener" class="src-link"><span>NBC News: "FBI seems to seize website tied to Iranian cyberattack on Stryker"</span></a> — March 24, 2026. Source for Check Point "whack-a-mole" assessment, DOJ seizure operational details, and Handala Telegram channel persistence analysis. RELIABILITY: HIGH. RELEVANCE: HIGH to KJ-1, 30-day outlook.</span>
+    </div>
+
+    <p style="font-size:11px; color:#9A9080; font-family:'IBM Plex Mono', monospace; margin-top: 16px; margin-bottom: 0;">
+      SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) from U.S. government advisories and DOJ press releases, commercial threat intelligence firms (Palo Alto Networks Unit 42, Krebs on Security, SecurityWeek), and corroborated open-source news reporting (Reuters, NBC, CBS, TechCrunch, CNBC). No classified, restricted, or non-public government information was used. Confidence levels reflect source quality, corroboration, and analytical consistency, in alignment with accepted IC analytical practices.
+    </p>
+  </div>
+
+  <!-- ─────────────────── ANALYTIC NOTE ─────────────────── -->
+  <hr class="ruled-divider">
+
+  <div class="assessment-box" style="border-left-color: var(--gold);">
+    <div class="assessment-label">Analytic Note — Torch Fusion Cycle</div>
+    <p>This brief was produced using Liberty CTI's Torch Fusion Cycle. <strong>WHAT:</strong> Iran's MOIS-operated Handala network executed a destructive wiper attack against Stryker and a pre-staged hack-and-leak operation against the FBI Director. <strong>WHO:</strong> Handala / Void Manticore — confirmed MOIS persona, not an independent hacktivist group. <strong>WHY:</strong> Kinetic retaliation for U.S.-Israeli strikes on Iran; counter-retaliation for DOJ domain seizures; strategic signaling of cyber capability to U.S. audiences. <strong>WHAT COMES NEXT:</strong> Continued operations at elevated tempo; Stryker attack methodology now a replicable playbook; Texas healthcare and energy sectors face direct exposure. All key judgments carry explicit confidence levels in alignment with accepted IC analytical practices.</p>
+  </div>
+
+  <p style="font-size:13px; color:#9A9080; text-align:center; margin-top: 32px; font-family:'IBM Plex Mono', monospace; letter-spacing: 1.5px;">
+    For tailored executive briefings or advisory retainer inquiries: <strong style="color: var(--navy);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="167f7862737a567a7f747364626f75627f3875797b">[email&#160;protected]</a></strong> · <strong style="color: var(--navy);">libertycti.com</strong>
+  </p>
+
+</div><!-- end page-body -->
+
+<!-- FOOTER -->
+<div class="brief-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Liberty Cyber Threat Intelligence</div>
+      <div class="footer-brand" style="font-size:9px; opacity:0.5; margin-top:4px;">libertycti.com · San Antonio, Texas</div>
+    </div>
+    <div class="footer-legal">
+      ALAMO THREAT BRIEF // ATB-2026-13 // 29 MARCH 2026<br>
+      LIBERTY CTI OPEN SOURCE ANALYSIS<br>
+      © 2026 LIBERTY CTI LLC. ALL RIGHTS RESERVED.<br>
+      LIBERTY CTI OPEN SOURCE ANALYSIS
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CLASSIFICATION BANNER -->
+<div class="clas

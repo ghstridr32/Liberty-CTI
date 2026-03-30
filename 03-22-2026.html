@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alamo Threat Brief | 22 March 2026 | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #08142A;
+    --navy-mid: #0D1F42;
+    --navy-light: #132554;
+    --gold: #C9A84C;
+    --gold-light: #E2C47A;
+    --gold-dim: #8A6E30;
+    --white: #F4F0E8;
+    --off-white: #EAE4D6;
+    --gray: #9A9080;
+    --red: #C1272D;
+    --red-dim: #7A1A1F;
+    --amber: #D4831A;
+    --green: #2A6B4A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--navy);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── CLASSIFICATION BANNER ── */
+  .class-banner {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--navy);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        rgba(201,168,76,0.03) 40px,
+        rgba(201,168,76,0.03) 41px
+      );
+  }
+
+  .masthead-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 40px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .masthead-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+    padding-bottom: 28px;
+  }
+
+  .emblem-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 40px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .emblem-hero {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 22px rgba(201,168,76,0.45));
+  }
+
+  .masthead-brand { flex: 1; position: relative; }
+
+  .alamo-silhouette {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 320px;
+    opacity: 0.07;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .brand-name, .product-name {
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+
+  .masthead-meta {
+    display: flex;
+    gap: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+  .meta-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .threat-level-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .tl-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .tl-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .tl-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .tl-dot.active { background: var(--red); border-color: var(--red); box-shadow: 0 0 8px rgba(193,39,45,0.6); }
+  .tl-dot.active.gold { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
+
+  .tl-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── TICKER ── */
+  .ticker-strip {
+    background: var(--red-dim);
+    border-top: 1px solid var(--red);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    cursor: pointer;
+  }
+
+  .ticker-strip:hover .ticker-inner { animation-play-state: paused; }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 40s linear infinite;
+  }
+
+  .ticker-inner a.ticker-item {
+    display: inline;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--white);
+    letter-spacing: 1.5px;
+    padding: 0 60px;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .ticker-inner a.ticker-item:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .ticker-inner a.ticker-item::before {
+    content: '◆ ';
+    color: var(--gold);
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── TIMESTAMP BAR ── */
+  .timestamp-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 14px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .timestamp-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .timestamp-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 6px rgba(201,168,76,0.7);
+    animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(201,168,76,0.7); }
+    50%       { opacity: 0.5; box-shadow: 0 0 2px rgba(201,168,76,0.3); }
+  }
+  .timestamp-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(201,168,76,0.65);
+    text-transform: uppercase;
+  }
+  .timestamp-text strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 24px;
+  }
+
+  .section-rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--navy), transparent);
+  }
+
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    background: var(--navy);
+    padding: 4px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  h2.section-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  h3.sub-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-light);
+    margin: 28px 0 10px;
+    border-left: 3px solid var(--gold);
+    padding-left: 12px;
+  }
+
+  p {
+    margin-bottom: 14px;
+    color: #1a2840;
+  }
+
+  /* ── KEY JUDGMENTS ── */
+  .kj-block {
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-left: 4px solid var(--gold);
+    padding: 32px 36px;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .kj-block::before {
+    content: 'KEY JUDGMENTS';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    position: absolute;
+    top: -1px;
+    left: 36px;
+    background: var(--navy);
+    padding: 0 8px;
+    transform: translateY(-50%);
+  }
+
+  .kj-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .kj-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .kj-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-dim);
+    font-weight: 600;
+    white-space: nowrap;
+    padding-top: 3px;
+    min-width: 24px;
+  }
+
+  .kj-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    color: var(--off-white);
+    line-height: 1.65;
+  }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: rgba(193,39,45,0.06);
+    border: 1px solid rgba(193,39,45,0.3);
+    border-left: 4px solid var(--red);
+    padding: 20px 24px;
+    margin: 24px 0;
+    position: relative;
+  }
+
+  .warning-box::before {
+    content: '⚠ CRITICAL INTELLIGENCE WARNING';
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--red);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    color: #1a2840;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* ── ASSESSMENT BOX ── */
+  .assessment-box {
+    background: rgba(8,20,42,0.05);
+    border: 1px solid rgba(8,20,42,0.12);
+    border-left: 3px solid var(--navy-light);
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+
+  .assessment-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--navy-mid);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .assessment-box p {
+    margin: 0;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--navy);
+  }
+
+  /* ── CONFIDENCE BADGES ── */
+  .conf {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  .conf-high {
+    background: rgba(255,255,255,0.12);
+    color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.45);
+  }
+
+  .conf-mod {
+    background: rgba(201,168,76,0.22);
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+  }
+
+  .conf-low {
+    background: rgba(154,144,128,0.2);
+    color: #C8BFB0;
+    border: 1px solid #9A9080;
+  }
+
+  /* Override for light-background contexts */
+  .pir-body .conf-high,
+  .outlook-content .conf-high {
+    background: rgba(8,20,42,0.08);
+    color: var(--navy);
+    border: 1px solid var(--navy-light);
+  }
+
+  .pir-body .conf-mod,
+  .outlook-content .conf-mod {
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-dim);
+    border: 1px solid var(--gold-dim);
+  }
+
+  .pir-body .conf-low,
+  .outlook-content .conf-low {
+    background: rgba(154,144,128,0.1);
+    color: #6B6055;
+    border: 1px solid var(--gray);
+  }
+
+  /* ── THREAT MATRIX TABLE ── */
+  .threat-matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+  }
+
+  .threat-matrix thead tr {
+    background: var(--navy);
+  }
+
+  .threat-matrix th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .threat-matrix td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .threat-matrix tbody tr:hover {
+    background: rgba(8,20,42,0.03);
+  }
+
+  .threat-level {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .tl-critical { background: rgba(193,39,45,0.12); color: var(--red); border: 1px solid rgba(193,39,45,0.3); }
+  .tl-high { background: rgba(212,131,26,0.12); color: var(--amber); border: 1px solid rgba(212,131,26,0.3); }
+  .tl-elevated { background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); }
+
+  /* ── PIR RESPONSES ── */
+  .pir-block {
+    border: 1px solid rgba(8,20,42,0.12);
+    margin: 20px 0;
+    overflow: hidden;
+  }
+
+  .pir-header {
+    background: var(--navy-mid);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .pir-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 600;
+    background: rgba(201,168,76,0.15);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .pir-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--off-white);
+    letter-spacing: 1px;
+  }
+
+  .pir-body {
+    padding: 18px 20px;
+    background: #FAFAF7;
+    border-top: 1px solid rgba(8,20,42,0.08);
+  }
+
+  .pir-body p {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .pir-body p:last-child { margin-bottom: 0; }
+
+  /* ── SOURCE CITATIONS ── */
+  .icd206-block {
+    background: #F7F5F0;
+    border: 1px solid rgba(8,20,42,0.1);
+    padding: 24px 28px;
+    margin: 36px 0;
+  }
+
+  .icd206-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(8,20,42,0.1);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .src-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    align-items: start;
+  }
+
+  .src-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold-dim);
+    font-weight: 600;
+    padding-top: 2px;
+  }
+
+  .src-desc {
+    color: #2a3a55;
+    line-height: 1.55;
+  }
+
+  .src-desc .src-title {
+    font-style: italic;
+  }
+
+  a.src-link {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold-dim);
+    text-underline-offset: 3px;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+
+  a.src-link:hover {
+    color: var(--gold-dim);
+    text-decoration-color: var(--gold);
+  }
+
+  a.src-link .src-title {
+    font-style: italic;
+  }
+
+  /* ── SECTOR EXPOSURE GRID ── */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .sector-card {
+    border: 1px solid rgba(8,20,42,0.1);
+    padding: 18px 20px;
+    background: #FAFAF7;
+  }
+
+  .sector-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+  }
+
+  .sector-icon {
+    font-size: 18px;
+  }
+
+  .sector-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    text-transform: uppercase;
+    flex: 1;
+    margin-left: 10px;
+  }
+
+  .sector-card p {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #2a3a55;
+  }
+
+  .sector-card p:last-child { margin-bottom: 0; }
+
+  /* ── OUTLOOK TABLE ── */
+  .outlook-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+    gap: 0;
+  }
+
+  .outlook-row:last-child { border-bottom: none; }
+
+  .outlook-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    padding: 14px 16px;
+    background: rgba(8,20,42,0.04);
+    border-right: 1px solid rgba(8,20,42,0.08);
+    display: flex;
+    align-items: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .outlook-content {
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #1a2840;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  .brief-footer {
+    background: var(--navy);
+    padding: 36px 40px;
+    margin-top: 60px;
+  }
+
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .footer-legal {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: 1.5px;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ── DIVIDER ── */
+  .ruled-divider {
+    border: none;
+    border-top: 1px solid rgba(8,20,42,0.12);
+    margin: 36px 0;
+  }
+
+  /* ── INTRO DECK ── */
+  .intro-deck {
+    border-top: 4px solid var(--gold);
+    padding: 28px 0 0;
+    margin-bottom: 12px;
+  }
+
+  .intro-deck p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #1a2840;
+    font-weight: 300;
+  }
+
+  .intro-deck strong {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── HIGHLIGHT PULL ── */
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    margin: 24px 0;
+    padding: 6px 0 6px 20px;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* ── ANALYTICAL QUALIFIER ── */
+  .aq {
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  /* Inside the dark KJ block, strong tags also need to be light */
+  .kj-text strong {
+    color: var(--gold-light);
+  }
+
+  @media (max-width: 700px) {
+    .masthead-inner, .page-body, .brief-footer { padding-left: 20px; padding-right: 20px; }
+    .product-name { font-size: 30px; }
+    .masthead-meta { flex-wrap: wrap; gap: 20px; }
+    .sector-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-legal { text-align: left; }
+  }
+
+  @media print {
+    .class-banner { position: relative; }
+    .ticker-strip { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CLASSIFICATION BANNER -->
+<div class="class-banner">
+  LIBERTY CTI OPEN SOURCE ANALYSIS
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <!-- Emblem centered above title -->
+  <div class="emblem-wrap">
+    <img src="liberty-cti-emblem.png" class="emblem-hero" alt="Liberty CTI Emblem"
+         onerror="this.style.display='none'">
+  </div>
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <div class="masthead-brand">
+        <svg class="alamo-silhouette" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Alamo facade silhouette -->
+          <rect x="60" y="110" width="380" height="110" fill="#C9A84C"/>
+          <path d="M170,110 L170,70 Q172,55 185,50 Q200,42 215,48 Q222,44 230,42 Q245,38 255,38 Q265,38 270,42 Q278,44 285,48 Q300,42 315,50 Q328,55 330,70 L330,110 Z" fill="#C9A84C"/>
+          <path d="M172,70 Q180,60 190,58 L190,110" fill="none" stroke="#C9A84C" stroke-width="1"/>
+          <path d="M328,70 Q320,60 310,58 L310,110" fill="none" stroke="#C9A84C" stroke-width="1"/>
+          <rect x="60" y="90" width="110" height="130" fill="#C9A84C"/>
+          <rect x="60" y="80" width="30" height="15" fill="#C9A84C"/>
+          <rect x="90" y="72" width="30" height="22" fill="#C9A84C"/>
+          <rect x="120" y="84" width="50" height="10" fill="#C9A84C"/>
+          <rect x="330" y="90" width="110" height="130" fill="#C9A84C"/>
+          <rect x="410" y="80" width="30" height="15" fill="#C9A84C"/>
+          <rect x="380" y="72" width="30" height="22" fill="#C9A84C"/>
+          <rect x="330" y="84" width="50" height="10" fill="#C9A84C"/>
+          <path d="M215,220 L215,155 Q215,135 230,130 Q245,125 255,125 Q265,125 270,130 Q285,135 285,155 L285,220 Z" fill="#08142A"/>
+          <rect x="140" y="130" width="35" height="45" rx="17" fill="#08142A"/>
+          <rect x="325" y="130" width="35" height="45" rx="17" fill="#08142A"/>
+          <rect x="75" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <rect x="112" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <rect x="363" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <rect x="400" y="115" width="25" height="35" rx="12" fill="#08142A"/>
+          <rect x="40" y="218" width="420" height="4" fill="#C9A84C"/>
+        </svg>
+        <div class="brand-name">Liberty Cyber Threat Intelligence · libertycti.com</div>
+        <div class="product-name">Alamo Threat Brief</div>
+      </div>
+    </div>
+    <div class="masthead-meta">
+      <div class="meta-item">
+        <span class="meta-label">Issue Date</span>
+        <span class="meta-value">22 MARCH 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Volume</span>
+        <span class="meta-value">ATB-2026-12</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sector Coverage</span>
+        <span class="meta-value">ALL SECTORS</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Cycle</span>
+        <span class="meta-value">CY2026 · PIR SET ACTIVE</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Torch Fusion Cycle</span>
+        <span class="meta-value">WHAT · WHO · WHY · WHAT NEXT</span>
+      </div>
+    </div>
+    <div class="threat-level-bar">
+      <span class="tl-label">Global Threat Level</span>
+      <div class="tl-dots">
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active gold"></div>
+      </div>
+      <span class="tl-status">CRITICAL — ESCALATING</span>
+    </div>
+    <div class="timestamp-bar">
+      <div class="timestamp-item">
+        <div class="timestamp-dot"></div>
+        <span class="timestamp-text">LAST UPDATED: <strong>22 MAR 2026 // 0600 CST</strong></span>
+      </div>
+      <div class="timestamp-item">
+        <span class="timestamp-text">COVERAGE PERIOD: <strong>16–22 MAR 2026</strong></span>
+      </div>
+      <div class="timestamp-item">
+        <span class="timestamp-text">NEXT ISSUE: <strong>29 MAR 2026</strong></span>
+      </div>
+      <div class="timestamp-item">
+        <span class="timestamp-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BREAKING TICKER -->
+<div class="ticker-strip">
+  <div class="ticker-inner">
+    <a class="ticker-item" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener">IRGC-CY APT33 actively targeting U.S. ICS systems — CyberAv3ngers logging into industrial control systems using default credentials</a>
+    <a class="ticker-item" href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener">Operation Epic Fury fallout: Iranian cyber retaliation assessed HIGHLY LIKELY against U.S. critical infrastructure — Texas Gulf Coast ELEVATED</a>
+    <a class="ticker-item" href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener">Volt Typhoon (Voltzite) confirmed embedded in U.S. utility OT control loops — Dragos 2026 Annual Report</a>
+    <a class="ticker-item" href="https://theconversation.com/targeting-of-energy-facilities-turned-iran-war-into-worst-case-scenario-for-gulf-states-278730" target="_blank" rel="noopener">Ras Laffan LNG strike March 18 — Gulf energy disruption ripple effects reaching Texas petrochemical markets</a>
+    <a class="ticker-item" href="https://www.adn.com/nation-world/2026/03/03/iranian-strikes-on-amazon-data-centers-highlight-industrys-vulnerability-to-physical-disasters/" target="_blank" rel="noopener">IRGC drone strikes on AWS data centers UAE/Bahrain — dual-use cloud infrastructure now a confirmed kinetic target</a>
+    <a class="ticker-item" href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener">Sandworm (Electrum/Kamacite) scanned U.S. energy ICS devices March-July 2025 — evolved operational posture confirmed</a>
+    <a class="ticker-item" href="https://www.utilitydive.com/news/doe-awards-grid-security-artificial-intelligence-EPRI-ConEdison-Southern-Ameren/709360/" target="_blank" rel="noopener">Texas ERCOT grid: Volt Typhoon attempted breach unsuccessful per E-ISAC — monitoring continues at ELEVATED status</a>
+    <a class="ticker-item" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener">IRGC-CY APT33 actively targeting U.S. ICS systems — CyberAv3ngers logging into industrial control systems using default credentials</a>
+    <a class="ticker-item" href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener">Operation Epic Fury fallout: Iranian cyber retaliation assessed HIGHLY LIKELY against U.S. critical infrastructure — Texas Gulf Coast ELEVATED</a>
+    <a class="ticker-item" href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener">Volt Typhoon (Voltzite) confirmed embedded in U.S. utility OT control loops — Dragos 2026 Annual Report</a>
+    <a class="ticker-item" href="https://theconversation.com/targeting-of-energy-facilities-turned-iran-war-into-worst-case-scenario-for-gulf-states-278730" target="_blank" rel="noopener">Ras Laffan LNG strike March 18 — Gulf energy disruption ripple effects reaching Texas petrochemical markets</a>
+    <a class="ticker-item" href="https://www.adn.com/nation-world/2026/03/03/iranian-strikes-on-amazon-data-centers-highlight-industrys-vulnerability-to-physical-disasters/" target="_blank" rel="noopener">IRGC drone strikes on AWS data centers UAE/Bahrain — dual-use cloud infrastructure now a confirmed kinetic target</a>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- INTRO -->
+  <div class="intro-deck">
+    <p>
+      This issue of the <strong>Alamo Threat Brief</strong> covers the period <strong>16–22 March 2026</strong> and is dominated by a single strategic driver: the ongoing <strong>U.S.–Israeli military campaign against Iran</strong> (Operation Epic Fury / Operation Lion's Roar), launched 28 February 2026. The geopolitical and cyber consequences of this conflict are now the most consequential threat environment for Texas critical infrastructure since the Colonial Pipeline attack of 2021. This brief provides Liberty CTI's structured analytical assessment across all four strategic sectors, addresses active Priority Intelligence Requirements, and delivers a 30/60/90-day outlook calibrated to the Texas threat landscape.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- KEY JUDGMENTS -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section I</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Key Judgments</h2>
+
+  <div class="kj-block">
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that Iranian IRGC-affiliated cyber actors — including CyberAv3ngers, APT33, and APT55 — <span class="aq">are almost certainly</span> conducting active cyber operations against U.S. critical infrastructure in direct retaliation for Operation Epic Fury, with Texas Gulf Coast energy infrastructure assessed as a <strong>priority target</strong> based on adversary historical targeting patterns and the strategic significance of Permian Basin and LNG export infrastructure to U.S. energy markets.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that China's Volt Typhoon / Voltzite <span class="aq">very likely</span> maintains persistent access inside at least one U.S. critical infrastructure network connected to the electric grid and <span class="aq">almost certainly</span> is positioned to cause disruption in a future conflict scenario. Dragos's February 2026 reporting confirms Voltzite was embedded "inside the control loop" of strategic U.S. utilities through 2025. Texas ERCOT, while successfully protecting its grid from a known 2024 Volt Typhoon breach attempt, <span class="aq">likely</span> faces continued reconnaissance.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        The IRGC's March 2026 drone strikes against Amazon Web Services data centers in the UAE and Bahrain represent a strategic precedent: <span class="aq">highly likely</span> to reshape how nation-states — including Iran, Russia, and China — conceptualize commercial cloud infrastructure as a legitimate military target. Texas organizations relying on cloud-hosted OT management, industrial IoT, and financial clearinghouse infrastructure face an <span class="aq">elevated</span> risk environment that extends beyond traditional cyber threats.
+        <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-4</span>
+      <div class="kj-text">
+        Russia's GRU-linked Sandworm (tracked as Electrum by Dragos) and its initial access arm Kamacite <span class="aq">likely</span> remain postured for opportunistic escalation against U.S. energy infrastructure should the Iran conflict create a strategic window. Kamacite's documented March–July 2025 reconnaissance campaign against U.S. ICS devices — including energy and manufacturing — demonstrates a standing collection posture, not a dormant one.
+        <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-5</span>
+      <div class="kj-text">
+        The Ras Laffan LNG terminal strikes of 18–19 March 2026 and associated Gulf energy infrastructure attacks <span class="aq">likely</span> will drive LNG price volatility and supply chain disruption affecting Texas Gulf Coast operators within the next 30–60 days. This is primarily an economic and physical security risk; <span class="aq">roughly even chances exist</span> that the disruption also motivates follow-on IRGC-affiliated cyber operations targeting U.S. energy company executive and operational networks involved in LNG pricing and logistics.
+        <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- STRATEGIC CONTEXT -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section II</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Strategic Context: Operation Epic Fury and the Cyber Dimension</h2>
+
+  <p>
+    On 28 February 2026, the United States and Israel launched coordinated airstrikes against Iranian leadership, IRGC facilities, and nuclear infrastructure — an operation designated <em>Epic Fury</em> by the U.S. and <em>Operation Lion's Roar</em> by Israel. Within hours, Supreme Leader Ali Khamenei was killed. Iran's retaliatory response has been immediate, broad, and multi-domain. The cyber dimension of this conflict is now active and escalating.
+  </p>
+
+  <div class="warning-box">
+    <p>
+      On 1 March 2026, Iran's IRGC launched Shahed 136 kamikaze drone strikes against two Amazon Web Services data centers in the UAE (ME-CENTRAL-1) and one in Bahrain (ME-SOUTH-1) — the first known military strikes against a commercial hyperscaler's infrastructure in history. AWS confirmed structural damage, power disruption, fire, and water damage affecting availability zones across the region. These strikes set a dangerous precedent: <strong>commercial cloud infrastructure is now a confirmed kinetic military target.</strong>
+    </p>
+  </div>
+
+  <p>
+    Iran's retaliation has been executed under what Flashpoint analysts describe as a pre-planned <em>Mosaic Defense</em> doctrine — a decentralized, asymmetric approach enabling continuous counter-operations even under degraded leadership conditions. The IRGC's cyber arm, operating with the same institutional resilience, has activated multiple concurrent tracks: state-directed APT operations targeting ICS/OT systems; proxy hacktivist campaigns producing DDoS and defacement; and long-prepared wiper and disruptive tools staged for deployment.
+  </p>
+
+  <p>
+    CloudSEK's March 2026 reporting confirms that IRGC-linked groups — specifically CyberAv3ngers, APT33, and APT55 — are actively targeting American industrial control systems. The reporting finds CyberAv3ngers actors logging into ICS devices using <strong>default credentials</strong> and installing malware designed to establish control over those systems. This is not reconnaissance. This is active pre-positioning for disruption.
+  </p>
+
+  <div class="pull-quote">
+    "Commercial cloud infrastructure, energy systems, and ICS devices are all now simultaneously in the crosshairs. The Iran conflict has collapsed the boundary between geopolitical crisis and operational threat to Texas industries."
+    <br><br>— Liberty CTI Analysis, 22 March 2026
+  </div>
+
+  <p>
+    On 18–19 March 2026, the conflict reached a dangerous new inflection: Israeli strikes targeted Iran's Asaluyeh complex at South Pars gas field, and Iran retaliated with missile strikes causing "extensive damage" to Qatar's Ras Laffan LNG terminal. Additional Iranian strikes damaged oil refineries in Kuwait and Saudi Arabia. These are not peripheral events for Texas. Ras Laffan and Permian Basin/Gulf Coast LNG are direct commercial competitors and, more importantly, structural pillars of the same global LNG pricing ecosystem.
+  </p>
+
+  <!-- ─────────────────────────────── -->
+  <!-- ADVERSARY ANALYSIS -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section III</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Adversary Analysis — Current Posture Assessment</h2>
+
+  <h3 class="sub-head">Iran — IRGC-CY / APT33 / CyberAv3ngers</h3>
+
+  <p>
+    Iran is the <strong>dominant near-term cyber threat</strong> to Texas critical infrastructure. The IRGC and its Ministry of Intelligence (MOIS) oversee a mature cyber ecosystem combining state-directed APTs and proxy hacktivist collectives. In the current conflict environment, this ecosystem has been activated across multiple operational tracks simultaneously.
+  </p>
+
+  <p>
+    APT33 (Refined Kitten / Holmium) — historically focused on the energy sector, with documented campaigns against aviation, petrochemical, and defense firms — is assessed by CloudSEK to be among the active actors targeting American ICS. APT33 has demonstrated destructive capability through the SHAMOON wiper family and has targeted Saudi Aramco and Gulf energy infrastructure in prior campaigns. Texas LNG exporters, refinery operators, and ERCOT-connected utilities share a target profile nearly identical to prior APT33 victims.
+  </p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">Liberty CTI Assessment — Iran</div>
+    <p>Liberty CTI assesses with HIGH CONFIDENCE that IRGC-affiliated cyber operations against U.S. critical infrastructure are highly likely to intensify over the next 30 days as the kinetic conflict in the Gulf continues. Texas Gulf Coast energy infrastructure — including LNG export terminals at Sabine Pass, Corpus Christi, and Freeport — is assessed as a CRITICAL priority target based on adversary targeting history, strategic significance, and the current geopolitical driver of disrupting U.S. energy market pricing leverage.</p>
+  </div>
+
+  <h3 class="sub-head">China — Volt Typhoon (Voltzite) / APT41</h3>
+
+  <p>
+    China's Volt Typhoon — tracked as Voltzite by Dragos — continues its long-term pre-positioning campaign inside U.S. critical infrastructure. Dragos CEO Robert Lee confirmed in February 2026 that Voltzite was "getting inside the control loop" of U.S. utility systems in 2025, with the primary intent of future disruption, not current espionage. Dragos further confirmed Voltzite continued breaching U.S. electric, oil, and gas companies in 2025 by compromising cellular gateways and routers as initial access vectors.
+  </p>
+
+  <p>
+    CISA, NSA, and FBI joint advisories assess that PRC state-sponsored actors have maintained access in some victim IT environments for <strong>at least five years</strong>. The Texas ERCOT grid was targeted by Volt Typhoon and successfully defended in 2024, per E-ISAC reporting. However, the breadth of Voltzite's 2025 campaign — and the confirmed OT control loop access at peer utilities — indicates that a single successful defense does not constitute a secure environment.
+  </p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">Liberty CTI Assessment — China</div>
+    <p>Liberty CTI assesses with HIGH CONFIDENCE that Volt Typhoon / Voltzite's persistent access campaign against U.S. energy infrastructure almost certainly continues in 2026. Texas energy operators should assume that peer utilities have been compromised even if their own networks have not. The China threat is a long-cycle pre-positioning operation — not an immediate disruption actor — but the Iran conflict may alter Beijing's strategic calculus if it sees an opportunity to probe U.S. crisis-response capacity.</p>
+  </div>
+
+  <h3 class="sub-head">Russia — Sandworm (Electrum) / Kamacite</h3>
+
+  <p>
+    Russia's GRU-linked Sandworm — tracked as Electrum by Dragos — remains the most destructive APT actor in energy sector history, responsible for the 2016 Ukraine power grid attack (Industroyer) and subsequent wiper campaigns. Dragos attributed the December 2025 cyberattacks against Poland's power grid to Electrum. Kamacite, Electrum's initial access provider, conducted a documented reconnaissance campaign against exposed ICS devices in U.S. water, energy, and manufacturing sectors from March to July 2025.
+  </p>
+
+  <p>
+    While Russia is primarily focused on the Ukraine conflict and has not yet activated its full ICS disruptive capability against the U.S. homeland, Kamacite's standing reconnaissance posture means that if Moscow decides to escalate against U.S. infrastructure — whether in response to Iran-related policy decisions or Ukraine aid — the access and targeting knowledge are already in place.
+  </p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">Liberty CTI Assessment — Russia</div>
+    <p>Liberty CTI assesses with MODERATE CONFIDENCE that Russia likely maintains a standing collection and pre-positioning posture against U.S. energy infrastructure but is unlikely to execute disruptive operations against Texas targets in the next 30 days absent a major escalation in U.S. policy toward Russia. The Iran conflict modestly increases the probability that Russia opportunistically tests U.S. crisis-response capacity over the next 60–90 days.</p>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- CURRENT THREAT MATRIX -->
+  <!-- ─────────────────────────────── -->
+  <h3 class="sub-head">Current Texas Threat Matrix — 22 March 2026</h3>
+
+  <table class="threat-matrix">
+    <thead>
+      <tr>
+        <th>Threat Actor</th>
+        <th>⚡ Energy</th>
+        <th>🏛 Finance</th>
+        <th>♥ Healthcare</th>
+        <th>🛡 Defense</th>
+        <th>30-Day Trend</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Iran IRGC-CY / APT33 / CyberAv3ngers</strong></td>
+        <td><span class="threat-level tl-critical">CRITICAL ↑</span></td>
+        <td><span class="threat-level tl-high">HIGH ↑</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED ↑</span></td>
+        <td style="font-size:12px;color:#C1272D;font-family:monospace;">ESCALATING RAPIDLY</td>
+      </tr>
+      <tr>
+        <td><strong>China Volt Typhoon / Voltzite</strong></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td style="font-size:12px;color:#D4831A;font-family:monospace;">STEADY / PERSISTENT</td>
+      </tr>
+      <tr>
+        <td><strong>Russia Sandworm / Electrum</strong></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td style="font-size:12px;color:#D4831A;font-family:monospace;">WATCHING / OPPORTUNISTIC</td>
+      </tr>
+      <tr>
+        <td><strong>DPRK Lazarus / BlueNoroff</strong></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td style="font-size:12px;color:#8A6E30;font-family:monospace;">STEADY — FINANCIAL OPS</td>
+      </tr>
+      <tr>
+        <td><strong>Criminal Ransomware Ecosystem</strong></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td style="font-size:12px;color:#D4831A;font-family:monospace;">ELEVATED — CRISIS OPP.</td>
+      </tr>
+      <tr>
+        <td><strong>Hacktivist / Iran Proxy Networks</strong></td>
+        <td><span class="threat-level tl-high">HIGH ↑</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED ↑</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-high">HIGH ↑</span></td>
+        <td style="font-size:12px;color:#C1272D;font-family:monospace;">ACTIVE — ESCALATING</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:11px; color:#9A9080; font-family:'IBM Plex Mono', monospace;">↑ Denotes upward trend vs. prior 30-day period. Ratings reflect Liberty CTI baseline assessment as of 22 March 2026.</p>
+
+  <!-- ─────────────────────────────── -->
+  <!-- SECTOR EXPOSURE -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section IV</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Texas Sector Exposure Assessment</h2>
+
+  <div class="sector-grid">
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">⚡</span>
+        <span class="sector-name">Energy / ERCOT</span>
+        <span class="threat-level tl-critical">CRITICAL</span>
+      </div>
+      <p>The Gulf Coast LNG export corridor — Sabine Pass, Corpus Christi, Freeport — is the most geopolitically exposed sector in Texas in the current environment. Iran's March 18 strikes on Ras Laffan directly affect global LNG pricing dynamics in which Texas producers are central actors.</p>
+      <p>IRGC-CY actors using default credential attacks on ICS devices represent a direct threat to Texas refinery and pipeline SCADA infrastructure. <strong>Any Texas energy firm using Unitronics, Schneider Electric, or Honeywell ICS equipment connected to internet-accessible management interfaces should treat this week as a red-letter warning period.</strong></p>
+      <p>Volt Typhoon's confirmed OT control-loop access at peer U.S. utilities means ERCOT and connected Texas utilities are operating in a compromised peer environment even if their own networks appear clean.</p>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">🏛</span>
+        <span class="sector-name">Finance / Banking</span>
+        <span class="threat-level tl-high">HIGH</span>
+      </div>
+      <p>Texas financial institutions — USAA, Frost Bank, and major DFW banking concentrations — are not primary Iranian targets in the current campaign, but are exposed through two secondary vectors: cloud infrastructure disruption (AWS outages from the Gulf strikes have demonstrated cascading effects on financial services) and opportunistic hacktivist DDoS campaigns running in parallel to state operations.</p>
+      <p>DPRK Lazarus Group remains the most persistent financial sector threat, conducting cryptocurrency theft operations that have historically targeted U.S. financial firms. The Iran conflict does not significantly alter the DPRK threat posture, which is driven by sanctions-evasion revenue requirements independent of the current crisis.</p>
+      <p>Ransomware groups — particularly those with Russian-language ecosystem ties — are <em>likely</em> to opportunistically target Texas financial and healthcare organizations while security attention is concentrated on the Iran/energy narrative.</p>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">♥</span>
+        <span class="sector-name">Healthcare / TMC</span>
+        <span class="threat-level tl-high">HIGH</span>
+      </div>
+      <p>The Texas Medical Center — largest medical complex in the world — and the broader Texas healthcare ecosystem remain at HIGH risk from criminal ransomware operators, with RHYSIDA, ALPHV successor groups, and Scattered Spider the primary actors. Healthcare is not a primary Iranian state target in the current cycle, but ransomware groups tracking the news cycle understand that security operations centers are distracted.</p>
+      <p>Kimsuky (DPRK) data-theft operations targeting U.S. healthcare research and pharmaceutical organizations continue at a baseline level. Texas A&M Health Sciences and UT Health System should maintain heightened monitoring of spear-phishing targeting research-affiliated email accounts.</p>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">🛡</span>
+        <span class="sector-name">Defense Industrial Base</span>
+        <span class="threat-level tl-high">HIGH</span>
+      </div>
+      <p>San Antonio's defense contractor ecosystem — Port San Antonio, JBSA supply chain, and Tier 2/3 contractors supporting 16th Air Force and NSA Texas — remains a CRITICAL focus for Chinese cyber espionage. Volt Typhoon and APT41 targeting of defense-adjacent networks intensifies during U.S. military operations, as China seeks to understand U.S. operational planning, logistics, and weapons system performance data.</p>
+      <p>The current Iran conflict is providing China with a strategic intelligence collection opportunity: U.S. military and industrial communications about Operation Epic Fury, weapons systems performance, ISR data, and AI-assisted targeting (notably, Claude/Anthropic's AI was reportedly used in the Iran campaign) represent high-value collection targets for PRC MSS-affiliated actors.</p>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- PIR RESPONSES -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section V</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Priority Intelligence Requirement Responses</h2>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-1</span>
+      <span class="pir-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response:</strong> The trigger threshold has been crossed. Operation Epic Fury represents the highest-severity geopolitical trigger event since Russia's 2022 invasion of Ukraine. Iran's IRGC has operationally activated its cyber retaliation capability. Liberty CTI previously assessed that new OFAC sanctions or a military strike against IRGC leadership would trigger retaliatory cyber operations within 30–45 days. The timeline has compressed: operations began within 72 hours of the February 28 strikes.</p>
+      <p>The key analytical question is no longer <em>whether</em> Iranian cyber retaliation will occur against U.S. infrastructure, but <em>how destructive</em> that retaliation will become. The IRGC's demonstrated willingness to execute kinetic strikes against commercial cloud infrastructure (AWS data centers, UAE/Bahrain) indicates a threat actor operating with high risk tolerance and escalation authority. Liberty CTI assesses that IRGC-CY operations against U.S. ICS/OT systems — currently at the credential-access and malware-staging phase — <span class="aq">likely</span> will progress toward disruptive execution within 30–60 days absent a ceasefire or significant operational setback to Iranian cyber forces. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-2</span>
+      <span class="pir-title">CHINESE CYBER ADJUSTMENTS AMID U.S. TECH COMPETITION AND TAIWAN STRAIT TENSIONS</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response:</strong> The Iran conflict provides China with an intelligence windfall and a strategic observation window. Beijing is <em>likely</em> using the current crisis to assess U.S. military operational tempo, logistics, AI/cloud dependency in combat operations, and allied resilience — all directly applicable to China's Taiwan Strait contingency planning.</p>
+      <p>Volt Typhoon / Voltzite maintains its persistent pre-positioning posture. There is no current evidence of China activating disruptive ICS capabilities against U.S. infrastructure in response to the Iran conflict. However, the February 2026 Dragos report confirmation that Voltzite was embedded inside U.S. utility control loops through 2025 means the capability is positioned. If U.S.-China tensions escalate — particularly over Taiwan Strait transits or semiconductor export controls — the <span class="aq">probability of activation increases from unlikely to roughly even chance</span> over the subsequent 12 months. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-3</span>
+      <span class="pir-title">RUSSIAN DISRUPTIVE OPS IN RESPONSE TO SANCTIONS / BATTLEFIELD DEVELOPMENTS</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response:</strong> Russia's Sandworm/Electrum remains postured for escalation but has not activated disruptive operations against U.S. infrastructure in the current cycle. Kamacite's 2025 reconnaissance campaign against U.S. ICS devices confirms a standing collection posture. Russia <em>likely</em> calculates that activating against U.S. infrastructure while the U.S. is engaged in the Iran conflict risks full-spectrum escalation at a moment when U.S. attention is divided — a double-edged strategic calculation.</p>
+      <p>Liberty CTI assesses that Russia is <em>unlikely</em> to conduct a major disruptive cyber operation against Texas energy infrastructure in the next 30 days but <em>likely</em> will continue collection and pre-positioning activities. The risk calculus shifts if U.S. policy decisions on Ukraine aid or Russia sanctions escalate significantly during the Iran conflict period. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-4</span>
+      <span class="pir-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response:</strong> CONFIRMED ACTIVE. IRGC-affiliated actors are conducting multi-track cyber operations. Track 1: CyberAv3ngers targeting ICS devices with default credentials and custom ladder logic files — consistent with 2023 TTP profile but now deployed at wartime operational scale. Track 2: APT33 and APT55 conducting espionage and disruptive staging operations against American critical infrastructure networks. Track 3: Proxy hacktivist networks generating high-volume DDoS and defacement campaigns to signal political grievance and distract security operations. Over 150 hacktivist incidents were recorded in the first week of the conflict alone (CloudSEK). <span class="conf conf-high">HIGH CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-5</span>
+      <span class="pir-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
+    </div>
+    <div class="pir-body">
+      <p><strong>Response:</strong> Texas faces a convergence of threat vectors in this cycle. Energy sector exposure is at CRITICAL levels driven by the Iran conflict and the simultaneous persistence of Volt Typhoon's pre-positioning campaign. Financial sector exposure is elevated by the cloud infrastructure disruption precedent set by the AWS data center strikes — Texas financial firms relying on single-cloud architecture should re-evaluate their resilience assumptions. Defense industrial base exposure is elevated by China's opportunistic intelligence collection during U.S. military operations. Healthcare remains primarily at risk from criminal ransomware operators who predictably exploit crisis-driven security operations center distraction.</p>
+      <p>The common thread across all sectors: <strong>Texas organizations that have not conducted tabletop exercises incorporating nation-state ICS attack scenarios in the past 12 months are operating on an outdated threat model.</strong> <span class="conf conf-high">HIGH CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- INDICATORS TO WATCH -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section VI</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Indicators to Watch — Collection Requirements</h2>
+
+  <p>Liberty CTI is monitoring the following indicators as the most consequential signals for escalation or de-escalation of the Texas threat environment over the next 30 days:</p>
+
+  <h3 class="sub-head">Escalation Indicators — Iran</h3>
+  <p><strong>I&W-01:</strong> CISA emergency directive referencing energy sector ICS vulnerabilities tied to IRGC-affiliated tooling — <em>would signal active compromise campaign is underway, not just reconnaissance.</em></p>
+  <p><strong>I&W-02:</strong> New reporting of wiper malware family (consistent with SHAMOON, ZeroCleare lineage) identified in U.S. energy sector networks — <em>would indicate shift from pre-positioning to destructive execution.</em></p>
+  <p><strong>I&W-03:</strong> IRGC official statements or Iranian state media explicitly naming U.S. energy infrastructure (including specific Texas locations) as retaliation targets — <em>highly likely to precede operational activation.</em></p>
+  <p><strong>I&W-04:</strong> Anomalous access attempts to Texas refinery, LNG terminal, or ERCOT-connected utility engineering workstations — <em>consistent with Kamacite and IRGC initial access TTPs.</em></p>
+
+  <h3 class="sub-head">Escalation Indicators — China</h3>
+  <p><strong>I&W-05:</strong> New Dragos or CISA reporting on Voltzite / Volt Typhoon activity in ERCOT-connected utility environments — <em>would confirm reconstitution of access after 2024 ERCOT defense success.</em></p>
+  <p><strong>I&W-06:</strong> CFIUS review of or foreign investment activity targeting Texas semiconductor, defense electronics, or energy technology firms — <em>consistent with PRC economic espionage targeting under cover of commercial relationships.</em></p>
+
+  <h3 class="sub-head">De-Escalation Indicators</h3>
+  <p><strong>D&E-01:</strong> Ceasefire or diplomatic framework for the Iran–U.S.–Israel conflict — <em>would likely reduce immediate IRGC-CY operational tempo within 2–4 weeks but would not eliminate pre-positioned access.</em></p>
+  <p><strong>D&E-02:</strong> Iran leadership consolidation under a more pragmatic successor to Khamenei — <em>could modestly reduce reckless escalation risk over the 60–90 day horizon.</em></p>
+
+  <!-- ─────────────────────────────── -->
+  <!-- OUTLOOK -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section VII</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Strategic Forecast — 30 / 60 / 90-Day Outlook</h2>
+
+  <div style="border:1px solid rgba(8,20,42,0.12); margin: 24px 0;">
+    <div class="outlook-row">
+      <div class="outlook-period">30 DAYS<br><span style="font-size:9px;opacity:0.6;">APR 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> Iranian IRGC-CY cyber operations against U.S. critical infrastructure intensify. CyberAv3ngers-style ICS credential attacks expand in scope. Texas Gulf Coast energy firms face elevated reconnaissance and likely attempted access. DDoS and hacktivist campaigns against financial institutions and defense contractors continue at high volume. Ransomware operators exploit distracted security operations to accelerate Texas healthcare targeting.<br><br>
+        <strong>Most Consequential (Lower Probability):</strong> IRGC-CY deploys destructive wiper or ICS-disruptive payload against a U.S. energy facility, causing a physical or operational outage. Liberty CTI assesses this at <em>unlikely but not remote</em> probability for the 30-day horizon — <em>roughly 20–25% probability</em> conditioned on continued kinetic escalation in the Gulf. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="outlook-row">
+      <div class="outlook-period">60 DAYS<br><span style="font-size:9px;opacity:0.6;">MAY 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> The Iran conflict either reaches a ceasefire framework or escalates to a protracted campaign. If protracted: Iranian cyber operations against U.S. homeland infrastructure likely escalate toward disruptive execution in energy and financial sectors. Gulf LNG disruption continues to drive Texas energy market volatility. China likely uses continued U.S. military engagement to intensify collection against defense industrial base targets.<br><br>
+        <strong>Key Uncertainty:</strong> Iran's leadership transition — the political consolidation process following Khamenei's death — will shape how centralized or decentralized IRGC cyber operations become. A chaotic succession period could either inhibit or empower more reckless operational decisions. <span class="conf conf-low">LOW-MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="outlook-row">
+      <div class="outlook-period">90 DAYS<br><span style="font-size:9px;opacity:0.6;">JUN 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> The threat landscape normalizes at a structurally elevated baseline — meaning the 2026 threat environment after the Iran conflict will be permanently more dangerous than the pre-February 28 environment, regardless of conflict resolution. The precedent of commercial cloud infrastructure as a kinetic target will have been absorbed by Russia and China's operational planning. Texas organizations that invest in intelligence-led resilience planning in Q2 2026 will be significantly better positioned than those that wait for the next crisis to act.<br><br>
+        <strong>Liberty CTI Core Assessment:</strong> The Iran conflict has permanently altered the threat calculus for Texas critical infrastructure. Organizations that treat this as a temporary elevated posture and plan to return to normal will be wrong. The new normal is this. <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- SOURCE CITATIONS -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section VIII</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Source Citations — In Alignment with Accepted IC Sourcing Practices</h2>
+  <p style="font-size:13px; color:#666; margin-bottom: 4px; font-family:'IBM Plex Mono', monospace;">All sources are open-source. Liberty CTI does not use or disclose non-public or classified information. Source citations are provided so that readers can evaluate the quality and reliability of the underlying intelligence.</p>
+
+  <div class="icd206-block">
+    <div class="icd206-header">SOURCE REFERENCE CITATIONS — OPEN SOURCE INTELLIGENCE BASIS — ATB-2026-12 — IN ALIGNMENT WITH ACCEPTED IC SOURCING PRACTICES</div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-01</span>
+      <span class="src-desc"><a href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Dragos 2025 Year in Review / Industrial Cybersecurity Report</span></a> — Dragos, Inc., February 2026. Primary source for Voltzite / Volt Typhoon OT control-loop access assessment and Kamacite reconnaissance campaign data. Dragos CEO Robert Lee confirmed. Sourced via The Register, February 17, 2026. RELIABILITY: HIGH. RELEVANCE: CRITICAL to KJ-2, PIR-2.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-02</span>
+      <span class="src-desc"><a href="https://www.cloudsek.com/blog/middle-east-escalation-israel-iran-us-cyber-war-2026" target="_blank" rel="noopener" class="src-link"><span class="src-title">CloudSEK Middle East Escalation Situation Report, 27 Feb–1 March 2026</span></a> — CloudSEK Threat Intelligence, March 2026. Primary source for CyberAv3ngers, APT33, APT55 ICS targeting assessment and hacktivist campaign volume data. RELIABILITY: HIGH (corroborated by Euronews, Recorded Future). RELEVANCE: CRITICAL to KJ-1, PIR-4.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-03</span>
+      <span class="src-desc"><a href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener" class="src-link"><span class="src-title">Recorded Future: "Ongoing Iran Conflict: What You Need to Know"</span></a> — Recorded Future, March 2026. Primary source for Mosaic Defense doctrine assessment, IRGC operational scope, scenario planning framework. RELIABILITY: HIGH. RELEVANCE: HIGH to PIR-1, PIR-4, Outlook.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-04</span>
+      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA24-038A: "PRC State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure"</span></a> — CISA/NSA/FBI Joint Advisory, February 2024. Governs Volt Typhoon TTP characterization, LOTL technique assessment, five-year persistence claim. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: HIGH to KJ-2, PIR-2.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-05</span>
+      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA23-335A (Updated Dec 2024): "IRGC-Affiliated Cyber Actors Exploit PLCs"</span></a> — CISA/FBI/NSA Joint Advisory. Primary source for IRGC-CY TTP characterization, CyberAv3ngers ladder logic and credential attacks, PLC targeting methodology. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: CRITICAL to KJ-1, PIR-4.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-06</span>
+      <span class="src-desc"><a href="https://www.adn.com/nation-world/2026/03/03/iranian-strikes-on-amazon-data-centers-highlight-industrys-vulnerability-to-physical-disasters/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Amazon Web Services Health Dashboard and public statements, March 2026</span></a> — AWS / AP, March 2026. Primary source for data center structural damage characterization, availability zone outage confirmation, fire suppression and power disruption details. RELIABILITY: HIGH (primary source). RELEVANCE: HIGH to KJ-3.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-07</span>
+      <span class="src-desc"><a href="https://theconversation.com/targeting-of-energy-facilities-turned-iran-war-into-worst-case-scenario-for-gulf-states-278730" target="_blank" rel="noopener" class="src-link"><span class="src-title">"Targeting of energy facilities turned Iran war into worst-case scenario for Gulf states"</span></a> — The Conversation, March 19, 2026. Primary source for Ras Laffan LNG terminal strike characterization and Gulf energy infrastructure attack sequence. RELIABILITY: MODERATE-HIGH (academic commentary with sourced reporting). RELEVANCE: HIGH to KJ-5, Sector IV Energy Assessment.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-08</span>
+      <span class="src-desc"><a href="https://www.utilitydive.com/news/doe-awards-grid-security-artificial-intelligence-EPRI-ConEdison-Southern-Ameren/709360/" target="_blank" rel="noopener" class="src-link"><span class="src-title">E-ISAC Year-End Report (citing Volt Typhoon ERCOT targeting)</span></a> — Electricity Information Sharing and Analysis Center, 2024. Source for ERCOT targeting attempt and successful defense characterization. Sourced via Utility Dive, March 6, 2024. RELIABILITY: HIGH. RELEVANCE: HIGH to PIR-2, Texas Energy Sector Assessment.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-09</span>
+      <span class="src-desc"><a href="https://www.iiss.org/online-analysis/cyber-power-matrix/2026/01/volt-typhoons-long-shadow/" target="_blank" rel="noopener" class="src-link"><span class="src-title">"Volt Typhoon's Long Shadow"</span></a> — International Institute for Strategic Studies (IISS), January 2026. Analytical framing of Volt Typhoon post-2023 threat persistence and strategic implications. RELIABILITY: HIGH. RELEVANCE: MODERATE to KJ-2.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-10</span>
+      <span class="src-desc"><a href="https://industrialcyber.co/industrial-cyber-attacks/us-israeli-campaign-triggers-iranian-counteroffensive-targeting-gulf-energy-critical-infrastructure/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Flashpoint / Industrial Cyber: "US-Israeli Campaign Triggers Iranian Counteroffensive"</span></a> — Flashpoint / Industrial Cyber, March 2026. Source for Mosaic Defense doctrine characterization, IRGC multi-domain retaliation scope, casualties and base damage data. RELIABILITY: HIGH (corroborated). RELEVANCE: HIGH to PIR-1, Strategic Context Section.</span>
+    </div>
+
+    <p style="font-size:11px; color:#9A9080; font-family:'IBM Plex Mono', monospace; margin-top: 16px; margin-bottom: 0;">
+      SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) aggregated from U.S. government advisories (CISA, NSA, FBI), commercial threat intelligence firms (Dragos, Recorded Future, CloudSEK, Flashpoint), open-source news reporting, and Liberty CTI analytical synthesis. No classified, restricted, or non-public government information was used in the production of this brief. Confidence levels reflect the quantity, quality, and corroboration of available open-source reporting, in alignment with accepted IC analytical practices.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- ANALYTICAL NOTE -->
+  <!-- ─────────────────────────────── -->
+  <hr class="ruled-divider">
+
+  <div class="assessment-box" style="border-left-color: var(--gold);">
+    <div class="assessment-label">Analytic Note — Torch Fusion Cycle</div>
+    <p>This brief was produced using Liberty CTI's Torch Fusion Cycle: <strong>WHAT</strong> (the Iran conflict and its cyber dimensions are the dominant threat driver) · <strong>WHO</strong> (IRGC-CY primary, China persistent, Russia opportunistic, DPRK steady-state) · <strong>WHY</strong> (kinetic war compels cyber retaliation; pre-positioning reflects deterrence strategy; financial operations serve regime revenue needs) · <strong>WHAT COMES NEXT</strong> (30/60/90-day escalation scenarios with stated confidence levels). All key judgments use probabilistic language and carry explicit confidence levels in alignment with accepted IC analytical practices.</p>
+  </div>
+
+  <p style="font-size:13px; color:#9A9080; text-align:center; margin-top: 32px; font-family:'IBM Plex Mono', monospace; letter-spacing: 1.5px;">
+    For questions, additional analysis, or to request a tailored executive briefing: <strong style="color: var(--navy);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="620b0c16070e220e0b000710161b01160b4c010d0f">[email&#160;protected]</a></strong>
+  </p>
+
+</div><!-- end page-body -->
+
+<!-- FOOTER -->
+<div class="brief-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Liberty Cyber Threat Intelligence</div>
+      <div class="footer-brand" style="font-size:9px; opacity:0.5; margin-top:4px;">libertycti.com · San Antonio, Texas</div>
+    </div>
+    <div class="footer-legal">
+      ALAMO THREAT BRIEF // ATB-2026-12 // 22 MARCH 2026<br>
+      LIBERTY CTI OPEN SOURCE ANALYSIS<br>
+      © 2026 LIBERTY CTI LLC. ALL RIGHTS RESERVED.<br>
+      LIBERTY CTI OPEN SOURCE ANALYSIS
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CLASSIFICATION BANNER -->
+<div class="clas

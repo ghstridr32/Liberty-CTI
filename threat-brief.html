@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Alamo Threat Brief | Liberty CTI — 16 March 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #060c14;
+      --surface:   #091424;
+      --panel:     #0c1e30;
+      --tile:      #0f2540;
+      --border:    #1a3a5c;
+      --border-hi: #2a5a8c;
+      --text:      #d8e8f4;
+      --muted:     #6a90b0;
+      --dim:       #3a6080;
+      --gold:      #c8903c;
+      --gold-hi:   #e8c070;
+      --gold-dim:  rgba(200,144,60,.15);
+      --blue:      #4ab0e8;
+      --blue-dim:  rgba(74,176,232,.10);
+      --blue-glow: rgba(74,176,232,.06);
+      --energy:    #e8b24c;
+      --finance:   #4ab0e8;
+      --health:    #5acc8a;
+      --defense:   #a880e8;
+      --gov:       #e87a54;
+      --tech:      #44d4c4;
+      --danger:    #e05844;
+      --screen-glow: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(74,176,232,.07) 0%, transparent 65%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-top: 56px;
+      /* Subtle noise texture overlay */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    }
+
+    /* ═══════════════════════════════════════
+       SITE NAV
+    ═══════════════════════════════════════ */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(6,12,20,0.97);
+      border-bottom: 1px solid rgba(200,144,60,0.2);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .site-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .site-nav-emblem {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .site-nav-wordmark {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .site-nav-wordmark span { color: var(--gold); }
+    .site-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .site-nav-links a {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(216,232,244,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-nav-links a:hover { color: var(--gold-hi); }
+    .site-nav-links a.active { color: var(--gold); }
+    .site-nav-cta {
+      color: var(--gold) !important;
+      border: 1px solid rgba(200,144,60,0.5);
+      padding: 0.35rem 1rem;
+      transition: all 0.2s;
+    }
+    .site-nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--bg) !important;
+    }
+
+    .site-nav-links .dropdown { position: relative; }
+    .site-nav-links .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 260px;
+      background: rgba(6,12,20,0.98);
+      border: 1px solid rgba(200,144,60,0.2);
+      padding: 0.4rem 0;
+      list-style: none;
+      z-index: 1000;
+    }
+    .site-nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .site-nav-links .dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 10px;
+    }
+    .site-nav-links .dropdown-menu li { margin: 0; }
+    .site-nav-links .dropdown-menu a,
+    .site-nav-links .dropdown-menu span {
+      display: block;
+      padding: 0.7rem 1rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(216,232,244,0.62);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .site-nav-links .dropdown-menu a:hover {
+      color: var(--gold-hi);
+      background: rgba(200,144,60,0.06);
+    }
+    .site-nav-links .dropdown-menu .dropdown-placeholder span {
+      color: rgba(216,232,244,0.32);
+      cursor: default;
+    }
+
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 14px 60px;
+    }
+
+    /* ═══════════════════════════════════════
+       SCANLINE EFFECT — subtle CRT atmosphere
+    ═══════════════════════════════════════ */
+    .brief {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(74,176,232,.08),
+        0 24px 64px rgba(0,0,0,.7),
+        0 0 120px rgba(74,176,232,.04) inset;
+    }
+
+    .brief::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,.04) 3px,
+        rgba(0,0,0,.04) 4px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ═══════════════════════════════════════
+       CLASSIFICATION BANNER
+    ═══════════════════════════════════════ */
+    .class-banner {
+      background: rgba(74,176,232,.07);
+      border-bottom: 1px solid var(--border);
+      padding: 5px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .class-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .class-badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .63rem;
+      letter-spacing: .12em;
+      color: var(--blue);
+      opacity: .6;
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      padding: 32px 28px 28px;
+      border-bottom: 1px solid var(--border);
+      background:
+        var(--screen-glow),
+        radial-gradient(ellipse 40% 80% at 100% 50%, rgba(200,144,60,.06) 0%, transparent 60%),
+        linear-gradient(160deg, #0d2035 0%, #091424 50%, #060c14 100%);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Tile grid background — nod to the Sit Room wall */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: .18;
+      pointer-events: none;
+    }
+
+    /* ═══════════════════════════════════════
+       LOGO ROW
+    ═══════════════════════════════════════ */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      flex: 0 0 auto;
+      object-fit: contain;
+      border: 1px solid rgba(200,144,60,.25);
+      box-shadow: 0 0 18px rgba(200,144,60,.15), 0 4px 12px rgba(0,0,0,.4);
+    }
+
+    .brand-block { display: flex; flex-direction: column; gap: 3px; }
+
+    .brand-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold-hi);
+    }
+
+    .brand-sub-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .6rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════
+       TITLE BLOCK
+    ═══════════════════════════════════════ */
+    .title-block {
+      position: relative;
+      z-index: 2;
+      padding: 20px 0 16px;
+    }
+
+    .alamo-silhouette {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      opacity: .055;
+      color: var(--blue);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .title-block h1 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2.4rem, 9vw, 4rem);
+      font-weight: 700;
+      letter-spacing: .05em;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 0 0 40px rgba(74,176,232,.2), 0 2px 20px rgba(0,0,0,.8);
+      margin-bottom: 10px;
+    }
+
+    .title-block h1 span {
+      color: var(--blue);
+    }
+
+    .title-desc {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: clamp(.82rem, 2.2vw, .93rem);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════════
+       META PILLS
+    ═══════════════════════════════════════ */
+    .meta {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pill {
+      border: 1px solid var(--border-hi);
+      background: rgba(74,176,232,.05);
+      color: var(--muted);
+      padding: 4px 12px;
+      border-radius: 2px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(.64rem, 1.8vw, .72rem);
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
+
+    .pill strong { color: var(--blue); font-weight: 400; }
+
+    /* ═══════════════════════════════════════
+       THREAT BANNER
+    ═══════════════════════════════════════ */
+    .threat-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      position: relative;
+      z-index: 2;
+      padding: 9px 14px;
+      background: rgba(224,88,68,.07);
+      border: 1px solid rgba(224,88,68,.3);
+      border-left: 3px solid var(--danger);
+      border-radius: 0 2px 2px 0;
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .threat-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--danger);
+      box-shadow: 0 0 8px var(--danger);
+      animation: blink 1.4s ease-in-out infinite;
+      flex: 0 0 auto;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    .threat-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(.72rem, 2vw, .82rem);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════
+       SECTION DIVIDER
+    ═══════════════════════════════════════ */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(74,176,232,.03);
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header::before {
+      content: '';
+      display: block;
+      width: 3px;
+      height: 14px;
+      background: var(--blue);
+      border-radius: 1px;
+      flex: 0 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-count {
+      margin-left: auto;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .1em;
+      color: var(--dim);
+    }
+
+    /* ═══════════════════════════════════════
+       CARD GRID
+    ═══════════════════════════════════════ */
+    .content {
+      padding: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* ═══════════════════════════════════════
+       INTEL CARDS — Workstation Monitor Feel
+    ═══════════════════════════════════════ */
+    .card {
+      padding: 20px 22px 18px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      transition: background .2s;
+    }
+
+    .card:nth-child(even) { border-right: none; }
+    .card:nth-last-child(-n+2) { border-bottom: none; }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+    }
+
+    .card:hover {
+      background: var(--blue-glow);
+    }
+
+    /* Sector color top-bar */
+    .card.energy::before  { background: linear-gradient(90deg, var(--energy), transparent 70%); }
+    .card.finance::before { background: linear-gradient(90deg, var(--finance), transparent 70%); }
+    .card.health::before  { background: linear-gradient(90deg, var(--health), transparent 70%); }
+    .card.defense::before { background: linear-gradient(90deg, var(--defense), transparent 70%); }
+    .card.gov::before     { background: linear-gradient(90deg, var(--gov), transparent 70%); }
+    .card.tech::before    { background: linear-gradient(90deg, var(--tech), transparent 70%); }
+
+    /* Card index number — operational feel */
+    .card-index {
+      position: absolute;
+      top: 10px; right: 14px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .1em;
+      color: var(--dim);
+    }
+
+    .sector {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .card.energy  .sector, .card.energy  .dot { color: var(--energy);  background: var(--energy);  }
+    .card.finance .sector, .card.finance .dot { color: var(--finance); background: var(--finance); }
+    .card.health  .sector, .card.health  .dot { color: var(--health);  background: var(--health);  }
+    .card.defense .sector, .card.defense .dot { color: var(--defense); background: var(--defense); }
+    .card.gov     .sector, .card.gov     .dot { color: var(--gov);     background: var(--gov);     }
+    .card.tech    .sector, .card.tech    .dot { color: var(--tech);    background: var(--tech);    }
+
+    .dot { background: currentColor; }
+
+    .headline {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(.95rem, 2.4vw, 1.1rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: #fff;
+      letter-spacing: .01em;
+    }
+
+    .snippet {
+      font-size: clamp(.79rem, 1.9vw, .87rem);
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .snippet strong {
+      color: var(--blue);
+      font-weight: 600;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: .06em;
+      font-size: .82em;
+      text-transform: uppercase;
+    }
+
+    /* Assessment block — distinct treatment */
+    .assessment-block {
+      background: rgba(74,176,232,.05);
+      border-left: 2px solid rgba(74,176,232,.3);
+      padding: 8px 10px;
+      margin-top: 4px;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .assessment-block p {
+      font-size: clamp(.77rem, 1.8vw, .85rem);
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .assessment-block .lede {
+      font-style: normal;
+      color: var(--blue);
+      font-weight: 600;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: .06em;
+      font-size: .82em;
+      text-transform: uppercase;
+    }
+
+    .source-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      min-width: 0;
+    }
+
+    .source-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    .source-link {
+      font-size: .78rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+      transition: color .15s;
+      font-family: 'Source Serif 4', serif;
+    }
+
+    .source-link:hover { color: var(--gold-hi); }
+    .source-link::after { content: " ↗"; font-size: .72em; opacity: .5; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 16px 28px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+      background: rgba(6,12,20,.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-left { flex: 1; min-width: 0; }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: clamp(.7rem, 1.8vw, .76rem);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .footer-note strong { color: var(--gold); font-weight: 400; }
+    .footer-note a { color: var(--gold); text-decoration: none; }
+    .footer-note a:hover { color: var(--gold-hi); }
+
+    .footer-brand {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      color: rgba(74,176,232,.2);
+      text-align: right;
+      flex: 0 0 auto;
+      line-height: 1.2;
+    }
+
+    .footer-brand span {
+      display: block;
+      font-size: .55rem;
+      font-family: 'Share Tech Mono', monospace;
+      letter-spacing: .2em;
+      color: var(--dim);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════
+       SITE FOOTER
+    ═══════════════════════════════════════ */
+    .site-footer {
+      background: rgba(6,12,20,0.98);
+      border-top: 1px solid rgba(200,144,60,0.2);
+      padding: 3.5rem 2.5rem 2rem;
+      margin-top: 0;
+    }
+    .site-footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .site-footer-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.75rem;
+    }
+    .site-footer-emblem {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+    .site-footer-brand-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-hi);
+    }
+    .site-footer-brand-name span { color: var(--text); }
+    .site-footer-tagline {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 280px;
+    }
+    .site-footer-col-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .site-footer-col-title::before { content: '// '; opacity: 0.6; }
+    .site-footer-links { list-style: none; }
+    .site-footer-links li { margin-bottom: 0.45rem; }
+    .site-footer-links a {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-footer-links a:hover { color: var(--gold-hi); }
+    .site-footer-bottom {
+      max-width: 1080px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(26,58,92,0.6);
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .site-footer-copy {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+    }
+    @media (max-width: 760px) {
+      .site-footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .site-footer-inner { grid-template-columns: 1fr; }
+      .site-footer { padding: 2rem 1.25rem 1.5rem; }
+    }
+
+    /* ═══════════════════════════════════════
+       MOBILE
+    ═══════════════════════════════════════ */
+    @media (max-width: 600px) {
+      .page { padding: 8px 8px 40px; }
+      .hero { padding: 20px 16px 22px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { border-right: none !important; }
+      .card:last-child { border-bottom: none; }
+      .section-header { padding: 12px 16px; }
+      .footer { padding: 14px 16px 18px; flex-direction: column; align-items: flex-start; }
+      .footer-brand { align-self: flex-end; }
+    }
+
+    @media (min-width: 601px) and (max-width: 780px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { border-right: none !important; }
+    }
+
+    /* ═══════════════════════════════════════
+       LOAD ANIMATION
+    ═══════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero        { animation: fadeUp .5s ease both; }
+    .section-header { animation: fadeUp .5s .1s ease both; }
+    .card:nth-child(1) { animation: fadeUp .45s .15s ease both; }
+    .card:nth-child(2) { animation: fadeUp .45s .22s ease both; }
+    .card:nth-child(3) { animation: fadeUp .45s .29s ease both; }
+    .card:nth-child(4) { animation: fadeUp .45s .36s ease both; }
+    .card:nth-child(5) { animation: fadeUp .45s .43s ease both; }
+    .card:nth-child(6) { animation: fadeUp .45s .50s ease both; }
+    .footer      { animation: fadeUp .4s .55s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-logo">
+    <img src="liberty-cti-emblem.png" class="site-nav-emblem" alt="Liberty CTI">
+    <div class="site-nav-wordmark">Liberty <span>CTI</span></div>
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="intelligence.html">Intelligence</a></li>
+    <li class="dropdown">
+    <a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
+    <ul class="dropdown-menu">
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-22-2026.html">Week of Mar 22, 2026</a></li>
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-16-2026.html">Week of Mar 16, 2026</a></li>
+    </ul>
+    </li>
+    <li><a href="texas-focus.html">Texas Focus</a></li>
+    <li><a href="Energy_data_AI.html">Energy · Data · AI</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="briefing-request.html" class="nav-cta">Request Briefing</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <section class="brief">
+
+    <!-- CLASSIFICATION BANNER -->
+    <div class="class-banner">
+      <span class="class-text">Liberty CTI · For Texas Industry's Situational Awareness</span>
+      <span class="class-badge">TLP:WHITE</span>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-grid"></div>
+
+      <!-- Logo Row -->
+      <div class="logo-row">
+        <img class="logo-img" src="liberty-cti-emblem.png" alt="Liberty CTI" />
+        <div class="brand-block">
+          <div class="brand-name">Liberty CTI</div>
+          <div class="brand-sub-label">Cyber Threat Intelligence</div>
+        </div>
+      </div>
+
+      <!-- Title with Alamo behind it -->
+      <div class="title-block">
+        <svg class="alamo-silhouette" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="310" width="820" height="10"/>
+          <rect x="20" y="220" width="120" height="90"/>
+          <rect x="20" y="190" width="40" height="30"/>
+          <rect x="100" y="190" width="40" height="30"/>
+          <rect x="45" y="242" width="25" height="35" fill="var(--surface)"/>
+          <rect x="90" y="242" width="25" height="35" fill="var(--surface)"/>
+          <rect x="160" y="160" width="500" height="150"/>
+          <rect x="215" y="145" width="125" height="15"/>
+          <rect x="230" y="130" width="110" height="15"/>
+          <rect x="245" y="115" width="95"  height="15"/>
+          <rect x="260" y="100" width="80"  height="15"/>
+          <rect x="480" y="145" width="125" height="15"/>
+          <rect x="480" y="130" width="110" height="15"/>
+          <rect x="480" y="115" width="95"  height="15"/>
+          <rect x="480" y="100" width="80"  height="15"/>
+          <rect x="340" y="85" width="140" height="75"/>
+          <path d="M335 85 Q410 22 485 85Z"/>
+          <rect x="185" y="170" width="18" height="140" fill="var(--surface)"/>
+          <rect x="225" y="170" width="18" height="140" fill="var(--surface)"/>
+          <rect x="577" y="170" width="18" height="140" fill="var(--surface)"/>
+          <rect x="617" y="170" width="18" height="140" fill="var(--surface)"/>
+          <path d="M372 310 L372 242 Q410 200 448 242 L448 310Z" fill="var(--surface)"/>
+          <rect x="200" y="195" width="28" height="48" rx="14" fill="var(--surface)"/>
+          <rect x="250" y="195" width="28" height="48" rx="14" fill="var(--surface)"/>
+          <rect x="542" y="195" width="28" height="48" rx="14" fill="var(--surface)"/>
+          <rect x="592" y="195" width="28" height="48" rx="14" fill="var(--surface)"/>
+          <rect x="680" y="220" width="120" height="90"/>
+          <rect x="680" y="190" width="40"  height="30"/>
+          <rect x="760" y="190" width="40"  height="30"/>
+          <rect x="695" y="242" width="25"  height="35" fill="var(--surface)"/>
+          <rect x="740" y="242" width="25"  height="35" fill="var(--surface)"/>
+        </svg>
+
+        <h1>The Alamo <span>Threat</span> Brief</h1>
+        <p class="title-desc">Weekly cyber threat intelligence for Texas industry — fast executive consumption with source-backed assessments.</p>
+      </div>
+
+      <!-- Meta pills -->
+      <div class="meta">
+        <div class="pill"><strong>Week of:</strong> 16 March 2026</div>
+        <div class="pill"><strong>Coverage:</strong> Energy · Finance · Healthcare · Defense · Gov · Tech</div>
+        <div class="pill"><strong>Edition:</strong> Vol. 1 · No. 8</div>
+      </div>
+
+      <!-- Threat level -->
+      <div class="threat-banner">
+        <div class="threat-dot"></div>
+        <div class="threat-label">Elevated — Iran-linked retaliation activity ongoing across all sectors</div>
+      </div>
+    </header>
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <span class="section-label">This Week's Threats — 10–16 March 2026</span>
+      <span class="section-count">06 ITEMS</span>
+    </div>
+
+    <!-- INTEL CARDS -->
+    <div class="content">
+      <div class="grid">
+
+        <article class="card energy">
+          <span class="card-index">01/06</span>
+          <div class="sector"><span class="dot"></span>Energy</div>
+          <h2 class="headline">Qilin ransomware targets Texas electric cooperatives; ERCOT grid probing persists</h2>
+          <p class="snippet">The Qilin ransomware gang — with confirmed Russian ties — claimed attacks on San Bernard and Karnes Electric cooperatives, leaking financial records and board-director PII. The incident follows sustained probing of Texas LNG export infrastructure.</p>
+          <div class="assessment-block">
+            <p><span class="lede">Assessment:</span> Qilin will almost certainly leverage exfiltrated director PII for spearphishing against adjacent co-ops and upstream LNG operators. The gang's pattern — publish, then pivot — suggests a follow-on intrusion attempt against a larger Texas grid asset within 30–60 days, likely using stolen credentials as the entry vector.</p>
+          </div>
+          <div class="source-row">
+            <span class="source-label">SRC</span>
+            <a class="source-link" href="https://cybernews.com/security/texas-electric-coops-ransomware-attack/" target="_blank" rel="noopener noreferrer">Cybernews — Texas Electric Coop Ransomware</a>
+          </div>
+        </article>
+
+        <article class="card finance">
+          <span class="card-index">02/06</span>
+          <div class="sector"><span class="dot"></span>Finance</div>
+          <h2 class="headline">NY DFS warns financial sector of heightened Iranian cyber threats amid U.S.-Iran conflict</h2>
+          <p class="snippet">NY DFS issued an emergency advisory on 3 March tied to ongoing U.S.-Israel operations against Iran. Iran-aligned Hydro Kitten has signaled intent to target U.S. financial infrastructure. AI-driven phishing against finance teams is accelerating.</p>
+          <div class="assessment-block">
+            <p><span class="lede">Assessment:</span> Hydro Kitten will likely shift from reconnaissance to disruptive DDoS against U.S. financial platforms as Iran seeks visible retaliation. Texas-based payment processors and regional banks are probable secondary targets — large enough to generate political signal, small enough to lack enterprise-grade mitigation.</p>
+          </div>
+          <div class="source-row">
+            <span class="source-label">SRC</span>
+            <a class="source-link" href="https://www.dfs.ny.gov/industry-guidance/industry-letters/20260303-cybersecurity-advisory-heightened-cyber-threats-global-conflict" target="_blank" rel="noopener noreferrer">NY DFS — Cybersecurity Advisory 3 Mar 2026</a>
+          </div>
+        </article>
+
+        <article class="card health">
+          <span class="card-index">03/06</span>
+          <div class="sector"><span class="dot"></span>Healthcare</div>
+          <h2 class="headline">Iran-linked Handala claims Stryker cyberattack; Senate advances healthcare cyber bill</h2>
+          <p class="snippet">Iran-affiliated hackers disrupted Stryker's global Microsoft environment — the first major U.S. healthcare supply-chain strike since U.S.-Iran hostilities escalated. Senate advanced bipartisan legislation requiring MFA, encryption, and HHS incident-response frameworks.</p>
+          <div class="assessment-block">
+            <p><span class="lede">Assessment:</span> Handala will likely expand beyond Stryker to other U.S. medical device and pharma manufacturers to sustain political pressure. The group prefers targets with high public visibility and downstream hospital dependencies — expect additional supply-chain disruptions timed to U.S. military operational tempo.</p>
+          </div>
+          <div class="source-row">
+            <span class="source-label">SRC</span>
+            <a class="source-link" href="https://www.chiefhealthcareexecutive.com/view/the-stryker-cyberattack-and-what-hospitals-should-be-doing" target="_blank" rel="noopener noreferrer">Chief Healthcare Executive — Stryker Attack</a>
+          </div>
+        </article>
+
+        <article class="card defense">
+          <span class="card-index">04/06</span>
+          <div class="sector"><span class="dot"></span>Defense</div>
+          <h2 class="headline">Salt Typhoon telecom espionage continues; Texas orders review of Chinese-made medical devices</h2>
+          <p class="snippet">China's Salt Typhoon APT has compromised 200+ firms across 80 countries, focusing on wiretap systems and defense-adjacent communications. Texas ordered a cybersecurity review of state agencies' Chinese-manufactured medical devices after federal warnings.</p>
+          <div class="assessment-block">
+            <p><span class="lede">Assessment:</span> Salt Typhoon will almost certainly use persistent telecom access to map the communications patterns of Texas-based defense contractors and cleared personnel — building a targeting package for future collection. MSS will likely move to deactivate or obfuscate implants before formal remediation orders are issued.</p>
+          </div>
+          <div class="source-row">
+            <span class="source-label">SRC</span>
+            <a class="source-link" href="https://industrialcyber.co/reports/healthcare-ransomware-attacks-surge-30-in-2025-as-cybercriminals-shift-focus-to-vendors-and-service-partners/" target="_blank" rel="noopener noreferrer">Industrial Cyber — TX Device Review &amp; Salt Typhoon</a>
+          </div>
+        </article>
+
+        <article class="card gov">
+          <span class="card-index">05/06</span>
+          <div class="sector"><span class="dot"></span>Government</div>
+          <h2 class="headline">FBI flags impersonation campaign targeting permit applicants; Texas municipalities remain exposed</h2>
+          <p class="snippet">FBI warned of a U.S.-wide phishing campaign impersonating local officials to steal permit payments via publicly available zoning data. Texas cities including McKinney, Coppell, and Richardson disclosed attacks over the past year.</p>
+          <div class="assessment-block">
+            <p><span class="lede">Assessment:</span> Impersonation operators will almost certainly expand to utility payment portals and tax collection systems — higher-value transactions with the same OSINT-rich property records as a data source. Ransomware actors monitoring the Mission, TX incident will likely probe other border-region municipalities, anticipating faster payment under crisis conditions.</p>
+          </div>
+          <div class="source-row">
+            <span class="source-label">SRC</span>
+            <a class="source-link" href="https://digitalforensicsmagazine.com/news-roundup-13th-march-2026/" target="_blank" rel="noopener noreferrer">Digital Forensics Magazine — 13 Mar 2026 Roundup</a>
+          </div>
+        </article>
+
+        <article class="card tech">
+          <span class="card-index">06/06</span>
+          <div class="sector"><span class="dot"></span>Technology</div>
+          <h2 class="headline">AI-generated "Slopoly" malware enables Interlock ransomware dwell; White House demands active defense</h2>
+          <p class="snippet">AI-generated malware "Slopoly" gave Interlock ransomware operators undetected access for over a week before exfiltration. The White House's 6-pillar National Cybersecurity Strategy (6 March) formally calls on the private sector to actively hunt and disrupt adversary networks.</p>
+          <div class="assessment-block">
+            <p><span class="lede">Assessment:</span> Interlock will use the Slopoly dwell-time advantage to replicate this playbook against additional managed service providers — AI-generated malware lowers tooling cost while extending pre-exfiltration access windows. As the White House strategy increases threat-hunting pressure, Interlock will likely accelerate intrusion-to-extortion timelines to outpace mandated detection capabilities.</p>
+          </div>
+          <div class="source-row">
+            <span class="source-label">SRC</span>
+            <a class="source-link" href="https://digitalforensicsmagazine.com/news-roundup-13th-march-2026/" target="_blank" rel="noopener noreferrer">Digital Forensics Magazine — Slopoly / Interlock</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-left">
+        <div class="footer-note">
+          <strong>Liberty CTI</strong> — Assessments are for situational awareness only. All source links open to original reporting. Distribute within approved classification channels. Next edition: <strong>23 March 2026</strong>
+        </div>
+        <div class="footer-note" style="margin-top:4px;">
+          Questions or submissions: <a href="/cdn-cgi/l/email-protection#60090e14050c200c0902051214190314094e030f0d"><span class="__cf_email__" data-cfemail="d8b1b6acbdb498b4b1babdaaaca1bbacb1f6bbb7
+
+</div><!-- end .page -->
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <div class="site-footer-brand-row">
+        <img src="liberty-cti-emblem.png" class="site-footer-emblem" alt="Liberty CTI">
+        <div class="site-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="site-footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
+    </div>
+    <div>
+      <div class="site-footer-col-title">Intelligence</div>
+      <ul class="site-footer-links">
+        <li><a href="alamo_threat_brief.html">The Alamo Threat Brief</a></li>
+        <li><a href="#">2027 Texas Strategic Threat Outlook</a></li>
+        <li><a href="#">The Alamo Defense Framework</a></li>
+        <li><a href="#">Strategic Sector Assessments (Premium)</a></li>
+        <li><a href="#">Executive Briefings</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="site-footer-col-title">Company</div>
+      <ul class="site-footer-links">
+        <li><a href="libertycti-about.html">About Liberty CTI</a></li>
+        <li><a href="#">Texas Focus</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="site-footer-col-title">Contact</div>
+      <ul class="site-footer-links">
+        <li><a href="briefing-request.html">Request a Briefing</a></li>
+        <li><a href="mailto:intel@libertycti.com">Founding Client Inquiry</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        <li><a href="https://www.facebook.com/LibertyCTI" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/libertycti" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <div class="site-footer-copy">© 2027 Liberty CTI LLC · San Antonio, Texas · libertycti.com</div>
+    <div class="site-footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+  </div>
+</footer>
+
+</body>
+</html>

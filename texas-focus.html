@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Focus | Liberty CTI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:        #080c10;
+  --navy:       #0d1520;
+  --paper:      #f4efe6;
+  --cream:      #ece7da;
+  --gold:       #b8963e;
+  --gold-light: #d4af62;
+  --red:        #8b1a1a;
+  --muted:      #6b6355;
+  --rule:       rgba(184,150,62,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-light); text-decoration: underline; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.96); border-bottom: 1px solid var(--rule); }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); text-decoration: none; }
+.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
+.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+.nav-links .dropdown { position: relative; }
+.nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 260px;
+  background: rgba(8,12,16,0.98);
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0;
+  list-style: none;
+  z-index: 1000;
+}
+.nav-links .dropdown:hover .dropdown-menu { display: block; }
+.nav-links .dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+.nav-links .dropdown-menu li { margin: 0; }
+.nav-links .dropdown-menu a,
+.nav-links .dropdown-menu span {
+  display: block;
+  padding: 0.7rem 1rem;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.62);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links .dropdown-menu a:hover {
+  color: var(--gold);
+  background: rgba(184,150,62,0.06);
+}
+.nav-links .dropdown-menu .dropdown-placeholder span {
+  color: rgba(244,239,230,0.32);
+  cursor: default;
+}
+
+
+/* HERO */
+.hero { padding-top: 80px; min-height: 90vh; display: flex; align-items: stretch; position: relative; overflow: hidden; background: var(--navy); }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.04) 1px, transparent 1px); background-size: 52px 52px; }
+.hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 78% 28%, rgba(139,26,26,0.1) 0%, transparent 52%), radial-gradient(ellipse at 18% 75%, rgba(184,150,62,0.06) 0%, transparent 45%); }
+.hero-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 3; }
+.hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+.hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 7rem 3.5rem 6rem; }
+.hero-right { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 90vh; }
+.hero-right::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
+.hero-right::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 4; pointer-events: none; }
+#hero-map-canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+.eyebrow::before { content: '// '; opacity: 0.6; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 900; line-height: 1.0; color: var(--paper); margin-bottom: 2rem; max-width: 580px; }
+h1 em { font-style: italic; color: var(--gold); }
+.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 2rem; }
+.hero-lede { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.72); max-width: 520px; line-height: 1.82; margin-bottom: 2rem; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.55rem 1.1rem; border: 1px solid rgba(184,150,62,0.28); font-family: 'Courier Prime', monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); background: rgba(184,150,62,0.04); }
+.hero-badge::before { content: '●'; color: var(--gold); font-size: 0.45rem; }
+
+/* SHARED */
+section { padding: 5rem 3rem; }
+.sec-inner { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+.sec-eyebrow::before { content: '// '; opacity: 0.6; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
+h2 em { font-style: italic; color: var(--red); }
+.lead { font-size: 1rem; font-weight: 300; line-height: 1.82; color: rgba(244,239,230,0.58); max-width: 680px; margin-bottom: 0; }
+
+/* INTEL STRIP */
+.intel-strip { background: var(--navy); padding: 1.5rem 3rem; display: flex; align-items: center; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.intel-item { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; padding: 0 0.5rem; }
+.intel-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--gold); line-height: 1; white-space: nowrap; }
+.intel-desc { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(244,239,230,0.4); line-height: 1.5; }
+.intel-sep { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+/* DOMAIN STATEMENT */
+.domain-stmt { background: var(--ink); }
+.domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.domain-card { background: var(--ink); padding: 2rem 1.75rem; position: relative; }
+.domain-card::before { content: ''; display: block; width: 2rem; height: 2px; background: var(--gold); margin-bottom: 1.1rem; }
+.domain-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold-light); margin-bottom: 0.6rem; }
+.domain-card p { font-size: 0.87rem; font-weight: 300; color: rgba(244,239,230,0.5); line-height: 1.72; }
+.domain-quote { margin-top: 2.5rem; padding: 1.5rem 2rem; border-left: 3px solid var(--gold); background: rgba(184,150,62,0.04); max-width: 700px; }
+.domain-quote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; font-weight: 700; color: var(--paper); line-height: 1.5; }
+
+/* SECTOR VIGNETTES */
+.sectors { background: var(--navy); }
+h2.sectors-h { color: var(--paper); }
+.sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.sector-card { background: var(--navy); padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.sector-card:hover { background: rgba(184,150,62,0.03); }
+.sector-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.sector-card:hover::before { transform: scaleX(1); }
+.sec-tag { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+.sec-icon { font-size: 0.95rem; }
+.sector-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--paper); margin-bottom: 0.65rem; }
+.sector-card p { font-size: 0.84rem; font-weight: 300; color: rgba(244,239,230,0.52); line-height: 1.72; }
+.sector-card .kicker { display: block; margin-top: 1rem; padding: 0.65rem 0.85rem; background: rgba(139,26,26,0.08); border: 1px solid rgba(139,26,26,0.18); font-size: 0.8rem; font-weight: 500; font-style: italic; color: rgba(244,239,230,0.82); line-height: 1.45; }
+
+/* THREAT ACTORS */
+.actors { background: var(--ink); }
+.actors h2 { color: var(--paper); }
+.actor-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.actor-card { background: var(--ink); padding: 1.5rem 1.25rem; }
+.actor-origin { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 0.4rem; opacity: 0.85; }
+.actor-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem; }
+.actor-card p { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.45); line-height: 1.65; }
+
+/* POSTURE SHIFT — compact two-liner */
+.posture { background: var(--cream); color: var(--ink); }
+.posture h2 { color: var(--ink); }
+.posture h2 em { color: var(--red); }
+.posture .lead { color: var(--muted); }
+.shift-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(10,10,10,0.08); margin-top: 2.5rem; }
+.shift-card { background: var(--cream); padding: 1.75rem 1.5rem; transition: background 0.3s; }
+.shift-card:hover { background: #e4dece; }
+.shift-from { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+.shift-arrow { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); margin: 0.3rem 0; }
+.shift-to { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+.shift-card p { font-size: 0.8rem; font-weight: 300; color: var(--muted); line-height: 1.65; }
+.radar { margin-top: 2.5rem; padding: 1.5rem 2rem; border-left: 3px solid var(--red); background: rgba(139,26,26,0.05); max-width: 740px; }
+.radar p { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; font-weight: 700; color: var(--ink); line-height: 1.55; }
+
+/* CTA */
+.cta-section { background: var(--paper); color: var(--ink); padding: 6rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: 'LIBERTY CTI'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 13vw; font-weight: 900; color: rgba(10,10,10,0.022); pointer-events: none; }
+.cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-inner img { width: 70px; margin: 0 auto 2rem; display: block; }
+.cta-inner h2 { color: var(--ink); margin-bottom: 1.25rem; }
+.cta-inner h2 em { color: var(--red); }
+.cta-body { font-size: 0.97rem; font-weight: 300; color: var(--muted); line-height: 1.82; margin-bottom: 2.5rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+.cta-closing { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--ink); margin: 0 auto 2.5rem; max-width: 580px; line-height: 1.6; }
+.cta-actions { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+.btn-dark { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-dark:hover { background: #1e2d40; color: var(--paper); text-decoration: none; }
+.btn-outline { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); border: 1px solid rgba(10,10,10,0.25); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-outline:hover { border-color: var(--ink); background: rgba(10,10,10,0.04); text-decoration: none; }
+
+/* FOOTER */
+footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px solid var(--rule); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.footer-emblem { width: 38px; object-fit: contain; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 5rem 2rem 5rem; min-height: 80vh; justify-content: flex-end; }
+  .sector-grid { grid-template-columns: 1fr 1fr; }
+  .actor-grid { grid-template-columns: repeat(3, 1fr); }
+  .shift-grid { grid-template-columns: repeat(2, 1fr); }
+  .domain-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.25rem; }
+  section { padding: 4rem 1.5rem; }
+  .intel-strip { padding: 1.2rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .sector-grid { grid-template-columns: 1fr; }
+  .actor-grid { grid-template-columns: repeat(2, 1fr); }
+  .shift-grid { grid-template-columns: 1fr 1fr; }
+  .domain-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .cta-actions { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="liberty-cti-emblem.png" class="nav-emblem" alt="Liberty CTI">
+    <div class="nav-wordmark">Liberty <span>CTI</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="intelligence.html">Intelligence</a></li>
+    <li class="nav-item dropdown">
+    <a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
+    <ul class="dropdown-menu">
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-22-2026.html">Week of Mar 22, 2026</a></li>
+      <li><a href="C:\Users\Maldonado PC\OneDrive\Documents\Liberty CTI\Intel Production\liberty_cti_briefs\03-16-2026.html">Week of Mar 16, 2026</a></li>
+    </ul>
+    </li>
+    <li><a href="texas-focus.html" class="active">Texas Focus</a></li>
+    <li><a href="Energy_data_AI.html">Energy · Data · AI</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="briefing-request.html" class="nav-cta">Request Briefing</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-layout">
+    <div class="hero-left">
+      <span class="eyebrow">Texas Focus</span>
+      <h1>Texas Is Operating in a<br><em>Contested Cyber Domain</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-lede">Every major Texas industry is already operating inside a cyber domain shaped by nation-state actors, criminal networks, and proxy organizations. This is not a future risk. It is the current environment — and most organizations are not postured for it.</p>
+      <span class="hero-badge">IC analytical practices &nbsp;·&nbsp; ICD-206 sourcing &nbsp;·&nbsp; Torch Fusion Cycle</span>
+    </div>
+    <div class="hero-right">
+      <canvas id="hero-map-canvas"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- INTEL STRIP -->
+<div class="intel-strip">
+  <div class="intel-item"><div class="intel-num">~¼</div><div class="intel-desc">U.S. Energy<br>Production</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">#1</div><div class="intel-desc">Medical Complex<br>Globally (TMC)</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">$2T+</div><div class="intel-desc">Annual State<br>GDP</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">8th</div><div class="intel-desc">Largest Economy<br>in the World</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">5</div><div class="intel-desc">Active Nation-State<br>Threat Actors</div></div>
+</div>
+
+<!-- DOMAIN STATEMENT -->
+<section class="domain-stmt">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">The Domain</span>
+    <h2 class="reveal" style="color:var(--paper);">Cyber Is the Only Domain Where<br>Every Organization Is Already <em>Forward Deployed</em></h2>
+    <p class="lead reveal" style="margin-top:1rem;">Adversaries do not distinguish between public and private targets. They map your organization as terrain — and they have already done it.</p>
+
+    <div class="domain-grid">
+      <div class="domain-card reveal">
+        <h3>Access Point</h3>
+        <p>A pathway into a higher-value target through your networks, supply chain, or shared systems.</p>
+      </div>
+      <div class="domain-card reveal d1">
+        <h3>Leverage Point</h3>
+        <p>An organization whose disruption creates maximum pressure at minimum cost to the adversary.</p>
+      </div>
+      <div class="domain-card reveal d2">
+        <h3>Intelligence Target</h3>
+        <p>A source of commercial, technical, or strategic information that informs adversary decision-making.</p>
+      </div>
+      <div class="domain-card reveal d3">
+        <h3>Disruption Node</h3>
+        <p>A system whose failure cascades across sectors — amplifying one operation into a national event.</p>
+      </div>
+    </div>
+
+    <div class="domain-quote reveal">
+      <p>"If it is connected, it is terrain. Cyber is the only domain where every organization is already forward deployed — whether leadership recognizes it or not."</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTOR VIGNETTES -->
+<section class="sectors">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Sector Intelligence</span>
+    <h2 class="reveal sectors-h">The Threat, by Sector</h2>
+    <p class="lead reveal" style="margin-top:0.75rem; color:rgba(244,239,230,0.5);">Five industries. Five active threat campaigns. One shared environment.</p>
+
+    <div class="sector-grid">
+
+      <div class="sector-card reveal">
+        <div class="sec-tag"><span class="sec-icon">⚡</span>Energy</div>
+        <h3>Pre-Positioned for Coercion</h3>
+        <p>Volt Typhoon — PRC state-sponsored — has achieved persistent access inside U.S. critical infrastructure to enable future disruption, not exfiltration. ERCOT's isolated grid cannot compensate from adjacent systems. The Permian Basin and Gulf Coast are among the most strategically targeted energy assets in the country.</p>
+        <span class="kicker">"If your business touches energy, you are inside a target environment built for coercion — not just intrusion."</span>
+      </div>
+
+      <div class="sector-card reveal d1">
+        <div class="sec-tag"><span class="sec-icon">💰</span>Financial Services</div>
+        <h3>Identity as the Attack Surface</h3>
+        <p>Scattered Spider and related clusters have made social engineering the dominant financial attack vector — defeating architectures built to stop technical exploits. Dallas, Houston, San Antonio, and Austin form one of the densest financial target concentrations in the country.</p>
+        <span class="kicker">"The most damaging financial cyber event breaks trust before it breaks systems."</span>
+      </div>
+
+      <div class="sector-card reveal d2">
+        <div class="sec-tag"><span class="sec-icon">🏥</span>Healthcare</div>
+        <h3>Supply Chains as Leverage</h3>
+        <p>Iran-linked Handala targeted Stryker's medical device supply chain in March 2026 as a geopolitical coercion instrument — not opportunistic crime. The Texas Medical Center serves 10M+ patients annually. A comparable disruption here carries consequences at national scale.</p>
+        <span class="kicker">"Your organization does not need to be in a war zone to become part of one."</span>
+      </div>
+
+      <div class="sector-card reveal">
+        <div class="sec-tag"><span class="sec-icon">🛡️</span>Defense &amp; Aerospace</div>
+        <h3>The DIB as an Intelligence Target</h3>
+        <p>Nation-state actors exploit the weakest link in defense supply chains to reach the strongest. San Antonio's ecosystem — JBSA, NSA Texas, and a dense contractor base — creates a high-density target environment where smaller organizations are frequently the access point adversaries use to reach prime contractors.</p>
+        <span class="kicker">"Being adjacent to national security is not protection. In the adversary's calculus, it is an invitation."</span>
+      </div>
+
+      <div class="sector-card reveal d1">
+        <div class="sec-tag"><span class="sec-icon">🖥️</span>Technology &amp; Data Centers</div>
+        <h3>Contested AI and Cloud Terrain</h3>
+        <p>Texas is becoming a national AI and cloud infrastructure hub. A compromise of a major hyperscale operator creates simultaneous downstream exposure across every sector. The attack surface for any Texas organization now includes infrastructure it does not own and cannot directly protect.</p>
+        <span class="kicker">"If you rely on the cloud, you are already on contested terrain — and the attack surface includes your power company."</span>
+      </div>
+
+      <div class="sector-card reveal d2" style="display:flex;flex-direction:column;justify-content:center;background:rgba(184,150,62,0.04);border:1px solid rgba(184,150,62,0.12);">
+        <div style="font-family:'Courier Prime',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-bottom:0.75rem;">Key Judgment</div>
+        <p style="font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;font-weight:700;color:var(--paper);line-height:1.55;margin-bottom:1rem;">"What happens in Texas does not stay in Texas. Disruption here is a national event."</p>
+        <p style="font-size:0.82rem;color:rgba(244,239,230,0.48);line-height:1.68;">Texas controls roughly a quarter of U.S. domestic energy production, hosts the world's largest medical complex, and is home to a growing share of U.S. AI and cloud infrastructure. Adversaries have mapped this concentration. Most Texas organizations have not.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THREAT ACTORS -->
+<section class="actors">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Active Threat Actors</span>
+    <h2 class="reveal" style="color:var(--paper);">Who Is Targeting Texas</h2>
+    <p class="lead reveal" style="margin-top:0.75rem;">Understanding activity is useful. Understanding <em style="color:var(--gold-light);">intent</em> is what creates decision advantage.</p>
+
+    <div class="actor-grid">
+      <div class="actor-card reveal">
+        <div class="actor-origin">PRC</div>
+        <div class="actor-name">Volt Typhoon</div>
+        <p>Pre-positioning inside energy and critical infrastructure for contingency disruption during geopolitical crisis.</p>
+      </div>
+      <div class="actor-card reveal d1">
+        <div class="actor-origin">Russia</div>
+        <div class="actor-name">APT28 / Sandworm</div>
+        <p>Destructive capability targeting energy, logistics, and financial systems with demonstrated willingness to use it.</p>
+      </div>
+      <div class="actor-card reveal d2">
+        <div class="actor-origin">Iran</div>
+        <div class="actor-name">IRGC-CY / Handala</div>
+        <p>Coercive supply chain and healthcare operations timed to geopolitical pressure cycles.</p>
+      </div>
+      <div class="actor-card reveal d3">
+        <div class="actor-origin">North Korea</div>
+        <div class="actor-name">Lazarus Group</div>
+        <p>Financial system targeting and cryptocurrency theft to fund state operations.</p>
+      </div>
+      <div class="actor-card reveal d4">
+        <div class="actor-origin">Criminal</div>
+        <div class="actor-name">Scattered Spider</div>
+        <p>Social engineering at scale defeating enterprise identity controls across financial and tech sectors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSTURE SHIFT -->
+<section class="posture">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal" style="color:var(--gold);">The Required Shift</span>
+    <h2 class="reveal">From Reactive<br>to <em>Anticipatory</em></h2>
+    <p class="lead reveal" style="margin-top:0.75rem;">Compliance frameworks and incident response plans were built for a different threat environment. Most Texas organizations are not currently postured for this one.</p>
+
+    <div class="shift-grid">
+      <div class="shift-card reveal">
+        <div class="shift-from">Reactive Risk</div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-to">Anticipatory Intelligence</div>
+        <p>Understanding the adversary environment before incidents occur — not after.</p>
+      </div>
+      <div class="shift-card reveal d1">
+        <div class="shift-from">Compliance Standard</div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-to">Threat-Informed Posture</div>
+        <p>Risk decisions grounded in adversary intent, not just regulatory checklists.</p>
+      </div>
+      <div class="shift-card reveal d2">
+        <div class="shift-from">IT-Owned Risk</div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-to">Executive-Owned Awareness</div>
+        <p>Leadership receiving intelligence-grade analysis — not just dashboards and incident reports.</p>
+      </div>
+      <div class="shift-card reveal d3">
+        <div class="shift-from">Incident Response</div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-to">Strategic Warning</div>
+        <p>Pattern recognition and adversary intent analysis before events manifest.</p>
+      </div>
+    </div>
+
+    <div class="radar reveal">
+      <p>"Operating in today's environment without threat intelligence is equivalent to flying in contested airspace without radar. The threat does not become less real because it is not yet visible."</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <img src="liberty-cti-emblem.png" alt="Liberty CTI">
+    <h2>Decision Advantage Starts<br>with <em>Knowing the Environment</em></h2>
+    <p class="cta-body">Liberty CTI was built by two career intelligence officers with 60 combined years of national security service. We translate adversary behavior into executive decision advantage for Texas organizations operating in energy, finance, healthcare, defense, and technology.</p>
+    <div class="cta-closing">"In a domain defined by speed and ambiguity, Liberty CTI equips Texas leaders with the intelligence advantage this environment demands."</div>
+    <div class="cta-actions">
+      <a href="request-briefing.html" class="btn-dark">Request an Executive Briefing</a>
+      <a href="index.html#products" class="btn-outline">View Intelligence Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-row">
+        <img src="liberty-cti-emblem.png" class="footer-emblem" alt="Liberty CTI">
+        <div class="footer-brand">Liberty <span>CTI</span></div>
+      </div>
+      <p class="footer-tagline">Predictive cyber threat intelligence for the organizations that power Texas and the United States. Built by practitioners who've done the work inside the wire.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Intelligence</div>
+      <ul class="footer-links">
+        <li><a href="index.html#products">Texas Threat Outlook</a></li>
+        <li><a href="index.html#products">Sector Threat Digest</a></li>
+        <li><a href="request-briefing.html">Executive Briefings</a></li>
+        <li><a href="index.html#products">Advisory Retainer</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="index.html#founders">About</a></li>
+        <li><a href="index.html#founders">Leadership</a></li>
+        <li><a href="index.html#threats">Threat Actors</a></li>
+        <li><a href="texas-focus.html">Texas Focus</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel [at] libertycti.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2027 Liberty CTI, LLC. All rights reserved.</div>
+    <div class="footer-copy">San Antonio, Texas</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(async () => {
+  const canvas = document.getElementById('hero-map-canvas');
+  if (!canvas) return;
+  const cont = canvas.parentElement;
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let texas;
+  try {
+    const topo = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then(r => r.json());
+    texas = topojson.feature(topo, topo.objects.states).features.find(f => f.id === '48');
+  } catch(e) { return; }
+
+  function draw() {
+    const W = cont.clientWidth, H = cont.clientHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(DPR, DPR);
+    const proj = d3.geoAlbers().fitExtent([[W*.05,H*.08],[W*.95,H*.88]], texas);
+    const pg = d3.geoPath().projection(proj).context(ctx);
+    const cv = (lon,lat) => proj([lon,lat]);
+    ctx.clearRect(0,0,W,H);
+    ctx.save(); ctx.strokeStyle='rgba(184,150,62,0.06)'; ctx.lineWidth=0.5;
+    for(let x=0;x<W;x+=46){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let y=0;y<H;y+=46){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    ctx.restore();
+    ctx.save(); ctx.beginPath(); pg(texas); ctx.fillStyle='rgba(18,35,58,0.92)'; ctx.fill(); ctx.restore();
+    ctx.save(); ctx.beginPath(); pg(texas); ctx.clip();
+    ctx.strokeStyle='rgba(200,190,160,0.1)'; ctx.lineWidth=0.6;
+    [[-106.5,31.8,-98.5,29.4],[-98.5,29.4,-95.4,29.8],[-95.4,29.8,-96.8,32.8],[-96.8,32.8,-100,31.5],[-100,31.5,-106.5,31.8],[-97.7,30.3,-96.8,32.8],[-97.7,30.3,-98.5,29.4],[-95.4,29.8,-97.7,30.3]].forEach(([a,b,d,e])=>{const[ax,ay]=cv(a,b),[bx,by]=cv(d,e);ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.stroke();});
+    [[[-102.5,31.8],W*.14,'rgba(232,89,60,0.18)'],[[-94.8,29.2],W*.11,'rgba(232,89,60,0.14)'],[[-96.9,32.8],W*.1,'rgba(74,143,212,0.13)']].forEach(([[lon,lat],r,col])=>{const[zx,zy]=cv(lon,lat),g=ctx.createRadialGradient(zx,zy,0,zx,zy,r);g.addColorStop(0,col);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(zx,zy,r,0,Math.PI*2);ctx.fill();});
+    ctx.restore();
+    ctx.save(); ctx.beginPath(); pg(texas); ctx.strokeStyle='#C9A84C'; ctx.lineWidth=8; ctx.globalAlpha=0.1; ctx.stroke();
+    ctx.beginPath(); pg(texas); ctx.strokeStyle='#C9A84C'; ctx.lineWidth=1.6; ctx.globalAlpha=0.85; ctx.stroke(); ctx.restore();
+    const bb=pg.bounds(texas),ecx=(bb[0][0]+bb[1][0])/2,ecy=(bb[0][1]+bb[1][1])/2,erx=(bb[1][0]-bb[0][0])/2+W*.05,ery=(bb[1][1]-bb[0][1])/2+H*.065;
+    ctx.save(); ctx.strokeStyle='#C9A84C'; ctx.lineWidth=1; ctx.globalAlpha=0.28; ctx.beginPath(); ctx.ellipse(ecx,ecy,erx,ery,0,0,Math.PI*2); ctx.stroke(); ctx.globalAlpha=0.07; ctx.lineWidth=10; ctx.beginPath(); ctx.ellipse(ecx,ecy,erx,ery,0,0,Math.PI*2); ctx.stroke(); ctx.restore();
+    const cities={SA:[-98.4936,29.4241],HOU:[-95.3698,29.7604],DAL:[-96.7970,32.7767],AUS:[-97.7431,30.2672],FTW:[-97.3308,32.7555],ELP:[-106.4850,31.7619]};
+    ctx.save(); ctx.strokeStyle='rgba(58,127,193,0.4)'; ctx.lineWidth=0.7; ctx.setLineDash([5,4]);
+    [['DAL','HOU'],['DAL','SA'],['SA','HOU'],['AUS','DAL'],['AUS','SA'],['FTW','DAL'],['ELP','SA'],['HOU','AUS']].forEach(([a,b])=>{const p1=cv(...cities[a]),p2=cv(...cities[b]);ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.stroke();}); ctx.restore();
+    function ta(fx,fy,tx,ty){ctx.save();ctx.strokeStyle='rgba(180,30,30,0.2)';ctx.lineWidth=4;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();ctx.strokeStyle='rgba(200,34,34,0.75)';ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();const ang=Math.atan2(ty-fy,tx-fx);ctx.save();ctx.translate(tx,ty);ctx.rotate(ang);ctx.fillStyle='rgba(200,34,34,0.85)';ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(-W*.02,-W*.006);ctx.lineTo(-W*.02,W*.006);ctx.closePath();ctx.fill();ctx.restore();ctx.restore();}
+    const[sax,say]=cv(-98.4936,29.4241),[houx,houy]=cv(-95.3698,29.7604),[dalx,daly]=cv(-96.7970,32.7767);
+    ta(W*.48,0,dalx,daly); ta(W*.7,0,dalx,daly); ta(W,H*.3,houx,houy); ta(W*.3,H,sax,say); ta(W,H*.6,houx,houy);
+    function badge(lon,lat,icon,label,col,ox=0,oy=0){const[bx,by]=cv(lon,lat),x=bx+ox,y=by+oy;ctx.save();ctx.fillStyle='rgba(8,14,24,0.85)';ctx.strokeStyle=col;ctx.lineWidth=0.75;ctx.globalAlpha=0.92;ctx.beginPath();ctx.roundRect(x-32,y-8,64,16,3);ctx.fill();ctx.stroke();ctx.fillStyle=col;ctx.font=`bold ${Math.max(8,W*.0075)}px 'Courier Prime',monospace`;ctx.textAlign='center';ctx.globalAlpha=1;ctx.fillText(icon+' '+label,x,y+4);ctx.restore();}
+    badge(-102.5,31.8,'⚡','ENERGY','#E8593C',0,-W*.04); badge(-94.8,29.0,'⚡','LNG/OIL','#E8593C',-W*.02,-W*.025);
+    badge(-95.4,29.7,'✚','HEALTH','#5ab8a8',W*.035,W*.025); badge(-96.8,32.8,'$','FINANCE','#6aab6a',W*.04,-W*.02);
+    badge(-97.6,30.3,'◫','AI/CLOUD','#4a8fd4',-W*.05,W*.03); badge(-98.4,29.25,'◈','DEFENSE','#C9A84C',0,W*.04);
+    function dot(lon,lat,label,r,isHQ){const[cx,cy]=cv(lon,lat);const hr=r*3.5,hg=ctx.createRadialGradient(cx,cy,0,cx,cy,hr);hg.addColorStop(0,'rgba(201,168,76,0.3)');hg.addColorStop(1,'rgba(201,168,76,0)');ctx.fillStyle=hg;ctx.beginPath();ctx.arc(cx,cy,hr,0,Math.PI*2);ctx.fill();
+    if(isHQ){[r*3,r*4.5].forEach(or=>{ctx.save();ctx.strokeStyle='#C9A84C';ctx.lineWidth=0.7;ctx.globalAlpha=0.25;ctx.setLineDash([3,4]);ctx.beginPath();ctx.arc(cx,cy,or,0,Math.PI*2);ctx.stroke();ctx.restore();});}
+    ctx.fillStyle='#fff';ctx.globalAlpha=0.9;ctx.beginPath();ctx.arc(cx,cy,r*1.1,0,Math.PI*2);ctx.fill();ctx.fillStyle='#C9A84C';ctx.globalAlpha=1;ctx.beginPath();ctx.arc(cx,cy,r*.6,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#fff';ctx.globalAlpha=1;ctx.font=`${isHQ?700:600} ${Math.max(9,W*.011)}px 'Playfair Display',serif`;ctx.textAlign='center';ctx.shadowColor='rgba(0,0,0,0.95)';ctx.shadowBlur=6;ctx.fillText(label,cx,cy-r*2.2);ctx.restore();}
+    const nr=Math.max(4,W*.012);
+    dot(-98.4936,29.4241,'SAN ANTONIO',nr*1.2,true); dot(-95.3698,29.7604,'HOUSTON',nr,false);
+    dot(-96.7970,32.7767,'DALLAS',nr,false); dot(-97.7431,30.2672,'AUSTIN',nr*.82,false);
+    dot(-97.3308,32.7555,'FT. WORTH',nr*.75,false); dot(-106.4850,31.7619,'EL PASO',nr*.72,false);
+    ctx.save(); ctx.fillStyle='#C9A84C'; ctx.font=`bold ${Math.max(7,W*.009)}px 'Courier Prime',monospace`; ctx.globalAlpha=0.5; ctx.textAlign='center'; ctx.shadowColor='rgba(0,0,0,0.9)'; ctx.shadowBlur=4;
+    const[pbx,pby]=cv(-102,31.4); ctx.fillText('PERMIAN BASIN',pbx,pby); const[gcx,gcy]=cv(-94.5,29.0); ctx.fillText('GULF COAST',gcx,gcy); ctx.restore();
+    ctx.save(); ctx.fillStyle='rgba(13,21,32,0.85)'; ctx.strokeStyle='rgba(184,150,62,0.35)'; ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.roundRect(W/2-200,H-28,400,16,2); ctx.fill(); ctx.stroke();
+    ctx.fillStyle='#C9A84C'; ctx.font=`bold ${Math.max(6,W*.007)}px 'Courier Prime',monospace`; ctx.globalAlpha=0.7; ctx.textAlign='center';
+    ctx.fillText('UNCLASSIFIED  //  LIBERTY CTI — OPEN SOURCE',W/2,H-17); ctx.restore();
+  }
+  draw();
+  window.addEventListener('resize', draw);
+})();
+
+// Scroll reveal
+const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
