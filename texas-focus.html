@@ -760,8 +760,10 @@ body { overflow-x: hidden; }
     <li class="nav-item dropdown">
       <a href="03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
       <ul class="dropdown-menu">
+        <li><a href="03-29-2026.html">Week of Mar 29, 2026</a></li>
         <li><a href="03-22-2026.html">Week of Mar 22, 2026</a></li>
         <li><a href="03-16-2026.html">Week of Mar 16, 2026</a></li>
+        <li><a href="atb-archive.html" style="color:#b8963e; font-weight:600;">Full Archive &#8594;</a></li>
       </ul>
     </li>
     <li><a href="texas-focus.html" class="active">Texas Focus</a></li>
@@ -782,7 +784,7 @@ body { overflow-x: hidden; }
       <h1>Texas Is Operating in a<br><em>Contested Cyber Domain</em></h1>
       <div class="hero-rule"></div>
       <p class="hero-lede">Every major Texas industry is already operating inside a cyber domain shaped by nation-state actors, criminal networks, and proxy organizations. This is not a future risk. It is the current environment — and most organizations are not postured for it.</p>
-      <span class="hero-badge">IC analytical practices &nbsp;·&nbsp; ICD-206 sourcing &nbsp;·&nbsp; Torch Fusion Cycle</span>
+      <span class="hero-badge">Liberty CTI Analytical Standards &nbsp;·&nbsp; Liberty CTI Source Attribution Standards &nbsp;·&nbsp; Torch Fusion Cycle</span>
     </div>
     <div class="hero-right">
       <canvas id="hero-map-canvas"></canvas>
@@ -1014,7 +1016,7 @@ body { overflow-x: hidden; }
         <li><a href="https://linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         <li><a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
-        <li><a href="mailto:intel@libertycti.com">intel [at] libertycti.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#7910170d1c153915101b1c0b0d001a0d10571a1614">intel [at] libertycti.com</a></li>
       </ul>
     </div>
   </div>
@@ -1024,7 +1026,7 @@ body { overflow-x: hidden; }
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
 (async () => {
@@ -1102,12 +1104,4 @@ document.addEventListener('DOMContentLoaded', function () {
   var btn = document.querySelector('.nav-toggle') || document.querySelector('.site-nav-toggle');
   if (nav && btn) {
     btn.addEventListener('click', function () {
-      nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
-    });
-  }
-});
-</script>
-
-</body>
-</html>
+      nav.classList.toggle('o

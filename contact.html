@@ -747,14 +747,16 @@ body { overflow-x: hidden; }
   </a>
   <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
   <ul class="nav-links">
-       <li><a href="index.html">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="intelligence.html">Intelligence</a></li>
     <li class="nav-item dropdown">
       <a href="03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
       <ul class="dropdown-menu">
+        <li><a href="03-29-2026.html">Week of Mar 29, 2026</a></li>
         <li><a href="03-22-2026.html">Week of Mar 22, 2026</a></li>
         <li><a href="03-16-2026.html">Week of Mar 16, 2026</a></li>
+        <li><a href="atb-archive.html" style="color:#b8963e; font-weight:600;">Full Archive &#8594;</a></li>
       </ul>
     </li>
     <li><a href="texas-focus.html">Texas Focus</a></li>
@@ -785,7 +787,7 @@ body { overflow-x: hidden; }
 
         <div class="meta-section">
           <span class="meta-label">Direct Contact</span>
-          <div class="meta-value"><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></div>
+          <div class="meta-value"><a href="/cdn-cgi/l/email-protection#0c65627869604c60656e697e78756f7865226f6361"><span class="__cf_email__" data-cfemail="eb82859f8e87ab8782898e999f92889f82c5888486">[email&#160;protected]</span></a></div>
           <p class="meta-note">All messages are reviewed personally by the Liberty CTI principals.</p>
         </div>
 
@@ -897,14 +899,14 @@ body { overflow-x: hidden; }
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links">
-        <li><a href="mailto:intel@libertycti.com">Send a Message</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#375e5943525b775b5e555245434e54435e1954585a">Send a Message</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         <li><a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
         <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a></li>
         <li><a href="https://www.facebook.com/LibertyCTI" target="_blank" rel="noopener noreferrer">Facebook</a></li>
         <li><a href="https://www.instagram.com/libertycti" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#e28b8c96878ea28e8b808790969b81968bcc818d8f"><span class="__cf_email__" data-cfemail="31585f45545d715d5853544345485245581f525e5c">[email&#160;protected]</span></a></li>
       </ul>
     </div>
   </div>
@@ -914,7 +916,7 @@ body { overflow-x: hidden; }
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const form = document.getElementById('contact-form');
   const confirmation = document.getElementById('confirmation');
 
@@ -956,20 +958,4 @@ document.addEventListener('DOMContentLoaded', function () {
   if (nav && btn) {
     btn.addEventListener('click', function () {
       nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
-    });
-  }
-});
-</script>
-
-<script>
-const _reveals = document.querySelectorAll('.reveal');
-if (_reveals.length) {
-  const _obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  _reveals.forEach(r => _obs.observe(r));
-}
-</script>
-</body>
-</html>
+      btn.setAttribute('aria-expanded'
