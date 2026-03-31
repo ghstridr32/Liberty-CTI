@@ -20,7 +20,8 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+body {
+  padding-top: 66px; background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
 a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--gold-light); text-decoration: underline; }
 
@@ -35,51 +36,6 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .nav-links a:hover, .nav-links a.active { color: var(--gold); text-decoration: none; }
 .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
 .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
-
-.nav-links .dropdown { position: relative; }
-.nav-links .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  min-width: 260px;
-  background: rgba(8,12,16,0.98);
-  border: 1px solid var(--rule);
-  padding: 0.4rem 0;
-  list-style: none;
-  z-index: 1000;
-}
-.nav-links .dropdown:hover .dropdown-menu { display: block; }
-.nav-links .dropdown::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 10px;
-}
-.nav-links .dropdown-menu li { margin: 0; }
-.nav-links .dropdown-menu a,
-.nav-links .dropdown-menu span {
-  display: block;
-  padding: 0.7rem 1rem;
-  font-size: 0.64rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(244,239,230,0.62);
-  text-decoration: none;
-  white-space: nowrap;
-}
-.nav-links .dropdown-menu a:hover {
-  color: var(--gold);
-  background: rgba(184,150,62,0.06);
-}
-.nav-links .dropdown-menu .dropdown-placeholder span {
-  color: rgba(244,239,230,0.32);
-  cursor: default;
-}
-
 
 /* HERO */
 .hero { padding-top: 80px; min-height: 90vh; display: flex; align-items: stretch; position: relative; overflow: hidden; background: var(--navy); }
@@ -267,6 +223,565 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
   .cta-actions { flex-direction: column; align-items: center; }
 }
+
+/* RESPONSIVE + MOBILE NAV */
+img { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+
+.nav-toggle,
+.site-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.45rem 0.7rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  nav,
+  .site-nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .page-hero,
+  .hero,
+  .story,
+  .story-angie,
+  .highlights,
+  .why,
+  .team,
+  .cta,
+  .mission,
+  .founders,
+  .approach,
+  .products,
+  .vision,
+  .contact-body,
+  .form-body,
+  .cta-section,
+  .domain-stmt,
+  .sectors,
+  .actors,
+  .posture,
+  .site-footer,
+  footer,
+  section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .page-hero-inner,
+  .mission-inner,
+  .founders-grid,
+  .mission-right,
+  .contact-body-inner,
+  .form-body,
+  .hero-layout,
+  .vision-inner,
+  .why-inner,
+  .story-inner,
+  .story-angie-inner,
+  .mission-inner,
+  .page-hero-inner,
+  .bulldog-box,
+  .footer-inner,
+  .site-footer-inner {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-hero-inner,
+  .mission-inner,
+  .story-inner,
+  .story-angie-inner,
+  .why-inner,
+  .contact-body-inner,
+  .vision-inner,
+  .hero-layout,
+  .bulldog-box,
+  .page-hero-inner,
+  .footer-inner,
+  .site-footer-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .highlight-grid,
+  .founders-grid,
+  .product-grid,
+  .sector-grid,
+  .domain-grid,
+  .actor-grid,
+  .shift-grid,
+  .approach-grid,
+  .cred-strip-inner,
+  .atb-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .story-photo-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat-row,
+  .intel-strip {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .intel-sep {
+    display: none;
+  }
+
+  .footer-bottom,
+  .site-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  nav,
+  .site-nav {
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle,
+  .site-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
+  .nav-links,
+  .site-nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.75rem;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .nav-links.open,
+  .site-nav-links.open {
+    display: flex !important;
+  }
+
+  .nav-links li,
+  .site-nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a,
+  .site-nav-links a {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-item.dropdown,
+  .site-nav-links .dropdown,
+  .nav-links .dropdown {
+    width: 100%;
+  }
+
+  .nav-item.dropdown::after,
+  .nav-links .dropdown::after,
+  .site-nav-links .dropdown::after {
+    display: none;
+  }
+
+  .nav-item.dropdown .dropdown-menu,
+  .nav-links .dropdown-menu,
+  .site-nav-links .dropdown-menu {
+    position: static !important;
+    display: block !important;
+    width: 100%;
+    min-width: 0;
+    margin-top: 0.5rem;
+    border-radius: 0;
+    background: rgba(8,12,16,0.65);
+  }
+
+  .page-hero,
+  .hero {
+    padding-top: 5rem;
+  }
+
+  .page-hero::before,
+  .page-hero::after,
+  .hero::after,
+  .vision::before,
+  .cta::before,
+  .cta-section::before {
+    display: none;
+  }
+
+  h1,
+  .page-hero h1 {
+    line-height: 1.08;
+  }
+
+  .hero-stat-row,
+  .hero-meta,
+  .cta-actions,
+  .form-actions,
+  .submit-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-send,
+  .btn-request,
+  .btn-dark,
+  .btn-gold,
+  .btn-outline,
+  .nav-cta,
+  .site-nav-cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  nav,
+  .site-nav,
+  footer,
+  .site-footer,
+  .hero,
+  .page-hero,
+  .contact-body,
+  .form-body,
+  .cta,
+  .cta-section,
+  .story,
+  .story-angie,
+  .highlights,
+  .why,
+  .team,
+  .mission,
+  .founders,
+  .approach,
+  .products,
+  .vision,
+  .domain-stmt,
+  .sectors,
+  .actors,
+  .posture,
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .footer-inner,
+  .site-footer-inner,
+  .contact-grid,
+  .story-photo-pair {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-emblem,
+  .header-emblem-large {
+    width: 180px;
+  }
+
+  .hero-right {
+    min-height: auto;
+  }
+
+  .card,
+  .header,
+  .industries,
+  .footer-note,
+  .product-item,
+  .sector-card,
+  .approach-card,
+  .fc,
+  .contact-field {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+/* Desktop-only ATB dropdown: opens only when hovering the link itself */
+@media (min-width: 769px) {
+  .nav-item.dropdown,
+  .nav-links .dropdown,
+  .site-nav-links .dropdown {
+    position: relative;
+    width: auto !important;
+  }
+
+  .nav-item.dropdown::after,
+  .nav-links .dropdown::after,
+  .site-nav-links .dropdown::after {
+    display: none !important;
+  }
+
+  .nav-item.dropdown .dropdown-menu,
+  .nav-links .dropdown-menu,
+  .site-nav-links .dropdown-menu {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% + 6px) !important;
+    left: 0 !important;
+    width: auto !important;
+    min-width: 260px !important;
+    margin-top: 0 !important;
+    padding: 0.4rem 0 !important;
+    border-radius: 6px !important;
+    background: rgba(8,12,16,0.98) !important;
+    z-index: 1000 !important;
+  }
+
+  .nav-item.dropdown > a:hover + .dropdown-menu,
+  .nav-links .dropdown > a:hover + .dropdown-menu,
+  .site-nav-links .dropdown > a:hover + .dropdown-menu,
+  .nav-item.dropdown .dropdown-menu:hover,
+  .nav-links .dropdown-menu:hover,
+  .site-nav-links .dropdown-menu:hover {
+    display: block !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   LIBERTY CTI — CANONICAL NAV HOVER + MOBILE CSS
+   Injected fix — overrides any earlier rules
+   ═══════════════════════════════════════════════ */
+
+/* 1. NAV TOGGLE BUTTON — hidden on desktop */
+.nav-toggle, .site-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--gold, #b8963e);
+  color: var(--gold, #b8963e);
+  padding: 0.45rem 0.9rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.nav-toggle:hover, .site-nav-toggle:hover {
+  background: var(--gold, #b8963e);
+  color: var(--ink, #080c10);
+}
+
+/* 2. DESKTOP HOVER DROPDOWN — clean, no gap glitch */
+@media (min-width: 769px) {
+  .nav-item.dropdown,
+  .nav-links .dropdown,
+  .site-nav-links .dropdown {
+    position: relative;
+    width: auto !important;
+  }
+  /* invisible hover bridge prevents gap-triggered close */
+  .nav-item.dropdown::after,
+  .nav-links .dropdown::after,
+  .site-nav-links .dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    display: block !important;
+  }
+  .nav-item.dropdown .dropdown-menu,
+  .nav-links .dropdown-menu,
+  .site-nav-links .dropdown-menu {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% + 0px) !important;
+    left: 0 !important;
+    width: auto !important;
+    min-width: 260px !important;
+    margin-top: 0 !important;
+    padding: 0.4rem 0 !important;
+    background: rgba(8,12,16,0.98) !important;
+    border: 1px solid rgba(184,150,62,0.2) !important;
+    border-radius: 4px !important;
+    z-index: 1000 !important;
+    list-style: none !important;
+  }
+  /* Show on hover of parent li OR when cursor is over the menu itself */
+  .nav-item.dropdown:hover .dropdown-menu,
+  .nav-links .dropdown:hover .dropdown-menu,
+  .site-nav-links .dropdown:hover .dropdown-menu {
+    display: block !important;
+  }
+}
+
+/* 3. MOBILE NAV — 768px and below */
+@media (max-width: 768px) {
+
+  /* Base nav layout */
+  nav, .site-nav {
+    padding: 0.9rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+    background: rgba(8,12,16,0.97);
+  }
+
+  .nav-logo, .site-nav-logo { flex: 1; }
+
+  .nav-toggle, .site-nav-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Nav links — collapsed by default */
+  .nav-links, .site-nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+    padding: 0.75rem 0 0.5rem;
+    border-top: 1px solid rgba(184,150,62,0.15);
+    margin-top: 0.75rem;
+  }
+  .nav-links.open, .site-nav-links.open {
+    display: flex !important;
+  }
+
+  .nav-links li, .site-nav-links li {
+    width: 100%;
+  }
+
+  .nav-links > li > a, .site-nav-links > li > a {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(184,150,62,0.06);
+  }
+
+  /* Dropdown on mobile — always visible inline */
+  .nav-item.dropdown::after,
+  .nav-links .dropdown::after,
+  .site-nav-links .dropdown::after {
+    display: none !important;
+  }
+
+  .nav-item.dropdown .dropdown-menu,
+  .nav-links .dropdown-menu,
+  .site-nav-links .dropdown-menu {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgba(184,150,62,0.04) !important;
+    border: none !important;
+    border-left: 2px solid rgba(184,150,62,0.25) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .nav-links .dropdown-menu li,
+  .site-nav-links .dropdown-menu li {
+    width: 100%;
+  }
+
+  .nav-links .dropdown-menu a,
+  .site-nav-links .dropdown-menu a {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* CTA button full width on mobile */
+  .nav-cta {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  /* General layout collapses */
+  body { padding-top: 60px; }
+
+  /* Hero sections */
+  .page-hero, .hero { padding: 2rem 1.25rem 2.5rem !important; margin-top: 0 !important; }
+  .page-hero-inner, .hero-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .page-hero h1, .hero h1 { font-size: clamp(1.6rem, 6vw, 2.5rem) !important; }
+  .hero-right-col { display: none; }
+
+  /* 2-col grids → single col */
+  .fc-grid,
+  .founders-grid,
+  .two-col,
+  .grid-2,
+  [class*="grid-template-columns: 1fr 1fr"],
+  .mission-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* 3-col / 4-col footer → single col */
+  .footer-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; }
+
+  /* Section padding */
+  section { padding: 3rem 1.25rem !important; }
+  .section-inner { padding: 0 !important; }
+
+  /* Intel strip */
+  .intel-strip { flex-direction: column; padding: 1.5rem 1.25rem; gap: 1.5rem; }
+  .intel-sep { display: none; }
+
+  /* Product grid */
+  .products-grid, .products-list { grid-template-columns: 1fr !important; }
+
+  /* Approach cards */
+  .approach-grid { grid-template-columns: 1fr !important; }
+
+  /* Sector grid */
+  .sectors-grid, .sector-grid { grid-template-columns: 1fr !important; }
+
+  /* Doctrine / feature grids */
+  .doctrine-grid { grid-template-columns: 1fr !important; }
+
+  /* ATB-specific */
+  .sector-card { margin-bottom: 1rem; }
+  .threat-matrix { font-size: 11px; }
+  .threat-matrix th, .threat-matrix td { padding: 8px 6px; }
+
+  /* Typography scale-down */
+  h1 { font-size: clamp(1.6rem, 6vw, 2.8rem) !important; }
+  h2 { font-size: clamp(1.3rem, 5vw, 2rem) !important; }
+  h3 { font-size: clamp(1rem, 4vw, 1.4rem) !important; }
+
+  /* Forms */
+  .form-grid, .form-body { grid-template-columns: 1fr !important; }
+  input, textarea, select { font-size: 16px !important; } /* prevents iOS zoom */
+}
+
+/* 4. SMALL MOBILE — 480px and below */
+@media (max-width: 480px) {
+  nav, .site-nav { padding: 0.75rem 1rem; }
+  .nav-wordmark { font-size: 0.85rem !important; }
+  .nav-emblem, .site-nav-emblem { width: 30px !important; height: 30px !important; }
+  .page-hero h1, .hero h1 { font-size: 1.5rem !important; }
+  .product-name { font-size: 28px !important; }
+  .threat-matrix { display: block; overflow-x: auto; }
+  .kj-block, .centerpiece { padding: 20px 16px !important; }
+  .masthead-meta { gap: 16px !important; }
+  .timestamp-bar { flex-direction: column; gap: 6px; }
+}
+
 </style>
 </head>
 <body>
@@ -277,16 +792,17 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
     <img src="liberty-cti-emblem.png" class="nav-emblem" alt="Liberty CTI">
     <div class="nav-wordmark">Liberty <span>CTI</span></div>
   </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="intelligence.html">Intelligence</a></li>
     <li class="nav-item dropdown">
-    <a href="03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
-    <ul class="dropdown-menu">
-      <li><a href="03-22-2026.html">Week of Mar 22, 2026</a></li>
-      <li><a href="03-16-2026.html">Week of Mar 16, 2026</a></li>
-    </ul>
+      <a href="03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
+      <ul class="dropdown-menu">
+        <li><a href="03-22-2026.html">Week of Mar 22, 2026</a></li>
+        <li><a href="03-16-2026.html">Week of Mar 16, 2026</a></li>
+      </ul>
     </li>
     <li><a href="texas-focus.html">Texas Focus</a></li>
     <li><a href="Energy_data_AI.html" class="active">Energy · Data · AI</a></li>
@@ -736,5 +1252,19 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
 const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var nav = document.querySelector('.nav-links') || document.querySelector('.site-nav-links');
+  var btn = document.querySelector('.nav-toggle') || document.querySelector('.site-nav-toggle');
+  if (nav && btn) {
+    btn.addEventListener('click', function () {
+      nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+    });
+  }
+});
+</script>
+
 </body>
 </html>
