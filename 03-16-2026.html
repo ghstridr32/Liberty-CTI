@@ -27,6 +27,7 @@
     html { -webkit-text-size-adjust: 100%; }
 
     body {
+  padding-top: 66px;
       margin: 0;
       font-family: 'DM Sans', system-ui, Arial, sans-serif;
       background: var(--bg);
@@ -407,9 +408,71 @@
       .content { padding: 18px 16px 22px; }
       .grid    { gap: 11px; }
     }
-  </style>
+  
+/* ── SITE NAV ── */
+nav { position: fixed; top: 0; width: 100%; z-index: 200; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.97); border-bottom: 1px solid rgba(184,150,62,0.2); }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f4efe6; }
+.nav-wordmark span { color: #b8963e; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: #b8963e; }
+.nav-cta { color: #b8963e !important; border: 1px solid #b8963e; padding: 0.45rem 1.1rem; }
+.nav-cta:hover { background: #b8963e !important; color: #080c10 !important; }
+.nav-links .dropdown { position: relative; }
+.nav-links .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; min-width: 260px; background: rgba(8,12,16,0.98); border: 1px solid rgba(184,150,62,0.2); padding: 0.4rem 0; list-style: none; z-index: 1000; }
+.nav-links .dropdown:hover .dropdown-menu { display: block; }
+.nav-links .dropdown::after { content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 10px; }
+.nav-links .dropdown-menu li { margin: 0; }
+.nav-links .dropdown-menu a { display: block; padding: 0.7rem 1rem; font-size: 0.64rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,239,230,0.62); text-decoration: none; white-space: nowrap; }
+.nav-links .dropdown-menu a:hover { color: #b8963e; background: rgba(184,150,62,0.06); }
+
+/* ── SITE FOOTER ── */
+.site-footer { background: #080c10; padding: 4rem 3rem 2.5rem; border-top: 1px solid rgba(184,150,62,0.2); margin-top: 0; }
+.site-footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+.site-footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.site-footer-emblem { width: 38px; object-fit: contain; }
+.site-footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #f4efe6; }
+.site-footer-brand span { color: #b8963e; }
+.site-footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+.site-footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: #b8963e; margin-bottom: 1.1rem; }
+.site-footer-links { list-style: none; }
+.site-footer-links li { margin-bottom: 0.5rem; }
+.site-footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+.site-footer-links a:hover { color: #b8963e; }
+.site-footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 0.5rem; }
+.site-footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+
+</style>
 </head>
 <body>
+
+<!-- SITE NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="liberty-cti-emblem.png" class="nav-emblem" alt="Liberty CTI">
+    <div class="nav-wordmark">Liberty <span>CTI</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="intelligence.html">Intelligence</a></li>
+    <li class="nav-item dropdown">
+      <a href="03-29-2026.html" style="color:#c0392b;">Alamo Threat Brief</a>
+      <ul class="dropdown-menu">
+        <li><a href="03-29-2026.html">Week of Mar 29, 2026</a></li>
+        <li><a href="03-22-2026.html">Week of Mar 22, 2026</a></li>
+        <li><a href="03-16-2026.html" class="active">Week of Mar 16, 2026</a></li>
+      </ul>
+    </li>
+    <li><a href="texas-focus.html">Texas Focus</a></li>
+    <li><a href="Energy_data_AI.html">Energy · Data · AI</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="briefing-request.html" class="nav-cta">Request Briefing</a></li>
+  </ul>
+</nav>
+
 <div class="page">
   <section class="brief">
 
@@ -573,12 +636,54 @@
       </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-left">
-        <div class="footer-note">
-          <strong>Liberty CTI</strong> — Assessments are for situational awareness only. All source links open to original reporting. Distribute within approved classification channels.
-        </div>
-        <div class="footer-note" style="margin-top:5px; font-size:.72rem;">
-          Next edition: 23 March 2026 &nbsp;·&nbsp; Questions: <span style="color:var(--accent-2);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e98a9d80a985808b8c9b9d908a9d80c78a8684">[email&#160;protected]</a></span>
-        </d
+    
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <div class="site-footer-brand-row">
+        <img src="liberty-cti-emblem.png" class="site-footer-emblem" alt="Liberty CTI">
+        <div class="site-footer-brand">Liberty <span>CTI</span></div>
+      </div>
+      <p class="site-footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
+    </div>
+    <div>
+      <div class="site-footer-col-title">Intelligence</div>
+      <ul class="site-footer-links">
+        <li><a href="threat-brief.html">The Alamo Threat Brief</a></li>
+        <li><a href="#">2027 Texas Strategic Threat Outlook</a></li>
+        <li><a href="intelligence.html">The Alamo Defense Framework</a></li>
+        <li><a href="#">Strategic Sector Assessments (Premium)</a></li>
+        <li><a href="briefing-request.html">Executive Briefings</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="site-footer-col-title">Company</div>
+      <ul class="site-footer-links">
+        <li><a href="about.html">About Liberty CTI</a></li>
+        <li><a href="texas-focus.html">Texas Focus</a></li>
+        <li><a href="Energy_data_AI.html">Energy · Data · AI</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="site-footer-col-title">Contact</div>
+      <ul class="site-footer-links">
+        <li><a href="briefing-request.html">Request a Briefing</a></li>
+        <li><a href="#">Founding Client Inquiry</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.facebook.com/LibertyCTI" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/libertycti" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <div class="site-footer-copy">© 2026 Liberty CTI LLC · San Antonio, Texas · libertycti.com</div>
+    <div class="site-footer-copy">All analysis produced in alignment with accepted IC analytical practices</div>
+  </div>
+</footer>
+
+</body>
+</html>
