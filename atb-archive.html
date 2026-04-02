@@ -833,7 +833,7 @@ footer {
         <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
         <li><a href="https://www.facebook.com/LibertyCTI" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="https://www.instagram.com/libertycti" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#fb92958f9e97bb9792999e898f82988f92d5989496"><span class="__cf_email__" data-cfemail="0960677d6c654965606b6c7b7d706a7d60276a6664">[email&#160;protected]</span></a></li>
       </ul>
     </div>
   </div>
@@ -844,7 +844,7 @@ footer {
 </footer>
 
 <!-- SCRIPTS -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Scroll reveal ──────────────────────────────────────────
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -908,13 +908,4 @@ function applyFilters() {
     const text = card.textContent.toLowerCase();
     const tagMatch = activeFilter === 'all' || tags.includes(activeFilter);
     const searchMatch = !activeSearch || tags.includes(activeSearch) || text.includes(activeSearch);
-    card.style.display = (tagMatch && searchMatch) ? '' : 'none';
-    if (tagMatch && searchMatch) visibleCount++;
-  });
-
-  document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
-}
-</script>
-
-</body>
-</html>
+    card.st
