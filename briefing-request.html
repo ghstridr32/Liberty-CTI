@@ -299,11 +299,25 @@ input::placeholder { color: rgba(244,239,230,0.18); font-style: italic; }
   text-transform: uppercase;
   background: var(--gold); color: var(--ink);
   border: none; padding: 1.1rem 2.75rem;
-  cursor: pointer; transition: background 0.25s, transform 0.15s;
+  cursor: pointer; transition: background 0.25s, transform 0.15s, opacity 0.25s;
   position: relative; overflow: hidden;
 }
-.btn-request:hover { background: var(--gold-light); }
-.btn-request:active { transform: scale(0.98); }
+.btn-request:hover:not(:disabled) { background: var(--gold-light); }
+.btn-request:active:not(:disabled) { transform: scale(0.98); }
+.btn-request:disabled {
+  background: rgba(184,150,62,0.2);
+  color: rgba(6,10,15,0.4);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.btn-request-hint {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.55rem; letter-spacing: 0.18em;
+  color: rgba(184,150,62,0.4);
+  margin-top: 0.6rem;
+  display: none;
+}
+.btn-request-hint.visible { display: block; }
 
 /* ── CONFIRMATION ── */
 .confirmation {
@@ -1220,7 +1234,10 @@ body { overflow-x: hidden; }
         <!-- SUBMIT -->
         <div class="submit-row">
           <p class="submit-note">Your information is never shared or sold. This request is reviewed personally by the Liberty CTI principals. No pricing is communicated until the engagement is scoped.</p>
-          <button type="submit" class="btn-request">Request Briefing →</button>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;">
+            <button type="submit" class="btn-request" id="btn-request" disabled>Request Briefing →</button>
+            <span class="btn-request-hint visible" id="btn-hint">// Complete all sections to submit</span>
+          </div>
         </div>
 
       </div>
@@ -1304,6 +1321,7 @@ body { overflow-x: hidden; }
       // Update rail progress
       updateRail();
       updateHiddenInputs();
+      checkFormComplete();
     });
   });
 
@@ -1318,6 +1336,51 @@ body { overflow-x: hidden; }
       const input = document.getElementById(`input-${group}`);
       if (input) input.value = selected;
     });
+  }
+
+  // ── FORM COMPLETENESS CHECK ──
+  function isTextFieldsComplete() {
+    const fields = [
+      { inputId: 'full-name',    emailCheck: false },
+      { inputId: 'organization', emailCheck: false },
+      { inputId: 'role',         emailCheck: false },
+      { inputId: 'email',        emailCheck: true  },
+    ];
+    return fields.every(f => {
+      const val = (document.getElementById(f.inputId) || {}).value?.trim() || '';
+      if (!val) return false;
+      if (f.emailCheck && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) return false;
+      return true;
+    });
+  }
+
+  function isChipsComplete() {
+    const groups = ['sector', 'threat', 'horizon', 'engagement'];
+    return groups.every(group =>
+      document.querySelector(`.chip[data-group="${group}"].selected`) !== null
+    );
+  }
+
+  function checkFormComplete() {
+    const btn  = document.getElementById('btn-request');
+    const hint = document.getElementById('btn-hint');
+    const complete = isChipsComplete() && isTextFieldsComplete();
+
+    btn.disabled = !complete;
+
+    if (complete) {
+      hint.classList.remove('visible');
+    } else {
+      hint.classList.add('visible');
+      // Contextual hint
+      if (!isChipsComplete() && !isTextFieldsComplete()) {
+        hint.textContent = '// Complete all sections to submit';
+      } else if (!isChipsComplete()) {
+        hint.textContent = '// Select at least one option in each section above';
+      } else {
+        hint.textContent = '// Fill in your contact details to submit';
+      }
+    }
   }
 
   // ── RAIL PROGRESS ──
@@ -1364,6 +1427,7 @@ body { overflow-x: hidden; }
   sections.forEach(s => observer.observe(s));
 
   updateHiddenInputs();
+  checkFormComplete(); // Set initial disabled state
 
   // ── FORM SUBMISSION ──
   document.getElementById('briefing-form').addEventListener('submit', function(e) {
@@ -1401,11 +1465,12 @@ body { overflow-x: hidden; }
     requestAnimationFrame(() => requestAnimationFrame(() => conf.classList.add('visible')));
   });
 
-  // Clear errors on input
+  // Clear errors on input + re-check completeness
   document.querySelectorAll('input').forEach(el => {
     el.addEventListener('input', function() {
       const parent = this.closest('.contact-field');
       if (parent) parent.classList.remove('has-error');
+      checkFormComplete();
     });
   });
 </script>
