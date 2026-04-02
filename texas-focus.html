@@ -1104,16 +1104,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var btn = document.querySelector('.nav-toggle') || document.querySelector('.site-nav-toggle');
   if (nav && btn) {
     btn.addEventListener('click', function () {
-      nav.classList.toggle('o
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var nav = document.querySelector('.nav-links') || document.querySelector('.site-nav-links');
-  var btn = document.querySelector('.nav-toggle') || document.querySelector('.site-nav-toggle');
-  if (nav && btn) {
-    btn.addEventListener('click', function () {
       nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
     });
   }
 });
 </script>
+</body>
+</html>

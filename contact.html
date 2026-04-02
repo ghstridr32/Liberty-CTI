@@ -958,4 +958,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (nav && btn) {
     btn.addEventListener('click', function () {
       nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded'
+      btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+    });
+  }
+});
+</script>
+</body>
+</html>

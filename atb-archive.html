@@ -833,7 +833,7 @@ footer {
         <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
         <li><a href="https://www.facebook.com/LibertyCTI" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="https://www.instagram.com/libertycti" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#fb92958f9e97bb9792999e898f82988f92d5989496"><span class="__cf_email__" data-cfemail="0960677d6c654965606b6c7b7d706a7d60276a6664">[email&#160;protected]</span></a></li>
+        <li><a href="/cdn-cgi/l/email-protection#81e8eff5e4edc1ede8e3e4f3f5f8e2f5e8afe2eeec"><span class="__cf_email__" data-cfemail="1d74736978715d71747f786f69647e6974337e7270">[email&#160;protected]</span></a></li>
       </ul>
     </div>
   </div>
@@ -842,70 +842,17 @@ footer {
     <div class="footer-copy">All analysis produced under Liberty CTI Analytical Standards</div>
   </div>
 </footer>
-
-<!-- SCRIPTS -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ── Scroll reveal ──────────────────────────────────────────
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.06 });
-reveals.forEach(r => observer.observe(r));
-
-// ── Mobile nav toggle ─────────────────────────────────────
+<script>
 document.addEventListener('DOMContentLoaded', function () {
-  var nav = document.querySelector('.nav-links');
-  var btn = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.nav-links') || document.querySelector('.site-nav-links');
+  var btn = document.querySelector('.nav-toggle') || document.querySelector('.site-nav-toggle');
   if (nav && btn) {
     btn.addEventListener('click', function () {
       nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
     });
-    nav.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        if (window.innerWidth <= 768) {
-          nav.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
   }
 });
-
-// ── Filter by tag ─────────────────────────────────────────
-let activeFilter = 'all';
-let activeSearch = '';
-
-function filterCards(tag, btn) {
-  activeFilter = tag;
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  applyFilters();
-}
-
-function searchCards(val) {
-  activeSearch = val.toLowerCase().trim();
-  applyFilters();
-}
-
-function applyFilters() {
-  const cards = document.querySelectorAll('#atb-grid .atb-card:not(.atb-card-coming):not(.atb-card-featured)');
-  const featured = document.querySelector('.atb-card-featured');
-  let visibleCount = 0;
-
-  // Always show featured unless searching and no match
-  if (featured) {
-    const ftags = (featured.dataset.tags || '').toLowerCase();
-    const fMatch = activeFilter === 'all' || ftags.includes(activeFilter);
-    const sMatch = !activeSearch || ftags.includes(activeSearch) ||
-                   featured.textContent.toLowerCase().includes(activeSearch);
-    featured.style.display = (fMatch && sMatch) ? '' : 'none';
-    if (fMatch && sMatch) visibleCount++;
-  }
-
-  cards.forEach(card => {
-    const tags = (card.dataset.tags || '').toLowerCase();
-    const text = card.textContent.toLowerCase();
-    const tagMatch = activeFilter === 'all' || tags.includes(activeFilter);
-    const searchMatch = !activeSearch || tags.includes(activeSearch) || text.includes(activeSearch);
-    card.st
+</script>
+</body>
+</html>
