@@ -808,14 +808,14 @@ body { overflow-x: hidden; }
 .lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
 .lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
 .lcti-drop-item{position:relative}
-.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:240px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
 .lcti-drop-item.open .lcti-drop-panel{display:block}
 .lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.55rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
 .lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
-.lcti-drop-panel a.lcti-atb-link{color:#c0392b !important}
-.lcti-drop-panel a.lcti-atb-link:hover{color:#d6554a !important;background:rgba(192,57,43,.08);border-left-color:#c0392b}
 .lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.6rem 1.1rem .25rem;pointer-events:none;display:block}
 .lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
 .lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.4rem 1rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.4rem}
 .lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
 .lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
@@ -829,6 +829,8 @@ body { overflow-x: hidden; }
 .lcti-mobile-menu a:hover{color:#b8963e}
 .lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1rem 2rem .3rem;display:block;pointer-events:none}
 .lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.67rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
 .lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
 .lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.65rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
 .lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
@@ -838,11 +840,7 @@ body { overflow-x: hidden; }
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
   <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-    <svg class="lcti-logo-emblem" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M20 2L4 10v12c0 9.4 6.8 18.2 16 20.4C29.2 40.2 36 31.4 36 22V10L20 2z" fill="#b8963e" opacity=".15" stroke="#b8963e" stroke-width="1.2"/>
-      <path d="M20 8l-2 5h-3l2.5 2-1 5L20 17l3.5 3-1-5 2.5-2h-3z" fill="#b8963e" opacity=".9"/>
-      <path d="M16 22h8M18 25v4M22 25v4" stroke="#b8963e" stroke-width="1.2" stroke-linecap="round"/>
-    </svg>
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.<br>They are.</div>
@@ -877,14 +875,12 @@ body { overflow-x: hidden; }
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="alamo-threat-brief.html" role="menuitem" class="lcti-atb-link">ATB Overview</a>
+        <a href="alamo-threat-brief.html" role="menuitem">ATB Overview</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Latest Issues</span>
-        <a href="threat-brief.html" role="menuitem" class="lcti-atb-link">Latest Issue</a>
-        <a href="threat-brief-2.html" role="menuitem" class="lcti-atb-link">Issue 2</a>
-        <a href="threat-brief-3.html" role="menuitem" class="lcti-atb-link">Issue 3</a>
+        <span class="drop-label">Latest Issue</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Latest Issue</a>
         <div class="drop-divider"></div>
-        <a href="atb-archive.html" role="menuitem" class="lcti-atb-link">Archive</a>
+        <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
     </li>
 
@@ -931,11 +927,9 @@ body { overflow-x: hidden; }
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="alamo-threat-brief.html" class="lcti-atb-link">ATB Overview</a>
-    <a href="threat-brief.html" class="lcti-atb-link">Latest Issue</a>
-    <a href="threat-brief-2.html" class="lcti-atb-link">Issue 2</a>
-    <a href="threat-brief-3.html" class="lcti-atb-link">Issue 3</a>
-    <a href="atb-archive.html" class="lcti-atb-link">Archive</a>
+    <a href="alamo-threat-brief.html">ATB Overview</a>
+    <a href="alamo-threat-brief.html">Latest Issue</a>
+    <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -973,7 +967,7 @@ body { overflow-x: hidden; }
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['threat-brief.html','threat-brief-2.html','threat-brief-3.html','atb-archive.html'],
+    'alamo-threat-brief.html':['atb-archive.html'],
     'intelligence.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
