@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liberty CTI — Alamo Threat Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #080c10;
+  --navy: #0d1520;
+  --paper: #f4efe6;
+  --cream: #ece7da;
+  --gold: #b8963e;
+  --gold-light: #d4af62;
+  --red: #8b1a1a;
+  --muted: #6b6355;
+  --rule: rgba(184,150,62,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  padding-top: 66px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; }
+
+/* PAGE HERO */
+.page-hero {
+  padding: 1.5rem 3rem 2rem;
+  margin-top: 66px;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+.page-hero::before {
+  content: 'ALAMO THREAT BRIEF';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 13vw;
+  font-weight: 900;
+  color: rgba(184,150,62,0.03);
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.page-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+.page-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+.eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.eyebrow::before { content: '// '; opacity: 0.6; }
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--paper);
+  margin-bottom: 1rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 1rem; }
+.page-hero-body {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.68);
+  line-height: 1.7;
+  max-width: 680px;
+}
+.hero-right-col {
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+}
+.hero-emblem-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.hero-emblem {
+  width: 290px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.97;
+  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.65)) drop-shadow(0 0 30px rgba(184,150,62,0.18));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+.hero-emblem:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.7)) drop-shadow(0 0 40px rgba(184,150,62,0.28));
+}
+.hero-pull-quote {
+  width: 100%;
+  border-left: 2px solid var(--gold);
+  padding: 1rem 1.5rem;
+  background: rgba(184,150,62,0.04);
+}
+.hero-pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(244,239,230,0.82);
+  line-height: 1.65;
+  margin-bottom: 0.5rem;
+}
+.hero-pull-attr {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* SECTION UTILS */
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: block;
+}
+.sec-eyebrow::before { content: '// '; opacity: 0.6; }
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+h2 em { font-style: italic; color: var(--red); }
+.sec-lead {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(244,239,230,0.68);
+  max-width: 680px;
+}
+
+/* INTEL STRIP */
+.intel-strip {
+  background: var(--navy);
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.intel-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+  padding: 0 0.5rem;
+}
+.intel-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  white-space: nowrap;
+}
+.intel-desc {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.4);
+  line-height: 1.5;
+}
+.intel-sep { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+/* OVERVIEW */
+.atb-overview {
+  background: var(--ink);
+  padding: 7rem 3rem;
+}
+.atb-overview-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.atb-overview-body {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.62);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+.atb-overview-body strong { color: var(--paper); font-weight: 500; }
+.atb-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--rule);
+  margin-top: 1.5rem;
+}
+.atb-pillar {
+  background: var(--ink);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: background 0.3s;
+}
+.atb-pillar:hover { background: rgba(184,150,62,0.04); }
+.atb-pillar-num {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  padding-top: 0.2rem;
+  flex-shrink: 0;
+}
+.atb-pillar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 0.35rem;
+}
+.atb-pillar-body {
+  font-size: 0.83rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.48);
+  line-height: 1.65;
+}
+.atb-meta-card {
+  background: var(--navy);
+  border: 1px solid var(--rule);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+.meta-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+.meta-table { width: 100%; }
+.meta-table tr { border-bottom: 1px solid rgba(244,239,230,0.05); }
+.meta-table tr:last-child { border-bottom: none; }
+.meta-table td {
+  padding: 0.75rem 0;
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.5;
+  vertical-align: top;
+}
+.meta-table td:first-child {
+  color: rgba(244,239,230,0.35);
+  width: 42%;
+  padding-right: 1rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+}
+.meta-table td:last-child {
+  color: var(--paper);
+  font-weight: 400;
+}
+.meta-table td:last-child::before { content: '→ '; color: var(--gold); }
+.issue-callout {
+  border-left: 2px solid var(--gold);
+  padding: 1.1rem 1.4rem;
+  background: rgba(184,150,62,0.04);
+}
+.issue-callout p {
+  font-size: 0.87rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.58);
+  line-height: 1.75;
+}
+.issue-callout strong { color: var(--paper); font-weight: 500; }
+
+/* CONTENT FRAME */
+.content-frame {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 7rem 3rem;
+}
+.content-frame h2 { color: var(--ink); }
+.content-frame h2 em { color: var(--red); }
+.content-intro {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 720px;
+  margin-bottom: 4rem;
+}
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(10,10,10,0.08);
+  margin-bottom: 3rem;
+}
+.content-card {
+  background: var(--cream);
+  padding: 2.6rem 2.2rem;
+  position: relative;
+}
+.content-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.content-card:nth-child(2)::after { background: linear-gradient(90deg, var(--red), transparent); }
+.content-card:nth-child(3)::after { background: linear-gradient(90deg, var(--gold-light), transparent); }
+.content-card-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.65rem;
+}
+.content-card:nth-child(2) .content-card-label { color: var(--red); }
+.content-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.content-card-body {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: #4c463d;
+  line-height: 1.8;
+}
+.content-note {
+  background: var(--ink);
+  padding: 2.75rem 3rem;
+  margin-top: 0;
+}
+.content-note p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(244,239,230,0.78);
+  line-height: 1.75;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.content-note p::before {
+  content: '\201C';
+  color: var(--gold);
+  font-size: 1.5rem;
+  vertical-align: -0.2em;
+  margin-right: 0.25rem;
+}
+.content-note p::after {
+  content: '\201D';
+  color: var(--gold);
+  font-size: 1.5rem;
+  vertical-align: -0.2em;
+  margin-left: 0.25rem;
+}
+
+/* AUDIENCE */
+.audience {
+  background: var(--navy);
+  padding: 7rem 3rem;
+}
+.audience-inner { max-width: 1200px; margin: 0 auto; }
+.audience h2 { color: var(--paper); }
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--rule);
+  margin-bottom: 4rem;
+}
+.audience-card {
+  background: var(--navy);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.audience-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.audience-card:hover::after { transform: scaleX(1); }
+.audience-tag {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+.audience-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 0.75rem;
+}
+.audience-body {
+  font-size: 0.83rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.48);
+  line-height: 1.72;
+}
+.cycle-box {
+  background: rgba(184,150,62,0.06);
+  border: 1px solid var(--rule);
+  padding: 2.75rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.cycle-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.cycle-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.cycle-body {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.55);
+  line-height: 1.8;
+}
+.cycle-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  background: var(--rule);
+}
+.cycle-step {
+  background: var(--navy);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+.cycle-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.cycle-word {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.35);
+}
+
+/* SAMPLE / USE CASES */
+.use-cases {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 7rem 3rem;
+}
+.use-cases h2 { color: var(--ink); }
+.use-cases h2 em { color: var(--red); }
+.use-cases-intro {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 640px;
+  margin-bottom: 4rem;
+}
+.use-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  background: rgba(10,10,10,0.1);
+  margin-bottom: 3rem;
+}
+.use-item {
+  background: var(--cream);
+  padding: 2.75rem 2.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.use-item:hover { background: #e6e0d2; }
+.use-tag {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.use-tag::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--gold);
+}
+.use-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.use-desc {
+  font-size: 0.87rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.78;
+  margin-bottom: 1.5rem;
+}
+.use-features { list-style: none; }
+.use-features li {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.67rem;
+  color: #777060;
+  display: flex;
+  gap: 0.6rem;
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+}
+.use-features li::before {
+  content: '▸';
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.use-arrow {
+  position: absolute;
+  bottom: 1.75rem;
+  right: 2.25rem;
+  color: rgba(10,10,10,0.12);
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+.use-item:hover .use-arrow { color: var(--gold); transform: translateX(4px); }
+.use-note {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.use-note-icon {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.use-note-body {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.6);
+  line-height: 1.72;
+}
+.use-note-body strong { color: var(--paper); font-weight: 500; }
+
+/* CTA */
+.cta {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 7rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: 'ALAMO THREAT BRIEF';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 10vw;
+  font-weight: 900;
+  color: rgba(10,10,10,0.025);
+  pointer-events: none;
+}
+.cta-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-emblem { width: 80px; margin: 0 auto 2rem; display: block; }
+.cta h2 { color: var(--ink); }
+.cta h2 em { color: var(--red); }
+.cta-body {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.78;
+  margin-bottom: 2.75rem;
+}
+.cta-actions { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+.btn-gold {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.9rem 1.9rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+.btn-gold:hover { background: var(--gold-light); }
+.btn-dark {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.95rem 2.1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+.btn-dark:hover { background: #1e2d40; }
+.btn-outline {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid rgba(10,10,10,0.25);
+  padding: 0.95rem 2.1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: var(--ink); background: rgba(10,10,10,0.04); }
+.btn-gold-outline {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.95rem 2.1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+}
+.btn-gold-outline:hover { background: var(--gold); color: var(--ink); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .page-hero,
+  .atb-overview,
+  .content-frame,
+  .audience,
+  .use-cases,
+  .cta,
+  section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .page-hero-inner,
+  .atb-overview-inner,
+  .cycle-box { gap: 2rem; }
+}
+@media (max-width: 900px) {
+  .page-hero-inner,
+  .atb-overview-inner,
+  .cycle-box {
+    grid-template-columns: 1fr !important;
+  }
+  .content-grid,
+  .audience-grid,
+  .use-grid,
+  .cycle-right {
+    grid-template-columns: 1fr !important;
+  }
+  .intel-strip { flex-wrap: wrap; gap: 1rem; }
+  .intel-sep { display: none; }
+}
+@media (max-width: 768px) {
+  .page-hero,
+  .atb-overview,
+  .content-frame,
+  .audience,
+  .use-cases,
+  .cta,
+  section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .page-hero::before,
+  .cta::before { display: none; }
+  .hero-emblem { width: 220px; }
+  .cta-actions { flex-direction: column; align-items: stretch; }
+  .btn-dark,
+  .btn-outline,
+  .btn-gold,
+  .btn-gold-outline { width: 100%; text-align: center; }
+}
+@media (max-width: 480px) {
+  .page-hero,
+  .atb-overview,
+  .content-frame,
+  .audience,
+  .use-cases,
+  .cta,
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .page-hero h1 { font-size: 1.7rem; }
+  .content-card,
+  .use-item,
+  .atb-meta-card,
+  .cycle-box,
+  .content-note,
+  .use-note { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<!-- LCTI:NAV:START -->
+<style>
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.65;line-height:1.5;white-space:normal;max-width:80px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.4rem .65rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.55rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.6rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.4rem 1rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.4rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.7rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1rem 2rem .3rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.67rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.65rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+    <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.<br>They are.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Luis Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Intelligence</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="intelligence.html" role="menuitem">Products Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item active">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="alamo-threat-brief.html" role="menuitem" class="active">ATB Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Latest Issue</span>
+        <a href="04-12-2026.html" role="menuitem">Latest Issue — Week of Apr 12, 2026</a>
+        <div class="drop-divider"></div>
+        <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Critical Sectors</span>
+        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="financial.html" role="menuitem">Financial Services</a>
+        <a href="healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Luis Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Intelligence</span>
+  <div class="m-sub">
+    <a href="intelligence.html">Products Overview</a>
+    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="alamo-threat-brief.html">ATB Overview</a>
+    <a href="04-12-2026.html">Latest Issue — Week of Apr 12, 2026</a>
+    <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="texas-focus.html">Texas Overview</a>
+    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
+    <a href="financial.html">Financial Services</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
+  </div>
+</div>
+<!-- LCTI:NAV:END -->
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-left reveal">
+      <span class="eyebrow">Flagship Intelligence Product</span>
+      <h1>The Alamo Threat Brief for Texas Leaders Facing an <em>Active Threat Environment.</em></h1>
+      <div class="hero-rule"></div>
+      <p class="page-hero-body">The Alamo Threat Brief is Liberty CTI’s flagship weekly intelligence product. Built for executives, security leaders, and boards, it delivers concise, decision-ready assessments of the cyber developments most likely to matter across Texas critical sectors — with clear judgment on what happened, why it matters, and what could come next.</p>
+      <div class="hero-actions" style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="briefing-request.html" class="btn-gold">Request Access</a>
+        <a href="04-12-2026.html" class="btn-outline">View Latest Issue</a>
+      </div>
+    </div>
+    <div class="hero-right-col reveal d2">
+      <div class="hero-emblem-wrap">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI Emblem" class="hero-emblem">
+      </div>
+      <div class="hero-pull-quote">
+        <p>Executives do not need more alerts. They need disciplined judgment that explains where the risk is moving, which adversaries matter now, and what leadership should be thinking about next.</p>
+        <div class="hero-pull-attr">— The Alamo Threat Brief Standard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEL STRIP -->
+<div class="intel-strip">
+  <div class="intel-item"><div class="intel-num">Weekly</div><div class="intel-desc">Tuesday Publication<br>Cadence</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">7 Day</div><div class="intel-desc">Rolling Intelligence<br>Window</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">Texas</div><div class="intel-desc">Sector-Focused<br>Coverage</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">ICD-203</div><div class="intel-desc">Tradecraft-Informed<br>Judgment</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">Executive</div><div class="intel-desc">Built for Decision<br>Advantage</div></div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="atb-overview" id="overview">
+  <div class="atb-overview-inner">
+    <div>
+      <span class="sec-eyebrow reveal">ATB Overview</span>
+      <h2 class="reveal d1" style="color:var(--paper);">Closing the gap between<br>threat reporting and <em>executive action.</em></h2>
+      <p class="atb-overview-body reveal d2">Most cyber reporting either arrives too late, goes too technical, or fails to connect raw developments to the actual decisions leaders must make. The Alamo Threat Brief exists to solve that problem. It is built to help decision-makers understand the significance of emerging cyber activity before disruption forces a reaction.</p>
+      <p class="atb-overview-body reveal d2">Each issue fuses adversary behavior, geopolitical context, sector exposure, and likely implications for Texas organizations. The result is not a news digest. It is a structured intelligence product designed to give leaders a sharper read on <strong>what matters now</strong> and <strong>what to watch next</strong>.</p>
+      <div class="atb-pillars reveal d3">
+        <div class="atb-pillar">
+          <div class="atb-pillar-num">01</div>
+          <div><div class="atb-pillar-title">Current Threats</div><div class="atb-pillar-body">The most relevant cyber developments affecting Texas industries during the previous seven-day period.</div></div>
+        </div>
+        <div class="atb-pillar">
+          <div class="atb-pillar-num">02</div>
+          <div><div class="atb-pillar-title">Adversary Intent</div><div class="atb-pillar-body">Assessment of what specific actors are trying to achieve, why the timing matters, and how the environment is shifting.</div></div>
+        </div>
+        <div class="atb-pillar">
+          <div class="atb-pillar-num">03</div>
+          <div><div class="atb-pillar-title">Executive Implications</div><div class="atb-pillar-body">The leadership-level consequences, watch points, and risk questions organizations should be addressing now.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="atb-meta-card">
+        <span class="meta-label">// Product Snapshot</span>
+        <table class="meta-table">
+          <tr><td>Cadence</td><td>Published every Tuesday</td></tr>
+          <tr><td>Coverage Window</td><td>Previous 7 days</td></tr>
+          <tr><td>Primary Audience</td><td>Executives, CISOs, boards, risk leaders</td></tr>
+          <tr><td>Scope</td><td>Texas-focused strategic cyber intelligence</td></tr>
+          <tr><td>Method</td><td>Structured analysis informed by accepted IC tradecraft</td></tr>
+        </table>
+      </div>
+      <div class="issue-callout">
+        <p><strong>Recommended use:</strong> leadership update, board prep, security steering discussion, client warning note, or weekly executive read-ahead. The ATB is designed to fit inside a real decision cycle, not sit unread in an inbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT FRAME -->
+<section class="content-frame" id="inside-the-brief">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Inside the Brief</span>
+    <h2 class="reveal d1">A format built for<br><em>clarity under pressure.</em></h2>
+    <p class="content-intro reveal d2">Each ATB issue is structured so readers can move quickly from signal to significance. The product opens with key judgments, then drives through the developments, the adversary logic behind them, and the implications for leadership teams operating in Texas’ most exposed sectors.</p>
+
+    <div class="content-grid reveal d2">
+      <div class="content-card">
+        <div class="content-card-label">Section One</div>
+        <div class="content-card-title">Key Judgments</div>
+        <p class="content-card-body">Clear, concise assessments up front using disciplined probability language. The goal is immediate orientation: what Liberty CTI assesses, why, and where the main uncertainty still lies.</p>
+      </div>
+      <div class="content-card">
+        <div class="content-card-label">Section Two</div>
+        <div class="content-card-title">Threat Rollup</div>
+        <p class="content-card-body">A distilled view of the week’s most important developments affecting Texas critical sectors, filtered for relevance instead of volume.</p>
+      </div>
+      <div class="content-card">
+        <div class="content-card-label">Section Three</div>
+        <div class="content-card-title">Implications</div>
+        <p class="content-card-body">The leadership-level consequences: which sectors may be exposed, what to monitor, and where an executive team should start asking harder questions.</p>
+      </div>
+    </div>
+
+    <div class="content-note reveal d3">
+      <p>The most valuable intelligence product is not the one with the most information. It is the one that helps a leader see the week more clearly than they could on their own.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience" id="audience">
+  <div class="audience-inner">
+    <div class="approach-header reveal">
+      <span class="sec-eyebrow">Who It Serves</span>
+      <h2 style="color:var(--paper);">Built for leaders with<br><em>consequence on their desk.</em></h2>
+      <p class="sec-lead">The ATB is not written for analysts trying to admire tradecraft for its own sake. It is written for decision-makers who need an intelligence edge fast enough to matter.</p>
+    </div>
+
+    <div class="audience-grid reveal d2">
+      <div class="audience-card">
+        <div class="audience-tag">Executive Teams</div>
+        <div class="audience-title">CEOs and Operating Leaders</div>
+        <p class="audience-body">For leaders who need to understand whether cyber developments could trigger business interruption, reputational damage, or strategic surprise across their operating environment.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">Security Leadership</div>
+        <div class="audience-title">CISOs and Risk Owners</div>
+        <p class="audience-body">For security teams who need executive-ready threat context they can brief upward, align to priorities, and use to frame internal action.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-tag">Boards and Advisors</div>
+        <div class="audience-title">Governance Stakeholders</div>
+        <p class="audience-body">For boards, counsel, and outside advisors who need concise, credible intelligence to inform risk conversations without getting buried in technical detail.</p>
+      </div>
+    </div>
+
+    <div class="cycle-box reveal d3">
+      <div class="cycle-left">
+        <span class="cycle-label">// Weekly Production Rhythm</span>
+        <div class="cycle-title">Collect. Assess.<br>Deliver.</div>
+        <p class="cycle-body">Every issue follows a disciplined cycle. Liberty CTI tracks developments across the previous seven days, assesses which signals actually matter for Texas decision-makers, and publishes a product designed for real-world executive consumption — not just awareness for awareness’ sake.</p>
+      </div>
+      <div class="cycle-right">
+        <div class="cycle-step"><div class="cycle-letter">C</div><div class="cycle-word">Collect</div></div>
+        <div class="cycle-step"><div class="cycle-letter">A</div><div class="cycle-word">Assess</div></div>
+        <div class="cycle-step"><div class="cycle-letter">D</div><div class="cycle-word">Deliver</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="use-cases" id="use-cases">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Representative Use Cases</span>
+    <h2 class="reveal d1">The weekly brief for<br><em>the week that matters.</em></h2>
+    <p class="use-cases-intro reveal d2">The ATB is designed to cover the kinds of developments leadership teams actually care about: shifts in adversary posture, sector-specific exposure, critical infrastructure pressure, and the convergence of cyber events with policy, physical, or geopolitical change.</p>
+
+    <div class="use-grid reveal d2">
+      <div class="use-item">
+        <div class="use-tag">Sample Focus</div>
+        <div class="use-name">Critical Infrastructure Pressure</div>
+        <p class="use-desc">Explains how developments targeting utilities, telecom, or data center support networks could create second-order consequences for Texas operations and executive decision-making.</p>
+        <ul class="use-features">
+          <li>Grid and infrastructure implications</li>
+          <li>Cross-sector consequence analysis</li>
+          <li>Leadership watch points</li>
+        </ul>
+        <div class="use-arrow">→</div>
+      </div>
+      <div class="use-item">
+        <div class="use-tag">Sample Focus</div>
+        <div class="use-name">Adversary Campaign Shifts</div>
+        <p class="use-desc">Assesses when a known actor changes pace, targeting, or tradecraft in ways that alter the threat picture for Texas organizations and their suppliers.</p>
+        <ul class="use-features">
+          <li>Intent and capability framing</li>
+          <li>Indicators of escalation</li>
+          <li>Sector-specific exposure</li>
+        </ul>
+        <div class="use-arrow">→</div>
+      </div>
+      <div class="use-item">
+        <div class="use-tag">Sample Focus</div>
+        <div class="use-name">Policy and Threat Convergence</div>
+        <p class="use-desc">Connects cyber events with regulatory, national security, or geopolitical developments so leadership sees the strategic environment, not just the isolated incident.</p>
+        <ul class="use-features">
+          <li>Context beyond the headline</li>
+          <li>Executive implications first</li>
+          <li>Decision-ready synthesis</li>
+        </ul>
+        <div class="use-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="use-note reveal d3">
+      <div class="use-note-icon">◈</div>
+      <div class="use-note-body">The ATB is strongest when used as part of a recurring leadership rhythm. <strong>It gives executive teams a standing mechanism to track strategic cyber developments</strong>, calibrate concern, and see the warning signs that could shape the next operational or board-level decision.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <img src="liberty-cti-emblem.png" class="cta-emblem reveal" alt="Liberty CTI">
+    <span class="sec-eyebrow reveal d1" style="justify-content:center;display:block;">// San Antonio, Texas</span>
+    <h2 class="reveal d2">Ready to review the<br><em>latest issue?</em></h2>
+    <p class="cta-body reveal d3">Request access to the Alamo Threat Brief or review the latest published sample. This is Liberty CTI’s flagship intelligence product for organizations that want disciplined warning, sharper executive context, and better decisions before a crisis sets the pace.</p>
+    <div class="cta-actions reveal d3">
+      <a href="briefing-request.html" class="btn-dark">Request Access</a>
+      <a href="04-12-2026.html" class="btn-outline">View Latest Issue</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:.82rem;font-weight:300;color:rgba(244,239,230,.45);line-height:1.75;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.5}
+.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.6;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.8rem;font-weight:300;color:rgba(244,239,230,.45);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#c0392b}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(244,239,230,.25)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
+      <div class="lcti-footer-slogan">Know the threat. Stay ready. They are.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Intelligence</span>
+      <ul class="lcti-footer-links">
+        <li><a href="intelligence.html">Products Overview</a></li>
+        <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="texas-focus.html">Texas Overview</a></li>
+        <li><a href="energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="financial.html">Financial Services</a></li>
+        <li><a href="healthcare.html">Healthcare</a></li>
+        <li><a href="Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="briefing-request.html">Request a Briefing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2027 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+})();
+</script>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
