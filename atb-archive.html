@@ -8,541 +8,306 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink: #080c10;
-  --navy: #0d1520;
-  --paper: #f4efe6;
-  --cream: #ece7da;
-  --gold: #b8963e;
-  --gold-light: #d4af62;
-  --red: #8b1a1a;
-  --red-bright: #c0392b;
-  --muted: #6b6355;
-  --rule: rgba(184,150,62,0.2);
+  --ink:#080c10;
+  --navy:#0d1520;
+  --paper:#f4efe6;
+  --gold:#b8963e;
+  --gold-light:#d4af62;
+  --red:#c0392b;
+  --muted:rgba(244,239,230,0.55);
+  --rule:rgba(184,150,62,0.18);
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body {
-  background: var(--ink);
-  color: var(--paper);
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-  overflow-x: hidden;
-  padding-top: 66px;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'Instrument Sans',sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  padding-top:68px;
 }
-
-/* ── NAV ─────────────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; width: 100%; z-index: 200;
-  padding: 1.2rem 3rem;
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(8,12,16,0.97);
-  border-bottom: 1px solid var(--rule);
-}
-.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
-.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
-.nav-wordmark span { color: var(--gold); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--gold); }
-.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
-.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
-.nav-toggle {
-  display: none; background: transparent;
-  border: 1px solid var(--gold); color: var(--gold);
-  padding: 0.45rem 0.9rem; font-family: 'Courier Prime', monospace;
-  font-size: 0.8rem; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase;
-}
-.nav-toggle:hover { background: var(--gold); color: var(--ink); }
-
-/* Dropdown */
-.nav-item.dropdown { position: relative; }
-.nav-item.dropdown::after { content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 10px; }
-.dropdown-menu {
-  display: none; position: absolute; top: calc(100% + 0px); left: 0;
-  min-width: 260px; padding: 0.4rem 0; list-style: none;
-  background: rgba(8,12,16,0.98); border: 1px solid var(--rule);
-  border-radius: 4px; z-index: 1000;
-}
-.nav-item.dropdown:hover .dropdown-menu { display: block; }
-.dropdown-menu li a {
-  display: block; padding: 0.7rem 1rem;
-  font-size: 0.64rem; font-weight: 500; letter-spacing: 0.14em;
-  text-transform: uppercase; color: rgba(244,239,230,0.62);
-  text-decoration: none; white-space: nowrap;
-}
-.dropdown-menu li a:hover { color: var(--gold); background: rgba(184,150,62,0.06); }
-
-/* ── PAGE HERO ───────────────────────────────────────────── */
-.page-hero {
-  padding: 5rem 3rem 4rem;
-  background: var(--ink);
-  position: relative; overflow: hidden;
-  border-bottom: 1px solid var(--rule);
-}
-.page-hero-grid {
-  position: absolute; inset: 0;
+.page-shell {
+  min-height:100vh;
   background-image:
-    linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px);
-  background-size: 52px 52px;
+    linear-gradient(rgba(184,150,62,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184,150,62,0.025) 1px, transparent 1px);
+  background-size:60px 60px;
 }
-.page-hero::before {
-  content: 'ATB';
-  position: absolute; right: -1rem; top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Playfair Display', serif;
-  font-size: 28vw; font-weight: 900;
-  color: rgba(184,150,62,0.025);
-  pointer-events: none; line-height: 1; white-space: nowrap;
+.hero {
+  padding:4.5rem 2rem 2.75rem;
+  border-bottom:1px solid var(--rule);
 }
-.page-hero-inner {
-  max-width: 1200px; margin: 0 auto;
-  position: relative; z-index: 1;
+.hero-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.5fr .9fr;
+  gap:2rem;
+  align-items:end;
 }
 .eyebrow {
-  font-family: 'Courier Prime', monospace; font-size: 0.68rem;
-  letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.5rem; display: block;
+  display:block;
+  font-family:'Courier Prime',monospace;
+  font-size:.64rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1rem;
 }
-.eyebrow::before { content: '// '; opacity: 0.6; }
-.page-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  font-weight: 900; line-height: 1.05;
-  color: var(--paper); margin-bottom: 1.25rem;
+.eyebrow::before{content:'// ';opacity:.6}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.3rem,4.5vw,4.4rem);
+  line-height:1.02;
+  margin-bottom:1rem;
 }
-.page-hero h1 em { font-style: italic; color: var(--gold); }
-.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
-.page-hero-body {
-  font-size: 1rem; font-weight: 300;
-  color: rgba(244,239,230,0.62); line-height: 1.85;
-  max-width: 680px;
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p {
+  max-width:760px;
+  color:var(--muted);
+  font-size:1rem;
+  line-height:1.85;
 }
-
-/* ── STATS BAR ───────────────────────────────────────────── */
-.stats-bar {
-  background: var(--navy);
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: 1.5rem 3rem;
-  display: flex; align-items: center; gap: 0;
+.hero-stats {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
 }
-.stats-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; gap: 0; width: 100%;
+.stat {
+  background:var(--navy);
+  padding:1.25rem 1.25rem 1.1rem;
 }
-.stat-item { flex: 1; text-align: center; padding: 0.5rem 1rem; }
-.stat-sep { width: 1px; height: 2.5rem; background: var(--rule); }
 .stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; font-weight: 700; color: var(--gold);
-  display: block; line-height: 1;
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;
+  color:var(--gold);
+  line-height:1;
 }
 .stat-label {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.58rem; letter-spacing: 0.22em;
-  text-transform: uppercase; color: rgba(244,239,230,0.4);
-  margin-top: 0.35rem; display: block;
+  display:block;
+  margin-top:.45rem;
+  font-family:'Courier Prime',monospace;
+  font-size:.56rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(244,239,230,.38);
 }
 
-/* ── FILTER BAR ──────────────────────────────────────────── */
-.filter-bar {
-  background: var(--ink);
-  border-bottom: 1px solid var(--rule);
-  padding: 1.25rem 3rem;
-  position: sticky; top: 66px; z-index: 50;
+.controls {
+  position:sticky;
+  top:68px;
+  z-index:40;
+  background:rgba(8,12,16,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+  padding:1rem 2rem;
 }
-.filter-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+.controls-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  flex-wrap:wrap;
 }
-.filter-label {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.6rem; letter-spacing: 0.25em;
-  text-transform: uppercase; color: rgba(244,239,230,0.35);
-  white-space: nowrap;
+.control-label {
+  font-family:'Courier Prime',monospace;
+  font-size:.58rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:rgba(244,239,230,.34);
 }
-.filter-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.pills{display:flex;gap:.5rem;flex-wrap:wrap}
 .pill {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 0.35rem 0.85rem;
-  border: 1px solid rgba(184,150,62,0.25);
-  color: rgba(244,239,230,0.45);
-  background: transparent; cursor: pointer;
-  transition: all 0.2s; white-space: nowrap;
+  border:1px solid rgba(184,150,62,.24);
+  background:transparent;
+  color:rgba(244,239,230,.5);
+  padding:.38rem .8rem;
+  font-family:'Courier Prime',monospace;
+  font-size:.58rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  cursor:pointer;
 }
-.pill:hover { border-color: var(--gold); color: var(--gold); }
-.pill.active {
-  border-color: var(--gold); color: var(--ink);
-  background: var(--gold); font-weight: 700;
+.pill.active,.pill:hover {
+  background:var(--gold);
+  color:var(--ink);
+  border-color:var(--gold);
 }
-.filter-search {
-  margin-left: auto;
-  position: relative;
+.search {
+  margin-left:auto;
+  min-width:240px;
 }
-.filter-search input {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(184,150,62,0.2);
-  color: var(--paper);
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.65rem; letter-spacing: 0.1em;
-  padding: 0.4rem 1rem 0.4rem 2rem;
-  outline: none; width: 200px;
-  transition: border-color 0.2s;
+.search input {
+  width:100%;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(184,150,62,.18);
+  color:var(--paper);
+  padding:.55rem .9rem;
+  font-family:'Courier Prime',monospace;
+  font-size:.65rem;
+  letter-spacing:.08em;
+  outline:none;
 }
-.filter-search input::placeholder { color: rgba(244,239,230,0.25); }
-.filter-search input:focus { border-color: var(--gold); }
-.filter-search-icon {
-  position: absolute; left: 0.6rem; top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.65rem; color: rgba(184,150,62,0.5);
-  pointer-events: none;
-}
+.search input:focus{border-color:var(--gold)}
 
-/* ── ARCHIVE GRID ────────────────────────────────────────── */
-.archive-section {
-  padding: 4rem 3rem;
-  border-bottom: 1px solid var(--rule);
+.archive {
+  padding:2.25rem 2rem 4rem;
 }
-.archive-inner { max-width: 1200px; margin: 0 auto; }
-
-.year-label {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 2.5rem;
-  display: flex; align-items: center; gap: 1.5rem;
+.archive-inner {
+  max-width:1200px;
+  margin:0 auto;
 }
-.year-label::after {
-  content: ''; flex: 1; height: 1px; background: var(--rule);
+.archive-head {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1.5rem;
 }
-
-.atb-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--rule);
+.archive-head h2 {
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
 }
-
-.atb-card {
-  background: var(--ink);
-  padding: 2rem 2rem 1.75rem;
-  text-decoration: none;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.25s;
+.archive-head p {
+  color:var(--muted);
+  max-width:520px;
+  text-align:right;
+  font-size:.92rem;
 }
-.atb-card::before {
-  content: '';
-  position: absolute; bottom: 0; left: 0;
-  width: 100%; height: 2px;
-  background: var(--gold);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s ease;
+.issue-list {
+  border:1px solid var(--rule);
+  background:rgba(13,21,32,.45);
 }
-.atb-card:hover { background: #0a1018; }
-.atb-card:hover::before { transform: scaleX(1); }
-
-.atb-card-threat {
-  background: rgba(139,26,26,0.06);
+.issue-row {
+  display:grid;
+  grid-template-columns:130px 1.7fr 1fr 90px;
+  gap:1.25rem;
+  align-items:center;
+  padding:1.2rem 1.35rem;
+  text-decoration:none;
+  color:inherit;
+  border-bottom:1px solid rgba(184,150,62,.1);
+  transition:background .2s ease, transform .2s ease;
 }
-.atb-card-threat:hover { background: rgba(139,26,26,0.1); }
-.atb-card-threat::before { background: var(--red-bright); }
-
-.card-issue {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(184,150,62,0.5); margin-bottom: 0.85rem;
-  display: flex; align-items: center; gap: 0.75rem;
+.issue-row:last-child{border-bottom:none}
+.issue-row:hover {
+  background:rgba(184,150,62,.05);
 }
-.card-issue-num {
-  color: var(--gold); font-weight: 700;
+.issue-date {
+  font-family:'Courier Prime',monospace;
+  font-size:.62rem;
+  letter-spacing:.16em;
+  color:rgba(184,150,62,.68);
+  text-transform:uppercase;
 }
-.card-date {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(244,239,230,0.35);
+.issue-kicker {
+  font-family:'Courier Prime',monospace;
+  font-size:.58rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(184,150,62,.55);
+  margin-bottom:.35rem;
 }
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem; font-weight: 700;
-  color: var(--paper); line-height: 1.3;
-  margin-bottom: 0.85rem;
+.issue-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.16rem;
+  line-height:1.2;
+  margin-bottom:.35rem;
 }
-.card-centerpiece {
-  font-size: 0.78rem; font-weight: 300;
-  color: rgba(244,239,230,0.5); line-height: 1.6;
-  margin-bottom: 1.25rem;
+.issue-summary {
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.6;
 }
-.card-tags {
-  display: flex; gap: 0.4rem; flex-wrap: wrap;
-  margin-bottom: 1.25rem;
+.issue-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem;
+  justify-content:flex-start;
 }
-.card-tag {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 0.2rem 0.6rem;
-  border: 1px solid rgba(184,150,62,0.18);
-  color: rgba(184,150,62,0.6);
+.tag {
+  display:inline-block;
+  border:1px solid rgba(184,150,62,.18);
+  color:rgba(184,150,62,.72);
+  font-family:'Courier Prime',monospace;
+  font-size:.54rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:.18rem .5rem;
 }
-.card-tag.red { border-color: rgba(192,57,43,0.3); color: rgba(192,57,43,0.7); }
-
-.card-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  border-top: 1px solid rgba(244,239,230,0.05);
-  padding-top: 1rem;
+.issue-arrow {
+  text-align:right;
+  color:var(--gold);
+  font-family:'Courier Prime',monospace;
+  font-size:.62rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
 }
-.card-threat-level {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase;
-  display: flex; align-items: center; gap: 0.4rem;
+.mobile-cards{display:none}
+.empty-state {
+  display:none;
+  border:1px dashed rgba(184,150,62,.2);
+  padding:2.5rem 1.5rem;
+  text-align:center;
+  color:rgba(244,239,230,.38);
 }
-.tl-dot {
-  width: 6px; height: 6px; border-radius: 50%;
+.empty-state .big {
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;
+  margin-top:.45rem;
 }
-.tl-critical { background: var(--red-bright); box-shadow: 0 0 5px rgba(192,57,43,0.6); }
-.tl-elevated { background: var(--gold); box-shadow: 0 0 5px rgba(184,150,62,0.5); }
-.tl-high { background: #d4831a; box-shadow: 0 0 5px rgba(212,131,26,0.5); }
-.tl-label-text { color: rgba(244,239,230,0.35); }
-.tl-status-text { color: var(--paper); font-weight: 700; }
-
-.card-arrow {
-  font-size: 0.85rem; color: rgba(184,150,62,0.4);
-  transition: transform 0.2s, color 0.2s;
+.quick-links {
+  margin-top:1.5rem;
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
 }
-.atb-card:hover .card-arrow { transform: translateX(4px); color: var(--gold); }
-
-/* Featured / latest card — full width */
-.atb-card-featured {
-  grid-column: 1 / -1;
-  background: var(--navy);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 3rem;
-  align-items: center;
-  padding: 2.5rem 2.5rem;
-  border-bottom: 2px solid var(--red-bright);
+.quick-link {
+  text-decoration:none;
+  color:var(--gold);
+  border:1px solid rgba(184,150,62,.22);
+  padding:.6rem .9rem;
+  font-family:'Courier Prime',monospace;
+  font-size:.6rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
 }
-.atb-card-featured::before { display: none; }
-.atb-card-featured:hover { background: #0f1c2e; }
-.featured-badge {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--red-bright); margin-bottom: 0.75rem; display: block;
+.quick-link:hover {
+  background:rgba(184,150,62,.08);
 }
-.featured-badge::before { content: '⬤ '; font-size: 0.5rem; }
-.atb-card-featured .card-title {
-  font-size: 1.55rem; margin-bottom: 0.75rem;
+@media (max-width: 980px) {
+  .hero-inner{grid-template-columns:1fr}
+  .archive-head{flex-direction:column;align-items:flex-start}
+  .archive-head p{text-align:left}
+  .issue-row{grid-template-columns:110px 1.5fr 1fr}
+  .issue-arrow{display:none}
 }
-.atb-card-featured .card-centerpiece {
-  font-size: 0.88rem; max-width: 680px; margin-bottom: 1.5rem;
-}
-.featured-kj {
-  background: rgba(8,12,16,0.6);
-  border-left: 2px solid var(--gold);
-  padding: 0.75rem 1rem;
-  font-size: 0.78rem; font-weight: 300;
-  color: rgba(244,239,230,0.65);
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-}
-.featured-meta {
-  display: flex; align-items: center; gap: 2rem;
-}
-.featured-cta {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink); background: var(--gold);
-  padding: 0.7rem 1.4rem; text-decoration: none;
-  transition: background 0.2s;
-}
-.featured-cta:hover { background: var(--gold-light); }
-.featured-right {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 1rem;
-  border-left: 1px solid rgba(184,150,62,0.12);
-  padding-left: 3rem; min-width: 180px;
-}
-.featured-issue-large {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem; font-weight: 900;
-  color: rgba(184,150,62,0.15); line-height: 1;
-  letter-spacing: -2px;
-}
-.featured-issue-label {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase;
-  color: rgba(184,150,62,0.4); text-align: center;
-}
-
-/* ── COMING SOON CARD ────────────────────────────────────── */
-.atb-card-coming {
-  background: rgba(255,255,255,0.01);
-  border: 1px dashed rgba(184,150,62,0.12) !important;
-  cursor: default;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  min-height: 200px; text-align: center;
-}
-.atb-card-coming::before { display: none; }
-.atb-card-coming:hover { background: rgba(255,255,255,0.02); }
-.coming-label {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase;
-  color: rgba(184,150,62,0.25);
-}
-.coming-date {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; color: rgba(244,239,230,0.15);
-  margin-top: 0.5rem;
-}
-
-/* ── SUBSCRIBE STRIP ─────────────────────────────────────── */
-.subscribe-strip {
-  background: var(--navy);
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: 3.5rem 3rem;
-}
-.subscribe-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center;
-}
-.subscribe-left h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem; font-weight: 700;
-  color: var(--paper); margin-bottom: 0.75rem; line-height: 1.2;
-}
-.subscribe-left h3 em { font-style: italic; color: var(--gold); }
-.subscribe-left p {
-  font-size: 0.88rem; font-weight: 300;
-  color: rgba(244,239,230,0.5); line-height: 1.75;
-}
-.subscribe-right { display: flex; flex-direction: column; gap: 1rem; }
-.subscribe-tier {
-  border: 1px solid var(--rule);
-  padding: 1.25rem 1.5rem;
-  display: flex; align-items: center; gap: 1.25rem;
-}
-.subscribe-tier.featured-tier {
-  border-color: var(--gold);
-  background: rgba(184,150,62,0.04);
-}
-.tier-icon {
-  font-size: 1.25rem; flex-shrink: 0;
-  width: 36px; text-align: center;
-}
-.tier-info { flex: 1; }
-.tier-name {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.2rem;
-}
-.tier-desc {
-  font-size: 0.8rem; color: rgba(244,239,230,0.5);
-  line-height: 1.5;
-}
-.tier-price {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; font-weight: 700;
-  color: var(--paper); white-space: nowrap;
-}
-.tier-link {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); text-decoration: none;
-  border: 1px solid var(--gold); padding: 0.45rem 1rem;
-  white-space: nowrap; transition: all 0.2s; flex-shrink: 0;
-}
-.tier-link:hover { background: var(--gold); color: var(--ink); }
-
-/* ── FOOTER ──────────────────────────────────────────────── */
-footer {
-  background: var(--ink); padding: 4rem 3rem 2.5rem;
-  border-top: 1px solid var(--rule);
-}
-.footer-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3.5rem; margin-bottom: 2.5rem;
-}
-.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
-.footer-emblem { width: 38px; object-fit: contain; }
-.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
-.footer-brand span { color: var(--gold); }
-.footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
-.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 0.5rem; }
-.footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--gold); }
-.footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 0.5rem; }
-.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
-
-/* ── SCROLL REVEAL ───────────────────────────────────────── */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
-.d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
-
-/* ── MOBILE ──────────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  nav { padding: 1rem 1.5rem; }
-  .archive-section, .subscribe-strip, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .stats-bar, .filter-bar { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .page-hero { padding: 4rem 1.5rem 3rem; }
-  .atb-grid { grid-template-columns: 1fr 1fr; }
-  .atb-card-featured { grid-template-columns: 1fr; }
-  .featured-right { border-left: none; border-top: 1px solid rgba(184,150,62,0.12); padding-left: 0; padding-top: 1.5rem; flex-direction: row; justify-content: center; min-width: 0; }
-}
-
-@media (max-width: 768px) {
-  nav { padding: 0.9rem 1.25rem; flex-wrap: wrap; }
-  .nav-toggle { display: inline-flex !important; align-items: center; justify-content: center; margin-left: auto; }
-  .nav-links { display: none; flex-direction: column; width: 100%; gap: 0; padding: 0.75rem 0 0.5rem; border-top: 1px solid var(--rule); margin-top: 0.75rem; }
-  .nav-links.open { display: flex !important; }
-  .nav-links li { width: 100%; }
-  .nav-links > li > a { display: block; padding: 0.6rem 0; border-bottom: 1px solid rgba(184,150,62,0.06); }
-  .nav-item.dropdown::after { display: none; }
-  .dropdown-menu { display: block !important; position: static !important; width: 100% !important; background: rgba(184,150,62,0.04) !important; border: none !important; border-left: 2px solid rgba(184,150,62,0.25) !important; border-radius: 0 !important; }
-  body { padding-top: 60px; }
-  .page-hero { padding: 3rem 1.25rem 2.5rem; }
-  .page-hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
-  .stats-inner { flex-wrap: wrap; }
-  .stat-item { min-width: 45%; }
-  .stat-sep { display: none; }
-  .filter-bar { padding: 1rem 1.25rem; top: 60px; }
-  .filter-inner { gap: 0.75rem; }
-  .filter-search { margin-left: 0; width: 100%; }
-  .filter-search input { width: 100%; }
-  .atb-grid { grid-template-columns: 1fr; }
-  .atb-card-featured { grid-column: 1; }
-  .subscribe-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .footer-bottom { flex-direction: column; }
-  .archive-section { padding: 2.5rem 1.25rem; }
-}
-
-@media (max-width: 480px) {
-  .nav-wordmark { font-size: 0.85rem; }
-  .nav-emblem { width: 30px; height: 30px; }
-  .atb-card { padding: 1.5rem 1.25rem; }
-  .atb-card-featured { padding: 1.75rem 1.25rem; }
-  .atb-card-featured .card-title { font-size: 1.25rem; }
-  input { font-size: 16px !important; }
+@media (max-width: 760px) {
+  body{padding-top:68px}
+  .hero,.controls,.archive{padding-left:1.25rem;padding-right:1.25rem}
+  .controls-inner{align-items:flex-start}
+  .search{margin-left:0;min-width:100%;width:100%}
+  .issue-list{display:none}
+  .mobile-cards{display:grid;gap:.75rem}
+  .mobile-card {
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    border:1px solid var(--rule);
+    background:rgba(13,21,32,.45);
+    padding:1.1rem 1rem;
+  }
+  .mobile-card:hover{background:rgba(184,150,62,.05)}
 }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <!-- LCTI:NAV:START -->
 <style>
 :root{--nav-h:68px}
@@ -739,235 +504,149 @@ footer {
 })();
 </script>
 <!-- LCTI:NAV:END -->
-
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="page-hero-grid"></div>
-  <div class="page-hero-inner">
-    <span class="eyebrow reveal">Intelligence Archive</span>
-    <h1 class="reveal d1">Alamo Threat Brief<br><em>Archive</em></h1>
-    <div class="hero-rule reveal d2"></div>
-    <p class="page-hero-body reveal d2">Every issue of the Alamo Threat Brief — Liberty CTI's weekly open-source intelligence product — catalogued and searchable. Each brief tracks the adversary campaigns, geopolitical triggers, and sector-specific risks shaping the Texas threat landscape.</p>
-  </div>
-</section>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <span class="stat-num">3</span>
-      <span class="stat-label">Issues Published</span>
-    </div>
-    <div class="stat-sep"></div>
-    <div class="stat-item">
-      <span class="stat-num">2026</span>
-      <span class="stat-label">Publication Year</span>
-    </div>
-    <div class="stat-sep"></div>
-    <div class="stat-item">
-      <span class="stat-num">4</span>
-      <span class="stat-label">Sectors Covered</span>
-    </div>
-    <div class="stat-sep"></div>
-    <div class="stat-item">
-      <span class="stat-num">6</span>
-      <span class="stat-label">Adversary Groups Tracked</span>
-    </div>
-    <div class="stat-sep"></div>
-    <div class="stat-item">
-      <span class="stat-num">Weekly</span>
-      <span class="stat-label">Publication Cadence</span>
-    </div>
-  </div>
-</div>
-
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <div class="filter-inner">
-    <span class="filter-label">Filter by</span>
-    <div class="filter-pills">
-      <button class="pill active" onclick="filterCards('all', this)">All Issues</button>
-      <button class="pill" onclick="filterCards('energy', this)">Energy</button>
-      <button class="pill" onclick="filterCards('healthcare', this)">Healthcare</button>
-      <button class="pill" onclick="filterCards('defense', this)">Defense</button>
-      <button class="pill" onclick="filterCards('finance', this)">Finance</button>
-      <button class="pill" onclick="filterCards('iran', this)">Iran</button>
-      <button class="pill" onclick="filterCards('china', this)">China</button>
-      <button class="pill" onclick="filterCards('russia', this)">Russia</button>
-    </div>
-    <div class="filter-search">
-      <span class="filter-search-icon">⌕</span>
-      <input type="text" placeholder="Search briefs..." id="search-input" oninput="searchCards(this.value)">
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- ARCHIVE — CY2026 -->
-<!-- ═══════════════════════════════════════ -->
-<section class="archive-section">
-  <div class="archive-inner">
-    <div class="year-label reveal">CY 2026 — Active Intelligence Cycle</div>
-
-    <div class="atb-grid" id="atb-grid">
-
-      <!-- FEATURED — LATEST ISSUE -->
-      <a href="03-29-2026.html" class="atb-card atb-card-featured reveal"
-         data-tags="iran healthcare defense finance handala stryker patel">
-        <div class="featured-left">
-          <span class="featured-badge">Latest Issue</span>
-          <div class="card-issue">
-            <span class="card-issue-num">ATB-2026-13</span>
-            <span class="card-date">29 March 2026</span>
-          </div>
-          <div class="card-title">Iran's Handala Network:<br>State Intelligence Dressed as Hacktivism</div>
-          <div class="card-centerpiece">
-            Centerpiece: The Stryker wiper attack — 200,000+ devices wiped across 79 countries via Microsoft Intune — and the breach of FBI Director Kash Patel's personal Gmail. DOJ confirms Handala is a MOIS-operated persona, not an independent hacktivist group.
-          </div>
-          <div class="featured-kj">
-            "Liberty CTI assesses with HIGH CONFIDENCE that Handala almost certainly will continue offensive cyber operations against U.S. targets regardless of federal domain seizures — the group reconstituted new infrastructure within hours of the DOJ's March 19 action."
-          </div>
-          <div class="featured-meta">
-            <a href="03-29-2026.html" class="featured-cta">Read Full Brief →</a>
-            <div class="card-threat-level">
-              <div class="tl-dot tl-critical"></div>
-              <span class="tl-label-text">Threat Level:</span>
-              <span class="tl-status-text">CRITICAL</span>
-            </div>
-          </div>
-          <div class="card-tags" style="margin-top:1rem;">
-            <span class="card-tag red">Iran / MOIS</span>
-            <span class="card-tag red">Handala</span>
-            <span class="card-tag">Healthcare</span>
-            <span class="card-tag">Defense</span>
-            <span class="card-tag">Microsoft Intune</span>
-            <span class="card-tag">Wiper Attack</span>
-          </div>
+<div class="page-shell">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">Alamo Threat Brief Archive</span>
+        <h1>Every published issue in <em>one place.</em></h1>
+        <p>
+          The old archive made you hunt through featured cards, filters, and placeholders. This version is cleaner:
+          latest issue at the top, every published brief in one chronological list, and fast filtering by sector or actor.
+        </p>
+        <div class="quick-links">
+          <a class="quick-link" href="04-12-2026.html">Open Latest Issue</a>
+          <a class="quick-link" href="alamo-threat-brief.html">ATB Overview</a>
+          <a class="quick-link" href="https://libertycti.substack.com" target="_blank" rel="noopener">Subscribe</a>
         </div>
-        <div class="featured-right">
-          <div class="featured-issue-large">13</div>
-          <div class="featured-issue-label">Issue<br>ATB-2026</div>
-        </div>
-      </a>
-
-      <!-- ATB-2026-12 -->
-      <a href="03-22-2026.html" class="atb-card reveal d1"
-         data-tags="iran china russia energy ercot volt typhoon sandworm aws lng">
-        <div class="card-issue">
-          <span class="card-issue-num">ATB-2026-12</span>
-        </div>
-        <div class="card-date" style="margin-bottom:0.85rem;">22 March 2026</div>
-        <div class="card-title">Operation Epic Fury and the Cyber Dimension</div>
-        <div class="card-centerpiece">
-          U.S.-Israeli strikes on Iran launch the most consequential threat environment for Texas critical infrastructure since Colonial Pipeline. AWS data centers struck by Iranian drones. Volt Typhoon confirmed inside U.S. utility OT control loops.
-        </div>
-        <div class="card-tags">
-          <span class="card-tag red">Iran / IRGC-CY</span>
-          <span class="card-tag">China / Volt Typhoon</span>
-          <span class="card-tag">Energy / ERCOT</span>
-          <span class="card-tag">Russia / Sandworm</span>
-          <span class="card-tag">LNG</span>
-        </div>
-        <div class="card-footer">
-          <div class="card-threat-level">
-            <div class="tl-dot tl-critical"></div>
-            <span class="tl-label-text">Threat:</span>
-            <span class="tl-status-text">CRITICAL</span>
-          </div>
-          <span class="card-arrow">→</span>
-        </div>
-      </a>
-
-      <!-- ATB-2026-11 -->
-      <a href="03-16-2026.html" class="atb-card reveal d2"
-         data-tags="iran china russia energy defense finance healthcare texas">
-        <div class="card-issue">
-          <span class="card-issue-num">ATB-2026-11</span>
-        </div>
-        <div class="card-date" style="margin-bottom:0.85rem;">16 March 2026</div>
-        <div class="card-title">Texas Critical Infrastructure: Threat Baseline Assessment</div>
-        <div class="card-centerpiece">
-          Inaugural issue establishing Liberty CTI's standing threat baseline for Texas energy, defense, healthcare, and financial sectors. PIR framework activated. Adversary targeting matrix published.
-        </div>
-        <div class="card-tags">
-          <span class="card-tag">Baseline Assessment</span>
-          <span class="card-tag">All Sectors</span>
-          <span class="card-tag">PIR Framework</span>
-          <span class="card-tag">Texas Focus</span>
-        </div>
-        <div class="card-footer">
-          <div class="card-threat-level">
-            <div class="tl-dot tl-high"></div>
-            <span class="tl-label-text">Threat:</span>
-            <span class="tl-status-text">ELEVATED</span>
-          </div>
-          <span class="card-arrow">→</span>
-        </div>
-      </a>
-
-      <!-- COMING SOON PLACEHOLDERS -->
-      <div class="atb-card atb-card-coming reveal d3">
-        <div class="coming-label">Next Issue</div>
-        <div class="coming-date">05 April 2026</div>
       </div>
-
-      <div class="atb-card atb-card-coming reveal d4">
-        <div class="coming-label">Upcoming</div>
-        <div class="coming-date">12 April 2026</div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Published Issues</span></div>
+        <div class="stat"><span class="stat-num">2026</span><span class="stat-label">Active Cycle</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">Latest Issue Surface</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">Archive View</span></div>
       </div>
+    </div>
+  </section>
 
-      <div class="atb-card atb-card-coming reveal d4">
-        <div class="coming-label">Upcoming</div>
-        <div class="coming-date">19 April 2026</div>
+  <section class="controls">
+    <div class="controls-inner">
+      <span class="control-label">Filter</span>
+      <div class="pills">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="energy">Energy</button>
+        <button class="pill" data-filter="healthcare">Healthcare</button>
+        <button class="pill" data-filter="defense">Defense</button>
+        <button class="pill" data-filter="finance">Finance</button>
+        <button class="pill" data-filter="iran">Iran</button>
+        <button class="pill" data-filter="texas">Texas</button>
       </div>
-
-    </div><!-- end atb-grid -->
-
-    <!-- EMPTY STATE -->
-    <div id="no-results" style="display:none; text-align:center; padding:4rem 0; color:rgba(244,239,230,0.3);">
-      <div style="font-family:'Courier Prime',monospace; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; margin-bottom:1rem;">No briefs match this filter</div>
-      <div style="font-family:'Playfair Display',serif; font-size:1.1rem;">Try a different sector or keyword</div>
+      <div class="search">
+        <input id="archive-search" type="text" placeholder="Search title, issue, or topic">
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- SUBSCRIBE STRIP -->
-<div class="subscribe-strip">
-  <div class="subscribe-inner">
-    <div class="subscribe-left reveal">
-      <span class="eyebrow" style="margin-bottom:1rem;">Get the ATB</span>
-      <h3>Delivered Weekly to<br><em>Decision-Makers</em></h3>
-      <p style="margin-top:1rem;">The Alamo Threat Brief publishes every Saturday morning. Free subscribers receive the Key Judgments summary. Paid subscribers receive the full brief — PIR responses, sector exposure assessments, and the 30/60/90-day outlook.</p>
-    </div>
-    <div class="subscribe-right reveal d2">
-      <div class="subscribe-tier">
-        <div class="tier-icon">◇</div>
-        <div class="tier-info">
-          <div class="tier-name">Free Tier</div>
-          <div class="tier-desc">Weekly Key Judgments + Threat Level summary. No credit card required.</div>
-        </div>
+  <section class="archive">
+    <div class="archive-inner">
+      <div class="archive-head">
         <div>
-          <div class="tier-price" style="margin-bottom:0.5rem;">Free</div>
-          <a href="https://libertycti.substack.com" target="_blank" rel="noopener" class="tier-link">Subscribe</a>
+          <span class="eyebrow">CY 2026</span>
+          <h2>Chronological archive</h2>
         </div>
+        <p>
+          Open any issue directly from this list. No filler cards. No “coming soon” blocks mixed in with published work.
+          Just the briefs, in order.
+        </p>
       </div>
-      <div class="subscribe-tier featured-tier">
-        <div class="tier-icon" style="color:var(--gold);">◈</div>
-        <div class="tier-info">
-          <div class="tier-name">Full Brief — Paid</div>
-          <div class="tier-desc">Complete ATB: full sector analysis, PIR responses, sourced citations, and 30/60/90-day outlook.</div>
+
+      <div class="issue-list" id="issue-list">
+        
+      <a class="issue-row" href="04-12-2026.html" data-tags="latest weekly" data-sector="all">
+        <div class="issue-date">12 APR 2026</div>
+        <div class="issue-main">
+          <div class="issue-kicker">Latest</div>
+          <div class="issue-title">Newest Published Brief</div>
+          <div class="issue-summary">Most recent Alamo Threat Brief. Open the latest issue directly from the archive without hunting through cards or dropdowns.</div>
         </div>
-        <div>
-          <div class="tier-price" style="margin-bottom:0.5rem;">$29–49/mo</div>
-          <a href="https://libertycti.substack.com" target="_blank" rel="noopener" class="tier-link">Subscribe</a>
+        <div class="issue-tags"><span class="tag">latest</span><span class="tag">weekly</span></div>
+        <div class="issue-arrow">Read →</div>
+      </a>
+    
+      <a class="issue-row" href="03-29-2026.html" data-tags="iran healthcare defense finance" data-sector="cross-sector">
+        <div class="issue-date">29 MAR 2026</div>
+        <div class="issue-main">
+          <div class="issue-kicker">ATB-2026-13</div>
+          <div class="issue-title">Iran’s Handala Network: State Intelligence Dressed as Hacktivism</div>
+          <div class="issue-summary">Covers Handala as a MOIS-operated persona, the Stryker wiper event, and implications for U.S. targets.</div>
         </div>
+        <div class="issue-tags"><span class="tag">iran</span><span class="tag">healthcare</span><span class="tag">defense</span><span class="tag">finance</span></div>
+        <div class="issue-arrow">Read →</div>
+      </a>
+    
+      <a class="issue-row" href="03-22-2026.html" data-tags="defense iran operations" data-sector="defense">
+        <div class="issue-date">22 MAR 2026</div>
+        <div class="issue-main">
+          <div class="issue-kicker">ATB-2026-12</div>
+          <div class="issue-title">Operation Epic Fury and the Cyber Dimension</div>
+          <div class="issue-summary">Examines cyber implications and escalation dynamics tied to Operation Epic Fury and related threat activity.</div>
+        </div>
+        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">operations</span></div>
+        <div class="issue-arrow">Read →</div>
+      </a>
+    
+      <a class="issue-row" href="03-16-2026.html" data-tags="energy healthcare finance defense texas" data-sector="cross-sector">
+        <div class="issue-date">16 MAR 2026</div>
+        <div class="issue-main">
+          <div class="issue-kicker">ATB-2026-11</div>
+          <div class="issue-title">Texas Critical Infrastructure: Threat Baseline Assessment</div>
+          <div class="issue-summary">Baseline look at sector exposure across Texas critical infrastructure with emphasis on operating environment and adversary pressure.</div>
+        </div>
+        <div class="issue-tags"><span class="tag">energy</span><span class="tag">healthcare</span><span class="tag">finance</span><span class="tag">defense</span><span class="tag">texas</span></div>
+        <div class="issue-arrow">Read →</div>
+      </a>
+    
+      </div>
+
+      <div class="mobile-cards" id="mobile-cards">
+        
+      <a class="mobile-card" href="04-12-2026.html" data-tags="latest weekly" data-sector="all">
+        <div class="issue-kicker">Latest · 12 APR 2026</div>
+        <div class="issue-title">Newest Published Brief</div>
+        <div class="issue-summary">Most recent Alamo Threat Brief. Open the latest issue directly from the archive without hunting through cards or dropdowns.</div>
+        <div class="issue-tags"><span class="tag">latest</span><span class="tag">weekly</span></div>
+      </a>
+    
+      <a class="mobile-card" href="03-29-2026.html" data-tags="iran healthcare defense finance" data-sector="cross-sector">
+        <div class="issue-kicker">ATB-2026-13 · 29 MAR 2026</div>
+        <div class="issue-title">Iran’s Handala Network: State Intelligence Dressed as Hacktivism</div>
+        <div class="issue-summary">Covers Handala as a MOIS-operated persona, the Stryker wiper event, and implications for U.S. targets.</div>
+        <div class="issue-tags"><span class="tag">iran</span><span class="tag">healthcare</span><span class="tag">defense</span><span class="tag">finance</span></div>
+      </a>
+    
+      <a class="mobile-card" href="03-22-2026.html" data-tags="defense iran operations" data-sector="defense">
+        <div class="issue-kicker">ATB-2026-12 · 22 MAR 2026</div>
+        <div class="issue-title">Operation Epic Fury and the Cyber Dimension</div>
+        <div class="issue-summary">Examines cyber implications and escalation dynamics tied to Operation Epic Fury and related threat activity.</div>
+        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">operations</span></div>
+      </a>
+    
+      <a class="mobile-card" href="03-16-2026.html" data-tags="energy healthcare finance defense texas" data-sector="cross-sector">
+        <div class="issue-kicker">ATB-2026-11 · 16 MAR 2026</div>
+        <div class="issue-title">Texas Critical Infrastructure: Threat Baseline Assessment</div>
+        <div class="issue-summary">Baseline look at sector exposure across Texas critical infrastructure with emphasis on operating environment and adversary pressure.</div>
+        <div class="issue-tags"><span class="tag">energy</span><span class="tag">healthcare</span><span class="tag">finance</span><span class="tag">defense</span><span class="tag">texas</span></div>
+      </a>
+    
+      </div>
+
+      <div class="empty-state" id="empty-state">
+        <span class="eyebrow" style="margin-bottom:.25rem">No matching briefs</span>
+        <span class="big">Try a different keyword or filter.</span>
       </div>
     </div>
-  </div>
+  </section>
 </div>
-
-<!-- FOOTER -->
 <!-- LCTI:FOOTER:START -->
 <style>
 .lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
@@ -1043,16 +722,40 @@ footer {
 </footer>
 <!-- LCTI:FOOTER:END -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var nav = document.querySelector('.nav-links') || document.querySelector('.site-nav-links');
-  var btn = document.querySelector('.nav-toggle') || document.querySelector('.site-nav-toggle');
-  if (nav && btn) {
-    btn.addEventListener('click', function () {
-      nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+(function() {
+  const pills = document.querySelectorAll('.pill');
+  const search = document.getElementById('archive-search');
+  const rowSelectors = '.issue-row, .mobile-card';
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = (search.value || '').trim().toLowerCase();
+    let visible = 0;
+
+    document.querySelectorAll(rowSelectors).forEach(el => {
+      const haystack = el.textContent.toLowerCase() + ' ' + (el.dataset.tags || '') + ' ' + (el.dataset.sector || '');
+      const matchesFilter = activeFilter === 'all' || haystack.includes(activeFilter);
+      const matchesSearch = !query || haystack.includes(query);
+      const show = matchesFilter && matchesSearch;
+      el.style.display = show ? '' : 'none';
+      if (show) visible += 1;
     });
+
+    document.getElementById('empty-state').style.display = visible ? 'none' : 'block';
   }
-});
+
+  pills.forEach(btn => {
+    btn.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  search.addEventListener('input', applyFilters);
+  applyFilters();
+})();
 </script>
 </body>
 </html>
