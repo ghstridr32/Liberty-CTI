@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#060c14">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alamo Threat Brief ATB-2026-15 | Week of April 7–13, 2026 | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#060c14;--surface:#091424;--panel:#0c1e30;--tile:#0f2540;--lift:#122848;
+  --border:#1a3a5c;--border-hi:#2a5a8c;
+  --text:#e8f0fa;--text-dim:#c4d8ee;--text-low:#8aaece;--white:#ffffff;
+  --gold:#d4a040;--gold-hi:#f0c870;--gold-dim:rgba(212,160,64,.18);
+  --blue:#5abcf0;--blue-hi:#88d4ff;
+  --energy:#f0c060;--finance:#5abcf0;--health:#60dd98;--defense:#c098f0;--gov:#f09068;--tech:#50e0d0;
+  --danger:#f06854;--amber:#e09030;
+  --screen-glow:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(90,188,240,.08) 0%,transparent 65%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#060c14!important}
+body{background:#060c14!important;color:#e8f0fa!important;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;padding-top:56px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E")!important;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);border-bottom:1px solid rgba(212,160,64,.2);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-emblem{width:32px;height:32px;object-fit:contain;}
+.nav-wordmark{font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);}
+.nav-wordmark span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;}
+.nav-links a{font-family:'Rajdhani',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,240,250,.55);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold-hi);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{color:var(--gold)!important;border:1px solid rgba(212,160,64,.5);padding:.35rem 1rem;}
+.nav-cta:hover{background:var(--gold)!important;color:var(--bg)!important;}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.4rem .8rem;font-family:'Share Tech Mono',monospace;font-size:.75rem;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;}
+.nav-toggle:hover{background:var(--gold);color:var(--bg);}
+.nav-links .dropdown{position:relative;}
+.nav-links .dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:rgba(6,12,20,.98);border:1px solid rgba(212,160,64,.2);padding:.4rem 0;list-style:none;z-index:1000;}
+.nav-links .dropdown:hover .dropdown-menu{display:block;}
+.nav-links .dropdown::after{content:'';position:absolute;top:100%;left:0;width:100%;height:10px;}
+.nav-links .dropdown-menu a{display:block;padding:.65rem 1rem;font-size:.65rem;letter-spacing:.14em;color:rgba(232,240,250,.65);}
+.nav-links .dropdown-menu a:hover{color:var(--gold-hi);background:rgba(212,160,64,.06);}
+
+/* MASTHEAD */
+.masthead{background:var(--surface);position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.masthead-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.15;pointer-events:none;}
+.masthead::before{content:'';position:absolute;inset:0;background:var(--screen-glow),radial-gradient(ellipse 40% 80% at 95% 50%,rgba(212,160,64,.06) 0%,transparent 60%);pointer-events:none;}
+.masthead::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);pointer-events:none;}
+.masthead-inner{max-width:1040px;margin:0 auto;padding:36px 40px 0;position:relative;z-index:1;}
+.logo-row{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+.logo-img{width:56px;height:56px;border-radius:10px;object-fit:contain;border:1px solid rgba(212,160,64,.25);box-shadow:0 0 20px rgba(212,160,64,.15),0 4px 12px rgba(0,0,0,.5);}
+.brand-block{display:flex;flex-direction:column;gap:3px;}
+.brand-name{font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-hi);}
+.brand-sub{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-low);}
+.title-block{position:relative;z-index:1;padding:16px 0 20px;}
+.alamo-silhouette{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;max-width:820px;opacity:.055;color:var(--blue);pointer-events:none;z-index:0;}
+.title-block h1{position:relative;z-index:1;font-family:'Rajdhani',sans-serif;font-size:clamp(2.2rem,8vw,3.8rem);font-weight:700;letter-spacing:.04em;line-height:1;color:var(--white);text-shadow:0 0 40px rgba(90,188,240,.25),0 2px 20px rgba(0,0,0,.9);margin-bottom:10px;}
+.title-block h1 span{color:var(--blue);}
+.title-desc{position:relative;z-index:1;color:var(--text-dim);font-size:.92rem;font-weight:300;font-style:italic;max-width:560px;line-height:1.55;}
+.meta-row{margin-top:20px;position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;}
+.pill{border:1px solid var(--border-hi);background:rgba(90,188,240,.05);color:var(--text-dim);padding:4px 12px;border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.06em;white-space:nowrap;}
+.pill strong{color:var(--blue);font-weight:400;}
+.threat-banner{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-top:16px;padding:9px 14px;background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:3px solid var(--danger);width:fit-content;}
+.threat-dot{width:7px;height:7px;border-radius:50%;background:var(--danger);box-shadow:0 0 8px var(--danger);animation:blink 1.4s ease-in-out infinite;flex:0 0 auto;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.threat-label{font-family:'Rajdhani',sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--danger);font-weight:600;}
+.meta-strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;border-top:1px solid var(--border);}
+.meta-cell{padding:12px 20px;border-right:1px solid var(--border);flex:1;min-width:120px;}
+.meta-cell:last-child{border-right:none;}
+.meta-lbl{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-low);margin-bottom:3px;}
+.meta-val{font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--gold);letter-spacing:.05em;}
+.timestamp-bar{position:relative;z-index:1;display:flex;align-items:center;gap:24px;padding:10px 0 14px;flex-wrap:wrap;border-top:1px solid rgba(26,58,92,.4);}
+.ts-item{display:flex;align-items:center;gap:8px;}
+.ts-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(212,160,64,.7);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
+.ts-text{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,160,64,.7);}
+.ts-text strong{color:var(--gold);}
+
+/* CLASSIFICATION */
+.cls-banner{background:rgba(90,188,240,.07);border-bottom:1px solid var(--border);padding:5px 20px;display:flex;align-items:center;justify-content:space-between;}
+.cls-text{font-family:'Share Tech Mono',monospace;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-low);}
+.cls-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--blue);opacity:.7;}
+
+/* TICKER */
+.ticker-strip{background:rgba(176,40,30,.65);border-top:1px solid rgba(240,104,84,.5);border-bottom:1px solid var(--border);overflow:hidden;white-space:nowrap;padding:8px 0;cursor:pointer;}
+.ticker-strip:hover .ticker-inner{animation-play-state:paused;}
+.ticker-inner{display:inline-block;animation:ticker 55s linear infinite;}
+.ticker-inner a.ticker-item{display:inline;font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--white);letter-spacing:.08em;padding:0 60px;text-decoration:none;}
+.ticker-inner a.ticker-item:hover{color:var(--gold-hi);}
+.ticker-inner a.ticker-item::before{content:'◆ ';color:var(--gold);}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PAGE */
+.page-body{max-width:1040px;margin:0 auto;padding:0 40px 80px;}
+
+/* SECTION RULES */
+.section-rule{display:flex;align-items:center;gap:14px;margin:48px 0 24px;}
+.section-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;background:rgba(90,188,240,.08);border:1px solid rgba(90,188,240,.25);padding:4px 12px;white-space:nowrap;}
+.section-rule-line{flex:1;height:1px;background:linear-gradient(to right,rgba(90,188,240,.4),transparent);}
+h2.section-head{font-family:'Rajdhani',sans-serif;font-size:1.7rem;font-weight:700;color:var(--white);letter-spacing:.03em;margin-bottom:6px;}
+h3.sub-head{font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:var(--blue-hi);margin:28px 0 10px;border-left:3px solid var(--blue);padding-left:12px;letter-spacing:.04em;}
+p{margin-bottom:14px;color:var(--text);}
+
+/* INTRO */
+.intro-deck{border-top:3px solid var(--blue);padding:28px 0 0;margin-bottom:12px;}
+.intro-deck p{font-size:1.06rem;line-height:1.75;color:var(--text);font-weight:300;}
+.intro-deck strong{font-weight:600;color:var(--white);}
+
+/* CENTERPIECE */
+.centerpiece{background:var(--panel);border:1px solid rgba(90,188,240,.25);border-left:5px solid var(--danger);padding:32px 36px;margin:32px 0;position:relative;}
+.centerpiece::before{content:'THIS WEEK\'S CENTERPIECE ANALYSIS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--danger);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);font-weight:600;}
+.centerpiece-title{font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:16px;letter-spacing:.02em;}
+.centerpiece p{color:var(--text);font-size:.95rem;line-height:1.72;}
+.centerpiece strong{color:var(--gold-hi);}
+
+/* KJ */
+.kj-block{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:32px 36px;margin:32px 0;position:relative;}
+.kj-block::before{content:'KEY JUDGMENTS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.kj-item{display:flex;gap:16px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(90,188,240,.12);}
+.kj-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.kj-num{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);font-weight:600;white-space:nowrap;padding-top:3px;min-width:24px;}
+.kj-text{font-size:.94rem;color:var(--text);line-height:1.68;}
+.kj-text strong{color:var(--white);font-weight:600;}
+.kj-uncertainty{font-size:.82rem;color:var(--text-low);font-style:italic;margin-top:6px;padding-top:6px;border-top:1px solid rgba(90,188,240,.08);}
+.conf{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;vertical-align:middle;margin-left:5px;}
+.conf-high{background:rgba(90,188,240,.15);color:#88d4ff;border:1px solid rgba(90,188,240,.4);}
+.conf-mod{background:rgba(212,160,64,.15);color:var(--gold-hi);border:1px solid rgba(212,160,64,.4);}
+.aq{font-weight:700;color:var(--blue-hi);}
+
+/* WARNING BOX */
+.warning-box{background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:4px solid var(--danger);padding:20px 24px;margin:24px 0;}
+.warning-box::before{content:'⚠ CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
+.warning-box p{color:var(--text);font-size:.93rem;}
+
+/* ASSESSMENT BOX */
+.assessment-box{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:3px solid var(--blue);padding:18px 22px;margin:20px 0;}
+.assessment-label{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;}
+.assessment-box p{color:var(--text);font-size:.93rem;font-style:italic;}
+
+/* DOCTRINE GRID */
+.doctrine-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
+.doctrine-card{background:var(--panel);padding:20px;position:relative;}
+.doctrine-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;}
+.doctrine-card:nth-child(1)::before{background:linear-gradient(90deg,var(--danger),transparent 70%);}
+.doctrine-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),transparent 70%);}
+.doctrine-card:nth-child(3)::before{background:linear-gradient(90deg,var(--gold),transparent 70%);}
+.doctrine-card:nth-child(4)::before{background:linear-gradient(90deg,var(--health),transparent 70%);}
+.doctrine-label{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.18em;color:var(--text-low);text-transform:uppercase;margin-bottom:6px;}
+.doctrine-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(90,188,240,.15);letter-spacing:.04em;}
+.doctrine-card p{font-size:.82rem;color:var(--text-dim);margin-bottom:6px;line-height:1.6;}
+.doctrine-card strong{color:var(--text);}
+
+/* IMPLICATIONS */
+.implications-table{border:1px solid var(--border);margin:24px 0;}
+.implication-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid rgba(26,58,92,.5);}
+.implication-row:last-child{border-bottom:none;}
+.implication-sector{font-family:'Share Tech Mono',monospace;font-size:.65rem;font-weight:600;color:var(--gold);padding:14px 16px;background:rgba(90,188,240,.04);border-right:1px solid rgba(26,58,92,.5);display:flex;align-items:flex-start;text-transform:uppercase;letter-spacing:.08em;flex-direction:column;gap:4px;}
+.implication-sector span{font-size:.55rem;opacity:.6;}
+.implication-content{padding:14px 18px;font-size:.88rem;color:var(--text);line-height:1.68;}
+.implication-content strong{color:var(--white);}
+.implication-row.energy .implication-sector{border-left:3px solid var(--energy);color:var(--energy);}
+.implication-row.healthcare .implication-sector{border-left:3px solid var(--health);color:var(--health);}
+.implication-row.finance .implication-sector{border-left:3px solid var(--finance);color:var(--finance);}
+.implication-row.defense .implication-sector{border-left:3px solid var(--defense);color:var(--defense);}
+.implication-row.ai .implication-sector{border-left:3px solid var(--tech);color:var(--tech);}
+
+/* PRQ */
+.prq-block{border:1px solid var(--border);margin:20px 0;overflow:hidden;}
+.prq-header{background:var(--tile);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.prq-id{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);background:rgba(90,188,240,.12);border:1px solid rgba(90,188,240,.3);padding:3px 10px;}
+.prq-title{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--text);letter-spacing:.08em;text-transform:uppercase;}
+.prq-risk{margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:3px 8px;border:1px solid;}
+.risk-rising{color:var(--danger);border-color:rgba(240,104,84,.4);background:rgba(240,104,84,.08);}
+.risk-stable{color:var(--gold);border-color:rgba(212,160,64,.4);background:rgba(212,160,64,.08);}
+.risk-unclear{color:var(--text-low);border-color:var(--border);}
+.prq-body{padding:18px 20px;background:var(--panel);border-top:1px solid rgba(26,58,92,.5);}
+.prq-body p{font-size:.88rem;color:var(--text);margin-bottom:8px;}
+.prq-body p:last-child{margin-bottom:0;}
+.prq-indicators{list-style:none;padding:0;margin:8px 0;}
+.prq-indicators li{font-size:.82rem;color:var(--text-dim);padding:4px 0 4px 16px;border-bottom:1px solid rgba(26,58,92,.3);position:relative;}
+.prq-indicators li:last-child{border-bottom:none;}
+.prq-indicators li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
+
+/* WATCH LIST */
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
+.watch-item{background:var(--panel);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;}
+.watch-num{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--blue);font-weight:700;flex-shrink:0;padding-top:2px;min-width:22px;}
+.watch-text{font-size:.85rem;color:var(--text);line-height:1.6;}
+.watch-text strong{color:var(--gold-hi);}
+
+/* ANALYST NOTE */
+.analyst-note{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:28px 32px;margin:32px 0;position:relative;}
+.analyst-note::before{content:'ANALYST\'S NOTE';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.analyst-note p{font-size:.95rem;color:var(--text);line-height:1.75;margin-bottom:14px;}
+.analyst-note p:last-child{margin-bottom:0;}
+
+/* SOURCES */
+.src-block{background:var(--panel);border:1px solid var(--border);padding:24px 28px;margin:36px 0;}
+.src-header{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--text-low);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px;}
+.src-list{list-style:none;padding:0;}
+.src-list li{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--text-dim);padding:6px 0;border-bottom:1px solid rgba(26,58,92,.3);display:flex;gap:12px;align-items:baseline;line-height:1.55;}
+.src-list li:last-child{border-bottom:none;}
+.src-bullet{color:var(--blue);flex-shrink:0;}
+hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
+
+/* TORCH NOTE */
+.torch-note{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:20px 24px;margin:20px 0;}
+.torch-label{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;display:block;}
+.torch-note p{font-size:.88rem;color:var(--text);font-style:italic;}
+.torch-note strong{color:var(--blue-hi);font-style:normal;}
+
+/* BRIEF FOOTER */
+.brief-footer{background:var(--surface);border-top:1px solid rgba(212,160,64,.2);padding:36px 40px;}
+.footer-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+.footer-brand{font-family:'Rajdhani',sans-serif;font-size:.8rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
+.footer-legal{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--text-low);letter-spacing:.1em;text-align:right;line-height:1.8;}
+
+/* SITE FOOTER */
+.site-footer{background:rgba(6,12,20,.98);border-top:1px solid rgba(212,160,64,.2);padding:3.5rem 2.5rem 2rem;}
+.site-footer-inner{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+.site-footer-brand-row{display:flex;align-items:center;gap:10px;margin-bottom:.75rem;}
+.site-footer-emblem{width:34px;object-fit:contain;}
+.site-footer-brand-name{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-hi);}
+.site-footer-tagline{font-size:.78rem;color:var(--text-low);line-height:1.65;max-width:280px;}
+.site-footer-col-title{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.site-footer-col-title::before{content:'// ';opacity:.5;}
+.site-footer-links{list-style:none;}
+.site-footer-links li{margin-bottom:.45rem;}
+.site-footer-links a{font-size:.78rem;color:var(--text-low);text-decoration:none;transition:color .2s;}
+.site-footer-links a:hover{color:var(--gold-hi);}
+.site-footer-bottom{max-width:1040px;margin:0 auto;border-top:1px solid rgba(26,58,92,.6);padding-top:1.25rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.site-footer-copy{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--text-low);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 1.25rem;flex-wrap:wrap;height:auto;padding-top:.75rem;padding-bottom:.75rem;}
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;}
+  .nav-links{display:none;flex-direction:column;width:100%;gap:0;padding:.75rem 0 .5rem;border-top:1px solid rgba(212,160,64,.15);margin-top:.75rem;}
+  .nav-links.open{display:flex!important;}
+  .nav-links li{width:100%;}
+  .nav-links>li>a{display:block;padding:.6rem 0;border-bottom:1px solid rgba(212,160,64,.06);}
+  .nav-links .dropdown::after{display:none!important;}
+  .nav-links .dropdown-menu{display:block!important;position:static!important;width:100%!important;background:rgba(212,160,64,.04)!important;border:none!important;border-left:2px solid rgba(212,160,64,.2)!important;}
+  .masthead-inner{padding:24px 20px 0;}
+  .page-body{padding:0 20px 60px;}
+  .meta-strip{flex-direction:column;}
+  .meta-cell{border-right:none!important;border-bottom:1px solid rgba(26,58,92,.4);}
+  .doctrine-grid{grid-template-columns:1fr;}
+  .watch-grid{grid-template-columns:1fr;}
+  .implication-row{grid-template-columns:1fr;}
+  .implication-sector{border-right:none!important;border-bottom:1px solid rgba(26,58,92,.5);}
+  .prq-risk{margin-left:0;}
+  .site-footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}
+  .kj-block,.centerpiece{padding:20px 16px!important;}
+  .title-block h1{font-size:2rem;}
+}
+@media(max-width:480px){
+  .site-footer-inner{grid-template-columns:1fr;}
+  h2.section-head{font-size:1.4rem;}
+}
+</style>
+</head>
+<body>
+<div id="dw" style="background:#060c14;min-height:100vh;color:#e8f0fa;">
+
+<!-- NAV -->
+<!-- LCTI:NAV:START -->
+<style>
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.65;line-height:1.5;white-space:normal;max-width:80px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.4rem .65rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.55rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.6rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.4rem 1rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.4rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.7rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1rem 2rem .3rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.67rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.65rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.<br>They are.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Luis Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Intelligence</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="intelligence.html" role="menuitem">Products Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="alamo-threat-brief.html" role="menuitem">ATB Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Latest Issue</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Latest Issue</a>
+        <div class="drop-divider"></div>
+        <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Critical Sectors</span>
+        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="financial.html" role="menuitem">Financial Services</a>
+        <a href="healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Luis Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Intelligence</span>
+  <div class="m-sub">
+    <a href="intelligence.html">Products Overview</a>
+    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="alamo-threat-brief.html">ATB Overview</a>
+    <a href="alamo-threat-brief.html">Latest Issue</a>
+    <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="texas-focus.html">Texas Overview</a>
+    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
+    <a href="financial.html">Financial Services</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['atb-archive.html'],
+    'intelligence.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=(link.getAttribute('href')||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-grid"></div>
+  <div class="masthead-inner">
+    <div class="logo-row">
+      <img src="liberty-cti-emblem.png" class="logo-img" alt="Liberty CTI" onerror="this.style.display='none'">
+      <div class="brand-block">
+        <div class="brand-name">Liberty CTI</div>
+        <div class="brand-sub">Cyber Threat Intelligence · libertycti.com</div>
+      </div>
+    </div>
+    <div class="title-block">
+      <svg class="alamo-silhouette" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+        <rect x="0" y="310" width="820" height="10"/><rect x="20" y="220" width="120" height="90"/><rect x="20" y="190" width="40" height="30"/><rect x="100" y="190" width="40" height="30"/><rect x="45" y="242" width="25" height="35" fill="var(--surface)"/><rect x="90" y="242" width="25" height="35" fill="var(--surface)"/><rect x="160" y="160" width="500" height="150"/><rect x="215" y="145" width="125" height="15"/><rect x="230" y="130" width="110" height="15"/><rect x="245" y="115" width="95" height="15"/><rect x="260" y="100" width="80" height="15"/><rect x="480" y="145" width="125" height="15"/><rect x="480" y="130" width="110" height="15"/><rect x="480" y="115" width="95" height="15"/><rect x="480" y="100" width="80" height="15"/><rect x="340" y="85" width="140" height="75"/><path d="M335 85 Q410 22 485 85Z"/><rect x="185" y="170" width="18" height="140" fill="var(--surface)"/><rect x="225" y="170" width="18" height="140" fill="var(--surface)"/><rect x="577" y="170" width="18" height="140" fill="var(--surface)"/><rect x="617" y="170" width="18" height="140" fill="var(--surface)"/><path d="M372 310 L372 242 Q410 200 448 242 L448 310Z" fill="var(--surface)"/><rect x="200" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="250" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="542" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="592" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="680" y="220" width="120" height="90"/><rect x="680" y="190" width="40" height="30"/><rect x="760" y="190" width="40" height="30"/><rect x="695" y="242" width="25" height="35" fill="var(--surface)"/><rect x="740" y="242" width="25" height="35" fill="var(--surface)"/>
+      </svg>
+      <h1>The Alamo <span>Threat</span> Brief</h1>
+      <p class="title-desc">Weekly cyber threat intelligence for Texas industry — source-backed assessments for executive decision-makers.</p>
+    </div>
+    <div class="meta-row">
+      <div class="pill"><strong>Issue:</strong> ATB-2026-15</div>
+      <div class="pill"><strong>Week of:</strong> April 7–13, 2026</div>
+      <div class="pill"><strong>Coverage:</strong> Energy · Finance · Healthcare · Defense · AI</div>
+      <div class="pill"><strong>Next Issue:</strong> 19 Apr 2026</div>
+    </div>
+    <div class="threat-banner">
+      <div class="threat-dot"></div>
+      <div class="threat-label">Critical — Iran confirms OT disruptions; FortiClient zero-day active; DPRK $285M theft</div>
+    </div>
+  </div>
+  <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
+    <div class="meta-strip">
+      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">12 APRIL 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">07–13 APR 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">IRAN OT ESCALATION</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY · HEALTHCARE · DIB · FINANCE</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Torch Fusion Cycle</div><div class="meta-val">WHAT · WHO · WHY · WHAT NEXT</div></div>
+    </div>
+    <div class="timestamp-bar">
+      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>12 APR 2026 // 0600 CST</strong></span></div>
+      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>07–13 APR 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>19 APR 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CLASSIFICATION -->
+<div class="cls-banner">
+  <span class="cls-text">Liberty CTI Open Source Analysis — For Texas Industry Situational Awareness</span>
+  <span class="cls-badge">UNCLASSIFIED // OPEN SOURCE // PROPRIETARY</span>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-strip">
+  <div class="ticker-inner">
+    <a class="ticker-item" href="https://cyberscoop.com/iranian-hackers-cyberattacks-us-energy-water-infrastructure-plc-scada-warning/" target="_blank" rel="noopener">JOINT FEDERAL ADVISORY: Iran-affiliated APT actors confirmed disrupting U.S. water, energy, and government PLCs and SCADA systems since March 2026 — FBI, CISA, NSA, DOE, EPA, Cyber Command</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/fortinet-patches-actively-exploited-cve.html" target="_blank" rel="noopener">FortiClient EMS zero-day CVE-2026-35616 (CVSS 9.1) added to CISA KEV — exploited in wild since March 31; CISA mandated federal patch by April 9; 2,000+ exposed instances remain unpatched</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/285-million-drift-hack-traced-to-six.html" target="_blank" rel="noopener">DPRK UNC4736 completes 6-month social engineering operation — $285M drained from Drift Protocol in 12 minutes; 18th DPRK crypto theft of 2026; $300M+ stolen year-to-date</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/iran-linked-hackers-disrupt-us-critical.html" target="_blank" rel="noopener">Iran targets Rockwell Automation/Allen-Bradley PLCs — malicious interactions with project files, SCADA display manipulation, confirmed operational disruption and financial loss at victim orgs</a>
+    <a class="ticker-item" href="https://thehackernews.com/" target="_blank" rel="noopener">Storm-1175 (China-linked) deploys Medusa ransomware via zero-day chains — healthcare, finance, professional services targeted in U.S., UK, Australia; high-velocity attack tempo confirmed</a>
+    <a class="ticker-item" href="https://thehackernews.com/" target="_blank" rel="noopener">Flowise AI platform: CVSS 10.0 flaw under active exploitation — maximum-severity vulnerability in widely deployed open-source AI tool; Texas data center/AI sector directly exposed</a>
+    <!-- duplicate for seamless loop -->
+    <a class="ticker-item" href="https://cyberscoop.com/iranian-hackers-cyberattacks-us-energy-water-infrastructure-plc-scada-warning/" target="_blank" rel="noopener">JOINT FEDERAL ADVISORY: Iran-affiliated APT actors confirmed disrupting U.S. water, energy, and government PLCs and SCADA systems since March 2026 — FBI, CISA, NSA, DOE, EPA, Cyber Command</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/fortinet-patches-actively-exploited-cve.html" target="_blank" rel="noopener">FortiClient EMS zero-day CVE-2026-35616 (CVSS 9.1) added to CISA KEV — exploited in wild since March 31; CISA mandated federal patch by April 9; 2,000+ exposed instances remain unpatched</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/285-million-drift-hack-traced-to-six.html" target="_blank" rel="noopener">DPRK UNC4736 completes 6-month social engineering operation — $285M drained from Drift Protocol in 12 minutes; 18th DPRK crypto theft of 2026; $300M+ stolen year-to-date</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/iran-linked-hackers-disrupt-us-critical.html" target="_blank" rel="noopener">Iran targets Rockwell Automation/Allen-Bradley PLCs — malicious interactions with project files, SCADA display manipulation, confirmed operational disruption and financial loss at victim orgs</a>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- INTRO -->
+  <div class="intro-deck">
+    <p>This issue of the <strong>Alamo Threat Brief</strong> covers <strong>April 7–13, 2026</strong>. The week's dominant development is a joint federal advisory from six U.S. agencies confirming that <strong>Iranian-affiliated APT actors have actively disrupted programmable logic controllers and SCADA systems at U.S. water, energy, and government facilities since at least March 2026.</strong> This is not a warning about potential future risk. It is a confirmation of ongoing harm. A critical FortiClient EMS zero-day under active exploitation, a $285 million North Korean social engineering operation, and China-linked Medusa ransomware deployment round out a week that signals simultaneous escalation across multiple adversary tracks.</p>
+  </div>
+
+  <!-- CENTERPIECE -->
+  <div class="centerpiece">
+    <div class="centerpiece-title">Iran Escalates to OT Disruption: A Confirmed New Threshold in Critical Infrastructure Attack</div>
+    <p>The joint advisory issued Tuesday by the FBI, CISA, NSA, EPA, Department of Energy, and U.S. Cyber Command is analytically significant not because Iranian actors targeted U.S. infrastructure — that has been assessed as likely for months — but because <strong>it confirms they succeeded.</strong> Victims experienced operational disruption and financial loss. PLCs were manipulated. SCADA displays showed falsified data. Industrial processes were disrupted.</p>
+    <p>The targeted devices are Rockwell Automation and Allen-Bradley PLCs — the dominant industrial controllers in U.S. energy production, water treatment, petrochemical processing, and manufacturing. Texas operates the largest independent power grid in the United States and hosts the highest concentration of Gulf Coast LNG terminals, Permian Basin production infrastructure, and refinery capacity in the country. The density of Rockwell/Allen-Bradley deployments in Texas is among the highest nationally.</p>
+    <p>The advisory also arrives in the same week that a FortiClient EMS zero-day is being actively exploited against enterprise endpoint management infrastructure, Storm-1175 is deploying Medusa ransomware across healthcare and finance, and North Korea has confirmed its most sophisticated financial theft operation of the year. <strong>The convergence of simultaneous, confirmed adversary activity across all four major state-actor categories in a single week is the defining analytical signal of Q2 2026.</strong> Texas critical infrastructure organizations are operating in a threat environment where multiple capable adversaries are active simultaneously — not sequentially.</p>
+  </div>
+
+  <!-- KEY JUDGMENTS -->
+  <div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Key Judgments</h2>
+  <div class="kj-block">
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that Iranian-affiliated APT actors are <span class="aq">almost certainly</span> targeting Texas energy and water OT infrastructure with disruptive intent. The joint federal advisory confirms confirmed victims across energy, water, and government sectors targeting Rockwell Automation/Allen-Bradley PLCs — equipment ubiquitous across Texas utilities, industrial facilities, and Gulf Coast petrochemical operations. Organizations with internet-exposed PLCs or SCADA systems should treat exposure as confirmed, not theoretical. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Primary uncertainty: Federal agencies did not name specific victim locations. Texas may be a near-term rather than current target. Liberty CTI assesses this distinction as immaterial given Texas's density of relevant infrastructure and the advisory's explicit sector scope.</div>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that FortiClient EMS deployments across Texas defense contractors, energy companies, and healthcare systems face an immediate and active exploitation window. CVE-2026-35616 (CVSS 9.1) was exploited as a zero-day before disclosure, enables unauthenticated remote code execution, and remains unpatched on more than 2,000 internet-exposed systems globally. A second critical FortiClient EMS flaw (CVE-2026-21643) is also actively exploited — making this a serial-exploitation pattern against enterprise endpoint management infrastructure. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Primary uncertainty: Attribution of FortiClient exploitation has not been confirmed publicly. The attack profile is consistent with both nation-state pre-positioning and ransomware initial access broker activity.</div>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>MODERATE CONFIDENCE</strong> that DPRK financial cyber operations <span class="aq">likely</span> represent a growing risk to Texas-based financial services and fintech organizations beyond the cryptocurrency sector. The Drift hack demonstrates that UNC4736 conducts patient, in-person, multi-month operations using fabricated professional identities — a technique directly applicable to private equity, asset management, and banking relationships. North Korea has now stolen over $300 million in 2026 through eighteen documented operations. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+        <div class="kj-uncertainty">Primary uncertainty: Most documented DPRK operations target crypto-native platforms. Applicability to traditional Texas financial institutions depends on DPRK actors judging those targets as accessible without crypto-specific technical vectors.</div>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-4</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>MODERATE CONFIDENCE</strong> that China-linked Storm-1175's deployment of Medusa ransomware through zero-day exploit chains <span class="aq">likely</span> represents an expansion of PRC-affiliated actors into financially motivated disruption — a departure from the traditional pre-positioning and espionage model. Healthcare, finance, and professional services organizations in Texas are among the documented target sectors. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+        <div class="kj-uncertainty">Primary uncertainty: The extent to which Storm-1175's activity reflects Chinese state direction versus opportunistic behavior by state-linked actors remains unclear from public reporting.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT HAPPENED -->
+  <div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">What Happened This Week</h2>
+
+  <h3 class="sub-head">Iran — Confirmed OT Disruption at U.S. Energy and Water Facilities</h3>
+  <p>Six U.S. federal agencies issued a joint advisory on April 7 warning that Iranian-affiliated APT actors have exploited internet-facing OT devices — specifically Rockwell Automation/Allen-Bradley PLCs — to cause disruptions across U.S. critical infrastructure since at least March 2026. The advisory explicitly states that victims experienced operational disruption and financial loss, and that the attacks involved malicious interaction with PLC project files and manipulation of data displayed on HMI and SCADA displays. Sectors confirmed as affected: energy, water and wastewater systems, and government facilities. The campaign echoes the 2023 CyberAv3ngers PLC operations but is broader, faster, and targeting systems with a higher consequence of failure.</p>
+
+  <div class="warning-box">
+    <p>More than 3,000 Rockwell Automation/Allen-Bradley devices remain visible on the public internet. The advisory's recommended immediate actions: disconnect PLCs from public internet access; set physical mode switches to "run" position to prevent remote modification; enable MFA on all remote access paths; audit logs for suspicious activity since March 2026; create and test backups of PLC logic and configurations. These are not aspirational security goals — they are the minimum required response to confirmed active exploitation.</p>
+  </div>
+
+  <h3 class="sub-head">FortiClient EMS — Double Zero-Day, CISA Emergency Deadline</h3>
+  <p>Fortinet issued an emergency advisory on April 4 for CVE-2026-35616, an improper access control vulnerability in FortiClient Enterprise Management Server (CVSS 9.1) that allows unauthenticated attackers to execute arbitrary code via crafted requests. CISA added it to the Known Exploited Vulnerabilities catalog on April 6, mandating federal remediation by April 9 — a three-day window reflecting CISA's assessment of severity. Exploitation was first observed by watchTowr honeypots on March 31, before the patch existed. This is the second critical FortiClient EMS flaw to be actively exploited in weeks; CVE-2026-21643 (also CVSS 9.1) remains under active exploitation alongside the new zero-day. More than 2,000 FortiClient EMS instances remain internet-exposed and unpatched.</p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">// Liberty CTI Assessment</div>
+    <p>Two critical zero-days in the same product within weeks of each other signals sustained adversary focus on a specific, high-value target — enterprise endpoint management infrastructure. FortiClient EMS controls device policy, manages VPN access, and governs application compliance across corporate endpoints. A compromised EMS server gives an attacker the ability to push malicious policies across an entire managed fleet. Organizations running FortiClient EMS and exposed to the internet should treat this as an emergency response situation, not a scheduled patch cycle.</p>
+  </div>
+
+  <h3 class="sub-head">DPRK — $285M Drift Hack: Six Months, Twelve Minutes</h3>
+  <p>Drift Protocol confirmed on April 5–7 that its April 1 breach — which drained $285 million in twelve minutes — was the culmination of a six-month social engineering operation by UNC4736 (AppleJeus/Citrine Sleet), a DPRK state-sponsored hacking group. Attackers posed as a quantitative trading firm, attended major crypto conferences internationally starting in fall 2025, built sustained in-person relationships with Drift contributors, and ultimately socially engineered multisig signers into pre-approving hidden governance transactions. The attack itself combined a manufactured fictitious token (CarbonVote), oracle manipulation, and pre-signed durable nonce transactions to drain $285 million in 31 withdrawals. The in-person operatives were not North Korean nationals — DPRK deployed third-party intermediaries for face-to-face relationship-building. TRM Labs and Elliptic attributed the attack to DPRK with medium-to-high confidence. This is the eighteenth DPRK crypto operation of 2026; the regime has stolen over $300 million year-to-date.</p>
+
+  <h3 class="sub-head">China / Storm-1175 — Medusa Ransomware via Zero-Day Chains</h3>
+  <p>Microsoft Threat Intelligence confirmed that Storm-1175, a China-based threat actor, is conducting "high-velocity" attacks using combinations of zero-day and N-day vulnerabilities to deploy Medusa ransomware. Confirmed target sectors include healthcare, education, professional services, and finance in the U.S., UK, and Australia. Storm-1175 has leveraged zero-day exploits in some cases before public disclosure, and has chained multiple exploits for post-compromise lateral movement. This represents a behavioral departure from traditional PRC cyber operations, which have historically emphasized espionage pre-positioning over financial disruption.</p>
+
+  <!-- SECTOR IMPLICATIONS -->
+  <div class="section-rule"><span class="section-tag">Section III</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Texas Sector Implications</h2>
+
+  <div class="implications-table">
+    <div class="implication-row energy">
+      <div class="implication-sector">⚡ Energy<br><span>CRITICAL — ACTIVE ADVISORY</span></div>
+      <div class="implication-content">
+        <strong>What happened:</strong> Joint federal advisory confirms Iranian-affiliated actors have disrupted PLCs and SCADA systems in energy sector facilities since March 2026, targeting Rockwell Automation/Allen-Bradley devices.<br><br>
+        <strong>Why it matters in Texas:</strong> Texas operates ERCOT — the largest independent power grid in the U.S. — and hosts the highest concentration of Gulf Coast LNG export terminals, Permian Basin production operations, and refinery infrastructure in the country. CPS Energy's JBSA contracts create a direct national security dependency on Texas grid reliability. The density of Rockwell/Allen-Bradley PLC deployments in Texas is among the highest nationally.<br><br>
+        <strong>Bottom-line risk:</strong> Any Texas energy or utility organization with internet-exposed PLCs, HMI systems, or SCADA displays should treat the federal advisory as a direct and immediate warning. Mitigation is specific: disconnect OT devices from the public internet, audit access logs since March 2026, set Rockwell devices to "run" mode. This is not a future risk mitigation exercise — it is incident response preparation for a threat that has already caused harm.
+      </div>
+    </div>
+    <div class="implication-row finance">
+      <div class="implication-sector">💰 Finance<br><span>HIGH — DPRK METHODOLOGY</span></div>
+      <div class="implication-content">
+        <strong>What happened:</strong> DPRK UNC4736 completed a six-month in-person social engineering operation that drained $285M from Drift Protocol. Separately, Storm-1175 is targeting finance sector organizations with Medusa ransomware via zero-day exploit chains.<br><br>
+        <strong>Why it matters in Texas:</strong> USAA, Frost Bank, and the broader DFW financial sector represent high-value DPRK targets — particularly organizations with digital asset custody, fintech partnerships, or blockchain-adjacent infrastructure. The social engineering methodology — conference attendance, sustained relationship-building, fabricated professional credentials — is directly applicable to private equity and banking relationship models common in Texas.<br><br>
+        <strong>Bottom-line risk:</strong> Texas financial institutions should review vendor onboarding processes, third-party integration approvals, and any external parties with system access sourced from conference or networking relationships. Specifically: any external party that requested administrative access, system integration rights, or developer-level credentials following a conference meeting in the past twelve months warrants review.
+      </div>
+    </div>
+    <div class="implication-row healthcare">
+      <div class="implication-sector">♥ Healthcare<br><span>HIGH — STORM-1175 + FORTICLIENT</span></div>
+      <div class="implication-content">
+        <strong>What happened:</strong> Storm-1175 explicitly targeted healthcare organizations with Medusa ransomware this week using chained zero-day exploits. FortiClient EMS exploitation — which enables management-layer compromise — is acutely dangerous for hospital systems with centrally managed endpoint security.<br><br>
+        <strong>Why it matters in Texas:</strong> Texas Medical Center — the world's largest medical complex — and regional hospital networks share the structural vulnerabilities that define the Storm-1175 target profile: sensitive data, operational pressure that delays patching, and FortiClient deployments that represent an attractive management-plane attack surface.<br><br>
+        <strong>Bottom-line risk:</strong> Healthcare CISOs should treat CVE-2026-35616 as an emergency — not a scheduled maintenance item. If FortiClient EMS is deployed and internet-exposed, assume it is targeted. Apply the hotfix immediately and review all endpoint policy changes pushed since March 31, 2026.
+      </div>
+    </div>
+    <div class="implication-row defense">
+      <div class="implication-sector">🛡 Defense / DIB<br><span>HIGH — FORTICLIENT + IRAN OT</span></div>
+      <div class="implication-content">
+        <strong>What happened:</strong> FortiClient EMS is widely deployed across defense contractors for endpoint compliance and VPN management. The JBSA contractor ecosystem uses Fortinet products extensively. Iranian OT targeting, while confirmed against water and energy, follows a historical playbook that expands to defense-adjacent infrastructure.<br><br>
+        <strong>Why it matters in Texas:</strong> A compromised FortiClient EMS server inside a defense contractor's environment gives an adversary the ability to alter endpoint compliance posture, manipulate VPN configurations, and potentially access cleared personnel networks. This is a supply chain risk to defense programs, not a generic IT risk.<br><br>
+        <strong>Bottom-line risk:</strong> All Texas DIB organizations running FortiClient EMS should apply the CVE-2026-35616 hotfix immediately and audit EMS-pushed policy changes since March 31. Both CVE-2026-35616 and CVE-2026-21643 should be treated as active exploitation events requiring incident response validation, not routine patching.
+      </div>
+    </div>
+    <div class="implication-row ai">
+      <div class="implication-sector">⬡ AI / Data Centers<br><span>ELEVATED — FLOWISE + LITELLM</span></div>
+      <div class="implication-content">
+        <strong>What happened:</strong> Flowise, a widely deployed open-source AI platform, has a maximum-severity (CVSS 10.0) flaw under active exploitation this week. The LiteLLM/Trivy supply-chain extortion wave from ATB-2026-14 continues. The DPRK operation confirms developer workstations remain priority targets for state-sponsored credential harvesting.<br><br>
+        <strong>Why it matters in Texas:</strong> Texas leads the nation in data center interconnection requests to ERCOT — 226 GW of pending load. The combination of rapid AI infrastructure expansion and active developer-facing supply chain attacks creates a compounding exposure window. Organizations deploying both Flowise and LiteLLM are facing maximum-severity vulnerabilities in both platforms simultaneously.<br><br>
+        <strong>Bottom-line risk:</strong> Audit Flowise deployments and apply patches immediately. Complete LiteLLM/Trivy dependency review from ATB-2026-14 if not already done — extortion contacts from the supply-chain cascade are expected to peak between mid-April and mid-May.
+      </div>
+    </div>
+  </div>
+
+  <!-- PRQs -->
+  <div class="section-rule"><span class="section-tag">Section IV</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Priority Risk Questions</h2>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PRQ-E1</span>
+      <span class="prq-title">Are Iranian-affiliated actors actively targeting Texas OT infrastructure?</span>
+      <span class="prq-risk risk-rising">↑ RISING</span>
+    </div>
+    <div class="prq-body">
+      <p>The federal advisory confirms confirmed harm in energy and water sectors nationally. Texas exposure is structural given its OT infrastructure density.</p>
+      <ul class="prq-indicators">
+        <li>CISA advisories or FBI flash alerts naming Texas or Gulf Coast-specific OT targets</li>
+        <li>ERCOT or Texas RE security bulletins referencing anomalous OT activity</li>
+        <li>Disruption reports from Texas water authorities, CPS Energy, or SAWS</li>
+        <li>Unexplained SCADA display anomalies or PLC project file modifications at Texas facilities</li>
+        <li>New Rockwell/Allen-Bradley CVEs added to CISA KEV following this campaign</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PRQ-E2</span>
+      <span class="prq-title">Are FortiClient EMS deployments inside Texas organizations currently exploited?</span>
+      <span class="prq-risk risk-rising">↑ RISING</span>
+    </div>
+    <div class="prq-body">
+      <p>Active exploitation confirmed globally since March 31. Texas energy, healthcare, and defense sectors use Fortinet products extensively.</p>
+      <ul class="prq-indicators">
+        <li>Unauthorized endpoint policy changes pushed via FortiClient EMS since March 31</li>
+        <li>New administrative accounts appearing on EMS-managed devices</li>
+        <li>Anomalous VPN configuration changes or authentication patterns</li>
+        <li>Unexplained software installations on managed endpoints</li>
+        <li>Ransomware deployment following FortiClient EMS compromise (consistent with prior Fortinet exploitation patterns)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PRQ-F1</span>
+      <span class="prq-title">Is DPRK social engineering targeting Texas-based financial or fintech organizations?</span>
+      <span class="prq-risk risk-unclear">? UNCLEAR</span>
+    </div>
+    <div class="prq-body">
+      <p>DPRK methodology confirmed at scale; Texas-specific financial targeting not confirmed. Risk is real but concentrated in crypto-adjacent relationships today.</p>
+      <ul class="prq-indicators">
+        <li>New external parties with system integration requests sourced from conference or networking meetings</li>
+        <li>Requests for administrative credential access or developer-level system permissions from new relationships</li>
+        <li>Unexplained software installations on developer workstations following new vendor onboarding</li>
+        <li>DPRK IT worker scheme arrests or indictments involving Texas companies</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PRQ-H1</span>
+      <span class="prq-title">Is Storm-1175 / Medusa ransomware expanding to Texas healthcare targets?</span>
+      <span class="prq-risk risk-unclear">? UNCLEAR</span>
+    </div>
+    <div class="prq-body">
+      <p>Storm-1175 confirmed in U.S. healthcare broadly; Texas-specific targeting not yet confirmed. FortiClient EMS creates a compounding exposure vector.</p>
+      <ul class="prq-indicators">
+        <li>Medusa ransomware claims against Texas hospitals or TMC-affiliated vendors</li>
+        <li>Medusa leak site additions in the healthcare vertical with Texas references</li>
+        <li>Anomalous zero-day exploitation attempts at Texas medical facilities</li>
+        <li>FortiClient EMS exploitation leading to ransomware staging in healthcare environments</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- INDICATORS TO WATCH -->
+  <div class="section-rule"><span class="section-tag">Section V</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Indicators to Watch — Next 2–4 Weeks</h2>
+
+  <div class="watch-grid">
+    <div class="watch-item">
+      <span class="watch-num">01</span>
+      <div class="watch-text"><strong>Additional federal advisories naming Texas or Gulf Coast OT targets</strong> — would signal escalation beyond current confirmed activity to Texas-specific infrastructure</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">02</span>
+      <div class="watch-text"><strong>Unexplained SCADA anomalies at Texas utilities</strong> — Rockwell/Allen-Bradley PLC disruptions, HMI display discrepancies, or project file modifications at Texas energy or water facilities</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">03</span>
+      <div class="watch-text"><strong>Ransomware deployment following FortiClient EMS compromise</strong> — consistent with prior Fortinet exploitation patterns; would confirm criminal monetization of the management-plane access window</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">04</span>
+      <div class="watch-text"><strong>Medusa ransomware claims against Texas targets</strong> — Storm-1175 confirmed in U.S. healthcare and finance; a Texas-named victim would confirm in-scope geographic expansion</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">05</span>
+      <div class="watch-text"><strong>LiteLLM/Trivy extortion contacts reaching Texas organizations</strong> — extortion pressure from the ATB-2026-14 supply-chain cascade expected to peak mid-April through mid-May</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">06</span>
+      <div class="watch-text"><strong>Flowise exploitation escalation claims</strong> — CVSS 10.0 flaw in widely deployed AI platform; active exploitation confirmed this week; Texas AI/data center sector directly exposed</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">07</span>
+      <div class="watch-text"><strong>Iranian hacktivist DDoS claims against Texas financial or energy targets</strong> — consistent with Handala operational pattern of combining OT disruption with public-facing cyberattacks</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">08</span>
+      <div class="watch-text"><strong>DPRK IT worker scheme arrests involving Texas companies</strong> — signals active DPRK infiltration of Texas tech or financial sector hiring pipelines beyond documented crypto operations</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">09</span>
+      <div class="watch-text"><strong>ERCOT or Texas RE cybersecurity bulletins</strong> referencing Iranian OT activity — would be the most authoritative Texas-specific infrastructure warning signal available</div>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">10</span>
+      <div class="watch-text"><strong>Congressional or Senate Iran cyber legislation advancing</strong> — regulatory consequence of confirmed OT disruption could accelerate critical infrastructure cybersecurity mandates affecting Texas energy sector</div>
+    </div>
+  </div>
+
+  <!-- ANALYST NOTE -->
+  <div class="section-rule"><span class="section-tag">Section VI</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Analyst's Note</h2>
+
+  <div class="analyst-note">
+    <p>This week's most significant analytical development is not a single incident — it is a convergence. The joint federal advisory on Iranian OT disruption, the FortiClient zero-day exploitation, the DPRK Drift operation, and Storm-1175's ransomware campaign all arrived in the same week. Each is significant individually. Together, they illustrate the defining challenge for Texas critical infrastructure in Q2 2026: the threat environment is not sequential. Multiple capable adversaries are operating simultaneously, targeting different access vectors, with different objectives and different tolerances for risk.</p>
+    <p>Iran is targeting the physical layer — PLCs, HMIs, SCADA displays — with confirmed disruptive intent. China-linked actors are deploying ransomware through zero-day chains against the sectors Texas cannot afford to lose. North Korea is draining financial reserves through social engineering operations that bypass technical controls entirely. And the criminal ecosystem continues exploiting the vulnerabilities all three state actors help identify.</p>
+    <p>The FortiClient story deserves particular attention as a structural warning. Two critical zero-days in the same product within weeks of each other is evidence of sustained adversary focus on a specific attack surface. Enterprise endpoint management systems are attractive because they provide scale: compromise one EMS server, and you may control thousands of endpoints. That leverage is why defenders use them — and it is exactly why attackers target them.</p>
+    <p>For Texas executives, the operative question this week is not "are we likely targeted?" It is: <strong>what would we see if we were already inside, and when would we see it?</strong> The Iranian advisory answers this question for OT environments with precision: manipulated SCADA displays, modified project files, disrupted PLCs. That is what detection looks like. Organizations that have not audited their OT anomaly detection baseline are not positioned to answer the question before an incident answers it for them.</p>
+  </div>
+
+  <!-- SOURCES -->
+  <hr class="divider">
+  <div class="section-rule"><span class="section-tag">Section VII — Sourcing</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Source Notes</h2>
+  <div class="src-block">
+    <div class="src-header">OPEN SOURCE BASIS — ATB-2026-15 — ALL SOURCES VERIFIED 12 APR 2026 — IN ALIGNMENT WITH ACCEPTED IC SOURCING PRACTICES</div>
+    <ul class="src-list">
+      <li><span class="src-bullet">→</span>FBI / CISA / NSA / EPA / DOE / U.S. Cyber Command Joint Advisory (April 7, 2026) — Iranian APT OT disruption. Primary source for confirmed PLC/SCADA exploitation, sector scope, and victim impact. RELIABILITY: AUTHORITATIVE.</li>
+      <li><span class="src-bullet">→</span>CISA Known Exploited Vulnerabilities Catalog (April 6, 2026) — CVE-2026-35616 addition. RELIABILITY: AUTHORITATIVE.</li>
+      <li><span class="src-bullet">→</span>Fortinet Security Advisory FG-IR-26-099 — CVE-2026-35616 technical details, hotfix guidance, exploitation confirmation. RELIABILITY: HIGH (vendor primary).</li>
+      <li><span class="src-bullet">→</span>watchTowr / Defused Cyber research (April 4–7, 2026) — FortiClient EMS exploitation timeline, honeypot observations, zero-day characterization. RELIABILITY: HIGH.</li>
+      <li><span class="src-bullet">→</span>Drift Protocol public disclosure (April 5–7, 2026) — DPRK social engineering operation details, attack chain, attacker methodology. RELIABILITY: HIGH (primary victim statement).</li>
+      <li><span class="src-bullet">→</span>TRM Labs / Elliptic blockchain forensics — Drift hack attribution, on-chain indicators, DPRK operational pattern matching. RELIABILITY: HIGH (primary forensics).</li>
+      <li><span class="src-bullet">→</span>Microsoft Threat Intelligence (via The Hacker News, April 7, 2026) — Storm-1175 / Medusa ransomware activity, zero-day usage, sector targeting. RELIABILITY: HIGH.</li>
+      <li><span class="src-bullet">→</span>CyberScoop, TechCrunch, Cybersecurity Dive, The Register, Help Net Security — Iranian advisory coverage corroboration. RELIABILITY: HIGH.</li>
+      <li><span class="src-bullet">→</span>CSIS analysis — Iran conflict and energy infrastructure cyber risk context. RELIABILITY: HIGH.</li>
+      <li><span class="src-bullet">→</span>VulnCheck — Flowise maximum-severity vulnerability (CVSS 10.0) under active exploitation. RELIABILITY: HIGH.</li>
+    </ul>
+    <p style="font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--text-low);margin-top:14px;line-height:1.7;border-top:1px solid var(--border);padding-top:.75rem;">SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) from U.S. government advisories, primary commercial threat intelligence, and corroborated news reporting. No classified, restricted, or non-public government information was used. All confidence levels reflect source quality, corroboration depth, and analytical consistency in alignment with accepted IC analytical practices. Liberty CTI Source Attribution Standards apply to all products.</p>
+  </div>
+
+  <hr class="divider">
+  <div class="torch-note">
+    <span class="torch-label">// Analytical Note — Torch Fusion Cycle</span>
+    <p>Produced using Liberty CTI's <strong>Torch Fusion Cycle</strong>. <strong>WHAT:</strong> Confirmed Iranian OT disruption at U.S. energy and water facilities; FortiClient EMS double zero-day under active exploitation; DPRK $285M social engineering theft; China-linked Storm-1175 Medusa ransomware via zero-day chains. <strong>WHO:</strong> Iranian-affiliated APT (OT disruption); unknown actor(s) (FortiClient — consistent with nation-state or ransomware IAB); UNC4736/AppleJeus (DPRK Drift); Storm-1175 (China-linked Medusa). <strong>WHY:</strong> Iranian wartime retaliation and infrastructure disruption; adversarial credential and management-plane access (FortiClient); DPRK regime revenue generation ($300M+ in 2026); Chinese financial disruption and espionage positioning (Storm-1175). <strong>WHAT NEXT:</strong> Texas OT infrastructure at elevated and immediate risk; FortiClient exploitation likely to escalate to ransomware deployment; DPRK social engineering applicable to Texas financial sector; Medusa ransomware expansion to Texas healthcare probable within 60 days. All judgments use calibrated probability language in alignment with accepted IC analytical practices.</p>
+  </div>
+
+  <p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--text-low);text-align:center;margin-top:32px;letter-spacing:.1em;">
+    For tailored executive briefings or advisory retainer inquiries: <strong style="color:var(--gold);">intel@libertycti.com</strong> · <strong style="color:var(--gold);">libertycti.com</strong>
+  </p>
+
+</div>
+
+<!-- BRIEF FOOTER -->
+<div class="brief-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Liberty Cyber Threat Intelligence — libertycti.com</div>
+    <div class="footer-legal">ALAMO THREAT BRIEF // ATB-2026-15 // 12 APRIL 2026<br>UNCLASSIFIED // OPEN SOURCE // LIBERTY CTI PROPRIETARY<br>© 2026 LIBERTY CTI LLC. ALL RIGHTS RESERVED.<br>NOT FOR PUBLIC DISTRIBUTION WITHOUT AUTHORIZATION.</div>
+  </div>
+</div>
+
+<!-- SITE FOOTER -->
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:.82rem;font-weight:300;color:rgba(244,239,230,.45);line-height:1.75;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.5}
+.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.6;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.8rem;font-weight:300;color:rgba(244,239,230,.45);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#c0392b}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(244,239,230,.25)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
+      <div class="lcti-footer-slogan">Know the threat. Stay ready. They are.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Intelligence</span>
+      <ul class="lcti-footer-links">
+        <li><a href="intelligence.html">Products Overview</a></li>
+        <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="texas-focus.html">Texas Overview</a></li>
+        <li><a href="energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="financial.html">Financial Services</a></li>
+        <li><a href="healthcare.html">Healthcare</a></li>
+        <li><a href="Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="briefing-request.html">Request a Briefing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2027 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
+
+</div><!-- /darkwrap -->
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var nav=document.querySelector('.nav-links');
+  var btn=document.querySelector('.nav-toggle');
+  if(nav&&btn){btn.addEventListener('click',function(){nav.classList.toggle('open');btn.setAttribute('aria-expanded',nav.classList.contains('open')?'true':'false');});}
+});
+</script>
+</body>
+</html>

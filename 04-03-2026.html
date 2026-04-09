@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alamo Threat Brief — ATB-2026-14 | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   LIBERTY CTI — ATB-2026-14
+   Aesthetic: White House Situation Room
+   Dark command authority + amber urgency
+   ═══════════════════════════════════════════ */
+:root {
+  --void:    #05080b;
+  --room:    #080d12;
+  --panel:   #0c1219;
+  --surface: #101820;
+  --lift:    #141e28;
+  --border:  rgba(255,255,255,0.06);
+  --rule:    rgba(255,255,255,0.04);
+
+  --amber:   #d4961a;
+  --amber-d: #a07010;
+  --amber-f: rgba(212,150,26,0.12);
+  --amber-g: rgba(212,150,26,0.06);
+
+  --paper:   #e8e2d8;
+  --pdim:    rgba(232,226,216,0.60);
+  --pfaint:  rgba(232,226,216,0.25);
+  --pghost:  rgba(232,226,216,0.10);
+
+  --red:     #c0392b;
+  --red-f:   rgba(192,57,43,0.15);
+  --green:   #27ae60;
+  --green-f: rgba(39,174,96,0.12);
+  --blue:    #2980b9;
+  --blue-f:  rgba(41,128,185,0.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--void);
+  color: var(--paper);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── CLASSIFICATION BANNER ── */
+.cls-banner {
+  background: var(--amber);
+  color: #000;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 7px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* ── HEADER / MASTHEAD ── */
+.masthead {
+  background: var(--room);
+  border-bottom: 1px solid var(--amber-d);
+  padding: 2.5rem 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle scanline texture */
+.masthead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.012) 2px,
+    rgba(255,255,255,0.012) 4px
+  );
+  pointer-events: none;
+}
+
+/* corner classification marks */
+.masthead::after {
+  content: '// UNCLASSIFIED // OPEN SOURCE // LIBERTY CTI PROPRIETARY //';
+  position: absolute;
+  bottom: 0.6rem;
+  right: 1.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  color: var(--pfaint);
+  letter-spacing: .12em;
+}
+
+.mast-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.mast-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.mast-org {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+
+.mast-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--amber-d);
+}
+
+.mast-series {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--pfaint);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.mast-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  margin-bottom: .4rem;
+}
+
+.mast-title em {
+  color: var(--amber);
+  font-style: normal;
+}
+
+.mast-subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--pdim);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+
+/* metadata strip */
+.meta-strip {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(212,150,26,0.2);
+  flex-wrap: wrap;
+}
+
+.meta-cell {
+  padding: .5rem 1rem;
+  border-right: 1px solid rgba(212,150,26,0.15);
+  flex: 1;
+  min-width: 120px;
+}
+
+.meta-cell:last-child { border-right: none; }
+
+.meta-lbl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  color: var(--amber);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: .15rem;
+}
+
+.meta-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--paper);
+  letter-spacing: .04em;
+}
+
+/* threat level */
+.threat-bar {
+  margin-top: 1.25rem;
+  padding: .65rem 1rem;
+  background: var(--red-f);
+  border: 1px solid rgba(192,57,43,.35);
+  border-left: 4px solid var(--red);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tl-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--pfaint);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.tl-status {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.tl-desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--pdim);
+  margin-left: auto;
+}
+
+/* ── PAGE BODY ── */
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+}
+
+@media(max-width:600px) {
+  .masthead { padding: 1.5rem 1.25rem 1.25rem; }
+  .page { padding: 1.5rem 1.25rem; }
+}
+
+/* ── SECTION STRUCTURE ── */
+.section {
+  margin-bottom: 2.75rem;
+}
+
+.section-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--amber-g);
+  border: 1px solid rgba(212,150,26,.2);
+  padding: 3px 8px;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212,150,26,.3), transparent);
+}
+
+.section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+/* ── KEY JUDGMENTS ── */
+.kj-block {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--amber);
+}
+
+.kj-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  align-items: flex-start;
+}
+
+.kj-item:last-child { border-bottom: none; }
+
+.kj-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: .1em;
+  flex-shrink: 0;
+  padding-top: .25rem;
+  min-width: 28px;
+}
+
+.kj-text {
+  font-size: 14px;
+  color: var(--pdim);
+  line-height: 1.7;
+}
+
+.kj-text strong { color: var(--paper); font-weight: 600; }
+
+/* confidence badges */
+.conf {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border: 1px solid;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.hi { color: var(--green); border-color: rgba(39,174,96,.4); background: var(--green-f); }
+.mo { color: var(--amber); border-color: rgba(212,150,26,.4); background: var(--amber-f); }
+.lo { color: var(--red);   border-color: rgba(192,57,43,.4);  background: var(--red-f); }
+
+/* ── NEWS ITEMS / STORY CARDS ── */
+.story-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber-d);
+  margin-bottom: .75rem;
+  padding: 1rem 1.25rem;
+}
+
+.story-card.primary { border-left-color: var(--amber); }
+.story-card.tx      { border-left-color: var(--green); }
+.story-card.warning { border-left-color: var(--red); }
+
+.story-meta {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  margin-bottom: .45rem;
+  flex-wrap: wrap;
+}
+
+.story-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid;
+}
+
+.tag-primary  { color: var(--amber);  border-color: rgba(212,150,26,.4); background: var(--amber-g); }
+.tag-tx       { color: var(--green);  border-color: rgba(39,174,96,.35); background: var(--green-f); }
+.tag-russia   { color: #5b9bd5;       border-color: rgba(91,155,213,.35);background: rgba(91,155,213,.08); }
+.tag-supply   { color: #c9844e;       border-color: rgba(201,132,78,.35); background: rgba(201,132,78,.08); }
+.tag-ops      { color: var(--pdim);   border-color: var(--border); }
+
+.story-source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--pfaint);
+  letter-spacing: .06em;
+  margin-left: auto;
+}
+
+.story-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1.35;
+  margin-bottom: .5rem;
+}
+
+.story-body {
+  font-size: 13.5px;
+  color: var(--pdim);
+  line-height: 1.7;
+  margin-bottom: .6rem;
+}
+
+.story-assess {
+  background: var(--lift);
+  border-left: 3px solid var(--amber);
+  padding: .65rem 1rem;
+  font-size: 13px;
+  color: var(--pdim);
+  line-height: 1.65;
+}
+
+.assess-lede {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: .3rem;
+}
+
+/* ── SECTOR BLOCKS ── */
+.sector-block {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.sector-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--lift);
+}
+
+.sector-icon {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--amber-g);
+  border: 1px solid rgba(212,150,26,.2);
+  padding: 3px 8px;
+}
+
+.sector-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.sector-status {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid;
+}
+
+.status-elevated { color: var(--red);   border-color: rgba(192,57,43,.4);  background: var(--red-f); }
+.status-moderate { color: var(--amber); border-color: rgba(212,150,26,.4); background: var(--amber-f); }
+.status-watch    { color: #5b9bd5;      border-color: rgba(91,155,213,.35);background: rgba(91,155,213,.08); }
+
+.sector-body {
+  padding: 1rem 1.25rem;
+  font-size: 13.5px;
+  color: var(--pdim);
+  line-height: 1.75;
+}
+
+/* ── PATTERNS GRID ── */
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 1.25rem;
+}
+
+@media(max-width:600px) { .pattern-grid { grid-template-columns: 1fr; } }
+
+.pattern-cell {
+  background: var(--panel);
+  padding: 1.1rem 1.25rem;
+}
+
+.pattern-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: .4rem;
+}
+
+.pattern-title {
+  font-family: 'Playfair Display', serif;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: .4rem;
+  line-height: 1.25;
+}
+
+.pattern-body {
+  font-size: 12.5px;
+  color: var(--pdim);
+  line-height: 1.65;
+}
+
+/* ── BOTTOM LINE ── */
+.bottom-line {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--amber);
+  padding: 1.5rem 1.75rem;
+}
+
+.bl-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+  display: block;
+}
+
+.bl-text {
+  font-size: 14.5px;
+  color: var(--paper);
+  line-height: 1.75;
+}
+
+/* ── TORCH FUSION / ANALYTICAL NOTE ── */
+.tf-block {
+  background: var(--lift);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--amber);
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.tf-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+  display: block;
+}
+
+.tf-text {
+  font-size: 13px;
+  color: var(--pdim);
+  line-height: 1.7;
+}
+
+.tf-text strong { color: var(--amber); }
+
+/* ── SOURCE CITATIONS ── */
+.src-block {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+}
+
+.src-hdr {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.src-item {
+  display: flex;
+  gap: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: flex-start;
+}
+
+.src-item:last-child { border-bottom: none; }
+
+.src-code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--amber);
+  background: var(--amber-g);
+  border: 1px solid rgba(212,150,26,.2);
+  padding: 2px 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  height: fit-content;
+}
+
+.src-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--pfaint);
+  line-height: 1.7;
+}
+
+.src-text a {
+  color: var(--amber);
+  text-decoration: none;
+}
+
+.src-title { color: var(--pdim); }
+
+.src-summary {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: rgba(232,226,216,.3);
+  margin-top: .2rem;
+  line-height: 1.6;
+}
+
+/* ── FOOTER ── */
+.brief-footer {
+  background: var(--room);
+  border-top: 1px solid var(--amber-d);
+  padding: 1.5rem 3rem;
+}
+
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: .1em;
+  font-weight: 700;
+}
+
+.footer-legal {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  color: var(--pfaint);
+  letter-spacing: .08em;
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* ── HORIZONTAL RULE ── */
+hr.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+</style>
+</head>
+<body>
+<!-- LCTI:NAV:START -->
+<style>
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.65;line-height:1.5;white-space:normal;max-width:80px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.4rem .65rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.55rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.6rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.4rem 1rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.4rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.7rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1rem 2rem .3rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.67rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.65rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.<br>They are.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Luis Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Intelligence</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="intelligence.html" role="menuitem">Products Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="alamo-threat-brief.html" role="menuitem">ATB Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Latest Issue</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Latest Issue</a>
+        <div class="drop-divider"></div>
+        <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Critical Sectors</span>
+        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="financial.html" role="menuitem">Financial Services</a>
+        <a href="healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Luis Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Intelligence</span>
+  <div class="m-sub">
+    <a href="intelligence.html">Products Overview</a>
+    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="alamo-threat-brief.html">ATB Overview</a>
+    <a href="alamo-threat-brief.html">Latest Issue</a>
+    <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="texas-focus.html">Texas Overview</a>
+    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
+    <a href="financial.html">Financial Services</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['atb-archive.html'],
+    'intelligence.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=(link.getAttribute('href')||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<!-- CLASSIFICATION BANNER -->
+<div class="cls-banner">UNCLASSIFIED // OPEN SOURCE // LIBERTY CTI PROPRIETARY // NOT FOR PUBLIC DISTRIBUTION</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mast-inner">
+    <div class="mast-eyebrow">
+      <div class="mast-org">Liberty Cyber Threat Intelligence</div>
+      <div class="mast-divider"></div>
+      <div class="mast-series">San Antonio, Texas · libertycti.com</div>
+    </div>
+
+    <div class="mast-title">The Alamo <em>Threat</em> Brief</div>
+    <div class="mast-subtitle">Strategic Cyber Intelligence for Texas Critical Infrastructure</div>
+
+    <div class="meta-strip">
+      <div class="meta-cell">
+        <div class="meta-lbl">Issue</div>
+        <div class="meta-val">ATB-2026-14</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Week Ending</div>
+        <div class="meta-val">03 APR 2026</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Coverage</div>
+        <div class="meta-val">28 MAR – 03 APR 2026</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Sector Focus</div>
+        <div class="meta-val">Healthcare · DIB · Energy</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-lbl">Next Issue</div>
+        <div class="meta-val">10 APR 2026</div>
+      </div>
+    </div>
+
+    <div class="threat-bar">
+      <div class="tl-label">Texas Critical Infrastructure Threat Level</div>
+      <div class="tl-status">⬛⬛⬛⬛◻ ELEVATED</div>
+      <div class="tl-desc">Supply-chain and persistent-access operations active across all sectors</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page">
+
+  <!-- ── KEY JUDGMENTS ── -->
+  <div class="section">
+    <div class="section-rule">
+      <div class="section-tag">Section I</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-head">Key Judgments</div>
+
+    <div class="kj-block">
+      <div class="kj-item">
+        <div class="kj-num">KJ-1</div>
+        <div class="kj-text">
+          Cyber risk is <strong>almost certainly migrating from data exposure toward operational disruption</strong>, as evidenced by Hasbro's disclosure that a March 28 intrusion forced systems offline and may delay fulfillment for several weeks. The SEC 8-K filing pattern — immediate disclosure, interim continuity measures — is becoming the standard for material cyber events and will increasingly define regulatory expectations for Texas energy and healthcare organizations. <span class="conf hi">HIGH CONFIDENCE</span>
+        </div>
+      </div>
+      <div class="kj-item">
+        <div class="kj-num">KJ-2</div>
+        <div class="kj-text">
+          The LiteLLM/Trivy supply-chain compromise <strong>very likely represents the leading edge of a sustained extortion wave</strong> targeting AI-dependent organizations. TeamPCP's partnership with Lapsus$ — and their stated intent to systematically monetize stolen access across thousands of affected environments — mirrors the 2023 MOVEit campaign pattern. Texas technology, financial services, and defense contractors using AI development libraries are probable follow-on targets. <span class="conf hi">HIGH CONFIDENCE</span>
+        </div>
+      </div>
+      <div class="kj-item">
+        <div class="kj-num">KJ-3</div>
+        <div class="kj-text">
+          Russian-linked actors are <strong>likely conducting systematic return operations</strong> against previously breached networks, per CERT-UA's April 3 report. Threat actors including APT28 and Void Blizzard are revisiting prior footholds to test whether access persists, credentials remain valid, and patched vulnerabilities have been re-exposed. For Texas organizations, this means a breach resolved in 2024 or 2025 may not be closed. <span class="conf mo">MODERATE CONFIDENCE</span>
+        </div>
+      </div>
+      <div class="kj-item">
+        <div class="kj-num">KJ-4</div>
+        <div class="kj-text">
+          Healthcare <strong>almost certainly remains the sector most structurally exposed</strong> to both data theft and operational disruption. The Nacogdoches Memorial Hospital disclosure — 257,073 individuals affected, attacker present from January 15 to January 31 before detection — illustrates how 16-day dwell times in Texas regional hospitals are occurring without visible indicators. No threat group has claimed responsibility, suggesting either ransomware not deployed or a persistent-access operation. <span class="conf hi">HIGH CONFIDENCE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WHAT HAPPENED ── -->
+  <div class="section">
+    <div class="section-rule">
+      <div class="section-tag">Section II</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-head">What Happened This Week</div>
+
+    <!-- Hasbro -->
+    <div class="story-card primary">
+      <div class="story-meta">
+        <span class="story-tag tag-primary">Operational Disruption</span>
+        <span class="story-tag tag-ops">SEC 8-K Filing</span>
+        <span class="story-source">Cybersecurity Dive · TechCrunch · SEC EDGAR · 01 APR 2026</span>
+      </div>
+      <div class="story-headline">Hasbro Cyberattack Forces Systems Offline; Weeks-Long Recovery Expected</div>
+      <div class="story-body">
+        Hasbro disclosed in an SEC Form 8-K on April 1 that unauthorized access was identified on March 28, 2026. The company took certain systems offline, engaged external cybersecurity professionals, and implemented business continuity plans to maintain order fulfillment and shipping operations. The company cautioned that interim measures may continue for several weeks and could result in delays. No specific attack type or data compromise has been confirmed publicly. Third-party forensics teams are investigating the scope of affected files.
+      </div>
+      <div class="story-assess">
+        <span class="assess-lede">// Liberty CTI Assessment</span>
+        The Hasbro incident illustrates a pattern that matters beyond the toy sector: a cyber intrusion materializing as weeks of shipping delays and ordering disruptions rather than a dramatic public data dump. For Texas executives, the executive-relevant question is not "what data was taken" but "what operations were halted and for how long." That framing — disruption as the primary consequence — should inform how Texas energy, healthcare, and DIB organizations model their own incident scenarios.
+      </div>
+    </div>
+
+    <!-- LiteLLM / TeamPCP -->
+    <div class="story-card">
+      <div class="story-meta">
+        <span class="story-tag tag-supply">Supply Chain</span>
+        <span class="story-tag tag-ops">AI Infrastructure</span>
+        <span class="story-source">The Register · SecurityWeek · Fortune · TechCrunch · 01–02 APR 2026</span>
+      </div>
+      <div class="story-headline">LiteLLM/Trivy Supply-Chain Cascade: Mercor Confirms Breach; 1,000+ Environments Affected</div>
+      <div class="story-body">
+        Mercor, the $10 billion AI recruiting startup whose clients include OpenAI, Anthropic, and Meta, confirmed it was among thousands of organizations affected by TeamPCP's supply-chain attack on LiteLLM — a Python library present in an estimated 36% of cloud environments. The malicious packages (versions 1.82.7 and 1.82.8) were available for approximately 40 minutes before removal, but credential-harvesting malware was automatically downloaded across thousands of installations. Lapsus$ claimed the theft of 4 terabytes of Mercor data — including candidate profiles, PII, source code, API keys, and TailScale VPN data — and is auctioning it. Mandiant CTO Charles Carmakal confirmed to reporters that over 1,000 SaaS environments were actively dealing with cascading compromise effects. The attack chain traces to the earlier Trivy compromise, through which TeamPCP stole a maintainer's credentials before injecting malicious code into LiteLLM and other open-source packages including KICS and Telnyx.
+      </div>
+      <div class="story-assess">
+        <span class="assess-lede">// Liberty CTI Assessment</span>
+        The scale of this compromise — 36% cloud environment penetration, 1,000+ confirmed SaaS victims, Lapsus$ monetization now underway — maps closely to the 2023 MOVEit attack pattern. TeamPCP has publicly stated intent to partner with ransomware and extortion groups to systematically target affected organizations. Texas organizations using AI development tools, cloud CI/CD pipelines, or software supply chains that include popular Python libraries should treat this as an active exposure window, not a resolved incident. Extortion contacts to affected organizations will almost certainly increase over the next 30–60 days.
+      </div>
+    </div>
+
+    <!-- Nacogdoches -->
+    <div class="story-card tx">
+      <div class="story-meta">
+        <span class="story-tag tag-tx">Texas — Healthcare</span>
+        <span class="story-tag tag-ops">257,073 Affected</span>
+        <span class="story-source">SecurityWeek · HIPAA Journal · KTRE · 31 MAR – 02 APR 2026</span>
+      </div>
+      <div class="story-headline">Nacogdoches Memorial Hospital: 257,073 Affected After 16-Day Undetected Access</div>
+      <div class="story-body">
+        Nacogdoches Memorial Hospital (NMH), a 226-bed facility and Level III trauma center in Nacogdoches, Texas, disclosed on March 31 that a threat actor first gained access to its network on January 15, 2026 — and was not detected until January 31, a 16-day dwell period. The attacker accessed files containing names, addresses, Social Security numbers, dates of birth, medical record numbers, account numbers, health plan beneficiary numbers, and in some cases full face photographs. As of April 1, no threat group has publicly claimed responsibility. Notification letters were mailed to 257,073 affected individuals on March 31. Class action law firms have opened investigations citing potential violations of state and federal notification timelines.
+      </div>
+      <div class="story-assess">
+        <span class="assess-lede">// Liberty CTI Assessment</span>
+        This is the clearest Texas-sector signal of the week. The 16-day dwell period before detection is consistent with adversaries conducting reconnaissance rather than immediate ransomware deployment — suggesting either a persistent-access operation or a ransomware actor still in the pre-encryption phase. The absence of a public claim is notable. Texas hospital leadership should treat this as a regional warning indicator: the combination of sensitive data, legacy exposure, and limited security operations capacity makes regional Texas hospitals a reliable target set.
+      </div>
+    </div>
+
+    <!-- CERT-UA / Russia Persistent Access -->
+    <div class="story-card">
+      <div class="story-meta">
+        <span class="story-tag tag-russia">Russia — Persistent Access</span>
+        <span class="story-source">The Record / Recorded Future News · 03 APR 2026</span>
+      </div>
+      <div class="story-headline">CERT-UA: Russian Actors Systematically Revisiting Prior Breaches to Test Persistent Access</div>
+      <div class="story-body">
+        Ukraine's Computer Emergency Response Team issued a report on April 3 warning that Russian-linked actors — including APT28 (Fancy Bear) and Void Blizzard — are systematically returning to previously compromised networks to determine whether access persists, whether credentials remain valid, and whether patched vulnerabilities have been re-exposed. CERT-UA observed a shift from 2025's "steal-and-go" operations toward long-term access maintenance designed to support future espionage or disruption. The security and defense sector is the primary focus, with attackers increasingly using phone-based social engineering — calling targets in fluent Ukrainian via legitimate mobile numbers — to establish trust before deploying malware through messaging applications.
+      </div>
+      <div class="story-assess">
+        <span class="assess-lede">// Liberty CTI Assessment</span>
+        The return-to-breach tactic is not geographically limited to Ukraine. For Texas DIB organizations that experienced any network intrusion in 2024 or 2025 — whether disclosed or not — this reporting raises a direct operational question: has the root cause of that incident been fully resolved? Adversaries maintaining dormant access for later use align with both Chinese pre-positioning doctrine and Russian operational patience. The social engineering vector — phone calls in the target's language from legitimate-appearing numbers — is directly transferable to U.S. targets.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TEXAS SECTOR ANALYSIS ── -->
+  <div class="section">
+    <div class="section-rule">
+      <div class="section-tag">Section III</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-head">Texas Sector Assessment</div>
+
+    <!-- Energy -->
+    <div class="sector-block">
+      <div class="sector-header">
+        <div class="sector-icon">PIR-1</div>
+        <div class="sector-name">Energy / ERCOT</div>
+        <div class="sector-status status-moderate">Elevated — No New TX Incident</div>
+      </div>
+      <div class="sector-body">
+        No named Texas energy victim emerged in this week's reporting — a fact Liberty CTI states plainly rather than obscuring with peripheral signals. That absence, however, does not reflect reduced adversary interest. Sandworm's documented targeting of nearly 20 Ukrainian energy, water, and heating facilities, combined with NATO documentation of coordinated attacks against Polish energy infrastructure, confirms that critical energy systems remain active priorities for major state competitors. ERCOT's rapidly expanding data center interconnection queue — now approaching 226 gigawatts of pending load requests — is creating new digital infrastructure that outpaces security standard implementation. The attack surface for Texas energy is growing faster than the defensive perimeter. No executive should interpret "no incident this week" as "no targeting this week."
+      </div>
+    </div>
+
+    <!-- DIB -->
+    <div class="sector-block">
+      <div class="sector-header">
+        <div class="sector-icon">PIR-2</div>
+        <div class="sector-name">Defense Industrial Base</div>
+        <div class="sector-status status-watch">Watch — Persistent Access Signals</div>
+      </div>
+      <div class="sector-body">
+        No fresh Texas DIB breach emerged in this week's public reporting. The strongest DIB-relevant signal this week is the CERT-UA persistent-access warning, which describes adversaries retaining footholds through vendors, cloud credentials, and previously compromised accounts rather than executing immediate, visible operations. For Texas DIB organizations — particularly those in the JBSA contractor ecosystem — this maps directly to a core vulnerability: cleared personnel and defense contractors often maintain older vendor relationships, legacy access credentials, and cloud environments that predate current security standards. The absence of a dramatic breach claim should not be interpreted as the absence of adversary presence.
+      </div>
+    </div>
+
+    <!-- Healthcare -->
+    <div class="sector-block">
+      <div class="sector-header">
+        <div class="sector-icon">PIR-3</div>
+        <div class="sector-name">Healthcare</div>
+        <div class="sector-status status-elevated">Elevated — Active Texas Incident</div>
+      </div>
+      <div class="sector-body">
+        Healthcare is the clearest Texas sector signal of the week. The Nacogdoches Memorial Hospital disclosure demonstrates the threat combination that defines healthcare exposure: sensitive data at scale, operational pressure that limits security investment, and 16-day dwell times that pass undetected. Even absent a public ransomware claim or confirmed data misuse, the regulatory and legal consequences are already materializing — class action law firms have opened investigations, law enforcement has been engaged, and HHS notification requirements are triggered. Texas Medical Center in Houston — the world's largest medical complex — and regional hospital networks across the state share the same structural vulnerabilities: sensitive data, legacy systems, and security operations capacity insufficient for current threat tempo.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CROSS-SECTOR PATTERNS ── -->
+  <div class="section">
+    <div class="section-rule">
+      <div class="section-tag">Section IV</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-head">Cross-Sector Patterns</div>
+
+    <div class="pattern-grid">
+      <div class="pattern-cell">
+        <div class="pattern-num">Pattern 01</div>
+        <div class="pattern-title">Indirect Compromise Dominant</div>
+        <div class="pattern-body">Mercor, the European Commission, and Nissan all illustrate the same lesson this week: organizations are increasingly breached through software dependencies, API keys, cloud tooling, and third-party vendors rather than direct perimeter assault. The attacker's entry point is a trusted supplier, not the organization's own front door.</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="pattern-num">Pattern 02</div>
+        <div class="pattern-title">Preparation Over Spectacle</div>
+        <div class="pattern-body">CERT-UA's return-to-breach reporting, the 16-day NMH dwell period, and Mandiant's multi-year espionage trend all point toward the same adversary preference: quiet, persistent access maintained for later use rather than immediate disruption. The private sector frequently mistakes the absence of visible disruption for the absence of adversary intent.</div>
+      </div>
+      <div class="pattern-cell">
+        <div class="pattern-num">Pattern 03</div>
+        <div class="pattern-title">Business Interruption as the Metric</div>
+        <div class="pattern-body">Hasbro's SEC filing shows how cyber incidents now surface as shipping delays, ordering problems, and continuity measures — not just technical containment language. This is the language boards and executives understand. It is also where cyber intelligence has its greatest leverage: framing risk in business-consequence terms before the incident, not after.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EXECUTIVE TAKEAWAYS ── -->
+  <div class="section">
+    <div class="section-rule">
+      <div class="section-tag">Section V</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-head">Executive Implications</div>
+
+    <div class="story-body" style="margin-bottom:1rem">
+      For Texas leadership teams, this week's reporting points to a single organizing question: <strong style="color:var(--paper)">where would persistent access hide in your organization, and how would you know?</strong> That framing reflects the dominant adversary behavior pattern across all four reporting items this week — supply-chain access, return-to-breach operations, 16-day undetected dwell, and slow-burn credential exploitation.
+    </div>
+
+    <div class="story-body" style="margin-bottom:1rem">
+      Organizations in energy, defense, or healthcare should not be asking whether they are likely to be targeted. That question was answered years ago. The operative question for Q2 2026 is whether an adversary who entered through a software library, a vendor credential, or a previously compromised account is currently resident in the network — and whether the organization has the telemetry and retention to answer that question.
+    </div>
+
+    <div class="story-body">
+      The SEC disclosure pattern — Hasbro filing an 8-K within four days of detection — signals what regulators will increasingly expect from publicly traded companies and their supply chains. Texas energy companies regulated by PUCT, healthcare organizations subject to HIPAA, and DIB contractors under CMMC are all operating in an environment where incident disclosure timelines are tightening. Intelligence-led preparation is the only approach that avoids the disclosure as the first moment of clarity.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── BOTTOM LINE ── -->
+  <div class="section">
+    <div class="bottom-line">
+      <span class="bl-label">// Bottom Line — Week of 03 APR 2026</span>
+      <div class="bl-text">
+        This week did not produce a dramatic Texas critical-infrastructure cyber event. What it produced is analytically more valuable: clear evidence that supply-chain compromise, persistent-access maintenance, and operational disruption are the dominant themes shaping the threat environment as Q2 2026 begins. Nacogdoches Memorial Hospital's 16-day breach, the LiteLLM cascade targeting thousands of AI-dependent organizations, and Russian actors revisiting prior footholds all point toward the same adversary preference — patience and quiet access over spectacle. Texas organizations that remain reactive to visible incidents are, by definition, operating behind the threat curve.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TORCH FUSION CYCLE NOTE ── -->
+  <div class="tf-block">
+    <span class="tf-label">// Analytical Note — Torch Fusion Cycle</span>
+    <div class="tf-text">
+      This brief was produced using Liberty CTI's <strong>Torch Fusion Cycle</strong>.
+      <strong>WHAT:</strong> Operational disruption (Hasbro), supply-chain cascade (LiteLLM/Mercor), Texas healthcare breach (NMH), and Russian persistent-access return operations.
+      <strong>WHO:</strong> TeamPCP / Lapsus$ (supply chain); unattributed (NMH); APT28 / Void Blizzard (return operations); unidentified actor (Hasbro, investigation ongoing).
+      <strong>WHY:</strong> Financial extortion (TeamPCP/Lapsus$); intelligence collection or pre-ransomware positioning (NMH); wartime operational advantage (Russia).
+      <strong>WHAT NEXT:</strong> Extortion contacts to LiteLLM-affected organizations will likely increase over the next 30–60 days; NMH dwell pattern signals other Texas regional hospitals may have undisclosed incidents; Russian return-to-breach operations are not geographically constrained to Ukraine.
+      All key judgments use calibrated probability language in alignment with accepted IC analytical practices. Confidence levels reflect source quality, corroboration, and analytical consistency.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── SOURCE CITATIONS ── -->
+  <div class="section">
+    <div class="section-rule">
+      <div class="section-tag">Section VI — ICD-206</div>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-head">Source Reference Citations</div>
+
+    <div class="src-block">
+      <div class="src-hdr">SOURCE REFERENCE CITATIONS (SRCs) — OPEN SOURCE BASIS — ATB-2026-14 // All sources verified as of 03 APR 2026</div>
+
+      <div class="src-item">
+        <span class="src-code">SRC-01</span>
+        <div class="src-text">
+          <span class="src-title">Cybersecurity Dive — "Cyberattack hits Hasbro, impacting orders and shipping"</span> · April 1, 2026. Primary source for Hasbro 8-K disclosure, March 28 detection date, systems offline, weeks-long recovery, business continuity plan details. Corroborated by TechCrunch, PYMNTS, Boston Globe (April 1–2, 2026). RELIABILITY: HIGH. Relevance: KJ-1, Section II.
+        </div>
+      </div>
+
+      <div class="src-item">
+        <span class="src-code">SRC-02</span>
+        <div class="src-text">
+          <span class="src-title">SecurityWeek — "Mercor Hit by LiteLLM Supply Chain Attack"</span> · April 2, 2026. Primary source for LiteLLM/Trivy attack chain, Lapsus$ 4TB claim, Mandiant 1,000+ environment confirmation, TeamPCP/Lapsus$ partnership. Corroborated by The Register, TechCrunch, Fortune, Cybernews (April 1–2, 2026). RELIABILITY: HIGH. Relevance: KJ-2, Section II.
+        </div>
+      </div>
+
+      <div class="src-item">
+        <span class="src-code">SRC-03</span>
+        <div class="src-text">
+          <span class="src-title">SecurityWeek / HIPAA Journal — "250,000 Affected by Data Breach at Nacogdoches Memorial Hospital"</span> · April 1–2, 2026. Primary source for NMH breach, January 15 initial access date (forensic determination), January 31 detection, 257,073 notification count, data types compromised, no threat group claim as of April 1. Corroborated by KTRE, Nacogdoches Today, Maine AG filing. RELIABILITY: HIGH. Relevance: KJ-4, Section III Healthcare.
+        </div>
+      </div>
+
+      <div class="src-item">
+        <span class="src-code">SRC-04</span>
+        <div class="src-text">
+          <span class="src-title">The Record (Recorded Future News) — "Ukraine warns Russian hackers are revisiting past breaches to prepare new attacks"</span> · April 3, 2026. Primary source for CERT-UA persistent-access return operations report, APT28/Void Blizzard attribution, social engineering via phone calls, steal-and-go to long-term dwell shift. RELIABILITY: HIGH (government CERT primary source). Relevance: KJ-3, Section II, Section III DIB.
+        </div>
+      </div>
+
+      <div class="src-item">
+        <span class="src-code">SRC-05</span>
+        <div class="src-text">
+          <span class="src-title">The Record — "Nissan says stolen data came from third-party vendor after hacking group claims breach"</span> · April 1, 2026. Supporting source for third-party/indirect compromise pattern. RELIABILITY: HIGH. Relevance: Section IV Pattern 01.
+        </div>
+      </div>
+
+      <div class="src-item">
+        <span class="src-code">SRC-06</span>
+        <div class="src-text">
+          <span class="src-title">Mandiant / Google — M-Trends 2026 Threat Intelligence Report</span> · Q1 2026. Supporting source for multi-year espionage intrusion trends, ransomware handoff timeline compression (hours to seconds), dwell time analysis. RELIABILITY: HIGH (primary commercial threat intelligence). Relevance: KJ-3, Section IV Pattern 02.
+        </div>
+      </div>
+
+      <div class="src-text" style="margin-top:1rem;font-size:9px;color:rgba(232,226,216,.25);line-height:1.7">
+        SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) from U.S. government advisories (CERT-UA, SEC EDGAR), primary commercial threat intelligence (Mandiant/Google, SecurityWeek), and corroborated news reporting (The Record, TechCrunch, Cybersecurity Dive, HIPAA Journal, Boston Globe). No classified, restricted, or non-public government information was used or referenced. Confidence levels reflect source quality, corroboration depth, and analytical consistency, in alignment with accepted IC analytical practices. Liberty CTI Source Attribution Standards apply.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<div class="brief-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Liberty Cyber Threat Intelligence</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(212,150,26,.4);margin-top:.2rem;">libertycti.com · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff96918b9a93bf93969d9a8d8b869c8b96d19c9092">[email&#160;protected]</a> · San Antonio, Texas</div>
+    </div>
+    <div class="footer-legal">
+      ALAMO THREAT BRIEF // ATB-2026-14 // 03 APRIL 2026<br>
+      UNCLASSIFIED // OPEN SOURCE // LIBERTY CTI PROPRIETARY<br>
+      © 2026 LIBERTY CTI LLC. ALL RIGHTS RESERVED.<br>
+      NOT FOR PUBLIC DISTRIBUTION WITHOUT AUTHORIZATION.
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CLASSIFICATION BANNER -->
+<div class
