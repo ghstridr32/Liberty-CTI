@@ -1296,25 +1296,7 @@ h2 em { font-style: italic; color: var(--red); }
 </footer>
 <!-- LCTI:FOOTER:END -->
 
-<script>
-(function(){
-  var burger=document.getElementById('lcti-burger');
-  var menu=document.getElementById('lcti-mobile-menu');
-  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
-  var drops=document.querySelectorAll('.lcti-drop-item');
-  drops.forEach(function(item){
-    var toggle=item.querySelector('.lcti-drop-toggle');
-    if(!toggle)return;
-    toggle.addEventListener('click',function(e){
-      e.stopPropagation();
-      var o=item.classList.toggle('open');
-      toggle.setAttribute('aria-expanded',String(o));
-      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
-    });
-  });
-  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
-})();
-</script>
+
 
 <script>
   const reveals = document.querySelectorAll('.reveal');
