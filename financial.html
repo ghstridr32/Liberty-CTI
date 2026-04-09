@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Services Threat Intelligence | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:        #080c10;
+  --navy:       #0d1520;
+  --paper:      #f4efe6;
+  --cream:      #ece7da;
+  --gold:       #b8963e;
+  --gold-light: #d4af62;
+  --red:        #8b1a1a;
+  --muted:      #6b6355;
+  --rule:       rgba(184,150,62,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-light); text-decoration: underline; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.96); border-bottom: 1px solid var(--rule); }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); text-decoration: none; }
+.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
+.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+/* Dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
+.nav-dropdown > a::after { content: '▾'; font-size: 0.6rem; opacity: 0.6; }
+.dropdown-menu { display: none; position: absolute; top: calc(100% + 0.75rem); left: 50%; transform: translateX(-50%); background: rgba(8,12,16,0.98); border: 1px solid var(--rule); min-width: 220px; z-index: 200; padding: 0.5rem 0; }
+.nav-dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a { display: block; padding: 0.65rem 1.25rem; font-size: 0.68rem; letter-spacing: 0.16em; color: rgba(244,239,230,0.6); white-space: nowrap; border-bottom: 1px solid rgba(184,150,62,0.08); }
+.dropdown-menu a:last-child { border-bottom: none; }
+.dropdown-menu a:hover { color: var(--gold); background: rgba(184,150,62,0.04); text-decoration: none; }
+.dropdown-menu a .dm-icon { margin-right: 0.5rem; opacity: 0.7; }
+
+/* SHARED SECTION */
+section { padding: 5rem 3rem; }
+.sec-inner { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+.sec-eyebrow::before { content: '// '; opacity: 0.6; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
+h2 em { font-style: italic; color: var(--red); }
+.lead { font-size: 1rem; font-weight: 300; line-height: 1.82; color: rgba(244,239,230,0.58); max-width: 680px; }
+
+/* HERO — sector pages */
+.hero-sector { padding-top: 80px; min-height: 60vh; display: flex; align-items: flex-end; position: relative; overflow: hidden; background: var(--navy); }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.04) 1px, transparent 1px); background-size: 52px 52px; }
+.hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 78% 28%, rgba(139,26,26,0.1) 0%, transparent 52%), radial-gradient(ellipse at 18% 75%, rgba(184,150,62,0.06) 0%, transparent 45%); }
+.hero-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 3; }
+.hero-sector-inner { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 5rem 3rem 5rem; }
+.hero-breadcrumb { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(244,239,230,0.35); margin-bottom: 1.25rem; }
+.hero-breadcrumb a { color: var(--gold); text-decoration: none; }
+.hero-breadcrumb a:hover { color: var(--gold-light); }
+.hero-sector h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 4rem); font-weight: 900; line-height: 1.05; color: var(--paper); margin-bottom: 1.5rem; max-width: 720px; }
+.hero-sector h1 em { font-style: italic; color: var(--gold); }
+.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
+.hero-lede { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.65); max-width: 620px; line-height: 1.82; margin-bottom: 2rem; }
+.risk-badges { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.risk-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 1rem; font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid rgba(184,150,62,0.3); color: rgba(244,239,230,0.6); background: rgba(184,150,62,0.05); }
+.risk-badge.high { border-color: rgba(224,88,68,0.4); color: #e8a090; background: rgba(139,26,26,0.08); }
+.risk-badge.very-high { border-color: rgba(224,88,68,0.6); color: #e87060; background: rgba(139,26,26,0.14); }
+
+/* INTEL STRIP */
+.intel-strip { background: var(--navy); padding: 1.5rem 3rem; display: flex; align-items: center; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.intel-item { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; padding: 0 0.5rem; }
+.intel-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--gold); line-height: 1; white-space: nowrap; }
+.intel-desc { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(244,239,230,0.4); line-height: 1.5; }
+.intel-sep { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+/* VIGNETTES */
+.vignettes { background: var(--navy); }
+.vignette-grid { display: grid; grid-template-columns: 1fr; gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.vignette { background: var(--navy); padding: 1.75rem 1.75rem; position: relative; display: grid; grid-template-columns: 10rem 1fr; gap: 1.5rem; align-items: start; }
+.vignette::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent 60%); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.vignette:hover::before { transform: scaleX(1); }
+.vignette-timing { font-family: 'Courier Prime', monospace; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--gold); line-height: 1.5; padding-top: 0.15rem; }
+.vignette-body h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem; line-height: 1.3; }
+.vignette-body p { font-size: 0.84rem; font-weight: 300; color: rgba(244,239,230,0.52); line-height: 1.72; margin-bottom: 0.4rem; }
+.vignette-impact { font-size: 0.8rem; font-weight: 500; font-style: italic; color: rgba(244,239,230,0.75); margin-top: 0.4rem; padding: 0.55rem 0.85rem; background: rgba(139,26,26,0.07); border: 1px solid rgba(139,26,26,0.16); line-height: 1.45; }
+.vignette-attr { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(184,150,62,0.5); margin-top: 0.5rem; }
+
+/* THREAT ACTORS */
+.actors-section { background: var(--ink); }
+.actor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--rule); margin-top: 2.5rem; }
+.actor-card { background: var(--ink); padding: 1.5rem 1.25rem; }
+.actor-origin { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 0.4rem; opacity: 0.85; }
+.actor-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--paper); margin-bottom: 0.5rem; }
+.actor-card p { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.45); line-height: 1.65; }
+
+/* CROWN JEWELS */
+.crown-jewels { background: var(--cream); color: var(--ink); }
+.crown-jewels h2 { color: var(--ink); }
+.crown-jewels h2 em { color: var(--red); }
+.crown-jewels .lead { color: var(--muted); }
+.jewel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(10,10,10,0.08); margin-top: 2.5rem; }
+.jewel-card { background: var(--cream); padding: 1.75rem 1.5rem; }
+.jewel-card::before { content: ''; display: block; width: 2rem; height: 2px; background: var(--gold); margin-bottom: 1rem; }
+.jewel-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 0.4rem; }
+.jewel-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+.jewel-card p { font-size: 0.82rem; font-weight: 300; color: var(--muted); line-height: 1.68; }
+
+/* KEY JUDGMENT */
+.judgment { background: var(--ink); }
+.judgment-block { margin-top: 2rem; padding: 2rem 2rem; border-left: 3px solid var(--gold); background: rgba(184,150,62,0.04); max-width: 800px; }
+.judgment-block .j-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 0.75rem; }
+.judgment-block p { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; font-weight: 700; color: var(--paper); line-height: 1.6; }
+.judgment-block .j-conf { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-top: 1rem; opacity: 0.7; }
+
+/* ATB CTA */
+.sector-cta { background: var(--navy); padding: 4rem 3rem; text-align: center; border-top: 1px solid var(--rule); }
+.sector-cta-inner { max-width: 580px; margin: 0 auto; }
+.sector-cta h2 { color: var(--paper); margin-bottom: 1rem; font-size: clamp(1.4rem, 2.2vw, 2rem); }
+.sector-cta h2 em { color: var(--gold); }
+.sector-cta p { font-size: 0.9rem; color: rgba(244,239,230,0.55); line-height: 1.8; margin-bottom: 2rem; }
+.btn-gold { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-gold:hover { background: var(--gold-light); color: var(--ink); text-decoration: none; }
+.btn-outline-light { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--paper); border: 1px solid rgba(244,239,230,0.2); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; margin-left: 1rem; }
+.btn-outline-light:hover { border-color: var(--gold); color: var(--gold); text-decoration: none; }
+
+/* FOOTER */
+footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px solid var(--rule); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.footer-emblem { width: 38px; object-fit: contain; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.5rem; }
+  section { padding: 3.5rem 1.5rem; }
+  .hero-sector-inner { padding: 4rem 1.5rem 4rem; }
+  .actor-grid { grid-template-columns: repeat(2, 1fr); }
+  .jewel-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .vignette { grid-template-columns: 1fr; gap: 0.5rem; }
+  .intel-strip { padding: 1.2rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .actor-grid { grid-template-columns: 1fr 1fr; }
+  .jewel-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .btn-outline-light { margin-left: 0; margin-top: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<!-- LCTI:NAV:START -->
+<style>
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.42rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.65;line-height:1.5;white-space:normal;max-width:80px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.4rem .65rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:240px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.55rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel a.lcti-atb-link{color:#c0392b !important}
+.lcti-drop-panel a.lcti-atb-link:hover{color:#d6554a !important;background:rgba(192,57,43,.08);border-left-color:#c0392b}
+.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.6rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.4rem 1rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.4rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.7rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1rem 2rem .3rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.67rem;opacity:.85}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.65rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+    <svg class="lcti-logo-emblem" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 2L4 10v12c0 9.4 6.8 18.2 16 20.4C29.2 40.2 36 31.4 36 22V10L20 2z" fill="#b8963e" opacity=".15" stroke="#b8963e" stroke-width="1.2"/>
+      <path d="M20 8l-2 5h-3l2.5 2-1 5L20 17l3.5 3-1-5 2.5-2h-3z" fill="#b8963e" opacity=".9"/>
+      <path d="M16 22h8M18 25v4M22 25v4" stroke="#b8963e" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.<br>They are.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Luis Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Intelligence</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="intelligence.html" role="menuitem">Products Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="alamo-threat-brief.html" role="menuitem" class="lcti-atb-link">ATB Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Latest Issues</span>
+        <a href="threat-brief.html" role="menuitem" class="lcti-atb-link">Latest Issue</a>
+        <a href="threat-brief-2.html" role="menuitem" class="lcti-atb-link">Issue 2</a>
+        <a href="threat-brief-3.html" role="menuitem" class="lcti-atb-link">Issue 3</a>
+        <div class="drop-divider"></div>
+        <a href="atb-archive.html" role="menuitem" class="lcti-atb-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Critical Sectors</span>
+        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="financial.html" role="menuitem">Financial Services</a>
+        <a href="healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Luis Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Intelligence</span>
+  <div class="m-sub">
+    <a href="intelligence.html">Products Overview</a>
+    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="alamo-threat-brief.html" class="lcti-atb-link">ATB Overview</a>
+    <a href="threat-brief.html" class="lcti-atb-link">Latest Issue</a>
+    <a href="threat-brief-2.html" class="lcti-atb-link">Issue 2</a>
+    <a href="threat-brief-3.html" class="lcti-atb-link">Issue 3</a>
+    <a href="atb-archive.html" class="lcti-atb-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="texas-focus.html">Texas Overview</a>
+    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
+    <a href="financial.html">Financial Services</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['threat-brief.html','threat-brief-2.html','threat-brief-3.html','atb-archive.html'],
+    'intelligence.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=(link.getAttribute('href')||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<section class="hero-sector">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-sector-inner">
+    <div class="hero-breadcrumb"><a href="texas-focus.html">Texas Focus</a> &nbsp;/&nbsp; Financial Services</div>
+    <span class="sec-eyebrow">Sector Intelligence</span>
+    <h1>The Most Damaging Financial Cyber Event<br><em>Breaks Trust Before It Breaks Systems</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-lede">Texas finance includes national banks, credit unions, insurance carriers, fintech vendors, public finance entities, and a consumer base that makes it a top-tier fraud target. Dallas, Houston, San Antonio, and Austin form one of the densest financial target concentrations in the country. The dominant threat is no longer technical exploitation — it is third-party vendor concentration and identity compromise at scale.</p>
+    <div class="risk-badges">
+      <span class="risk-badge very-high">● Likelihood: High</span>
+      <span class="risk-badge high">● Impact: High → Very High</span>
+      <span class="risk-badge very-high">● Criticality: High</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTEL STRIP -->
+<div class="intel-strip">
+  <div class="intel-item"><div class="intel-num">$459M</div><div class="intel-desc">Ransomware payments by<br>mid-2024 — a record pace</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">60+</div><div class="intel-desc">Credit unions disrupted by<br>single shared-provider ransomware attack</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">MOVEit</div><div class="intel-desc">File-transfer exploitation<br>still rippling through Texas institutions</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">48 hrs</div><div class="intel-desc">Federal incident notification<br>requirement for banking organizations</div></div>
+</div>
+
+<!-- CROWN JEWELS -->
+<section class="crown-jewels">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">What Adversaries Are Targeting</span>
+    <h2 class="reveal">Crown Jewels of <em>Texas Finance</em></h2>
+    <p class="lead reveal" style="margin-top:0.75rem;">Financial sector adversaries target operational continuity, customer identity, and payment infrastructure — not just data. The highest-consequence attack does not extract records; it disrupts the systems that settle transactions and sustain liquidity.</p>
+    <div class="jewel-grid">
+      <div class="jewel-card reveal">
+        <div class="jewel-label">Operations</div>
+        <h3>Liquidity &amp; Payment Rail Continuity</h3>
+        <p>Core banking systems, ACH processing, wire settlement, and card payment infrastructure. A disruption here cascades into every sector that depends on transactions — healthcare claims, payroll, procurement, and public finance.</p>
+      </div>
+      <div class="jewel-card reveal d1">
+        <div class="jewel-label">Identity</div>
+        <h3>Customer &amp; Member Identity Systems</h3>
+        <p>Account credentials, authentication infrastructure, and document delivery systems. Compromised customer identity is the entry point for fraud at scale — and Texas's dense consumer base makes it a high-return target environment.</p>
+      </div>
+      <div class="jewel-card reveal d2">
+        <div class="jewel-label">Third Parties</div>
+        <h3>Fintech &amp; Compliance Vendor Ecosystem</h3>
+        <p>Texas-based fintech, compliance, marketing, and file-transfer vendors serving multiple institutions simultaneously. One vendor compromise creates downstream exposure across dozens or hundreds of client institutions — a structural systemic risk that MOVEit and the Marquis incident made concrete.</p>
+      </div>
+      <div class="jewel-card reveal">
+        <div class="jewel-label">Public Finance</div>
+        <h3>Appraisal Districts &amp; Municipal Systems</h3>
+        <p>County appraisal districts, municipal treasury systems, and public benefits administration. Ransomware targeting these systems disrupts citizen services and creates citizen data exposure at scale — with recovery measured in weeks, not days.</p>
+      </div>
+      <div class="jewel-card reveal d1">
+        <div class="jewel-label">Fraud Controls</div>
+        <h3>Anti-Fraud &amp; ATO Detection Infrastructure</h3>
+        <p>Account takeover detection, device fingerprinting, and anomaly monitoring. Social engineering campaigns — now AI-accelerated — target these control layers directly, submitting legitimate-appearing transactions that defeat behavioral baselines.</p>
+      </div>
+      <div class="jewel-card reveal d2">
+        <div class="jewel-label">Regulatory</div>
+        <h3>Notification &amp; Compliance Posture</h3>
+        <p>State (Texas Department of Banking) and federal (bank regulatory body) incident notification obligations create a reportability dimension that becomes an operational burden during incidents — particularly when vendor-driven delays complicate notification timelines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREAT ACTORS -->
+<section class="actors-section">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Active Adversaries</span>
+    <h2 class="reveal" style="color:var(--paper);">Who Is Targeting Texas Finance</h2>
+    <p class="lead reveal" style="margin-top:0.75rem; color:rgba(244,239,230,0.5);">Financial sector threats span two intertwined domains — institution compromise and fraud ecosystems — with increasing convergence between nation-state actors and criminal groups.</p>
+    <div class="actor-grid">
+      <div class="actor-card reveal">
+        <div class="actor-origin">Criminal Ecosystem</div>
+        <div class="actor-name">Ransomware / Extortion Groups</div>
+        <p>Financially motivated actors targeting banking institutions, credit unions, fintech vendors, and shared service providers. The most consequential attacks target recovery infrastructure — backup systems, identity providers, and virtualization platforms — to maximize leverage and deny rapid restoration.</p>
+      </div>
+      <div class="actor-card reveal d1">
+        <div class="actor-origin">Criminal Ecosystem</div>
+        <div class="actor-name">Scattered Spider / BEC Actors</div>
+        <p>Social engineering at scale — defeating identity architectures built to stop technical exploits. Business email compromise, vishing, and help-desk impersonation are now primary financial attack vectors. AI-accelerated phishing is lowering the skill threshold for these operations.</p>
+      </div>
+      <div class="actor-card reveal d2">
+        <div class="actor-origin">North Korea · State-Sponsored</div>
+        <div class="actor-name">Lazarus Group</div>
+        <p>Financial system targeting and cryptocurrency theft to fund regime weapons programs. Texas financial institutions and cryptocurrency platforms represent high-value targets. DPRK's $1.46 billion cryptocurrency theft in 2025 was the largest single financial heist ever recorded.</p>
+      </div>
+      <div class="actor-card reveal d3">
+        <div class="actor-origin">Iran · State-Aligned</div>
+        <div class="actor-name">IRGC-CY / Hydro Kitten</div>
+        <p>Iranian-affiliated actors signaling disruptive intent against U.S. financial infrastructure during periods of U.S.-Iran tension. NY DFS issued an emergency advisory in March 2026 tied to this threat. Texas-based payment processors and regional banks are assessed probable secondary targets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIGNETTES -->
+<section class="vignettes">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Incident Record</span>
+    <h2 class="reveal" style="color:var(--paper);">Texas Finance: What Has <em>Already Happened</em></h2>
+    <p class="lead reveal" style="margin-top:0.75rem; color:rgba(244,239,230,0.5);">The following vignettes are drawn from primary sources — AG filings, breach notifications, regulatory disclosures, and government records. The systemic risk pattern in Texas finance is documented and recurring.</p>
+    <div class="vignette-grid">
+      <div class="vignette reveal">
+        <div class="vignette-timing">Aug 2025–Mar 2026<br>AG Filings / Reuters</div>
+        <div class="vignette-body">
+          <h3>Marquis Software Solutions Ransomware — Texas-Based Fintech Systemic Risk</h3>
+          <p>Marquis Software Solutions — a Texas-based vendor serving banks and credit unions — disclosed a ransomware attack impacting customer data handled on behalf of client institutions. AG filings describe an exploited firewall vulnerability and a large affected population across multiple downstream financial institutions.</p>
+          <div class="vignette-impact">Texas operational impact: Third-party concentration risk in its clearest form. One Texas-based vendor's compromise created delayed detection, downstream fraud exposure, and notification burdens across many client institutions simultaneously.</div>
+          <div class="vignette-attr">Attribution: Ransomware (exploited firewall vulnerability per public reporting)</div>
+        </div>
+      </div>
+      <div class="vignette reveal">
+        <div class="vignette-timing">May 2023 / Aug 2024<br>Multi-Institution</div>
+        <div class="vignette-body">
+          <h3>MOVEit Exploitation — Texas Credit Union Long Detection Window</h3>
+          <p>Exploitation of MOVEit file-transfer software impacted multiple Texas financial institutions and credit unions. A Texas credit union's breach notification documented a detection window exceeding one year — illustrating how "edge software" systemic risks persist long after the initial exploitation campaign concludes.</p>
+          <div class="vignette-impact">Texas operational impact: Large-scale member and customer exposure; prolonged notification lag creating extended fraud window. The MOVEit exploitation pattern is a template adversaries continue applying to other file-transfer and edge software products.</div>
+          <div class="vignette-attr">Attribution: Widely attributed to a ransomware group exploiting MOVEit</div>
+        </div>
+      </div>
+      <div class="vignette reveal">
+        <div class="vignette-timing">Nov 2023<br>NCUA Report</div>
+        <div class="vignette-body">
+          <h3>Credit Union Service Provider Ransomware — 60 Credit Unions Disrupted</h3>
+          <p>NCUA reported that ransomware affecting a major credit union service provider simultaneously disrupted approximately 60 credit unions with prolonged outages. The incident illustrated how shared-provider concentration creates systemic, simultaneous exposure across institutions that believe they are operating independently.</p>
+          <div class="vignette-impact">Texas operational impact: Texas has a significant credit union footprint through vendors serving multiple institutions from shared platforms. A single compromise creates multi-institution outage with member service impact, regulatory reporting obligations, and recovery complexity measured in weeks.</div>
+          <div class="vignette-attr">Attribution: Ransomware (specific actor not central in NCUA framing)</div>
+        </div>
+      </div>
+      <div class="vignette reveal">
+        <div class="vignette-timing">Nov 2022–Feb 2023<br>Dallas</div>
+        <div class="vignette-body">
+          <h3>Dallas Central Appraisal District Ransomware — Public Finance Disruption</h3>
+          <p>The Dallas Central Appraisal District experienced a ransomware attack resulting in prolonged outage, reported ransom payment, and disruption of public-facing tax and appraisal services. The incident illustrates the vulnerability of public finance systems managing citizen data and tax administration functions.</p>
+          <div class="vignette-impact">Texas operational impact: Public-facing system downtime, administrative burden, citizen data exposure risk, and recovery costs. Texas appraisal districts manage property tax data for millions of residents and are operated with public-sector resource constraints that create structural security gaps.</div>
+          <div class="vignette-attr">Attribution: Reported as ransomware; attribution reported in media</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY JUDGMENT -->
+<section class="judgment">
+  <div class="sec-inner">
+    <span class="sec-eyebrow reveal">Liberty CTI Assessment</span>
+    <h2 class="reveal" style="color:var(--paper);">The Financial Sector Judgment</h2>
+    <div class="judgment-block reveal">
+      <div class="j-label">// Key Judgment — Financial Services</div>
+      <p>Liberty CTI assesses with HIGH CONFIDENCE that the Texas financial sector's greatest systemic vulnerability is third-party vendor concentration — not direct institution compromise. The Marquis and MOVEit incidents demonstrate a reproducible attack pattern: compromise a shared vendor, achieve simultaneous exposure across dozens of client institutions, and extract or encrypt data before any single institution detects the intrusion. Under prolonged multi-sector outage scenarios, the criticality of Texas finance rises from High to Very High — because payment rails and recovery financing underpin every other sector's ability to reconstitute.</p>
+      <div class="j-conf">Confidence: HIGH &nbsp;·&nbsp; PIRs: 4, 5, 6, 14 &nbsp;·&nbsp; Primary actors: Ransomware ecosystems, Scattered Spider, Lazarus Group</div>
+    </div>
+  </div>
+</section>
+
+<section class="sector-cta">
+  <div class="sector-cta-inner">
+    <span class="sec-eyebrow reveal" style="justify-content:center;display:block;">// Intelligence in Action</span>
+    <h2 class="reveal">The Financial Services Threat<br>Is Active <em>Right Now</em></h2>
+    <p class="reveal">Liberty CTI tracks this environment weekly through the Alamo Threat Brief — a structured intelligence product covering adversary activity, sector-specific targeting, and forward-looking assessments for Texas operators.</p>
+    <div class="reveal">
+      <a href="threat-brief.html" class="btn-gold">Read the Latest Brief</a>
+      <a href="briefing-request.html" class="btn-outline-light">Request a Briefing</a>
+    </div>
+  </div>
+</section>
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:.82rem;font-weight:300;color:rgba(244,239,230,.45);line-height:1.75;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.5}
+.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.6;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.8rem;font-weight:300;color:rgba(244,239,230,.45);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#c0392b}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(244,239,230,.25)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
+      <div class="lcti-footer-slogan">Know the threat. Stay ready. They are.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Intelligence</span>
+      <ul class="lcti-footer-links">
+        <li><a href="intelligence.html">Products Overview</a></li>
+        <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="texas-focus.html">Texas Overview</a></li>
+        <li><a href="energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="financial.html">Financial Services</a></li>
+        <li><a href="healthcare.html">Healthcare</a></li>
+        <li><a href="Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="briefing-request.html">Request a Briefing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2027 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
