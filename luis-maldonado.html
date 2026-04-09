@@ -85,8 +85,22 @@
 
     /* ── PHOTO GRID ── */
     .photo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
-    .photo-grid img { width: 100%; height: 340px; object-fit: cover; display: block; filter: brightness(0.85); transition: filter 0.4s; }
-    .photo-grid img:hover { filter: brightness(1); }
+    .photo-tile { display:flex; flex-direction:column; min-width:0; }
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--navy);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+      transition: filter 0.4s;
+    }
+    .photo-frame img:hover { filter: brightness(1); }
     .photo-caption { font-family: 'Courier Prime', monospace; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(184,150,62,0.5); padding: 0.5rem 0; }
 
     /* ── SECTION ── */
@@ -157,7 +171,7 @@
       .stat:nth-child(2) { border-right: none; }
       .stat:nth-child(3), .stat:nth-child(4) { border-top: 1px solid var(--rule); }
       .photo-grid { grid-template-columns: 1fr 1fr; }
-      .photo-grid img:last-child { display: none; }
+      .photo-tile:last-child { display: none; }
       .section, .section-navy, .section-accent { padding: 3.5rem 2rem; }
       .story { grid-template-columns: 1fr; gap: 2.5rem; }
       .foot-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -166,8 +180,8 @@
       .nav-links { display: none; }
       .hero h1 { font-size: 2.4rem; }
       .photo-grid { grid-template-columns: 1fr; }
-      .photo-grid img:not(:first-child) { display: none; }
-      .photo-grid img { height: 260px; }
+      .photo-tile:not(:first-child) { display: none; }
+      .photo-frame { aspect-ratio: 4 / 4.6; }
       .section, .section-navy, .section-accent { padding: 3rem 1.25rem; }
       .foot-inner { grid-template-columns: 1fr; }
       footer { padding: 3rem 1.25rem 2rem; }
@@ -268,7 +282,7 @@
         <a href="alamo-threat-brief.html" role="menuitem">ATB Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Latest Issue</span>
-        <a href="alamo-threat-brief.html" role="menuitem">Latest Issue</a>
+        <a href="Intel Production/liberty_cti_briefs/04-12-2026.html" role="menuitem">Latest Issue — Week of Apr 12, 2026</a>
         <div class="drop-divider"></div>
         <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -318,7 +332,7 @@
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
     <a href="alamo-threat-brief.html">ATB Overview</a>
-    <a href="alamo-threat-brief.html">Latest Issue</a>
+    <a href="Intel Production/liberty_cti_briefs/04-12-2026.html">Latest Issue — Week of Apr 12, 2026</a>
     <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -357,7 +371,7 @@
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['atb-archive.html'],
+    'alamo-threat-brief.html':['Intel Production/liberty_cti_briefs/04-12-2026.html', 'atb-archive.html'],
     'intelligence.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -397,16 +411,22 @@
 
 <!-- PHOTO GRID -->
 <div class="photo-grid">
-  <div>
-    <img src="luis-maldonado-white-house.jpeg" alt="Luis Maldonado at the White House">
+  <div class="photo-tile">
+    <div class="photo-frame">
+      <img src="luis-maldonado-white-house.jpeg" alt="Luis Maldonado at the White House" style="object-position:center 18%;">
+    </div>
     <p class="photo-caption" style="padding-left:1rem;">// White House · Washington, D.C.</p>
   </div>
-  <div>
-    <img src="luis-maldonado-west-wing.jpeg" alt="West Wing Colonnade">
+  <div class="photo-tile">
+    <div class="photo-frame">
+      <img src="luis-maldonado-west-wing.jpeg" alt="West Wing Colonnade" style="object-position:center center;">
+    </div>
     <p class="photo-caption" style="padding-left:1rem;">// West Wing Colonnade</p>
   </div>
-  <div>
-    <img src="luis-maldonado-command.jpeg" alt="Command Ceremony">
+  <div class="photo-tile">
+    <div class="photo-frame">
+      <img src="luis-maldonado-command.jpeg" alt="Command Ceremony" style="object-position:58% 18%;">
+    </div>
     <p class="photo-caption" style="padding-left:1rem;">// Command Ceremony</p>
   </div>
 </div>
@@ -523,7 +543,7 @@
       <span class="lcti-footer-col-title">Intelligence</span>
       <ul class="lcti-footer-links">
         <li><a href="intelligence.html">Products Overview</a></li>
-        <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="Intel Production/liberty_cti_briefs/04-12-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>
