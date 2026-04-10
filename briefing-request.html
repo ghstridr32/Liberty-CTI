@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request an Executive Intelligence Briefing — Liberty CTI</title>
+<title>Request Intelligence Support — Liberty CTI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -83,7 +83,7 @@ nav {
   pointer-events: none;
 }
 .hero::after {
-  content: 'BRIEFING';
+  content: 'SUPPORT';
   position: absolute; right: -1rem; top: 50%; transform: translateY(-50%);
   font-family: 'Playfair Display', serif;
   font-size: 18vw; font-weight: 900;
@@ -1083,7 +1083,7 @@ body { overflow-x: hidden; }
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+    <li><a href="briefing-request.html" class="lcti-cta">Request Support</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1127,7 +1127,7 @@ body { overflow-x: hidden; }
   </div>
 
   <div class="m-cta-wrap">
-    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
+    <a href="briefing-request.html" class="m-cta">Request Support</a>
   </div>
 </div>
 
@@ -1175,16 +1175,16 @@ body { overflow-x: hidden; }
     <div class="hero-grid-bg"></div>
     <div class="hero-inner">
       <div class="hero-classification">Strategic Cyber Threat Intelligence for Texas Industry</div>
-      <h1>Request an Executive<br><em>Intelligence Briefing</em></h1>
-      <p class="hero-sub">Tailored briefings on cyber threats, geopolitical risk, and implications for your organization. Complete the sections below to scope the appropriate engagement.</p>
+      <h1>Request <em>Intelligence Support</em></h1>
+      <p class="hero-sub">Request a tailored Liberty CTI product, executive briefing, sector assessment, or ongoing advisory support. Complete the sections below to scope the right engagement for your organization.</p>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <span class="hero-meta-label">Format</span>
-          <span class="hero-meta-value">Executive Briefing / Assessment</span>
+          <span class="hero-meta-value">Custom Product / Briefing</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Tailored To</span>
-          <span class="hero-meta-value">Your Sector &amp; Threat Profile</span>
+          <span class="hero-meta-value">Your Mission / Risk Profile</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Response</span>
@@ -1192,7 +1192,7 @@ body { overflow-x: hidden; }
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Pricing</span>
-          <span class="hero-meta-value">Scoped Per Engagement</span>
+          <span class="hero-meta-value">Tailored Per Request</span>
         </div>
       </div>
     </div>
@@ -1250,7 +1250,7 @@ body { overflow-x: hidden; }
       <input type="hidden" name="threat" id="input-threat">
       <input type="hidden" name="horizon" id="input-horizon">
       <input type="hidden" name="engagement" id="input-engagement">
-      <input type="hidden" name="_subject" value="New Liberty CTI Briefing Request">
+      <input type="hidden" name="_subject" value="New Liberty CTI Support Request">
       <input type="hidden" name="_next" value="thank-you.html">
       <div class="form-sections">
 
@@ -1343,30 +1343,37 @@ body { overflow-x: hidden; }
         <div class="form-section" id="sec-d">
           <div class="section-header">
             <span class="section-id">// Section D</span>
-            <div class="section-title">Engagement Type</div>
-            <div class="section-desc">Select the format that best fits your organization's current needs.</div>
+            <div class="section-title">Support Type</div>
+            <div class="section-desc">Select the format that best fits your current intelligence requirement.</div>
           </div>
           <div class="chip-grid multi-col" id="chips-engagement">
-            <div class="chip chip-lg" data-group="engagement" data-value="executive-brief" data-single="true">
+            <div class="chip chip-lg" data-group="engagement" data-value="custom-product" data-single="true">
+              <div class="chip-top">
+                <div class="chip-indicator"></div>
+                <span class="chip-label">Custom Intelligence Product</span>
+              </div>
+              <span class="chip-sublabel">Tailored written product aligned to your leadership requirement</span>
+            </div>
+            <div class="chip chip-lg" data-group="engagement" data-value="executive-briefing" data-single="true">
               <div class="chip-top">
                 <div class="chip-indicator"></div>
                 <span class="chip-label">Executive Briefing</span>
               </div>
-              <span class="chip-sublabel">30–60 minute tailored briefing for senior leadership</span>
+              <span class="chip-sublabel">30–60 minute decision-focused briefing for senior leaders</span>
             </div>
-            <div class="chip chip-lg" data-group="engagement" data-value="deep-dive" data-single="true">
+            <div class="chip chip-lg" data-group="engagement" data-value="sector-assessment" data-single="true">
               <div class="chip-top">
                 <div class="chip-indicator"></div>
-                <span class="chip-label">Deep-Dive Assessment</span>
+                <span class="chip-label">Sector Assessment</span>
               </div>
-              <span class="chip-sublabel">Comprehensive sector and adversary analysis</span>
+              <span class="chip-sublabel">Focused assessment of threats, actors, and implications for your sector</span>
             </div>
-            <div class="chip chip-lg" data-group="engagement" data-value="ongoing" data-single="true">
+            <div class="chip chip-lg" data-group="engagement" data-value="advisory-support" data-single="true">
               <div class="chip-top">
                 <div class="chip-indicator"></div>
                 <span class="chip-label">Ongoing Advisory Support</span>
               </div>
-              <span class="chip-sublabel">Sustained intelligence relationship and retainer access</span>
+              <span class="chip-sublabel">Recurring support, updates, and analytic reachback</span>
             </div>
           </div>
         </div>
@@ -1376,7 +1383,7 @@ body { overflow-x: hidden; }
           <div class="section-header">
             <span class="section-id">// Section E</span>
             <div class="section-title">Contact Information</div>
-            <div class="section-desc">How Liberty CTI will reach you to scope the engagement.</div>
+            <div class="section-desc">How Liberty CTI will contact you to scope the right product or support package.</div>
           </div>
           <div class="contact-grid">
             <div class="contact-field" id="cf-name">
@@ -1406,7 +1413,7 @@ body { overflow-x: hidden; }
         <div class="submit-row">
           <p class="submit-note">Your information is never shared or sold. This request is reviewed personally by the Liberty CTI principals. No pricing is communicated until the engagement is scoped.</p>
           <div style="display:flex;flex-direction:column;align-items:flex-end;">
-            <button type="submit" class="btn-request" id="btn-request" disabled>Request Briefing →</button>
+            <button type="submit" class="btn-request" id="btn-request" disabled>Request Support →</button>
             <span class="btn-request-hint visible" id="btn-hint">// Complete all sections to submit</span>
           </div>
         </div>
@@ -1417,9 +1424,9 @@ body { overflow-x: hidden; }
     <!-- CONFIRMATION (replaces form) -->
     <div class="confirmation" id="confirmation">
       <span class="conf-badge">Request Received — Liberty CTI</span>
-      <div class="conf-heading">Briefing Request<br>Acknowledged.</div>
+      <div class="conf-heading">Support Request<br>Acknowledged.</div>
       <div class="conf-rule"></div>
-      <p class="conf-body">Thank you. <strong>Liberty CTI will review your request and follow up within 48 hours to scope the appropriate engagement.</strong> A member of the analytical team will contact you directly to discuss your sector focus, threat priorities, and preferred format before scheduling begins.</p>
+      <p class="conf-body">Thank you. <strong>Liberty CTI will review your request and follow up within 48 hours to scope the appropriate product, briefing, or advisory engagement.</strong> A member of the analytical team will contact you directly to discuss your sector focus, threat priorities, and the format best suited to your leadership requirement before scoping begins.</p>
       <div class="conf-ref">// LIBERTY CTI · UNCLASSIFIED · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="274e4953424b674b4e454255535e44534e0944484a">[email&#160;protected]</a></div>
     </div>
 
@@ -1487,7 +1494,7 @@ body { overflow-x: hidden; }
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="briefing-request.html">Request a Briefing</a></li>
+        <li><a href="briefing-request.html">Request Support</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
@@ -1498,7 +1505,7 @@ body { overflow-x: hidden; }
   </div>
   <div class="lcti-footer-bottom">
     <div class="lcti-footer-copy">© 2027 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
-    <div class="lcti-footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+    <div class="lcti-footer-copy">All analysis produced using disciplined commercial intelligence tradecraft</div>
   </div>
 </footer>
 <!-- LCTI:FOOTER:END -->
