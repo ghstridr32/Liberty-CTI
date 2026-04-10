@@ -53,9 +53,12 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
 .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 7rem 3.5rem 6rem; }
 .hero-right { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 90vh; }
-.hero-right::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
-.hero-right::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 4; pointer-events: none; }
-#hero-map-canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.hero-map-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: brightness(0.96) saturate(1.02); }
+.hero-left-fade { position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
+.hero-bottom-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 4; pointer-events: none; }
+.hero-corner-mask { position: absolute; right: 0; bottom: 0; width: 132px; height: 132px; background:
+  radial-gradient(circle at 78% 78%, rgba(8,12,16,0.98) 0 32px, rgba(8,12,16,0.96) 32px 52px, rgba(8,12,16,0.78) 52px 76px, rgba(8,12,16,0) 76px);
+  z-index: 5; pointer-events: none; }
 .eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
 .eyebrow::before { content: '// '; opacity: 0.6; }
 h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 900; line-height: 1.0; color: var(--paper); margin-bottom: 2rem; max-width: 580px; }
@@ -407,7 +410,10 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
       <span class="hero-badge">IC analytical practices &nbsp;·&nbsp; ICD-206 sourcing &nbsp;·&nbsp; Torch Fusion Cycle</span>
     </div>
     <div class="hero-right">
-      <canvas id="hero-map-canvas"></canvas>
+      <img class="hero-map-image" src="Gemini_Generated_Image_rlueacrlueacrlue.png" alt="Texas cyber threat environment map">
+      <div class="hero-left-fade"></div>
+      <div class="hero-bottom-fade"></div>
+      <div class="hero-corner-mask"></div>
     </div>
   </div>
 </section>
@@ -682,73 +688,7 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
 </footer>
 <!-- LCTI:FOOTER:END -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
-(async () => {
-  const canvas = document.getElementById('hero-map-canvas');
-  if (!canvas) return;
-  const cont = canvas.parentElement;
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
-  let texas;
-  try {
-    const topo = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then(r => r.json());
-    texas = topojson.feature(topo, topo.objects.states).features.find(f => f.id === '48');
-  } catch(e) { return; }
-
-  function draw() {
-    const W = cont.clientWidth, H = cont.clientHeight;
-    canvas.width = W * DPR; canvas.height = H * DPR;
-    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
-    const ctx = canvas.getContext('2d');
-    ctx.scale(DPR, DPR);
-    const proj = d3.geoAlbers().fitExtent([[W*.05,H*.08],[W*.95,H*.88]], texas);
-    const pg = d3.geoPath().projection(proj).context(ctx);
-    const cv = (lon,lat) => proj([lon,lat]);
-    ctx.clearRect(0,0,W,H);
-    ctx.save(); ctx.strokeStyle='rgba(184,150,62,0.06)'; ctx.lineWidth=0.5;
-    for(let x=0;x<W;x+=46){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-    for(let y=0;y<H;y+=46){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-    ctx.restore();
-    ctx.save(); ctx.beginPath(); pg(texas); ctx.fillStyle='rgba(18,35,58,0.92)'; ctx.fill(); ctx.restore();
-    ctx.save(); ctx.beginPath(); pg(texas); ctx.clip();
-    ctx.strokeStyle='rgba(200,190,160,0.1)'; ctx.lineWidth=0.6;
-    [[-106.5,31.8,-98.5,29.4],[-98.5,29.4,-95.4,29.8],[-95.4,29.8,-96.8,32.8],[-96.8,32.8,-100,31.5],[-100,31.5,-106.5,31.8],[-97.7,30.3,-96.8,32.8],[-97.7,30.3,-98.5,29.4],[-95.4,29.8,-97.7,30.3]].forEach(([a,b,d,e])=>{const[ax,ay]=cv(a,b),[bx,by]=cv(d,e);ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.stroke();});
-    [[[-102.5,31.8],W*.14,'rgba(232,89,60,0.18)'],[[-94.8,29.2],W*.11,'rgba(232,89,60,0.14)'],[[-96.9,32.8],W*.1,'rgba(74,143,212,0.13)']].forEach(([[lon,lat],r,col])=>{const[zx,zy]=cv(lon,lat),g=ctx.createRadialGradient(zx,zy,0,zx,zy,r);g.addColorStop(0,col);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(zx,zy,r,0,Math.PI*2);ctx.fill();});
-    ctx.restore();
-    ctx.save(); ctx.beginPath(); pg(texas); ctx.strokeStyle='#C9A84C'; ctx.lineWidth=8; ctx.globalAlpha=0.1; ctx.stroke();
-    ctx.beginPath(); pg(texas); ctx.strokeStyle='#C9A84C'; ctx.lineWidth=1.6; ctx.globalAlpha=0.85; ctx.stroke(); ctx.restore();
-    const bb=pg.bounds(texas),ecx=(bb[0][0]+bb[1][0])/2,ecy=(bb[0][1]+bb[1][1])/2,erx=(bb[1][0]-bb[0][0])/2+W*.05,ery=(bb[1][1]-bb[0][1])/2+H*.065;
-    ctx.save(); ctx.strokeStyle='#C9A84C'; ctx.lineWidth=1; ctx.globalAlpha=0.28; ctx.beginPath(); ctx.ellipse(ecx,ecy,erx,ery,0,0,Math.PI*2); ctx.stroke(); ctx.globalAlpha=0.07; ctx.lineWidth=10; ctx.beginPath(); ctx.ellipse(ecx,ecy,erx,ery,0,0,Math.PI*2); ctx.stroke(); ctx.restore();
-    const cities={SA:[-98.4936,29.4241],HOU:[-95.3698,29.7604],DAL:[-96.7970,32.7767],AUS:[-97.7431,30.2672],FTW:[-97.3308,32.7555],ELP:[-106.4850,31.7619]};
-    ctx.save(); ctx.strokeStyle='rgba(58,127,193,0.4)'; ctx.lineWidth=0.7; ctx.setLineDash([5,4]);
-    [['DAL','HOU'],['DAL','SA'],['SA','HOU'],['AUS','DAL'],['AUS','SA'],['FTW','DAL'],['ELP','SA'],['HOU','AUS']].forEach(([a,b])=>{const p1=cv(...cities[a]),p2=cv(...cities[b]);ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.stroke();}); ctx.restore();
-    function ta(fx,fy,tx,ty){ctx.save();ctx.strokeStyle='rgba(180,30,30,0.2)';ctx.lineWidth=4;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();ctx.strokeStyle='rgba(200,34,34,0.75)';ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(fx,fy);ctx.lineTo(tx,ty);ctx.stroke();const ang=Math.atan2(ty-fy,tx-fx);ctx.save();ctx.translate(tx,ty);ctx.rotate(ang);ctx.fillStyle='rgba(200,34,34,0.85)';ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(-W*.02,-W*.006);ctx.lineTo(-W*.02,W*.006);ctx.closePath();ctx.fill();ctx.restore();ctx.restore();}
-    const[sax,say]=cv(-98.4936,29.4241),[houx,houy]=cv(-95.3698,29.7604),[dalx,daly]=cv(-96.7970,32.7767);
-    ta(W*.48,0,dalx,daly); ta(W*.7,0,dalx,daly); ta(W,H*.3,houx,houy); ta(W*.3,H,sax,say); ta(W,H*.6,houx,houy);
-    function badge(lon,lat,icon,label,col,ox=0,oy=0){const[bx,by]=cv(lon,lat),x=bx+ox,y=by+oy;ctx.save();ctx.fillStyle='rgba(8,14,24,0.85)';ctx.strokeStyle=col;ctx.lineWidth=0.75;ctx.globalAlpha=0.92;ctx.beginPath();ctx.roundRect(x-32,y-8,64,16,3);ctx.fill();ctx.stroke();ctx.fillStyle=col;ctx.font=`bold ${Math.max(8,W*.0075)}px 'Courier Prime',monospace`;ctx.textAlign='center';ctx.globalAlpha=1;ctx.fillText(icon+' '+label,x,y+4);ctx.restore();}
-    badge(-102.5,31.8,'⚡','ENERGY','#E8593C',0,-W*.04); badge(-94.8,29.0,'⚡','LNG/OIL','#E8593C',-W*.02,-W*.025);
-    badge(-95.4,29.7,'✚','HEALTH','#5ab8a8',W*.035,W*.025); badge(-96.8,32.8,'$','FINANCE','#6aab6a',W*.04,-W*.02);
-    badge(-97.6,30.3,'◫','AI/CLOUD','#4a8fd4',-W*.05,W*.03); badge(-98.4,29.25,'◈','DEFENSE','#C9A84C',0,W*.04);
-    function dot(lon,lat,label,r,isHQ){const[cx,cy]=cv(lon,lat);const hr=r*3.5,hg=ctx.createRadialGradient(cx,cy,0,cx,cy,hr);hg.addColorStop(0,'rgba(201,168,76,0.3)');hg.addColorStop(1,'rgba(201,168,76,0)');ctx.fillStyle=hg;ctx.beginPath();ctx.arc(cx,cy,hr,0,Math.PI*2);ctx.fill();
-    if(isHQ){[r*3,r*4.5].forEach(or=>{ctx.save();ctx.strokeStyle='#C9A84C';ctx.lineWidth=0.7;ctx.globalAlpha=0.25;ctx.setLineDash([3,4]);ctx.beginPath();ctx.arc(cx,cy,or,0,Math.PI*2);ctx.stroke();ctx.restore();});}
-    ctx.fillStyle='#fff';ctx.globalAlpha=0.9;ctx.beginPath();ctx.arc(cx,cy,r*1.1,0,Math.PI*2);ctx.fill();ctx.fillStyle='#C9A84C';ctx.globalAlpha=1;ctx.beginPath();ctx.arc(cx,cy,r*.6,0,Math.PI*2);ctx.fill();
-    ctx.fillStyle='#fff';ctx.globalAlpha=1;ctx.font=`${isHQ?700:600} ${Math.max(9,W*.011)}px 'Playfair Display',serif`;ctx.textAlign='center';ctx.shadowColor='rgba(0,0,0,0.95)';ctx.shadowBlur=6;ctx.fillText(label,cx,cy-r*2.2);ctx.restore();}
-    const nr=Math.max(4,W*.012);
-    dot(-98.4936,29.4241,'SAN ANTONIO',nr*1.2,true); dot(-95.3698,29.7604,'HOUSTON',nr,false);
-    dot(-96.7970,32.7767,'DALLAS',nr,false); dot(-97.7431,30.2672,'AUSTIN',nr*.82,false);
-    dot(-97.3308,32.7555,'FT. WORTH',nr*.75,false); dot(-106.4850,31.7619,'EL PASO',nr*.72,false);
-    ctx.save(); ctx.fillStyle='#C9A84C'; ctx.font=`bold ${Math.max(7,W*.009)}px 'Courier Prime',monospace`; ctx.globalAlpha=0.5; ctx.textAlign='center'; ctx.shadowColor='rgba(0,0,0,0.9)'; ctx.shadowBlur=4;
-    const[pbx,pby]=cv(-102,31.4); ctx.fillText('PERMIAN BASIN',pbx,pby); const[gcx,gcy]=cv(-94.5,29.0); ctx.fillText('GULF COAST',gcx,gcy); ctx.restore();
-    ctx.save(); ctx.fillStyle='rgba(13,21,32,0.85)'; ctx.strokeStyle='rgba(184,150,62,0.35)'; ctx.lineWidth=0.5;
-    ctx.beginPath(); ctx.roundRect(W/2-200,H-28,400,16,2); ctx.fill(); ctx.stroke();
-    ctx.fillStyle='#C9A84C'; ctx.font=`bold ${Math.max(6,W*.007)}px 'Courier Prime',monospace`; ctx.globalAlpha=0.7; ctx.textAlign='center';
-    ctx.fillText('UNCLASSIFIED  //  LIBERTY CTI — OPEN SOURCE',W/2,H-17); ctx.restore();
-  }
-  draw();
-  window.addEventListener('resize', draw);
-})();
-
 // Scroll reveal
 const obs = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
