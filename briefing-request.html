@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request Intelligence Support — Liberty CTI</title>
+<title>Submit Intelligence Request — Liberty CTI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -391,6 +391,7 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .form-body { grid-template-columns: 1fr; gap: 0; }
+  .form-body > form > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
   .progress-rail { display: none; }
   .contact-grid { grid-template-columns: 1fr; }
   .contact-field.full { grid-column: 1; }
@@ -1175,24 +1176,31 @@ body { overflow-x: hidden; }
     <div class="hero-grid-bg"></div>
     <div class="hero-inner">
       <div class="hero-classification">Strategic Cyber Threat Intelligence for Texas Industry</div>
-      <h1>Request <em>Intelligence Support</em></h1>
-      <p class="hero-sub">Request a tailored Liberty CTI product, executive briefing, sector assessment, or ongoing advisory support. Complete the sections below to scope the right engagement for your organization.</p>
+      <h1>Submit an <em>Intelligence Requirement</em></h1>
+      <p class="hero-sub">When leadership cannot afford to be wrong, incomplete, or late, Liberty CTI delivers decision-ready intelligence tailored to your sector, threat exposure, and operating environment. Complete the sections below to initiate a scoped engagement.</p>
+      <div style="margin-top:1.75rem; max-width:760px; border-left:2px solid var(--gold); padding:1rem 1.4rem; background:rgba(184,150,62,0.04);">
+        <p style="font-size:0.9rem; font-weight:300; color:rgba(244,239,230,0.62); line-height:1.8;">
+          <strong style="color:var(--paper); font-weight:500;">This is not a general inquiry.</strong><br>
+          This request initiates a scoped intelligence engagement designed to answer a specific leadership requirement — whether that is understanding a developing threat, assessing sector risk, or preparing for a decision with operational or financial consequences.<br><br>
+          <strong style="color:var(--paper); font-weight:500;">If you are here, something matters.</strong>
+        </p>
+      </div>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <span class="hero-meta-label">Format</span>
-          <span class="hero-meta-value">Custom Product / Briefing</span>
+          <span class="hero-meta-value">Scoped Intelligence Engagement</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Tailored To</span>
-          <span class="hero-meta-value">Your Mission / Risk Profile</span>
+          <span class="hero-meta-value">Your Decision / Risk Profile</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Response</span>
-          <span class="hero-meta-value">Within 48 Hours</span>
+          <span class="hero-meta-value">Initial Review Within 48 Hours</span>
         </div>
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Pricing</span>
-          <span class="hero-meta-value">Tailored Per Request</span>
+          <span class="hero-meta-label">Engagement Model</span>
+          <span class="hero-meta-value">Scoped Product, Briefing, or Advisory</span>
         </div>
       </div>
     </div>
@@ -1252,6 +1260,18 @@ body { overflow-x: hidden; }
       <input type="hidden" name="engagement" id="input-engagement">
       <input type="hidden" name="_subject" value="New Liberty CTI Support Request">
       <input type="hidden" name="_next" value="thank-you.html">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--rule); margin-bottom:2.5rem;">
+        <div style="background:var(--panel); padding:1.5rem 1.5rem;">
+          <div style="font-family:'Courier Prime', monospace; font-size:0.56rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); margin-bottom:0.55rem;">Urgent Path</div>
+          <div style="font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--paper); margin-bottom:0.5rem;">I need immediate clarity</div>
+          <div style="font-size:0.82rem; color:rgba(244,239,230,0.5); line-height:1.7;">Use this form when leadership is actively preparing for a decision, event, or elevated risk discussion and needs intelligence support quickly.</div>
+        </div>
+        <div style="background:var(--panel); padding:1.5rem 1.5rem;">
+          <div style="font-family:'Courier Prime', monospace; font-size:0.56rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); margin-bottom:0.55rem;">Planning Path</div>
+          <div style="font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--paper); margin-bottom:0.5rem;">I’m exploring support</div>
+          <div style="font-size:0.82rem; color:rgba(244,239,230,0.5); line-height:1.7;">Use this form when you are evaluating a briefing, sector assessment, or advisory relationship and want to scope the right fit.</div>
+        </div>
+      </div>
       <div class="form-sections">
 
         <!-- SECTION A: SECTOR -->
@@ -1343,8 +1363,8 @@ body { overflow-x: hidden; }
         <div class="form-section" id="sec-d">
           <div class="section-header">
             <span class="section-id">// Section D</span>
-            <div class="section-title">Support Type</div>
-            <div class="section-desc">Select the format that best fits your current intelligence requirement.</div>
+            <div class="section-title">What Do You Need to Decide?</div>
+            <div class="section-desc">Select the format that best matches the decision you are preparing to make.</div>
           </div>
           <div class="chip-grid multi-col" id="chips-engagement">
             <div class="chip chip-lg" data-group="engagement" data-value="custom-product" data-single="true">
@@ -1352,28 +1372,28 @@ body { overflow-x: hidden; }
                 <div class="chip-indicator"></div>
                 <span class="chip-label">Custom Intelligence Product</span>
               </div>
-              <span class="chip-sublabel">Tailored written product aligned to your leadership requirement</span>
+              <span class="chip-sublabel">Used when leadership needs a clear written assessment before making a decision</span>
             </div>
             <div class="chip chip-lg" data-group="engagement" data-value="executive-briefing" data-single="true">
               <div class="chip-top">
                 <div class="chip-indicator"></div>
                 <span class="chip-label">Executive Briefing</span>
               </div>
-              <span class="chip-sublabel">30–60 minute decision-focused briefing for senior leaders</span>
+              <span class="chip-sublabel">Used when leadership needs rapid clarity and alignment in a live setting</span>
             </div>
             <div class="chip chip-lg" data-group="engagement" data-value="sector-assessment" data-single="true">
               <div class="chip-top">
                 <div class="chip-indicator"></div>
                 <span class="chip-label">Sector Assessment</span>
               </div>
-              <span class="chip-sublabel">Focused assessment of threats, actors, and implications for your sector</span>
+              <span class="chip-sublabel">Used when leadership needs to understand how the entire sector is being targeted</span>
             </div>
             <div class="chip chip-lg" data-group="engagement" data-value="advisory-support" data-single="true">
               <div class="chip-top">
                 <div class="chip-indicator"></div>
                 <span class="chip-label">Ongoing Advisory Support</span>
               </div>
-              <span class="chip-sublabel">Recurring support, updates, and analytic reachback</span>
+              <span class="chip-sublabel">Used when leadership needs continuous awareness and analytic reachback</span>
             </div>
           </div>
         </div>
@@ -1382,8 +1402,8 @@ body { overflow-x: hidden; }
         <div class="form-section" id="sec-e">
           <div class="section-header">
             <span class="section-id">// Section E</span>
-            <div class="section-title">Contact Information</div>
-            <div class="section-desc">How Liberty CTI will contact you to scope the right product or support package.</div>
+            <div class="section-title">Who Will Be Engaged</div>
+            <div class="section-desc">This ensures Liberty CTI aligns the assessment or briefing to the right level of leadership and decision authority.</div>
           </div>
           <div class="contact-grid">
             <div class="contact-field" id="cf-name">
@@ -1411,9 +1431,9 @@ body { overflow-x: hidden; }
 
         <!-- SUBMIT -->
         <div class="submit-row">
-          <p class="submit-note">Your information is never shared or sold. This request is reviewed personally by the Liberty CTI principals. No pricing is communicated until the engagement is scoped.</p>
+          <p class="submit-note">Your information is never shared or sold. This request is reviewed personally by the Liberty CTI principals. Each request is scoped to a defined intelligence requirement, and pricing is aligned to scope, urgency, and level of support required.</p>
           <div style="display:flex;flex-direction:column;align-items:flex-end;">
-            <button type="submit" class="btn-request" id="btn-request" disabled>Request Support →</button>
+            <button type="submit" class="btn-request" id="btn-request" disabled>Initiate Engagement →</button>
             <span class="btn-request-hint visible" id="btn-hint">// Complete all sections to submit</span>
           </div>
         </div>
@@ -1424,9 +1444,9 @@ body { overflow-x: hidden; }
     <!-- CONFIRMATION (replaces form) -->
     <div class="confirmation" id="confirmation">
       <span class="conf-badge">Request Received — Liberty CTI</span>
-      <div class="conf-heading">Support Request<br>Acknowledged.</div>
+      <div class="conf-heading">Intelligence Request<br>Acknowledged.</div>
       <div class="conf-rule"></div>
-      <p class="conf-body">Thank you. <strong>Liberty CTI will review your request and follow up within 48 hours to scope the appropriate product, briefing, or advisory engagement.</strong> A member of the analytical team will contact you directly to discuss your sector focus, threat priorities, and the format best suited to your leadership requirement before scoping begins.</p>
+      <p class="conf-body">Thank you. <strong>Liberty CTI will review your request and follow up within 48 hours to scope the appropriate product, briefing, or advisory engagement.</strong> This request has been logged and will be reviewed against current threat reporting and sector conditions. A member of the analytical team will contact you directly to discuss your sector focus, threat priorities, and the format best suited to your leadership requirement before scoping begins.</p>
       <div class="conf-ref">// LIBERTY CTI · UNCLASSIFIED · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="274e4953424b674b4e454255535e44534e0944484a">[email&#160;protected]</a></div>
     </div>
 
@@ -1465,7 +1485,7 @@ body { overflow-x: hidden; }
         <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
-      <p class="lcti-footer-tagline">Strategic cyber threat intelligence for organizations that understand the threat environment shapes every decision they make.</p>
+      <p class="lcti-footer-tagline">Strategic cyber threat intelligence for organizations that need earlier warning, clearer decisions, and fewer surprises.</p>
       <div class="lcti-footer-slogan">Know the threat. Stay ready.</div>
     </div>
 
