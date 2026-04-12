@@ -196,6 +196,18 @@ p{margin-bottom:14px;color:var(--text);}
 .analyst-note p{font-size:.95rem;color:var(--text);line-height:1.75;margin-bottom:14px;}
 .analyst-note p:last-child{margin-bottom:0;}
 
+
+/* EXECUTIVE DECISION BRIEF */
+.exec-brief{background:var(--panel);border:1px solid rgba(212,160,64,.25);border-left:5px solid var(--gold);padding:28px 32px;margin:28px 0;position:relative;}
+.exec-brief::before{content:'EXECUTIVE DECISION BRIEF';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.exec-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px;}
+.exec-item{padding:14px 16px;border:1px solid rgba(212,160,64,.14);background:rgba(212,160,64,.04);}
+.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--white);margin-bottom:6px;}
+.exec-item p{font-size:.9rem;color:var(--text);margin:0;line-height:1.65;}
+.exec-item strong{color:var(--gold-hi);}
+.decision-line{margin-top:8px;padding-top:8px;border-top:1px solid rgba(212,160,64,.12);font-size:.82rem;color:var(--text-dim);}
+.decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+
 /* SOURCES */
 .src-block{background:var(--panel);border:1px solid var(--border);padding:24px 28px;margin:36px 0;}
 .src-header{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--text-low);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px;}
@@ -540,6 +552,23 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
     <p>This issue of the <strong>Alamo Threat Brief</strong> aligns to the week of <strong>13 April 2026</strong> and assesses a threat environment defined by simultaneous pressure from <strong>Iranian OT disruption, PRC pre-positioning, DPRK financial theft, and industrialized ransomware targeting</strong>. The central analytic judgment is that Texas organizations are no longer managing isolated cyber risk. They are operating inside an interconnected battlespace where disruption in <strong>energy, healthcare, finance, and the defense industrial base</strong> can cascade quickly across the state.</p>
   </div>
 
+  <div class="exec-brief">
+    <div class="exec-grid">
+      <div class="exec-item">
+        <div class="exec-item-title">Decision 1 — OT Exposure</div>
+        <p><strong>If you operate energy, water, industrial, or petrochemical infrastructure,</strong> decide this week whether you will disconnect or hard-segment any internet-reachable Rockwell / Allen-Bradley environment. If you do nothing, you are accepting a live disruption risk — not a theoretical one.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Decision 2 — Trusted Access</div>
+        <p><strong>If you rely on vendors, SaaS, MSPs, telecoms, or identity platforms,</strong> decide whether those relationships are verified strongly enough to survive compromise. The most likely business-impact event is now a trusted-path failure, not a noisy perimeter breach.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Decision 3 — Business Continuity</div>
+        <p><strong>If one critical dependency failed tonight,</strong> decide whether your leadership team knows which operations break first, how fast cash flow is affected, and who owns the response. If you cannot answer that in one page, you are underprepared for this environment.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- CENTERPIECE -->
   <div class="centerpiece">
     <div class="centerpiece-title">Texas is Facing a Multi-Actor Threat Environment, Not a Single Campaign</div>
@@ -577,14 +606,14 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
       <span class="kj-num">KJ-4</span>
       <div class="kj-text">
         Liberty CTI assesses with <strong>MODERATE CONFIDENCE</strong> that ransomware actors will <span class="aq">likely</span> increase supply-chain and identity-first attacks against Texas healthcare and DIB targets through Q2 and Q3 2026, compressing time between vulnerability disclosure and operational impact. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
-        <div class="kj-uncertainty">Primary uncertainty: timing and initial access vectors will vary by operator. The dominant pattern, however, is shifting away from perimeter-only compromise and toward trusted admin, vendor, and cloud pathways.</div>
+        <div class="kj-uncertainty">Primary uncertainty: timing and initial access vectors will vary by operator. The dominant pattern, however, is shifting away from perimeter-only compromise and toward trusted admin, vendor, and cloud pathways.</div><div class="decision-line"><strong>Decision Implication:</strong> Healthcare and DIB leaders should treat vendor-access review and privileged-identity hardening as immediate business resilience actions, not backlog items.</div>
       </div>
     </div>
     <div class="kj-item">
       <span class="kj-num">KJ-5</span>
       <div class="kj-text">
         Liberty CTI assesses with <strong>MODERATE CONFIDENCE</strong> that reduced federal cyber capacity will <span class="aq">likely</span> increase the intelligence and response burden on private organizations, raising the value of commercial warning, internal detection maturity, and direct state-level coordination for Texas decision-makers. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
-        <div class="kj-uncertainty">Primary uncertainty: the final scale and timing of federal resource reductions remain fluid. The direction of travel is still clear enough to matter for planning.</div>
+        <div class="kj-uncertainty">Primary uncertainty: the final scale and timing of federal resource reductions remain fluid. The direction of travel is still clear enough to matter for planning.</div><div class="decision-line"><strong>Decision Implication:</strong> Executives should assume less federal warning and more self-reliance, then budget accordingly for internal detection, external intelligence, and response capacity.</div>
       </div>
     </div>
   </div>
@@ -624,7 +653,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
       <div class="implication-content">
         <strong>Primary risk:</strong> Iranian OT disruption layered over PRC pre-positioning.<br><br>
         <strong>Why Texas is exposed:</strong> ERCOT’s isolation, Gulf Coast industrial density, LNG export infrastructure, and heavy Rockwell / Allen-Bradley footprint make Texas one of the most operationally consequential energy target sets in the country.<br><br>
-        <strong>Executive implication:</strong> Treat exposed OT, weak IT/OT segmentation, and incomplete anomaly detection as active business continuity vulnerabilities — not just security debt.
+        <strong>Executive implication:</strong> Treat exposed OT, weak IT/OT segmentation, and incomplete anomaly detection as active business continuity vulnerabilities — not just security debt. <strong>Killer line:</strong> Texas grid isolation means there is no easy outside recovery path if a serious disruption lands here.
       </div>
     </div>
     <div class="implication-row healthcare">
@@ -632,7 +661,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
       <div class="implication-content">
         <strong>Primary risk:</strong> Ransomware and destructive misuse of legitimate IT management tooling.<br><br>
         <strong>Why Texas is exposed:</strong> The Texas Medical Center and regional systems combine high operational pressure, sensitive data, shared vendors, and service continuity requirements that favor extortion actors.<br><br>
-        <strong>Executive implication:</strong> A single vendor or identity compromise can become a clinical operations problem quickly. Recovery readiness matters as much as prevention.
+        <strong>Executive implication:</strong> A single vendor or identity compromise can become a clinical operations problem quickly. Recovery readiness matters as much as prevention. <strong>Killer line:</strong> In healthcare, cyber risk now threatens care timelines, not just data.
       </div>
     </div>
     <div class="implication-row finance">
@@ -640,7 +669,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
       <div class="implication-content">
         <strong>Primary risk:</strong> DPRK theft through integrations, vendors, and digitally enabled financial pathways.<br><br>
         <strong>Why Texas is exposed:</strong> Texas combines large banking, insurance, and fintech ecosystems with growing digital-asset adjacency and third-party dependency.<br><br>
-        <strong>Executive implication:</strong> The highest-value question is no longer only “can our bank be hacked?” It is “which partner or platform could become the access vector into us?”
+        <strong>Executive implication:</strong> The highest-value question is no longer only “can our bank be hacked?” It is “which partner or platform could become the access vector into us?” <strong>Killer line:</strong> Third-party risk is now the front door to financial disruption.
       </div>
     </div>
     <div class="implication-row defense">
@@ -648,7 +677,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
       <div class="implication-content">
         <strong>Primary risk:</strong> PRC espionage, telecom compromise, and identity / workforce infiltration.<br><br>
         <strong>Why Texas is exposed:</strong> JBSA, Port San Antonio, and the broader DIB ecosystem create a dense environment of cleared personnel, contractors, telecom dependence, and sensitive technical data.<br><br>
-        <strong>Executive implication:</strong> Communications security, vendor assurance, and workforce validation are strategic controls here — not merely compliance exercises.
+        <strong>Executive implication:</strong> Communications security, vendor assurance, and workforce validation are strategic controls here — not merely compliance exercises. <strong>Killer line:</strong> A telecom compromise can become a defense problem long before anyone sees malware.
       </div>
     </div>
     <div class="implication-row ai">
@@ -656,7 +685,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
       <div class="implication-content">
         <strong>Primary risk:</strong> Cascading exposure through power dependency, cloud concentration, and developer-focused intrusion pathways.<br><br>
         <strong>Why Texas is exposed:</strong> Texas’s AI and data-center buildout increases energy dependence and creates high-value digital concentration points that can amplify disruption elsewhere.<br><br>
-        <strong>Executive implication:</strong> AI infrastructure should be treated as a cross-sector dependency, not a standalone technology niche.
+        <strong>Executive implication:</strong> AI infrastructure should be treated as a cross-sector dependency, not a standalone technology niche. <strong>Killer line:</strong> Texas data-center growth is creating concentration risk faster than most companies are measuring it.
       </div>
     </div>
   </div>
@@ -748,8 +777,32 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
     <div class="watch-item"><span class="watch-num">08</span><div class="watch-text"><strong>Geopolitical escalation with Iran or a Taiwan-linked crisis signal</strong> that would raise the probability of cyber effects in Texas infrastructure.</div></div>
   </div>
 
-  <!-- ANALYST NOTE -->
   <div class="section-rule"><span class="section-tag">Section VI</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Executive Implications & Recommended Actions</h2>
+
+  <div class="exec-brief">
+    <div class="exec-grid">
+      <div class="exec-item">
+        <div class="exec-item-title">1 — Reevaluate Exposure to OT and Remote Access</div>
+        <p>If you run industrial or utility-adjacent operations, confirm what is internet-reachable, what can be remotely administered, and what would fail if trust in those systems collapsed. <strong>What happens if you get this wrong:</strong> downtime, safety pressure, and urgent leadership decisions under degraded visibility.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">2 — Validate Your Top Five Dependencies</div>
+        <p>Map the vendors, telecom paths, identity platforms, cloud services, and payment or billing partners that keep operations running. <strong>What happens if you get this wrong:</strong> you discover your real risk through another company's outage instead of your own planning.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">3 — Shift Detection Toward Trust and Identity</div>
+        <p>Prioritize privileged access, vendor sessions, MDM tooling, telecom exposure, and unusual use of native admin tools. <strong>What happens if you get this wrong:</strong> a low-noise compromise survives long enough to become a board-level continuity issue.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">4 — Budget for Less Federal Cushion</div>
+        <p>Assume more of your early warning and response burden will sit with your organization and state-level relationships. <strong>What happens if you get this wrong:</strong> slower detection, slower coordination, and higher business impact when incidents unfold.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANALYST NOTE -->
+  <div class="section-rule"><span class="section-tag">Section VII</span><div class="section-rule-line"></div></div>
   <h2 class="section-head">Analyst's Note</h2>
 
   <div class="analyst-note">
@@ -760,7 +813,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
 
   <!-- SOURCES -->
   <hr class="divider">
-  <div class="section-rule"><span class="section-tag">Section VII — Sourcing</span><div class="section-rule-line"></div></div>
+  <div class="section-rule"><span class="section-tag">Section VIII — Sourcing</span><div class="section-rule-line"></div></div>
   <h2 class="section-head">Source Notes</h2>
   <div class="src-block">
     <div class="src-header">OPEN SOURCE BASIS — ATB-2026-15 — UPDATED FOR THE WEEK OF 13 APRIL 2026</div>
