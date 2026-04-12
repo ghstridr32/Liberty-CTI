@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alamo Threat Brief ATB-2026-15 | Liberty CTI — 13 April 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #060c14;
+      --surface:   #091424;
+      --panel:     #0c1e30;
+      --tile:      #0f2540;
+      --border:    #1a3a5c;
+      --border-hi: #2a5a8c;
+      --text:      #d8e8f4;
+      --muted:     #6a90b0;
+      --dim:       #3a6080;
+      --gold:      #c8903c;
+      --gold-hi:   #e8c070;
+      --gold-dim:  rgba(200,144,60,.15);
+      --blue:      #4ab0e8;
+      --blue-dim:  rgba(74,176,232,.10);
+      --energy:    #e8b24c;
+      --finance:   #4ab0e8;
+      --health:    #5acc8a;
+      --defense:   #a880e8;
+      --danger:    #e05844;
+      --warn:      #e8963c;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: #060c14 !important; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: #060c14 !important;
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      padding-top: 56px;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(6,12,20,0.97);
+      border-bottom: 1px solid rgba(200,144,60,0.2);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    .site-nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .site-nav-emblem { width:32px; height:32px; object-fit:contain; }
+    .site-nav-wordmark {
+      font-family:'Rajdhani',sans-serif; font-size:0.95rem; font-weight:700;
+      letter-spacing:0.18em; text-transform:uppercase; color:var(--text);
+    }
+    .site-nav-wordmark span { color:var(--gold); }
+    .site-nav-links { display:flex; align-items:center; gap:1.75rem; list-style:none; }
+    .site-nav-links a {
+      font-family:'Rajdhani',sans-serif; font-size:0.72rem; font-weight:600;
+      letter-spacing:0.18em; text-transform:uppercase;
+      color:rgba(216,232,244,0.55); text-decoration:none; transition:color 0.2s;
+    }
+    .site-nav-links a:hover { color:var(--gold-hi); }
+    .site-nav-links a.active { color:var(--gold); }
+    .site-nav-cta {
+      color:var(--gold)!important;
+      border:1px solid rgba(200,144,60,0.5); padding:0.35rem 1rem;
+    }
+
+    /* ── LAYOUT ── */
+    .page { max-width:1080px; margin:0 auto; padding:24px 14px 80px; }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--surface);
+      border:1px solid var(--border);
+      padding:2.5rem 2.5rem 2rem;
+      margin-bottom:2rem;
+      position:relative; overflow:hidden;
+    }
+    .cover::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,var(--gold) 0%,var(--blue) 60%,transparent 100%);
+    }
+    .cover-meta {
+      display:flex; align-items:center; gap:1rem; margin-bottom:1.25rem; flex-wrap:wrap;
+    }
+    .badge {
+      font-family:'Share Tech Mono',monospace; font-size:0.6rem;
+      letter-spacing:0.2em; text-transform:uppercase;
+      padding:3px 10px; border:1px solid;
+    }
+    .badge-issue { color:var(--gold); border-color:rgba(200,144,60,0.5); background:var(--gold-dim); }
+    .badge-unclass { color:var(--health); border-color:rgba(90,204,138,0.4); background:rgba(90,204,138,0.06); }
+    .badge-osint { color:var(--blue); border-color:rgba(74,176,232,0.4); background:var(--blue-dim); }
+    .cover-title {
+      font-family:'Rajdhani',sans-serif; font-size:2.4rem; font-weight:700;
+      letter-spacing:0.06em; text-transform:uppercase;
+      color:#fff; line-height:1.1; margin-bottom:0.35rem;
+    }
+    .cover-title span { color:var(--gold); }
+    .cover-sub {
+      font-family:'Share Tech Mono',monospace; font-size:0.68rem;
+      color:var(--muted); letter-spacing:0.14em; text-transform:uppercase;
+      margin-bottom:1.5rem;
+    }
+    .cover-lead {
+      font-size:1.05rem; font-weight:300; color:var(--text);
+      line-height:1.75; border-left:3px solid var(--gold);
+      padding-left:1.25rem; max-width:780px;
+    }
+    .cover-tags {
+      display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:1.5rem;
+    }
+    .tag {
+      font-family:'Share Tech Mono',monospace; font-size:0.57rem;
+      letter-spacing:0.14em; text-transform:uppercase;
+      padding:3px 9px; border:1px solid rgba(216,232,244,0.12);
+      color:var(--muted);
+    }
+
+    /* ── THREAT TICKER ── */
+    .threat-bar {
+      background:rgba(224,88,68,0.08); border:1px solid rgba(224,88,68,0.25);
+      padding:0.65rem 1.25rem; margin-bottom:2rem;
+      display:flex; align-items:flex-start; gap:1rem;
+    }
+    .threat-bar-label {
+      font-family:'Share Tech Mono',monospace; font-size:0.6rem;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--danger); white-space:nowrap; padding-top:2px;
+    }
+    .threat-bar-items {
+      display:flex; flex-direction:column; gap:0.3rem;
+    }
+    .threat-bar-item {
+      font-family:'Share Tech Mono',monospace; font-size:0.63rem;
+      color:rgba(216,232,244,0.75); letter-spacing:0.05em;
+    }
+    .threat-bar-item strong { color:var(--danger); }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-family:'Share Tech Mono',monospace; font-size:0.6rem;
+      letter-spacing:0.25em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:0.65rem;
+    }
+    .section-title {
+      font-family:'Rajdhani',sans-serif; font-size:1.45rem; font-weight:700;
+      letter-spacing:0.06em; text-transform:uppercase;
+      color:#fff; margin-bottom:1.25rem;
+    }
+
+    /* ── KEY JUDGMENTS ── */
+    .kj-block {
+      background:var(--surface); border:1px solid var(--border);
+      padding:2rem 2rem 1.5rem; margin-bottom:2rem;
+    }
+    .kj-item {
+      display:flex; gap:1rem; padding:1rem 0;
+      border-bottom:1px solid rgba(26,58,92,0.5);
+    }
+    .kj-item:last-child { border-bottom:none; padding-bottom:0; }
+    .kj-num {
+      font-family:'Share Tech Mono',monospace; font-size:0.65rem;
+      color:var(--gold); letter-spacing:0.1em; white-space:nowrap;
+      padding-top:3px; min-width:28px;
+    }
+    .kj-body { flex:1; }
+    .kj-confidence {
+      display:inline-block; font-family:'Share Tech Mono',monospace;
+      font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase;
+      padding:2px 8px; border:1px solid; margin-bottom:0.4rem;
+    }
+    .conf-high { color:var(--danger); border-color:rgba(224,88,68,0.5); background:rgba(224,88,68,0.08); }
+    .conf-mod  { color:var(--warn);   border-color:rgba(232,150,60,0.5); background:rgba(232,150,60,0.08); }
+    .conf-low  { color:var(--muted);  border-color:rgba(106,144,176,0.5); background:rgba(106,144,176,0.08); }
+    .kj-text { font-size:0.95rem; line-height:1.7; color:var(--text); }
+    .kj-text strong { color:var(--gold-hi); font-style:normal; }
+
+    /* ── SECTOR CARDS ── */
+    .sector-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1px;
+      background:var(--border); margin-bottom:2rem;
+    }
+    @media(max-width:680px){ .sector-grid { grid-template-columns:1fr; } }
+    .sector-card {
+      background:var(--surface); padding:1.5rem;
+      border-top:3px solid transparent;
+    }
+    .sector-card.energy   { border-color:var(--energy); }
+    .sector-card.finance  { border-color:var(--finance); }
+    .sector-card.health   { border-color:var(--health); }
+    .sector-card.defense  { border-color:var(--defense); }
+
+    .sector-label {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.5rem;
+    }
+    .sector-card.energy  .sector-label { color:var(--energy); }
+    .sector-card.finance .sector-label { color:var(--finance); }
+    .sector-card.health  .sector-label { color:var(--health); }
+    .sector-card.defense .sector-label { color:var(--defense); }
+
+    .sector-threat-level {
+      display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;
+    }
+    .tl-dots { display:flex; gap:3px; }
+    .tl-dot { width:8px; height:8px; border-radius:50%; }
+    .tl-dot.filled.energy  { background:var(--energy); }
+    .tl-dot.filled.finance { background:var(--finance); }
+    .tl-dot.filled.health  { background:var(--health); }
+    .tl-dot.filled.defense { background:var(--defense); }
+    .tl-dot.empty  { background:rgba(216,232,244,0.12); }
+    .tl-text {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);
+    }
+    .sector-card h3 {
+      font-family:'Rajdhani',sans-serif; font-size:1.1rem; font-weight:700;
+      color:#fff; margin-bottom:0.6rem; letter-spacing:0.04em;
+    }
+    .sector-card p {
+      font-size:0.88rem; color:var(--text); line-height:1.65;
+    }
+    .sector-pir {
+      margin-top:0.75rem; padding-top:0.75rem;
+      border-top:1px solid rgba(26,58,92,0.5);
+      font-family:'Share Tech Mono',monospace; font-size:0.6rem;
+      color:var(--muted); letter-spacing:0.08em;
+    }
+    .sector-pir strong { color:var(--text); }
+
+    /* ── THREAT ACTOR CARDS ── */
+    .actor-block {
+      background:var(--surface); border:1px solid var(--border);
+      margin-bottom:1rem; overflow:hidden;
+    }
+    .actor-header {
+      display:flex; align-items:center; gap:1rem;
+      padding:1rem 1.25rem; border-bottom:1px solid var(--border);
+    }
+    .actor-flag {
+      font-family:'Rajdhani',sans-serif; font-size:0.7rem; font-weight:700;
+      letter-spacing:0.2em; text-transform:uppercase;
+      padding:4px 12px; border:1px solid;
+    }
+    .actor-flag.china  { color:#f06060; border-color:rgba(240,96,96,0.4); background:rgba(240,96,96,0.07); }
+    .actor-flag.russia { color:#6090f0; border-color:rgba(96,144,240,0.4); background:rgba(96,144,240,0.07); }
+    .actor-flag.iran   { color:var(--warn); border-color:rgba(232,150,60,0.4); background:rgba(232,150,60,0.07); }
+    .actor-flag.dprk   { color:#c080f0; border-color:rgba(192,128,240,0.4); background:rgba(192,128,240,0.07); }
+    .actor-name {
+      font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:700;
+      color:#fff; letter-spacing:0.05em;
+    }
+    .actor-ttl {
+      margin-left:auto; font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);
+    }
+    .actor-body { padding:1.1rem 1.25rem; }
+    .actor-row {
+      display:grid; grid-template-columns:100px 1fr; gap:0.5rem 1rem;
+      padding:0.45rem 0; border-bottom:1px solid rgba(26,58,92,0.4); font-size:0.87rem;
+    }
+    .actor-row:last-child { border-bottom:none; }
+    .actor-row-label {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);
+      padding-top:2px;
+    }
+    .actor-row-val { color:var(--text); line-height:1.55; }
+
+    /* ── VIGNETTES ── */
+    .vignette {
+      background:var(--panel); border-left:3px solid var(--border-hi);
+      padding:1.1rem 1.25rem; margin-bottom:1rem;
+    }
+    .vignette-date {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);
+      margin-bottom:0.3rem;
+    }
+    .vignette h4 {
+      font-family:'Rajdhani',sans-serif; font-size:0.95rem; font-weight:700;
+      color:var(--gold-hi); letter-spacing:0.04em; margin-bottom:0.5rem;
+    }
+    .vignette p { font-size:0.87rem; line-height:1.65; color:var(--text); margin-bottom:0.5rem; }
+    .vignette p:last-child { margin-bottom:0; }
+    .so-what {
+      margin-top:0.65rem; padding:0.6rem 0.9rem;
+      background:rgba(200,144,60,0.07); border:1px solid rgba(200,144,60,0.2);
+      font-size:0.83rem; color:var(--text);
+    }
+    .so-what strong { color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; display:block; margin-bottom:0.2rem; }
+
+    /* ── FORECAST TABLE ── */
+    .forecast-table {
+      width:100%; border-collapse:collapse; font-size:0.86rem; margin-bottom:2rem;
+    }
+    .forecast-table th {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--muted); padding:0.6rem 0.9rem; text-align:left;
+      background:var(--panel); border-bottom:2px solid var(--border);
+    }
+    .forecast-table td {
+      padding:0.75rem 0.9rem; border-bottom:1px solid rgba(26,58,92,0.4);
+      color:var(--text); vertical-align:top; line-height:1.55;
+    }
+    .forecast-table tr:hover td { background:rgba(74,176,232,0.03); }
+    .horizon-tag {
+      font-family:'Share Tech Mono',monospace; font-size:0.57rem;
+      letter-spacing:0.1em; text-transform:uppercase;
+      padding:2px 7px; border:1px solid; white-space:nowrap;
+    }
+    .h30 { color:var(--danger); border-color:rgba(224,88,68,0.4); }
+    .h60 { color:var(--warn);   border-color:rgba(232,150,60,0.4); }
+    .h90 { color:var(--blue);   border-color:rgba(74,176,232,0.4); }
+
+    /* ── INDICATORS ── */
+    .indicator-list {
+      display:flex; flex-direction:column; gap:0.5rem; margin-bottom:2rem;
+    }
+    .indicator-item {
+      display:flex; gap:0.9rem; align-items:flex-start;
+      background:var(--surface); border:1px solid var(--border);
+      padding:0.75rem 1rem; font-size:0.87rem;
+    }
+    .indicator-icon {
+      font-family:'Share Tech Mono',monospace; font-size:0.7rem;
+      color:var(--gold); padding-top:1px; flex-shrink:0;
+    }
+    .indicator-text { color:var(--text); line-height:1.55; }
+    .indicator-text strong { color:var(--gold-hi); }
+
+    /* ── RECOMMENDED ACTIONS ── */
+    .action-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1px;
+      background:var(--border); margin-bottom:2rem;
+    }
+    @media(max-width:680px){ .action-grid { grid-template-columns:1fr; } }
+    .action-card {
+      background:var(--surface); padding:1.35rem;
+    }
+    .action-tier {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.18em; text-transform:uppercase;
+      color:var(--muted); margin-bottom:0.6rem;
+    }
+    .action-card h4 {
+      font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:700;
+      color:var(--gold-hi); margin-bottom:0.6rem; letter-spacing:0.04em;
+    }
+    .action-card ul {
+      list-style:none; display:flex; flex-direction:column; gap:0.4rem;
+    }
+    .action-card ul li {
+      font-size:0.86rem; color:var(--text); line-height:1.5;
+      padding-left:1rem; position:relative;
+    }
+    .action-card ul li::before {
+      content:'›'; position:absolute; left:0; color:var(--gold); font-weight:700;
+    }
+
+    /* ── SOURCE STRIP ── */
+    .source-strip {
+      background:var(--panel); border:1px solid var(--border);
+      padding:1.1rem 1.25rem; margin-bottom:2rem;
+    }
+    .source-strip-label {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.18em; text-transform:uppercase;
+      color:var(--muted); margin-bottom:0.65rem;
+    }
+    .source-list {
+      display:flex; flex-direction:column; gap:0.3rem;
+    }
+    .source-item {
+      font-family:'Share Tech Mono',monospace; font-size:0.62rem;
+      color:rgba(216,232,244,0.55); letter-spacing:0.05em; line-height:1.4;
+    }
+    .source-item strong { color:var(--text); }
+
+    /* ── CONFIDENCE FOOTER ── */
+    .conf-footer {
+      background:var(--surface); border:1px solid var(--border);
+      padding:1.25rem 1.5rem; margin-bottom:2rem;
+      display:flex; gap:2rem; flex-wrap:wrap;
+    }
+    .conf-col { flex:1; min-width:200px; }
+    .conf-col-label {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      letter-spacing:0.18em; text-transform:uppercase;
+      color:var(--muted); margin-bottom:0.4rem;
+    }
+    .conf-col-val {
+      font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:700;
+      letter-spacing:0.08em; text-transform:uppercase;
+    }
+    .conf-col-val.high { color:var(--danger); }
+    .conf-col-val.mod  { color:var(--warn); }
+    .conf-col-note { font-size:0.83rem; color:var(--text); line-height:1.55; margin-top:0.35rem; }
+
+    /* ── FOOTER ── */
+    .atb-footer {
+      border-top:1px solid var(--border); padding-top:1.5rem;
+      display:flex; justify-content:space-between; align-items:flex-start;
+      flex-wrap:wrap; gap:1rem;
+    }
+    .footer-wordmark {
+      font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:700;
+      letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);
+    }
+    .footer-wordmark span { color:var(--gold); }
+    .footer-legal {
+      font-family:'Share Tech Mono',monospace; font-size:0.58rem;
+      color:rgba(106,144,176,0.6); letter-spacing:0.06em; line-height:1.6;
+      max-width:520px; text-align:right;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border:none; border-top:1px solid var(--border); margin:2rem 0;
+    }
+    .section-wrap { margin-bottom:2.5rem; }
+
+    /* ── CROSS-SECTOR CASCADE ── */
+    .cascade-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+      background:var(--border); margin-bottom:2rem;
+    }
+    @media(max-width:680px){ .cascade-grid { grid-template-columns:1fr 1fr; } }
+    .cascade-cell {
+      background:var(--surface); padding:1.1rem;
+      text-align:center;
+    }
+    .cascade-icon { font-size:1.4rem; margin-bottom:0.5rem; }
+    .cascade-sector-name {
+      font-family:'Rajdhani',sans-serif; font-size:0.8rem; font-weight:700;
+      letter-spacing:0.08em; text-transform:uppercase; color:#fff;
+      margin-bottom:0.4rem;
+    }
+    .cascade-cell p { font-size:0.78rem; color:var(--muted); line-height:1.5; }
+
+    /* ── PIR GAPS ── */
+    .gap-block {
+      background:rgba(106,144,176,0.05); border:1px dashed rgba(106,144,176,0.3);
+      padding:0.9rem 1.1rem; margin-bottom:1rem;
+      font-size:0.85rem; color:var(--muted); line-height:1.6;
+    }
+    .gap-block strong { color:var(--text); font-family:'Share Tech Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<!-- LCTI:NAV:START -->
+<style>
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.6;white-space:normal;max-width:110px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.4rem .65rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.55rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.6rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.4rem 1rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.4rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.7rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1rem 2rem .3rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.67rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.65rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Luis Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Decision Support</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="decision-support.html" role="menuitem">Decision Support System</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="alamo-threat-brief.html" role="menuitem">ATB Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Latest Issue</span>
+        <a href="04-12-2026.html" role="menuitem">Latest Issue — Week of Apr 12, 2026</a>
+        <div class="drop-divider"></div>
+        <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Critical Sectors</span>
+        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="financial.html" role="menuitem">Financial Services</a>
+        <a href="healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request Support</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Luis Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Decision Support</span>
+  <div class="m-sub">
+    <a href="decision-support.html">Decision Support System</a>
+    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="alamo-threat-brief.html">ATB Overview</a>
+    <a href="04-12-2026.html">Latest Issue — Week of Apr 12, 2026</a>
+    <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="texas-focus.html">Texas Overview</a>
+    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
+    <a href="financial.html">Financial Services</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="briefing-request.html" class="m-cta">Request Support</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['04-12-2026.html', 'atb-archive.html'],
+    'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=(link.getAttribute('href')||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<div class="page">
+
+  <!-- ══════════════════════════════════
+       COVER
+  ══════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-meta">
+      <span class="badge badge-issue">ATB-2026-15</span>
+      <span class="badge badge-unclass">UNCLASSIFIED // OSINT</span>
+      <span class="badge badge-osint">Liberty CTI Analytical Standards</span>
+    </div>
+    <div class="cover-title">THE <span>ALAMO</span> THREAT BRIEF</div>
+    <div class="cover-sub">Week of 13 April 2026 &nbsp;|&nbsp; Liberty Cyber Threat Intelligence &nbsp;|&nbsp; San Antonio, Texas</div>
+    <p class="cover-lead">
+      Iran's active disruption campaign against U.S. industrial control systems has entered an acute phase — confirmed by a rare joint FBI/CISA/NSA/CYBERCOM advisory issued April 7. Simultaneous with that escalation, China's Typhoon cluster continues quiet pre-positioning across U.S. energy and telecommunications infrastructure, North Korea's Lazarus Group posted its most efficient financial quarter in history, and ransomware groups are accelerating supply-chain and identity-first attacks against Texas healthcare and DIB targets. This issue examines each threat vector with Texas-specific implications and a 30/60/90-day forward assessment.
+    </p>
+    <div class="cover-tags">
+      <span class="tag">PIR-1 · China / Typhoon</span>
+      <span class="tag">PIR-2 · Russia / Ransomware</span>
+      <span class="tag">PIR-3 · Iran / IRGC</span>
+      <span class="tag">PIR-4 · DPRK / Financial</span>
+      <span class="tag">PIR-5 · Texas Sectors</span>
+      <span class="tag">Torch Fusion Cycle</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       THREAT STATUS BAR
+  ══════════════════════════════════ -->
+  <div class="threat-bar">
+    <div class="threat-bar-label">⚠ Active Threat</div>
+    <div class="threat-bar-items">
+      <div class="threat-bar-item"><strong>[CRITICAL · PIR-3]</strong> FBI/CISA/NSA/CYBERCOM joint advisory (7 Apr): Iranian APT actively disrupting Rockwell Automation PLCs across U.S. energy, water, and government sectors since March 2026.</div>
+      <div class="threat-bar-item"><strong>[ELEVATED · PIR-1]</strong> Volt Typhoon LOTL implants assessed to remain in U.S. critical infrastructure. Salt Typhoon telecom espionage ongoing per DHS June 2025 report; Senate inquiry unresolved.</div>
+      <div class="threat-bar-item"><strong>[ELEVATED · PIR-4]</strong> DPRK Lazarus Group drained $285M from Drift Protocol DeFi platform (1 Apr 2026) — Q1 2026 total: $309M. Texas financial sector exposure assessed MODERATE.</div>
+      <div class="threat-bar-item"><strong>[HIGH · PIR-2]</strong> Ransomware targeting U.S. healthcare and critical manufacturing at record pace; 53 active groups claimed U.S. victims Jan–Feb 2026. Supply-chain compromise vectors surging.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       KEY JUDGMENTS
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">Analytical Output · Torch Fusion Cycle</div>
+    <div class="section-title">Key Judgments</div>
+
+    <div class="kj-block">
+
+      <div class="kj-item">
+        <div class="kj-num">KJ-1</div>
+        <div class="kj-body">
+          <span class="kj-confidence conf-high">High Confidence · Almost Certainly</span>
+          <div class="kj-text">Iranian-affiliated APT actors will continue to escalate operational technology attacks against U.S. energy and water systems throughout Q2 2026, <strong>driven by the active U.S.-Iran conflict and a demonstrated willingness to accept disruptive effects</strong>. Texas's concentration of Gulf Coast petrochemical facilities, water treatment infrastructure, and Allen-Bradley/Rockwell-dependent OT environments places it in the highest-risk tier for this campaign. The April 7 five-agency advisory confirms the threat has already caused operational disruption and financial loss at victim organizations.</div>
+        </div>
+      </div>
+
+      <div class="kj-item">
+        <div class="kj-num">KJ-2</div>
+        <div class="kj-body">
+          <span class="kj-confidence conf-high">High Confidence · Very Likely</span>
+          <div class="kj-text">China's Volt Typhoon maintains pre-positioned access in U.S. critical infrastructure and will not activate disruptive capabilities absent a Taiwan-contingency trigger or major geopolitical escalation. However, <strong>the presence of dormant implants means any Texas energy or telecom operator that has not actively hunted for living-off-the-land (LOTL) artifacts should assume a non-negligible probability of silent compromise</strong>. Salt Typhoon telecom espionage continues to affect communications metadata with implications for executive and sensitive business communications.</div>
+        </div>
+      </div>
+
+      <div class="kj-item">
+        <div class="kj-num">KJ-3</div>
+        <div class="kj-body">
+          <span class="kj-confidence conf-high">High Confidence · Almost Certainly</span>
+          <div class="kj-text">DPRK's Lazarus Group will sustain financially motivated cyber operations targeting cryptocurrency, DeFi platforms, and financial services infrastructure through 2026, <strong>generating hard currency to fund Pyongyang's weapons programs outside sanctions reach</strong>. The $285M Drift Protocol heist on April 1 — executed in under 11 seconds — signals a qualitative capability leap in speed of action. Texas financial institutions with crypto exposure, DeFi integrations, or fintech partnerships face elevated third-party risk.</div>
+        </div>
+      </div>
+
+      <div class="kj-item">
+        <div class="kj-num">KJ-4</div>
+        <div class="kj-body">
+          <span class="kj-confidence conf-mod">Moderate Confidence · Likely</span>
+          <div class="kj-text">Ransomware groups will increasingly pivot to supply-chain and identity-first compromise vectors against Texas healthcare and DIB targets in Q2–Q3 2026, <strong>reducing the value of perimeter-based defenses and exploiting third-party vendor access as the primary initial attack vector</strong>. The industrialization of attack automation — compressing time-to-exploit for disclosed PoCs — makes unpatched systems a near-certain liability within days of vulnerability disclosure, not weeks.</div>
+        </div>
+      </div>
+
+      <div class="kj-item">
+        <div class="kj-num">KJ-5</div>
+        <div class="kj-body">
+          <span class="kj-confidence conf-mod">Moderate Confidence · Likely</span>
+          <div class="kj-text">The Trump administration's proposed $491M cut to CISA — eliminating 1,083 positions and reducing the agency to 2,649 staff — will materially degrade federal early warning, coordination, and incident response capacity available to Texas private-sector operators, <strong>increasing the decision-making burden on individual organizations and the value of commercial intelligence providers as a force multiplier</strong>. This gap is structural and will not be resolved in the near term.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SECTOR ASSESSMENTS
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">PIR-5 · Texas Critical Infrastructure</div>
+    <div class="section-title">Sector Threat Posture — Week of 13 April 2026</div>
+
+    <div class="sector-grid">
+
+      <div class="sector-card energy">
+        <div class="sector-label">Energy / ERCOT</div>
+        <div class="sector-threat-level">
+          <div class="tl-dots">
+            <div class="tl-dot filled energy"></div>
+            <div class="tl-dot filled energy"></div>
+            <div class="tl-dot filled energy"></div>
+            <div class="tl-dot filled energy"></div>
+            <div class="tl-dot empty"></div>
+          </div>
+          <div class="tl-text">THREAT LEVEL: SEVERE</div>
+        </div>
+        <h3>ERCOT Grid & Gulf Coast Petrochemical</h3>
+        <p>The April 7 CISA advisory directly implicates energy-sector OT as an Iranian targeting priority. Texas operates the only major grid island in the continental U.S., making it uniquely vulnerable to cascading effects from SCADA/HMI disruption. Gulf Coast refinery and LNG export facilities rely heavily on Allen-Bradley PLCs — the exact device class currently under active Iranian exploitation. Volt Typhoon LOTL pre-positioning in transmission infrastructure remains an unresolved background risk.</p>
+        <div class="sector-pir">Primary Actors: <strong>IRGC-CY (Iran), Volt Typhoon (PRC)</strong> &nbsp;|&nbsp; PIR-1, PIR-3</div>
+      </div>
+
+      <div class="sector-card health">
+        <div class="sector-label">Healthcare / TMC Ecosystem</div>
+        <div class="sector-threat-level">
+          <div class="tl-dots">
+            <div class="tl-dot filled health"></div>
+            <div class="tl-dot filled health"></div>
+            <div class="tl-dot filled health"></div>
+            <div class="tl-dot filled health"></div>
+            <div class="tl-dot empty"></div>
+          </div>
+          <div class="tl-text">THREAT LEVEL: SEVERE</div>
+        </div>
+        <h3>Texas Medical Center & Regional Systems</h3>
+        <p>Healthcare led all sectors in ransomware volume in January 2026 (27 incidents). Texas AG Paxton's active demands for answers from BCBS Texas and Conduent following a data breach signal intensifying regulatory scrutiny. The Iranian Handala group's remote-wipe attack on Stryker (March 2026) demonstrates Iran's expanding willingness to disrupt U.S. medical infrastructure — a new capability threshold. AI-enabled attacks compressing access-to-impact timelines pose acute risk to clinical operations dependent on uptime.</p>
+        <div class="sector-pir">Primary Actors: <strong>Ransomware ecosystems, Handala (Iran)</strong> &nbsp;|&nbsp; PIR-2, PIR-3</div>
+      </div>
+
+      <div class="sector-card finance">
+        <div class="sector-label">Financial Services</div>
+        <div class="sector-threat-level">
+          <div class="tl-dots">
+            <div class="tl-dot filled finance"></div>
+            <div class="tl-dot filled finance"></div>
+            <div class="tl-dot filled finance"></div>
+            <div class="tl-dot empty"></div>
+            <div class="tl-dot empty"></div>
+          </div>
+          <div class="tl-text">THREAT LEVEL: HIGH</div>
+        </div>
+        <h3>Texas Banks, Fintech & Crypto-Adjacent</h3>
+        <p>DPRK's Lazarus Group drained $309M across 12 incidents in Q1 2026 — including a $285M DeFi exploit completed in under 11 seconds. Texas financial institutions with fintech partnerships, DeFi integrations, or digital asset custody exposure face elevated third-party risk. Supply-chain compromise through SaaS integration providers (reported in April 2026) creates pathways into financial sector back-office systems. Identity-first attacks via credential theft are now the dominant initial access method per Bitdefender analysis.</p>
+        <div class="sector-pir">Primary Actors: <strong>Lazarus Group (DPRK), Scattered Spider, supply-chain actors</strong> &nbsp;|&nbsp; PIR-4, PIR-2</div>
+      </div>
+
+      <div class="sector-card defense">
+        <div class="sector-label">Defense Industrial Base</div>
+        <div class="sector-threat-level">
+          <div class="tl-dots">
+            <div class="tl-dot filled defense"></div>
+            <div class="tl-dot filled defense"></div>
+            <div class="tl-dot filled defense"></div>
+            <div class="tl-dot empty"></div>
+            <div class="tl-dot empty"></div>
+          </div>
+          <div class="tl-text">THREAT LEVEL: HIGH</div>
+        </div>
+        <h3>JBSA Ecosystem & Port San Antonio Tenants</h3>
+        <p>China's Salt Typhoon espionage campaign — which compromised at least 200 companies globally — creates persistent risk for San Antonio's DIB ecosystem given concentration of cleared facilities, defense contractors, and JBSA-adjacent technology companies. PRC cyber operations have shifted from economic espionage to politically driven targeting, with growing emphasis on supply chain compromise. DPRK IT worker infiltration campaigns (per KnowBe4 2024 precedent) remain a threat to defense software firms. CMC ITAR-controlled data remains a priority PRC collection target.</p>
+        <div class="sector-pir">Primary Actors: <strong>Salt Typhoon (PRC), APT45 (DPRK IT workers)</strong> &nbsp;|&nbsp; PIR-1, PIR-4</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       THREAT ACTOR ASSESSMENTS
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">Torch Fusion Cycle: WHO · INTENT · CAPABILITY · WHAT NEXT</div>
+    <div class="section-title">Threat Actor Assessments</div>
+
+    <!-- IRAN -->
+    <div class="actor-block">
+      <div class="actor-header">
+        <span class="actor-flag iran">PIR-3 · Iran</span>
+        <div class="actor-name">IRGC-CY / Handala / CyberAv3ngers</div>
+        <div class="actor-ttl">Updated: 13 Apr 2026</div>
+      </div>
+      <div class="actor-body">
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT</div>
+          <div class="actor-row-val">Iranian APT actors are actively exploiting internet-exposed Rockwell Automation/Allen-Bradley PLCs across U.S. energy, water, and government facilities. Attacks involve malicious manipulation of project files and HMI/SCADA display data — causing operational disruption and financial loss confirmed at multiple victim sites since March 2026.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHO</div>
+          <div class="actor-row-val">IRGC-affiliated APT group; Handala responsible for Stryker remote-wipe (March 2026) using Microsoft Intune as a weaponized MDM tool; CyberAv3ngers previously attributed to 2023–2024 Unitronics PLC campaign. The current campaign is assessed to be a coordinated IRGC-directed effort tied to the ongoing U.S.-Iran conflict that began in February 2026.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHY</div>
+          <div class="actor-row-val">Retaliation for U.S.-Israel strikes against Iran beginning February 2026. Tehran cannot match U.S. conventional military capability; cyber disruption of private-sector infrastructure is the asymmetric lever available to impose costs and signal resolve without crossing thresholds that invite kinetic retaliation.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT NEXT</div>
+          <div class="actor-row-val">Liberty CTI assesses with HIGH CONFIDENCE that Iranian OT targeting will expand in scope and geographic breadth over the next 30–60 days. Texas Gulf Coast water and energy OT environments using internet-connected Rockwell/Allen-Bradley devices are at elevated risk. Expect escalation to ICS manipulation beyond display-data — including potential attempts to alter control logic or force emergency shutdowns.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHINA -->
+    <div class="actor-block">
+      <div class="actor-header">
+        <span class="actor-flag china">PIR-1 · China</span>
+        <div class="actor-name">Volt Typhoon / Salt Typhoon / Flax Typhoon</div>
+        <div class="actor-ttl">Updated: 13 Apr 2026</div>
+      </div>
+      <div class="actor-body">
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT</div>
+          <div class="actor-row-val">Volt Typhoon (PLA) maintains persistent, pre-positioned implants in U.S. critical infrastructure using LOTL techniques — blending into legitimate network traffic without malware signatures. Salt Typhoon (MSS) has compromised telecommunications infrastructure in 200+ organizations across 80 countries, including accessing lawful intercept (CALEA) systems. Congressional inquiry to AT&T and Verizon CEOs remains unresolved as of April 2026.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHO</div>
+          <div class="actor-row-val">Four coordinated PRC APT groups: Volt Typhoon (disruption/pre-positioning, PLA-linked), Salt Typhoon (espionage, MSS-linked), Flax Typhoon (IoT botnet infrastructure), Brass Typhoon (supply chain). Each serves a distinct role within China's doctrine of "active defense" — enabling both intelligence collection and crisis-contingency disruption options.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHY</div>
+          <div class="actor-row-val">Preparing for a Taiwan contingency that requires degrading U.S. military logistics, public confidence, and inter-sector coordination. The objective is deterrence through demonstrated capability, not immediate disruption. PRC cyber strategy has shifted from economic espionage to politically driven operations with pre-positioned strike options.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT NEXT</div>
+          <div class="actor-row-val">Liberty CTI assesses with HIGH CONFIDENCE that Volt Typhoon will not activate pre-positioned access in the near term absent a Taiwan crisis trigger. However, Salt Typhoon espionage activity — particularly against telecom infrastructure routing Texas executive and government communications — will continue with no near-term containment. Texas businesses reliant on compromised telecom carriers should treat communications metadata as observable by PRC intelligence.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUSSIA / RANSOMWARE -->
+    <div class="actor-block">
+      <div class="actor-header">
+        <span class="actor-flag russia">PIR-2 · Russia</span>
+        <div class="actor-name">Russian Ransomware Ecosystem — Qilin, Akira, Clop, Play, DragonForce</div>
+        <div class="actor-ttl">Updated: 13 Apr 2026</div>
+      </div>
+      <div class="actor-body">
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT</div>
+          <div class="actor-row-val">53 ransomware groups claimed U.S. victims in January–February 2026, with an estimated 750–800 total U.S. organizations hit in that window. Healthcare led with 460 incidents; financial services 258. Top active strains: Qilin, Akira, Clop, INC, Play, DragonForce. Supply-chain attacks on SaaS integration providers (April 7 reports) created lateral access to multiple client organizations in a single compromise event.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHO</div>
+          <div class="actor-row-val">Primarily Russia-based ransomware-as-a-service (RaaS) ecosystems operating with implicit Kremlin tolerance. State-sponsored GRU/SVR units maintain separate but parallel interest in U.S. energy and financial infrastructure disruption — particularly relevant as Ukraine conflict sustains geopolitical pressure on U.S. posture.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHY</div>
+          <div class="actor-row-val">Financial motivation (ransom payments declining but still profitable; criminal groups chasing larger, fewer targets). Geopolitical alignment provides safe harbor for operators. Healthcare and critical infrastructure remain prime targets because operational disruption creates maximum payment incentive within patient-safety risk constraints.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT NEXT</div>
+          <div class="actor-row-val">Supply-chain attack vectors targeting shared service providers — SaaS platforms, MSPs, healthcare IT vendors — will accelerate. AI-enabled automation is compressing time from vulnerability disclosure to active exploitation. Texas healthcare systems sharing vendors across the TMC ecosystem face amplified cascade risk if a single shared provider is compromised.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DPRK -->
+    <div class="actor-block">
+      <div class="actor-header">
+        <span class="actor-flag dprk">PIR-4 · DPRK</span>
+        <div class="actor-name">Lazarus Group / APT38 / TraderTraitor</div>
+        <div class="actor-ttl">Updated: 13 Apr 2026</div>
+      </div>
+      <div class="actor-body">
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT</div>
+          <div class="actor-row-val">On April 1, 2026, DPRK-linked actors drained $285M from Drift Protocol — the largest DeFi exchange on Solana — in under 11 seconds. Q1 2026 DPRK theft total: $309M across 12 incidents. Cumulative DPRK cyber theft since 2017: estimated $6.71B. The Lazarus Group now accounts for 76% of all crypto-service-level compromises globally. DPRK IT workers continue to infiltrate technology firms using fabricated identities — with precedent set by the 2024 KnowBe4 incident.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHY</div>
+          <div class="actor-row-val">Sanctions evasion and hard-currency generation to fund North Korea's nuclear and ballistic missile programs. Crypto theft is now central to the Kim regime's survival economy. The speed and efficiency of laundering ($160M moved through illicit channels within two days of the Bybit heist) demonstrates industrial-scale financial crime infrastructure.</div>
+        </div>
+        <div class="actor-row">
+          <div class="actor-row-label">WHAT NEXT</div>
+          <div class="actor-row-val">Liberty CTI assesses with HIGH CONFIDENCE that DPRK will continue large-scale crypto and DeFi platform targeting through 2026. Texas fintech firms, digital asset custodians, and financial institutions with DeFi or crypto integrations face elevated third-party risk. DPRK IT worker infiltration remains an active threat to software development firms — particularly those holding cleared personnel data or financial system code.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       RECENT VIGNETTES
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">Evidence-Based Analysis · Supporting the Key Judgments</div>
+    <div class="section-title">Intelligence Vignettes</div>
+
+    <div class="vignette">
+      <div class="vignette-date">7 April 2026 · FBI / CISA / NSA / EPA / DOE / CYBERCOM</div>
+      <h4>Iran Disrupts U.S. Energy and Water PLCs — Active Since March 2026</h4>
+      <p>A five-agency joint advisory confirmed that Iranian-affiliated APT actors have been exploiting internet-exposed Rockwell Automation/Allen-Bradley PLCs across U.S. critical infrastructure since at least March 2026. Attacks include malicious manipulation of project files (.ACD format) and HMI/SCADA display data. Multiple victims experienced operational disruption and financial loss. The campaign escalated following the onset of U.S.-Israel military strikes against Iran in February 2026.</p>
+      <p>The advisory identifies MITRE ATT&CK TTPs: Initial Access (TA0001), Command and Control (TA0011), and Impact (TA0040) — confirming intent to cause operational effects, not merely reconnaissance.</p>
+      <div class="so-what">
+        <strong>So What for Texas</strong>
+        Texas Gulf Coast petrochemical, water treatment, and power generation facilities rely heavily on Allen-Bradley OT systems. Any internet-connected Rockwell PLC in a Texas critical infrastructure environment should be treated as an active targeting priority for IRGC-affiliated actors. Disconnecting OT devices from the internet is the single highest-value mitigation available today.
+      </div>
+    </div>
+
+    <div class="vignette">
+      <div class="vignette-date">1 April 2026 · Drift Protocol / DPRK Attribution</div>
+      <h4>Lazarus Group Drains $285M from Solana DeFi Exchange in Under 11 Seconds</h4>
+      <p>At 16:06:09 UTC on April 1, 2026, North Korean-linked actors drained the major vaults of Drift Protocol — the largest decentralized perpetual futures exchange on Solana — of approximately $285M in user assets. The attack was completed before any human could intervene. Attribution rests on blockchain analytics consistent with prior Lazarus laundering patterns and the characteristic speed of DPRK post-compromise laundering operations.</p>
+      <p>This attack follows the $1.5B Bybit heist (February 2025) and establishes that DPRK has industrialized its capability to execute nine-figure thefts with near-zero dwell time between access and execution.</p>
+      <div class="so-what">
+        <strong>So What for Texas</strong>
+        Texas financial institutions with any exposure to DeFi protocols, crypto custody, or fintech partnerships supporting digital assets should treat their third-party risk assessments as materially incomplete without explicit DPRK supply-chain threat modeling. The attack vector is social engineering at the developer/infrastructure layer — not smart contract exploits.
+      </div>
+    </div>
+
+    <div class="vignette">
+      <div class="vignette-date">March 2026 · Handala / Iran</div>
+      <h4>Iran-Linked Handala Group Deploys Remote Wipe Against Stryker Corporation</h4>
+      <p>Iranian hacking group Handala conducted a disruptive cyberattack against Stryker — a major U.S. medical technology company — by weaponizing Microsoft Intune, the company's own mobile device management platform. Hackers manipulated the MDM system to remotely wipe thousands of employee devices, causing brief disruption to Stryker's manufacturing, ordering, and shipping capabilities. The FBI has attributed Handala to leaking FBI Director Kash Patel's private email account contents in the same operational period.</p>
+      <div class="so-what">
+        <strong>So What for Texas</strong>
+        The Stryker attack establishes a critical precedent: Iran is now willing to use legitimate IT management tooling as a destructive weapon against U.S. healthcare and manufacturing companies. Texas Medical Center member institutions using cloud-based MDM or endpoint management platforms should audit administrative access controls and geographic anomaly detection immediately.
+      </div>
+    </div>
+
+    <div class="vignette">
+      <div class="vignette-date">2025–2026 · Texas (Multiple Jurisdictions)</div>
+      <h4>Ransomware Wave Hits Texas Municipalities — Twenty-Plus Local Governments Affected</h4>
+      <p>Texas DIR led response to a coordinated ransomware attack affecting at least 20 Texas local government entities in what became a declared state-level emergency. In the preceding months, Mission, Matagorda County, McKinney, Coppell, and Richardson all reported separate ransomware incidents impacting government services — including hospitals, utilities, and emergency services. Recovery operations across affected jurisdictions required deployment of Texas Military Department, Texas A&M CSOCC, and DIR teams.</p>
+      <div class="so-what">
+        <strong>So What for Texas</strong>
+        The shared IT vendor and inter-dependency structure between Texas municipalities, healthcare systems, and utilities creates a cascade vulnerability: a single shared-services provider compromise can trigger simultaneous multi-sector disruption. Private-sector operators in energy and healthcare co-located with municipal systems (water, power billing) face secondary exposure.
+      </div>
+    </div>
+
+    <div class="vignette">
+      <div class="vignette-date">December 2025 · Salt Typhoon / PRC</div>
+      <h4>Salt Typhoon Compromises U.S. House of Representatives Committees</h4>
+      <p>Intrusions detected in several U.S. House of Representatives committees in December 2025 were attributed to Salt Typhoon, extending the PRC espionage campaign from telecommunications infrastructure to legislative branch communications. The DHS June 2025 report confirmed Salt Typhoon access to a state Army National Guard network. Per FBI, Salt Typhoon has now hacked at least 200 companies across 80 countries.</p>
+      <div class="so-what">
+        <strong>So What for Texas</strong>
+        Any Texas executive whose communications transit compromised major U.S. telecom carriers should assume that call records, metadata, and potentially audio are accessible to PRC intelligence services. Sensitive business negotiations, M&A discussions, and regulatory engagement involving Texas energy, finance, or DIB companies should be conducted exclusively over end-to-end encrypted platforms.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       CROSS-SECTOR CASCADE
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">System-Level Analysis</div>
+    <div class="section-title">Cross-Sector Cascade Risk</div>
+
+    <div class="cascade-grid">
+      <div class="cascade-cell">
+        <div class="cascade-icon">⚡</div>
+        <div class="cascade-sector-name">Energy Disruption</div>
+        <p>ERCOT isolation means a successful OT disruption creates direct, unmitigable cascade into healthcare (hospital power backup loads), finance (data center uptime), and DIB (JBSA operational continuity). No path around the grid dependency.</p>
+      </div>
+      <div class="cascade-cell">
+        <div class="cascade-icon">🏦</div>
+        <div class="cascade-sector-name">Financial Disruption</div>
+        <p>Texas financial system outages affect payroll processing for energy-sector workers, disrupt LNG export payment rails, and impair healthcare billing — triggering regulatory tripwires and operational paralysis within 48–72 hours of sustained disruption.</p>
+      </div>
+      <div class="cascade-cell">
+        <div class="cascade-icon">🏥</div>
+        <div class="cascade-sector-name">Healthcare Disruption</div>
+        <p>TMC-ecosystem disruption creates downstream pressure on DoD TRICARE-adjacent medical facilities near JBSA, degrades workforce health management for energy and manufacturing sectors, and triggers HHS reporting mandates that amplify reputational damage.</p>
+      </div>
+      <div class="cascade-cell">
+        <div class="cascade-icon">🛡</div>
+        <div class="cascade-sector-name">DIB Disruption</div>
+        <p>Disruption of Port San Antonio or JBSA-adjacent DIB tenants delays weapons system production, creates classified data breach risk, and generates ITAR/FAR compliance exposure with contract termination consequences. PRC espionage targeting cleared personnel is a secondary risk vector.</p>
+      </div>
+    </div>
+
+    <p style="font-size:0.88rem; color:var(--muted); line-height:1.65; margin-bottom:1.5rem;">
+      <strong style="color:var(--text);">Liberty CTI Assessment:</strong> A coordinated, multi-sector attack targeting both an ERCOT-adjacent energy OT system and a major Texas healthcare network simultaneously would produce cascading effects across all four sectors within 72 hours. The Iranian campaign's demonstrated willingness to cause OT disruption combined with ransomware groups' simultaneous healthcare targeting creates a non-trivial scenario risk that was not present 18 months ago.
+    </p>
+  </div>
+
+  <!-- ══════════════════════════════════
+       INDICATORS & WARNINGS
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">Decision Advantage · Observable Signals</div>
+    <div class="section-title">Indicators &amp; Warnings</div>
+
+    <div class="indicator-list">
+      <div class="indicator-item">
+        <div class="indicator-icon">◈</div>
+        <div class="indicator-text"><strong>OT/SCADA anomalies on Allen-Bradley PLCs:</strong> Unexpected changes to PLC project files (.ACD), HMI display data inconsistencies, or controllers shifting to remote-run mode without authorization. Treat as active Iranian exploitation until proven otherwise — not as maintenance artifact.</div>
+      </div>
+      <div class="indicator-item">
+        <div class="indicator-icon">◈</div>
+        <div class="indicator-text"><strong>Unusual outbound SMB or WMI activity in IT environments:</strong> Volt Typhoon's LOTL signature. Monitor for use of native Windows admin tools (netsh, wmic, PowerShell) generating low-volume, off-hours traffic to external IPs. Standard EDR misses this; requires behavioral anomaly detection.</div>
+      </div>
+      <div class="indicator-item">
+        <div class="indicator-icon">◈</div>
+        <div class="indicator-text"><strong>Cisco router configuration changes at network edge:</strong> Salt Typhoon primary vector. Unexplained changes to Cisco edge device configurations, new admin accounts, or unusual SSH sessions from foreign-geolocated IPs are strong indicators of ongoing PRC telecom espionage access.</div>
+      </div>
+      <div class="indicator-item">
+        <div class="indicator-icon">◈</div>
+        <div class="indicator-text"><strong>Unexpected MDM bulk-action commands or device enrollment anomalies:</strong> Mirrors the Stryker attack vector. Admin-issued remote wipe commands, unusual geographic enrollment of new devices, or MFA bypass attempts in Microsoft Intune or similar MDM platforms indicate potential IRGC pre-positioning.</div>
+      </div>
+      <div class="indicator-item">
+        <div class="indicator-icon">◈</div>
+        <div class="indicator-text"><strong>Developer or IT staff engagement with unsolicited crypto or DeFi recruitment:</strong> Primary DPRK TraderTraitor access vector. Any unsolicited high-value job offers, DeFi advisory engagements, or token grant offers targeted at engineers or infrastructure staff should be treated as potential DPRK social engineering.</div>
+      </div>
+      <div class="indicator-item">
+        <div class="indicator-icon">◈</div>
+        <div class="indicator-text"><strong>Shared vendor incident notifications involving healthcare SaaS or billing platforms:</strong> Supply-chain ransomware trigger. A single breach of a shared Texas healthcare IT vendor can simultaneously compromise multiple TMC-ecosystem institutions. Vendor incident notifications should trigger immediate defensive posture elevation, not just passive monitoring.</div>
+      </div>
+      <div class="indicator-item">
+        <div class="indicator-icon">◈</div>
+        <div class="indicator-text"><strong>Escalation in U.S.-Iran conflict intensity or new rounds of U.S. strikes:</strong> Geopolitical trigger for intensified Iranian cyber operations within 72 hours. If kinetic conflict escalates, Texas energy and water OT operators should assume near-term Iranian cyber activity is probable, not possible.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       30/60/90-DAY FORECAST
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">Strategic Forecast · Torch Fusion Cycle — What Next</div>
+    <div class="section-title">30 / 60 / 90-Day Outlook</div>
+
+    <table class="forecast-table">
+      <thead>
+        <tr>
+          <th style="width:90px;">Horizon</th>
+          <th style="width:140px;">Sector</th>
+          <th>Assessment</th>
+          <th style="width:110px;">Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="horizon-tag h30">30-Day</span></td>
+          <td style="color:var(--energy); font-family:'Share Tech Mono',monospace; font-size:0.7rem;">Energy / Water OT</td>
+          <td>Iranian OT exploitation campaign will expand. Additional victim organizations in the energy and water sectors will be identified and disclosed. Texas Gulf Coast operators using internet-connected Allen-Bradley PLCs should assume active scanning of their perimeter is occurring now.</td>
+          <td><span class="kj-confidence conf-high" style="font-size:0.52rem;">High</span></td>
+        </tr>
+        <tr>
+          <td><span class="horizon-tag h30">30-Day</span></td>
+          <td style="color:var(--health); font-family:'Share Tech Mono',monospace; font-size:0.7rem;">Healthcare</td>
+          <td>Ransomware volume against Texas healthcare targets will remain at or above Q1 2026 pace. At least one Texas-affiliated healthcare organization will experience a publicly disclosed breach. Supply-chain vectors through shared billing, EHR, or clinical IT vendors carry the highest single-event cascade potential.</td>
+          <td><span class="kj-confidence conf-high" style="font-size:0.52rem;">High</span></td>
+        </tr>
+        <tr>
+          <td><span class="horizon-tag h60">60-Day</span></td>
+          <td style="color:var(--finance); font-family:'Share Tech Mono',monospace; font-size:0.7rem;">Financial / Fintech</td>
+          <td>DPRK will execute at least one additional large-scale cryptocurrency or DeFi theft in the April–May window. Texas fintech firms and financial institutions with digital asset exposure will see increased targeting reconnaissance. Identity-first credential theft campaigns will intensify against financial sector employees.</td>
+          <td><span class="kj-confidence conf-mod" style="font-size:0.52rem;">Moderate</span></td>
+        </tr>
+        <tr>
+          <td><span class="horizon-tag h60">60-Day</span></td>
+          <td style="color:var(--energy); font-family:'Share Tech Mono',monospace; font-size:0.7rem;">Energy / ERCOT</td>
+          <td>Volt Typhoon implants in U.S. critical infrastructure will not be activated absent Taiwan crisis trigger. However, PRC reconnaissance of Texas grid interconnects and LNG export facilities will continue at current pace or higher. CISA capacity to respond is degraded by proposed budget cuts.</td>
+          <td><span class="kj-confidence conf-mod" style="font-size:0.52rem;">Moderate</span></td>
+        </tr>
+        <tr>
+          <td><span class="horizon-tag h90">90-Day</span></td>
+          <td style="color:var(--defense); font-family:'Share Tech Mono',monospace; font-size:0.7rem;">Defense / DIB</td>
+          <td>Salt Typhoon espionage will expand beyond telecom infrastructure toward cleared defense contractor networks and legislative/regulatory communications channels. Texas DIB tenants without robust communication security posture face increasing risk of PRC collection of contractual, technical, and personnel data through compromised telecom backbones.</td>
+          <td><span class="kj-confidence conf-mod" style="font-size:0.52rem;">Moderate</span></td>
+        </tr>
+        <tr>
+          <td><span class="horizon-tag h90">90-Day</span></td>
+          <td style="color:var(--muted); font-family:'Share Tech Mono',monospace; font-size:0.7rem;">All Sectors</td>
+          <td>AI-enabled adversary capabilities will measurably compress time-to-exploit windows across all threat actor categories by Q3 2026. Organizations still relying on patch-cycle timelines of 30+ days for critical vulnerabilities will face near-certain exploitation. The threat velocity is outpacing traditional vulnerability management programs.</td>
+          <td><span class="kj-confidence conf-high" style="font-size:0.52rem;">High</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════════
+       RECOMMENDED ACTIONS
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">Decision Advantage · Executive and Operational Actions</div>
+    <div class="section-title">Recommended Actions</div>
+
+    <div class="action-grid">
+      <div class="action-card">
+        <div class="action-tier">Board / Executive — Immediate (0–72 hours)</div>
+        <h4>Iran OT Emergency Response</h4>
+        <ul>
+          <li>Direct OT/SCADA team to immediately audit all internet-connected Allen-Bradley/Rockwell Automation PLCs and disconnect those with no operational requirement for internet access.</li>
+          <li>Require report within 48 hours on which OT systems have network segmentation between IT and OT environments — and which do not.</li>
+          <li>Brief board on April 7 joint advisory; frame as an active campaign, not a theoretical risk.</li>
+        </ul>
+      </div>
+      <div class="action-card">
+        <div class="action-tier">Executive — Near-Term (7–30 days)</div>
+        <h4>Communication Security Uplift</h4>
+        <ul>
+          <li>Mandate end-to-end encrypted communication (Signal, Wickr) for all executive, M&A, regulatory, and sensitive business discussions given confirmed Salt Typhoon telecom compromise.</li>
+          <li>Brief board and C-suite on assumption that call records and metadata on major U.S. telecom carriers may be observable by PRC intelligence.</li>
+          <li>Review external counsel and banking relationship communication channels.</li>
+        </ul>
+      </div>
+      <div class="action-card">
+        <div class="action-tier">Security Operations — Immediate</div>
+        <h4>Volt Typhoon / LOTL Hunt</h4>
+        <ul>
+          <li>Initiate behavioral anomaly hunt for LOTL indicators: native Windows admin tool misuse, off-hours WMI/netsh activity, credential dump artifacts in ESE Application Logs.</li>
+          <li>Extend log retention beyond default Windows policy — Volt Typhoon exploits short log retention to erase evidence.</li>
+          <li>Audit Cisco edge device configurations for unauthorized changes or anomalous admin accounts.</li>
+        </ul>
+      </div>
+      <div class="action-card">
+        <div class="action-tier">Security Operations — Near-Term</div>
+        <h4>Identity &amp; Third-Party Controls</h4>
+        <ul>
+          <li>Audit MDM platform (Microsoft Intune, Jamf) admin access — validate MFA, geographic anomaly detection, and bulk-action approval workflows given Stryker attack vector.</li>
+          <li>Map all shared vendors, SaaS providers, and IT service providers; establish incident notification SLAs and breach escalation playbooks.</li>
+          <li>Implement phishing-resistant MFA (hardware keys or passkeys) for all privileged accounts and external-facing access.</li>
+        </ul>
+      </div>
+      <div class="action-card">
+        <div class="action-tier">Financial / Fintech — Strategic</div>
+        <h4>DPRK Financial Threat Posture</h4>
+        <ul>
+          <li>Assess and disclose (to board) any operational dependency on DeFi protocols, digital asset platforms, or fintech providers with crypto exposure.</li>
+          <li>Establish vendor due diligence requirements for crypto custody and DeFi integration partners that explicitly address DPRK threat modeling.</li>
+          <li>Review IT and developer hiring practices — validate identity verification against DPRK IT worker infiltration risk.</li>
+        </ul>
+      </div>
+      <div class="action-card">
+        <div class="action-tier">Strategic — All Sectors (30–90 days)</div>
+        <h4>Intelligence Gap Mitigation</h4>
+        <ul>
+          <li>Given CISA capacity reduction, build or procure commercial threat intelligence capability to replace federal early-warning that is being structurally degraded.</li>
+          <li>Establish direct relationships with Texas Cyber Command (TXCC at UTSA), Texas DIR, and InfraGard San Antonio for public-private coordination on ransomware and OT threats.</li>
+          <li>Develop and exercise a sector-specific incident response playbook for Iranian OT disruption scenario within 90 days.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       PIR GAPS
+  ══════════════════════════════════ -->
+  <div class="section-wrap">
+    <div class="section-label">Analytical Transparency · Collection Gaps</div>
+    <div class="section-title">PIR Gaps — This Issue</div>
+
+    <div class="gap-block">
+      <strong>PIR-3 Gap</strong> — Attribution of the current Iranian PLC campaign to a specific IRGC unit (CyberAv3ngers, Handala, or a new entity) has not been publicly confirmed. Liberty CTI tracks this as an assessed IRGC-affiliated APT consistent with prior campaigns; specific unit attribution remains pending.</div>
+    <div class="gap-block">
+      <strong>PIR-1 Gap</strong> — The full scope of Volt Typhoon pre-positioned access in Texas-specific critical infrastructure is not publicly quantified. Open-source reporting confirms broad U.S. critical infrastructure compromise; Texas-specific dwell-time and access point data is not available through OSINT means.</div>
+    <div class="gap-block">
+      <strong>PIR-5 Gap</strong> — Texas-specific victim disclosure for the April 2026 Iranian OT campaign has not been confirmed in open sources as of production time (13 April 2026). CISA advisory does not identify target organizations by name or geography beyond sector classification.</div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       CONFIDENCE FOOTER
+  ══════════════════════════════════ -->
+  <div class="conf-footer">
+    <div class="conf-col">
+      <div class="conf-col-label">Overall Assessment Confidence</div>
+      <div class="conf-col-val high">HIGH</div>
+      <div class="conf-col-note">Key judgments KJ-1, KJ-2, KJ-3, and KJ-5 are supported by authoritative government advisories, corroborated multi-source open-source reporting, and consistent adversary behavioral patterns over 12–24 months. KJ-4 carries Moderate confidence due to vendor attribution uncertainty in supply-chain attack vectors.</div>
+    </div>
+    <div class="conf-col">
+      <div class="conf-col-label">Source Quality</div>
+      <div class="conf-col-val mod">MODERATE–HIGH</div>
+      <div class="conf-col-note">Primary sources include the April 7, 2026 FBI/CISA/NSA/CYBERCOM joint advisory, DHS Salt Typhoon report (June 2025), Bitdefender ransomware analysis (March 2026), blockchain attribution from Chainalysis and TRM Labs, and CSIS policy analysis. Analytical standards aligned with accepted IC analytical practices.</div>
+    </div>
+    <div class="conf-col">
+      <div class="conf-col-label">Analytical Standards</div>
+      <div class="conf-col-val" style="color:var(--blue); font-size:0.75rem; letter-spacing:0.06em;">LIBERTY CTI STANDARDS</div>
+      <div class="conf-col-note">All assessments use calibrated estimative language (almost certainly / very likely / likely / unlikely). Confidence levels explicit per Liberty CTI Analytical Standards, aligned with accepted IC analytical practices. Competing hypotheses considered. PIR gaps documented above.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SOURCE STRIP
+  ══════════════════════════════════ -->
+  <div class="source-strip">
+    <div class="source-strip-label">Source Reference Citations (SRCs) — ATB-2026-15</div>
+    <div class="source-list">
+      <div class="source-item"><strong>[SRC-01]</strong> CISA/FBI/NSA/EPA/DOE/CYBERCOM Joint Advisory AA26-097A — "Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers Across US Critical Infrastructure" (7 April 2026) · cisa.gov</div>
+      <div class="source-item"><strong>[SRC-02]</strong> DHS — "Salt Typhoon: Data Theft Likely Signals Expanded Targeting" (June 2025) · dhs.gov</div>
+      <div class="source-item"><strong>[SRC-03]</strong> FBI IC3 Annual Report 2025 — U.S. Cybercrime Losses $21B; Ransomware Incident Data by Sector (April 2026) · ic3.gov</div>
+      <div class="source-item"><strong>[SRC-04]</strong> Bitdefender — "Ransomware Attacks Against the US: 2026 Insights" (March 2026) · businessinsights.bitdefender.com</div>
+      <div class="source-item"><strong>[SRC-05]</strong> Chainalysis Crypto Crime Report 2025; TRM Labs attribution — Bybit $1.5B Lazarus heist (February 2025); Drift Protocol $285M exploit (April 2026)</div>
+      <div class="source-item"><strong>[SRC-06]</strong> CrowdStrike 2026 Global Threat Report — eCrime breakout time 29 minutes; 82% malware-free detections; cloud-conscious APT expansion · crowdstrike.com</div>
+      <div class="source-item"><strong>[SRC-07]</strong> Recorded Future CTA-2026-0212 — Geopolitical conflict cyber implications; India-Pakistan cyber operations; DPRK financial targeting</div>
+      <div class="source-item"><strong>[SRC-08]</strong> CSIS — "Iran Conflict Heightens Cyber Threats to U.S. Energy Infrastructure" (7 April 2026) · csis.org</div>
+      <div class="source-item"><strong>[SRC-09]</strong> Texas DIR — "Ransomware Attack Hits Texas Government Entities" (coordinated attack, 20+ jurisdictions) · dir.texas.gov</div>
+      <div class="source-item"><strong>[SRC-10]</strong> TechCrunch — Salt Typhoon Global Impact Tracker (March 2026); Handala-Stryker attack attribution · techcrunch.com</div>
+      <div class="source-item"><strong>[SRC-11]</strong> RUSI — "Typhoons in Cyberspace: China's Evolving Cyber Strategy" (March 2025) · rusi.org</div>
+      <div class="source-item"><strong>[SRC-12]</strong> Office of the Director of National Intelligence — Annual Threat Assessment 2026 (ATA 2026) · dni.gov</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <div class="atb-footer">
+    <div>
+      <div class="footer-wordmark">LIBERTY <span>CTI</span></div>
+      <div style="font-family:'Share Tech Mono',monospace; font-size:0.6rem; color:var(--dim); margin-top:4px; letter-spacing:0.1em;">
+        ATB-2026-15 &nbsp;·&nbsp; 13 APRIL 2026 &nbsp;·&nbsp; libertycti.com
+      </div>
+    </div>
+    <div class="footer-legal">
+      UNCLASSIFIED // LIBERTY CTI PROPRIETARY<br>
+      This product is based entirely on open-source intelligence (OSINT). It contains no classified information. Produced using Liberty CTI Analytical Standards, aligned with accepted IC analytical practices. This product is intended for the exclusive use of the recipient organization and may not be redistributed without written authorization from Liberty CTI. All assessments represent analytic judgments at the time of production and are subject to revision as new information becomes available.<br><br>
+      © 2026 Liberty Cyber Threat Intelligence, LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; intel@libertycti.com
+    </div>
+  </div>
+
+</div><!-- /page -->
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:.82rem;font-weight:300;color:rgba(244,239,230,.45);line-height:1.75;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.5}
+.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.6;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.8rem;font-weight:300;color:rgba(244,239,230,.45);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#c0392b}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Courier Prime',monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(244,239,230,.25)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Executive decision support for organizations that need earlier warning, clearer priorities, and faster action before disruption hits.</p>
+      <div class="lcti-footer-slogan">Know the threat. Stay ready.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Decision Support</span>
+      <ul class="lcti-footer-links">
+        <li><a href="decision-support.html">Decision Support System</a></li>
+        <li><a href="04-12-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="texas-focus.html">Texas Overview</a></li>
+        <li><a href="energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="financial.html">Financial Services</a></li>
+        <li><a href="healthcare.html">Healthcare</a></li>
+        <li><a href="Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="briefing-request.html">Request Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2027 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
+</body>
+</html>
