@@ -1,182 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Liberty CTI | Strategic Cyber Threat Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --ink:        #080c10;
-  --navy:       #0d1520;
-  --paper:      #f4efe6;
-  --cream:      #ece7da;
-  --gold:       #b8963e;
-  --gold-light: #d4af62;
-  --red:        #8b1a1a;
-  --muted:      #6b6355;
-  --rule:       rgba(184,150,62,0.18);
-  --rule-dim:   rgba(184,150,62,0.08);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decision Support System — Liberty CTI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #080c10;
+      --navy: #0d1520;
+      --paper: #f4efe6;
+      --cream: #ece7da;
+      --gold: #b8963e;
+      --gold-light: #d4af62;
+      --red: #8b1a1a;
+      --muted: #6b6355;
+      --rule: rgba(184,150,62,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+  padding-top: 66px;
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 300;
+      background:
+        radial-gradient(ellipse at top right, rgba(184,150,62,0.08), transparent 40%),
+        var(--ink);
+      color: var(--paper);
+      padding: 6rem 1.5rem 2.5rem;
+      min-height: 100vh;
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.96); border-bottom: 1px solid var(--rule); }
+    .nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+    .nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+    .nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
+    .nav-wordmark span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
 
-body {
-  background: var(--ink);
-  color: var(--paper);
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+    /* FOOTER */
+    footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px solid var(--rule); margin-top: 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+    .footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+    .footer-emblem { width: 38px; object-fit: contain; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
+    .footer-brand span { color: var(--gold); }
+    .footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+    .footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.5rem; }
+    .footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+    .footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(184,150,62,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184,150,62,0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
-  pointer-events: none;
-  z-index: 0;
-}
+    .wrap { max-width: 1100px; margin: 0 auto; }
 
-/* NAV */
-nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.97); border-bottom: 1px solid var(--rule); }
-.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
-.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
-.nav-wordmark span { color: var(--gold); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.55); text-decoration: none; transition: color 0.25s; }
-.nav-links a:hover { color: var(--gold); }
-.nav-links a.active { color: var(--gold); }
-.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
-.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+    /* GRAPHIC CONTAINER */
+    .graphic {
+      background: linear-gradient(180deg, rgba(13,21,32,0.97), rgba(8,12,16,0.99));
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
 
-/* MAIN */
-main { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; padding-top: 66px; }
+    /* HEADER */
+    .header {
+      padding: 2.75rem 2.75rem 2rem;
+      border-bottom: 1px solid var(--rule);
+      background: linear-gradient(180deg, rgba(184,150,62,0.06), transparent 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .header-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; }
+    .header-text { flex: 1; }
+    .header-emblem-large { flex-shrink: 0; width: 160px; height: auto; display: block; filter: drop-shadow(0 8px 30px rgba(184,150,62,0.35)); opacity: 0.95; transition: transform 0.4s; }
+    .header-emblem-large:hover { transform: scale(1.04); }
 
-/* HERO */
-.hero { padding: 7rem 3rem 5rem; border-bottom: 1px solid var(--rule-dim); position: relative; overflow: hidden; }
-.hero::after { content: 'CONTACT'; position: absolute; right: -1rem; bottom: -2rem; font-family: 'Playfair Display', serif; font-size: 20vw; font-weight: 900; color: rgba(184,150,62,0.028); pointer-events: none; line-height: 1; white-space: nowrap; letter-spacing: -0.04em; }
-.hero-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-.hero-label { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards; }
-.hero-label::before { content: '// '; opacity: 0.55; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; line-height: 1.02; color: var(--paper); margin-bottom: 1.75rem; letter-spacing: -0.01em; opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards; }
-.hero h1 em { font-style: italic; color: var(--gold); }
-.hero-divider { width: 2.5rem; height: 1px; background: var(--gold); margin: 0 auto 1.75rem; opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards; }
-.hero-sub { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.6); line-height: 1.8; max-width: 520px; margin: 0 auto; opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards; }
+    .eyebrow {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .eyebrow::before { content: '// '; opacity: 0.6; }
 
-/* CONTACT BODY */
-.contact-body { flex: 1; padding: 6rem 3rem; position: relative; z-index: 1; }
-.contact-body-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 7rem; align-items: start; }
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--paper);
+      margin-bottom: 1rem;
+    }
+    .header h1 em { font-style: italic; color: var(--gold); }
 
-/* LEFT PANEL */
-.contact-meta { opacity: 0; animation: fadeUp 0.75s 0.5s ease forwards; }
-.meta-section { margin-bottom: 3rem; }
-.meta-section:last-child { margin-bottom: 0; }
-.meta-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(184,150,62,0.6); margin-bottom: 0.6rem; display: block; }
-.meta-label::before { content: '// '; opacity: 0.6; }
-.meta-value { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 400; color: var(--paper); line-height: 1.5; }
-.meta-value a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
-.meta-value a:hover { color: var(--gold-light); }
-.meta-note { font-size: 0.8rem; font-weight: 300; color: rgba(244,239,230,0.38); line-height: 1.65; margin-top: 0.5rem; }
-.meta-divider { width: 100%; height: 1px; background: var(--rule-dim); margin: 2.5rem 0; }
-.social-links-col { display: flex; flex-direction: column; gap: 0.4rem; }
-.social-links-col a { font-family: 'Instrument Sans', sans-serif; font-size: 0.82rem; font-weight: 300; color: var(--gold); text-decoration: none; transition: color 0.2s; }
-.social-links-col a:hover { color: var(--gold-light); }
+    .header-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(244,239,230,0.58);
+      line-height: 1.75;
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+    }
 
-/* FORM PANEL */
-.form-panel { opacity: 0; animation: fadeUp 0.75s 0.6s ease forwards; }
-.form-panel form { display: flex; flex-direction: column; gap: 0; }
+    .topline {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .topline-step {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(244,239,230,0.55);
+      font-weight: 400;
+    }
+    .topline-step.active { color: var(--paper); font-weight: 700; }
+    .topline-arrow { color: var(--gold); font-size: 0.85rem; opacity: 0.7; }
 
-.field-group { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule-dim); padding: 1.5rem 0; position: relative; transition: border-color 0.25s; }
-.field-group:first-child { border-top: 1px solid var(--rule-dim); }
-.field-group:focus-within { border-bottom-color: rgba(184,150,62,0.5); }
-.field-group:focus-within .field-label { color: var(--gold); }
+    /* STACK */
+    .stack {
+      padding: 2rem 2.25rem;
+      display: grid;
+      gap: 2px;
+      background: var(--rule);
+    }
 
-.field-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(244,239,230,0.32); margin-bottom: 0.5rem; transition: color 0.25s; }
-.field-required { color: var(--gold); margin-left: 1px; }
+    .card {
+      position: relative;
+      padding: 2.25rem 2.25rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 220px 240px;
+      gap: 2rem;
+      align-items: center;
+    }
+    .card.layer-1 { background: var(--navy); }
+    .card.layer-2 { background: rgba(11,16,24,0.98); }
+    .card.layer-3 { background: rgba(10,8,8,0.96); }
 
-input[type="text"],
-input[type="email"],
-textarea {
-  background: transparent;
-  border: none;
-  outline: none;
-  color: var(--paper);
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 300;
-  width: 100%;
-  padding: 0;
-  line-height: 1.6;
-  caret-color: var(--gold);
-}
-input::placeholder, textarea::placeholder { color: rgba(244,239,230,0.18); font-style: italic; }
-textarea { resize: none; min-height: 130px; line-height: 1.75; }
+    .card-accent-bar {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+    }
+    .layer-1 .card-accent-bar { background: linear-gradient(180deg, var(--gold), rgba(184,150,62,0.2)); }
+    .layer-2 .card-accent-bar { background: linear-gradient(180deg, rgba(184,150,62,0.6), rgba(184,150,62,0.1)); }
+    .layer-3 .card-accent-bar { background: linear-gradient(180deg, var(--red), rgba(139,26,26,0.2)); }
 
-.field-error { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.12em; color: #c0392b; margin-top: 0.4rem; display: none; }
-.field-group.has-error .field-error { display: block; }
-.field-group.has-error { border-bottom-color: rgba(192,57,43,0.4); }
+    .kicker {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      margin-bottom: 0.6rem;
+    }
+    .layer-1 .kicker { color: var(--gold); }
+    .layer-2 .kicker { color: rgba(184,150,62,0.7); }
+    .layer-3 .kicker { color: #c47a7a; }
 
-.form-actions { padding-top: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.form-note { font-size: 0.75rem; font-weight: 300; color: rgba(244,239,230,0.22); max-width: 300px; line-height: 1.6; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--paper);
+      margin-bottom: 0.75rem;
+    }
+    .card-title em { font-style: italic; }
+    .layer-1 .card-title em { color: var(--gold); }
+    .layer-3 .card-title em { color: #d98080; }
 
-.btn-send { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; background: var(--gold); color: var(--ink); border: none; padding: 1rem 2.25rem; cursor: pointer; transition: background 0.25s, transform 0.15s; flex-shrink: 0; }
-.btn-send:hover { background: var(--gold-light); }
-.btn-send:active { transform: scale(0.98); }
+    .card-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(244,239,230,0.52);
+      line-height: 1.7;
+    }
 
-/* CONFIRMATION */
-.confirmation { display: none; padding: 4rem 0 2rem; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.confirmation.visible { opacity: 1; transform: translateY(0); }
-.conf-rule { width: 2rem; height: 1px; background: var(--gold); margin-bottom: 2rem; }
-.conf-heading { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--paper); margin-bottom: 0.75rem; }
-.conf-body { font-size: 0.9rem; font-weight: 300; color: rgba(244,239,230,0.55); line-height: 1.8; max-width: 440px; }
-.conf-body strong { color: var(--paper); font-weight: 500; }
+    /* BULLETS */
+    .bullets {
+      display: grid;
+      gap: 2px;
+      background: var(--rule);
+    }
+    .bullet {
+      background: rgba(8,12,16,0.6);
+      padding: 0.65rem 0.9rem;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(244,239,230,0.55);
+      line-height: 1.3;
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    .bullet::before { content: '▸'; flex-shrink: 0; }
+    .layer-1 .bullet::before { color: var(--gold); }
+    .layer-2 .bullet::before { color: rgba(184,150,62,0.6); }
+    .layer-3 .bullet::before { color: #c47a7a; }
+    .bullet span { color: rgba(244,239,230,0.7); }
 
-/* FOOTER */
-footer { position: relative; z-index: 1; background: rgba(8,12,16,0.9); border-top: 1px solid var(--rule-dim); padding: 4rem 3rem 2.5rem; }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
-.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
-.footer-emblem { width: 36px; object-fit: contain; }
-.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
-.footer-brand span { color: var(--gold); }
-.footer-tagline { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.32); line-height: 1.65; max-width: 280px; }
-.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; opacity: 0.8; }
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 0.45rem; }
-.footer-links a { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.35); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--gold); }
-.footer-bottom { border-top: 1px solid rgba(244,239,230,0.05); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 0.5rem; }
-.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.12em; color: rgba(244,239,230,0.18); }
+    /* EXEC QUESTION */
+    .exec {
+      border: 1px solid var(--rule);
+      padding: 1.35rem 1.5rem;
+      background: rgba(8,12,16,0.4);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .exec-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .exec-question {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--paper);
+      line-height: 1.4;
+    }
+    .layer-3 .exec-question { color: #f0d0d0; }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    /* CONNECTOR ARROW */
+    .connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: var(--ink);
+      height: 28px;
+    }
+    .connector-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .connector-line::before,
+    .connector-line::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 60px;
+      background: var(--rule);
+    }
+    .connector-text {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(184,150,62,0.4);
+    }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .contact-body-inner { grid-template-columns: 1fr; gap: 4rem; }
-}
-@media (max-width: 640px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .hero { padding: 5rem 1.75rem 4rem; }
-  .contact-body { padding: 4rem 1.75rem; }
-  footer { padding: 3rem 1.75rem 2rem; }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .form-actions { flex-direction: column; align-items: flex-start; }
-  .btn-send { width: 100%; text-align: center; }
-}
+    /* INDUSTRIES */
+    .industries {
+      padding: 1.75rem 2.25rem;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+    .industries-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .industries-label::before { content: '// '; opacity: 0.6; }
+    .pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .pill {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(184,150,62,0.3);
+      padding: 0.3rem 0.8rem;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .pill:hover { background: rgba(184,150,62,0.08); border-color: var(--gold); }
 
+    /* FOOTER NOTE */
+    .footer-note {
+      padding: 1.25rem 2.25rem 1.75rem;
+      border-top: 1px solid rgba(184,150,62,0.08);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .footer-note-icon {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      opacity: 0.5;
+      font-size: 1rem;
+      flex-shrink: 0;
+      padding-top: 0.1rem;
+    }
+    .footer-note-text {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.06em;
+      color: rgba(244,239,230,0.3);
+      line-height: 1.65;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .exec { height: auto; }
+    }
+    @media (max-width: 600px) {
+      body { padding: 1.25rem 0.75rem; }
+      .header { padding: 2rem 1.5rem 1.5rem; }
+      .stack { padding: 1.5rem; gap: 1.5rem; background: transparent; }
+      .card { padding: 1.75rem 1.5rem; }
+      .industries { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem; }
+      .footer-note { padding: 1rem 1.5rem 1.5rem; }
+    }
+  
 /* RESPONSIVE + MOBILE NAV */
 img { max-width: 100%; height: auto; }
 body { overflow-x: hidden; }
@@ -738,7 +921,6 @@ body { overflow-x: hidden; }
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <!-- LCTI:NAV:START -->
 <style>
@@ -937,106 +1119,142 @@ body { overflow-x: hidden; }
 </script>
 <!-- LCTI:NAV:END -->
 
-<main>
+  <div class="wrap">
+    <div class="graphic">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <span class="hero-label">Liberty CTI · San Antonio, Texas</span>
-      <h1>Contact<br><em>Liberty CTI</em></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-sub">For general inquiries, speaking engagements, or partnership discussions.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT BODY -->
-  <section class="contact-body">
-    <div class="contact-body-inner">
-
-      <!-- LEFT -->
-      <div class="contact-meta">
-
-        <div class="meta-section">
-          <span class="meta-label">Direct Contact</span>
-          <div class="meta-value"><a href="/cdn-cgi/l/email-protection#0c65627869604c60656e697e78756f7865226f6361"><span class="__cf_email__" data-cfemail="eb82859f8e87ab8782898e999f92889f82c5888486">[email&#160;protected]</span></a></div>
-          <p class="meta-note">All messages are reviewed personally by the Liberty CTI principals.</p>
-        </div>
-
-        <div class="meta-divider"></div>
-
-        <div class="meta-section">
-          <span class="meta-label">Location</span>
-          <div class="meta-value">San Antonio, Texas</div>
-          <p class="meta-note">Serving clients across Texas and nationally.</p>
-        </div>
-
-        <div class="meta-divider"></div>
-
-        <div class="meta-section">
-          <span class="meta-label">Response Time</span>
-          <div class="meta-value">Within 48 Hours</div>
-          <p class="meta-note">Every inquiry receives a direct, personal response — no automated replies.</p>
-        </div>
-
-        <div class="meta-divider"></div>
-
-        <div class="meta-section">
-          <span class="meta-label">Follow</span>
-          <div class="social-links-col">
-            <a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://x.com/libertycti" target="_blank" rel="noopener noreferrer">X / Twitter</a>
-            <a href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
+      <!-- HEADER -->
+      <div class="header">
+        <div class="header-inner">
+          <div class="header-text">
+            <span class="eyebrow">Liberty CTI — San Antonio, Texas</span>
+            <h1>Decision Support<br><em>System</em></h1>
+            <p class="header-sub">Liberty CTI helps leadership monitor change, assess risk, and act before disruption forces reactive decisions.</p>
+            <div class="topline">
+              <span class="topline-step active">Monitor</span>
+              <span class="topline-arrow">→</span>
+              <span class="topline-step active">Assess</span>
+              <span class="topline-arrow">→</span>
+              <span class="topline-step active">Act</span>
+            </div>
           </div>
+          <img src="liberty-cti-emblem.png" alt="Liberty CTI Emblem" class="header-emblem-large">
         </div>
+      </div>
+
+      <!-- CARD STACK -->
+      <div class="stack">
+
+        <!-- LAYER 1 -->
+        <article class="card layer-1">
+          <div class="card-accent-bar"></div>
+          <div>
+            <div class="kicker">Monitor</div>
+            <div class="card-title">Alamo<br><em>Threat Brief</em></div>
+            <p class="card-desc">Weekly warning on what is changing across the threat environment and what leadership should watch now before external pressure becomes internal disruption.</p>
+          </div>
+          <div class="bullets">
+            <div class="bullet"><span>Weekly threat change detection</span></div>
+            <div class="bullet"><span>Adversary activity and targeting</span></div>
+            <div class="bullet"><span>Sector-specific watch points</span></div>
+            <div class="bullet"><span>Executive warning indicators</span></div>
+          </div>
+          <div class="exec">
+            <span class="exec-label">// Executive question answered</span>
+            <div class="exec-question">What is changing around us right now?</div>
+          </div>
+        </article>
+
+        <!-- LAYER 2 -->
+        <article class="card layer-2">
+          <div class="card-accent-bar"></div>
+          <div>
+            <div class="kicker">Assess</div>
+            <div class="card-title">Texas Threat<br><em>Outlook</em></div>
+            <p class="card-desc">Quarterly assessment of the risks most likely to shape major leadership decisions across Texas sectors, with emphasis on consequence, convergence, and where risk is moving next.</p>
+          </div>
+          <div class="bullets">
+            <div class="bullet"><span>6–12 month risk framing</span></div>
+            <div class="bullet"><span>Sector exposure assessment</span></div>
+            <div class="bullet"><span>Decision consequence analysis</span></div>
+            <div class="bullet"><span>Priority risk judgments</span></div>
+          </div>
+          <div class="exec">
+            <span class="exec-label">// Executive question answered</span>
+            <div class="exec-question">What risk matters most over the next 6–12 months?</div>
+          </div>
+        </article>
+
+        <!-- LAYER 3 -->
+        <article class="card layer-3">
+          <div class="card-accent-bar"></div>
+          <div>
+            <div class="kicker">Act</div>
+            <div class="card-title">Sector<br><em>Assessments</em></div>
+            <p class="card-desc">Focused support for leaders making decisions in a specific sector, exposure set, or operating environment where the cost of getting it wrong is too high for generic advice.</p>
+          </div>
+          <div class="bullets">
+            <div class="bullet"><span>Sector-specific risk reduction</span></div>
+            <div class="bullet"><span>Leadership decision support</span></div>
+            <div class="bullet"><span>Exposure-based recommendations</span></div>
+            <div class="bullet"><span>Focused resilience planning</span></div>
+          </div>
+          <div class="exec">
+            <span class="exec-label">// Executive question answered</span>
+            <div class="exec-question">What should we do before this becomes our problem?</div>
+          </div>
+        </article>
 
       </div>
 
-      <!-- RIGHT: FORM -->
-      <div class="form-panel">
 
-        <form id="contact-form" novalidate>
-
-          <div class="field-group" id="fg-name">
-            <label class="field-label" for="full-name">Full Name <span class="field-required">*</span></label>
-            <input type="text" id="full-name" name="full-name" placeholder="Your full name" autocomplete="name">
-            <span class="field-error">Please enter your name.</span>
-          </div>
-
-          <div class="field-group" id="fg-org">
-            <label class="field-label" for="organization">Organization</label>
-            <input type="text" id="organization" name="organization" placeholder="Company or organization" autocomplete="organization">
-          </div>
-
-          <div class="field-group" id="fg-email">
-            <label class="field-label" for="email">Email Address <span class="field-required">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@organization.com" autocomplete="email">
-            <span class="field-error">Please enter a valid email address.</span>
-          </div>
-
-          <div class="field-group" id="fg-message">
-            <label class="field-label" for="message">Message <span class="field-required">*</span></label>
-            <textarea id="message" name="message" placeholder="How can we help?"></textarea>
-            <span class="field-error">Please include a message.</span>
-          </div>
-
-          <div class="form-actions">
-            <p class="form-note">Your information is never shared or sold. This message goes directly to the Liberty CTI principals.</p>
-            <button type="submit" class="btn-send">Send Message</button>
-          </div>
-
-        </form>
-
-        <div class="confirmation" id="confirmation">
-          <div class="conf-rule"></div>
-          <div class="conf-heading">Message Received.</div>
-          <p class="conf-body">Thank you for reaching out. <strong>You will receive a personal response within 48 hours.</strong> We look forward to the conversation.</p>
-        </div>
-
+      <div class="connector">
+        <div class="connector-line"><span class="connector-text">Use each product when</span></div>
       </div>
-    </div>
-  </section>
 
-</main>
+      <div class="stack" style="padding-top:0;">
+        <article class="card layer-1" style="grid-template-columns: 180px 1fr;">
+          <div>
+            <div class="kicker">ATB</div>
+            <div class="card-title" style="font-size:1.1rem;">Use it when</div>
+          </div>
+          <div class="card-desc">Leadership needs weekly warning on what is changing and what deserves immediate attention.</div>
+        </article>
+        <article class="card layer-2" style="grid-template-columns: 180px 1fr;">
+          <div>
+            <div class="kicker">Outlook</div>
+            <div class="card-title" style="font-size:1.1rem;">Use it when</div>
+          </div>
+          <div class="card-desc">Leadership is preparing for larger strategic decisions and needs a clearer view of external risk.</div>
+        </article>
+        <article class="card layer-3" style="grid-template-columns: 180px 1fr;">
+          <div>
+            <div class="kicker">Assessment</div>
+            <div class="card-title" style="font-size:1.1rem;">Use it when</div>
+          </div>
+          <div class="card-desc">Leadership needs focused support tied to a specific sector, exposure set, or business decision.</div>
+        </article>
+      </div>
+
+      <!-- INDUSTRIES -->
+      <div class="industries">
+        <div class="industries-label">Industries Protected</div>
+        <div class="pills">
+          <div class="pill">Energy</div>
+          <div class="pill">Finance</div>
+          <div class="pill">Healthcare</div>
+          <div class="pill">Defense</div>
+          <div class="pill">AI / Data Centers</div>
+        </div>
+      </div>
+
+      <!-- FOOTER NOTE -->
+      <div class="footer-note">
+        <div class="footer-note-icon">◈</div>
+        <div class="footer-note-text">Liberty CTI combines national security-grade analysis with Texas sector knowledge to help leaders understand what is changing, what matters, and what to do next.</div>
+      </div>
+
+    </div>
+  </div>
 
 <!-- FOOTER -->
 <!-- LCTI:FOOTER:START -->
@@ -1113,42 +1331,6 @@ body { overflow-x: hidden; }
   </div>
 </footer>
 <!-- LCTI:FOOTER:END -->
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const form = document.getElementById('contact-form');
-  const confirmation = document.getElementById('confirmation');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name    = document.getElementById('full-name');
-    const email   = document.getElementById('email');
-    const message = document.getElementById('message');
-    let valid = true;
-
-    const fgName = document.getElementById('fg-name');
-    if (!name.value.trim()) { fgName.classList.add('has-error'); valid = false; }
-    else { fgName.classList.remove('has-error'); }
-
-    const fgEmail = document.getElementById('fg-email');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { fgEmail.classList.add('has-error'); valid = false; }
-    else { fgEmail.classList.remove('has-error'); }
-
-    const fgMessage = document.getElementById('fg-message');
-    if (!message.value.trim()) { fgMessage.classList.add('has-error'); valid = false; }
-    else { fgMessage.classList.remove('has-error'); }
-
-    if (!valid) return;
-
-    form.style.display = 'none';
-    confirmation.style.display = 'block';
-    requestAnimationFrame(() => requestAnimationFrame(() => confirmation.classList.add('visible')));
-  });
-
-  document.querySelectorAll('input, textarea').forEach(el => {
-    el.addEventListener('input', function() { this.closest('.field-group').classList.remove('has-error'); });
-  });
-</script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var nav = document.querySelector('.nav-links') || document.querySelector('.site-nav-links');
