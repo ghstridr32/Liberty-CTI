@@ -20,33 +20,113 @@
 body {
   background:#080c10;
   color:#f4efe6;
-  font-family:Arial, sans-serif;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100vh;
-  text-align:center;
+  font-family:'Instrument Sans', Arial, sans-serif;
+  min-height:100vh;
+  margin:0;
+  overflow-x:hidden;
 }
 .container {
-  max-width:600px;
+  min-height:calc(100vh - 68px);
+  max-width:760px;
+  margin:0 auto;
+  padding:10rem 2rem 5rem;
+  text-align:left;
+  position:relative;
+}
+.container::before {
+  content:'RECEIVED';
+  position:absolute;
+  right:-3rem;
+  top:8rem;
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:11rem;
+  font-weight:900;
+  color:rgba(184,150,62,0.035);
+  pointer-events:none;
+  line-height:1;
+  z-index:-1;
+}
+.eyebrow {
+  font-family:'Courier Prime', monospace;
+  font-size:.68rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#b8963e;
+  margin-bottom:1.5rem;
+  display:block;
 }
 h1 {
-  font-size:2rem;
-  margin-bottom:1rem;
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:clamp(2.4rem,5vw,4.25rem);
+  font-weight:900;
+  line-height:1.05;
+  margin:0 0 1rem;
+}
+.rule {
+  width:3rem;
+  height:1px;
+  background:#b8963e;
+  margin:1.5rem 0;
 }
 p {
-  opacity:0.7;
-  line-height:1.6;
+  color:rgba(244,239,230,.68);
+  font-size:1rem;
+  line-height:1.8;
+  max-width:620px;
+  margin:0 0 1rem;
 }
-a {
-  display:inline-block;
+.next-panel {
   margin-top:2rem;
+  border:1px solid rgba(184,150,62,.18);
+  border-left:3px solid #b8963e;
+  background:rgba(184,150,62,.045);
+  padding:1.25rem 1.4rem;
+  max-width:620px;
+}
+.next-panel-title {
+  font-family:'Courier Prime', monospace;
+  font-size:.62rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#b8963e;
+  margin-bottom:.75rem;
+}
+.next-panel ul {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:.55rem;
+}
+.next-panel li {
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:.6rem;
+  color:rgba(244,239,230,.72);
+  line-height:1.55;
+}
+.next-panel li::before {
+  content:'•';
+  color:#b8963e;
+}
+.actions {
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-top:2rem;
+}
+.container a {
+  display:inline-block;
   color:#b8963e;
   text-decoration:none;
   border:1px solid #b8963e;
-  padding:10px 20px;
+  padding:.85rem 1.35rem;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
 }
-a:hover {
+.container a:hover {
   background:#b8963e;
   color:#080c10;
 }
@@ -622,9 +702,22 @@ svg{
   </ul>
 </nav>
 <div class="container">
-  <h1>Request Received</h1>
-  <p>Your briefing request has been submitted. Liberty CTI will follow up within 48 hours.</p>
-  <a href="index.html">Return to Homepage</a>
+  <span class="eyebrow">// Liberty CTI Request Desk</span>
+  <h1>Request Received.</h1>
+  <div class="rule"></div>
+  <p>Your decision support request has been submitted. Liberty CTI will review the requirement and follow up within 48 hours to scope the appropriate product, briefing, or advisory engagement.</p>
+  <div class="next-panel">
+    <div class="next-panel-title">What Happens Next</div>
+    <ul>
+      <li>Your request is reviewed by the Liberty CTI principals.</li>
+      <li>We align the request to your sector, decision point, and urgency.</li>
+      <li>You receive a direct follow-up to confirm scope and next steps.</li>
+    </ul>
+  </div>
+  <div class="actions">
+    <a href="index.html">Return Home</a>
+    <a href="briefing-request.html">Submit Another Request</a>
+  </div>
 </div>
 
 <script>
