@@ -173,7 +173,7 @@
     /* Headshot placeholder */
     .leader-photo {
       width: 100%;
-      aspect-ratio: 4 / 4.65;
+      aspect-ratio: 4 / 3.1;
       background: var(--navy);
       border-bottom: 1px solid var(--rule);
       position: relative;
@@ -407,7 +407,25 @@ svg{
   .stat-bar,
   .intel-strip,
   .cred-strip-inner{
+    display:grid !important;
     grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:0 !important;
+  }
+  .intel-sep,
+  .stat-sep,
+  .cred-sep{
+    display:none !important;
+  }
+  .intel-item,
+  .stat,
+  .cred-item{
+    min-width:0 !important;
+  }
+  .intel-item{
+    justify-content:flex-start !important;
+    padding:1rem 1.1rem !important;
+    border-right:1px solid rgba(184,150,62,0.16);
+    border-bottom:1px solid rgba(184,150,62,0.16);
   }
 }
 @media(max-width:768px){
@@ -459,10 +477,14 @@ svg{
 }
 @media(max-width:520px){
   :where(.stat-bar,.intel-strip,.cred-strip-inner){
+    display:grid !important;
     grid-template-columns:1fr !important;
   }
-  :where(.stat,.intel-card,.cred-item){
+  :where(.stat,.intel-card,.cred-item,.intel-item){
     border-right:0 !important;
+  }
+  :where(.intel-item){
+    padding:1rem 0 !important;
   }
   :where(.page-hero,.hero){
     min-height:auto !important;
