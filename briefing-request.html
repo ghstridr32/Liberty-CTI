@@ -136,6 +136,115 @@ nav {
 .hero-meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
 .hero-meta-label { font-family: 'Courier Prime', monospace; font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(184,150,62,0.55); }
 .hero-meta-value { font-size: 0.82rem; font-weight: 400; color: rgba(244,239,230,0.65); }
+.decision-brief {
+  margin-top: 2rem;
+  max-width: 760px;
+  border: 1px solid rgba(184,150,62,0.18);
+  border-left: 3px solid var(--gold);
+  background: linear-gradient(90deg, rgba(184,150,62,0.075), rgba(14,26,46,0.42));
+  padding: 1.35rem 1.5rem 1.45rem;
+}
+.decision-brief-lede {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(244,239,230,0.68);
+  line-height: 1.78;
+  max-width: 680px;
+}
+.decision-brief-lede strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+.decision-brief-divider {
+  height: 1px;
+  background: rgba(184,150,62,0.18);
+  margin: 1.2rem 0 1rem;
+}
+.decision-prompt {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(184,150,62,0.72);
+  margin-bottom: 0.85rem;
+}
+.decision-questions {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+.decision-questions li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: baseline;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(244,239,230,0.84);
+  line-height: 1.45;
+}
+.decision-questions li::before {
+  content: '•';
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] {
+  margin-top: 2rem !important;
+  max-width: 760px !important;
+  border: 1px solid rgba(184,150,62,0.18) !important;
+  border-left: 3px solid var(--gold) !important;
+  background: linear-gradient(90deg, rgba(184,150,62,0.075), rgba(14,26,46,0.42)) !important;
+  padding: 1.35rem 1.5rem 1.45rem !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] p {
+  font-size: 0.95rem !important;
+  color: rgba(244,239,230,0.68) !important;
+  line-height: 1.78 !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] strong {
+  color: var(--paper) !important;
+  font-weight: 600 !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] {
+  max-width: 760px !important;
+  margin-top: 0 !important;
+  padding: 0 1.5rem 1.45rem !important;
+  border: 1px solid rgba(184,150,62,0.18) !important;
+  border-top: 0 !important;
+  border-left: 3px solid var(--gold) !important;
+  background: linear-gradient(90deg, rgba(184,150,62,0.075), rgba(14,26,46,0.42)) !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] p {
+  border-top: 1px solid rgba(184,150,62,0.18);
+  padding-top: 1rem;
+  margin-bottom: 0.85rem !important;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(184,150,62,0.72) !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] ul {
+  display: grid;
+  gap: 0.55rem;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: baseline;
+  margin-bottom: 0 !important;
+  font-size: 0.92rem !important;
+  color: rgba(244,239,230,0.84) !important;
+  line-height: 1.45;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] li::before {
+  content: '•';
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+}
 
 /* ── FORM LAYOUT ── */
 .form-body {
@@ -412,6 +521,14 @@ footer {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .hero { padding: 4.5rem 1.75rem 3.5rem; }
+  .decision-brief { padding: 1.15rem 1.1rem 1.25rem; }
+  .decision-brief-lede { font-size: 0.9rem; }
+  .decision-questions li { font-size: 0.9rem; }
+  .hero-inner > div[style*="margin-top:1.75rem"],
+  .hero-inner > div[style*="margin-top:1.5rem"] {
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
   .form-body { padding: 3.5rem 1.75rem 5rem; }
   footer { padding: 3rem 1.75rem 2rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
