@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -49,7 +49,7 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 /* Dropdown */
 .nav-dropdown { position: relative; }
 .nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
-.nav-dropdown > a::after { content: '▾'; font-size: 0.6rem; opacity: 0.6; }
+.nav-dropdown > a::after { content: 'â–¾'; font-size: 0.6rem; opacity: 0.6; }
 .dropdown-menu { display: none; position: absolute; top: calc(100% + 0.75rem); left: 50%; transform: translateX(-50%); background: rgba(8,12,16,0.98); border: 1px solid var(--rule); min-width: 220px; z-index: 200; padding: 0.5rem 0; }
 .nav-dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu a { display: block; padding: 0.65rem 1.25rem; font-size: 0.68rem; letter-spacing: 0.16em; color: rgba(244,239,230,0.6); white-space: nowrap; border-bottom: 1px solid rgba(184,150,62,0.08); }
@@ -66,7 +66,7 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.9
 h2 em { font-style: italic; color: var(--red); }
 .lead { font-size: 1rem; font-weight: 300; line-height: 1.82; color: rgba(244,239,230,0.58); max-width: 680px; }
 
-/* HERO — sector pages */
+/* HERO â€” sector pages */
 .hero-sector { padding-top: 80px; min-height: 60vh; display: flex; align-items: flex-end; position: relative; overflow: hidden; background: var(--navy); }
 .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.04) 1px, transparent 1px); background-size: 52px 52px; }
 .hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 78% 28%, rgba(139,26,26,0.1) 0%, transparent 52%), radial-gradient(ellipse at 18% 75%, rgba(184,150,62,0.06) 0%, transparent 45%); }
@@ -613,9 +613,9 @@ svg{
     <div class="hero-rule"></div>
     <p class="hero-lede">The Texas Medical Center serves more than 10 million patients annually and represents the world's largest medical complex. Texas healthcare includes major hospital districts, extensive outpatient networks, clearinghouse dependencies, and a regulatory environment layered across federal HIPAA, HHS OCR, and Texas-specific reporting obligations. Ransomware has diverted patients. Clearinghouse disruption has created provider cash flow crises. The threat is operational, not theoretical.</p>
     <div class="risk-badges">
-      <span class="risk-badge very-high">● Likelihood: High</span>
-      <span class="risk-badge very-high">● Impact: High to Very High</span>
-      <span class="risk-badge very-high">● Criticality: High</span>
+      <span class="risk-badge very-high">â— Likelihood: High</span>
+      <span class="risk-badge very-high">â— Impact: High to Very High</span>
+      <span class="risk-badge very-high">â— Criticality: High</span>
     </div>
   </div>
 </section>
@@ -636,12 +636,12 @@ svg{
   <div class="sec-inner">
     <span class="sec-eyebrow reveal">What Adversaries Are Targeting</span>
     <h2 class="reveal">Crown Jewels of <em>Texas Healthcare</em></h2>
-    <p class="lead reveal" style="margin-top:0.75rem;">Healthcare adversaries target operational availability — not just data. The leverage in a hospital ransomware attack is the inability to absorb downtime, not the value of the records themselves.</p>
+    <p class="lead reveal" style="margin-top:0.75rem;">Healthcare adversaries target operational availability â€” not just data. The leverage in a hospital ransomware attack is the inability to absorb downtime, not the value of the records themselves.</p>
     <div class="jewel-grid">
       <div class="jewel-card reveal">
         <div class="jewel-label">Clinical Availability</div>
         <h3>ED, ICU &amp; Surgical Scheduling Systems</h3>
-        <p>Emergency department operations, intensive care workflows, and surgical scheduling represent the life-safety dimension of healthcare cyber risk. Patient diversion during system downtime creates quantifiable harm — and a uniquely powerful coercion instrument.</p>
+        <p>Emergency department operations, intensive care workflows, and surgical scheduling represent the life-safety dimension of healthcare cyber risk. Patient diversion during system downtime creates quantifiable harm â€” and a uniquely powerful coercion instrument.</p>
       </div>
       <div class="jewel-card reveal d1">
         <div class="jewel-label">Health Records</div>
@@ -651,12 +651,12 @@ svg{
       <div class="jewel-card reveal d2">
         <div class="jewel-label">Revenue Cycle</div>
         <h3>Claims Submission &amp; Clearinghouse Dependencies</h3>
-        <p>Revenue cycle disruption — as demonstrated by Change Healthcare — converts a cyber event into a provider cash flow crisis. Hospitals operating on thin margins face existential solvency pressure when claims cannot be submitted or reimbursements cannot be received.</p>
+        <p>Revenue cycle disruption â€” as demonstrated by Change Healthcare â€” converts a cyber event into a provider cash flow crisis. Hospitals operating on thin margins face existential solvency pressure when claims cannot be submitted or reimbursements cannot be received.</p>
       </div>
       <div class="jewel-card reveal">
         <div class="jewel-label">Protected Data</div>
-        <h3>PHI / PII — Monetized &amp; Weaponized</h3>
-        <p>Protected health information commands premium value in criminal markets because it combines medical, financial, and identity data in a single record. PHI breach creates fraud exposure for patients that persists for years — including medical identity theft that endangers future care.</p>
+        <h3>PHI / PII â€” Monetized &amp; Weaponized</h3>
+        <p>Protected health information commands premium value in criminal markets because it combines medical, financial, and identity data in a single record. PHI breach creates fraud exposure for patients that persists for years â€” including medical identity theft that endangers future care.</p>
       </div>
       <div class="jewel-card reveal d1">
         <div class="jewel-label">Third Parties</div>
@@ -666,7 +666,7 @@ svg{
       <div class="jewel-card reveal d2">
         <div class="jewel-label">Regulated Reporting</div>
         <h3>Breach Response &amp; Compliance Capacity</h3>
-        <p>Texas healthcare organizations face layered reporting obligations — HIPAA/HHS OCR, Texas ITEPA, and sector-specific statutes. Incident response capability that fails under pressure creates regulatory exposure that compounds the operational impact of the breach itself.</p>
+        <p>Texas healthcare organizations face layered reporting obligations â€” HIPAA/HHS OCR, Texas ITEPA, and sector-specific statutes. Incident response capability that fails under pressure creates regulatory exposure that compounds the operational impact of the breach itself.</p>
       </div>
     </div>
   </div>
@@ -677,27 +677,27 @@ svg{
   <div class="sec-inner">
     <span class="sec-eyebrow reveal">Active Adversaries</span>
     <h2 class="reveal" style="color:var(--paper);">Who Is Targeting Texas Healthcare</h2>
-    <p class="lead reveal" style="margin-top:0.75rem; color:rgba(244,239,230,0.5);">Healthcare threat actors span criminal ecosystems exploiting monetization opportunities and nation-state actors using healthcare infrastructure as coercive leverage — with shared vendors creating systemic exposure across both threat populations.</p>
+    <p class="lead reveal" style="margin-top:0.75rem; color:rgba(244,239,230,0.5);">Healthcare threat actors span criminal ecosystems exploiting monetization opportunities and nation-state actors using healthcare infrastructure as coercive leverage â€” with shared vendors creating systemic exposure across both threat populations.</p>
     <div class="actor-grid">
       <div class="actor-card reveal">
         <div class="actor-origin">Criminal Ecosystem</div>
         <div class="actor-name">Ransomware Groups (ALPHV/BlackCat, Qilin)</div>
-        <p>Financially motivated actors treating healthcare as a premium target because of the operational leverage created by downtime and the monetization value of PHI. Double and triple extortion tactics — encrypt, exfiltrate, and threaten public disclosure — are now standard methodology.</p>
+        <p>Financially motivated actors treating healthcare as a premium target because of the operational leverage created by downtime and the monetization value of PHI. Double and triple extortion tactics â€” encrypt, exfiltrate, and threaten public disclosure â€” are now standard methodology.</p>
       </div>
       <div class="actor-card reveal d1">
-        <div class="actor-origin">Iran · State-Aligned</div>
+        <div class="actor-origin">Iran Â· State-Aligned</div>
         <div class="actor-name">IRGC-CY / Handala</div>
-        <p>Iran-affiliated Handala targeted Stryker's medical device supply chain in March 2026 as geopolitical coercion — the first major U.S. healthcare supply chain strike since U.S.-Iran hostilities escalated. Handala prefers high-visibility targets with downstream hospital dependencies, timed to U.S. military operational tempo.</p>
+        <p>Iran-affiliated Handala targeted Stryker's medical device supply chain in March 2026 as geopolitical coercion â€” the first major U.S. healthcare supply chain strike since U.S.-Iran hostilities escalated. Handala prefers high-visibility targets with downstream hospital dependencies, timed to U.S. military operational tempo.</p>
       </div>
       <div class="actor-card reveal d2">
-        <div class="actor-origin">PRC · Nation-State</div>
+        <div class="actor-origin">PRC Â· Nation-State</div>
         <div class="actor-name">PRC-Affiliated APT Actors</div>
-        <p>Nation-state actors targeting U.S. healthcare through shared vendor and infrastructure dependencies — not direct hospital intrusion. Pre-positioning activity in healthcare networks provides persistent intelligence collection capability and potential contingency leverage aligned to broader critical infrastructure targeting.</p>
+        <p>Nation-state actors targeting U.S. healthcare through shared vendor and infrastructure dependencies â€” not direct hospital intrusion. Pre-positioning activity in healthcare networks provides persistent intelligence collection capability and potential contingency leverage aligned to broader critical infrastructure targeting.</p>
       </div>
       <div class="actor-card reveal d3">
         <div class="actor-origin">Insider</div>
         <div class="actor-name">Insider Misuse</div>
-        <p>Employee and contractor misuse of privileged access to patient data and benefits systems represents a documented and recurring threat. Texas HHSC's 2025 privacy breach — affecting Medicaid and SNAP recipients — was caused by insider employee misuse, illustrating that the perimeter is not always the attack surface.</p>
+        <p>Employee and contractor misuse of privileged access to patient data and benefits systems represents a documented and recurring threat. Texas HHSC's 2025 privacy breach â€” affecting Medicaid and SNAP recipients â€” was caused by insider employee misuse, illustrating that the perimeter is not always the attack surface.</p>
       </div>
     </div>
   </div>
@@ -708,51 +708,51 @@ svg{
   <div class="sec-inner">
     <span class="sec-eyebrow reveal">Incident Record</span>
     <h2 class="reveal" style="color:var(--paper);">Texas Healthcare: What Has <em>Already Happened</em></h2>
-    <p class="lead reveal" style="margin-top:0.75rem; color:rgba(244,239,230,0.5);">The following vignettes are drawn from primary notices, government records, and provider disclosures. The pattern is consistent: ransomware, third-party clearinghouse dependency, and insider misuse — with Texas providers and patients bearing the operational consequence.</p>
+    <p class="lead reveal" style="margin-top:0.75rem; color:rgba(244,239,230,0.5);">The following vignettes are drawn from primary notices, government records, and provider disclosures. The pattern is consistent: ransomware, third-party clearinghouse dependency, and insider misuse â€” with Texas providers and patients bearing the operational consequence.</p>
     <div class="vignette-grid">
       <div class="vignette reveal">
-        <div class="vignette-timing">Feb–May 2024<br>National / Texas Impact</div>
+        <div class="vignette-timing">Janâ€“Mar 2026<br>Nacogdoches</div>
         <div class="vignette-body">
-          <h3>Change Healthcare Ransomware — Texas Provider Cashflow Crisis</h3>
-          <p>Change Healthcare clearinghouse functions were taken offline after discovery on February 21, 2024, disrupting claims processing and payment infrastructure nationally. Texas providers' revenue cycle operations were directly impacted — delayed claims, pharmacy and eligibility disruptions, and cashflow stress across provider networks dependent on Change Healthcare's clearing functions.</p>
-          <div class="vignette-impact">Texas operational impact: Provider cashflow disruption; delayed claims; pharmacy and eligibility disruption risk. The incident exposed the systemic dependency of Texas healthcare on a single clearinghouse and demonstrated how a cyber event at a vendor becomes a financial crisis for every organization that depends on it.</div>
-          <div class="vignette-attr">Attribution: Russian-linked ransomware gang per government and oversight summaries</div>
-        </div>
-      </div>
-      <div class="vignette reveal">
-        <div class="vignette-timing">Sep–Nov 2024<br>Lubbock</div>
-        <div class="vignette-body">
-          <h3>UMC Health System Ransomware — Patient Diversion</h3>
-          <p>UMC Health System (Lubbock County Hospital District) disclosed a ransomware incident with an unauthorized access window from September 16–26. The system was forced to divert patients to other regional facilities during the operational disruption — a direct patient safety consequence documented in primary disclosure materials.</p>
-          <div class="vignette-impact">Texas operational impact: Patient diversions and operational disruption during outage; PHI exposure and notification campaign. Patient diversion during ransomware outage is not an abstract risk — it is documented operational reality in Texas healthcare, with measurable patient care consequences.</div>
-          <div class="vignette-attr">Attribution: Not publicly attributed in primary notice; reported as ransomware</div>
-        </div>
-      </div>
-      <div class="vignette reveal">
-        <div class="vignette-timing">May–Jun 2024<br>Multi-State / Texas</div>
-        <div class="vignette-body">
-          <h3>Ascension Cyber Incident — Major System Disruption</h3>
-          <p>Ascension Health experienced ransomware-driven disruption across its health system — including Ascension Seton, which operates significant Texas facilities. The incident created service disruption and recovery burden across clinical and administrative workflows, with Ascension Seton's Texas operations directly affected.</p>
-          <div class="vignette-impact">Texas operational impact: Elevated risk to clinical and administrative workflows across Ascension Seton's Texas facilities. The incident demonstrates how a single ransomware campaign against a multi-state health system creates simultaneous operational impact across all geographic footprints.</div>
-          <div class="vignette-attr">Attribution: Publicly reported as ransomware; specific attribution varies by reporting stream</div>
+          <h3>Nacogdoches Memorial Hospital â€” 2026 Cyberattack</h3>
+          <p>Nacogdoches Memorial Hospital identified a cyberattack on January 31, 2026, with activity dating to January 15. Patient data impact was reported through the Texas Attorney General substitute notice pathway. The incident represents the most recent documented Texas hospital cyber event in Liberty CTI's tracking baseline.</p>
+          <div class="vignette-impact">Texas operational impact: Large-scale PHI/PII exposure risk; downstream fraud and medical identity theft risk; reputational and compliance impact for a regional Texas hospital serving a rural population with limited alternative care options.</div>
+          <div class="vignette-attr">Attribution: Not publicly attributed in notice pathway</div>
         </div>
       </div>
       <div class="vignette reveal">
         <div class="vignette-timing">Jan 2025 / Apr 2025 Update<br>Austin</div>
         <div class="vignette-body">
-          <h3>Texas HHSC Privacy Breach — Insider Misuse at Scale</h3>
-          <p>Texas Health and Human Services Commission disclosed a privacy breach caused by employee misuse — improper access to benefits recipients' data. An April 2025 follow-on release expanded the affected population estimate. The incident impacted Medicaid, SNAP, and other benefits recipients — state residents at their most vulnerable.</p>
-          <div class="vignette-impact">Texas operational impact: Direct impact to Medicaid and SNAP recipients; fraud monitoring needs; trust and governance implications for state health administration. The incident illustrates that the most consequential healthcare breaches are not always external attacks — insider access governance is a primary control plane.</div>
-          <div class="vignette-attr">Attribution: Insider employee misuse — not external actor</div>
+          <h3>Texas HHSC Privacy Breach â€” Insider Misuse at Scale</h3>
+          <p>Texas Health and Human Services Commission disclosed a privacy breach caused by employee misuse â€” improper access to benefits recipients' data. An April 2025 follow-on release expanded the affected population estimate. The incident impacted Medicaid, SNAP, and other benefits recipients â€” state residents at their most vulnerable.</p>
+          <div class="vignette-impact">Texas operational impact: Direct impact to Medicaid and SNAP recipients; fraud monitoring needs; trust and governance implications for state health administration. The incident illustrates that the most consequential healthcare breaches are not always external attacks â€” insider access governance is a primary control plane.</div>
+          <div class="vignette-attr">Attribution: Insider employee misuse â€” not external actor</div>
         </div>
       </div>
       <div class="vignette reveal">
-        <div class="vignette-timing">Jan–Mar 2026<br>Nacogdoches</div>
+        <div class="vignette-timing">Sepâ€“Nov 2024<br>Lubbock</div>
         <div class="vignette-body">
-          <h3>Nacogdoches Memorial Hospital — 2026 Cyberattack</h3>
-          <p>Nacogdoches Memorial Hospital identified a cyberattack on January 31, 2026, with activity dating to January 15. Patient data impact was reported through the Texas Attorney General substitute notice pathway. The incident represents the most recent documented Texas hospital cyber event in Liberty CTI's tracking baseline.</p>
-          <div class="vignette-impact">Texas operational impact: Large-scale PHI/PII exposure risk; downstream fraud and medical identity theft risk; reputational and compliance impact for a regional Texas hospital serving a rural population with limited alternative care options.</div>
-          <div class="vignette-attr">Attribution: Not publicly attributed in notice pathway</div>
+          <h3>UMC Health System Ransomware â€” Patient Diversion</h3>
+          <p>UMC Health System (Lubbock County Hospital District) disclosed a ransomware incident with an unauthorized access window from September 16â€“26. The system was forced to divert patients to other regional facilities during the operational disruption â€” a direct patient safety consequence documented in primary disclosure materials.</p>
+          <div class="vignette-impact">Texas operational impact: Patient diversions and operational disruption during outage; PHI exposure and notification campaign. Patient diversion during ransomware outage is not an abstract risk â€” it is documented operational reality in Texas healthcare, with measurable patient care consequences.</div>
+          <div class="vignette-attr">Attribution: Not publicly attributed in primary notice; reported as ransomware</div>
+        </div>
+      </div>
+      <div class="vignette reveal">
+        <div class="vignette-timing">Mayâ€“Jun 2024<br>Multi-State / Texas</div>
+        <div class="vignette-body">
+          <h3>Ascension Cyber Incident â€” Major System Disruption</h3>
+          <p>Ascension Health experienced ransomware-driven disruption across its health system â€” including Ascension Seton, which operates significant Texas facilities. The incident created service disruption and recovery burden across clinical and administrative workflows, with Ascension Seton's Texas operations directly affected.</p>
+          <div class="vignette-impact">Texas operational impact: Elevated risk to clinical and administrative workflows across Ascension Seton's Texas facilities. The incident demonstrates how a single ransomware campaign against a multi-state health system creates simultaneous operational impact across all geographic footprints.</div>
+          <div class="vignette-attr">Attribution: Publicly reported as ransomware; specific attribution varies by reporting stream</div>
+        </div>
+      </div>
+      <div class="vignette reveal">
+        <div class="vignette-timing">Febâ€“May 2024<br>National / Texas Impact</div>
+        <div class="vignette-body">
+          <h3>Change Healthcare Ransomware â€” Texas Provider Cashflow Crisis</h3>
+          <p>Change Healthcare clearinghouse functions were taken offline after discovery on February 21, 2024, disrupting claims processing and payment infrastructure nationally. Texas providers' revenue cycle operations were directly impacted â€” delayed claims, pharmacy and eligibility disruptions, and cashflow stress across provider networks dependent on Change Healthcare's clearing functions.</p>
+          <div class="vignette-impact">Texas operational impact: Provider cashflow disruption; delayed claims; pharmacy and eligibility disruption risk. The incident exposed the systemic dependency of Texas healthcare on a single clearinghouse and demonstrated how a cyber event at a vendor becomes a financial crisis for every organization that depends on it.</div>
+          <div class="vignette-attr">Attribution: Russian-linked ransomware gang per government and oversight summaries</div>
         </div>
       </div>
     </div>
@@ -765,9 +765,9 @@ svg{
     <span class="sec-eyebrow reveal">Liberty CTI Assessment</span>
     <h2 class="reveal" style="color:var(--paper);">The Healthcare Sector Judgment</h2>
     <div class="judgment-block reveal">
-      <div class="j-label">// Key Judgment — Healthcare</div>
-      <p>Liberty CTI assesses with HIGH CONFIDENCE that cybersecurity in Texas healthcare is now a patient safety issue — not a compliance requirement. The UMC patient diversion, Change Healthcare cashflow crisis, and Ascension service disruptions collectively demonstrate that ransomware can produce measurable patient harm at scale. The most likely attack scenario is not dramatic disruption — it is a criminal broker selling simultaneous access to multiple Texas hospital networks, enabling coordinated ransomware deployment that forces diversions across a regional healthcare system at the same time. Building resilience and rapid recovery capability matters more than attempting to prevent every intrusion.</p>
-      <div class="j-conf">Confidence: HIGH &nbsp;·&nbsp; PIRs: 7, 8, 9, 15 &nbsp;·&nbsp; Primary actors: Ransomware ecosystems, IRGC-CY/Handala</div>
+      <div class="j-label">// Key Judgment â€” Healthcare</div>
+      <p>Liberty CTI assesses with HIGH CONFIDENCE that cybersecurity in Texas healthcare is now a patient safety issue â€” not a compliance requirement. The UMC patient diversion, Change Healthcare cashflow crisis, and Ascension service disruptions collectively demonstrate that ransomware can produce measurable patient harm at scale. The most likely attack scenario is not dramatic disruption â€” it is a criminal broker selling simultaneous access to multiple Texas hospital networks, enabling coordinated ransomware deployment that forces diversions across a regional healthcare system at the same time. Building resilience and rapid recovery capability matters more than attempting to prevent every intrusion.</p>
+      <div class="j-conf">Confidence: HIGH &nbsp;Â·&nbsp; PIRs: 7, 8, 9, 15 &nbsp;Â·&nbsp; Primary actors: Ransomware ecosystems, IRGC-CY/Handala</div>
     </div>
   </div>
 </section>
@@ -776,7 +776,7 @@ svg{
   <div class="sector-cta-inner">
     <span class="sec-eyebrow reveal" style="justify-content:center;display:block;">// Intelligence in Action</span>
     <h2 class="reveal">The Healthcare Threat<br>Is Active <em>Right Now</em></h2>
-    <p class="reveal">Liberty CTI tracks this environment weekly through the Alamo Threat Brief — a structured intelligence product covering adversary activity, sector-specific targeting, and forward-looking assessments for Texas operators.</p>
+    <p class="reveal">Liberty CTI tracks this environment weekly through the Alamo Threat Brief â€” a structured intelligence product covering adversary activity, sector-specific targeting, and forward-looking assessments for Texas operators.</p>
     <div class="reveal">
       <a href="04-12-2026.html" class="btn-gold">Read the Latest Brief</a>
       <a href="briefing-request.html" class="btn-outline-light">Request Support</a>
