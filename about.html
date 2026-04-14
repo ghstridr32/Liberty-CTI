@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Liberty CTI</title>
+<meta name="description" content="Learn how Liberty CTI supports executives with cyber threat intelligence, operational context, and decision-ready analysis.">
+<link rel="canonical" href="https://libertycti.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Liberty CTI">
+<meta property="og:title" content="About | Liberty CTI">
+<meta property="og:description" content="Learn how Liberty CTI supports executives with cyber threat intelligence, operational context, and decision-ready analysis.">
+<meta property="og:url" content="https://libertycti.com/about.html">
+<meta property="og:image" content="https://libertycti.com/liberty-cti-emblem.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About | Liberty CTI">
+<meta name="twitter:description" content="Learn how Liberty CTI supports executives with cyber threat intelligence, operational context, and decision-ready analysis.">
+<meta name="twitter:image" content="https://libertycti.com/liberty-cti-emblem.png">
   <meta name="description" content="Liberty CTI was built by underdog leaders with unorthodox military careers, deep national security experience, and a relentless commitment to decision advantage." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -296,8 +308,181 @@
       footer { padding: 3rem 1.25rem 2rem; }
     }
   </style>
+<style id="lcti-accessibility">
+.skip-link{position:fixed;left:1rem;top:-4rem;z-index:3000;background:#f4efe6;color:#080c10;padding:.65rem .85rem;border:2px solid #b8963e;text-decoration:none;font-weight:700}
+.skip-link:focus{top:1rem}
+</style>
+<style id="lcti-stat-legibility">
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  overflow-x:hidden;
+}
+img,
+video,
+canvas,
+svg{
+  max-width:100%;
+}
+.intel-desc,
+.stat-l,
+.stat-label,
+.hero-stat-label,
+.pillar-stat-label,
+.photo-caption{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:clamp(.68rem,.72vw,.78rem) !important;
+  font-weight:400 !important;
+  line-height:1.55 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+}
+.stat-l,
+.stat-label,
+.pillar-stat-label,
+.photo-caption{
+  margin-top:.22rem !important;
+}
+.cta-inner img,
+.cta-emblem{
+  height:auto !important;
+  object-fit:contain !important;
+}
+.cta-section .cta-inner > img[src$="liberty-cti-emblem.png"]{
+  width:140px !important;
+}
+.cta .cta-emblem{
+  width:160px !important;
+}
+@media(max-width:700px){
+  .intel-desc,
+  .stat-l,
+  .stat-label,
+  .hero-stat-label,
+  .pillar-stat-label,
+  .photo-caption{
+    font-size:.72rem !important;
+    letter-spacing:.07em !important;
+  }
+}
+@media(max-width:900px){
+  .page-hero-inner,
+  .hero-inner,
+  .hero-layout,
+  .mission-inner,
+  .founders-grid,
+  .fc-grid,
+  .story,
+  .story-inner,
+  .story-angie,
+  .why-inner,
+  .vision-inner,
+  .bulldog-box,
+  .contact-body-inner,
+  .contact-grid,
+  .form-body,
+  .product-grid,
+  .products-grid,
+  .products-list,
+  .approach-grid,
+  .sector-grid,
+  .sectors-grid,
+  .domain-grid,
+  .actor-grid,
+  .shift-grid,
+  .doctrine-grid,
+  .highlight-grid,
+  .feature-grid,
+  .value-grid,
+  .capability-grid,
+  .atb-grid,
+  .two-col,
+  .grid-2,
+  .footer-inner,
+  .site-footer-inner{
+    grid-template-columns:1fr !important;
+  }
+  .stat-bar,
+  .intel-strip,
+  .cred-strip-inner{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:768px){
+  body{
+    min-width:0 !important;
+  }
+  :where(.page-hero,.hero,.mission,.founders,.approach,.products,.vision,.section,.section-navy,.section-accent,.contact-body,.form-body,.cta,.cta-section,footer,.site-footer){
+    padding-left:1.25rem !important;
+    padding-right:1.25rem !important;
+  }
+  :where(.page-hero,.hero){
+    margin-top:var(--nav-h,68px) !important;
+  }
+  :where(.page-hero h1,.hero h1,h1){
+    font-size:clamp(2.15rem,10vw,3.1rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:break-word;
+  }
+  :where(h2,.section-title){
+    font-size:clamp(1.65rem,8vw,2.35rem) !important;
+    line-height:1.12 !important;
+    overflow-wrap:break-word;
+  }
+  :where(.page-hero-body,.hero-sub,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,p,li){
+    overflow-wrap:break-word;
+  }
+  :where(.hero-content,.page-hero-inner){
+    max-width:100% !important;
+  }
+  :where(.hero-emblem,.header-emblem-large,.cta-emblem){
+    max-width:min(220px,62vw) !important;
+    height:auto !important;
+  }
+  :where(.photo-grid,.story-photo-pair){
+    grid-template-columns:1fr !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:320px !important;
+  }
+  :where(input,select,textarea,button,.button,.btn,.nav-cta,.site-nav-cta){
+    max-width:100%;
+  }
+  :where(input,select,textarea){
+    font-size:16px !important;
+  }
+  :where(.cta-actions,.form-actions,.hero-meta,.hero-stat-row){
+    flex-wrap:wrap !important;
+  }
+}
+@media(max-width:520px){
+  :where(.stat-bar,.intel-strip,.cred-strip-inner){
+    grid-template-columns:1fr !important;
+  }
+  :where(.stat,.intel-card,.cred-item){
+    border-right:0 !important;
+  }
+  :where(.page-hero,.hero){
+    min-height:auto !important;
+  }
+  :where(.hero-content){
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:280px !important;
+  }
+  :where(.cta-actions a,.form-actions button,.button,.btn){
+    width:100%;
+    text-align:center;
+  }
+}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- ── NAV ── -->
 <!-- LCTI:NAV:START -->
@@ -309,7 +494,7 @@
 .lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
 .lcti-logo-wordmark span{color:#b8963e}
 .lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
-.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.6;white-space:normal;max-width:110px}
+.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.585rem;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.6;white-space:normal;max-width:122px}
 .lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
 .lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.4rem .65rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
 .lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
@@ -353,7 +538,7 @@
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
   <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.</div>
@@ -540,7 +725,7 @@
       <!-- Luis -->
       <article class="leader-card">
         <div class="leader-photo">
-          <img src="luis-maldonado-headshot.jpg" alt="Luis Maldonado headshot" style="object-position:center 18%;">
+          <img src="luis-maldonado-headshot.jpg" alt="Luis Maldonado headshot" style="object-position:center 18%;" decoding="async" loading="lazy" width="1200" height="1175">
         </div>
         <div class="leader-body">
           <p class="leader-callsign">// Coolhand</p>
@@ -562,7 +747,7 @@
       <!-- Angie -->
       <article class="leader-card">
         <div class="leader-photo">
-          <img src="angie-maldonado-headshot.jpg" alt="Angie Maldonado headshot" style="object-position:center 16%;">
+          <img src="angie-maldonado-headshot.jpg" alt="Angie Maldonado headshot" style="object-position:center 16%;" decoding="async" loading="lazy" width="930" height="1200">
         </div>
         <div class="leader-body">
           <p class="leader-callsign">// Hellfire</p>
@@ -715,7 +900,7 @@
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
       <p class="lcti-footer-tagline">Executive decision support for organizations that need earlier warning, clearer priorities, and faster action before disruption hits.</p>
