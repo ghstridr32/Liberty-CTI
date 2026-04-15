@@ -895,6 +895,18 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
   color:rgba(244,239,230,.68) !important;
   text-shadow:none !important;
 }
+.chip.chip-lg .chip-sublabel{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.95rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.7 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.68) !important;
+  max-width:28ch;
+}
+.chip.chip-lg.selected .chip-sublabel{
+  color:rgba(244,239,230,.76) !important;
+}
 :where(.actor-name,.vignette-body h3,.jewel-card h3){
   font-size:max(1.08rem,17px) !important;
   line-height:1.35 !important;
@@ -948,6 +960,10 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
 }
 .posture,
 .shift-card,
+.content-frame,
+.content-card,
+.use-cases,
+.use-item,
 .products,
 .product-item,
 .fc,
@@ -957,6 +973,10 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
 }
 .posture :where(p,.lead,.section-lead,.sec-lead),
 .shift-card p,
+.content-frame :where(.content-intro,p,li,dd,td,th,blockquote),
+.content-card :where(p,li,dd,td,th,blockquote),
+.use-cases :where(.use-cases-intro,.use-desc,.use-features li,p,li,dd,td,th,blockquote),
+.use-item :where(p,li,dd,td,th,blockquote),
 .products :where(p,li,.lead),
 .product-item :where(p,li),
 .fc :where(p,li,.fc-rank),
@@ -967,6 +987,10 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
 }
 .posture :where(h1,h2,h3,h4,.shift-to),
 .shift-card :where(h1,h2,h3,h4,.shift-to),
+.content-frame :where(h1,h2,h3,h4,.content-card-title),
+.content-card :where(h1,h2,h3,h4,.content-card-title),
+.use-cases :where(h1,h2,h3,h4,.use-name),
+.use-item :where(h1,h2,h3,h4,.use-name),
 .products :where(h1,h2,h3,h4),
 .product-item :where(h1,h2,h3,h4),
 .fc :where(h1,h2,h3,h4),
@@ -977,6 +1001,10 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
 }
 .posture :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag,.fc-label,.fc-edu-label),
 .shift-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag),
+.content-frame :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.content-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.use-cases :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
+.use-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
 .products :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
 .product-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
 .fc :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.fc-label,.fc-edu-label),
@@ -987,12 +1015,62 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
 }
 .posture em,
 .shift-card em,
+.content-frame em,
+.content-card em,
+.use-cases em,
+.use-item em,
 .products em,
 .product-item em,
 .fc em,
 .crown-jewels em,
 .jewel-card em{
   color:#8f1f1b !important;
+}
+.content-frame .content-card-body,
+.content-card .content-card-body{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(1.05rem,17px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  letter-spacing:0 !important;
+  color:rgba(8,12,16,.76) !important;
+}
+.content-frame .content-card-title,
+.content-card .content-card-title{
+  font-size:max(1.35rem,21px) !important;
+  line-height:1.35 !important;
+}
+.content-frame .content-card:nth-child(2) .content-card-label,
+.content-card:nth-child(2) .content-card-label{
+  color:#8b1a1a !important;
+}
+.content-frame .content-note{
+  background:#080c10 !important;
+  border:1px solid rgba(184,150,62,.28) !important;
+}
+.content-frame .content-note p{
+  font-size:max(1.44rem,23px) !important;
+  line-height:1.65 !important;
+  color:rgba(244,239,230,.9) !important;
+  font-weight:500 !important;
+  text-shadow:none !important;
+}
+.content-frame .content-note p::before,
+.content-frame .content-note p::after{
+  font-size:1.9rem !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-icon,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.product-tag,.product-features,.use-features,.kiq-list,.meta-table,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label,.lcti-logo-slogan,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy),
+body [style*="Courier Prime"]{
+  font-family:'Instrument Sans',sans-serif !important;
+}
+:where(.use-features li,.product-features li,.kiq-list li,.meta-table td,.meta-table th){
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.96rem,15.5px) !important;
+  font-weight:500 !important;
+  line-height:1.65 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  color:inherit !important;
 }
 :where(.vignette-timing,.stat-label,.hero-stat-label,.pillar-stat-label,.intel-desc,.footer-tagline,.foot-tagline,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy,.footer-copy){
   font-size:max(.88rem,14px) !important;
@@ -1299,6 +1377,13 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
     letter-spacing:.06em !important;
     opacity:1 !important;
   }
+  .chip.chip-lg .chip-sublabel{
+    font-family:'Instrument Sans',sans-serif !important;
+    font-size:1rem !important;
+    font-weight:500 !important;
+    line-height:1.65 !important;
+    letter-spacing:0 !important;
+  }
   :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
     font-size:.96rem !important;
     font-weight:500 !important;
@@ -1408,7 +1493,7 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
         <a href="about.html" role="menuitem">Company Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Founders</span>
-        <a href="luis-maldonado.html" role="menuitem">Luis Maldonado</a>
+        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
         <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
       </div>
     </li>
@@ -1464,7 +1549,7 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
   <span class="m-group-label">About</span>
   <div class="m-sub">
     <a href="about.html">Company Overview</a>
-    <a href="luis-maldonado.html">Luis Maldonado</a>
+    <a href="luis-maldonado.html">Lou Maldonado</a>
     <a href="angie-maldonado.html">Angie Maldonado</a>
   </div>
 
