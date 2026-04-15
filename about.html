@@ -345,9 +345,9 @@ svg{
   line-height:1.75 !important;
   color:rgba(244,239,230,.82) !important;
 }
-:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
   font-size:max(.88rem,14px) !important;
-  font-weight:700 !important;
+  font-weight:500 !important;
   line-height:1.55 !important;
   letter-spacing:.07em !important;
   opacity:1 !important;
@@ -356,7 +356,7 @@ svg{
 }
 :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
   font-size:max(1rem,16px) !important;
-  font-weight:800 !important;
+  font-weight:500 !important;
   letter-spacing:.045em !important;
   color:#d4af62 !important;
   opacity:1 !important;
@@ -372,16 +372,85 @@ svg{
 .framework-word,
 .deliverable-tag,
 .content-card-label,
-.use-tag{
+.use-tag,
+.leader-tag,
+.leader-link,
+.section-label,
+.cs-label,
+.sec-tag,
+.sector-card a,
+.sector-card [style*="Courier Prime"]{
   font-family:'Courier Prime',monospace !important;
   font-size:max(.94rem,15px) !important;
-  font-weight:800 !important;
+  font-weight:500 !important;
   line-height:1.45 !important;
   letter-spacing:.07em !important;
   text-transform:uppercase !important;
   color:#d4af62 !important;
   opacity:1 !important;
   text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.sec-tag{
+  display:flex !important;
+  align-items:center !important;
+  gap:.45rem !important;
+  color:#d4af62 !important;
+}
+.sec-tag .sec-icon{
+  font-size:1rem !important;
+  line-height:1 !important;
+}
+.sector-card a{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  margin-top:1rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.sector-card a:hover{
+  color:#f0d27a !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.meta-table,.vignette-timing,.loc,.exec-label,.kiq-list,.use-features),
+body [style*="font-size:0.5"],
+body [style*="font-size: 0.5"],
+body [style*="font-size:0.6"],
+body [style*="font-size: 0.6"],
+body [style*="font-size:0.7"],
+body [style*="font-size: 0.7"]{
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.5 !important;
+  letter-spacing:.06em !important;
+  opacity:1 !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label),
+body [style*="font-family:'Courier Prime'"][style*="font-size:0."],
+body [style*='font-family:"Courier Prime"'][style*="font-size:0."],
+body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
+  font-family:'Courier Prime',monospace !important;
+  color:#d4af62 !important;
+  text-transform:uppercase !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.leader-tag{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:32px !important;
+  padding:.34rem .72rem !important;
+  border-color:rgba(212,175,98,.38) !important;
+  color:rgba(212,175,98,.88) !important;
+}
+.leader-link{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  padding-top:.25rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.leader-link:hover{
+  color:#f0d27a !important;
 }
 .audience-title,
 .deliverable-title,
@@ -404,7 +473,7 @@ svg{
 }
 .hero-classification{
   font-size:max(1rem,16px) !important;
-  font-weight:800 !important;
+  font-weight:500 !important;
   letter-spacing:.05em !important;
   line-height:1.55 !important;
   color:#d4af62 !important;
@@ -422,7 +491,7 @@ svg{
 }
 .hero-inner > div[style*="margin-top:1.5rem"] > p{
   font-size:max(1rem,16px) !important;
-  font-weight:800 !important;
+  font-weight:500 !important;
   letter-spacing:.045em !important;
   line-height:1.55 !important;
   color:#d4af62 !important;
@@ -439,7 +508,7 @@ svg{
 .form-shell [style*="font-size:0.56rem"],
 .form-shell [style*="letter-spacing:0.24em"]{
   font-size:max(.95rem,15.25px) !important;
-  font-weight:800 !important;
+  font-weight:500 !important;
   letter-spacing:.055em !important;
   line-height:1.45 !important;
   color:#d4af62 !important;
@@ -464,9 +533,11 @@ svg{
 }
 :where(.chip-sublabel){
   font-size:max(.92rem,14.75px) !important;
-  font-weight:700 !important;
+  font-weight:400 !important;
   line-height:1.6 !important;
   letter-spacing:.04em !important;
+  color:rgba(244,239,230,.68) !important;
+  text-shadow:none !important;
 }
 :where(.actor-name,.vignette-body h3,.jewel-card h3){
   font-size:max(1.08rem,17px) !important;
@@ -479,7 +550,7 @@ svg{
 .actor-origin,
 .jewel-label{
   font-size:max(.94rem,15px) !important;
-  font-weight:800 !important;
+  font-weight:600 !important;
   line-height:1.45 !important;
   letter-spacing:.06em !important;
   color:#d6554a !important;
@@ -519,6 +590,54 @@ svg{
 .crown-jewels .jewel-card p{
   color:rgba(8,12,16,.68) !important;
 }
+.posture,
+.shift-card,
+.products,
+.product-item,
+.fc,
+.crown-jewels,
+.jewel-card{
+  color:#080c10 !important;
+}
+.posture :where(p,.lead,.section-lead,.sec-lead),
+.shift-card p,
+.products :where(p,li,.lead),
+.product-item :where(p,li),
+.fc :where(p,li,.fc-rank),
+.crown-jewels :where(p,li,dd,td,th,blockquote),
+.jewel-card :where(p,li,dd,td,th,blockquote){
+  color:rgba(8,12,16,.74) !important;
+  text-shadow:none !important;
+}
+.posture :where(h1,h2,h3,h4,.shift-to),
+.shift-card :where(h1,h2,h3,h4,.shift-to),
+.products :where(h1,h2,h3,h4),
+.product-item :where(h1,h2,h3,h4),
+.fc :where(h1,h2,h3,h4),
+.crown-jewels :where(h1,h2,h3,h4),
+.jewel-card :where(h1,h2,h3,h4){
+  color:#080c10 !important;
+  text-shadow:none !important;
+}
+.posture :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag,.fc-label,.fc-edu-label),
+.shift-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag),
+.products :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.product-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.fc :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.fc-label,.fc-edu-label),
+.crown-jewels :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label),
+.jewel-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label){
+  color:#9b7626 !important;
+  text-shadow:none !important;
+}
+.posture em,
+.shift-card em,
+.products em,
+.product-item em,
+.fc em,
+.crown-jewels em,
+.jewel-card em{
+  color:#8f1f1b !important;
+}
 :where(.vignette-timing,.stat-label,.hero-stat-label,.pillar-stat-label,.intel-desc,.footer-tagline,.foot-tagline,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy,.footer-copy){
   font-size:max(.88rem,14px) !important;
   line-height:1.58 !important;
@@ -537,7 +656,7 @@ svg{
 .lcti-footer-slogan,
 .lcti-footer-col-title{
   font-size:max(.94rem,15px) !important;
-  font-weight:800 !important;
+  font-weight:500 !important;
   line-height:1.45 !important;
   letter-spacing:.09em !important;
   color:#d4af62 !important;
@@ -552,7 +671,7 @@ svg{
 }
 .lcti-footer-links a.lcti-atb-link{
   color:#d6554a !important;
-  font-weight:700 !important;
+  font-weight:600 !important;
 }
 .lcti-footer-copy,
 .footer-copy{
@@ -817,16 +936,16 @@ svg{
     line-height:1.7 !important;
     color:rgba(244,239,230,.82) !important;
   }
-  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
     font-size:.9rem !important;
-    font-weight:700 !important;
+    font-weight:500 !important;
     line-height:1.55 !important;
     letter-spacing:.06em !important;
     opacity:1 !important;
   }
   :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
     font-size:.96rem !important;
-    font-weight:800 !important;
+    font-weight:500 !important;
     letter-spacing:.04em !important;
   }
   :where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p){
@@ -872,12 +991,12 @@ svg{
 .lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
 .lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
-.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
 .lcti-logo-wordmark span{color:#b8963e}
 .lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
-.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.585rem;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.6;white-space:normal;max-width:122px}
+.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
 .lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
-.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.4rem .65rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
 .lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
 .lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
 .lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
@@ -889,13 +1008,13 @@ svg{
 .lcti-drop-item{position:relative}
 .lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
 .lcti-drop-item.open .lcti-drop-panel{display:block}
-.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.66rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.55rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
 .lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
-.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.6rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
 .lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
 .lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
-.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.4rem 1rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.4rem}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}
 .lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
 .lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
@@ -904,14 +1023,14 @@ svg{
 .lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
 .lcti-mobile-menu.open{display:block}
-.lcti-mobile-menu a{display:block;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.7rem 2rem;transition:color .18s}
+.lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
 .lcti-mobile-menu a:hover{color:#b8963e}
-.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1rem 2rem .3rem;display:block;pointer-events:none}
-.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.67rem;opacity:.85}
+.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
 .lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
 .lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
-.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.65rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.75rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
 .lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
 @media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
 @media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
@@ -1260,13 +1379,13 @@ svg{
 .lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
 .lcti-footer-brand-name span{color:#b8963e}
 .lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
-.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
-.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
 .lcti-footer-links{list-style:none}
 .lcti-footer-links li{margin-bottom:.45rem}
 .lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
 .lcti-footer-links a:hover{color:#b8963e}
-.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:700}
+.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
 .lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
 .lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 .lcti-footer-copy{font-family:'Courier Prime',monospace;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
@@ -1321,7 +1440,7 @@ svg{
   </div>
   <div class="lcti-footer-bottom">
     <div class="lcti-footer-copy">© 2027 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
-    <div class="lcti-footer-copy">All analysis produced in accordance with accepted IC analytical practices</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
   </div>
 </footer>
 <!-- LCTI:FOOTER:END -->
