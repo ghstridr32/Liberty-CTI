@@ -676,12 +676,47 @@ html{
 }
 body{
   overflow-x:hidden;
+  font-size:17px;
+  line-height:1.65;
 }
 img,
 video,
 canvas,
 svg{
   max-width:100%;
+}
+:where(p,li,dd,td,th,blockquote){
+  font-size:max(1rem,16px) !important;
+  line-height:1.75 !important;
+}
+:where(.lead,.hero-sub,.page-hero-body,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,.card p,.product p,.sector-card p,.capability-card p,.approach-card p,.value-card p,.archive-card p,.brief-card p,.contact-card p,.form-help,.help-text,.field-note,.hint,.note){
+  font-size:max(1.06rem,17px) !important;
+  line-height:1.75 !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline){
+  font-size:max(.88rem,14px) !important;
+  line-height:1.55 !important;
+  letter-spacing:.09em !important;
+}
+:where(.actor-name,.vignette-body h3,.jewel-card h3){
+  font-size:max(1.08rem,17px) !important;
+  line-height:1.35 !important;
+}
+:where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p,.timeline p,.cred-text,.cred-intro,.cred-closing,.pull-attr,.story-summary,.sector-copy,.assessment-copy,.request-copy,.next-panel li){
+  font-size:max(1rem,16px) !important;
+  line-height:1.78 !important;
+}
+:where(.vignette-timing,.stat-label,.hero-stat-label,.pillar-stat-label,.intel-desc,.footer-tagline,.foot-tagline,.lcti-footer-slogan,.lcti-footer-copy,.footer-copy){
+  font-size:max(.88rem,14px) !important;
+  line-height:1.58 !important;
+  letter-spacing:.1em !important;
+}
+:where(.subtle,.muted,.fine-print,.small,.micro,.form-disclaimer,.disclaimer,.legal,.attribution){
+  font-size:max(.9rem,14.5px) !important;
+  line-height:1.65 !important;
+}
+:where(input,select,textarea,button){
+  font-size:max(1rem,16px);
 }
 .intel-desc,
 .stat-l,
@@ -690,10 +725,10 @@ svg{
 .pillar-stat-label,
 .photo-caption{
   font-family:'Instrument Sans',sans-serif !important;
-  font-size:clamp(.68rem,.72vw,.78rem) !important;
+  font-size:max(.88rem,14px) !important;
   font-weight:400 !important;
   line-height:1.55 !important;
-  letter-spacing:.07em !important;
+  letter-spacing:.1em !important;
   text-transform:uppercase !important;
 }
 .stat-l,
@@ -720,8 +755,8 @@ svg{
   .hero-stat-label,
   .pillar-stat-label,
   .photo-caption{
-    font-size:.72rem !important;
-    letter-spacing:.07em !important;
+    font-size:.9rem !important;
+    letter-spacing:.08em !important;
   }
 }
 @media(max-width:900px){
@@ -854,9 +889,22 @@ svg{
     line-height:1 !important;
   }
   .intel-desc{
-    font-size:.76rem !important;
-    line-height:1.5 !important;
-    letter-spacing:.09em !important;
+    font-size:.9rem !important;
+    line-height:1.6 !important;
+    letter-spacing:.08em !important;
+  }
+  :where(p,li,dd,td,th,blockquote){
+    font-size:1rem !important;
+    line-height:1.72 !important;
+  }
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name){
+    font-size:.9rem !important;
+    line-height:1.55 !important;
+    letter-spacing:.08em !important;
+  }
+  :where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p){
+    font-size:1rem !important;
+    line-height:1.72 !important;
   }
 }
 @media(max-width:520px){
@@ -978,8 +1026,6 @@ svg{
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="alamo-threat-brief.html" role="menuitem">ATB Overview</a>
-        <div class="drop-divider"></div>
         <span class="drop-label">Latest Issue</span>
         <a href="04-12-2026.html" role="menuitem">Latest Issue — Week of Apr 12, 2026</a>
         <div class="drop-divider"></div>
@@ -1030,7 +1076,6 @@ svg{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="alamo-threat-brief.html">ATB Overview</a>
     <a href="04-12-2026.html">Latest Issue — Week of Apr 12, 2026</a>
     <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
