@@ -186,6 +186,7 @@
     }
     @media (max-width: 600px) {
       .nav-links { display: none; }
+      .hero-img { object-position: 22% top; }
       .hero h1 { font-size: 2.4rem; }
       .photo-grid { grid-template-columns: 1fr; }
       .photo-grid img:not(:first-child) { display: none; }
@@ -956,6 +957,35 @@ body [style*="Instrument Sans"]{
   :where(.cta-actions a,.form-actions button,.button,.btn){
     width:100%;
     text-align:center;
+  }
+}
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
   }
 }
 </style>
