@@ -450,13 +450,13 @@
   .conf-mod  { background: rgba(201,168,76,0.22);  color: var(--gold-light); border: 1px solid var(--gold); }
   .conf-low  { background: rgba(154,144,128,0.2);  color: #C8BFB0; border: 1px solid #9A9080; }
   /* On light backgrounds */
-  .pir-body .conf-high, .outlook-content .conf-high, .assessment-box .conf-high {
+  .pin-body .conf-high, .outlook-content .conf-high, .assessment-box .conf-high {
     background: rgba(8,20,42,0.08); color: var(--navy); border: 1px solid var(--navy-light);
   }
-  .pir-body .conf-mod, .outlook-content .conf-mod, .assessment-box .conf-mod {
+  .pin-body .conf-mod, .outlook-content .conf-mod, .assessment-box .conf-mod {
     background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid var(--gold-dim);
   }
-  .pir-body .conf-low, .outlook-content .conf-low {
+  .pin-body .conf-low, .outlook-content .conf-low {
     background: rgba(154,144,128,0.1); color: #6B6055; border: 1px solid var(--gray);
   }
 
@@ -501,24 +501,24 @@
   .doctrine-card p { font-size: 13px; color: #2a3a55; margin-bottom: 6px; }
   .doctrine-card p:last-child { margin-bottom: 0; }
 
-  /* ── PIR RESPONSES ── */
-  .pir-block { border: 1px solid rgba(8,20,42,0.12); margin: 20px 0; overflow: hidden; }
-  .pir-header {
+  /* ── PIN RESPONSES ── */
+  .pin-block { border: 1px solid rgba(8,20,42,0.12); margin: 20px 0; overflow: hidden; }
+  .pin-header {
     background: var(--navy-mid); padding: 12px 18px;
     display: flex; align-items: center; gap: 14px;
   }
-  .pir-id {
+  .pin-id {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--gold); font-weight: 600;
     background: rgba(201,168,76,0.15); padding: 3px 10px; border-radius: 2px;
   }
-  .pir-title {
+  .pin-title {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--off-white); letter-spacing: 1px;
   }
-  .pir-body { padding: 18px 20px; background: #FAFAF7; border-top: 1px solid rgba(8,20,42,0.08); }
-  .pir-body p { margin-bottom: 10px; font-size: 14px; }
-  .pir-body p:last-child { margin-bottom: 0; }
+  .pin-body { padding: 18px 20px; background: #FAFAF7; border-top: 1px solid rgba(8,20,42,0.08); }
+  .pin-body p { margin-bottom: 10px; font-size: 14px; }
+  .pin-body p:last-child { margin-bottom: 0; }
 
   /* ── TEXAS IMPLICATIONS ── */
   .implication-row {
@@ -623,13 +623,13 @@ nav { position: fixed; top: 0; width: 100%; z-index: 200; padding: 1.2rem 3rem; 
 .site-footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #f4efe6; }
 .site-footer-brand span { color: #b8963e; }
 .site-footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
-.site-footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: #b8963e; margin-bottom: 1.1rem; }
+.site-footer-col-title { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: #b8963e; margin-bottom: 1.1rem; }
 .site-footer-links { list-style: none; }
 .site-footer-links li { margin-bottom: 0.5rem; }
 .site-footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
 .site-footer-links a:hover { color: #b8963e; }
 .site-footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 0.5rem; }
-.site-footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+.site-footer-copy { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
 
 
 /* ── NAV TOGGLE ── */
@@ -639,7 +639,7 @@ nav { position: fixed; top: 0; width: 100%; z-index: 200; padding: 1.2rem 3rem; 
   border: 1px solid #b8963e;
   color: #b8963e;
   padding: 0.45rem 0.9rem;
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.8rem;
   cursor: pointer;
   letter-spacing: 0.1em;
@@ -701,7 +701,7 @@ svg{
   line-height:1.75 !important;
   color:rgba(244,239,230,.82) !important;
 }
-:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
   font-size:max(.88rem,14px) !important;
   font-weight:500 !important;
   line-height:1.55 !important;
@@ -735,8 +735,8 @@ svg{
 .cs-label,
 .sec-tag,
 .sector-card a,
-.sector-card [style*="Courier Prime"]{
-  font-family:'Courier Prime',monospace !important;
+.sector-card [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
   font-size:max(.94rem,15px) !important;
   font-weight:500 !important;
   line-height:1.45 !important;
@@ -781,10 +781,10 @@ body [style*="font-size: 0.7"]{
   opacity:1 !important;
 }
 :where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label),
-body [style*="font-family:'Courier Prime'"][style*="font-size:0."],
-body [style*='font-family:"Courier Prime"'][style*="font-size:0."],
-body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
-  font-family:'Courier Prime',monospace !important;
+body [style*="font-family:'Instrument Sans'"][style*="font-size:0."],
+body [style*='font-family:"Instrument Sans"'][style*="font-size:0."],
+body [style*="font-family: 'Instrument Sans'"][style*="font-size: 0."]{
+  font-family:'Instrument Sans',sans-serif !important;
   color:#d4af62 !important;
   text-transform:uppercase !important;
   text-shadow:0 0 1px rgba(212,175,98,.18) !important;
@@ -1060,7 +1060,7 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
   font-size:1.9rem !important;
 }
 :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-icon,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.product-tag,.product-features,.use-features,.kiq-list,.meta-table,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label,.lcti-logo-slogan,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy),
-body [style*="Courier Prime"]{
+body [style*="Instrument Sans"]{
   font-family:'Instrument Sans',sans-serif !important;
 }
 :where(.use-features li,.product-features li,.kiq-list li,.meta-table td,.meta-table th){
@@ -1076,6 +1076,14 @@ body [style*="Courier Prime"]{
   font-size:max(.88rem,14px) !important;
   line-height:1.58 !important;
   letter-spacing:.1em !important;
+}
+.timeline .tl-role,
+.timeline .tl-unit{
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.timeline .tl-unit{
+  opacity:.86 !important;
 }
 .lcti-footer-tagline,
 .footer-tagline,
@@ -1370,7 +1378,7 @@ body [style*="Courier Prime"]{
     line-height:1.7 !important;
     color:rgba(244,239,230,.82) !important;
   }
-  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
     font-size:.9rem !important;
     font-weight:500 !important;
     line-height:1.55 !important;
@@ -1434,7 +1442,7 @@ body [style*="Courier Prime"]{
 .lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
 .lcti-logo-wordmark span{color:#b8963e}
 .lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
-.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
+.lcti-logo-slogan{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
 .lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
 .lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
 .lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
@@ -1450,7 +1458,7 @@ body [style*="Courier Prime"]{
 .lcti-drop-item.open .lcti-drop-panel{display:block}
 .lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
 .lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
-.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
 .lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
 .lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
@@ -1465,7 +1473,7 @@ body [style*="Courier Prime"]{
 .lcti-mobile-menu.open{display:block}
 .lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
 .lcti-mobile-menu a:hover{color:#b8963e}
-.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
 .lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
 .lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
@@ -1499,9 +1507,9 @@ body [style*="Courier Prime"]{
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Decision Support</button>
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Decision Advantage</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">Decision Support System</a>
+        <a href="decision-support.html" role="menuitem">Decision Advantage Framework</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Core Products</span>
         <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
@@ -1535,7 +1543,7 @@ body [style*="Courier Prime"]{
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request Support</a></li>
+    <li><a href="briefing-request.html" class="lcti-cta">Request Assessment</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1553,9 +1561,9 @@ body [style*="Courier Prime"]{
     <a href="angie-maldonado.html">Angie Maldonado</a>
   </div>
 
-  <span class="m-group-label">Decision Support</span>
+  <span class="m-group-label">Decision Advantage</span>
   <div class="m-sub">
-    <a href="decision-support.html">Decision Support System</a>
+    <a href="decision-support.html">Decision Advantage Framework</a>
     <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="sector-assessments.html">Sector Assessments</a>
@@ -1689,7 +1697,7 @@ body [style*="Courier Prime"]{
       </div>
       <div class="meta-item">
         <span class="meta-label">Cycle</span>
-        <span class="meta-value">CY2026 · PIR SET ACTIVE</span>
+        <span class="meta-value">CY2026 · PIN SET ACTIVE</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Torch Fusion Cycle</span>
@@ -1910,39 +1918,39 @@ body [style*="Courier Prime"]{
     </div>
   </div>
 
-  <!-- ─────────────────── PIR RESPONSES ─────────────────── -->
+  <!-- ─────────────────── PIN RESPONSES ─────────────────── -->
   <div class="section-rule">
     <span class="section-tag">Section IV</span>
     <div class="section-rule-line"></div>
   </div>
-  <h2 class="section-head">Priority Intelligence Requirement Responses</h2>
+  <h2 class="section-head">Priority Information Need Responses</h2>
 
-  <div class="pir-block">
-    <div class="pir-header">
-      <span class="pir-id">PIR-4</span>
-      <span class="pir-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-4</span>
+      <span class="pin-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
     </div>
-    <div class="pir-body">
+    <div class="pin-body">
       <p><strong>Response — Updated:</strong> Handala's three-track doctrine is now confirmed at operational scale. Track 1 (Stryker wiper, March 11) produced the most significant destructive cyberattack against a U.S. company in the current conflict. Track 2 (Patel Gmail, March 27) demonstrates pre-staged influence operations executed with strategic timing. Track 3 (ICS reconnaissance via CyberAv3ngers) continues at baseline. The DOJ's March 19 confirmation that Handala is a MOIS-operated persona — not an independent hacktivist group — eliminates attribution ambiguity. Iran is directly responsible for all three operational tracks. <span class="conf conf-high">HIGH CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pir-block">
-    <div class="pir-header">
-      <span class="pir-id">PIR-1</span>
-      <span class="pir-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-1</span>
+      <span class="pin-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
     </div>
-    <div class="pir-body">
+    <div class="pin-body">
       <p><strong>Response:</strong> The Stryker and Patel operations reveal that Iran is now retaliating for <em>cyber enforcement actions</em> as well as kinetic strikes. The Patel breach was explicitly framed as retaliation for the DOJ's domain seizures of Handala's infrastructure on March 19. This is a significant analytical update: <span class="aq">the trigger set for Iranian cyber retaliation now includes U.S. law enforcement actions against Iranian cyber infrastructure</span>, not only military strikes. Texas organizations adjacent to or supportive of U.S. government cybersecurity enforcement (including CISA, FBI, and DOJ partner organizations) should assess their own exposure accordingly. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pir-block">
-    <div class="pir-header">
-      <span class="pir-id">PIR-5</span>
-      <span class="pir-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-5</span>
+      <span class="pin-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
     </div>
-    <div class="pir-body">
+    <div class="pin-body">
       <p><strong>Response:</strong> The Stryker attack methodology directly implicates the Texas Medical Center vendor ecosystem. Stryker is a medical device company with DoD contracts and an Israeli acquisition — a target profile shared by multiple TMC suppliers and medical technology vendors operating in Texas. The attack required no zero-day capability: <span class="aq">compromised Microsoft enterprise credentials are sufficient to execute a global wiper attack</span>. Texas organizations at most risk this week: healthcare technology vendors with Israeli partnerships or federal contracts; any enterprise operating Microsoft 365 with Intune device management and limited MFA enforcement on admin accounts. <span class="conf conf-high">HIGH CONFIDENCE</span></p>
     </div>
   </div>
