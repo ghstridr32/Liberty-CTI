@@ -77,7 +77,7 @@ main { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-di
 .hero { padding: 7rem 3rem 5rem; border-bottom: 1px solid var(--rule-dim); position: relative; overflow: hidden; }
 .hero::after { content: 'CONTACT'; position: absolute; right: -1rem; bottom: -2rem; font-family: 'Playfair Display', serif; font-size: 20vw; font-weight: 900; color: rgba(184,150,62,0.028); pointer-events: none; line-height: 1; white-space: nowrap; letter-spacing: -0.04em; }
 .hero-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-.hero-label { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards; }
+.hero-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards; }
 .hero-label::before { content: '// '; opacity: 0.55; }
 .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; line-height: 1.02; color: var(--paper); margin-bottom: 1.75rem; letter-spacing: -0.01em; opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards; }
 .hero h1 em { font-style: italic; color: var(--gold); }
@@ -92,7 +92,7 @@ main { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-di
 .contact-meta { opacity: 0; animation: fadeUp 0.75s 0.5s ease forwards; }
 .meta-section { margin-bottom: 3rem; }
 .meta-section:last-child { margin-bottom: 0; }
-.meta-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(184,150,62,0.6); margin-bottom: 0.6rem; display: block; }
+.meta-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(184,150,62,0.6); margin-bottom: 0.6rem; display: block; }
 .meta-label::before { content: '// '; opacity: 0.6; }
 .meta-value { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 400; color: var(--paper); line-height: 1.5; }
 .meta-value a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
@@ -112,7 +112,7 @@ main { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-di
 .field-group:focus-within { border-bottom-color: rgba(184,150,62,0.5); }
 .field-group:focus-within .field-label { color: var(--gold); }
 
-.field-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(244,239,230,0.32); margin-bottom: 0.5rem; transition: color 0.25s; }
+.field-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(244,239,230,0.32); margin-bottom: 0.5rem; transition: color 0.25s; }
 .field-required { color: var(--gold); margin-left: 1px; }
 
 input[type="text"],
@@ -133,7 +133,7 @@ textarea {
 input::placeholder, textarea::placeholder { color: rgba(244,239,230,0.18); font-style: italic; }
 textarea { resize: none; min-height: 130px; line-height: 1.75; }
 
-.field-error { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.12em; color: #c0392b; margin-top: 0.4rem; display: none; }
+.field-error { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; color: #c0392b; margin-top: 0.4rem; display: none; }
 .field-group.has-error .field-error { display: block; }
 .field-group.has-error { border-bottom-color: rgba(192,57,43,0.4); }
 
@@ -160,13 +160,13 @@ footer { position: relative; z-index: 1; background: rgba(8,12,16,0.9); border-t
 .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
 .footer-brand span { color: var(--gold); }
 .footer-tagline { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.32); line-height: 1.65; max-width: 280px; }
-.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; opacity: 0.8; }
+.footer-col-title { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; opacity: 0.8; }
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 0.45rem; }
 .footer-links a { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.35); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--gold); }
 .footer-bottom { border-top: 1px solid rgba(244,239,230,0.05); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 0.5rem; }
-.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.12em; color: rgba(244,239,230,0.18); }
+.footer-copy { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; color: rgba(244,239,230,0.18); }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
@@ -200,7 +200,7 @@ body { overflow-x: hidden; }
   border: 1px solid var(--gold);
   color: var(--gold);
   padding: 0.45rem 0.7rem;
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.75rem;
   line-height: 1;
   cursor: pointer;
@@ -531,7 +531,7 @@ body { overflow-x: hidden; }
   border: 1px solid var(--gold, #b8963e);
   color: var(--gold, #b8963e);
   padding: 0.45rem 0.9rem;
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.8rem;
   line-height: 1;
   cursor: pointer;
@@ -784,7 +784,7 @@ svg{
   line-height:1.75 !important;
   color:rgba(244,239,230,.82) !important;
 }
-:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
   font-size:max(.88rem,14px) !important;
   font-weight:500 !important;
   line-height:1.55 !important;
@@ -818,8 +818,8 @@ svg{
 .cs-label,
 .sec-tag,
 .sector-card a,
-.sector-card [style*="Courier Prime"]{
-  font-family:'Courier Prime',monospace !important;
+.sector-card [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
   font-size:max(.94rem,15px) !important;
   font-weight:500 !important;
   line-height:1.45 !important;
@@ -864,10 +864,10 @@ body [style*="font-size: 0.7"]{
   opacity:1 !important;
 }
 :where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label),
-body [style*="font-family:'Courier Prime'"][style*="font-size:0."],
-body [style*='font-family:"Courier Prime"'][style*="font-size:0."],
-body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
-  font-family:'Courier Prime',monospace !important;
+body [style*="font-family:'Instrument Sans'"][style*="font-size:0."],
+body [style*='font-family:"Instrument Sans"'][style*="font-size:0."],
+body [style*="font-family: 'Instrument Sans'"][style*="font-size: 0."]{
+  font-family:'Instrument Sans',sans-serif !important;
   color:#d4af62 !important;
   text-transform:uppercase !important;
   text-shadow:0 0 1px rgba(212,175,98,.18) !important;
@@ -1143,7 +1143,7 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
   font-size:1.9rem !important;
 }
 :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-icon,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.product-tag,.product-features,.use-features,.kiq-list,.meta-table,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label,.lcti-logo-slogan,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy),
-body [style*="Courier Prime"]{
+body [style*="Instrument Sans"]{
   font-family:'Instrument Sans',sans-serif !important;
 }
 :where(.use-features li,.product-features li,.kiq-list li,.meta-table td,.meta-table th){
@@ -1159,6 +1159,14 @@ body [style*="Courier Prime"]{
   font-size:max(.88rem,14px) !important;
   line-height:1.58 !important;
   letter-spacing:.1em !important;
+}
+.timeline .tl-role,
+.timeline .tl-unit{
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.timeline .tl-unit{
+  opacity:.86 !important;
 }
 .lcti-footer-tagline,
 .footer-tagline,
@@ -1453,7 +1461,7 @@ body [style*="Courier Prime"]{
     line-height:1.7 !important;
     color:rgba(244,239,230,.82) !important;
   }
-  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
     font-size:.9rem !important;
     font-weight:500 !important;
     line-height:1.55 !important;
@@ -1518,7 +1526,7 @@ body [style*="Courier Prime"]{
 .lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
 .lcti-logo-wordmark span{color:#b8963e}
 .lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
-.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
+.lcti-logo-slogan{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
 .lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
 .lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
 .lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
@@ -1534,7 +1542,7 @@ body [style*="Courier Prime"]{
 .lcti-drop-item.open .lcti-drop-panel{display:block}
 .lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
 .lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
-.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
 .lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
 .lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
@@ -1549,7 +1557,7 @@ body [style*="Courier Prime"]{
 .lcti-mobile-menu.open{display:block}
 .lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
 .lcti-mobile-menu a:hover{color:#b8963e}
-.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
 .lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
 .lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
@@ -1814,8 +1822,8 @@ body [style*="Courier Prime"]{
 .lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
 .lcti-footer-brand-name span{color:#b8963e}
 .lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
-.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
-.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
 .lcti-footer-links{list-style:none}
 .lcti-footer-links li{margin-bottom:.45rem}
 .lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
@@ -1823,7 +1831,7 @@ body [style*="Courier Prime"]{
 .lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
 .lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
 .lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-.lcti-footer-copy{font-family:'Courier Prime',monospace;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+.lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
 @media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
 </style>

@@ -60,13 +60,13 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .hero-right::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
 .hero-right::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 4; pointer-events: none; }
 .hero-viz { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-.eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+.eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
 .eyebrow::before { content: '// '; opacity: 0.6; }
 h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 900; line-height: 1.0; color: var(--paper); margin-bottom: 2rem; max-width: 580px; }
 h1 em { font-style: italic; color: var(--gold); }
 .hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 2rem; }
 .hero-lede { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.72); max-width: 520px; line-height: 1.82; margin-bottom: 1.25rem; }
-.hero-badge { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.85rem 1.2rem; width: min(100%, 680px); margin-top: 1.4rem; padding: 0.75rem 1.1rem; border: 1px solid rgba(184,150,62,0.28); list-style: none; font-family: 'Courier Prime', monospace; font-size: 0.66rem; line-height: 1.45; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,239,230,0.64); background: rgba(184,150,62,0.04); }
+.hero-badge { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.85rem 1.2rem; width: min(100%, 680px); margin-top: 1.4rem; padding: 0.75rem 1.1rem; border: 1px solid rgba(184,150,62,0.28); list-style: none; font-family: 'Instrument Sans', sans-serif; font-size: 0.66rem; line-height: 1.45; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,239,230,0.64); background: rgba(184,150,62,0.04); }
 .hero-badge li { display: grid; grid-template-columns: auto 1fr; gap: 0.55rem; align-items: start; min-width: 0; }
 .hero-badge li::before { content: '•'; color: var(--gold); font-size: 0.85rem; line-height: 1.1; }
 
@@ -83,7 +83,7 @@ h1 em { font-style: italic; color: var(--gold); }
 /* SHARED */
 section { padding: 5rem 3rem; }
 .sec-inner { max-width: 1200px; margin: 0 auto; }
-.sec-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+.sec-eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
 .sec-eyebrow::before { content: '// '; opacity: 0.6; }
 h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 1rem; }
 h2 em { font-style: italic; color: var(--red); }
@@ -100,7 +100,7 @@ h2 em { font-style: italic; color: var(--red); }
 .pillar-card.energy::after { background: #E8593C; }
 .pillar-card.data::after   { background: #4a8fd4; }
 .pillar-card.ai::after     { background: var(--gold); }
-.pillar-tag { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+.pillar-tag { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
 .pillar-card.energy .pillar-tag { color: #E8593C; }
 .pillar-card.data   .pillar-tag { color: #4a8fd4; }
 .pillar-card.ai     .pillar-tag { color: var(--gold); }
@@ -112,7 +112,7 @@ h2 em { font-style: italic; color: var(--red); }
 .pillar-card.energy .pillar-stat-num { color: rgba(232,89,60,0.65); }
 .pillar-card.data   .pillar-stat-num { color: rgba(74,143,212,0.65); }
 .pillar-card.ai     .pillar-stat-num { color: rgba(184,150,62,0.65); }
-.pillar-stat-label { font-family: 'Courier Prime', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,230,0.28); }
+.pillar-stat-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,230,0.28); }
 
 /* DIAGRAM */
 .convergence-viz { background: var(--navy); }
@@ -128,14 +128,14 @@ h2 em { font-style: italic; color: var(--red); }
 .dep-row.hdr { background: var(--navy); }
 .dep-cell { padding: 1.1rem 1.4rem; border-right: 1px solid rgba(184,150,62,0.08); }
 .dep-cell:last-child { border-right: none; }
-.dep-hdr-label { font-family: 'Courier Prime', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(184,150,62,0.45); }
+.dep-hdr-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(184,150,62,0.45); }
 .dep-sector { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--paper); display: flex; align-items: center; gap: 0.6rem; }
 .dep-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .dep-dot.energy { background: #E8593C; }
 .dep-dot.data   { background: #4a8fd4; }
 .dep-dot.ai     { background: var(--gold); }
 .dep-text { font-size: 0.83rem; font-weight: 300; color: rgba(244,239,230,0.52); line-height: 1.65; }
-.dep-risk { font-family: 'Courier Prime', monospace; font-size: 0.75rem; line-height: 1.55; }
+.dep-risk { font-family: 'Instrument Sans', sans-serif; font-size: 0.75rem; line-height: 1.55; }
 .dep-risk.high   { color: rgba(232,89,60,0.82); }
 .dep-risk.medium { color: rgba(184,150,62,0.8); }
 
@@ -147,11 +147,11 @@ h2 em { font-style: italic; color: var(--red); }
 .scenario-card:hover { background: rgba(184,150,62,0.03); }
 .scenario-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--red), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
 .scenario-card:hover::before { transform: scaleX(1); }
-.sec-tag { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+.sec-tag { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
 .scenario-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--paper); margin-bottom: 0.65rem; }
 .scenario-card p { font-size: 0.84rem; font-weight: 300; color: rgba(244,239,230,0.52); line-height: 1.72; }
 .cascade { margin-top: 1rem; padding: 0.75rem 0.9rem; border-left: 2px solid rgba(139,26,26,0.45); background: rgba(139,26,26,0.04); }
-.cascade-label { font-family: 'Courier Prime', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.28); margin-bottom: 0.3rem; display: block; }
+.cascade-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.28); margin-bottom: 0.3rem; display: block; }
 .cascade p { font-size: 0.8rem; color: rgba(244,239,230,0.58); }
 .kicker { display: block; margin-top: 1rem; padding: 0.65rem 0.85rem; background: rgba(139,26,26,0.08); border: 1px solid rgba(139,26,26,0.18); font-size: 0.8rem; font-weight: 500; font-style: italic; color: rgba(244,239,230,0.82); line-height: 1.45; }
 
@@ -171,7 +171,7 @@ h2 em { font-style: italic; color: var(--red); }
 .domain-quote { padding: 1.5rem 2rem; border-left: 3px solid var(--gold); background: rgba(184,150,62,0.04); margin-bottom: 1.5rem; }
 .domain-quote p { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; font-weight: 700; color: var(--paper); line-height: 1.5; }
 .kiq-list { list-style: none; margin-top: 0.5rem; }
-.kiq-list li { font-family: 'Courier Prime', monospace; font-size: 0.76rem; letter-spacing: 0.04em; color: rgba(244,239,230,0.52); padding: 0.65rem 0; border-bottom: 1px solid rgba(244,239,230,0.06); display: flex; align-items: baseline; gap: 0.65rem; line-height: 1.55; }
+.kiq-list li { font-family: 'Instrument Sans', sans-serif; font-size: 0.76rem; letter-spacing: 0.04em; color: rgba(244,239,230,0.52); padding: 0.65rem 0; border-bottom: 1px solid rgba(244,239,230,0.06); display: flex; align-items: baseline; gap: 0.65rem; line-height: 1.55; }
 .kiq-list li::before { content: '▸'; color: var(--gold); flex-shrink: 0; }
 .kiq-list li strong { color: rgba(244,239,230,0.88); font-weight: 500; }
 
@@ -198,13 +198,13 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
 .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
 .footer-brand span { color: var(--gold); }
 .footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
-.footer-col-title { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-col-title { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 0.5rem; }
 .footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--gold); }
 .footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
-.footer-copy { font-family: 'Courier Prime', monospace; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+.footer-copy { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
 
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -249,7 +249,7 @@ body { overflow-x: hidden; }
   border: 1px solid var(--gold);
   color: var(--gold);
   padding: 0.45rem 0.7rem;
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.75rem;
   line-height: 1;
   cursor: pointer;
@@ -580,7 +580,7 @@ body { overflow-x: hidden; }
   border: 1px solid var(--gold, #b8963e);
   color: var(--gold, #b8963e);
   padding: 0.45rem 0.9rem;
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: 0.8rem;
   line-height: 1;
   cursor: pointer;
@@ -833,7 +833,7 @@ svg{
   line-height:1.75 !important;
   color:rgba(244,239,230,.82) !important;
 }
-:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
   font-size:max(.88rem,14px) !important;
   font-weight:500 !important;
   line-height:1.55 !important;
@@ -867,8 +867,8 @@ svg{
 .cs-label,
 .sec-tag,
 .sector-card a,
-.sector-card [style*="Courier Prime"]{
-  font-family:'Courier Prime',monospace !important;
+.sector-card [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
   font-size:max(.94rem,15px) !important;
   font-weight:500 !important;
   line-height:1.45 !important;
@@ -913,10 +913,10 @@ body [style*="font-size: 0.7"]{
   opacity:1 !important;
 }
 :where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label),
-body [style*="font-family:'Courier Prime'"][style*="font-size:0."],
-body [style*='font-family:"Courier Prime"'][style*="font-size:0."],
-body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
-  font-family:'Courier Prime',monospace !important;
+body [style*="font-family:'Instrument Sans'"][style*="font-size:0."],
+body [style*='font-family:"Instrument Sans"'][style*="font-size:0."],
+body [style*="font-family: 'Instrument Sans'"][style*="font-size: 0."]{
+  font-family:'Instrument Sans',sans-serif !important;
   color:#d4af62 !important;
   text-transform:uppercase !important;
   text-shadow:0 0 1px rgba(212,175,98,.18) !important;
@@ -1192,7 +1192,7 @@ body [style*="font-family: 'Courier Prime'"][style*="font-size: 0."]{
   font-size:1.9rem !important;
 }
 :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-icon,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.product-tag,.product-features,.use-features,.kiq-list,.meta-table,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label,.lcti-logo-slogan,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy),
-body [style*="Courier Prime"]{
+body [style*="Instrument Sans"]{
   font-family:'Instrument Sans',sans-serif !important;
 }
 :where(.use-features li,.product-features li,.kiq-list li,.meta-table td,.meta-table th){
@@ -1208,6 +1208,14 @@ body [style*="Courier Prime"]{
   font-size:max(.88rem,14px) !important;
   line-height:1.58 !important;
   letter-spacing:.1em !important;
+}
+.timeline .tl-role,
+.timeline .tl-unit{
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.timeline .tl-unit{
+  opacity:.86 !important;
 }
 .lcti-footer-tagline,
 .footer-tagline,
@@ -1502,7 +1510,7 @@ body [style*="Courier Prime"]{
     line-height:1.7 !important;
     color:rgba(244,239,230,.82) !important;
   }
-  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Courier Prime"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
     font-size:.9rem !important;
     font-weight:500 !important;
     line-height:1.55 !important;
@@ -1567,7 +1575,7 @@ body [style*="Courier Prime"]{
 .lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
 .lcti-logo-wordmark span{color:#b8963e}
 .lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
-.lcti-logo-slogan{font-family:'Courier Prime',monospace;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
+.lcti-logo-slogan{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
 .lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
 .lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
 .lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
@@ -1583,7 +1591,7 @@ body [style*="Courier Prime"]{
 .lcti-drop-item.open .lcti-drop-panel{display:block}
 .lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
 .lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
-.lcti-drop-panel .drop-label{font-family:'Courier Prime',monospace;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
 .lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
 .lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
@@ -1598,7 +1606,7 @@ body [style*="Courier Prime"]{
 .lcti-mobile-menu.open{display:block}
 .lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
 .lcti-mobile-menu a:hover{color:#b8963e}
-.lcti-mobile-menu .m-group-label{font-family:'Courier Prime',monospace;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
 .lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
 .lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
@@ -1856,8 +1864,8 @@ body [style*="Courier Prime"]{
           </circle>
           <circle cx="260" cy="260" r="14" fill="rgba(139,26,26,0.35)" stroke="rgba(200,50,50,0.5)" stroke-width="0.5"/>
           <!-- Center label — bigger -->
-          <text x="260" y="254" text-anchor="middle" font-family="Courier New" font-size="11" font-weight="bold" fill="#cc2222" letter-spacing="1.3" opacity="0.95">HIGH-RISK</text>
-          <text x="260" y="267" text-anchor="middle" font-family="Courier New" font-size="11" font-weight="bold" fill="#cc2222" letter-spacing="1.3" opacity="0.95">ZONE</text>
+          <text x="260" y="254" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cc2222" letter-spacing="1.3" opacity="0.95">HIGH-RISK</text>
+          <text x="260" y="267" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cc2222" letter-spacing="1.3" opacity="0.95">ZONE</text>
 
           <!-- ── ENERGY NODE (top-left) ── -->
           <circle cx="130" cy="145" r="62" fill="url(#hg-e)" opacity="0.8"/>
@@ -1872,7 +1880,7 @@ body [style*="Courier Prime"]{
           <text x="130" y="151" text-anchor="middle" font-size="20" fill="rgba(255,255,255,0.9)">⚡</text>
           <!-- Labels — bigger -->
           <text x="130" y="98" text-anchor="middle" font-family="Georgia,serif" font-size="19" font-weight="bold" fill="#E8593C">Energy</text>
-          <text x="130" y="114" text-anchor="middle" font-family="Courier New" font-size="12" fill="rgba(232,89,60,0.72)" letter-spacing="0.35">ERCOT · PERMIAN · LNG</text>
+          <text x="130" y="114" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="12" fill="rgba(232,89,60,0.72)" letter-spacing="0.35">ERCOT · PERMIAN · LNG</text>
 
           <!-- ── DATA CENTER NODE (top-right) ── -->
           <circle cx="390" cy="145" r="62" fill="url(#hg-d)" opacity="0.8"/>
@@ -1886,7 +1894,7 @@ body [style*="Courier Prime"]{
           <circle cx="390" cy="145" r="10" fill="rgba(255,255,255,0.15)"/>
           <text x="390" y="151" text-anchor="middle" font-size="20" fill="rgba(255,255,255,0.9)">🖥</text>
           <text x="390" y="98" text-anchor="middle" font-family="Georgia,serif" font-size="19" font-weight="bold" fill="#4a8fd4">Data Centers</text>
-          <text x="390" y="114" text-anchor="middle" font-family="Courier New" font-size="12" fill="rgba(74,143,212,0.72)" letter-spacing="0.35">CLOUD · HPC · COLOC</text>
+          <text x="390" y="114" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="12" fill="rgba(74,143,212,0.72)" letter-spacing="0.35">CLOUD · HPC · COLOC</text>
 
           <!-- ── AI NODE (bottom-center) ── -->
           <circle cx="260" cy="393" r="62" fill="url(#hg-a)" opacity="0.8"/>
@@ -1900,12 +1908,12 @@ body [style*="Courier Prime"]{
           <circle cx="260" cy="393" r="10" fill="rgba(255,255,255,0.15)"/>
           <text x="260" y="399" text-anchor="middle" font-size="20" fill="rgba(255,255,255,0.9)">◈</text>
           <text x="260" y="452" text-anchor="middle" font-family="Georgia,serif" font-size="19" font-weight="bold" fill="#C9A84C">Artificial Intelligence</text>
-          <text x="260" y="468" text-anchor="middle" font-family="Courier New" font-size="12" fill="rgba(201,168,76,0.72)" letter-spacing="0.35">TRAINING · INFERENCE · DEMAND</text>
+          <text x="260" y="468" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="12" fill="rgba(201,168,76,0.72)" letter-spacing="0.35">TRAINING · INFERENCE · DEMAND</text>
 
           <!-- Threat source labels — bigger -->
-          <text x="24" y="26" font-family="Courier New" font-size="12" fill="#cc2222" opacity="0.82" font-weight="bold">NATION-STATE</text>
-          <text x="496" y="26" font-family="Courier New" font-size="12" fill="#cc2222" opacity="0.78" font-weight="bold" text-anchor="end">RANSOMWARE</text>
-          <text x="260" y="514" font-family="Courier New" font-size="12" fill="#cc2222" opacity="0.72" font-weight="bold" text-anchor="middle">ESPIONAGE</text>
+          <text x="24" y="42" font-family="Instrument Sans, Arial, sans-serif" font-size="12" fill="#cc2222" opacity="0.82" font-weight="bold">NATION-STATE</text>
+          <text x="496" y="42" font-family="Instrument Sans, Arial, sans-serif" font-size="12" fill="#cc2222" opacity="0.78" font-weight="bold" text-anchor="end">RANSOMWARE</text>
+          <text x="260" y="514" font-family="Instrument Sans, Arial, sans-serif" font-size="12" fill="#cc2222" opacity="0.72" font-weight="bold" text-anchor="middle">ESPIONAGE</text>
 
           <!-- Moving data particles on connection lines -->
           <circle r="3" fill="#E8593C" opacity="0.7">
@@ -1987,26 +1995,26 @@ body [style*="Courier Prime"]{
         <ellipse cx="225" cy="185" rx="180" ry="160" fill="none" stroke="#E8593C" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
         <ellipse cx="555" cy="185" rx="180" ry="160" fill="none" stroke="#4a8fd4" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
         <ellipse cx="390" cy="345" rx="180" ry="160" fill="none" stroke="#C9A84C" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
-        <text x="390" y="140" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Courier New" font-size="11" letter-spacing="0.8">GRID + CLOUD DEPENDENCY</text>
-        <text x="275" y="296" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Courier New" font-size="11" letter-spacing="0.8">POWER + COMPUTE</text>
-        <text x="505" y="296" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Courier New" font-size="11" letter-spacing="0.8">CLOUD + INFERENCE</text>
-        <text x="390" y="243" text-anchor="middle" fill="#cc2222" font-family="Courier New" font-size="12" font-weight="bold" letter-spacing="1.5">HIGHEST-RISK</text>
-        <text x="390" y="259" text-anchor="middle" fill="#cc2222" font-family="Courier New" font-size="12" font-weight="bold" letter-spacing="1.5">CONVERGENCE ZONE</text>
+        <text x="390" y="140" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Instrument Sans, Arial, sans-serif" font-size="11" letter-spacing="0.8">GRID + CLOUD DEPENDENCY</text>
+        <text x="275" y="296" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Instrument Sans, Arial, sans-serif" font-size="11" letter-spacing="0.8">POWER + COMPUTE</text>
+        <text x="505" y="296" text-anchor="middle" fill="rgba(244,239,230,0.52)" font-family="Instrument Sans, Arial, sans-serif" font-size="11" letter-spacing="0.8">CLOUD + INFERENCE</text>
+        <text x="390" y="243" text-anchor="middle" fill="#cc2222" font-family="Instrument Sans, Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1.5">HIGHEST-RISK</text>
+        <text x="390" y="259" text-anchor="middle" fill="#cc2222" font-family="Instrument Sans, Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1.5">CONVERGENCE ZONE</text>
         <text x="118" y="153" text-anchor="middle" fill="#E8593C" font-family="Georgia" font-size="17" font-weight="bold">Energy</text>
-        <text x="118" y="171" text-anchor="middle" fill="rgba(232,89,60,0.72)" font-family="Courier New" font-size="9.5" letter-spacing="0.6">ERCOT · PERMIAN · LNG</text>
+        <text x="118" y="171" text-anchor="middle" fill="rgba(232,89,60,0.72)" font-family="Instrument Sans, Arial, sans-serif" font-size="9.5" letter-spacing="0.6">ERCOT · PERMIAN · LNG</text>
         <text x="662" y="153" text-anchor="middle" fill="#4a8fd4" font-family="Georgia" font-size="17" font-weight="bold">Data Centers</text>
-        <text x="662" y="171" text-anchor="middle" fill="rgba(74,143,212,0.72)" font-family="Courier New" font-size="9.5" letter-spacing="0.6">CLOUD · HPC · COLOC</text>
+        <text x="662" y="171" text-anchor="middle" fill="rgba(74,143,212,0.72)" font-family="Instrument Sans, Arial, sans-serif" font-size="9.5" letter-spacing="0.6">CLOUD · HPC · COLOC</text>
         <text x="390" y="462" text-anchor="middle" fill="#C9A84C" font-family="Georgia" font-size="17" font-weight="bold">Artificial Intelligence</text>
-        <text x="390" y="480" text-anchor="middle" fill="rgba(201,168,76,0.72)" font-family="Courier New" font-size="9.5" letter-spacing="0.6">TRAINING · INFERENCE · DEMAND</text>
+        <text x="390" y="480" text-anchor="middle" fill="rgba(201,168,76,0.72)" font-family="Instrument Sans, Arial, sans-serif" font-size="9.5" letter-spacing="0.6">TRAINING · INFERENCE · DEMAND</text>
         <line x1="42" y1="38" x2="205" y2="152" stroke="#cc2222" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.6"/>
         <polygon points="205,152 192,145 198,158" fill="#cc2222" opacity="0.7"/>
         <line x1="738" y1="38" x2="575" y2="152" stroke="#cc2222" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.6"/>
         <polygon points="575,152 581,158 589,145" fill="#cc2222" opacity="0.7"/>
         <line x1="390" y1="492" x2="390" y2="422" stroke="#cc2222" stroke-width="1.2" stroke-dasharray="5 3" opacity="0.6"/>
         <polygon points="390,422 383,436 397,436" fill="#cc2222" opacity="0.7"/>
-        <text x="30" y="32" fill="#cc2222" font-family="Courier New" font-size="10" font-weight="bold" opacity="0.86">NATION-STATE</text>
-        <text x="750" y="32" fill="#cc2222" font-family="Courier New" font-size="10" font-weight="bold" opacity="0.86" text-anchor="end">RANSOMWARE</text>
-        <text x="390" y="498" fill="#cc2222" font-family="Courier New" font-size="10" font-weight="bold" opacity="0.86" text-anchor="middle">ESPIONAGE</text>
+        <text x="30" y="46" fill="#cc2222" font-family="Instrument Sans, Arial, sans-serif" font-size="10" font-weight="bold" opacity="0.86">NATION-STATE</text>
+        <text x="750" y="46" fill="#cc2222" font-family="Instrument Sans, Arial, sans-serif" font-size="10" font-weight="bold" opacity="0.86" text-anchor="end">RANSOMWARE</text>
+        <text x="390" y="498" fill="#cc2222" font-family="Instrument Sans, Arial, sans-serif" font-size="10" font-weight="bold" opacity="0.86" text-anchor="middle">ESPIONAGE</text>
       </svg>
       <p class="diagram-caption">The center zone — where all three systems intersect — represents the highest-risk environment in Texas. A single operation here produces simultaneous effects across energy, digital infrastructure, and AI. Adversaries with sufficient resources are actively mapping this intersection.</p>
     </div>
@@ -2159,8 +2167,8 @@ body [style*="Courier Prime"]{
 .lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
 .lcti-footer-brand-name span{color:#b8963e}
 .lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
-.lcti-footer-slogan{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
-.lcti-footer-col-title{font-family:'Courier Prime',monospace;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
 .lcti-footer-links{list-style:none}
 .lcti-footer-links li{margin-bottom:.45rem}
 .lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
@@ -2168,7 +2176,7 @@ body [style*="Courier Prime"]{
 .lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
 .lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
 .lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-.lcti-footer-copy{font-family:'Courier Prime',monospace;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+.lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
 @media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
 </style>
