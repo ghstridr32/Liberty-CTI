@@ -1562,6 +1562,35 @@ body [style*="Instrument Sans"]{
     text-align:center;
   }
 }
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1772,7 +1801,7 @@ body [style*="Instrument Sans"]{
       <div class="hero-rule"></div>
       <p class="page-hero-body">Liberty CTI Sector Assessments are deep-dive intelligence products built for executives, boards, and security leaders who need more than a weekly rollup. Each assessment examines a single sector through a structured analytical framework, translating threat activity, adversary intent, sector vulnerabilities, and business consequences into decision-ready guidance that helps leadership avoid disruption, misallocation of resources, and strategic surprise.</p>
       <div class="hero-actions" style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-        <a href="briefing-request.html" class="btn-gold">Request Support</a>
+        <a href="briefing-request.html" class="btn-gold">Request Assessment</a>
         <a href="#inside-the-assessment" class="btn-outline">View Framework</a>
       </div>
     </div>
