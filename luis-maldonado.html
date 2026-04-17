@@ -47,10 +47,10 @@
     /* ── CINEMATIC HERO ── */
     .hero {
       position: relative;
-      height: clamp(440px, 58svh, 560px);
-      min-height: 440px;
+      height: 100svh;
+      min-height: 640px;
       display: flex;
-      align-items: flex-start;
+      align-items: flex-end;
       overflow: hidden;
       margin-top: 66px;
     }
@@ -74,7 +74,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 1.65rem 4rem 0;
+      padding: 1.65rem 4rem 4rem;
       max-width: 860px;
       transform: none;
     }
@@ -973,6 +973,86 @@ body [style*="Instrument Sans"]{
     text-align:center;
   }
 }
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-hero h1,
+  .luis-hero .hero-eyebrow,
+  .luis-hero .hero-sub{
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .luis-photo-grid .photo-tile:last-child{
+    display:none !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:auto !important;
+    height:220px !important;
+    max-height:none !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
+  }
+  .luis-hero h1{
+    font-size:clamp(2.05rem,10.5vw,2.4rem) !important;
+    line-height:1.05 !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-photo-grid .photo-tile:not(:first-child){
+    display:none !important;
+  }
+  .luis-photo-grid .photo-frame{
+    height:260px !important;
+    max-height:360px !important;
+    width:100% !important;
+  }
+  .luis-photo-grid .photo-frame img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+  .luis-photo-grid .photo-caption{
+    display:block !important;
+    max-width:100% !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+    overflow-wrap:break-word !important;
+    white-space:normal !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1174,7 +1254,7 @@ body [style*="Instrument Sans"]{
 <!-- LCTI:NAV:END -->
 
 <!-- CINEMATIC HERO -->
-<div class="hero">
+<div class="hero luis-hero">
   <img class="hero-img" src="WHSR.jpg" alt="Lou Maldonado in the White House Situation Room" decoding="async" fetchpriority="high" width="1200" height="800">
   <div class="hero-grad"></div>
   <div class="hero-content">
@@ -1195,7 +1275,7 @@ body [style*="Instrument Sans"]{
 </div>
 
 <!-- PHOTO GRID -->
-<div class="photo-grid">
+<div class="photo-grid luis-photo-grid">
   <div class="photo-tile">
     <div class="photo-frame">
       <img src="luis-maldonado-white-house.jpeg" alt="Lou Maldonado at the White House" style="object-position:center 18%;" decoding="async" loading="lazy" width="860" height="1200">
