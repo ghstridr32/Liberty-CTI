@@ -970,6 +970,132 @@ body [style*="Instrument Sans"]{
     text-align:center;
   }
 }
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-hero h1,
+  .luis-hero .hero-eyebrow,
+  .luis-hero .hero-sub{
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .luis-photo-grid .photo-tile:last-child{
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:4 / 5 !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr 1fr !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat-n{
+    display:block !important;
+    max-width:100% !important;
+    font-size:clamp(2.1rem,8vw,3.4rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    hyphens:auto !important;
+  }
+  .luis-stat-bar .stat-l{
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
+  }
+  .luis-hero h1{
+    font-size:clamp(2.05rem,10.5vw,2.4rem) !important;
+    line-height:1.05 !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-photo-grid .photo-tile:not(:first-child){
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    width:100% !important;
+    overflow:visible !important;
+  }
+  .luis-photo-grid .photo-frame img{
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+  .luis-photo-grid .photo-caption{
+    display:block !important;
+    max-width:100% !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+    overflow-wrap:break-word !important;
+    white-space:normal !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr !important;
+  }
+  .luis-stat-bar .stat{
+    border-right:0 !important;
+    border-top:1px solid var(--rule) !important;
+    padding:1.75rem 1.25rem !important;
+  }
+  .luis-stat-bar .stat:first-child{
+    border-top:0 !important;
+  }
+  .luis-stat-bar .stat-n{
+    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    max-width:100% !important;
+  }
+  .luis-stat-bar .stat-l{
+    font-size:clamp(.9rem,4vw,1rem) !important;
+    line-height:1.55 !important;
+    letter-spacing:.07em !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1065,7 +1191,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="04-12-2026.html" role="menuitem">Latest Issue — Week of Apr 12, 2026</a>
+        <a href="04-19-2026.html" role="menuitem">Latest Issue — Week of Apr 19, 2026</a>
         <div class="drop-divider"></div>
         <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1114,7 +1240,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="04-12-2026.html">Latest Issue — Week of Apr 12, 2026</a>
+    <a href="04-19-2026.html">Latest Issue — Week of Apr 19, 2026</a>
     <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1153,11 +1279,11 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['04-12-2026.html', 'atb-archive.html'],
+    'alamo-threat-brief.html':['04-19-2026.html', 'atb-archive.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
-    var href=(link.getAttribute('href')||'').toLowerCase();
+    var href=((link.getAttribute('href')||'').split('/').pop()||'').toLowerCase();
     if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
       link.classList.add('active');
       var p=link.closest('.lcti-drop-item');
@@ -1429,7 +1555,7 @@ Most organizations understand their internal environment. Very few understand ho
       <span class="lcti-footer-col-title">Decision Advantage</span>
       <ul class="lcti-footer-links">
         <li><a href="decision-support.html">Decision Advantage Framework</a></li>
-        <li><a href="04-12-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="04-19-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>
