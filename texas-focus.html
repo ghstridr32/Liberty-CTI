@@ -62,10 +62,10 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.04) 1px, transparent 1px); background-size: 52px 52px; }
 .hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 78% 28%, rgba(139,26,26,0.1) 0%, transparent 52%), radial-gradient(ellipse at 18% 75%, rgba(184,150,62,0.06) 0%, transparent 45%); }
 .hero-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 3; }
-.hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1680px; margin: 0 auto; display: grid; grid-template-columns: .82fr 1.18fr; align-items: center; }
+.hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1740px; margin: 0 auto; display: grid; grid-template-columns: .78fr 1.22fr; align-items: center; }
 .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 7rem 3.5rem 6rem; }
-.hero-right { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 90vh; padding: 5rem 2.5rem 4rem 1rem; }
-.hero-map-image { position: relative; width: min(118%, 1320px); max-width: none; height: auto; max-height: 92vh; object-fit: contain; object-position: center center; transform: scale(1.18) translateX(-2%); transform-origin: center center; filter: brightness(0.98) saturate(1.04); }
+.hero-right { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 90vh; padding: 4.25rem 1.4rem 3.25rem 0.25rem; }
+.hero-map-image { position: relative; width: min(126%, 1420px); max-width: none; height: auto; max-height: 94vh; object-fit: contain; object-position: center center; transform: scale(1.24) translateX(4.5%); transform-origin: center center; image-rendering: auto; filter: brightness(1.01) contrast(1.08) saturate(1.03) drop-shadow(0 10px 24px rgba(0,0,0,0.18)); }
 .hero-left-fade { position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
 .hero-bottom-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 4; pointer-events: none; }
 .hero-corner-mask { position: absolute; right: 0; bottom: 0; width: 132px; height: 132px; background:
@@ -1309,7 +1309,7 @@ body [style*="Instrument Sans"]{
       <p class="hero-lede">Major Texas industries operate inside a cyber domain shaped by nation-state actors, criminal networks, and proxy organizations. This is not only a future risk. It is the current environment, and many organizations remain underprepared despite existing security investments.</p>
     </div>
     <div class="hero-right">
-      <img class="hero-map-image" src="texas-threat-environment.jpg" alt="Texas cyber threat environment map" decoding="async" fetchpriority="high" width="825" height="638">
+      <img class="hero-map-image" src="assets/texas-cyber-threat-map-corrected.svg" alt="Texas cyber threat environment map" decoding="async" fetchpriority="high" width="1200" height="820">
       <div class="hero-left-fade"></div>
       <div class="hero-bottom-fade"></div>
       <div class="hero-corner-mask"></div>
@@ -1510,8 +1510,8 @@ Most organizations understand their internal environment. Fewer understand how t
 
     <div class="cta-closing">"In a domain defined by speed and ambiguity, Liberty CTI equips Texas leaders with the decision advantage this environment demands."</div>
     <div class="cta-actions">
-      <a href="briefing-request.html" class="btn-dark">Request Support</a>
-      <a href="index.html#products" class="btn-outline">View Decision Advantage<br>Products</a>
+      <a href="briefing-request.html" class="btn-gold">Request Support</a>
+      <a href="index.html#products" class="btn-dark">View Decision Advantage<br>Products</a>
     </div>
   </div>
 </section>
