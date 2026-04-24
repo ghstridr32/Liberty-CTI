@@ -1241,6 +1241,132 @@ body [style*="Instrument Sans"]{
     text-align:center;
   }
 }
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-hero h1,
+  .luis-hero .hero-eyebrow,
+  .luis-hero .hero-sub{
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .luis-photo-grid .photo-tile:last-child{
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:4 / 5 !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr 1fr !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat-n{
+    display:block !important;
+    max-width:100% !important;
+    font-size:clamp(2.1rem,8vw,3.4rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    hyphens:auto !important;
+  }
+  .luis-stat-bar .stat-l{
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
+  }
+  .luis-hero h1{
+    font-size:clamp(2.05rem,10.5vw,2.4rem) !important;
+    line-height:1.05 !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-photo-grid .photo-tile:not(:first-child){
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    width:100% !important;
+    overflow:visible !important;
+  }
+  .luis-photo-grid .photo-frame img{
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+  .luis-photo-grid .photo-caption{
+    display:block !important;
+    max-width:100% !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+    overflow-wrap:break-word !important;
+    white-space:normal !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr !important;
+  }
+  .luis-stat-bar .stat{
+    border-right:0 !important;
+    border-top:1px solid var(--rule) !important;
+    padding:1.75rem 1.25rem !important;
+  }
+  .luis-stat-bar .stat:first-child{
+    border-top:0 !important;
+  }
+  .luis-stat-bar .stat-n{
+    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    max-width:100% !important;
+  }
+  .luis-stat-bar .stat-l{
+    font-size:clamp(.9rem,4vw,1rem) !important;
+    line-height:1.55 !important;
+    letter-spacing:.07em !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1248,6 +1374,7 @@ body [style*="Instrument Sans"]{
 <!-- SITE NAV -->
 <!-- LCTI:NAV:START -->
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
 :root{--nav-h:68px}
 .lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
@@ -1298,36 +1425,36 @@ body [style*="Instrument Sans"]{
 </style>
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+  <a href="../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.</div>
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="../../index.html">Home</a></li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="about.html" role="menuitem">Company Overview</a>
+        <a href="../../about.html" role="menuitem">Company Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Founders</span>
-        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+        <a href="../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Decision Advantage</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">Decision Advantage Framework</a>
+        <a href="../../decision-support.html" role="menuitem">Decision Advantage Framework</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Core Products</span>
-        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
-        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="../../sector-assessments.html" role="menuitem">Sector Assessments</a>
       </div>
     </li>
 
@@ -1335,28 +1462,28 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="04-12-2026.html" role="menuitem">Latest Issue — Week of Apr 12, 2026</a>
+        <a href="04-19-2026.html" role="menuitem">Latest Issue, Week of Apr 19, 2026</a>
         <div class="drop-divider"></div>
-        <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="../../atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
+        <a href="../../texas-focus.html" role="menuitem">Texas Overview</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Critical Sectors</span>
-        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
-        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
-        <a href="financial.html" role="menuitem">Financial Services</a>
-        <a href="healthcare.html" role="menuitem">Healthcare</a>
+        <span class="drop-label">Priority Sectors</span>
+        <a href="../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="../../financial.html" role="menuitem">Financial Services</a>
+        <a href="../../healthcare.html" role="menuitem">Healthcare</a>
         <div class="drop-divider"></div>
-        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+        <a href="../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request Assessment</a></li>
+    <li><a href="../../briefing-request.html" class="lcti-cta">Request Assessment</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1365,41 +1492,41 @@ body [style*="Instrument Sans"]{
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="index.html">Home</a>
+  <a href="../../index.html">Home</a>
 
   <span class="m-group-label">About</span>
   <div class="m-sub">
-    <a href="about.html">Company Overview</a>
-    <a href="luis-maldonado.html">Lou Maldonado</a>
-    <a href="angie-maldonado.html">Angie Maldonado</a>
+    <a href="../../about.html">Company Overview</a>
+    <a href="../../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../../angie-maldonado.html">Angie Maldonado</a>
   </div>
 
   <span class="m-group-label">Decision Advantage</span>
   <div class="m-sub">
-    <a href="decision-support.html">Decision Advantage Framework</a>
-    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
-    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="sector-assessments.html">Sector Assessments</a>
+    <a href="../../decision-support.html">Decision Advantage Framework</a>
+    <a href="../../alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="../../texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="../../sector-assessments.html">Sector Assessments</a>
   </div>
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="04-12-2026.html">Latest Issue — Week of Apr 12, 2026</a>
-    <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
+    <a href="04-19-2026.html">Latest Issue, Week of Apr 19, 2026</a>
+    <a href="../../atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
   <div class="m-sub">
-    <a href="texas-focus.html">Texas Overview</a>
-    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
-    <a href="defense-dib.html">Defense Industrial Base</a>
-    <a href="financial.html">Financial Services</a>
-    <a href="healthcare.html">Healthcare</a>
-    <a href="Energy_data_AI.html">AI Convergence</a>
+    <a href="../../texas-focus.html">Texas Overview</a>
+    <a href="../../energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="../../defense-dib.html">Defense Industrial Base</a>
+    <a href="../../financial.html">Financial Services</a>
+    <a href="../../healthcare.html">Healthcare</a>
+    <a href="../../Energy_data_AI.html">AI Convergence</a>
   </div>
 
   <div class="m-cta-wrap">
-    <a href="briefing-request.html" class="m-cta">Request Assessment</a>
+    <a href="../../briefing-request.html" class="m-cta">Request Assessment</a>
   </div>
 </div>
 
@@ -1423,11 +1550,11 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['04-12-2026.html', 'atb-archive.html'],
+    'alamo-threat-brief.html':['04-19-2026.html', 'atb-archive.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
-    var href=(link.getAttribute('href')||'').toLowerCase();
+    var href=((link.getAttribute('href')||'').split('/').pop()||'').toLowerCase();
     if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
       link.classList.add('active');
       var p=link.closest('.lcti-drop-item');
@@ -1632,40 +1759,40 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
-      <p class="lcti-footer-tagline">Executive decision advantage for organizations that need earlier warning, clearer priorities, and faster action before disruption hits.</p>
+      <p class="lcti-footer-tagline">Executive decision support for organizations that need earlier warning, clearer priorities, and practical options before disruption hits.</p>
       <div class="lcti-footer-slogan">Know the threat. Stay ready.</div>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Decision Advantage</span>
       <ul class="lcti-footer-links">
-        <li><a href="decision-support.html">Decision Advantage Framework</a></li>
-        <li><a href="04-12-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
-        <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="../../decision-support.html">Decision Advantage Framework</a></li>
+        <li><a href="04-19-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../../sector-assessments.html">Sector Assessments</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Texas Focus</span>
       <ul class="lcti-footer-links">
-        <li><a href="texas-focus.html">Texas Overview</a></li>
-        <li><a href="energy-ercot.html">Energy &amp; ERCOT</a></li>
-        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
-        <li><a href="financial.html">Financial Services</a></li>
-        <li><a href="healthcare.html">Healthcare</a></li>
-        <li><a href="Energy_data_AI.html">AI Convergence</a></li>
+        <li><a href="../../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../../financial.html">Financial Services</a></li>
+        <li><a href="../../healthcare.html">Healthcare</a></li>
+        <li><a href="../../Energy_data_AI.html">AI Convergence</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="briefing-request.html">Request Support</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../../briefing-request.html">Request Support</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
