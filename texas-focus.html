@@ -64,13 +64,11 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .hero-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 3; }
 .hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1740px; margin: 0 auto; display: grid; grid-template-columns: .78fr 1.22fr; align-items: center; }
 .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 7rem 3.5rem 6rem; }
-.hero-right { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 90vh; padding: 4.25rem 1.4rem 3.25rem 0.25rem; }
-.hero-map-image { position: relative; width: min(126%, 1420px); max-width: none; height: auto; max-height: 94vh; object-fit: contain; object-position: center center; transform: scale(1.24) translateX(4.5%); transform-origin: center center; image-rendering: auto; filter: brightness(1.01) contrast(1.08) saturate(1.03) drop-shadow(0 10px 24px rgba(0,0,0,0.18)); }
+.hero-right { position: relative; overflow: hidden; display: flex; align-items: flex-start; justify-content: center; min-height: auto; padding: 2.5rem 1.5rem 0.5rem 0.5rem; }
+.hero-map-image { position: relative; width: min(100%, 1180px); max-width: 100%; height: auto; max-height: none; object-fit: contain; object-position: top center; transform: none; transform-origin: center center; image-rendering: auto; filter: brightness(1.01) contrast(1.08) saturate(1.03) drop-shadow(0 10px 24px rgba(0,0,0,0.18)); }
 .hero-left-fade { position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
-.hero-bottom-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; background: linear-gradient(to bottom, transparent, var(--ink)); z-index: 4; pointer-events: none; }
-.hero-corner-mask { position: absolute; right: 0; bottom: 0; width: 132px; height: 132px; background:
-  radial-gradient(circle at 78% 78%, rgba(8,12,16,0.98) 0 32px, rgba(8,12,16,0.96) 32px 52px, rgba(8,12,16,0.78) 52px 76px, rgba(8,12,16,0) 76px);
-  z-index: 5; pointer-events: none; }
+.hero-bottom-fade { display: none; }
+.hero-corner-mask { display: none; }
 .eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
 .eyebrow::before { content: '// '; opacity: 0.6; }
 h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3.4rem); font-weight: 900; line-height: 1.0; color: var(--paper); margin-bottom: 2rem; max-width: 580px; }
@@ -1104,6 +1102,7 @@ body [style*="Instrument Sans"]{
 <!-- NAV -->
 <!-- LCTI:NAV:START -->
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
 :root{--nav-h:68px}
 .lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
@@ -1309,7 +1308,7 @@ body [style*="Instrument Sans"]{
       <p class="hero-lede">Major Texas industries operate inside a cyber domain shaped by nation-state actors, criminal networks, and proxy organizations. This is not only a future risk. It is the current environment, and many organizations remain underprepared despite existing security investments.</p>
     </div>
     <div class="hero-right">
-      <img class="hero-map-image" src="texas-cyber-threat-map.svg" alt="Texas cyber threat environment map" decoding="async" fetchpriority="high" width="2420" height="1760">
+      <img class="hero-map-image" src="texas-focus-map.png" alt="Texas cyber threat environment map" decoding="async" fetchpriority="high" width="1536" height="1024">
       <div class="hero-left-fade"></div>
       <div class="hero-bottom-fade"></div>
       <div class="hero-corner-mask"></div>
