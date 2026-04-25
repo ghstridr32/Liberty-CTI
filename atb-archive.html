@@ -191,31 +191,145 @@ body {
   text-align:right;
   font-size:.92rem;
 }
-.issue-list {
-  border:1px solid var(--rule);
-  background:rgba(13,21,32,.45);
-}
-.issue-row {
+.archive-library {
   display:grid;
-  grid-template-columns:130px 1.7fr 1fr 90px;
-  gap:1.25rem;
+  grid-template-columns:220px minmax(0,1fr);
+  gap:1.35rem;
+  align-items:start;
+}
+.archive-library a,
+.archive-library a:visited,
+.archive-library a:hover,
+.archive-library a:active {
+  color:inherit;
+  text-decoration:none;
+}
+.archive-rail {
+  position:sticky;
+  top:150px;
+  border:1px solid var(--rule);
+  background:rgba(13,21,32,.55);
+  padding:1rem;
+}
+.rail-title {
+  font-family:'Instrument Sans',sans-serif;
+  font-size:.58rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(244,239,230,.38);
+  margin-bottom:.7rem;
+}
+.rail-link {
+  display:flex;
   align-items:center;
-  padding:1.2rem 1.35rem;
+  justify-content:space-between;
+  gap:.8rem;
+  color:rgba(244,239,230,.68);
+  text-decoration:none;
+  border-top:1px solid rgba(184,150,62,.12);
+  padding:.74rem 0;
+  font-size:.88rem;
+}
+.rail-link:visited {
+  color:rgba(244,239,230,.68);
+}
+.rail-link:hover,
+.rail-link.active {
+  color:var(--gold);
+  text-decoration:none;
+}
+.rail-link strong {
+  display:inline-flex;
+  min-width:1.7rem;
+  height:1.7rem;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(184,150,62,.28);
+  color:var(--gold);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:.72rem;
+}
+.archive-timeline {
+  display:grid;
+  gap:1.4rem;
+}
+.month-group {
+  border:1px solid var(--rule);
+  background:rgba(13,21,32,.44);
+}
+.month-group.hidden {
+  display:none;
+}
+.month-head {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1.05rem 1.15rem;
+  border-bottom:1px solid rgba(184,150,62,.16);
+  background:linear-gradient(90deg, rgba(184,150,62,.08), rgba(13,21,32,0));
+}
+.month-eyebrow,
+.month-count {
+  font-family:'Instrument Sans',sans-serif;
+  font-size:.58rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(184,150,62,.66);
+}
+.month-head h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.65rem;
+  line-height:1.1;
+  margin-top:.2rem;
+}
+.month-issues {
+  display:grid;
+}
+.issue-card {
+  display:grid;
+  grid-template-columns:70px minmax(0,1fr) 78px;
+  gap:1.05rem;
+  align-items:center;
+  padding:1.08rem 1.15rem;
   text-decoration:none;
   color:inherit;
   border-bottom:1px solid rgba(184,150,62,.1);
-  transition:background .2s ease, transform .2s ease;
+  transition:background .2s ease, transform .2s ease, border-color .2s ease;
 }
-.issue-row:last-child{border-bottom:none}
-.issue-row:hover {
-  background:rgba(184,150,62,.05);
+.issue-card:visited {
+  color:inherit;
 }
-.issue-date {
+.issue-card:last-child{border-bottom:none}
+.issue-card:hover {
+  background:rgba(184,150,62,.055);
+  text-decoration:none;
+}
+.issue-card.hidden {
+  display:none;
+}
+.issue-date-block {
+  border:1px solid rgba(184,150,62,.22);
+  background:rgba(8,12,16,.35);
+  min-height:70px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.issue-day {
+  font-family:'Playfair Display',serif;
+  font-size:1.55rem;
+  line-height:1;
+  color:var(--gold);
+}
+.issue-month {
   font-family:'Instrument Sans',sans-serif;
   font-size:.62rem;
-  letter-spacing:.16em;
-  color:rgba(184,150,62,.68);
+  letter-spacing:.18em;
   text-transform:uppercase;
+  color:rgba(244,239,230,.56);
+  margin-top:.3rem;
 }
 .issue-kicker {
   font-family:'Instrument Sans',sans-serif;
@@ -224,6 +338,15 @@ body {
   text-transform:uppercase;
   color:rgba(184,150,62,.55);
   margin-bottom:.35rem;
+}
+.status-chip {
+  display:inline-flex;
+  margin-left:.55rem;
+  border:1px solid rgba(192,57,43,.45);
+  color:#ff6a58;
+  padding:.08rem .38rem;
+  font-size:.52rem;
+  letter-spacing:.14em;
 }
 .issue-title {
   font-family:'Playfair Display',serif;
@@ -260,7 +383,6 @@ body {
   letter-spacing:.14em;
   text-transform:uppercase;
 }
-.mobile-cards{display:none}
 .empty-state {
   display:none;
   border:1px dashed rgba(184,150,62,.2);
@@ -297,7 +419,11 @@ body {
   .hero-inner{grid-template-columns:1fr}
   .archive-head{flex-direction:column;align-items:flex-start}
   .archive-head p{text-align:left}
-  .issue-row{grid-template-columns:110px 1.5fr 1fr}
+  .archive-library{grid-template-columns:1fr}
+  .archive-rail{position:relative;top:auto;display:flex;gap:.75rem;overflow-x:auto;padding:.75rem}
+  .rail-title{display:none}
+  .rail-link{min-width:150px;border-top:0;border-left:1px solid rgba(184,150,62,.12);padding:.45rem .75rem}
+  .issue-card{grid-template-columns:66px minmax(0,1fr) 60px}
   .issue-arrow{display:none}
 }
 @media (max-width: 760px) {
@@ -305,17 +431,11 @@ body {
   .hero,.controls,.archive{padding-left:1.25rem;padding-right:1.25rem}
   .controls-inner{grid-template-columns:1fr;align-items:flex-start}
   .search{margin-left:0;min-width:100%;width:100%}
-  .issue-list{display:none}
-  .mobile-cards{display:grid;gap:.75rem}
-  .mobile-card {
-    display:block;
-    text-decoration:none;
-    color:inherit;
-    border:1px solid var(--rule);
-    background:rgba(13,21,32,.45);
-    padding:1.1rem 1rem;
-  }
-  .mobile-card:hover{background:rgba(184,150,62,.05)}
+  .month-head{align-items:flex-start;flex-direction:column}
+  .issue-card{grid-template-columns:1fr;padding:1rem}
+  .issue-date-block{min-height:auto;align-items:flex-start;border:0;background:transparent;flex-direction:row;gap:.35rem;justify-content:flex-start}
+  .issue-day{font-size:1rem}
+  .issue-month{margin-top:0}
 }
 </style>
 <style id="lcti-accessibility">
@@ -1389,7 +1509,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['04-19-2026.html', 'atb-archive.html'],
+    'alamo-threat-brief.html':['04-26-2026.html', 'atb-archive.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1410,8 +1530,8 @@ body [style*="Instrument Sans"]{
     <div class="hero-inner">
       <div>
         <span class="eyebrow">Alamo Threat Brief Archive</span>
-        <h1>Past briefings, ready when you need them.</h1>
-        <p>Access the latest Alamo Threat Brief first, then browse previous issues by date, sector, or threat actor. Each briefing is organized for fast review by Texas executives, security leaders, and operators.</p>
+        <h1>Past briefings, organized for fast decisions.</h1>
+        <p>Open the current Alamo Threat Brief first, then move through prior issues by month, year, sector, or threat actor. The archive is structured for executives who need the right briefing quickly, without working through a long chronological page.</p>
         <div class="quick-links">
           <a class="quick-link" href="04-26-2026.html">Open Latest Issue</a>
           <a class="quick-link" href="alamo-threat-brief.html">About the Brief</a>
@@ -1453,143 +1573,142 @@ body [style*="Instrument Sans"]{
     <div class="archive-inner">
       <div class="archive-head">
         <div>
-          <span class="eyebrow">CY 2026</span>
-          <h2>Browse every issue</h2>
+          <span class="eyebrow">Briefing Library</span>
+          <h2>Browse by month and year</h2>
         </div>
-        <p>Open any briefing directly from the list below. Issues are organized newest to oldest so you can quickly find the latest assessment or revisit prior reporting.</p>
+        <p>Use the month rail, filters, and search to move quickly from the latest issue to the exact briefing your leadership team needs.</p>
       </div>
 
-      <div class="issue-list" id="issue-list">
-      <a class="issue-row" href="04-26-2026.html" data-tags="latest weekly iran russia north-korea energy finance dib ai texas" data-sector="all">
-        <div class="issue-date">26 APR 2026</div>
-        <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-7</div>
-          <div class="issue-title">Texas Cyber Risk: Multi-Actor Pressure Continues</div>
-          <div class="issue-summary">Highlights the most relevant cyber developments for Texas organizations, including energy exposure, financial-sector vendor risk, North Korea activity, and Russian disruptive trends.</div>
+      <!-- LCTI:ATB_ARCHIVE:START -->
+    <div class="archive-library" id="archive-library">
+      <aside class="archive-rail" aria-label="Archive months">
+        <div class="rail-title">Jump to</div>
+        <a class="rail-link" href="#archive-2026-04" data-month-link="archive-2026-04">
+          <span>April 2026</span>
+          <strong>4</strong>
+        </a>
+        <a class="rail-link" href="#archive-2026-03" data-month-link="archive-2026-03">
+          <span>March 2026</span>
+          <strong>3</strong>
+        </a>
+      </aside>
+      <div class="archive-timeline">
+      <section class="month-group" id="archive-2026-04" data-month="April 2026" data-year="2026">
+        <div class="month-head">
+          <div>
+            <span class="month-eyebrow">2026</span>
+            <h3>April 2026</h3>
+          </div>
+          <span class="month-count">4 issues</span>
         </div>
-        <div class="issue-tags"><span class="tag">latest</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">North Korea</span><span class="tag">AI</span></div>
-        <div class="issue-arrow">Read Brief</div>
-      </a>
-
-      <a class="issue-row" href="04-19-2026.html" data-tags="weekly iran north-korea energy finance healthcare defense ai" data-sector="all">
-        <div class="issue-date">19 APR 2026</div>
-        <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-6</div>
-          <div class="issue-title">Geopolitical Pressure and North Korea AI-Enabled Activity</div>
-          <div class="issue-summary">Explains how Iranian OT risk, North Korea-linked fraud and crypto activity, and cybercrime infrastructure disruption affect Texas decision-making.</div>
+        <div class="month-issues">
+        <a class="issue-card" href="04-26-2026.html" data-tags="latest weekly iran russia north-korea energy finance dib ai texas" data-sector="all" data-search="texas cyber risk: multi-actor pressure continues iranian ot warning activity, texas ai-energy exposure, financial vendor risk, north korea revenue schemes, and russian disruptive trends. 04-26-2026.html atb-2026-7 iran russia north korea energy finance ai">
+          <div class="issue-date-block">
+            <span class="issue-day">26</span>
+            <span class="issue-month">APR</span>
+          </div>
+          <div class="issue-main">
+            <div class="issue-kicker">ATB-2026-7<span class="status-chip">Latest</span></div>
+            <div class="issue-title">Texas Cyber Risk: Multi-Actor Pressure Continues</div>
+            <div class="issue-summary">Iranian OT warning activity, Texas AI-energy exposure, financial vendor risk, North Korea revenue schemes, and Russian disruptive trends.</div>
+            <div class="issue-tags"><span class="tag">iran</span><span class="tag">russia</span><span class="tag">North Korea</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">AI</span></div>
+          </div>
+          <div class="issue-arrow">Open</div>
+        </a>
+        <a class="issue-card" href="04-19-2026.html" data-tags="weekly iran north-korea energy finance healthcare defense ai" data-sector="all" data-search="sector risk: iran, north korea, cybercrime, and ai iranian ot risk, north korea-linked ai-enabled fraud and crypto activity, cybercrime infrastructure disruption, and texas sector exposure. 04-19-2026.html atb-2026-6 iran north korea energy finance ai">
+          <div class="issue-date-block">
+            <span class="issue-day">19</span>
+            <span class="issue-month">APR</span>
+          </div>
+          <div class="issue-main">
+            <div class="issue-kicker">ATB-2026-6</div>
+            <div class="issue-title">Sector Risk: Iran, North Korea, Cybercrime, and AI</div>
+            <div class="issue-summary">Iranian OT risk, North Korea-linked AI-enabled fraud and crypto activity, cybercrime infrastructure disruption, and Texas sector exposure.</div>
+            <div class="issue-tags"><span class="tag">iran</span><span class="tag">North Korea</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">AI</span></div>
+          </div>
+          <div class="issue-arrow">Open</div>
+        </a>
+        <a class="issue-card" href="04-12-2026.html" data-tags="weekly china russia north-korea cybercrime ransomware infrastructure" data-sector="all" data-search="active exploitation, north korea crypto theft, and infrastructure risk exploited edge infrastructure, north korea-linked crypto operations, vulnerability pressure, and cybercrime activity. 04-12-2026.html atb-2026-5 china north korea cybercrime ransomware">
+          <div class="issue-date-block">
+            <span class="issue-day">12</span>
+            <span class="issue-month">APR</span>
+          </div>
+          <div class="issue-main">
+            <div class="issue-kicker">ATB-2026-5</div>
+            <div class="issue-title">Active Exploitation, North Korea Crypto Theft, and Infrastructure Risk</div>
+            <div class="issue-summary">Exploited edge infrastructure, North Korea-linked crypto operations, vulnerability pressure, and cybercrime activity.</div>
+            <div class="issue-tags"><span class="tag">china</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span><span class="tag">ransomware</span></div>
+          </div>
+          <div class="issue-arrow">Open</div>
+        </a>
+        <a class="issue-card" href="04-03-2026.html" data-tags="supply-chain healthcare russia ai texas defense" data-sector="cross-sector" data-search="supply-chain disruption and persistent access risk hasbro disruption, litellm/mercor exposure, nacogdoches breach, and russian return-to-breach operations. 04-03-2026.html atb-2026-4 supply chain healthcare russia ai">
+          <div class="issue-date-block">
+            <span class="issue-day">03</span>
+            <span class="issue-month">APR</span>
+          </div>
+          <div class="issue-main">
+            <div class="issue-kicker">ATB-2026-4</div>
+            <div class="issue-title">Supply-Chain Disruption and Persistent Access Risk</div>
+            <div class="issue-summary">Hasbro disruption, LiteLLM/Mercor exposure, Nacogdoches breach, and Russian return-to-breach operations.</div>
+            <div class="issue-tags"><span class="tag">supply chain</span><span class="tag">healthcare</span><span class="tag">russia</span><span class="tag">AI</span></div>
+          </div>
+          <div class="issue-arrow">Open</div>
+        </a>
         </div>
-        <div class="issue-tags"><span class="tag">iran</span><span class="tag">North Korea</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">AI</span></div>
-        <div class="issue-arrow">Read Brief</div>
-      </a>
-
-      <a class="issue-row" href="04-12-2026.html" data-tags="weekly china russia north-korea cybercrime ransomware infrastructure" data-sector="all">
-        <div class="issue-date">12 APR 2026</div>
-        <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-5</div>
-          <div class="issue-title">Active Exploitation, North Korea Crypto Theft, and Infrastructure Risk</div>
-          <div class="issue-summary">Summarizes active exploitation, North Korea-linked crypto operations, and cybercrime activity that security teams should factor into near-term priorities.</div>
+      </section>
+      <section class="month-group" id="archive-2026-03" data-month="March 2026" data-year="2026">
+        <div class="month-head">
+          <div>
+            <span class="month-eyebrow">2026</span>
+            <h3>March 2026</h3>
+          </div>
+          <span class="month-count">3 issues</span>
         </div>
-        <div class="issue-tags"><span class="tag">china</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span><span class="tag">ransomware</span></div>
-        <div class="issue-arrow">Read Brief</div>
-      </a>
-
-      <a class="issue-row" href="04-03-2026.html" data-tags="supply-chain healthcare russia ai texas defense" data-sector="cross-sector">
-        <div class="issue-date">03 APR 2026</div>
-        <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-4</div>
-          <div class="issue-title">Supply-Chain Disruption and Persistent Access Risk</div>
-          <div class="issue-summary">Reviews supply-chain exposure, healthcare breach activity, and persistent-access behavior relevant to Texas organizations.</div>
+        <div class="month-issues">
+        <a class="issue-card" href="03-29-2026.html" data-tags="iran healthcare defense finance" data-sector="cross-sector" data-search="iran-linked handala activity and u.s. healthcare exposure explains the handala/stryker reporting and what it means for healthcare, defense, and financial-sector risk. 03-29-2026.html atb-2026-3 iran healthcare defense finance">
+          <div class="issue-date-block">
+            <span class="issue-day">29</span>
+            <span class="issue-month">MAR</span>
+          </div>
+          <div class="issue-main">
+            <div class="issue-kicker">ATB-2026-3</div>
+            <div class="issue-title">Iran-Linked Handala Activity and U.S. Healthcare Exposure</div>
+            <div class="issue-summary">Explains the Handala/Stryker reporting and what it means for healthcare, defense, and financial-sector risk.</div>
+            <div class="issue-tags"><span class="tag">iran</span><span class="tag">healthcare</span><span class="tag">defense</span><span class="tag">finance</span></div>
+          </div>
+          <div class="issue-arrow">Open</div>
+        </a>
+        <a class="issue-card" href="03-22-2026.html" data-tags="defense iran operations china russia north-korea cybercrime ransomware" data-sector="defense" data-search="operation epic fury: cyber implications for texas frames cyber escalation dynamics and related threat activity for texas critical-infrastructure leaders. 03-22-2026.html atb-2026-2 defense iran china russia north korea cybercrime">
+          <div class="issue-date-block">
+            <span class="issue-day">22</span>
+            <span class="issue-month">MAR</span>
+          </div>
+          <div class="issue-main">
+            <div class="issue-kicker">ATB-2026-2</div>
+            <div class="issue-title">Operation Epic Fury: Cyber Implications for Texas</div>
+            <div class="issue-summary">Frames cyber escalation dynamics and related threat activity for Texas critical-infrastructure leaders.</div>
+            <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span></div>
+          </div>
+          <div class="issue-arrow">Open</div>
+        </a>
+        <a class="issue-card" href="03-16-2026.html" data-tags="energy healthcare finance defense texas" data-sector="cross-sector" data-search="texas critical infrastructure threat baseline establishes the baseline threat picture across texas energy, healthcare, finance, defense, and technology sectors. 03-16-2026.html atb-2026-1 energy healthcare finance defense texas">
+          <div class="issue-date-block">
+            <span class="issue-day">16</span>
+            <span class="issue-month">MAR</span>
+          </div>
+          <div class="issue-main">
+            <div class="issue-kicker">ATB-2026-1</div>
+            <div class="issue-title">Texas Critical Infrastructure Threat Baseline</div>
+            <div class="issue-summary">Establishes the baseline threat picture across Texas energy, healthcare, finance, defense, and technology sectors.</div>
+            <div class="issue-tags"><span class="tag">energy</span><span class="tag">healthcare</span><span class="tag">finance</span><span class="tag">defense</span><span class="tag">texas</span></div>
+          </div>
+          <div class="issue-arrow">Open</div>
+        </a>
         </div>
-        <div class="issue-tags"><span class="tag">supply chain</span><span class="tag">healthcare</span><span class="tag">russia</span><span class="tag">AI</span></div>
-        <div class="issue-arrow">Read Brief</div>
-      </a>
-
-      <a class="issue-row" href="03-29-2026.html" data-tags="iran healthcare defense finance" data-sector="cross-sector">
-        <div class="issue-date">29 MAR 2026</div>
-        <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-3</div>
-          <div class="issue-title">Iran-Linked Handala Activity and U.S. Healthcare Exposure</div>
-          <div class="issue-summary">Explains the Handala/Stryker reporting and what it means for healthcare, defense, and financial-sector risk.</div>
-        </div>
-        <div class="issue-tags"><span class="tag">iran</span><span class="tag">healthcare</span><span class="tag">defense</span><span class="tag">finance</span></div>
-        <div class="issue-arrow">Read Brief</div>
-      </a>
-
-      <a class="issue-row" href="03-22-2026.html" data-tags="defense iran operations china russia north-korea cybercrime ransomware" data-sector="defense">
-        <div class="issue-date">22 MAR 2026</div>
-        <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-2</div>
-          <div class="issue-title">Operation Epic Fury: Cyber Implications for Texas</div>
-          <div class="issue-summary">Frames cyber escalation dynamics and related threat activity for Texas critical-infrastructure leaders.</div>
-        </div>
-        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span></div>
-        <div class="issue-arrow">Read Brief</div>
-      </a>
-
-      <a class="issue-row" href="03-16-2026.html" data-tags="energy healthcare finance defense texas" data-sector="cross-sector">
-        <div class="issue-date">16 MAR 2026</div>
-        <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-1</div>
-          <div class="issue-title">Texas Critical Infrastructure Threat Baseline</div>
-          <div class="issue-summary">Establishes the baseline threat picture across Texas energy, healthcare, finance, defense, and technology sectors.</div>
-        </div>
-        <div class="issue-tags"><span class="tag">energy</span><span class="tag">healthcare</span><span class="tag">finance</span><span class="tag">defense</span><span class="tag">texas</span></div>
-        <div class="issue-arrow">Read Brief</div>
-      </a>      
-    
+      </section>
       </div>
-
-      <div class="mobile-cards" id="mobile-cards">
-      <a class="mobile-card" href="04-26-2026.html" data-tags="latest weekly iran russia north-korea energy finance dib ai texas" data-sector="all">
-        <div class="issue-kicker">ATB-2026-7 · 26 APR 2026</div>
-        <div class="issue-title">Texas Cyber Risk: Multi-Actor Pressure Continues</div>
-        <div class="issue-summary">Iranian OT warning activity, Texas AI-energy exposure, financial vendor risk, North Korea revenue schemes, and Russian disruptive trends.</div>
-        <div class="issue-tags"><span class="tag">latest</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">North Korea</span><span class="tag">AI</span></div>
-      </a>
-
-      <a class="mobile-card" href="04-19-2026.html" data-tags="weekly iran north-korea energy finance healthcare defense ai" data-sector="all">
-        <div class="issue-kicker">ATB-2026-6 · 19 APR 2026</div>
-        <div class="issue-title">Geopolitical Pressure and North Korea AI-Enabled Activity</div>
-        <div class="issue-summary">Iranian OT risk, North Korea-linked AI-enabled fraud and crypto activity, cybercrime infrastructure disruption, and Texas sector exposure.</div>
-        <div class="issue-tags"><span class="tag">iran</span><span class="tag">North Korea</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">AI</span></div>
-      </a>
-
-      <a class="mobile-card" href="04-12-2026.html" data-tags="weekly china russia north-korea cybercrime ransomware infrastructure" data-sector="all">
-        <div class="issue-kicker">ATB-2026-5 · 12 APR 2026</div>
-        <div class="issue-title">Active Exploitation, North Korea Crypto Theft, and Infrastructure Risk</div>
-        <div class="issue-summary">Exploited edge infrastructure, North Korea-linked crypto operations, vulnerability pressure, and cybercrime activity.</div>
-        <div class="issue-tags"><span class="tag">china</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span><span class="tag">ransomware</span></div>
-      </a>
-
-      <a class="mobile-card" href="04-03-2026.html" data-tags="supply-chain healthcare russia ai texas defense" data-sector="cross-sector">
-        <div class="issue-kicker">ATB-2026-4 · 03 APR 2026</div>
-        <div class="issue-title">Supply-Chain Disruption and Persistent Access Risk</div>
-        <div class="issue-summary">Hasbro disruption, LiteLLM/Mercor exposure, Nacogdoches breach, and Russian return-to-breach operations.</div>
-        <div class="issue-tags"><span class="tag">supply chain</span><span class="tag">healthcare</span><span class="tag">russia</span><span class="tag">AI</span></div>
-      </a>
-
-      <a class="mobile-card" href="03-29-2026.html" data-tags="iran healthcare defense finance" data-sector="cross-sector">
-        <div class="issue-kicker">ATB-2026-3 · 29 MAR 2026</div>
-        <div class="issue-title">Iran-Linked Handala Activity and U.S. Healthcare Exposure</div>
-        <div class="issue-summary">Explains the Handala/Stryker reporting and what it means for healthcare, defense, and financial-sector risk.</div>
-        <div class="issue-tags"><span class="tag">iran</span><span class="tag">healthcare</span><span class="tag">defense</span><span class="tag">finance</span></div>
-      </a>
-
-      <a class="mobile-card" href="03-22-2026.html" data-tags="defense iran operations china russia north-korea cybercrime ransomware" data-sector="defense">
-        <div class="issue-kicker">ATB-2026-2 · 22 MAR 2026</div>
-        <div class="issue-title">Operation Epic Fury: Cyber Implications for Texas</div>
-        <div class="issue-summary">Frames cyber escalation dynamics and related threat activity for Texas critical-infrastructure leaders.</div>
-        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span></div>
-      </a>
-
-      <a class="mobile-card" href="03-16-2026.html" data-tags="energy healthcare finance defense texas" data-sector="cross-sector">
-        <div class="issue-kicker">ATB-2026-1 · 16 MAR 2026</div>
-        <div class="issue-title">Texas Critical Infrastructure Threat Baseline</div>
-        <div class="issue-summary">Establishes the baseline threat picture across Texas energy, healthcare, finance, defense, and technology sectors.</div>
-        <div class="issue-tags"><span class="tag">energy</span><span class="tag">healthcare</span><span class="tag">finance</span><span class="tag">defense</span><span class="tag">texas</span></div>
-      </a>      
-    
-      </div>
+    </div>
+    <!-- LCTI:ATB_ARCHIVE:END -->
 
       <div class="empty-state" id="empty-state">
         <span class="eyebrow" style="margin-bottom:.25rem">No matching briefs</span>
@@ -1676,20 +1795,32 @@ body [style*="Instrument Sans"]{
 (function() {
   const pills = document.querySelectorAll('.pill');
   const search = document.getElementById('archive-search');
-  const rowSelectors = '.issue-row, .mobile-card';
+  const cards = Array.from(document.querySelectorAll('.issue-card'));
+  const monthGroups = Array.from(document.querySelectorAll('.month-group'));
+  const railLinks = Array.from(document.querySelectorAll('.rail-link'));
   let activeFilter = 'all';
 
   function applyFilters() {
     const query = (search.value || '').trim().toLowerCase();
     let visible = 0;
 
-    document.querySelectorAll(rowSelectors).forEach(el => {
-      const haystack = el.textContent.toLowerCase() + ' ' + (el.dataset.tags || '') + ' ' + (el.dataset.sector || '');
+    cards.forEach(el => {
+      const haystack = (el.dataset.search || '') + ' ' + el.textContent.toLowerCase() + ' ' + (el.dataset.tags || '') + ' ' + (el.dataset.sector || '');
       const matchesFilter = activeFilter === 'all' || haystack.includes(activeFilter);
       const matchesSearch = !query || haystack.includes(query);
       const show = matchesFilter && matchesSearch;
-      el.style.display = show ? '' : 'none';
+      el.classList.toggle('hidden', !show);
       if (show) visible += 1;
+    });
+
+    monthGroups.forEach(group => {
+      const groupVisible = !!group.querySelector('.issue-card:not(.hidden)');
+      group.classList.toggle('hidden', !groupVisible);
+    });
+
+    railLinks.forEach(link => {
+      const target = document.getElementById(link.dataset.monthLink);
+      link.classList.toggle('hidden', !!target && target.classList.contains('hidden'));
     });
 
     document.getElementById('empty-state').style.display = visible ? 'none' : 'block';
@@ -1705,6 +1836,12 @@ body [style*="Instrument Sans"]{
   });
 
   search.addEventListener('input', applyFilters);
+  railLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      railLinks.forEach(item => item.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
   applyFilters();
 })();
 </script>
