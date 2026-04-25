@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -235,7 +235,7 @@
   .ticker-inner a.ticker-item {
     display: inline;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--white);
     letter-spacing: 1.5px;
     padding: 0 60px;
@@ -920,7 +920,17 @@ nav { position: fixed; top: 0; width: 100%; z-index: 200; padding: 1.2rem 3rem; 
   .nav-item.dropdown .dropdown-menu { display: block !important; position: static !important; width: 100% !important; min-width: 0 !important; background: rgba(184,150,62,0.04) !important; border: none !important; border-left: 2px solid rgba(184,150,62,0.25) !important; border-radius: 0 !important; }
 }
 
-</style>
+
+/* Source note readability refresh */
+.icd206-block,.src-block{border-left:4px solid var(--gold);padding:28px 30px;margin:36px 0;background:#f8f6f0;}
+.icd206-header,.src-header{font-size:11px;letter-spacing:2px;color:var(--navy);border-bottom:1px solid rgba(8,20,42,.16);margin-bottom:18px;}
+.src-item{display:grid;grid-template-columns:72px 1fr;gap:10px 16px;margin:0 0 12px;padding:14px 16px;border:1px solid rgba(8,20,42,.12);background:#fffdf7;align-items:start;}
+.src-code{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold-dim);font-weight:700;letter-spacing:.08em;padding-top:3px;}
+.src-desc,.src-text{font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.68;color:#1d2d46;}
+.src-desc .src-title,.src-text .src-title,a.src-link span{font-style:normal;font-weight:700;color:var(--navy);}
+a.src-link{color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.65);}
+a.src-link:hover{color:var(--gold-dim);border-bottom-color:var(--gold);}
+.icd206-block p[style*="SOURCE SUMMARY"],.src-block p[style*="SOURCE SUMMARY"]{font-family:Georgia,'Times New Roman',serif!important;font-size:13px!important;line-height:1.65!important;color:#42536d!important;border-top:1px solid rgba(8,20,42,.14)!important;padding-top:12px!important;}</style>
 <style id="lcti-stat-legibility">
 html{
   -webkit-text-size-adjust:100%;
@@ -2515,11 +2525,11 @@ body [style*="Instrument Sans"]{
     <span class="section-tag">Section VIII</span>
     <div class="section-rule-line"></div>
   </div>
-  <h2 class="section-head">Source Citations — In Alignment with Accepted IC Sourcing Practices</h2>
+  <h2 class="section-head">Source Citations — In Alignment with National Security-Grade Source Validation Practices</h2>
   <p style="font-size:13px; color:#666; margin-bottom: 4px; font-family:'IBM Plex Mono', monospace;">All sources are open-source. Liberty CTI does not use or disclose non-public or classified information. Source citations are provided so that readers can evaluate the quality and reliability of the underlying intelligence.</p>
 
   <div class="icd206-block">
-    <div class="icd206-header">SOURCE REFERENCE CITATIONS — OPEN SOURCE INTELLIGENCE BASIS — ATB-2026-12 — IN ALIGNMENT WITH ACCEPTED IC SOURCING PRACTICES</div>
+    <div class="icd206-header">SOURCE REFERENCE CITATIONS — OPEN SOURCE INTELLIGENCE BASIS — ATB-2026-12 — IN ALIGNMENT WITH NATIONAL SECURITY-GRADE SOURCE VALIDATION PRACTICES</div>
 
     <div class="src-item">
       <span class="src-code">SRC-01</span>
@@ -2572,7 +2582,7 @@ body [style*="Instrument Sans"]{
     </div>
 
     <p style="font-size:11px; color:#9A9080; font-family:'IBM Plex Mono', monospace; margin-top: 16px; margin-bottom: 0;">
-      SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) aggregated from U.S. government advisories (CISA, NSA, FBI), commercial threat intelligence firms (Dragos, Recorded Future, CloudSEK, Flashpoint), open-source news reporting, and Liberty CTI analytical synthesis. No classified, restricted, or non-public government information was used in the production of this brief. Confidence levels reflect the quantity, quality, and corroboration of available open-source reporting, in alignment with accepted IC analytical practices.
+      SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) aggregated from U.S. government advisories (CISA, NSA, FBI), commercial threat intelligence firms (Dragos, Recorded Future, CloudSEK, Flashpoint), open-source news reporting, and Liberty CTI analytical synthesis. No classified, restricted, or non-public government information was used in the production of this brief. Confidence levels reflect the quantity, quality, and corroboration of available open-source reporting, in alignment with national security-grade analytical practices.
     </p>
   </div>
 
@@ -2583,7 +2593,7 @@ body [style*="Instrument Sans"]{
 
   <div class="assessment-box" style="border-left-color: var(--gold);">
     <div class="assessment-label">Analytic Note — Torch Fusion Cycle</div>
-    <p>This brief was produced using Liberty CTI's Torch Fusion Cycle: <strong>WHAT</strong> (the Iran conflict and its cyber dimensions are the dominant threat driver) · <strong>WHO</strong> (IRGC-CY primary, China persistent, Russia opportunistic, DPRK steady-state) · <strong>WHY</strong> (kinetic war compels cyber retaliation; pre-positioning reflects deterrence strategy; financial operations serve regime revenue needs) · <strong>WHAT COMES NEXT</strong> (30/60/90-day escalation scenarios with stated confidence levels). All key judgments use probabilistic language and carry explicit confidence levels in alignment with accepted IC analytical practices.</p>
+    <p>This brief was produced using Liberty CTI's Torch Fusion Cycle: <strong>WHAT</strong> (the Iran conflict and its cyber dimensions are the dominant threat driver) · <strong>WHO</strong> (IRGC-CY primary, China persistent, Russia opportunistic, DPRK steady-state) · <strong>WHY</strong> (kinetic war compels cyber retaliation; pre-positioning reflects deterrence strategy; financial operations serve regime revenue needs) · <strong>WHAT COMES NEXT</strong> (30/60/90-day escalation scenarios with stated confidence levels). All key judgments use probabilistic language and carry explicit confidence levels in alignment with national security-grade analytical practices.</p>
   </div>
 
   <p style="font-size:13px; color:#9A9080; text-align:center; margin-top: 32px; font-family:'IBM Plex Mono', monospace; letter-spacing: 1.5px;">

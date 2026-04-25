@@ -61,8 +61,8 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);bor
 .title-block h1 span{color:var(--blue);}
 .title-desc{position:relative;z-index:1;color:var(--text-dim);font-size:.92rem;font-weight:300;font-style:italic;max-width:560px;line-height:1.55;}
 .meta-row{margin-top:20px;position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;}
-.pill{border:1px solid var(--border-hi);background:rgba(90,188,240,.05);color:var(--text-dim);padding:4px 12px;border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.06em;white-space:nowrap;}
-.pill strong{color:var(--blue);font-weight:400;}
+.pill{border:1px solid var(--border-hi);background:rgba(90,188,240,.05);color:var(--gold);padding:6px 12px;border-radius:2px;font-family:'Rajdhani',sans-serif;font-size:1rem;line-height:1.35;font-weight:600;letter-spacing:.04em;white-space:nowrap;text-shadow:0 0 1px rgba(212,175,98,.18);}
+.pill strong{color:var(--blue);font-weight:500;}
 .threat-banner{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-top:16px;padding:9px 14px;background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:3px solid var(--danger);width:fit-content;}
 .threat-dot{width:7px;height:7px;border-radius:50%;background:var(--danger);box-shadow:0 0 8px var(--danger);animation:blink 1.4s ease-in-out infinite;flex:0 0 auto;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
@@ -87,7 +87,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);bor
 .ticker-strip{background:rgba(176,40,30,.65);border-top:1px solid rgba(240,104,84,.5);border-bottom:1px solid var(--border);overflow:hidden;white-space:nowrap;padding:8px 0;cursor:pointer;}
 .ticker-strip:hover .ticker-inner{animation-play-state:paused;}
 .ticker-inner{display:inline-block;animation:ticker 55s linear infinite;}
-.ticker-inner a.ticker-item{display:inline;font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--white);letter-spacing:.08em;padding:0 60px;text-decoration:none;}
+.ticker-inner a.ticker-item{display:inline;font-family:'Share Tech Mono',monospace;font-size:.82rem;color:var(--white);letter-spacing:.08em;padding:0 60px;text-decoration:none;}
 .ticker-inner a.ticker-item:hover{color:var(--gold-hi);}
 .ticker-inner a.ticker-item::before{content:'◆ ';color:var(--gold);}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -209,11 +209,18 @@ p{margin-bottom:14px;color:var(--text);}
 .decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
 
 /* SOURCES */
-.src-block{background:var(--panel);border:1px solid var(--border);padding:24px 28px;margin:36px 0;}
-.src-header{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--text-low);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px;}
-.src-list{list-style:none;padding:0;}
-.src-list li{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--text-dim);padding:6px 0;border-bottom:1px solid rgba(26,58,92,.3);display:flex;gap:12px;align-items:baseline;line-height:1.55;}
-.src-list li:last-child{border-bottom:none;}
+.src-block{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--blue);padding:26px 28px;margin:36px 0;}
+.src-header{font-family:'Share Tech Mono',monospace;font-size:.66rem;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:18px;}
+.src-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
+.src-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.98rem;color:var(--text);line-height:1.65;padding:14px 16px;border:1px solid rgba(90,188,240,.16);background:rgba(90,188,240,.045);display:grid;grid-template-columns:auto 1fr;gap:10px 12px;align-items:start;}
+.src-list li:last-child{border-bottom:1px solid rgba(90,188,240,.16);}
+.src-bullet{font-family:'Share Tech Mono',monospace;color:var(--blue);line-height:1.65;}
+.src-list strong,.src-title{font-family:'Rajdhani',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:.03em;color:var(--white);}
+.src-meta{display:block;font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:.18rem 0 .32rem;}
+.src-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.src-links a,.src-list a{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-hi);text-decoration:none;border-bottom:1px solid rgba(136,212,255,.45);}
+.src-links a:hover,.src-list a:hover{color:var(--gold-hi);border-bottom-color:var(--gold-hi);}
+.src-summary{font-family:'Source Serif 4',Georgia,serif!important;font-size:.9rem!important;color:var(--text-dim)!important;line-height:1.7!important;margin-top:16px!important;border-top:1px solid var(--border)!important;padding-top:12px!important;}
 .src-bullet{color:var(--blue);flex-shrink:0;}
 hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
 
@@ -1418,8 +1425,8 @@ body [style*="Instrument Sans"]{
     <a class="ticker-item" href="https://thehackernews.com/2026/04/fortinet-patches-actively-exploited-cve.html" target="_blank" rel="noopener">FortiClient EMS zero-day CVE-2026-35616 (CVSS 9.1) added to CISA KEV — exploited in wild since March 31; CISA mandated federal patch by April 9; 2,000+ exposed instances remain unpatched</a>
     <a class="ticker-item" href="https://thehackernews.com/2026/04/285-million-drift-hack-traced-to-six.html" target="_blank" rel="noopener">DPRK UNC4736 completes 6-month social engineering operation — $285M drained from Drift Protocol in 12 minutes; 18th DPRK crypto theft of 2026; $300M+ stolen year-to-date</a>
     <a class="ticker-item" href="https://thehackernews.com/2026/04/iran-linked-hackers-disrupt-us-critical.html" target="_blank" rel="noopener">Iran targets Rockwell Automation/Allen-Bradley PLCs — malicious interactions with project files, SCADA display manipulation, confirmed operational disruption and financial loss at victim orgs</a>
-    <a class="ticker-item" href="https://thehackernews.com/" target="_blank" rel="noopener">Storm-1175 (China-linked) deploys Medusa ransomware via zero-day chains — healthcare, finance, professional services targeted in U.S., UK, Australia; high-velocity attack tempo confirmed</a>
-    <a class="ticker-item" href="https://thehackernews.com/" target="_blank" rel="noopener">Flowise AI platform: CVSS 10.0 flaw under active exploitation — maximum-severity vulnerability in widely deployed open-source AI tool; Texas data center/AI sector directly exposed</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/china-linked-storm-1175-exploits-zero.html" target="_blank" rel="noopener">Storm-1175 (China-linked) deploys Medusa ransomware via zero-day chains — healthcare, finance, professional services targeted in U.S., UK, Australia; high-velocity attack tempo confirmed</a>
+    <a class="ticker-item" href="https://thehackernews.com/2026/04/flowise-ai-agent-builder-under-active.html" target="_blank" rel="noopener">Flowise AI platform: CVSS 10.0 flaw under active exploitation — maximum-severity vulnerability in widely deployed open-source AI tool; Texas data center/AI sector directly exposed</a>
     <!-- duplicate for seamless loop -->
     <a class="ticker-item" href="https://cyberscoop.com/iranian-hackers-cyberattacks-us-energy-water-infrastructure-plc-scada-warning/" target="_blank" rel="noopener">JOINT FEDERAL ADVISORY: Iran-affiliated APT actors confirmed disrupting U.S. water, energy, and government PLCs and SCADA systems since March 2026 — FBI, CISA, NSA, DOE, EPA, Cyber Command</a>
     <a class="ticker-item" href="https://thehackernews.com/2026/04/fortinet-patches-actively-exploited-cve.html" target="_blank" rel="noopener">FortiClient EMS zero-day CVE-2026-35616 (CVSS 9.1) added to CISA KEV — exploited in wild since March 31; CISA mandated federal patch by April 9; 2,000+ exposed instances remain unpatched</a>
@@ -1747,15 +1754,14 @@ body [style*="Instrument Sans"]{
   <div class="src-block">
     <div class="src-header">OPEN SOURCE BASIS — ATB-2026-15 — UPDATED FOR THE WEEK OF 13 APRIL 2026</div>
     <ul class="src-list">
-      <li><span class="src-bullet">→</span><strong>FBI / CISA / NSA / EPA / DOE / U.S. Cyber Command</strong> joint advisory on Iranian-affiliated cyber exploitation of PLCs across U.S. critical infrastructure.</li>
-      <li><span class="src-bullet">→</span><strong>DHS reporting and associated open-source coverage</strong> on Salt Typhoon and continuing telecom compromise implications.</li>
-      <li><span class="src-bullet">→</span><strong>Bitdefender, CrowdStrike, and related threat reporting</strong> describing ransomware tempo, identity-first intrusion patterns, and shrinking breakout timelines.</li>
-      <li><span class="src-bullet">→</span><strong>Chainalysis, TRM Labs, and victim disclosures</strong> on DPRK-linked financial theft, including the Drift Protocol incident.</li>
-      <li><span class="src-bullet">→</span><strong>Texas DIR and related state reporting</strong> on coordinated ransomware response and Texas public-sector cyber effects.</li>
-      <li><span class="src-bullet">→</span><strong>CSIS and broader analytical reporting</strong> on Iran conflict-related cyber implications for U.S. energy infrastructure.</li>
-      <li><span class="src-bullet">→</span><strong>ODNI Annual Threat Assessment and relevant open-source PRC cyber analyses</strong> supporting PRC intent, persistence, and operational pattern assessments.</li>
-    </ul>
-    <p style="font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--text-low);margin-top:14px;line-height:1.7;border-top:1px solid var(--border);padding-top:.75rem;">This product is based on open-source reporting, authoritative government advisories, and commercial threat intelligence. Confidence levels reflect source quality, corroboration depth, and consistency with established adversary behavior. Major Texas-specific victim details remain limited in open reporting for some lines of effort; those gaps are reflected in the judgments above.</p>
+  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Federal Iranian PLC exploitation advisory</span><span class="src-meta">April 7, 2026 | Water, energy, and government OT</span><span class="src-desc">Used for judgments on Iranian-affiliated exploitation of internet-facing PLCs and disruption across U.S. critical infrastructure sectors.</span><span class="src-links"><a href="https://www.epa.gov/newsreleases/epa-fbi-cisa-nsa-issue-joint-cybersecurity-advisory-water-system-regarding-iranian" target="_blank" rel="noopener">EPA advisory release</a><a href="https://cyberscoop.com/iranian-hackers-cyberattacks-us-energy-water-infrastructure-plc-scada-warning/" target="_blank" rel="noopener">CyberScoop report</a></span></div></li>
+  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">FortiClient EMS active exploitation reporting</span><span class="src-meta">April 2026 | CISA KEV and exposed instances</span><span class="src-desc">Used for judgments on management-plane exposure and exploitation of enterprise security tooling.</span><span class="src-links"><a href="https://thehackernews.com/2026/04/fortinet-patches-actively-exploited-cve.html" target="_blank" rel="noopener">Article</a></span></div></li>
+  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">DPRK Drift Protocol theft and blockchain analysis</span><span class="src-meta">April 2026 | Crypto theft and sanctions evasion</span><span class="src-desc">Used for judgments on DPRK revenue generation and social-engineering-enabled financial theft.</span><span class="src-links"><a href="https://thehackernews.com/2026/04/285-million-drift-hack-traced-to-six.html" target="_blank" rel="noopener">Article</a></span></div></li>
+  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Storm-1175 / Medusa ransomware reporting</span><span class="src-meta">April 2026 | Healthcare, finance, and professional services targeting</span><span class="src-desc">Used for judgments on high-tempo ransomware operations exploiting vulnerable web-facing assets.</span><span class="src-links"><a href="https://thehackernews.com/2026/04/china-linked-storm-1175-exploits-zero.html" target="_blank" rel="noopener">Article</a><a href="https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/" target="_blank" rel="noopener">Microsoft research</a></span></div></li>
+  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Flowise AI platform exploitation reporting</span><span class="src-meta">April 2026 | AI toolchain exposure</span><span class="src-desc">Used for judgments on AI infrastructure risk where internet-exposed agent-builder platforms remain vulnerable to remote code execution.</span><span class="src-links"><a href="https://thehackernews.com/2026/04/flowise-ai-agent-builder-under-active.html" target="_blank" rel="noopener">Article</a></span></div></li>
+  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Commercial threat intelligence and state reporting</span><span class="src-meta">2026 | Standing context</span><span class="src-desc">Used to corroborate ransomware tempo, identity-first intrusion patterns, DPRK-linked financial theft, Texas public-sector response patterns, and PRC persistence doctrine.</span><span class="src-links"><a href="https://www.crowdstrike.com/global-threat-report/" target="_blank" rel="noopener">CrowdStrike report</a><a href="https://www.dni.gov/index.php/newsroom/reports-publications/reports-publications-2026" target="_blank" rel="noopener">ODNI reports</a></span></div></li>
+</ul>
+    <p class="src-summary">This product is based on open-source reporting, authoritative government advisories, and commercial threat intelligence. Confidence levels reflect source quality, corroboration depth, and consistency with established adversary behavior. Major Texas-specific victim details remain limited in open reporting for some lines of effort; those gaps are reflected in the judgments above.</p>
   </div>
 
   <hr class="divider">

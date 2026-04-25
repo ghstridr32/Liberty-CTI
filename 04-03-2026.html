@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -662,7 +662,17 @@ hr.divider {
   border-top: 1px solid var(--border);
   margin: 2.5rem 0;
 }
-</style>
+
+/* Source note readability refresh */
+.src-block{border-left:4px solid var(--amber);padding:1.55rem 1.65rem;}
+.src-hdr{font-size:10px;letter-spacing:.14em;color:var(--amber);margin-bottom:1.1rem;}
+.src-item{display:grid;grid-template-columns:72px 1fr;gap:.65rem 1rem;padding:.85rem .95rem;margin-bottom:.65rem;border:1px solid rgba(212,150,26,.16);background:rgba(212,150,26,.045);}
+.src-code{font-size:10px;padding:3px 7px;}
+.src-text{font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.68;color:var(--ptext);}
+.src-title{font-style:normal;font-weight:700;color:var(--white);}
+.src-text a{color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(212,150,26,.55);}
+.src-text a:hover{color:var(--gold);border-bottom-color:var(--gold);}
+.src-block > .src-text[style]{font-family:Georgia,'Times New Roman',serif!important;font-size:13px!important;line-height:1.65!important;color:rgba(232,226,216,.7)!important;border-top:1px solid rgba(212,150,26,.18)!important;padding-top:12px!important;}</style>
 <style id="lcti-stat-legibility">
 html{
   -webkit-text-size-adjust:100%;
@@ -2021,7 +2031,7 @@ body [style*="Instrument Sans"]{
       <strong>WHO:</strong> TeamPCP / Lapsus$ (supply chain); unattributed (NMH); APT28 / Void Blizzard (return operations); unidentified actor (Hasbro, investigation ongoing).
       <strong>WHY:</strong> Financial extortion (TeamPCP/Lapsus$); intelligence collection or pre-ransomware positioning (NMH); wartime operational advantage (Russia).
       <strong>WHAT NEXT:</strong> Extortion contacts to LiteLLM-affected organizations will likely increase over the next 30–60 days; NMH dwell pattern signals other Texas regional hospitals may have undisclosed incidents; Russian return-to-breach operations are not geographically constrained to Ukraine.
-      All key judgments use calibrated probability language in alignment with accepted IC analytical practices. Confidence levels reflect source quality, corroboration, and analytical consistency.
+      All key judgments use calibrated probability language in alignment with national security-grade analytical practices. Confidence levels reflect source quality, corroboration, and analytical consistency.
     </div>
   </div>
 
@@ -2030,7 +2040,7 @@ body [style*="Instrument Sans"]{
   <!-- ── SOURCE CITATIONS ── -->
   <div class="section">
     <div class="section-rule">
-      <div class="section-tag">Section VI — ICD-206</div>
+      <div class="section-tag">Section VI — Source Validation</div>
       <div class="section-line"></div>
     </div>
     <div class="section-head">Source Reference Citations</div>
@@ -2041,47 +2051,47 @@ body [style*="Instrument Sans"]{
       <div class="src-item">
         <span class="src-code">SRC-01</span>
         <div class="src-text">
-          <span class="src-title">Cybersecurity Dive — "Cyberattack hits Hasbro, impacting orders and shipping"</span> · April 1, 2026. Primary source for Hasbro 8-K disclosure, March 28 detection date, systems offline, weeks-long recovery, business continuity plan details. Corroborated by TechCrunch, PYMNTS, Boston Globe (April 1–2, 2026). RELIABILITY: HIGH. Relevance: KJ-1, Section II.
+          <a href="https://www.retaildive.com/news/cyberattack-hasbro-impacting-orders-shipping/816398/" target="_blank" rel="noopener"><span class="src-title">Cybersecurity Dive — "Cyberattack hits Hasbro, impacting orders and shipping"</span></a> · April 1, 2026. Primary source for Hasbro 8-K disclosure, March 28 detection date, systems offline, weeks-long recovery, business continuity plan details. Corroborated by TechCrunch, PYMNTS, Boston Globe (April 1–2, 2026). RELIABILITY: HIGH. Relevance: KJ-1, Section II.
         </div>
       </div>
 
       <div class="src-item">
         <span class="src-code">SRC-02</span>
         <div class="src-text">
-          <span class="src-title">SecurityWeek — "Mercor Hit by LiteLLM Supply Chain Attack"</span> · April 2, 2026. Primary source for LiteLLM/Trivy attack chain, Lapsus$ 4TB claim, Mandiant 1,000+ environment confirmation, TeamPCP/Lapsus$ partnership. Corroborated by The Register, TechCrunch, Fortune, Cybernews (April 1–2, 2026). RELIABILITY: HIGH. Relevance: KJ-2, Section II.
+          <a href="https://www.securityweek.com/mercor-hit-by-litellm-supply-chain-attack/" target="_blank" rel="noopener"><span class="src-title">SecurityWeek — "Mercor Hit by LiteLLM Supply Chain Attack"</span></a> · April 2, 2026. Primary source for LiteLLM/Trivy attack chain, Lapsus$ 4TB claim, Mandiant 1,000+ environment confirmation, TeamPCP/Lapsus$ partnership. Corroborated by The Register, TechCrunch, Fortune, Cybernews (April 1–2, 2026). RELIABILITY: HIGH. Relevance: KJ-2, Section II.
         </div>
       </div>
 
       <div class="src-item">
         <span class="src-code">SRC-03</span>
         <div class="src-text">
-          <span class="src-title">SecurityWeek / HIPAA Journal — "250,000 Affected by Data Breach at Nacogdoches Memorial Hospital"</span> · April 1–2, 2026. Primary source for NMH breach, January 15 initial access date (forensic determination), January 31 detection, 257,073 notification count, data types compromised, no threat group claim as of April 1. Corroborated by KTRE, Nacogdoches Today, Maine AG filing. RELIABILITY: HIGH. Relevance: KJ-4, Section III Healthcare.
+          <a href="https://www.hipaajournal.com/nacogdoches-memorial-hospital-data-breach/" target="_blank" rel="noopener"><span class="src-title">SecurityWeek / HIPAA Journal — "250,000 Affected by Data Breach at Nacogdoches Memorial Hospital"</span></a> · April 1–2, 2026. Primary source for NMH breach, January 15 initial access date (forensic determination), January 31 detection, 257,073 notification count, data types compromised, no threat group claim as of April 1. Corroborated by KTRE, Nacogdoches Today, Maine AG filing. RELIABILITY: HIGH. Relevance: KJ-4, Section III Healthcare.
         </div>
       </div>
 
       <div class="src-item">
         <span class="src-code">SRC-04</span>
         <div class="src-text">
-          <span class="src-title">The Record (Recorded Future News) — "Ukraine warns Russian hackers are revisiting past breaches to prepare new attacks"</span> · April 3, 2026. Primary source for CERT-UA persistent-access return operations report, APT28/Void Blizzard attribution, social engineering via phone calls, steal-and-go to long-term dwell shift. RELIABILITY: HIGH (government CERT primary source). Relevance: KJ-3, Section II, Section III DIB.
+          <a href="https://therecord.media/ukraine-russian-hackers-revisiting-past-breaches" target="_blank" rel="noopener"><span class="src-title">The Record (Recorded Future News) — "Ukraine warns Russian hackers are revisiting past breaches to prepare new attacks"</span></a> · April 3, 2026. Primary source for CERT-UA persistent-access return operations report, APT28/Void Blizzard attribution, social engineering via phone calls, steal-and-go to long-term dwell shift. RELIABILITY: HIGH (government CERT primary source). Relevance: KJ-3, Section II, Section III DIB.
         </div>
       </div>
 
       <div class="src-item">
         <span class="src-code">SRC-05</span>
         <div class="src-text">
-          <span class="src-title">The Record — "Nissan says stolen data came from third-party vendor after hacking group claims breach"</span> · April 1, 2026. Supporting source for third-party/indirect compromise pattern. RELIABILITY: HIGH. Relevance: Section IV Pattern 01.
+          <a href="https://therecord.media/nissan-third-party-vendor-data-breach" target="_blank" rel="noopener"><span class="src-title">The Record — "Nissan says stolen data came from third-party vendor after hacking group claims breach"</span></a> · April 1, 2026. Supporting source for third-party/indirect compromise pattern. RELIABILITY: HIGH. Relevance: Section IV Pattern 01.
         </div>
       </div>
 
       <div class="src-item">
         <span class="src-code">SRC-06</span>
         <div class="src-text">
-          <span class="src-title">Mandiant / Google — M-Trends 2026 Threat Intelligence Report</span> · Q1 2026. Supporting source for multi-year espionage intrusion trends, ransomware handoff timeline compression (hours to seconds), dwell time analysis. RELIABILITY: HIGH (primary commercial threat intelligence). Relevance: KJ-3, Section IV Pattern 02.
+          <a href="https://cloud.google.com/security/resources/m-trends" target="_blank" rel="noopener"><span class="src-title">Mandiant / Google — M-Trends 2026 Threat Intelligence Report</span></a> · Q1 2026. Supporting source for multi-year espionage intrusion trends, ransomware handoff timeline compression (hours to seconds), dwell time analysis. RELIABILITY: HIGH (primary commercial threat intelligence). Relevance: KJ-3, Section IV Pattern 02.
         </div>
       </div>
 
       <div class="src-text" style="margin-top:1rem;font-size:9px;color:rgba(232,226,216,.25);line-height:1.7">
-        SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) from U.S. government advisories (CERT-UA, SEC EDGAR), primary commercial threat intelligence (Mandiant/Google, SecurityWeek), and corroborated news reporting (The Record, TechCrunch, Cybersecurity Dive, HIPAA Journal, Boston Globe). No classified, restricted, or non-public government information was used or referenced. Confidence levels reflect source quality, corroboration depth, and analytical consistency, in alignment with accepted IC analytical practices. Liberty CTI Source Attribution Standards apply.
+        SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) from U.S. government advisories (CERT-UA, SEC EDGAR), primary commercial threat intelligence (Mandiant/Google, SecurityWeek), and corroborated news reporting (The Record, TechCrunch, Cybersecurity Dive, HIPAA Journal, Boston Globe). No classified, restricted, or non-public government information was used or referenced. Confidence levels reflect source quality, corroboration depth, and analytical consistency, in alignment with national security-grade analytical practices. Liberty CTI Source Attribution Standards apply.
       </div>
     </div>
   </div>
