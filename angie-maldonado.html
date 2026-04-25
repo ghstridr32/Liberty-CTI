@@ -85,6 +85,13 @@
     .hero-eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.75rem; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 1.0; color: var(--paper); margin-bottom: 0.5rem; }
     .hero h1 em { color: var(--gold); font-style: italic; }
+    .angie-hero .hero-content {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: clamp(2rem, 6vw, 6.5rem);
+      padding-bottom: 6rem;
+    }
+    .angie-hero h1 { font-size: clamp(3rem, 5.8vw, 5.35rem); line-height: 0.98; text-wrap: balance; }
     .hero-rule { width: 3rem; height: 1px; background: var(--gold); margin: 1.25rem 0; }
     .hero-sub { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.65); max-width: 560px; line-height: 1.75; }
 
@@ -173,6 +180,7 @@
     @media (max-width: 900px) {
       nav { padding: 0 1.5rem; }
       .hero-content { padding: 0 2rem 3rem; }
+      .angie-hero .hero-content { margin-left: 0; margin-right: 0; max-width: 100%; }
       .stat-bar { grid-template-columns: 1fr 1fr; }
       .stat:nth-child(2) { border-right: none; }
       .stat:nth-child(3), .stat:nth-child(4) { border-top: 1px solid var(--rule); }
@@ -1287,13 +1295,13 @@ body [style*="Instrument Sans"]{
 <!-- LCTI:NAV:END -->
 
 <!-- CINEMATIC HERO -->
-<div class="hero">
+<div class="hero angie-hero">
   <img class="hero-img" src="Angie-aide-promo.jpg" alt="Angie Maldonado at her promotion ceremony" decoding="async" fetchpriority="high" width="1400" height="933">
   <div class="hero-grad"></div>
   <div class="hero-content">
     <a class="back-link" href="about.html">← Back to About</a>
     <span class="hero-eyebrow">Co-Founder &amp; Principal &nbsp;·&nbsp; // Hellfire</span>
-    <h1>Executive judgment shaped in the<br><em>E-Ring,</em><br> proven in command</h1>
+    <h1>Executive judgment shaped in the <em>E-Ring</em><br>and proven in command.</h1>
     <div class="hero-rule"></div>
     <p class="hero-sub">Military assistant to the Deputy Secretary of Defense, squadron commander, strategic intelligence graduate, and Russian specialist. Angie brings a distinct blend of analysis, policy integration, and command judgment.</p>
   </div>
