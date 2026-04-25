@@ -1213,6 +1213,7 @@ body [style*="Instrument Sans"]{
 <a class="skip-link" href="#main-content">Skip to content</a>
 <!-- LCTI:NAV:START -->
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
 :root{--nav-h:68px}
 .lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
@@ -1300,7 +1301,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="04-19-2026.html" role="menuitem">Latest Issue, Week of Apr 19, 2026</a>
+        <a href="04-26-2026.html" role="menuitem">Latest Issue, Week of Apr 26, 2026</a>
         <div class="drop-divider"></div>
         <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1349,7 +1350,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="04-19-2026.html">Latest Issue, Week of Apr 19, 2026</a>
+    <a href="04-26-2026.html">Latest Issue, Week of Apr 26, 2026</a>
     <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1409,22 +1410,19 @@ body [style*="Instrument Sans"]{
     <div class="hero-inner">
       <div>
         <span class="eyebrow">Alamo Threat Brief Archive</span>
-        <h1>Every published issue in <em>one place.</em></h1>
-        <p>
-          Find the latest issue first, then browse every published brief in one chronological list.
-          Filter quickly by sector or actor to locate the reporting most relevant to your operating environment.
-        </p>
+        <h1>Past briefings, ready when you need them.</h1>
+        <p>Access the latest Alamo Threat Brief first, then browse previous issues by date, sector, or threat actor. Each briefing is organized for fast review by Texas executives, security leaders, and operators.</p>
         <div class="quick-links">
-          <a class="quick-link" href="04-19-2026.html">Open Latest Issue</a>
-          <a class="quick-link" href="alamo-threat-brief.html">ATB Overview</a>
-          <a class="quick-link" href="https://libertycti.substack.com" target="_blank" rel="noopener">Subscribe</a>
+          <a class="quick-link" href="04-26-2026.html">Open Latest Issue</a>
+          <a class="quick-link" href="alamo-threat-brief.html">About the Brief</a>
+          <a class="quick-link" href="https://libertycti.substack.com" target="_blank" rel="noopener">Get Weekly Updates</a>
         </div>
       </div>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Published Issues</span></div>
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Published Briefs</span></div>
         <div class="stat"><span class="stat-num">2026</span><span class="stat-label">Active Cycle</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">Latest Issue Surface</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">Archive View</span></div>
+        <div class="stat"><span class="stat-num">Current</span><span class="stat-label">Latest Brief</span></div>
+        <div class="stat"><span class="stat-num">Searchable</span><span class="stat-label">Brief Library</span></div>
       </div>
     </div>
   </section>
@@ -1442,7 +1440,7 @@ body [style*="Instrument Sans"]{
         <button class="pill" data-filter="russia">Russia</button>
         <button class="pill" data-filter="china">China</button>
         <button class="pill" data-filter="north-korea">North Korea</button>
-        <button class="pill" data-filter="criminal">Criminal Ecosystem</button>
+        <button class="pill" data-filter="criminal">Cybercrime</button>
         <button class="pill" data-filter="texas">Texas</button>
       </div>
       <div class="search">
@@ -1456,91 +1454,140 @@ body [style*="Instrument Sans"]{
       <div class="archive-head">
         <div>
           <span class="eyebrow">CY 2026</span>
-          <h2>Chronological archive</h2>
+          <h2>Browse every issue</h2>
         </div>
-        <p>
-          Open any issue directly from this list. Published briefs are presented in order, without placeholders or
-          unpublished issue cards mixed into the archive.
-        </p>
+        <p>Open any briefing directly from the list below. Issues are organized newest to oldest so you can quickly find the latest assessment or revisit prior reporting.</p>
       </div>
 
       <div class="issue-list" id="issue-list">
-        
-      <a class="issue-row" href="04-19-2026.html" data-tags="latest weekly china russia north-korea dprk criminal ecosystem ransomware" data-sector="all">
+      <a class="issue-row" href="04-26-2026.html" data-tags="latest weekly iran russia north-korea energy finance dib ai texas" data-sector="all">
+        <div class="issue-date">26 APR 2026</div>
+        <div class="issue-main">
+          <div class="issue-kicker">ATB-2026-7</div>
+          <div class="issue-title">Texas Cyber Risk: Multi-Actor Pressure Continues</div>
+          <div class="issue-summary">Highlights the most relevant cyber developments for Texas organizations, including energy exposure, financial-sector vendor risk, North Korea activity, and Russian disruptive trends.</div>
+        </div>
+        <div class="issue-tags"><span class="tag">latest</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">North Korea</span><span class="tag">AI</span></div>
+        <div class="issue-arrow">Read Brief</div>
+      </a>
+
+      <a class="issue-row" href="04-19-2026.html" data-tags="weekly iran north-korea energy finance healthcare defense ai" data-sector="all">
+        <div class="issue-date">19 APR 2026</div>
+        <div class="issue-main">
+          <div class="issue-kicker">ATB-2026-6</div>
+          <div class="issue-title">Geopolitical Pressure and North Korea AI-Enabled Activity</div>
+          <div class="issue-summary">Explains how Iranian OT risk, North Korea-linked fraud and crypto activity, and cybercrime infrastructure disruption affect Texas decision-making.</div>
+        </div>
+        <div class="issue-tags"><span class="tag">iran</span><span class="tag">North Korea</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">AI</span></div>
+        <div class="issue-arrow">Read Brief</div>
+      </a>
+
+      <a class="issue-row" href="04-12-2026.html" data-tags="weekly china russia north-korea cybercrime ransomware infrastructure" data-sector="all">
         <div class="issue-date">12 APR 2026</div>
         <div class="issue-main">
-          <div class="issue-kicker">Latest</div>
-          <div class="issue-title">Newest Published Brief</div>
-          <div class="issue-summary">Most recent Alamo Threat Brief. Open the latest issue directly from the archive without hunting through cards or dropdowns.</div>
+          <div class="issue-kicker">ATB-2026-5</div>
+          <div class="issue-title">Active Exploitation, North Korea Crypto Theft, and Infrastructure Risk</div>
+          <div class="issue-summary">Summarizes active exploitation, North Korea-linked crypto operations, and cybercrime activity that security teams should factor into near-term priorities.</div>
         </div>
-        <div class="issue-tags"><span class="tag">latest</span><span class="tag">weekly</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">north korea</span><span class="tag">criminal ecosystem</span></div>
-        <div class="issue-arrow">Read →</div>
+        <div class="issue-tags"><span class="tag">china</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span><span class="tag">ransomware</span></div>
+        <div class="issue-arrow">Read Brief</div>
       </a>
-    
+
+      <a class="issue-row" href="04-03-2026.html" data-tags="supply-chain healthcare russia ai texas defense" data-sector="cross-sector">
+        <div class="issue-date">03 APR 2026</div>
+        <div class="issue-main">
+          <div class="issue-kicker">ATB-2026-4</div>
+          <div class="issue-title">Supply-Chain Disruption and Persistent Access Risk</div>
+          <div class="issue-summary">Reviews supply-chain exposure, healthcare breach activity, and persistent-access behavior relevant to Texas organizations.</div>
+        </div>
+        <div class="issue-tags"><span class="tag">supply chain</span><span class="tag">healthcare</span><span class="tag">russia</span><span class="tag">AI</span></div>
+        <div class="issue-arrow">Read Brief</div>
+      </a>
+
       <a class="issue-row" href="03-29-2026.html" data-tags="iran healthcare defense finance" data-sector="cross-sector">
         <div class="issue-date">29 MAR 2026</div>
         <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-13</div>
-          <div class="issue-title">Iran’s Handala Network: State Intelligence Dressed as Hacktivism</div>
-          <div class="issue-summary">Covers Handala as a MOIS-operated persona, the Stryker wiper event, and implications for U.S. targets.</div>
+          <div class="issue-kicker">ATB-2026-3</div>
+          <div class="issue-title">Iran-Linked Handala Activity and U.S. Healthcare Exposure</div>
+          <div class="issue-summary">Explains the Handala/Stryker reporting and what it means for healthcare, defense, and financial-sector risk.</div>
         </div>
         <div class="issue-tags"><span class="tag">iran</span><span class="tag">healthcare</span><span class="tag">defense</span><span class="tag">finance</span></div>
-        <div class="issue-arrow">Read →</div>
+        <div class="issue-arrow">Read Brief</div>
       </a>
-    
-      <a class="issue-row" href="03-22-2026.html" data-tags="defense iran operations china russia north-korea dprk criminal ecosystem ransomware" data-sector="defense">
+
+      <a class="issue-row" href="03-22-2026.html" data-tags="defense iran operations china russia north-korea cybercrime ransomware" data-sector="defense">
         <div class="issue-date">22 MAR 2026</div>
         <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-12</div>
-          <div class="issue-title">Operation Epic Fury and the Cyber Dimension</div>
-          <div class="issue-summary">Examines cyber implications and escalation dynamics tied to Operation Epic Fury and related threat activity.</div>
+          <div class="issue-kicker">ATB-2026-2</div>
+          <div class="issue-title">Operation Epic Fury: Cyber Implications for Texas</div>
+          <div class="issue-summary">Frames cyber escalation dynamics and related threat activity for Texas critical-infrastructure leaders.</div>
         </div>
-        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">north korea</span><span class="tag">criminal ecosystem</span></div>
-        <div class="issue-arrow">Read →</div>
+        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span></div>
+        <div class="issue-arrow">Read Brief</div>
       </a>
-    
+
       <a class="issue-row" href="03-16-2026.html" data-tags="energy healthcare finance defense texas" data-sector="cross-sector">
         <div class="issue-date">16 MAR 2026</div>
         <div class="issue-main">
-          <div class="issue-kicker">ATB-2026-11</div>
-          <div class="issue-title">Texas Critical Infrastructure: Threat Baseline Assessment</div>
-          <div class="issue-summary">Baseline look at sector exposure across Texas critical infrastructure with emphasis on operating environment and adversary pressure.</div>
+          <div class="issue-kicker">ATB-2026-1</div>
+          <div class="issue-title">Texas Critical Infrastructure Threat Baseline</div>
+          <div class="issue-summary">Establishes the baseline threat picture across Texas energy, healthcare, finance, defense, and technology sectors.</div>
         </div>
         <div class="issue-tags"><span class="tag">energy</span><span class="tag">healthcare</span><span class="tag">finance</span><span class="tag">defense</span><span class="tag">texas</span></div>
-        <div class="issue-arrow">Read →</div>
-      </a>
+        <div class="issue-arrow">Read Brief</div>
+      </a>      
     
       </div>
 
       <div class="mobile-cards" id="mobile-cards">
-        
-      <a class="mobile-card" href="04-19-2026.html" data-tags="latest weekly china russia north-korea dprk criminal ecosystem ransomware" data-sector="all">
-        <div class="issue-kicker">Latest · 12 APR 2026</div>
-        <div class="issue-title">Newest Published Brief</div>
-        <div class="issue-summary">Most recent Alamo Threat Brief. Open the latest issue directly from the archive without hunting through cards or dropdowns.</div>
-        <div class="issue-tags"><span class="tag">latest</span><span class="tag">weekly</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">north korea</span><span class="tag">criminal ecosystem</span></div>
+      <a class="mobile-card" href="04-26-2026.html" data-tags="latest weekly iran russia north-korea energy finance dib ai texas" data-sector="all">
+        <div class="issue-kicker">ATB-2026-7 · 26 APR 2026</div>
+        <div class="issue-title">Texas Cyber Risk: Multi-Actor Pressure Continues</div>
+        <div class="issue-summary">Iranian OT warning activity, Texas AI-energy exposure, financial vendor risk, North Korea revenue schemes, and Russian disruptive trends.</div>
+        <div class="issue-tags"><span class="tag">latest</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">North Korea</span><span class="tag">AI</span></div>
       </a>
-    
+
+      <a class="mobile-card" href="04-19-2026.html" data-tags="weekly iran north-korea energy finance healthcare defense ai" data-sector="all">
+        <div class="issue-kicker">ATB-2026-6 · 19 APR 2026</div>
+        <div class="issue-title">Geopolitical Pressure and North Korea AI-Enabled Activity</div>
+        <div class="issue-summary">Iranian OT risk, North Korea-linked AI-enabled fraud and crypto activity, cybercrime infrastructure disruption, and Texas sector exposure.</div>
+        <div class="issue-tags"><span class="tag">iran</span><span class="tag">North Korea</span><span class="tag">energy</span><span class="tag">finance</span><span class="tag">AI</span></div>
+      </a>
+
+      <a class="mobile-card" href="04-12-2026.html" data-tags="weekly china russia north-korea cybercrime ransomware infrastructure" data-sector="all">
+        <div class="issue-kicker">ATB-2026-5 · 12 APR 2026</div>
+        <div class="issue-title">Active Exploitation, North Korea Crypto Theft, and Infrastructure Risk</div>
+        <div class="issue-summary">Exploited edge infrastructure, North Korea-linked crypto operations, vulnerability pressure, and cybercrime activity.</div>
+        <div class="issue-tags"><span class="tag">china</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span><span class="tag">ransomware</span></div>
+      </a>
+
+      <a class="mobile-card" href="04-03-2026.html" data-tags="supply-chain healthcare russia ai texas defense" data-sector="cross-sector">
+        <div class="issue-kicker">ATB-2026-4 · 03 APR 2026</div>
+        <div class="issue-title">Supply-Chain Disruption and Persistent Access Risk</div>
+        <div class="issue-summary">Hasbro disruption, LiteLLM/Mercor exposure, Nacogdoches breach, and Russian return-to-breach operations.</div>
+        <div class="issue-tags"><span class="tag">supply chain</span><span class="tag">healthcare</span><span class="tag">russia</span><span class="tag">AI</span></div>
+      </a>
+
       <a class="mobile-card" href="03-29-2026.html" data-tags="iran healthcare defense finance" data-sector="cross-sector">
-        <div class="issue-kicker">ATB-2026-13 · 29 MAR 2026</div>
-        <div class="issue-title">Iran’s Handala Network: State Intelligence Dressed as Hacktivism</div>
-        <div class="issue-summary">Covers Handala as a MOIS-operated persona, the Stryker wiper event, and implications for U.S. targets.</div>
+        <div class="issue-kicker">ATB-2026-3 · 29 MAR 2026</div>
+        <div class="issue-title">Iran-Linked Handala Activity and U.S. Healthcare Exposure</div>
+        <div class="issue-summary">Explains the Handala/Stryker reporting and what it means for healthcare, defense, and financial-sector risk.</div>
         <div class="issue-tags"><span class="tag">iran</span><span class="tag">healthcare</span><span class="tag">defense</span><span class="tag">finance</span></div>
       </a>
-    
-      <a class="mobile-card" href="03-22-2026.html" data-tags="defense iran operations china russia north-korea dprk criminal ecosystem ransomware" data-sector="defense">
-        <div class="issue-kicker">ATB-2026-12 · 22 MAR 2026</div>
-        <div class="issue-title">Operation Epic Fury and the Cyber Dimension</div>
-        <div class="issue-summary">Examines cyber implications and escalation dynamics tied to Operation Epic Fury and related threat activity.</div>
-        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">north korea</span><span class="tag">criminal ecosystem</span></div>
+
+      <a class="mobile-card" href="03-22-2026.html" data-tags="defense iran operations china russia north-korea cybercrime ransomware" data-sector="defense">
+        <div class="issue-kicker">ATB-2026-2 · 22 MAR 2026</div>
+        <div class="issue-title">Operation Epic Fury: Cyber Implications for Texas</div>
+        <div class="issue-summary">Frames cyber escalation dynamics and related threat activity for Texas critical-infrastructure leaders.</div>
+        <div class="issue-tags"><span class="tag">defense</span><span class="tag">iran</span><span class="tag">china</span><span class="tag">russia</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span></div>
       </a>
-    
+
       <a class="mobile-card" href="03-16-2026.html" data-tags="energy healthcare finance defense texas" data-sector="cross-sector">
-        <div class="issue-kicker">ATB-2026-11 · 16 MAR 2026</div>
-        <div class="issue-title">Texas Critical Infrastructure: Threat Baseline Assessment</div>
-        <div class="issue-summary">Baseline look at sector exposure across Texas critical infrastructure with emphasis on operating environment and adversary pressure.</div>
+        <div class="issue-kicker">ATB-2026-1 · 16 MAR 2026</div>
+        <div class="issue-title">Texas Critical Infrastructure Threat Baseline</div>
+        <div class="issue-summary">Establishes the baseline threat picture across Texas energy, healthcare, finance, defense, and technology sectors.</div>
         <div class="issue-tags"><span class="tag">energy</span><span class="tag">healthcare</span><span class="tag">finance</span><span class="tag">defense</span><span class="tag">texas</span></div>
-      </a>
+      </a>      
     
       </div>
 
@@ -1589,7 +1636,7 @@ body [style*="Instrument Sans"]{
       <span class="lcti-footer-col-title">Decision Advantage</span>
       <ul class="lcti-footer-links">
         <li><a href="decision-support.html">Decision Advantage Framework</a></li>
-        <li><a href="04-19-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="04-26-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>
