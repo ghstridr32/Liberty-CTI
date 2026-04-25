@@ -66,7 +66,6 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 7rem 3.5rem 6rem; }
 .hero-right { position: relative; overflow: hidden; display: flex; align-items: flex-start; justify-content: center; min-height: auto; padding: 2.5rem 1.5rem 0.5rem 0.5rem; }
 .hero-map-image { position: relative; width: min(100%, 1180px); max-width: 100%; height: auto; max-height: none; object-fit: contain; object-position: top center; transform: none; transform-origin: center center; image-rendering: auto; filter: brightness(1.01) contrast(1.08) saturate(1.03) drop-shadow(0 10px 24px rgba(0,0,0,0.18)); }
-.hero-left-fade { position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--navy), transparent); z-index: 4; pointer-events: none; }
 .hero-bottom-fade { display: none; }
 .hero-corner-mask { display: none; }
 .eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
@@ -1195,7 +1194,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="04-19-2026.html" role="menuitem">Latest Issue, Week of Apr 19, 2026</a>
+        <a href="04-26-2026.html" role="menuitem">Latest Issue, Week of Apr 26, 2026</a>
         <div class="drop-divider"></div>
         <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1244,7 +1243,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="04-19-2026.html">Latest Issue, Week of Apr 19, 2026</a>
+    <a href="04-26-2026.html">Latest Issue, Week of Apr 26, 2026</a>
     <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1283,7 +1282,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['04-19-2026.html', 'atb-archive.html'],
+    'alamo-threat-brief.html':['04-26-2026.html', 'atb-archive.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1314,7 +1313,6 @@ body [style*="Instrument Sans"]{
     </div>
     <div class="hero-right">
       <img class="hero-map-image" src="texas-focus-map.png" alt="Texas cyber threat environment map" decoding="async" fetchpriority="high" width="1536" height="1024">
-      <div class="hero-left-fade"></div>
       <div class="hero-bottom-fade"></div>
       <div class="hero-corner-mask"></div>
     </div>
@@ -1559,7 +1557,7 @@ Most organizations understand their internal environment. Fewer understand how t
       <span class="lcti-footer-col-title">Decision Advantage</span>
       <ul class="lcti-footer-links">
         <li><a href="decision-support.html">Decision Advantage Framework</a></li>
-        <li><a href="04-19-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="04-26-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>
