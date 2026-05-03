@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Decision Advantage Framework, Liberty CTI</title>
-<meta name="description" content="Liberty CTI&#x27;s decision advantage framework turns external risk into practical guidance for leadership, operations, and risk teams.">
+  <title>Products & Services, Liberty CTI</title>
+<meta name="description" content="Explore Liberty CTI products and services, from the Alamo Threat Brief to executive briefings and intelligence retainers for Texas critical infrastructure leaders.">
 <link rel="canonical" href="https://libertycti.com/decision-support.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Liberty CTI">
-<meta property="og:title" content="Decision Advantage Framework, Liberty CTI">
-<meta property="og:description" content="Liberty CTI&#x27;s decision advantage framework turns external risk into practical guidance for leadership, operations, and risk teams.">
+<meta property="og:title" content="Products & Services, Liberty CTI">
+<meta property="og:description" content="Explore Liberty CTI products and services, from the Alamo Threat Brief to executive briefings and intelligence retainers for Texas critical infrastructure leaders.">
 <meta property="og:url" content="https://libertycti.com/decision-support.html">
 <meta property="og:image" content="https://libertycti.com/liberty-cti-emblem.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Decision Advantage Framework, Liberty CTI">
-<meta name="twitter:description" content="Liberty CTI&#x27;s decision advantage framework turns external risk into practical guidance for leadership, operations, and risk teams.">
+<meta name="twitter:title" content="Products & Services, Liberty CTI">
+<meta name="twitter:description" content="Explore Liberty CTI products and services, from the Alamo Threat Brief to executive briefings and intelligence retainers for Texas critical infrastructure leaders.">
 <meta name="twitter:image" content="https://libertycti.com/liberty-cti-emblem.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -359,6 +359,133 @@
       line-height: 1.65;
     }
 
+    .service-ladder {
+      padding: 2.25rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--rule);
+    }
+    .service-card {
+      background: rgba(8,12,16,0.72);
+      padding: 2rem;
+      border-top: 3px solid rgba(184,150,62,0.45);
+      min-height: 100%;
+    }
+    .service-card.primary {
+      background: linear-gradient(180deg, rgba(184,150,62,0.12), rgba(8,12,16,0.82));
+      border-top-color: var(--gold);
+      box-shadow: inset 0 0 0 1px rgba(184,150,62,0.16);
+    }
+    .service-kicker {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--paper);
+      line-height: 1.15;
+      margin-bottom: 0.45rem;
+    }
+    .service-price {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+    .service-desc {
+      font-size: 0.86rem;
+      color: rgba(244,239,230,0.64);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .service-list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+    .service-list li {
+      font-size: 0.78rem;
+      color: rgba(244,239,230,0.58);
+      line-height: 1.55;
+      display: flex;
+      gap: 0.55rem;
+    }
+    .service-list li::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .decision-band {
+      padding: 2.25rem;
+      border-top: 1px solid var(--rule);
+      background: rgba(184,150,62,0.05);
+    }
+    .decision-band h2 {
+      color: var(--paper);
+      margin-bottom: 1rem;
+    }
+    .decision-band p {
+      font-size: 0.95rem;
+      color: rgba(244,239,230,0.66);
+      line-height: 1.8;
+      max-width: 860px;
+      margin-bottom: 1rem;
+    }
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--rule);
+      margin-top: 1.4rem;
+    }
+    .decision-tile {
+      background: rgba(8,12,16,0.7);
+      padding: 1.4rem;
+      color: rgba(244,239,230,0.68);
+      font-size: 0.85rem;
+      line-height: 1.65;
+    }
+    .decision-tile strong {
+      display: block;
+      color: var(--gold);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.64rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0 2.25rem 2.25rem;
+    }
+    .service-link {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 1.25rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+    .service-link.primary {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .card {
@@ -366,6 +493,10 @@
         gap: 1.5rem;
       }
       .exec { height: auto; }
+      .service-ladder,
+      .decision-grid {
+        grid-template-columns: 1fr;
+      }
     }
     @media (max-width: 600px) {
       body { padding: 1.25rem 0.75rem; }
@@ -1886,7 +2017,7 @@ body [style*="Instrument Sans"]{
 <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
-    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.</div>
+    <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
   </a>
 
   <ul class="lcti-links" role="list">
@@ -1904,9 +2035,9 @@ body [style*="Instrument Sans"]{
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Decision Advantage</button>
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">Decision Advantage Framework</a>
+        <a href="decision-support.html" role="menuitem">Products &amp; Services</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Core Products</span>
         <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
@@ -1919,7 +2050,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="04-26-2026.html" role="menuitem">Latest Issue, Week of Apr 26, 2026</a>
+        <a href="05-03-2026.html" role="menuitem">Latest Issue, Week of May 3, 2026</a>
         <div class="drop-divider"></div>
         <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1940,7 +2071,7 @@ body [style*="Instrument Sans"]{
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request Assessment</a></li>
+    <li><a href="briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1958,9 +2089,9 @@ body [style*="Instrument Sans"]{
     <a href="angie-maldonado.html">Angie Maldonado</a>
   </div>
 
-  <span class="m-group-label">Decision Advantage</span>
+  <span class="m-group-label">Products</span>
   <div class="m-sub">
-    <a href="decision-support.html">Decision Advantage Framework</a>
+    <a href="decision-support.html">Products &amp; Services</a>
     <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="sector-assessments.html">Sector Assessments</a>
@@ -1968,7 +2099,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="04-26-2026.html">Latest Issue, Week of Apr 26, 2026</a>
+    <a href="05-03-2026.html">Latest Issue, Week of May 3, 2026</a>
     <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1983,7 +2114,7 @@ body [style*="Instrument Sans"]{
   </div>
 
   <div class="m-cta-wrap">
-    <a href="briefing-request.html" class="m-cta">Request Assessment</a>
+    <a href="briefing-request.html" class="m-cta">Request an Executive Briefing</a>
   </div>
 </div>
 
@@ -2007,7 +2138,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['04-26-2026.html', 'atb-archive.html'],
+    'alamo-threat-brief.html':['05-03-2026.html', 'atb-archive.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -2031,131 +2162,147 @@ body [style*="Instrument Sans"]{
       <div class="header">
         <div class="header-inner">
           <div class="header-text">
-            <span class="eyebrow">Executive Warning and Risk Insight</span>
-            <h1>Decision Advantage<br><em>Framework</em></h1>
-            <p class="header-sub">Liberty CTI helps leadership understand what is changing, why it matters to the business, what should be watched next, and which decision now deserves attention.</p>
+            <span class="eyebrow">Products &amp; Services</span>
+            <h1>Executive Decision Intelligence<br><em>for Texas Critical Infrastructure</em></h1>
+            <p class="header-sub">Every Liberty CTI product answers three questions: what decision is at risk, what is the cost of being wrong, and what should leadership do this week.</p>
             <div class="topline">
-              <span class="topline-step active">Detect Change</span>
+              <span class="topline-step active">Weekly Warning</span>
               <span class="topline-arrow">→</span>
-              <span class="topline-step active">Assess Risk</span>
+              <span class="topline-step active">Executive Briefing</span>
               <span class="topline-arrow">→</span>
-              <span class="topline-step active">Decide Early / Act Decisively</span>
+              <span class="topline-step active">Standing Retainer</span>
             </div>
           </div>
           <img src="liberty-cti-emblem.png" alt="Liberty CTI Emblem" class="header-emblem-large" decoding="async" loading="lazy" width="489" height="512">
         </div>
       </div>
 
-      <!-- CARD STACK -->
-      <div class="stack">
-
-        <!-- LAYER 1 -->
-        <article class="card layer-1">
-          <div class="card-accent-bar"></div>
-          <div>
-            <div class="kicker">Detect Change</div>
-            <div class="card-title">Alamo<br><em>Threat Brief</em></div>
-            <p class="card-desc">A weekly leadership warning product that detects meaningful change and tells executives what deserves attention before it affects operations.</p>
-          </div>
-          <div class="bullets">
-            <div class="bullet"><span>Weekly threat change detection</span></div>
-            <div class="bullet"><span>Adversary activity and targeting</span></div>
-            <div class="bullet"><span>Sector-specific watch points</span></div>
-            <div class="bullet"><span>Executive warning indicators</span></div>
-          </div>
-          <div class="exec">
-            <span class="exec-label">// Executive question answered</span>
-            <div class="exec-question">What changed this week that could alter our risk?</div>
-          </div>
-        </article>
-
-        <!-- LAYER 2 -->
-        <article class="card layer-2">
-          <div class="card-accent-bar"></div>
-          <div>
-            <div class="kicker">Assess</div>
-            <div class="card-title">Texas Threat<br><em>Outlook</em></div>
-            <p class="card-desc">A forward-looking assessment of the risks most likely to shape major leadership decisions across Texas sectors, with emphasis on consequence, convergence, and trajectory.</p>
-          </div>
-          <div class="bullets">
-            <div class="bullet"><span>6–12 month risk framing</span></div>
-            <div class="bullet"><span>Sector exposure assessment</span></div>
-            <div class="bullet"><span>Decision consequence analysis</span></div>
-            <div class="bullet"><span>Priority risk judgments</span></div>
-          </div>
-          <div class="exec">
-            <span class="exec-label">// Executive question answered</span>
-            <div class="exec-question">What risk matters most over the next 6–12 months?</div>
-          </div>
-        </article>
-
-        <!-- LAYER 3 -->
-        <article class="card layer-3">
-          <div class="card-accent-bar"></div>
-          <div>
-            <div class="kicker">Act</div>
-            <div class="card-title">Sector<br><em>Assessments</em></div>
-            <p class="card-desc">Focused decision support for leaders operating in a specific sector, exposure set, or operating environment where generic advice is not good enough.</p>
-          </div>
-          <div class="bullets">
-            <div class="bullet"><span>Sector-specific risk reduction</span></div>
-            <div class="bullet"><span>Earlier leadership decisions</span></div>
-            <div class="bullet"><span>Exposure-based recommendations</span></div>
-            <div class="bullet"><span>Focused resilience planning</span></div>
-          </div>
-          <div class="exec">
-            <span class="exec-label">// Executive question answered</span>
-            <div class="exec-question">What should we do before this becomes our problem?</div>
-          </div>
-        </article>
-
-      </div>
-
-
-      <div class="connector">
-        <div class="connector-line"><span class="connector-text">Use each product when</span></div>
-      </div>
-
-      <div class="stack" style="padding-top:0;">
-        <article class="card layer-1" style="grid-template-columns: 180px 1fr;">
-          <div>
-            <div class="kicker">ATB</div>
-            <div class="card-title" style="font-size:1.1rem;">Use it when</div>
-          </div>
-          <div class="card-desc">Leadership needs a standing read on what changed, what matters now, and what should be watched before the next operating or board discussion.</div>
-        </article>
-        <article class="card layer-2" style="grid-template-columns: 180px 1fr;">
-          <div>
-            <div class="kicker">Outlook</div>
-            <div class="card-title" style="font-size:1.1rem;">Use it when</div>
-          </div>
-          <div class="card-desc">Leadership is preparing for larger strategic decisions and needs a clearer view of how external risk is moving.</div>
-        </article>
-        <article class="card layer-3" style="grid-template-columns: 180px 1fr;">
-          <div>
-            <div class="kicker">Assessment</div>
-            <div class="card-title" style="font-size:1.1rem;">Use it when</div>
-          </div>
-          <div class="card-desc">Leadership needs focused guidance tied to a specific sector, exposure set, or consequential business decision.</div>
-        </article>
-      </div>
-
-      <!-- INDUSTRIES -->
-      <div class="industries">
-        <div class="industries-label">Industries Protected</div>
-        <div class="pills">
-          <a class="pill" href="energy-ercot.html">Energy</a>
-          <a class="pill" href="financial.html">Finance</a>
-          <a class="pill" href="healthcare.html">Healthcare</a>
-          <a class="pill" href="defense-dib.html">Defense</a>
-          <a class="pill" href="Energy_data_AI.html">AI / Data Centers</a>
+      <div class="decision-band">
+        <h2>We are not a threat feed, SOC tool, or incident response firm.</h2>
+        <p>We help executives understand who is targeting their sector, why it matters now, and what action should be taken before disruption occurs. The retainer is the primary model because recurring leadership decisions require recurring warning, not one-time awareness.</p>
+        <div class="decision-grid">
+          <div class="decision-tile"><strong>Decision at risk</strong> Whether to elevate posture, brief the board, adjust continuity assumptions, or activate sector-specific escalation thresholds.</div>
+          <div class="decision-tile"><strong>Cost of being wrong</strong> Downtime, cashflow disruption, regulatory exposure, safety risk, supply-chain interruption, and customer trust damage.</div>
+          <div class="decision-tile"><strong>This week</strong> Read the latest ATB, define the leadership question, assign the decision owner, and set the trigger for escalation.</div>
         </div>
       </div>
 
-      <!-- FOOTER NOTE -->
-      <div class="footer-note">
-        <div class="footer-note-icon">◈</div>
-        <div class="footer-note-text">Liberty CTI combines intelligence-grade rigor with Texas sector context to reduce uncertainty around consequential decisions and help leaders act before disruption sets the agenda.</div>
+      <div class="service-ladder">
+        <article class="service-card">
+          <div class="service-kicker">A · Credibility / Awareness</div>
+          <div class="service-name">Alamo Threat Brief</div>
+          <div class="service-price">Free</div>
+          <p class="service-desc">Weekly executive warning brief covering Texas critical infrastructure cyber risk.</p>
+          <ul class="service-list">
+            <li>Purpose: credibility, awareness, and strategic warning</li>
+            <li>Shows what changed this week and why it matters</li>
+            <li>Entry point into the Liberty CTI warning model</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-kicker">B · Subscription</div>
+          <div class="service-name">ATB Pro</div>
+          <div class="service-price">$25/month</div>
+          <p class="service-desc">Full weekly Alamo Threat Brief with deeper sector analysis, actor context, and warning indicators.</p>
+          <ul class="service-list">
+            <li>Deeper sector analysis</li>
+            <li>Actor context and intent framing</li>
+            <li>Warning indicators for Texas operators</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-kicker">C · Executive Subscription</div>
+          <div class="service-name">ATB Executive</div>
+          <div class="service-price">$99/month</div>
+          <p class="service-desc">Shorter decision-grade version for executives who need the warning, the impact, and the action path without the full analytic read.</p>
+          <ul class="service-list">
+            <li>Executive Warning</li>
+            <li>Decision Impact</li>
+            <li>What to do this week</li>
+            <li>If ignored / escalation path</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-kicker">D · Scoped Assessment</div>
+          <div class="service-name">Rapid Threat Assessment</div>
+          <div class="service-price">$5,000</div>
+          <p class="service-desc">48-72 hour assessment of a specific emerging cyber, geopolitical, or sector risk.</p>
+          <ul class="service-list">
+            <li>What changed?</li>
+            <li>Who is likely responsible?</li>
+            <li>Why does it matter now?</li>
+            <li>What should leadership do?</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="service-kicker">E · Live Executive Support</div>
+          <div class="service-name">Executive Intelligence Briefing</div>
+          <div class="service-price">$3,500</div>
+          <p class="service-desc">60-90 minute live briefing for C-suite, board, or senior security leaders.</p>
+          <ul class="service-list">
+            <li>Sector risk</li>
+            <li>Cross-sector cascade risk</li>
+            <li>Executive decision implications</li>
+          </ul>
+        </article>
+
+        <article class="service-card primary" id="retainer">
+          <div class="service-kicker">F · Primary Business Model</div>
+          <div class="service-name">Executive Intelligence Retainer</div>
+          <div class="service-price">Starting at $4,500/month</div>
+          <p class="service-desc">Standing intelligence partnership for Texas critical infrastructure leaders. Build an intelligence layer around your leadership decisions.</p>
+          <ul class="service-list">
+            <li>ATB Executive access</li>
+            <li>Monthly executive call</li>
+            <li>Custom Priority Information Needs</li>
+            <li>Flash warning support</li>
+            <li>Sector-specific escalation monitoring</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="decision-band" id="cascade-intelligence">
+        <h2>Cascade Intelligence</h2>
+        <p>Most cyber intelligence stops inside one sector. Liberty CTI tracks how disruption moves across Texas' coupled economy—energy, finance, healthcare, defense, data centers, and government services.</p>
+        <div class="decision-grid">
+          <div class="decision-tile"><strong>Example cascade</strong> Data center growth strains grid capacity.</div>
+          <div class="decision-tile"><strong>Operational pressure</strong> Grid instability raises hospital downtime risk and public safety exposure.</div>
+          <div class="decision-tile"><strong>Financial shock</strong> Financial institutions absorb liquidity, claims, and recovery shocks.</div>
+        </div>
+      </div>
+
+      <div class="decision-band" id="competition-crisis-conflict">
+        <h2>Competition → Crisis → Conflict</h2>
+        <p>Every cyber event sits on a spectrum. Liberty CTI tells clients where their sector appears to be on that spectrum and whether conditions are accelerating.</p>
+        <div class="decision-grid">
+          <div class="decision-tile"><strong>Competition</strong> Access development, reconnaissance, credential theft, influence, and probing.</div>
+          <div class="decision-tile"><strong>Crisis</strong> Targeting accelerates, pre-positioning increases, and disruption risk rises.</div>
+          <div class="decision-tile"><strong>Conflict</strong> Cyber effects are delivered against operations, infrastructure, or public confidence.</div>
+        </div>
+      </div>
+
+      <div class="decision-band" id="pins">
+        <h2>Intelligence Built Around Client Decisions</h2>
+        <p>Liberty CTI uses Priority Information Needs to define the questions leadership must answer before risk becomes disruption. A PIN is not an analytic curiosity—it is the client's decision contract.</p>
+        <div class="decision-grid">
+          <div class="decision-tile"><strong>Energy PIN</strong> Is adversary pre-positioning increasing against Texas energy infrastructure?</div>
+          <div class="decision-tile"><strong>Healthcare PIN</strong> Are ransomware groups shifting toward regional healthcare disruption?</div>
+          <div class="decision-tile"><strong>Defense PIN</strong> Are PRC-linked actors targeting Texas defense suppliers through managed service providers?</div>
+          <div class="decision-tile"><strong>Gulf Coast PIN</strong> Are geopolitical events increasing risk to Gulf Coast energy operations?</div>
+          <div class="decision-tile"><strong>Client decision</strong> Which executive action should move this week if the answer is yes?</div>
+          <div class="decision-tile"><strong>Escalation trigger</strong> Which indicator would require a flash warning or executive call?</div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="service-link primary" href="05-03-2026.html">View the latest Alamo Threat Brief</a>
+        <a class="service-link" href="briefing-request.html">Request an Executive Briefing</a>
+        <a class="service-link" href="briefing-request.html">Subscribe to ATB Pro</a>
+        <a class="service-link" href="briefing-request.html">Discuss a Retainer</a>
       </div>
 
     </div>
@@ -2192,15 +2339,15 @@ body [style*="Instrument Sans"]{
         <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
-      <p class="lcti-footer-tagline">Executive decision support for organizations that need earlier warning, clearer priorities, and practical options before disruption hits.</p>
-      <div class="lcti-footer-slogan">Know the threat. Stay ready.</div>
+      <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
+      <div class="lcti-footer-slogan">Know what changed. Decide this week.</div>
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Decision Advantage</span>
+      <span class="lcti-footer-col-title">Products</span>
       <ul class="lcti-footer-links">
-        <li><a href="decision-support.html">Decision Advantage Framework</a></li>
-        <li><a href="04-26-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="decision-support.html">Products &amp; Services</a></li>
+        <li><a href="05-03-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>
@@ -2221,7 +2368,8 @@ body [style*="Instrument Sans"]{
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="briefing-request.html">Request Support</a></li>
+        <li><a href="briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="briefing-request.html">Discuss a Retainer</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
