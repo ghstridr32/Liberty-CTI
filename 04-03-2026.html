@@ -1618,7 +1618,7 @@ body [style*="Instrument Sans"]{
 <img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
-    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.</div>
+    <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
   </a>
 
   <ul class="lcti-links" role="list">
@@ -1636,9 +1636,9 @@ body [style*="Instrument Sans"]{
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Decision Advantage</button>
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../decision-support.html" role="menuitem">Decision Advantage Framework</a>
+        <a href="../../decision-support.html" role="menuitem">Products &amp; Services</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Core Products</span>
         <a href="../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
@@ -1651,7 +1651,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="04-19-2026.html" role="menuitem">Latest Issue, Week of Apr 19, 2026</a>
+        <a href="05-03-2026.html" role="menuitem">Latest Issue, Week of May 3, 2026</a>
         <div class="drop-divider"></div>
         <a href="../../atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1672,7 +1672,7 @@ body [style*="Instrument Sans"]{
       </div>
     </li>
 
-    <li><a href="../../briefing-request.html" class="lcti-cta">Request Assessment</a></li>
+    <li><a href="../../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1690,9 +1690,9 @@ body [style*="Instrument Sans"]{
     <a href="../../angie-maldonado.html">Angie Maldonado</a>
   </div>
 
-  <span class="m-group-label">Decision Advantage</span>
+  <span class="m-group-label">Products</span>
   <div class="m-sub">
-    <a href="../../decision-support.html">Decision Advantage Framework</a>
+    <a href="../../decision-support.html">Products &amp; Services</a>
     <a href="../../alamo-threat-brief.html">Alamo Threat Brief</a>
     <a href="../../texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="../../sector-assessments.html">Sector Assessments</a>
@@ -1700,7 +1700,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="04-19-2026.html">Latest Issue, Week of Apr 19, 2026</a>
+    <a href="05-03-2026.html">Latest Issue, Week of May 3, 2026</a>
     <a href="../../atb-archive.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1715,7 +1715,7 @@ body [style*="Instrument Sans"]{
   </div>
 
   <div class="m-cta-wrap">
-    <a href="../../briefing-request.html" class="m-cta">Request Assessment</a>
+    <a href="../../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
   </div>
 </div>
 
@@ -1739,7 +1739,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['04-19-2026.html', 'atb-archive.html'],
+    'alamo-threat-brief.html':['05-03-2026.html', 'atb-archive.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1804,6 +1804,24 @@ body [style*="Instrument Sans"]{
 
 <!-- PAGE BODY -->
 <div class="page">
+
+  <!-- DECISION-FIRST SUMMARY -->
+  <style>
+    .decision-first-block{background:var(--panel,#0d1520);border:1px solid rgba(212,150,26,.32);border-left:5px solid var(--amber,#d4961a);padding:28px 32px;margin:0 0 30px}
+    .decision-first-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(212,150,26,.18)}
+    .decision-first-item{background:rgba(8,12,16,.72);padding:18px}
+    .decision-first-item h2{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--paper,#f4efe6);margin:0 0 8px}
+    .decision-first-item p{font-size:.92rem;line-height:1.65;color:var(--paper,#d8d3c8);margin:0}
+    @media(max-width:800px){.decision-first-grid{grid-template-columns:1fr}.decision-first-block{padding:22px 20px}}
+  </style>
+  <section class="decision-first-block" aria-label="Executive decision summary">
+    <div class="decision-first-grid">
+      <div class="decision-first-item"><h2>EXECUTIVE WARNING</h2><p>This issue should be read as a leadership warning, not a technical recap. It identifies material change in adversary behavior, geopolitical pressure, or sector exposure that can alter Texas critical infrastructure risk this week. The next risk is not only compromise; it is operational disruption, public pressure, or a compressed decision window.</p></div>
+      <div class="decision-first-item"><h2>DECISION IMPACT</h2><p>Downtime, cashflow disruption, regulatory pressure, safety risk, board exposure, supply-chain interruption, and customer trust damage.</p></div>
+      <div class="decision-first-item"><h2>WHAT TO DO THIS WEEK</h2><p>Assign one executive owner, confirm the exposed business dependency, set notification thresholds, and decide what must change before the next briefing cycle.</p></div>
+      <div class="decision-first-item"><h2>ESCALATION PATH</h2><p><strong>If ignored:</strong> leadership may discover the risk after disruption or emergency spend. <strong>If it spreads cross-sector:</strong> energy, healthcare, finance, defense, data center, and government dependencies can amplify the original event. <strong>Flash warning trigger:</strong> confirmed Texas targeting, active exploitation, public disruption, or credible actor claims tied to this issue.</p></div>
+    </div>
+  </section>
 
   <!-- ── KEY JUDGMENTS ── -->
   <div class="section">
@@ -2116,3 +2134,78 @@ body [style*="Instrument Sans"]{
 
 <!-- BOTTOM CLASSIFICATION BANNER -->
 <div class
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
+      <div class="lcti-footer-slogan">Know what changed. Decide this week.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Products</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../../decision-support.html">Products &amp; Services</a></li>
+        <li><a href="05-03-2026.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../../sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../../financial.html">Financial Services</a></li>
+        <li><a href="../../healthcare.html">Healthcare</a></li>
+        <li><a href="../../Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../../briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="../../briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2027 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
