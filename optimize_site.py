@@ -9,6 +9,7 @@ page under the site root so archived/secondary pages stay visually consistent.
 from __future__ import annotations
 
 import html
+import os
 import re
 import struct
 from pathlib import Path
@@ -1158,6 +1159,56 @@ def replace_legacy_links(content: str) -> str:
     return content
 
 
+def relative_internal_url(page_path: Path, url: str) -> str:
+    """Convert a site-root URL into a page-relative URL for static hosting."""
+    if not url.startswith("/") or url.startswith("//"):
+        return url
+
+    body = url[1:]
+    suffix = ""
+    split_at = len(body)
+    for marker in ("?", "#"):
+        marker_at = body.find(marker)
+        if marker_at != -1:
+            split_at = min(split_at, marker_at)
+    if split_at < len(body):
+        suffix = body[split_at:]
+        body = body[:split_at]
+
+    target = "index.html" if body == "" else body
+    if target.endswith("/"):
+        target += "index.html"
+
+    target_abs = (SITE_ROOT / target).resolve()
+    current_dir = page_path.resolve().parent
+    rel = os.path.relpath(target_abs, current_dir).replace("\\", "/")
+    return rel + suffix
+
+
+def relativize_root_internal_links(content: str, page_path: Path) -> str:
+    def replace_attr(match: re.Match) -> str:
+        attr, quote, url = match.groups()
+        return f'{attr}={quote}{relative_internal_url(page_path, url)}{quote}'
+
+    content = re.sub(
+        r'\b(href|src|action)=(["\'])(/[^"\']*)\2',
+        replace_attr,
+        content,
+        flags=re.I,
+    )
+
+    def replace_refresh(match: re.Match) -> str:
+        prefix, url, suffix = match.groups()
+        return prefix + relative_internal_url(page_path, url) + suffix
+
+    return re.sub(
+        r'(content=(?:"|\')\s*\d+\s*;\s*url=)(/[^"\']*)((?:"|\'))',
+        replace_refresh,
+        content,
+        flags=re.I,
+    )
+
+
 MOJIBAKE_REPLACEMENTS = {
     "\u00e2\u20ac\u201d": "&mdash;",
     "\u00e2\u20ac\u201c": "&ndash;",
@@ -1242,12 +1293,17 @@ def main() -> None:
             continue
         old = path.read_text(encoding="utf-8")
         if is_redirect_stub(old):
+            new = relativize_root_internal_links(repair_mojibake(old), path)
+            if new != old:
+                path.write_text(new, encoding="utf-8")
+                changed.append(filename)
             continue
         new = repair_mojibake(old)
         new = replace_meta(new, filename)
         new = replace_legacy_links(new)
         new = add_skip_link(new)
         new = optimize_images_in_html(new)
+        new = relativize_root_internal_links(new, path)
         if new != old:
             path.write_text(new, encoding="utf-8")
             changed.append(filename)
@@ -1258,9 +1314,14 @@ def main() -> None:
             continue
         old = path.read_text(encoding="utf-8")
         if is_redirect_stub(old):
+            new = relativize_root_internal_links(repair_mojibake(old), path)
+            if new != old:
+                path.write_text(new, encoding="utf-8")
+                typography_changed.append(str(path.relative_to(SITE_ROOT)))
             continue
         new = repair_mojibake(old)
         new = apply_legibility_style(new)
+        new = relativize_root_internal_links(new, path)
         if new != old:
             path.write_text(new, encoding="utf-8")
             typography_changed.append(str(path.relative_to(SITE_ROOT)))
