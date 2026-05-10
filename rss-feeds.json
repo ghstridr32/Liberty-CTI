@@ -1,0 +1,97 @@
+[
+  {
+    "name": "CISA Cybersecurity Advisories",
+    "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+    "category": "Government / Official"
+  },
+  {
+    "name": "CISA News",
+    "url": "https://www.cisa.gov/news.xml",
+    "category": "Government / Official"
+  },
+  {
+    "name": "HHS HC3",
+    "url": "https://www.hhs.gov/about/agencies/asa/ocio/hc3/rss.xml",
+    "category": "Government / Official"
+  },
+  {
+    "name": "Treasury Press Releases",
+    "url": "https://home.treasury.gov/news/press-releases/feed",
+    "category": "Government / Official"
+  },
+  {
+    "name": "FinCEN News",
+    "url": "https://www.fincen.gov/news-room/rss.xml",
+    "category": "Government / Official"
+  },
+  {
+    "name": "Microsoft Threat Intelligence",
+    "url": "https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/feed/",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "Google Cloud Threat Intelligence",
+    "url": "https://cloud.google.com/blog/topics/threat-intelligence/rss/",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "Palo Alto Unit 42",
+    "url": "https://unit42.paloaltonetworks.com/feed/",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "Dragos",
+    "url": "https://www.dragos.com/blog/feed/",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "Recorded Future",
+    "url": "https://www.recordedfuture.com/blog/feed",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "SentinelOne Labs",
+    "url": "https://www.sentinelone.com/labs/feed/",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "Sophos Threat Research",
+    "url": "https://news.sophos.com/en-us/category/threat-research/feed/",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "Proofpoint Threat Insight",
+    "url": "https://www.proofpoint.com/us/rss.xml",
+    "category": "Commercial CTI"
+  },
+  {
+    "name": "Reuters World",
+    "url": "https://www.reutersagency.com/feed/?best-topics=world&post_type=best",
+    "category": "Geopolitical / Strategy"
+  },
+  {
+    "name": "AP Top News",
+    "url": "https://feeds.apnews.com/apnews/topnews",
+    "category": "Geopolitical / Strategy"
+  },
+  {
+    "name": "War on the Rocks",
+    "url": "https://warontherocks.com/feed/",
+    "category": "Geopolitical / Strategy"
+  },
+  {
+    "name": "Lawfare",
+    "url": "https://www.lawfaremedia.org/rss.xml",
+    "category": "Geopolitical / Strategy"
+  },
+  {
+    "name": "Texas Tribune",
+    "url": "https://www.texastribune.org/feeds/main/",
+    "category": "Texas / Regional"
+  },
+  {
+    "name": "Texas Medical Center",
+    "url": "https://www.tmc.edu/news/feed/",
+    "category": "Texas / Regional"
+  }
+]

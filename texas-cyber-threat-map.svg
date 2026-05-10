@@ -50,4 +50,8 @@
       <path d="M0 134H56" stroke="#8b1a1a" stroke-width="10" marker-end="url(#redArrow)"/><text class="legendSmall" x="80" y="140">EXTERNAL THREAT VECTOR</text>
     </g>
   </g>
+<<<<<<< HEAD
 </svg>
+=======
+</svg>
+>>>>>>> f1289aa (Reorganize ATB archive paths for paywall prep)

@@ -1,0 +1,2429 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alamo Threat Brief | 22 March 2026 | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #08142A;
+    --navy-mid: #0D1F42;
+    --navy-light: #132554;
+    --gold: #C9A84C;
+    --gold-light: #E2C47A;
+    --gold-dim: #8A6E30;
+    --white: #F4F0E8;
+    --off-white: #EAE4D6;
+    --gray: #9A9080;
+    --red: #C1272D;
+    --red-dim: #7A1A1F;
+    --amber: #D4831A;
+    --green: #2A6B4A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--navy);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── CLASSIFICATION BANNER ── */
+  .class-banner {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--navy);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        rgba(201,168,76,0.03) 40px,
+        rgba(201,168,76,0.03) 41px
+      );
+  }
+
+  .masthead-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 40px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .masthead-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+    padding-bottom: 28px;
+  }
+
+  .emblem-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 40px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .emblem-hero {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 22px rgba(201,168,76,0.45));
+  }
+
+  .masthead-brand {
+    flex: 1;
+  }
+
+  .brand-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+
+  .masthead-meta {
+    display: flex;
+    gap: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+  .meta-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .threat-level-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .tl-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .tl-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .tl-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .tl-dot.active { background: var(--red); border-color: var(--red); box-shadow: 0 0 8px rgba(193,39,45,0.6); }
+  .tl-dot.active.gold { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
+
+  .tl-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── TICKER ── */
+  .ticker-strip {
+    background: var(--red-dim);
+    border-top: 1px solid var(--red);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+  }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 40s linear infinite;
+  }
+
+  .ticker-inner span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--white);
+    letter-spacing: 1.5px;
+    padding: 0 60px;
+  }
+
+  .ticker-inner span::before {
+    content: '◆ ';
+    color: var(--gold);
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 24px;
+  }
+
+  .section-rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--navy), transparent);
+  }
+
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    background: var(--navy);
+    padding: 4px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  h2.section-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  h3.sub-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-light);
+    margin: 28px 0 10px;
+    border-left: 3px solid var(--gold);
+    padding-left: 12px;
+  }
+
+  p {
+    margin-bottom: 14px;
+    color: #1a2840;
+  }
+
+  /* ── KEY JUDGMENTS ── */
+  .kj-block {
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-left: 4px solid var(--gold);
+    padding: 32px 36px;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .kj-block::before {
+    content: 'KEY JUDGMENTS';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    position: absolute;
+    top: -1px;
+    left: 36px;
+    background: var(--navy);
+    padding: 0 8px;
+    transform: translateY(-50%);
+  }
+
+  .kj-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .kj-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .kj-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-dim);
+    font-weight: 600;
+    white-space: nowrap;
+    padding-top: 3px;
+    min-width: 24px;
+  }
+
+  .kj-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    color: var(--off-white);
+    line-height: 1.65;
+  }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: rgba(193,39,45,0.06);
+    border: 1px solid rgba(193,39,45,0.3);
+    border-left: 4px solid var(--red);
+    padding: 20px 24px;
+    margin: 24px 0;
+    position: relative;
+  }
+
+  .warning-box::before {
+    content: '⚠ CRITICAL INTELLIGENCE WARNING';
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--red);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .warning-box p {
+    color: #1a2840;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* ── ASSESSMENT BOX ── */
+  .assessment-box {
+    background: rgba(8,20,42,0.05);
+    border: 1px solid rgba(8,20,42,0.12);
+    border-left: 3px solid var(--navy-light);
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+
+  .assessment-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--navy-mid);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .assessment-box p {
+    margin: 0;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--navy);
+  }
+
+  /* ── CONFIDENCE BADGES ── */
+  .conf {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  .conf-high {
+    background: rgba(255,255,255,0.12);
+    color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.45);
+  }
+
+  .conf-mod {
+    background: rgba(201,168,76,0.22);
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+  }
+
+  .conf-low {
+    background: rgba(154,144,128,0.2);
+    color: #C8BFB0;
+    border: 1px solid #9A9080;
+  }
+
+  /* Override for light-background contexts */
+  .pin-body .conf-high,
+  .outlook-content .conf-high {
+    background: rgba(8,20,42,0.08);
+    color: var(--navy);
+    border: 1px solid var(--navy-light);
+  }
+
+  .pin-body .conf-mod,
+  .outlook-content .conf-mod {
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-dim);
+    border: 1px solid var(--gold-dim);
+  }
+
+  .pin-body .conf-low,
+  .outlook-content .conf-low {
+    background: rgba(154,144,128,0.1);
+    color: #6B6055;
+    border: 1px solid var(--gray);
+  }
+
+  /* ── THREAT MATRIX TABLE ── */
+  .threat-matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+  }
+
+  .threat-matrix thead tr {
+    background: var(--navy);
+  }
+
+  .threat-matrix th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .threat-matrix td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .threat-matrix tbody tr:hover {
+    background: rgba(8,20,42,0.03);
+  }
+
+  .threat-level {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .tl-critical { background: rgba(193,39,45,0.12); color: var(--red); border: 1px solid rgba(193,39,45,0.3); }
+  .tl-high { background: rgba(212,131,26,0.12); color: var(--amber); border: 1px solid rgba(212,131,26,0.3); }
+  .tl-elevated { background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); }
+
+  /* ── PIN RESPONSES ── */
+  .pin-block {
+    border: 1px solid rgba(8,20,42,0.12);
+    margin: 20px 0;
+    overflow: hidden;
+  }
+
+  .pin-header {
+    background: var(--navy-mid);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .pin-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 600;
+    background: rgba(201,168,76,0.15);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .pin-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--off-white);
+    letter-spacing: 1px;
+  }
+
+  .pin-body {
+    padding: 18px 20px;
+    background: #FAFAF7;
+    border-top: 1px solid rgba(8,20,42,0.08);
+  }
+
+  .pin-body p {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .pin-body p:last-child { margin-bottom: 0; }
+
+  /* ── SOURCE CITATIONS ── */
+  .icd206-block {
+    background: #F7F5F0;
+    border: 1px solid rgba(8,20,42,0.1);
+    padding: 24px 28px;
+    margin: 36px 0;
+  }
+
+  .icd206-header {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(8,20,42,0.1);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .src-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 8px 16px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    align-items: start;
+  }
+
+  .src-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--gold-dim);
+    font-weight: 600;
+    padding-top: 2px;
+  }
+
+  .src-desc {
+    color: #2a3a55;
+    line-height: 1.55;
+  }
+
+  .src-desc .src-title {
+    font-style: italic;
+  }
+
+  a.src-link {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--gold-dim);
+    text-underline-offset: 3px;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+
+  a.src-link:hover {
+    color: var(--gold-dim);
+    text-decoration-color: var(--gold);
+  }
+
+  a.src-link .src-title {
+    font-style: italic;
+  }
+
+  /* ── SECTOR EXPOSURE GRID ── */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .sector-card {
+    border: 1px solid rgba(8,20,42,0.1);
+    padding: 18px 20px;
+    background: #FAFAF7;
+  }
+
+  .sector-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+  }
+
+  .sector-icon {
+    font-size: 18px;
+  }
+
+  .sector-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    font-weight: 600;
+    text-transform: uppercase;
+    flex: 1;
+    margin-left: 10px;
+  }
+
+  .sector-card p {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #2a3a55;
+  }
+
+  .sector-card p:last-child { margin-bottom: 0; }
+
+  /* ── OUTLOOK TABLE ── */
+  .outlook-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    border-bottom: 1px solid rgba(8,20,42,0.08);
+    gap: 0;
+  }
+
+  .outlook-row:last-child { border-bottom: none; }
+
+  .outlook-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dim);
+    padding: 14px 16px;
+    background: rgba(8,20,42,0.04);
+    border-right: 1px solid rgba(8,20,42,0.08);
+    display: flex;
+    align-items: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .outlook-content {
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #1a2840;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  .brief-footer {
+    background: var(--navy);
+    padding: 36px 40px;
+    margin-top: 60px;
+  }
+
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .footer-legal {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: 1.5px;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ── DIVIDER ── */
+  .ruled-divider {
+    border: none;
+    border-top: 1px solid rgba(8,20,42,0.12);
+    margin: 36px 0;
+  }
+
+  /* ── INTRO DECK ── */
+  .intro-deck {
+    border-top: 4px solid var(--gold);
+    padding: 28px 0 0;
+    margin-bottom: 12px;
+  }
+
+  .intro-deck p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #1a2840;
+    font-weight: 300;
+  }
+
+  .intro-deck strong {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── HIGHLIGHT PULL ── */
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    margin: 24px 0;
+    padding: 6px 0 6px 20px;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* ── ANALYTICAL QUALIFIER ── */
+  .aq {
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  /* Inside the dark KJ block, strong tags also need to be light */
+  .kj-text strong {
+    color: var(--gold-light);
+  }
+
+  @media (max-width: 700px) {
+    .masthead-inner, .page-body, .brief-footer { padding-left: 20px; padding-right: 20px; }
+    .product-name { font-size: 30px; }
+    .masthead-meta { flex-wrap: wrap; gap: 20px; }
+    .sector-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-legal { text-align: left; }
+  }
+
+  @media print {
+    .class-banner { position: relative; }
+    .ticker-strip { display: none; }
+  }
+</style>
+<style id="lcti-stat-legibility">
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  overflow-x:hidden;
+  font-size:17px;
+  line-height:1.65;
+}
+img,
+video,
+canvas,
+svg{
+  max-width:100%;
+}
+:where(p,li,dd,td,th,blockquote){
+  font-size:max(1rem,16px) !important;
+  line-height:1.75 !important;
+}
+:where(.lead,.hero-sub,.page-hero-body,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,.card p,.product p,.sector-card p,.capability-card p,.approach-card p,.value-card p,.archive-card p,.brief-card p,.contact-card p,.audience-body,.cycle-body,.framework-body,.deliverable-body,.content-card-body,.use-desc,.use-note-body,.form-help,.help-text,.field-note,.hint,.note){
+  font-size:max(1.06rem,17px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+:where(.hero-sub,.hero-lede,.page-hero-body,.lead){
+  font-size:max(1.12rem,18px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.82) !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+  font-size:max(.88rem,14px) !important;
+  font-weight:500 !important;
+  line-height:1.55 !important;
+  letter-spacing:.07em !important;
+  opacity:1 !important;
+  color:rgba(212,175,98,.9) !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.045em !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(212,175,98,.25) !important;
+}
+:where(.section-desc,.submit-note,.chip-sublabel,.caption,.photo-caption,.card-meta,.archive-meta,.brief-meta,.vignette-attr,.j-conf,.confidence,.risk-label,.rail-section-name,.meta,.audience-body,.cycle-body,.framework-body,.deliverable-body,.content-card-body,.use-desc,.use-note-body){
+  color:rgba(244,239,230,.72) !important;
+}
+.audience-tag,
+.cycle-label,
+.cycle-word,
+.framework-label,
+.framework-word,
+.deliverable-tag,
+.content-card-label,
+.use-tag,
+.leader-tag,
+.leader-link,
+.section-label,
+.cs-label,
+.sec-tag,
+.sector-card a,
+.sector-card [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.45 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.sec-tag{
+  display:flex !important;
+  align-items:center !important;
+  gap:.45rem !important;
+  color:#d4af62 !important;
+}
+.sec-tag .sec-icon{
+  font-size:1rem !important;
+  line-height:1 !important;
+}
+.sector-card a{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  margin-top:1rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.sector-card a:hover{
+  color:#f0d27a !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.meta-table,.vignette-timing,.loc,.exec-label,.kiq-list,.use-features),
+body [style*="font-size:0.5"],
+body [style*="font-size: 0.5"],
+body [style*="font-size:0.6"],
+body [style*="font-size: 0.6"],
+body [style*="font-size:0.7"],
+body [style*="font-size: 0.7"]{
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.5 !important;
+  letter-spacing:.06em !important;
+  opacity:1 !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label),
+body [style*="font-family:'Instrument Sans'"][style*="font-size:0."],
+body [style*='font-family:"Instrument Sans"'][style*="font-size:0."],
+body [style*="font-family: 'Instrument Sans'"][style*="font-size: 0."]{
+  font-family:'Instrument Sans',sans-serif !important;
+  color:#d4af62 !important;
+  text-transform:uppercase !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.leader-tag{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:32px !important;
+  padding:.34rem .72rem !important;
+  border-color:rgba(212,175,98,.38) !important;
+  color:rgba(212,175,98,.88) !important;
+}
+.leader-link{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  padding-top:.25rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.leader-link:hover{
+  color:#f0d27a !important;
+}
+.audience-title,
+.deliverable-title,
+.content-card-title{
+  font-size:max(1.2rem,19px) !important;
+  line-height:1.35 !important;
+  color:#f4efe6 !important;
+}
+.audience-body,
+.cycle-body,
+.framework-body,
+.deliverable-body,
+.content-card-body,
+.use-desc,
+.use-note-body{
+  font-size:max(1.04rem,16.75px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+.hero-classification{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.05em !important;
+  line-height:1.55 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] p{
+  font-size:max(1.04rem,16.75px) !important;
+  font-weight:500 !important;
+  line-height:1.78 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] strong{
+  font-weight:800 !important;
+  color:#f4efe6 !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] > p{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.045em !important;
+  line-height:1.55 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] li{
+  font-size:max(1.02rem,16.25px) !important;
+  font-weight:600 !important;
+  line-height:1.58 !important;
+  color:rgba(244,239,230,.84) !important;
+}
+.hero-inner [style*="font-size:0.56rem"],
+.hero-inner [style*="letter-spacing:0.24em"],
+.form-shell [style*="font-size:0.56rem"],
+.form-shell [style*="letter-spacing:0.24em"]{
+  font-size:max(.95rem,15.25px) !important;
+  font-weight:500 !important;
+  letter-spacing:.055em !important;
+  line-height:1.45 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner [style*="font-size:0.82rem"],
+.form-shell [style*="font-size:0.82rem"]{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  line-height:1.7 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+:where(.field-error){
+  color:#d6554a !important;
+}
+:where(.chip.chip-lg .chip-label){
+  font-size:max(1rem,16px) !important;
+  font-weight:700 !important;
+  line-height:1.45 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.86) !important;
+}
+:where(.chip-sublabel){
+  font-size:max(.92rem,14.75px) !important;
+  font-weight:400 !important;
+  line-height:1.6 !important;
+  letter-spacing:.04em !important;
+  color:rgba(244,239,230,.68) !important;
+  text-shadow:none !important;
+}
+.chip.chip-lg .chip-sublabel{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.95rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.7 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.68) !important;
+  max-width:28ch;
+}
+.chip.chip-lg.selected .chip-sublabel{
+  color:rgba(244,239,230,.76) !important;
+}
+:where(.actor-name,.vignette-body h3,.jewel-card h3){
+  font-size:max(1.08rem,17px) !important;
+  line-height:1.35 !important;
+}
+:where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p,.timeline p,.cred-text,.cred-intro,.cred-closing,.pull-attr,.story-summary,.sector-copy,.assessment-copy,.request-copy,.next-panel li){
+  font-size:max(1rem,16px) !important;
+  line-height:1.78 !important;
+}
+.actor-origin,
+.jewel-label{
+  font-size:max(.94rem,15px) !important;
+  font-weight:600 !important;
+  line-height:1.45 !important;
+  letter-spacing:.06em !important;
+  color:#d6554a !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(214,85,74,.22) !important;
+}
+.actor-name,
+.jewel-card h3{
+  font-size:max(1.12rem,18px) !important;
+  font-weight:800 !important;
+  line-height:1.35 !important;
+  color:#f4efe6 !important;
+}
+.actor-card p,
+.jewel-card p{
+  font-size:max(1.02rem,16.25px) !important;
+  font-weight:500 !important;
+  line-height:1.72 !important;
+  color:rgba(244,239,230,.74) !important;
+}
+.jewel-section .lead,
+.jewel-section :where(p,li,dd,td,th,blockquote),
+.crown-jewels .lead,
+.crown-jewels :where(p,li,dd,td,th,blockquote){
+  color:rgba(8,12,16,.72) !important;
+}
+.jewel-section .jewel-label,
+.crown-jewels .jewel-label{
+  color:#b63a32 !important;
+  text-shadow:none !important;
+}
+.jewel-section .jewel-card h3,
+.crown-jewels .jewel-card h3{
+  color:#080c10 !important;
+}
+.jewel-section .jewel-card p,
+.crown-jewels .jewel-card p{
+  color:rgba(8,12,16,.68) !important;
+}
+.posture,
+.shift-card,
+.content-frame,
+.content-card,
+.use-cases,
+.use-item,
+.products,
+.product-item,
+.fc,
+.crown-jewels,
+.jewel-card{
+  color:#080c10 !important;
+}
+.posture :where(p,.lead,.section-lead,.sec-lead),
+.shift-card p,
+.content-frame :where(.content-intro,p,li,dd,td,th,blockquote),
+.content-card :where(p,li,dd,td,th,blockquote),
+.use-cases :where(.use-cases-intro,.use-desc,.use-features li,p,li,dd,td,th,blockquote),
+.use-item :where(p,li,dd,td,th,blockquote),
+.products :where(p,li,.lead),
+.product-item :where(p,li),
+.fc :where(p,li,.fc-rank),
+.crown-jewels :where(p,li,dd,td,th,blockquote),
+.jewel-card :where(p,li,dd,td,th,blockquote){
+  color:rgba(8,12,16,.74) !important;
+  text-shadow:none !important;
+}
+.posture :where(h1,h2,h3,h4,.shift-to),
+.shift-card :where(h1,h2,h3,h4,.shift-to),
+.content-frame :where(h1,h2,h3,h4,.content-card-title),
+.content-card :where(h1,h2,h3,h4,.content-card-title),
+.use-cases :where(h1,h2,h3,h4,.use-name),
+.use-item :where(h1,h2,h3,h4,.use-name),
+.products :where(h1,h2,h3,h4),
+.product-item :where(h1,h2,h3,h4),
+.fc :where(h1,h2,h3,h4),
+.crown-jewels :where(h1,h2,h3,h4),
+.jewel-card :where(h1,h2,h3,h4){
+  color:#080c10 !important;
+  text-shadow:none !important;
+}
+.posture :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag,.fc-label,.fc-edu-label),
+.shift-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag),
+.content-frame :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.content-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.use-cases :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
+.use-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
+.products :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.product-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.fc :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.fc-label,.fc-edu-label),
+.crown-jewels :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label),
+.jewel-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label){
+  color:#9b7626 !important;
+  text-shadow:none !important;
+}
+.posture em,
+.shift-card em,
+.content-frame em,
+.content-card em,
+.use-cases em,
+.use-item em,
+.products em,
+.product-item em,
+.fc em,
+.crown-jewels em,
+.jewel-card em{
+  color:#8f1f1b !important;
+}
+.content-frame .content-card-body,
+.content-card .content-card-body{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(1.05rem,17px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  letter-spacing:0 !important;
+  color:rgba(8,12,16,.76) !important;
+}
+.content-frame .content-card-title,
+.content-card .content-card-title{
+  font-size:max(1.35rem,21px) !important;
+  line-height:1.35 !important;
+}
+.content-frame .content-card:nth-child(2) .content-card-label,
+.content-card:nth-child(2) .content-card-label{
+  color:#8b1a1a !important;
+}
+.content-frame .content-note{
+  background:#080c10 !important;
+  border:1px solid rgba(184,150,62,.28) !important;
+}
+.content-frame .content-note p{
+  font-size:max(1.44rem,23px) !important;
+  line-height:1.65 !important;
+  color:rgba(244,239,230,.9) !important;
+  font-weight:500 !important;
+  text-shadow:none !important;
+}
+.content-frame .content-note p::before,
+.content-frame .content-note p::after{
+  font-size:1.9rem !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-icon,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.product-tag,.product-features,.use-features,.kiq-list,.meta-table,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label,.lcti-logo-slogan,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy),
+body [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
+}
+:where(.use-features li,.product-features li,.kiq-list li,.meta-table td,.meta-table th){
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.96rem,15.5px) !important;
+  font-weight:500 !important;
+  line-height:1.65 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  color:inherit !important;
+}
+:where(.vignette-timing,.stat-label,.hero-stat-label,.pillar-stat-label,.intel-desc,.footer-tagline,.foot-tagline,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy,.footer-copy){
+  font-size:max(.88rem,14px) !important;
+  line-height:1.58 !important;
+  letter-spacing:.1em !important;
+}
+.timeline .tl-role,
+.timeline .tl-unit{
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.timeline .tl-unit{
+  opacity:.86 !important;
+}
+.lcti-footer-tagline,
+.footer-tagline,
+.foot-tagline{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  line-height:1.72 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.78) !important;
+  opacity:1 !important;
+}
+.lcti-footer-slogan,
+.lcti-footer-col-title{
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.45 !important;
+  letter-spacing:.09em !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.lcti-footer-links a{
+  font-size:max(.98rem,15.75px) !important;
+  font-weight:500 !important;
+  line-height:1.55 !important;
+  color:rgba(244,239,230,.74) !important;
+  opacity:1 !important;
+}
+.lcti-footer-links a.lcti-atb-link{
+  color:#d6554a !important;
+  font-weight:600 !important;
+}
+.lcti-footer-copy,
+.footer-copy{
+  font-size:max(.86rem,13.75px) !important;
+  font-weight:600 !important;
+  letter-spacing:.04em !important;
+  color:rgba(244,239,230,.56) !important;
+}
+:where(.subtle,.muted,.fine-print,.small,.micro,.form-disclaimer,.disclaimer,.legal,.attribution){
+  font-size:max(.9rem,14.5px) !important;
+  line-height:1.65 !important;
+}
+:where(input,select,textarea,button){
+  font-size:max(1rem,16px);
+}
+:where(.btn,.button,.btn-gold,.btn-dark,.btn-outline,.btn-gold-outline,.btn-outline-light,.btn-request,.btn-send,.actions a,.hero-actions a,.cta-actions a,.form-actions button){
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:48px !important;
+  padding:.85rem 1.35rem !important;
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.95rem,15.25px) !important;
+  font-weight:800 !important;
+  line-height:1.2 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  opacity:1 !important;
+  border-radius:2px !important;
+}
+:where(.btn-gold,.btn-request,.btn-send,.button-gold){
+  background:#c9a84f !important;
+  border:1px solid #c9a84f !important;
+  color:#080c10 !important;
+  text-shadow:none !important;
+}
+:where(.btn-gold:hover,.btn-request:hover,.btn-send:hover,.button-gold:hover){
+  background:#d4b762 !important;
+  border-color:#d4b762 !important;
+  color:#080c10 !important;
+}
+:where(.btn-dark){
+  background:#101923 !important;
+  border:1px solid rgba(212,175,98,.55) !important;
+  color:#f4efe6 !important;
+}
+:where(.btn-outline,.btn-gold-outline,.btn-outline-light){
+  background:rgba(8,12,16,.28) !important;
+  border:1px solid rgba(212,175,98,.65) !important;
+  color:#d4af62 !important;
+  text-shadow:none !important;
+}
+:where(.btn-outline:hover,.btn-gold-outline:hover,.btn-outline-light:hover){
+  background:#c9a84f !important;
+  border-color:#c9a84f !important;
+  color:#080c10 !important;
+}
+:where(.cta,.cta-section,.section-light,.paper-section) :where(.btn-outline,.btn-gold-outline,.btn-outline-light,.cta-actions a:not(.btn-dark):not(.btn-gold):not(.btn-request):not(.btn-send)){
+  background:#080c10 !important;
+  border:1px solid #080c10 !important;
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+:where(.cta,.cta-section,.section-light,.paper-section) :where(.btn-outline:hover,.btn-gold-outline:hover,.btn-outline-light:hover,.cta-actions a:not(.btn-dark):not(.btn-gold):not(.btn-request):not(.btn-send):hover){
+  background:#1a2430 !important;
+  border-color:#1a2430 !important;
+  color:#f4efe6 !important;
+}
+.actions a{
+  background:#080c10 !important;
+  border:1px solid #080c10 !important;
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.actions a + a{
+  background:#c9a84f !important;
+  border-color:#c9a84f !important;
+  color:#080c10 !important;
+}
+.intel-desc,
+.stat-l,
+.stat-label,
+.hero-stat-label,
+.pillar-stat-label,
+.photo-caption{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.88rem,14px) !important;
+  font-weight:400 !important;
+  line-height:1.55 !important;
+  letter-spacing:.1em !important;
+  text-transform:uppercase !important;
+}
+.stat-l,
+.stat-label,
+.pillar-stat-label,
+.photo-caption{
+  margin-top:.22rem !important;
+}
+.cta-inner img,
+.cta-emblem{
+  height:auto !important;
+  object-fit:contain !important;
+}
+.cta-section .cta-inner > img[src$="liberty-cti-emblem.png"]{
+  width:140px !important;
+}
+.cta .cta-emblem{
+  width:160px !important;
+}
+@media(max-width:700px){
+  .intel-desc,
+  .stat-l,
+  .stat-label,
+  .hero-stat-label,
+  .pillar-stat-label,
+  .photo-caption{
+    font-size:.9rem !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:900px){
+  .page-hero-inner,
+  .hero-inner,
+  .hero-layout,
+  .mission-inner,
+  .founders-grid,
+  .fc-grid,
+  .story,
+  .story-inner,
+  .story-angie,
+  .why-inner,
+  .vision-inner,
+  .bulldog-box,
+  .contact-body-inner,
+  .contact-grid,
+  .form-body,
+  .product-grid,
+  .products-grid,
+  .products-list,
+  .approach-grid,
+  .sector-grid,
+  .sectors-grid,
+  .domain-grid,
+  .actor-grid,
+  .shift-grid,
+  .doctrine-grid,
+  .highlight-grid,
+  .feature-grid,
+  .value-grid,
+  .capability-grid,
+  .atb-grid,
+  .two-col,
+  .grid-2,
+  .footer-inner,
+  .site-footer-inner{
+    grid-template-columns:1fr !important;
+  }
+  .stat-bar,
+  .intel-strip,
+  .cred-strip-inner{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:0 !important;
+  }
+  .intel-sep,
+  .stat-sep,
+  .cred-sep{
+    display:none !important;
+  }
+  .intel-item,
+  .stat,
+  .cred-item{
+    min-width:0 !important;
+  }
+  .intel-item{
+    justify-content:flex-start !important;
+    padding:1rem 1.1rem !important;
+    border-right:1px solid rgba(184,150,62,0.16);
+    border-bottom:1px solid rgba(184,150,62,0.16);
+  }
+}
+@media(max-width:768px){
+  body{
+    min-width:0 !important;
+  }
+  :where(.page-hero,.hero,.mission,.founders,.approach,.products,.vision,.section,.section-navy,.section-accent,.contact-body,.form-body,.cta,.cta-section,footer,.site-footer){
+    padding-left:1.25rem !important;
+    padding-right:1.25rem !important;
+  }
+  :where(.page-hero,.hero){
+    margin-top:var(--nav-h,68px) !important;
+  }
+  :where(.page-hero h1,.hero h1,h1){
+    font-size:clamp(2.15rem,10vw,3.1rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:break-word;
+  }
+  :where(h2,.section-title){
+    font-size:clamp(1.65rem,8vw,2.35rem) !important;
+    line-height:1.12 !important;
+    overflow-wrap:break-word;
+  }
+  :where(.page-hero-body,.hero-sub,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,p,li){
+    overflow-wrap:break-word;
+  }
+  :where(.hero-content,.page-hero-inner){
+    max-width:100% !important;
+  }
+  :where(.hero-emblem,.header-emblem-large,.cta-emblem){
+    max-width:min(220px,62vw) !important;
+    height:auto !important;
+  }
+  :where(.photo-grid,.story-photo-pair){
+    grid-template-columns:1fr !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:320px !important;
+  }
+  :where(input,select,textarea,button,.button,.btn,.nav-cta,.site-nav-cta){
+    max-width:100%;
+  }
+  :where(input,select,textarea){
+    font-size:16px !important;
+  }
+  :where(.cta-actions,.form-actions,.hero-meta,.hero-stat-row){
+    flex-wrap:wrap !important;
+  }
+  .intel-strip{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    padding:0 1.25rem !important;
+  }
+  .intel-item{
+    display:grid !important;
+    grid-template-columns:minmax(5.8rem,auto) minmax(0,1fr) !important;
+    align-items:center !important;
+    justify-content:initial !important;
+    gap:1rem !important;
+    padding:1.15rem 0 !important;
+    border-right:0 !important;
+    border-bottom:1px solid rgba(184,150,62,0.16);
+  }
+  .intel-item:last-child{
+    border-bottom:0 !important;
+  }
+  .intel-num{
+    font-size:clamp(2.15rem,10vw,3rem) !important;
+    line-height:1 !important;
+  }
+  .intel-desc{
+    font-size:.9rem !important;
+    line-height:1.6 !important;
+    letter-spacing:.08em !important;
+  }
+  :where(p,li,dd,td,th,blockquote){
+    font-size:1rem !important;
+    line-height:1.72 !important;
+  }
+  :where(.hero-sub,.hero-lede,.page-hero-body,.lead){
+    font-size:1.04rem !important;
+    line-height:1.7 !important;
+    color:rgba(244,239,230,.82) !important;
+  }
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+    font-size:.9rem !important;
+    font-weight:500 !important;
+    line-height:1.55 !important;
+    letter-spacing:.06em !important;
+    opacity:1 !important;
+  }
+  .chip.chip-lg .chip-sublabel{
+    font-family:'Instrument Sans',sans-serif !important;
+    font-size:1rem !important;
+    font-weight:500 !important;
+    line-height:1.65 !important;
+    letter-spacing:0 !important;
+  }
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
+    font-size:.96rem !important;
+    font-weight:500 !important;
+    letter-spacing:.04em !important;
+  }
+  :where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p){
+    font-size:1rem !important;
+    line-height:1.72 !important;
+  }
+}
+@media(max-width:520px){
+  :where(.stat-bar,.intel-strip,.cred-strip-inner){
+    display:grid !important;
+    grid-template-columns:1fr !important;
+  }
+  :where(.stat,.intel-card,.cred-item,.intel-item){
+    border-right:0 !important;
+  }
+  :where(.intel-item){
+    padding:1rem 0 !important;
+  }
+  :where(.page-hero,.hero){
+    min-height:auto !important;
+  }
+  :where(.hero-content){
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:280px !important;
+  }
+  :where(.cta-actions a,.form-actions button,.button,.btn){
+    width:100%;
+    text-align:center;
+  }
+}
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-hero h1,
+  .luis-hero .hero-eyebrow,
+  .luis-hero .hero-sub{
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .luis-photo-grid .photo-tile:last-child{
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:4 / 5 !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr 1fr !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat-n{
+    display:block !important;
+    max-width:100% !important;
+    font-size:clamp(2.1rem,8vw,3.4rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    hyphens:auto !important;
+  }
+  .luis-stat-bar .stat-l{
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
+  }
+  .luis-hero h1{
+    font-size:clamp(2.05rem,10.5vw,2.4rem) !important;
+    line-height:1.05 !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-photo-grid .photo-tile:not(:first-child){
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    width:100% !important;
+    overflow:visible !important;
+  }
+  .luis-photo-grid .photo-frame img{
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+  .luis-photo-grid .photo-caption{
+    display:block !important;
+    max-width:100% !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+    overflow-wrap:break-word !important;
+    white-space:normal !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr !important;
+  }
+  .luis-stat-bar .stat{
+    border-right:0 !important;
+    border-top:1px solid var(--rule) !important;
+    padding:1.75rem 1.25rem !important;
+  }
+  .luis-stat-bar .stat:first-child{
+    border-top:0 !important;
+  }
+  .luis-stat-bar .stat-n{
+    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    max-width:100% !important;
+  }
+  .luis-stat-bar .stat-l{
+    font-size:clamp(.9rem,4vw,1rem) !important;
+    line-height:1.55 !important;
+    letter-spacing:.07em !important;
+  }
+}
+</style>
+</head>
+<body>
+<!-- LCTI:NAV:START -->
+<style>
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.75rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Know the threat.<br>Stay ready.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Decision Advantage</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="decision-support.html" role="menuitem">Decision Advantage Framework</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <span class="drop-label">Latest Issue</span>
+        <a href="04-12-2026.html" role="menuitem">Latest Issue — Week of Apr 12, 2026</a>
+        <div class="drop-divider"></div>
+        <a href="atb-archive.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Critical Sectors</span>
+        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="financial.html" role="menuitem">Financial Services</a>
+        <a href="healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request Assessment</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Lou Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Decision Advantage</span>
+  <div class="m-sub">
+    <a href="decision-support.html">Decision Advantage Framework</a>
+    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="04-12-2026.html">Latest Issue — Week of Apr 12, 2026</a>
+    <a href="atb-archive.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="texas-focus.html">Texas Overview</a>
+    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
+    <a href="financial.html">Financial Services</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="briefing-request.html" class="m-cta">Request Assessment</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['04-12-2026.html', 'atb-archive.html'],
+    'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=(link.getAttribute('href')||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<!-- CLASSIFICATION BANNER -->
+<div class="class-banner">
+  UNCLASSIFIED // OPEN SOURCE // LIBERTY CTI PROPRIETARY // NOT FOR PUBLIC DISTRIBUTION
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <!-- Emblem centered above title -->
+  <div class="emblem-wrap">
+    <img src="liberty-cti-emblem.png" class="emblem-hero" alt="Liberty CTI Emblem"
+         onerror="this.style.display='none'">
+  </div>
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <div class="masthead-brand">
+        <div class="brand-name">Liberty Cyber Threat Intelligence · libertycti.com</div>
+        <div class="product-name">Alamo Threat Brief</div>
+      </div>
+    </div>
+    <div class="masthead-meta">
+      <div class="meta-item">
+        <span class="meta-label">Issue Date</span>
+        <span class="meta-value">22 MARCH 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Volume</span>
+        <span class="meta-value">ATB-2026-12</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sector Coverage</span>
+        <span class="meta-value">ALL SECTORS</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Cycle</span>
+        <span class="meta-value">CY2026 · PIN SET ACTIVE</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Torch Fusion Cycle</span>
+        <span class="meta-value">WHAT · WHO · WHY · WHAT NEXT</span>
+      </div>
+    </div>
+    <div class="threat-level-bar">
+      <span class="tl-label">Global Threat Level</span>
+      <div class="tl-dots">
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active"></div>
+        <div class="tl-dot active gold"></div>
+      </div>
+      <span class="tl-status">CRITICAL — ESCALATING</span>
+    </div>
+  </div>
+</div>
+
+<!-- BREAKING TICKER -->
+<div class="ticker-strip">
+  <div class="ticker-inner">
+    <span>IRGC-CY APT33 actively targeting U.S. ICS systems — CyberAv3ngers logging into industrial control systems using default credentials</span>
+    <span>Operation Epic Fury fallout: Iranian cyber retaliation assessed HIGHLY LIKELY against U.S. critical infrastructure — Texas Gulf Coast ELEVATED</span>
+    <span>Volt Typhoon (Voltzite) confirmed embedded in U.S. utility OT control loops — Dragos 2026 Annual Report</span>
+    <span>Ras Laffan LNG strike March 18 — Gulf energy disruption ripple effects reaching Texas petrochemical markets</span>
+    <span>IRGC drone strikes on AWS data centers UAE/Bahrain — dual-use cloud infrastructure now a confirmed kinetic target</span>
+    <span>Sandworm (Electrum/Kamacite) scanned U.S. energy ICS devices March-July 2025 — evolved operational posture confirmed</span>
+    <span>Texas ERCOT grid: Volt Typhoon attempted breach unsuccessful per E-ISAC — monitoring continues at ELEVATED status</span>
+    <span>IRGC-CY APT33 actively targeting U.S. ICS systems — CyberAv3ngers logging into industrial control systems using default credentials</span>
+    <span>Operation Epic Fury fallout: Iranian cyber retaliation assessed HIGHLY LIKELY against U.S. critical infrastructure — Texas Gulf Coast ELEVATED</span>
+    <span>Volt Typhoon (Voltzite) confirmed embedded in U.S. utility OT control loops — Dragos 2026 Annual Report</span>
+    <span>Ras Laffan LNG strike March 18 — Gulf energy disruption ripple effects reaching Texas petrochemical markets</span>
+    <span>IRGC drone strikes on AWS data centers UAE/Bahrain — dual-use cloud infrastructure now a confirmed kinetic target</span>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- INTRO -->
+  <div class="intro-deck">
+    <p>
+      This issue of the <strong>Alamo Threat Brief</strong> covers the period <strong>16–22 March 2026</strong> and is dominated by a single strategic driver: the ongoing <strong>U.S.–Israeli military campaign against Iran</strong> (Operation Epic Fury / Operation Lion's Roar), launched 28 February 2026. The geopolitical and cyber consequences of this conflict are now the most consequential threat environment for Texas critical infrastructure since the Colonial Pipeline attack of 2021. This brief provides Liberty CTI's structured analytical assessment across all four strategic sectors, addresses active Priority Information Needs, and delivers a 30/60/90-day outlook calibrated to the Texas threat landscape.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- KEY JUDGMENTS -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section I</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Key Judgments</h2>
+
+  <div class="kj-block">
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that Iranian IRGC-affiliated cyber actors — including CyberAv3ngers, APT33, and APT55 — <span class="aq">are almost certainly</span> conducting active cyber operations against U.S. critical infrastructure in direct retaliation for Operation Epic Fury, with Texas Gulf Coast energy infrastructure assessed as a <strong>priority target</strong> based on adversary historical targeting patterns and the strategic significance of Permian Basin and LNG export infrastructure to U.S. energy markets.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that China's Volt Typhoon / Voltzite <span class="aq">very likely</span> maintains persistent access inside at least one U.S. critical infrastructure network connected to the electric grid and <span class="aq">almost certainly</span> is positioned to cause disruption in a future conflict scenario. Dragos's February 2026 reporting confirms Voltzite was embedded "inside the control loop" of strategic U.S. utilities through 2025. Texas ERCOT, while successfully protecting its grid from a known 2024 Volt Typhoon breach attempt, <span class="aq">likely</span> faces continued reconnaissance.
+        <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        The IRGC's March 2026 drone strikes against Amazon Web Services data centers in the UAE and Bahrain represent a strategic precedent: <span class="aq">highly likely</span> to reshape how nation-states — including Iran, Russia, and China — conceptualize commercial cloud infrastructure as a legitimate military target. Texas organizations relying on cloud-hosted OT management, industrial IoT, and financial clearinghouse infrastructure face an <span class="aq">elevated</span> risk environment that extends beyond traditional cyber threats.
+        <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-4</span>
+      <div class="kj-text">
+        Russia's GRU-linked Sandworm (tracked as Electrum by Dragos) and its initial access arm Kamacite <span class="aq">likely</span> remain postured for opportunistic escalation against U.S. energy infrastructure should the Iran conflict create a strategic window. Kamacite's documented March–July 2025 reconnaissance campaign against U.S. ICS devices — including energy and manufacturing — demonstrates a standing collection posture, not a dormant one.
+        <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-5</span>
+      <div class="kj-text">
+        The Ras Laffan LNG terminal strikes of 18–19 March 2026 and associated Gulf energy infrastructure attacks <span class="aq">likely</span> will drive LNG price volatility and supply chain disruption affecting Texas Gulf Coast operators within the next 30–60 days. This is primarily an economic and physical security risk; <span class="aq">roughly even chances exist</span> that the disruption also motivates follow-on IRGC-affiliated cyber operations targeting U.S. energy company executive and operational networks involved in LNG pricing and logistics.
+        <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- STRATEGIC CONTEXT -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section II</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Strategic Context: Operation Epic Fury and the Cyber Dimension</h2>
+
+  <p>
+    On 28 February 2026, the United States and Israel launched coordinated airstrikes against Iranian leadership, IRGC facilities, and nuclear infrastructure — an operation designated <em>Epic Fury</em> by the U.S. and <em>Operation Lion's Roar</em> by Israel. Within hours, Supreme Leader Ali Khamenei was killed. Iran's retaliatory response has been immediate, broad, and multi-domain. The cyber dimension of this conflict is now active and escalating.
+  </p>
+
+  <div class="warning-box">
+    <p>
+      On 1 March 2026, Iran's IRGC launched Shahed 136 kamikaze drone strikes against two Amazon Web Services data centers in the UAE (ME-CENTRAL-1) and one in Bahrain (ME-SOUTH-1) — the first known military strikes against a commercial hyperscaler's infrastructure in history. AWS confirmed structural damage, power disruption, fire, and water damage affecting availability zones across the region. These strikes set a dangerous precedent: <strong>commercial cloud infrastructure is now a confirmed kinetic military target.</strong>
+    </p>
+  </div>
+
+  <p>
+    Iran's retaliation has been executed under what Flashpoint analysts describe as a pre-planned <em>Mosaic Defense</em> doctrine — a decentralized, asymmetric approach enabling continuous counter-operations even under degraded leadership conditions. The IRGC's cyber arm, operating with the same institutional resilience, has activated multiple concurrent tracks: state-directed APT operations targeting ICS/OT systems; proxy hacktivist campaigns producing DDoS and defacement; and long-prepared wiper and disruptive tools staged for deployment.
+  </p>
+
+  <p>
+    CloudSEK's March 2026 reporting confirms that IRGC-linked groups — specifically CyberAv3ngers, APT33, and APT55 — are actively targeting American industrial control systems. The reporting finds CyberAv3ngers actors logging into ICS devices using <strong>default credentials</strong> and installing malware designed to establish control over those systems. This is not reconnaissance. This is active pre-positioning for disruption.
+  </p>
+
+  <div class="pull-quote">
+    "Commercial cloud infrastructure, energy systems, and ICS devices are all now simultaneously in the crosshairs. The Iran conflict has collapsed the boundary between geopolitical crisis and operational threat to Texas industries."
+    <br><br>— Liberty CTI Analysis, 22 March 2026
+  </div>
+
+  <p>
+    On 18–19 March 2026, the conflict reached a dangerous new inflection: Israeli strikes targeted Iran's Asaluyeh complex at South Pars gas field, and Iran retaliated with missile strikes causing "extensive damage" to Qatar's Ras Laffan LNG terminal. Additional Iranian strikes damaged oil refineries in Kuwait and Saudi Arabia. These are not peripheral events for Texas. Ras Laffan and Permian Basin/Gulf Coast LNG are direct commercial competitors and, more importantly, structural pillars of the same global LNG pricing ecosystem.
+  </p>
+
+  <!-- ─────────────────────────────── -->
+  <!-- ADVERSARY ANALYSIS -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section III</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Adversary Analysis — Current Posture Assessment</h2>
+
+  <h3 class="sub-head">Iran — IRGC-CY / APT33 / CyberAv3ngers</h3>
+
+  <p>
+    Iran is the <strong>dominant near-term cyber threat</strong> to Texas critical infrastructure. The IRGC and its Ministry of Intelligence (MOIS) oversee a mature cyber ecosystem combining state-directed APTs and proxy hacktivist collectives. In the current conflict environment, this ecosystem has been activated across multiple operational tracks simultaneously.
+  </p>
+
+  <p>
+    APT33 (Refined Kitten / Holmium) — historically focused on the energy sector, with documented campaigns against aviation, petrochemical, and defense firms — is assessed by CloudSEK to be among the active actors targeting American ICS. APT33 has demonstrated destructive capability through the SHAMOON wiper family and has targeted Saudi Aramco and Gulf energy infrastructure in prior campaigns. Texas LNG exporters, refinery operators, and ERCOT-connected utilities share a target profile nearly identical to prior APT33 victims.
+  </p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">Liberty CTI Assessment — Iran</div>
+    <p>Liberty CTI assesses with HIGH CONFIDENCE that IRGC-affiliated cyber operations against U.S. critical infrastructure are highly likely to intensify over the next 30 days as the kinetic conflict in the Gulf continues. Texas Gulf Coast energy infrastructure — including LNG export terminals at Sabine Pass, Corpus Christi, and Freeport — is assessed as a CRITICAL priority target based on adversary targeting history, strategic significance, and the current geopolitical driver of disrupting U.S. energy market pricing leverage.</p>
+  </div>
+
+  <h3 class="sub-head">China — Volt Typhoon (Voltzite) / APT41</h3>
+
+  <p>
+    China's Volt Typhoon — tracked as Voltzite by Dragos — continues its long-term pre-positioning campaign inside U.S. critical infrastructure. Dragos CEO Robert Lee confirmed in February 2026 that Voltzite was "getting inside the control loop" of U.S. utility systems in 2025, with the primary intent of future disruption, not current espionage. Dragos further confirmed Voltzite continued breaching U.S. electric, oil, and gas companies in 2025 by compromising cellular gateways and routers as initial access vectors.
+  </p>
+
+  <p>
+    CISA, NSA, and FBI joint advisories assess that PRC state-sponsored actors have maintained access in some victim IT environments for <strong>at least five years</strong>. The Texas ERCOT grid was targeted by Volt Typhoon and successfully defended in 2024, per E-ISAC reporting. However, the breadth of Voltzite's 2025 campaign — and the confirmed OT control loop access at peer utilities — indicates that a single successful defense does not constitute a secure environment.
+  </p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">Liberty CTI Assessment — China</div>
+    <p>Liberty CTI assesses with HIGH CONFIDENCE that Volt Typhoon / Voltzite's persistent access campaign against U.S. energy infrastructure almost certainly continues in 2026. Texas energy operators should assume that peer utilities have been compromised even if their own networks have not. The China threat is a long-cycle pre-positioning operation — not an immediate disruption actor — but the Iran conflict may alter Beijing's strategic calculus if it sees an opportunity to probe U.S. crisis-response capacity.</p>
+  </div>
+
+  <h3 class="sub-head">Russia — Sandworm (Electrum) / Kamacite</h3>
+
+  <p>
+    Russia's GRU-linked Sandworm — tracked as Electrum by Dragos — remains the most destructive APT actor in energy sector history, responsible for the 2016 Ukraine power grid attack (Industroyer) and subsequent wiper campaigns. Dragos attributed the December 2025 cyberattacks against Poland's power grid to Electrum. Kamacite, Electrum's initial access provider, conducted a documented reconnaissance campaign against exposed ICS devices in U.S. water, energy, and manufacturing sectors from March to July 2025.
+  </p>
+
+  <p>
+    While Russia is primarily focused on the Ukraine conflict and has not yet activated its full ICS disruptive capability against the U.S. homeland, Kamacite's standing reconnaissance posture means that if Moscow decides to escalate against U.S. infrastructure — whether in response to Iran-related policy decisions or Ukraine aid — the access and targeting knowledge are already in place.
+  </p>
+
+  <div class="assessment-box">
+    <div class="assessment-label">Liberty CTI Assessment — Russia</div>
+    <p>Liberty CTI assesses with MODERATE CONFIDENCE that Russia likely maintains a standing collection and pre-positioning posture against U.S. energy infrastructure but is unlikely to execute disruptive operations against Texas targets in the next 30 days absent a major escalation in U.S. policy toward Russia. The Iran conflict modestly increases the probability that Russia opportunistically tests U.S. crisis-response capacity over the next 60–90 days.</p>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- CURRENT THREAT MATRIX -->
+  <!-- ─────────────────────────────── -->
+  <h3 class="sub-head">Current Texas Threat Matrix — 22 March 2026</h3>
+
+  <table class="threat-matrix">
+    <thead>
+      <tr>
+        <th>Threat Actor</th>
+        <th>⚡ Energy</th>
+        <th>🏛 Finance</th>
+        <th>♥ Healthcare</th>
+        <th>🛡 Defense</th>
+        <th>30-Day Trend</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Iran IRGC-CY / APT33 / CyberAv3ngers</strong></td>
+        <td><span class="threat-level tl-critical">CRITICAL ↑</span></td>
+        <td><span class="threat-level tl-high">HIGH ↑</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED ↑</span></td>
+        <td style="font-size:12px;color:#C1272D;font-family:monospace;">ESCALATING RAPIDLY</td>
+      </tr>
+      <tr>
+        <td><strong>China Volt Typhoon / Voltzite</strong></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td style="font-size:12px;color:#D4831A;font-family:monospace;">STEADY / PERSISTENT</td>
+      </tr>
+      <tr>
+        <td><strong>Russia Sandworm / Electrum</strong></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td style="font-size:12px;color:#D4831A;font-family:monospace;">WATCHING / OPPORTUNISTIC</td>
+      </tr>
+      <tr>
+        <td><strong>DPRK Lazarus / BlueNoroff</strong></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td style="font-size:12px;color:#8A6E30;font-family:monospace;">STEADY — FINANCIAL OPS</td>
+      </tr>
+      <tr>
+        <td><strong>Criminal Ransomware Ecosystem</strong></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td><span class="threat-level tl-critical">CRITICAL</span></td>
+        <td><span class="threat-level tl-high">HIGH</span></td>
+        <td style="font-size:12px;color:#D4831A;font-family:monospace;">ELEVATED — CRISIS OPP.</td>
+      </tr>
+      <tr>
+        <td><strong>Hacktivist / Iran Proxy Networks</strong></td>
+        <td><span class="threat-level tl-high">HIGH ↑</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED ↑</span></td>
+        <td><span class="threat-level tl-elevated">ELEVATED</span></td>
+        <td><span class="threat-level tl-high">HIGH ↑</span></td>
+        <td style="font-size:12px;color:#C1272D;font-family:monospace;">ACTIVE — ESCALATING</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:11px; color:#9A9080; font-family:'IBM Plex Mono', monospace;">↑ Denotes upward trend vs. prior 30-day period. Ratings reflect Liberty CTI baseline assessment as of 22 March 2026.</p>
+
+  <!-- ─────────────────────────────── -->
+  <!-- SECTOR EXPOSURE -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section IV</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Texas Sector Exposure Assessment</h2>
+
+  <div class="sector-grid">
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">⚡</span>
+        <span class="sector-name">Energy / ERCOT</span>
+        <span class="threat-level tl-critical">CRITICAL</span>
+      </div>
+      <p>The Gulf Coast LNG export corridor — Sabine Pass, Corpus Christi, Freeport — is the most geopolitically exposed sector in Texas in the current environment. Iran's March 18 strikes on Ras Laffan directly affect global LNG pricing dynamics in which Texas producers are central actors.</p>
+      <p>IRGC-CY actors using default credential attacks on ICS devices represent a direct threat to Texas refinery and pipeline SCADA infrastructure. <strong>Any Texas energy firm using Unitronics, Schneider Electric, or Honeywell ICS equipment connected to internet-accessible management interfaces should treat this week as a red-letter warning period.</strong></p>
+      <p>Volt Typhoon's confirmed OT control-loop access at peer U.S. utilities means ERCOT and connected Texas utilities are operating in a compromised peer environment even if their own networks appear clean.</p>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">🏛</span>
+        <span class="sector-name">Finance / Banking</span>
+        <span class="threat-level tl-high">HIGH</span>
+      </div>
+      <p>Texas financial institutions — USAA, Frost Bank, and major DFW banking concentrations — are not primary Iranian targets in the current campaign, but are exposed through two secondary vectors: cloud infrastructure disruption (AWS outages from the Gulf strikes have demonstrated cascading effects on financial services) and opportunistic hacktivist DDoS campaigns running in parallel to state operations.</p>
+      <p>DPRK Lazarus Group remains the most persistent financial sector threat, conducting cryptocurrency theft operations that have historically targeted U.S. financial firms. The Iran conflict does not significantly alter the DPRK threat posture, which is driven by sanctions-evasion revenue requirements independent of the current crisis.</p>
+      <p>Ransomware groups — particularly those with Russian-language ecosystem ties — are <em>likely</em> to opportunistically target Texas financial and healthcare organizations while security attention is concentrated on the Iran/energy narrative.</p>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">♥</span>
+        <span class="sector-name">Healthcare / TMC</span>
+        <span class="threat-level tl-high">HIGH</span>
+      </div>
+      <p>The Texas Medical Center — largest medical complex in the world — and the broader Texas healthcare ecosystem remain at HIGH risk from criminal ransomware operators, with RHYSIDA, ALPHV successor groups, and Scattered Spider the primary actors. Healthcare is not a primary Iranian state target in the current cycle, but ransomware groups tracking the news cycle understand that security operations centers are distracted.</p>
+      <p>Kimsuky (DPRK) data-theft operations targeting U.S. healthcare research and pharmaceutical organizations continue at a baseline level. Texas A&M Health Sciences and UT Health System should maintain heightened monitoring of spear-phishing targeting research-affiliated email accounts.</p>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-card-header">
+        <span class="sector-icon">🛡</span>
+        <span class="sector-name">Defense Industrial Base</span>
+        <span class="threat-level tl-high">HIGH</span>
+      </div>
+      <p>San Antonio's defense contractor ecosystem — Port San Antonio, JBSA supply chain, and Tier 2/3 contractors supporting 16th Air Force and NSA Texas — remains a CRITICAL focus for Chinese cyber espionage. Volt Typhoon and APT41 targeting of defense-adjacent networks intensifies during U.S. military operations, as China seeks to understand U.S. operational planning, logistics, and weapons system performance data.</p>
+      <p>The current Iran conflict is providing China with a strategic intelligence collection opportunity: U.S. military and industrial communications about Operation Epic Fury, weapons systems performance, ISR data, and AI-assisted targeting (notably, Claude/Anthropic's AI was reportedly used in the Iran campaign) represent high-value collection targets for PRC MSS-affiliated actors.</p>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- PIN RESPONSES -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section V</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Priority Information Need Responses</h2>
+
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-1</span>
+      <span class="pin-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
+    </div>
+    <div class="pin-body">
+      <p><strong>Response:</strong> The trigger threshold has been crossed. Operation Epic Fury represents the highest-severity geopolitical trigger event since Russia's 2022 invasion of Ukraine. Iran's IRGC has operationally activated its cyber retaliation capability. Liberty CTI previously assessed that new OFAC sanctions or a military strike against IRGC leadership would trigger retaliatory cyber operations within 30–45 days. The timeline has compressed: operations began within 72 hours of the February 28 strikes.</p>
+      <p>The key analytical question is no longer <em>whether</em> Iranian cyber retaliation will occur against U.S. infrastructure, but <em>how destructive</em> that retaliation will become. The IRGC's demonstrated willingness to execute kinetic strikes against commercial cloud infrastructure (AWS data centers, UAE/Bahrain) indicates a threat actor operating with high risk tolerance and escalation authority. Liberty CTI assesses that IRGC-CY operations against U.S. ICS/OT systems — currently at the credential-access and malware-staging phase — <span class="aq">likely</span> will progress toward disruptive execution within 30–60 days absent a ceasefire or significant operational setback to Iranian cyber forces. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-2</span>
+      <span class="pin-title">CHINESE CYBER ADJUSTMENTS AMID U.S. TECH COMPETITION AND TAIWAN STRAIT TENSIONS</span>
+    </div>
+    <div class="pin-body">
+      <p><strong>Response:</strong> The Iran conflict provides China with an intelligence windfall and a strategic observation window. Beijing is <em>likely</em> using the current crisis to assess U.S. military operational tempo, logistics, AI/cloud dependency in combat operations, and allied resilience — all directly applicable to China's Taiwan Strait contingency planning.</p>
+      <p>Volt Typhoon / Voltzite maintains its persistent pre-positioning posture. There is no current evidence of China activating disruptive ICS capabilities against U.S. infrastructure in response to the Iran conflict. However, the February 2026 Dragos report confirmation that Voltzite was embedded inside U.S. utility control loops through 2025 means the capability is positioned. If U.S.-China tensions escalate — particularly over Taiwan Strait transits or semiconductor export controls — the <span class="aq">probability of activation increases from unlikely to roughly even chance</span> over the subsequent 12 months. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-3</span>
+      <span class="pin-title">RUSSIAN DISRUPTIVE OPS IN RESPONSE TO SANCTIONS / BATTLEFIELD DEVELOPMENTS</span>
+    </div>
+    <div class="pin-body">
+      <p><strong>Response:</strong> Russia's Sandworm/Electrum remains postured for escalation but has not activated disruptive operations against U.S. infrastructure in the current cycle. Kamacite's 2025 reconnaissance campaign against U.S. ICS devices confirms a standing collection posture. Russia <em>likely</em> calculates that activating against U.S. infrastructure while the U.S. is engaged in the Iran conflict risks full-spectrum escalation at a moment when U.S. attention is divided — a double-edged strategic calculation.</p>
+      <p>Liberty CTI assesses that Russia is <em>unlikely</em> to conduct a major disruptive cyber operation against Texas energy infrastructure in the next 30 days but <em>likely</em> will continue collection and pre-positioning activities. The risk calculus shifts if U.S. policy decisions on Ukraine aid or Russia sanctions escalate significantly during the Iran conflict period. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-4</span>
+      <span class="pin-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
+    </div>
+    <div class="pin-body">
+      <p><strong>Response:</strong> CONFIRMED ACTIVE. IRGC-affiliated actors are conducting multi-track cyber operations. Track 1: CyberAv3ngers targeting ICS devices with default credentials and custom ladder logic files — consistent with 2023 TTP profile but now deployed at wartime operational scale. Track 2: APT33 and APT55 conducting espionage and disruptive staging operations against American critical infrastructure networks. Track 3: Proxy hacktivist networks generating high-volume DDoS and defacement campaigns to signal political grievance and distract security operations. Over 150 hacktivist incidents were recorded in the first week of the conflict alone (CloudSEK). <span class="conf conf-high">HIGH CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <div class="pin-block">
+    <div class="pin-header">
+      <span class="pin-id">PIN-5</span>
+      <span class="pin-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
+    </div>
+    <div class="pin-body">
+      <p><strong>Response:</strong> Texas faces a convergence of threat vectors in this cycle. Energy sector exposure is at CRITICAL levels driven by the Iran conflict and the simultaneous persistence of Volt Typhoon's pre-positioning campaign. Financial sector exposure is elevated by the cloud infrastructure disruption precedent set by the AWS data center strikes — Texas financial firms relying on single-cloud architecture should re-evaluate their resilience assumptions. Defense industrial base exposure is elevated by China's opportunistic intelligence collection during U.S. military operations. Healthcare remains primarily at risk from criminal ransomware operators who predictably exploit crisis-driven security operations center distraction.</p>
+      <p>The common thread across all sectors: <strong>Texas organizations that have not conducted tabletop exercises incorporating nation-state ICS attack scenarios in the past 12 months are operating on an outdated threat model.</strong> <span class="conf conf-high">HIGH CONFIDENCE</span></p>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- INDICATORS TO WATCH -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section VI</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Indicators to Watch — Collection Requirements</h2>
+
+  <p>Liberty CTI is monitoring the following indicators as the most consequential signals for escalation or de-escalation of the Texas threat environment over the next 30 days:</p>
+
+  <h3 class="sub-head">Escalation Indicators — Iran</h3>
+  <p><strong>I&W-01:</strong> CISA emergency directive referencing energy sector ICS vulnerabilities tied to IRGC-affiliated tooling — <em>would signal active compromise campaign is underway, not just reconnaissance.</em></p>
+  <p><strong>I&W-02:</strong> New reporting of wiper malware family (consistent with SHAMOON, ZeroCleare lineage) identified in U.S. energy sector networks — <em>would indicate shift from pre-positioning to destructive execution.</em></p>
+  <p><strong>I&W-03:</strong> IRGC official statements or Iranian state media explicitly naming U.S. energy infrastructure (including specific Texas locations) as retaliation targets — <em>highly likely to precede operational activation.</em></p>
+  <p><strong>I&W-04:</strong> Anomalous access attempts to Texas refinery, LNG terminal, or ERCOT-connected utility engineering workstations — <em>consistent with Kamacite and IRGC initial access TTPs.</em></p>
+
+  <h3 class="sub-head">Escalation Indicators — China</h3>
+  <p><strong>I&W-05:</strong> New Dragos or CISA reporting on Voltzite / Volt Typhoon activity in ERCOT-connected utility environments — <em>would confirm reconstitution of access after 2024 ERCOT defense success.</em></p>
+  <p><strong>I&W-06:</strong> CFIUS review of or foreign investment activity targeting Texas semiconductor, defense electronics, or energy technology firms — <em>consistent with PRC economic espionage targeting under cover of commercial relationships.</em></p>
+
+  <h3 class="sub-head">De-Escalation Indicators</h3>
+  <p><strong>D&E-01:</strong> Ceasefire or diplomatic framework for the Iran–U.S.–Israel conflict — <em>would likely reduce immediate IRGC-CY operational tempo within 2–4 weeks but would not eliminate pre-positioned access.</em></p>
+  <p><strong>D&E-02:</strong> Iran leadership consolidation under a more pragmatic successor to Khamenei — <em>could modestly reduce reckless escalation risk over the 60–90 day horizon.</em></p>
+
+  <!-- ─────────────────────────────── -->
+  <!-- OUTLOOK -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section VII</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Strategic Forecast — 30 / 60 / 90-Day Outlook</h2>
+
+  <div style="border:1px solid rgba(8,20,42,0.12); margin: 24px 0;">
+    <div class="outlook-row">
+      <div class="outlook-period">30 DAYS<br><span style="font-size:9px;opacity:0.6;">APR 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> Iranian IRGC-CY cyber operations against U.S. critical infrastructure intensify. CyberAv3ngers-style ICS credential attacks expand in scope. Texas Gulf Coast energy firms face elevated reconnaissance and likely attempted access. DDoS and hacktivist campaigns against financial institutions and defense contractors continue at high volume. Ransomware operators exploit distracted security operations to accelerate Texas healthcare targeting.<br><br>
+        <strong>Most Consequential (Lower Probability):</strong> IRGC-CY deploys destructive wiper or ICS-disruptive payload against a U.S. energy facility, causing a physical or operational outage. Liberty CTI assesses this at <em>unlikely but not remote</em> probability for the 30-day horizon — <em>roughly 20–25% probability</em> conditioned on continued kinetic escalation in the Gulf. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="outlook-row">
+      <div class="outlook-period">60 DAYS<br><span style="font-size:9px;opacity:0.6;">MAY 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> The Iran conflict either reaches a ceasefire framework or escalates to a protracted campaign. If protracted: Iranian cyber operations against U.S. homeland infrastructure likely escalate toward disruptive execution in energy and financial sectors. Gulf LNG disruption continues to drive Texas energy market volatility. China likely uses continued U.S. military engagement to intensify collection against defense industrial base targets.<br><br>
+        <strong>Key Uncertainty:</strong> Iran's leadership transition — the political consolidation process following Khamenei's death — will shape how centralized or decentralized IRGC cyber operations become. A chaotic succession period could either inhibit or empower more reckless operational decisions. <span class="conf conf-low">LOW-MODERATE CONFIDENCE</span>
+      </div>
+    </div>
+    <div class="outlook-row">
+      <div class="outlook-period">90 DAYS<br><span style="font-size:9px;opacity:0.6;">JUN 2026</span></div>
+      <div class="outlook-content">
+        <strong>Most Likely:</strong> The threat landscape normalizes at a structurally elevated baseline — meaning the 2026 threat environment after the Iran conflict will be permanently more dangerous than the pre-February 28 environment, regardless of conflict resolution. The precedent of commercial cloud infrastructure as a kinetic target will have been absorbed by Russia and China's operational planning. Texas organizations that invest in intelligence-led resilience planning in Q2 2026 will be significantly better positioned than those that wait for the next crisis to act.<br><br>
+        <strong>Liberty CTI Core Assessment:</strong> The Iran conflict has permanently altered the threat calculus for Texas critical infrastructure. Organizations that treat this as a temporary elevated posture and plan to return to normal will be wrong. The new normal is this. <span class="conf conf-high">HIGH CONFIDENCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- SOURCE CITATIONS -->
+  <!-- ─────────────────────────────── -->
+  <div class="section-rule">
+    <span class="section-tag">Section VIII</span>
+    <div class="section-rule-line"></div>
+  </div>
+  <h2 class="section-head">Source Citations — In Alignment with National Security-Grade Source Validation Practices</h2>
+  <p style="font-size:13px; color:#666; margin-bottom: 4px; font-family:'IBM Plex Mono', monospace;">All sources are open-source. Liberty CTI does not use or disclose non-public or classified information. Source citations are provided so that readers can evaluate the quality and reliability of the underlying intelligence.</p>
+
+  <div class="icd206-block">
+    <div class="icd206-header">SOURCE REFERENCE CITATIONS — OPEN SOURCE INTELLIGENCE BASIS — ATB-2026-12 — IN ALIGNMENT WITH NATIONAL SECURITY-GRADE SOURCE VALIDATION PRACTICES</div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-01</span>
+      <span class="src-desc"><a href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Dragos 2025 Year in Review / Industrial Cybersecurity Report</span></a> — Dragos, Inc., February 2026. Primary source for Voltzite / Volt Typhoon OT control-loop access assessment and Kamacite reconnaissance campaign data. Dragos CEO Robert Lee confirmed. Sourced via The Register, February 17, 2026. RELIABILITY: HIGH. RELEVANCE: CRITICAL to KJ-2, PIN-2.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-02</span>
+      <span class="src-desc"><a href="https://www.cloudsek.com/blog/middle-east-escalation-israel-iran-us-cyber-war-2026" target="_blank" rel="noopener" class="src-link"><span class="src-title">CloudSEK Middle East Escalation Situation Report, 27 Feb–1 March 2026</span></a> — CloudSEK Threat Intelligence, March 2026. Primary source for CyberAv3ngers, APT33, APT55 ICS targeting assessment and hacktivist campaign volume data. RELIABILITY: HIGH (corroborated by Euronews, Recorded Future). RELEVANCE: CRITICAL to KJ-1, PIN-4.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-03</span>
+      <span class="src-desc"><a href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener" class="src-link"><span class="src-title">Recorded Future: "Ongoing Iran Conflict: What You Need to Know"</span></a> — Recorded Future, March 2026. Primary source for Mosaic Defense doctrine assessment, IRGC operational scope, scenario planning framework. RELIABILITY: HIGH. RELEVANCE: HIGH to PIN-1, PIN-4, Outlook.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-04</span>
+      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA24-038A: "PRC State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure"</span></a> — CISA/NSA/FBI Joint Advisory, February 2024. Governs Volt Typhoon TTP characterization, LOTL technique assessment, five-year persistence claim. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: HIGH to KJ-2, PIN-2.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-05</span>
+      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA23-335A (Updated Dec 2024): "IRGC-Affiliated Cyber Actors Exploit PLCs"</span></a> — CISA/FBI/NSA Joint Advisory. Primary source for IRGC-CY TTP characterization, CyberAv3ngers ladder logic and credential attacks, PLC targeting methodology. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: CRITICAL to KJ-1, PIN-4.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-06</span>
+      <span class="src-desc"><a href="https://www.adn.com/nation-world/2026/03/03/iranian-strikes-on-amazon-data-centers-highlight-industrys-vulnerability-to-physical-disasters/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Amazon Web Services Health Dashboard and public statements, March 2026</span></a> — AWS / AP, March 2026. Primary source for data center structural damage characterization, availability zone outage confirmation, fire suppression and power disruption details. RELIABILITY: HIGH (primary source). RELEVANCE: HIGH to KJ-3.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-07</span>
+      <span class="src-desc"><a href="https://theconversation.com/targeting-of-energy-facilities-turned-iran-war-into-worst-case-scenario-for-gulf-states-278730" target="_blank" rel="noopener" class="src-link"><span class="src-title">"Targeting of energy facilities turned Iran war into worst-case scenario for Gulf states"</span></a> — The Conversation, March 19, 2026. Primary source for Ras Laffan LNG terminal strike characterization and Gulf energy infrastructure attack sequence. RELIABILITY: MODERATE-HIGH (academic commentary with sourced reporting). RELEVANCE: HIGH to KJ-5, Sector IV Energy Assessment.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-08</span>
+      <span class="src-desc"><a href="https://www.utilitydive.com/news/doe-awards-grid-security-artificial-intelligence-EPRI-ConEdison-Southern-Ameren/709360/" target="_blank" rel="noopener" class="src-link"><span class="src-title">E-ISAC Year-End Report (citing Volt Typhoon ERCOT targeting)</span></a> — Electricity Information Sharing and Analysis Center, 2024. Source for ERCOT targeting attempt and successful defense characterization. Sourced via Utility Dive, March 6, 2024. RELIABILITY: HIGH. RELEVANCE: HIGH to PIN-2, Texas Energy Sector Assessment.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-09</span>
+      <span class="src-desc"><a href="https://www.iiss.org/online-analysis/cyber-power-matrix/2026/01/volt-typhoons-long-shadow/" target="_blank" rel="noopener" class="src-link"><span class="src-title">"Volt Typhoon's Long Shadow"</span></a> — International Institute for Strategic Studies (IISS), January 2026. Analytical framing of Volt Typhoon post-2023 threat persistence and strategic implications. RELIABILITY: HIGH. RELEVANCE: MODERATE to KJ-2.</span>
+    </div>
+
+    <div class="src-item">
+      <span class="src-code">SRC-10</span>
+      <span class="src-desc"><a href="https://industrialcyber.co/industrial-cyber-attacks/us-israeli-campaign-triggers-iranian-counteroffensive-targeting-gulf-energy-critical-infrastructure/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Flashpoint / Industrial Cyber: "US-Israeli Campaign Triggers Iranian Counteroffensive"</span></a> — Flashpoint / Industrial Cyber, March 2026. Source for Mosaic Defense doctrine characterization, IRGC multi-domain retaliation scope, casualties and base damage data. RELIABILITY: HIGH (corroborated). RELEVANCE: HIGH to PIN-1, Strategic Context Section.</span>
+    </div>
+
+    <p style="font-size:11px; color:#9A9080; font-family:'IBM Plex Mono', monospace; margin-top: 16px; margin-bottom: 0;">
+      SOURCE SUMMARY STATEMENT: This product is based exclusively on open-source intelligence (OSINT) aggregated from U.S. government advisories (CISA, NSA, FBI), commercial threat intelligence firms (Dragos, Recorded Future, CloudSEK, Flashpoint), open-source news reporting, and Liberty CTI analytical synthesis. No classified, restricted, or non-public government information was used in the production of this brief. Confidence levels reflect the quantity, quality, and corroboration of available open-source reporting, in alignment with national security-grade analytical practices.
+    </p>
+  </div>
+
+  <!-- ─────────────────────────────── -->
+  <!-- ANALYTICAL NOTE -->
+  <!-- ─────────────────────────────── -->
+  <hr class="ruled-divider">
+
+  <div class="assessment-box" style="border-left-color: var(--gold);">
+    <div class="assessment-label">Analytic Note — Torch Fusion Cycle</div>
+    <p>This brief was produced using Liberty CTI's Torch Fusion Cycle: <strong>WHAT</strong> (the Iran conflict and its cyber dimensions are the dominant threat driver) · <strong>WHO</strong> (IRGC-CY primary, China persistent, Russia opportunistic, DPRK steady-state) · <strong>WHY</strong> (kinetic war compels cyber retaliation; pre-positioning reflects deterrence strategy; financial operations serve regime revenue needs) · <strong>WHAT COMES NEXT</strong> (30/60/90-day escalation scenarios with stated confidence levels). All key judgments use probabilistic language and carry explicit confidence levels in alignment with national security-grade analytical practices.</p>
+  </div>
+
+  <p style="font-size:13px; color:#9A9080; text-align:center; margin-top: 32px; font-family:'IBM Plex Mono', monospace; letter-spacing: 1.5px;">
+    For questions, additional analysis, or to request a tailored executive briefing: <strong style="color: var(--navy);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="620b0c16070e220e0b000710161b01160b4c010d0f">[email&#160;protected]</a></strong>
+  </p>
+
+</div><!-- end page-body -->
+
+<!-- FOOTER -->
+<div class="brief-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Liberty Cyber Threat Intelligence</div>
+      <div class="footer-brand" style="font-size:9px; opacity:0.5; margin-top:4px;">libertycti.com · San Antonio, Texas</div>
+    </div>
+    <div class="footer-legal">
+      ALAMO THREAT BRIEF // ATB-2026-12 // 22 MARCH 2026<br>
+      UNCLASSIFIED // OPEN SOURCE // PROPRIETARY<br>
+      © 2026 LIBERTY CTI LLC. ALL RIGHTS RESERVED.<br>
+      NOT FOR PUBLIC DISTRIBUTION WITHOUT AUTHORIZATION.
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CLASSIFICATION BANNER -->
+<div class="clas

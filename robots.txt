@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /Extra/
+Disallow: /April%202026/
+Disallow: /Intel%20Production/
+Disallow: /Operational%20Dashboard/
+Disallow: /*.bak$
+
+Sitemap: https://libertycti.com/sitemap.xml
