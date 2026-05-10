@@ -1,5 +1,5 @@
 ﻿{
-    "generatedAt":  "2026-05-09T06:31:03-05:00",
+    "generatedAt":  "2026-05-10T06:31:03-05:00",
     "windowDays":  7,
     "itemCount":  32,
     "failureCount":  10,
@@ -22,7 +22,7 @@
                      {
                          "source":  "Google Cloud Threat Intelligence",
                          "url":  "https://cloud.google.com/blog/topics/threat-intelligence/rss/",
-                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-4264972783279510162\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspa..."
+                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-8795035653024828732\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspa..."
                      },
                      {
                          "source":  "Dragos",
@@ -57,7 +57,7 @@
                  ],
     "items":  [
                   {
-                      "id":  "rss-8053b0a109d8425dbd87852e7e20f601",
+                      "id":  "rss-ed3b419dda4d4165987d618199add5ee",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/05/08/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -70,7 +70,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-5f4ce80ff5df46d486eaa7c009249e8e",
+                      "id":  "rss-5dfa493c4d374b82ac218be263fec745",
                       "title":  "In parched Texas, a state fund to boost water projects falls almost $3 billion short of demand",
                       "url":  "https://www.texastribune.org/2026/05/08/texas-swift-water-development-board-falls-short/",
                       "source":  "Texas Tribune",
@@ -83,7 +83,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-45cdfac18a24413590ac0236fc6b5ebb",
+                      "id":  "rss-cdfe907fcc63451b8e315fe6ebd0f752",
                       "title":  "As Adversaries Integrate, U.S. Partners Bypass Washington",
                       "url":  "https://warontherocks.com/as-adversaries-integrate-u-s-partners-bypass-washington/",
                       "source":  "War on the Rocks",
@@ -97,7 +97,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-ee32c755bfb4485db5d16fd96526d4d3",
+                      "id":  "rss-d4e89b4f9d16405889a59505d56e553c",
                       "title":  "Could Russia Follow the “Hormuz Playbook” in the Baltic and Black Seas?",
                       "url":  "https://warontherocks.com/could-russia-follow-the-hormuz-playbook-in-the-baltic-and-black-seas/",
                       "source":  "War on the Rocks",
@@ -114,7 +114,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-0374d835753e493d99c48911b73aae94",
+                      "id":  "rss-27d2cd25f2aa4d7a9baf567ed1016747",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/05/07/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -127,7 +127,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-5463a2b8c77b446ea3522f2b0d7cb3f8",
+                      "id":  "rss-ea153afbe4e34a0d8cc89a427bab1092",
                       "title":  "MAXHUB Pivot Client Application",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-127-01",
                       "source":  "CISA Cybersecurity Advisories",
@@ -140,7 +140,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-dd4ea332067e4ebfaa592b1da53e6082",
+                      "id":  "rss-83625824456a4c62a353eaf0ed1a8fbd",
                       "title":  "PCPJack | Cloud Worm Evicts TeamPCP and Steals Credentials at Scale",
                       "url":  "https://www.sentinelone.com/labs/cloud-worm-evicts-teampcp-and-steals-credentials-at-scale/",
                       "source":  "SentinelOne Labs",
@@ -156,7 +156,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-2871130d47874d729ffd1d6e27e38ae7",
+                      "id":  "rss-6451940ed88d4b42b6d0b6b2afd3b5a2",
                       "title":  "Gas power leapfrogs wind for first time in 10 years in Texas’ grid connection queue",
                       "url":  "https://www.texastribune.org/2026/05/07/texas-power-grid-ercot-interconnection-queue-gas-wind/",
                       "source":  "Texas Tribune",
@@ -172,7 +172,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-7f9cc5d6f2ae42f2a2efa86bf4208db6",
+                      "id":  "rss-1afee37980c2449b8862b76104c60c9e",
                       "title":  "Texas Republicans have a data center problem",
                       "url":  "https://www.texastribune.org/2026/05/07/texas-republicans-data-centers-rural/",
                       "source":  "Texas Tribune",
@@ -185,7 +185,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-29ce08042ae44e26b0941228c60ee121",
+                      "id":  "rss-f26c51d7549d4e3d9d7c084db88b43e5",
                       "title":  "The Pentagon Needs a Playbook for Munitions Surge Production",
                       "url":  "https://warontherocks.com/cogs-of-war/the-pentagon-needs-a-playbook-for-munitions-surge-production/",
                       "source":  "War on the Rocks",
@@ -199,7 +199,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-21a3e67c88d84db4bfece33c023f0c99",
+                      "id":  "rss-a27f5a865736474f9cbacb2e1340da64",
                       "title":  "What 300 Emails Say About Americans and the Army’s Direct Commission Program",
                       "url":  "https://warontherocks.com/what-300-emails-say-about-americans-and-the-armys-direct-commission-program/",
                       "source":  "War on the Rocks",
@@ -212,7 +212,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-279e7b52195b4ad5bc46d1126d2debaf",
+                      "id":  "rss-8ce7c305ad084c65859439a2f7ac9b08",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/05/06/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -225,7 +225,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-4dc40cb0eb6144b58ad5a7b6c192bfa6",
+                      "id":  "rss-96f2fc7ef5f4493bb4541bc6123a3e4a",
                       "title":  "LABScon25 Replay | Please Connect to the Foreign Entity to Enhance Your User Experience",
                       "url":  "https://www.sentinelone.com/labs/labscon25-replay-please-connect-to-the-foreign-entity-to-enhance-your-user-experience/",
                       "source":  "SentinelOne Labs",
@@ -238,7 +238,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-ae8550dc905f4b6c9c418d1ffcc7b816",
+                      "id":  "rss-d1cc3f488f404b81a7ecdd7ba92b0c3d",
                       "title":  "Between Intent and Capability: Assessing the Lack of Iranian Attacks on the U.S. Homeland",
                       "url":  "https://warontherocks.com/between-intent-and-capability-assessing-the-lack-of-iranian-attacks-on-the-u-s-homeland/",
                       "source":  "War on the Rocks",
@@ -251,7 +251,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-09492ad0809b4ab18faa63c1bbe0ba6a",
+                      "id":  "rss-38b68943511a4c2fbbfa48a3993aab9e",
                       "title":  "How Much Longer Can Russia Last in the War?",
                       "url":  "https://warontherocks.com/how-much-longer-can-russia-last-in-the-war/",
                       "source":  "War on the Rocks",
@@ -266,7 +266,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-e7415724132e4697b3469bf013a92461",
+                      "id":  "rss-b1bee51d3b884412b339554785e2093c",
                       "title":  "The Cop on the Corner Is Our First Line of Defense: Local Police and the Surveillance Detection Gap",
                       "url":  "https://warontherocks.com/the-cop-on-the-corner-is-our-first-line-of-defense-local-police-and-the-surveillance-detection-gap/",
                       "source":  "War on the Rocks",
@@ -280,7 +280,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-cefb2f8a0ee94b7fb49641993b77686e",
+                      "id":  "rss-ddc4b7483c6f42158b6ebf0799f53d81",
                       "title":  "ABB B\u0026R Automation Runtime",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-03",
                       "source":  "CISA Cybersecurity Advisories",
@@ -293,7 +293,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-00d2e6df4f1d4f2397061c3a62f80d76",
+                      "id":  "rss-ace7a41ea7f849e3b9206497b455d46e",
                       "title":  "ABB B\u0026R Automation Studio",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-04",
                       "source":  "CISA Cybersecurity Advisories",
@@ -306,7 +306,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-0711f0f3fd9a4f209d99b2e1af065625",
+                      "id":  "rss-90c0ac3b93214276a9862c076acaa61c",
                       "title":  "ABB B\u0026R PVI",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-02",
                       "source":  "CISA Cybersecurity Advisories",
@@ -321,7 +321,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-fa50b428f5934a968e32e30d88b6aab7",
+                      "id":  "rss-e014827a625044b6a6d37879e28b638f",
                       "title":  "Hitachi Energy PCM600",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-01",
                       "source":  "CISA Cybersecurity Advisories",
@@ -336,7 +336,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-5ba9057a3187461bb7542deab88dcf7b",
+                      "id":  "rss-83e89b84e9aa4f26a87258785ff471f8",
                       "title":  "Johnson Controls CEM AC2000",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-05",
                       "source":  "CISA Cybersecurity Advisories",
@@ -351,7 +351,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-c740b1665ef04ace9550fa93d1fabcd0",
+                      "id":  "rss-ae2a47d5bd1b4623a224dcc6279fa16a",
                       "title":  "CISA Unveils New Initiative to Fortify America’s Critical Infrastructure",
                       "url":  "https://www.cisa.gov/news-events/news/cisa-unveils-new-initiative-fortify-americas-critical-infrastructure",
                       "source":  "CISA News",
@@ -364,7 +364,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-be87b6d48e58434fbcc0ca16050d47b4",
+                      "id":  "rss-74fc6504cdd24e2797fb730830c0926a",
                       "title":  "AI and the New Threat Landscape | Sumit Dhawan with NightDragon | RSAC 2026",
                       "url":  "https://www.proofpoint.com/us/newsroom/news/ai-and-new-threat-landscape-sumit-dhawan-nightdragon-rsac-2026",
                       "source":  "Proofpoint Threat Insight",
@@ -377,7 +377,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-ffeca4818f3946c38a0b42ff8d4c36e7",
+                      "id":  "rss-440527493425414c8e369e9bcbea530b",
                       "title":  "Abandoned and Ungoverned: Lebanon’s Palestinian and Syrian Populations and the Emerging Radicalization Landscape",
                       "url":  "https://warontherocks.com/abandoned-and-ungoverned-lebanons-palestinian-and-syrian-populations-and-the-emerging-radicalization-landscape/",
                       "source":  "War on the Rocks",
@@ -392,7 +392,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-34c28ff36560416e8778a96bb74d7045",
+                      "id":  "rss-449031d6535745059c00bf5a75ad1cd7",
                       "title":  "Acquisition Reform Needs Its Own Wargame",
                       "url":  "https://warontherocks.com/cogs-of-war/acquisition-reform-needs-its-own-wargame/",
                       "source":  "War on the Rocks",
@@ -407,7 +407,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-92891aa188234a01a71eed851eb2839b",
+                      "id":  "rss-7f085bf8bc0b4a018d97302aa9774ff5",
                       "title":  "How the War with Iran Is Shaping U.S.-Chinese Competition",
                       "url":  "https://warontherocks.com/how-the-war-with-iran-is-shaping-u-s-chinese-competition/",
                       "source":  "War on the Rocks",
@@ -420,7 +420,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-fb240f37300f4bd1906920b8913cf4a9",
+                      "id":  "rss-cbfbe1c2dceb4260946383d9d25206cf",
                       "title":  "Breaking the code: Multi-stage ‘code of conduct’ phishing campaign leads to AiTM token compromise",
                       "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/04/breaking-the-code-multi-stage-code-of-conduct-phishing-campaign-leads-to-aitm-token-compromise/",
                       "source":  "Microsoft Threat Intelligence",
@@ -433,7 +433,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-8c0b6d240b3d4bc4b43e96739041f0fc",
+                      "id":  "rss-1447f20254b047abb0a9398ea335b8b6",
                       "title":  "The Most Powerful Women Of The Channel 2026: Power 100",
                       "url":  "https://www.proofpoint.com/us/newsroom/news/most-powerful-women-channel-2026-power-100",
                       "source":  "Proofpoint Threat Insight",
@@ -448,7 +448,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-6fa359ee0ba546bfbff34d57cab5add7",
+                      "id":  "rss-4a6f1858345b4c8699f40f91b66c08cf",
                       "title":  "Cheap Missiles, Not Drones, Will Win the Next Air War",
                       "url":  "https://warontherocks.com/cogs-of-war/cheap-missiles-not-drones-will-win-the-next-air-war/",
                       "source":  "War on the Rocks",
@@ -464,7 +464,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-d10b46cd75834ba98331cc3c403bdb32",
+                      "id":  "rss-10bd936af33441c3a2b45d24f56932af",
                       "title":  "Looking at Europe With a Sharper Eye",
                       "url":  "https://warontherocks.com/looking-at-europe-with-a-sharper-eye/",
                       "source":  "War on the Rocks",
@@ -477,7 +477,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-53095c9f9ea04273b5c394ae85e67403",
+                      "id":  "rss-bdb1e482d0f440cc8722e361a37efaf4",
                       "title":  "The Illusion of Sovereignty: How International Law and Big Tech are Eroding the State",
                       "url":  "https://warontherocks.com/the-illusion-of-sovereignty-how-international-law-and-big-tech-are-eroding-the-state/",
                       "source":  "War on the Rocks",
@@ -490,7 +490,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-11f896957fca4b5dbe393512c549368f",
+                      "id":  "rss-efbc564d8326452bb20005bacd4f0f33",
                       "title":  "Why Kim Jong Un Won’t Pick Up the Phone and What to Do About It",
                       "url":  "https://warontherocks.com/why-kim-jong-un-wont-pick-up-the-phone-and-what-to-do-about-it/",
                       "source":  "War on the Rocks",

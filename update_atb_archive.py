@@ -77,14 +77,21 @@ ISSUE_OVERRIDES = {
         "title": "Texas Cyber Risk: Multi-Actor Pressure Continues",
         "summary": "Iranian OT warning activity, Texas AI-energy exposure, financial vendor risk, North Korea revenue schemes, and Russian disruptive trends.",
         "tags": ["iran", "russia", "North Korea", "energy", "finance", "AI"],
-        "data_tags": "latest weekly iran russia north-korea energy finance dib ai texas",
+        "data_tags": "weekly iran russia north-korea energy finance dib ai texas",
         "sector": "all",
     },
     "05-03-2026.html": {
         "title": "Texas Cyber Risk: Developer Pipelines, Energy Logistics, and OT Exposure",
         "summary": "DPRK developer supply-chain activity, Russian energy logistics targeting, Iranian OT pressure, active exploitation, and Texas data-center dependency risk.",
         "tags": ["North Korea", "russia", "iran", "energy", "defense", "AI"],
-        "data_tags": "latest weekly north-korea russia iran energy defense ai data-centers ot texas",
+        "data_tags": "weekly north-korea russia iran energy defense ai data-centers ot texas",
+        "sector": "all",
+    },
+    "05-10-2026.html": {
+        "title": "The Federal Posture Just Changed",
+        "summary": "CI Fortify, Five Eyes agentic AI guidance, healthcare cyber-resilience readiness, DPRK enforcement, Iranian OT pressure, and edge-device exploitation shift board expectations for Texas operators.",
+        "tags": ["CISA", "AI", "healthcare", "energy", "DPRK", "Iran"],
+        "data_tags": "latest weekly cisa ai healthcare energy north-korea iran ot data-centers resilience texas",
         "sector": "all",
     },
 }
@@ -212,7 +219,7 @@ def group_issues_by_month(issues: list[Issue]) -> OrderedDict[tuple[int, int], l
 def render_issue_card(issue: Issue, latest: Issue) -> str:
     latest_badge = '<span class="status-chip">Latest</span>' if issue.filename == latest.filename else ""
     searchable = " ".join([issue.title, issue.summary, issue.filename, f"ATB-2026-{issue.issue_number}", *issue.tags])
-    return f'''        <a class="issue-card" href="/atb/issues/{html.escape(issue.filename)}" data-tags="{html.escape(issue.data_tags)}" data-sector="{html.escape(issue.sector)}" data-search="{html.escape(searchable.lower())}">
+    return f'''        <a class="issue-card" href="issues/{html.escape(issue.filename)}" data-tags="{html.escape(issue.data_tags)}" data-sector="{html.escape(issue.sector)}" data-search="{html.escape(searchable.lower())}">
           <div class="issue-date-block">
             <span class="issue-day">{issue.date.strftime("%d")}</span>
             <span class="issue-month">{issue.date.strftime("%b").upper()}</span>
@@ -276,7 +283,7 @@ def update_archive_page(content: str, issues: list[Issue]) -> str:
     updated = content
     updated = re.sub(
         r'<a class="quick-link" href="[^"]*">(Open Latest Issue|View the latest Alamo Threat Brief)</a>',
-        f'<a class="quick-link" href="/atb/issues/{latest.filename}">View the latest Alamo Threat Brief</a>',
+        f'<a class="quick-link" href="issues/{latest.filename}">View the latest Alamo Threat Brief</a>',
         updated,
         count=1,
     )

@@ -174,6 +174,8 @@ def relative_href(current_page: Path, target: str | Path, root: Path) -> str:
     target_abs = (root / target_path).resolve()
     current_dir = current_page.resolve().parent
     rel = os.path.relpath(target_abs, current_dir).replace("\\", "/")
+    if rel == "index.html" and "/" in target_text.strip("/"):
+        return "./index.html"
     return rel
 
 
@@ -231,7 +233,11 @@ def sync_latest_issue_links(content: str, latest_issue_file: Path | None, curren
         inner = match.group(5)
         visible_text = re.sub(r"<[^>]+>", " ", inner)
         normalized_text = visible_text.lower()
-        if "latest issue" not in normalized_text and "latest brief" not in normalized_text:
+        if (
+            "latest issue" not in normalized_text
+            and "latest brief" not in normalized_text
+            and "latest alamo threat brief" not in normalized_text
+        ):
             return tag
         return re.sub(r'href=(["\'])(.*?)\1', f'href="{latest_href}"', tag, count=1, flags=re.IGNORECASE)
 
