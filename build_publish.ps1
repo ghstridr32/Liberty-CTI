@@ -12,6 +12,7 @@ try {
   }
 
   $env:PYTHONIOENCODING = "utf-8"
+  $env:PYTHONDONTWRITEBYTECODE = "1"
   python sync_components.py --add-sentinels --write --no-backup
   python update_atb_archive.py --write
   python sync_components.py --write --no-backup

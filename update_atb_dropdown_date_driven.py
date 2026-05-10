@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 update_atb_dropdown.py
-======================
+----------------------
 
 Updates the Alamo Threat Brief dropdown entries inside the nav sync script.
 

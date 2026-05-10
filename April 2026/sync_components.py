@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 sync_components.py — Liberty CTI
-=================================
+---------------------------------
 Injects the canonical nav and footer into every HTML page on the site.
 Run this script whenever you update the nav or footer. It rewrites all
 pages in-place, leaving the rest of each file untouched.

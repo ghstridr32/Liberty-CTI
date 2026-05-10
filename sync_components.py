@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 sync_components_auto_atb_v3.py — Liberty CTI
-=========================================
+-----------------------------------------
 Injects the canonical nav and footer into every HTML page on the site.
 
 This version automatically populates the Alamo Threat Brief (ATB) dropdown
@@ -90,6 +90,7 @@ FOOTER_PATTERN = re.compile(
 )
 
 DATED_ATB_RE = re.compile(r"^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])-(\d{4})\.html$", re.IGNORECASE)
+ISSUE_ID_ATB_RE = re.compile(r"^ATB-\d{4}-\d+\.html$", re.IGNORECASE)
 
 
 def find_html_files(root: Path) -> list[Path]:
@@ -105,7 +106,11 @@ def find_html_files(root: Path) -> list[Path]:
             p = Path(dirpath) / filename
             rel_path = p.relative_to(root)
             rel = str(rel_path)
-            if len(rel_path.parts) == 1 and (p.name.lower() == "atb-archive.html" or DATED_ATB_RE.match(p.name)):
+            if len(rel_path.parts) == 1 and (
+                p.name.lower() == "atb-archive.html"
+                or DATED_ATB_RE.match(p.name)
+                or ISSUE_ID_ATB_RE.match(p.name)
+            ):
                 continue
             if any(rel == skip or p.name == skip for skip in SKIP_FILES):
                 continue
@@ -118,13 +123,13 @@ def find_dated_atb_files(root: Path) -> list[Path]:
 
     Returns root-relative paths so pages in subfolders get correct links.
     """
-    dated = []
+    chosen: dict[str, tuple[int, datetime, Path]] = {}
     candidate_dirs = [
         root / "atb" / "issues",
         root / "Intel Production" / "liberty_cti_briefs",
         root / "April 2026",
     ]
-    for directory in candidate_dirs:
+    for priority, directory in enumerate(candidate_dirs):
         if not directory.exists():
             continue
         for p in sorted(directory.glob("*.html")):
@@ -132,11 +137,14 @@ def find_dated_atb_files(root: Path) -> list[Path]:
                 continue
             try:
                 dt = datetime.strptime(p.stem, "%m-%d-%Y")
-                dated.append((dt, p.relative_to(root)))
+                rel = p.relative_to(root)
+                current = chosen.get(p.name)
+                if current is None or priority < current[0]:
+                    chosen[p.name] = (priority, dt, rel)
             except ValueError:
                 continue
-    dated.sort(reverse=True)
-    return [path for _, path in dated]
+    dated = sorted(chosen.values(), key=lambda item: item[1], reverse=True)
+    return [path for _, _, path in dated]
 
 
 
@@ -151,20 +159,28 @@ def format_week_label(filename: str) -> str:
 
 
 def relative_href(current_page: Path, target: str | Path, root: Path) -> str:
-    """Build a browser-friendly root-relative link to a site asset."""
-    target_path = Path(target)
+    """Build a browser-friendly link relative to the current page."""
+    target_text = str(target).replace("\\", "/")
+    if target_text.startswith(("http://", "https://", "mailto:", "tel:", "#")):
+        return target_text
+
+    target_path = Path(target_text.lstrip("/"))
     if target_path.is_absolute():
         try:
             target_path = target_path.resolve().relative_to(root.resolve())
         except ValueError:
             return target_path.as_posix()
-    return "/" + target_path.as_posix().lstrip("/")
+
+    target_abs = (root / target_path).resolve()
+    current_dir = current_page.resolve().parent
+    rel = os.path.relpath(target_abs, current_dir).replace("\\", "/")
+    return rel
 
 
 def latest_issue_href_for_page(latest_issue_file: Path | None, current_page: Path, root: Path) -> str:
     """Use the protected ATB issue path for public site pages."""
     if not latest_issue_file:
-        return "/alamo-threat-brief.html"
+        return relative_href(current_page, "alamo-threat-brief.html", root)
 
     return relative_href(current_page, latest_issue_file, root)
 
@@ -193,9 +209,13 @@ def relativize_component_links(html: str, current_page: Path, root: Path) -> str
     for target in site_targets:
         rel = relative_href(current_page, target, root)
         html = html.replace(f'href="{target}"', f'href="{rel}"')
+        html = html.replace(f'href="/{target}"', f'href="{rel}"')
         html = html.replace(f"href='{target}'", f"href='{rel}'")
+        html = html.replace(f"href='/{target}'", f"href='{rel}'")
         html = html.replace(f'src="{target}"', f'src="{rel}"')
+        html = html.replace(f'src="/{target}"', f'src="{rel}"')
         html = html.replace(f"src='{target}'", f"src='{rel}'")
+        html = html.replace(f"src='/{target}'", f"src='{rel}'")
     return html
 
 
@@ -226,6 +246,7 @@ def sync_latest_issue_links(content: str, latest_issue_file: Path | None, curren
 
 def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Path) -> str:
     latest_issue_href = latest_issue_href_for_page(latest_issue_file, current_page, root)
+    archive_href = relative_href(current_page, "atb/index.html", root)
     latest_issue_label = f"Latest Issue, {format_week_label(str(latest_issue_file))}" if latest_issue_file else "Latest Issue"
 
     aliases = [f"'{latest_issue_file.name.lower()}'"] if latest_issue_file else []
@@ -324,7 +345,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
         <span class="drop-label">Latest Issue</span>
         <a href="{latest_issue_href}" role="menuitem">{latest_issue_label}</a>
         <div class="drop-divider"></div>
-        <a href="/atb/" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="{archive_href}" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
     </li>
 
@@ -372,7 +393,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
     <a href="{latest_issue_href}">{latest_issue_label}</a>
-    <a href="/atb/" class="lcti-archive-link">Archive</a>
+    <a href="{archive_href}" class="lcti-archive-link">Archive</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
