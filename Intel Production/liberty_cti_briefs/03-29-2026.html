@@ -451,13 +451,13 @@
   .conf-mod  { background: rgba(201,168,76,0.22);  color: var(--gold-light); border: 1px solid var(--gold); }
   .conf-low  { background: rgba(154,144,128,0.2);  color: #C8BFB0; border: 1px solid #9A9080; }
   /* On light backgrounds */
-  .pin-body .conf-high, .outlook-content .conf-high, .assessment-box .conf-high {
+  .pir-body .conf-high, .outlook-content .conf-high, .assessment-box .conf-high {
     background: rgba(8,20,42,0.08); color: var(--navy); border: 1px solid var(--navy-light);
   }
-  .pin-body .conf-mod, .outlook-content .conf-mod, .assessment-box .conf-mod {
+  .pir-body .conf-mod, .outlook-content .conf-mod, .assessment-box .conf-mod {
     background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid var(--gold-dim);
   }
-  .pin-body .conf-low, .outlook-content .conf-low {
+  .pir-body .conf-low, .outlook-content .conf-low {
     background: rgba(154,144,128,0.1); color: #6B6055; border: 1px solid var(--gray);
   }
 
@@ -502,24 +502,24 @@
   .doctrine-card p { font-size: 13px; color: #2a3a55; margin-bottom: 6px; }
   .doctrine-card p:last-child { margin-bottom: 0; }
 
-  /* ── PIN RESPONSES ── */
-  .pin-block { border: 1px solid rgba(8,20,42,0.12); margin: 20px 0; overflow: hidden; }
-  .pin-header {
+  /* ── PIR RESPONSES ── */
+  .pir-block { border: 1px solid rgba(8,20,42,0.12); margin: 20px 0; overflow: hidden; }
+  .pir-header {
     background: var(--navy-mid); padding: 12px 18px;
     display: flex; align-items: center; gap: 14px;
   }
-  .pin-id {
+  .pir-id {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--gold); font-weight: 600;
     background: rgba(201,168,76,0.15); padding: 3px 10px; border-radius: 2px;
   }
-  .pin-title {
+  .pir-title {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px; color: var(--off-white); letter-spacing: 1px;
   }
-  .pin-body { padding: 18px 20px; background: #FAFAF7; border-top: 1px solid rgba(8,20,42,0.08); }
-  .pin-body p { margin-bottom: 10px; font-size: 14px; }
-  .pin-body p:last-child { margin-bottom: 0; }
+  .pir-body { padding: 18px 20px; background: #FAFAF7; border-top: 1px solid rgba(8,20,42,0.08); }
+  .pir-body p { margin-bottom: 10px; font-size: 14px; }
+  .pir-body p:last-child { margin-bottom: 0; }
 
   /* ── TEXAS IMPLICATIONS ── */
   .implication-row {
@@ -1660,7 +1660,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="../../atb/issues/05-10-2026.html" role="menuitem">Latest Issue, Week of May 10, 2026</a>
+        <a href="../../atb/issues/05-17-2026.html" role="menuitem">Latest Issue, Week of May 17, 2026</a>
         <div class="drop-divider"></div>
         <a href="../../atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1709,7 +1709,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="../../atb/issues/05-10-2026.html">Latest Issue, Week of May 10, 2026</a>
+    <a href="../../atb/issues/05-17-2026.html">Latest Issue, Week of May 17, 2026</a>
     <a href="../../atb/index.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1748,7 +1748,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['05-10-2026.html'],
+    'alamo-threat-brief.html':['05-17-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1835,7 +1835,7 @@ body [style*="Instrument Sans"]{
       </div>
       <div class="meta-item">
         <span class="meta-label">Cycle</span>
-        <span class="meta-value">CY2026 · PIN SET ACTIVE</span>
+        <span class="meta-value">CY2026 · PIR SET ACTIVE</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Torch Fusion Cycle</span>
@@ -2074,39 +2074,39 @@ body [style*="Instrument Sans"]{
     </div>
   </div>
 
-  <!-- ─────────────────── PIN RESPONSES ─────────────────── -->
+  <!-- ─────────────────── PIR RESPONSES ─────────────────── -->
   <div class="section-rule">
     <span class="section-tag">Section IV</span>
     <div class="section-rule-line"></div>
   </div>
-  <h2 class="section-head">Priority Information Need Responses</h2>
+  <h2 class="section-head">Priority Intelligence Requirement Responses</h2>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-4</span>
-      <span class="pin-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-4</span>
+      <span class="pir-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response — Updated:</strong> Handala's three-track doctrine is now confirmed at operational scale. Track 1 (Stryker wiper, March 11) produced the most significant destructive cyberattack against a U.S. company in the current conflict. Track 2 (Patel Gmail, March 27) demonstrates pre-staged influence operations executed with strategic timing. Track 3 (ICS reconnaissance via CyberAv3ngers) continues at baseline. The DOJ's March 19 confirmation that Handala is a MOIS-operated persona — not an independent hacktivist group — eliminates attribution ambiguity. Iran is directly responsible for all three operational tracks. <span class="conf conf-high">HIGH CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-1</span>
-      <span class="pin-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-1</span>
+      <span class="pir-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response:</strong> The Stryker and Patel operations reveal that Iran is now retaliating for <em>cyber enforcement actions</em> as well as kinetic strikes. The Patel breach was explicitly framed as retaliation for the DOJ's domain seizures of Handala's infrastructure on March 19. This is a significant analytical update: <span class="aq">the trigger set for Iranian cyber retaliation now includes U.S. law enforcement actions against Iranian cyber infrastructure</span>, not only military strikes. Texas organizations adjacent to or supportive of U.S. government cybersecurity enforcement (including CISA, FBI, and DOJ partner organizations) should assess their own exposure accordingly. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-5</span>
-      <span class="pin-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-5</span>
+      <span class="pir-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response:</strong> The Stryker attack methodology directly implicates the Texas Medical Center vendor ecosystem. Stryker is a medical device company with DoD contracts and an Israeli acquisition — a target profile shared by multiple TMC suppliers and medical technology vendors operating in Texas. The attack required no zero-day capability: <span class="aq">compromised Microsoft enterprise credentials are sufficient to execute a global wiper attack</span>. Texas organizations at most risk this week: healthcare technology vendors with Israeli partnerships or federal contracts; any enterprise operating Microsoft 365 with Intune device management and limited MFA enforcement on admin accounts. <span class="conf conf-high">HIGH CONFIDENCE</span></p>
     </div>
   </div>

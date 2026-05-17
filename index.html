@@ -232,9 +232,9 @@ h2 em { font-style: italic; color: var(--red); }
 .spectrum-card { background: var(--cream); padding: 2rem; }
 .spectrum-card h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--ink); margin-bottom: 0.65rem; }
 .spectrum-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.75; }
-.pin-list { display: grid; gap: 2px; background: var(--rule); margin-top: 2rem; }
-.pin-item { background: rgba(13,21,32,0.9); padding: 1.15rem 1.35rem; color: rgba(244,239,230,0.74); font-size: 0.88rem; line-height: 1.65; }
-.pin-item strong { color: var(--gold); font-weight: 600; }
+.pir-list { display: grid; gap: 2px; background: var(--rule); margin-top: 2rem; }
+.pir-item { background: rgba(13,21,32,0.9); padding: 1.15rem 1.35rem; color: rgba(244,239,230,0.74); font-size: 0.88rem; line-height: 1.65; }
+.pir-item strong { color: var(--gold); font-weight: 600; }
 
 /* VISION SECTION */
 .vision { background: var(--ink); padding: 7rem 3rem; position: relative; overflow: hidden; }
@@ -1842,7 +1842,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="atb/issues/05-10-2026.html" role="menuitem">Latest Issue, Week of May 10, 2026</a>
+        <a href="atb/issues/05-17-2026.html" role="menuitem">Latest Issue, Week of May 17, 2026</a>
         <div class="drop-divider"></div>
         <a href="atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1891,7 +1891,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="atb/issues/05-10-2026.html">Latest Issue, Week of May 10, 2026</a>
+    <a href="atb/issues/05-17-2026.html">Latest Issue, Week of May 17, 2026</a>
     <a href="atb/index.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1930,7 +1930,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['05-10-2026.html'],
+    'alamo-threat-brief.html':['05-17-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1959,7 +1959,7 @@ body [style*="Instrument Sans"]{
       <ul class="hero-value-list" aria-label="Liberty CTI value">
         <li>Built for boards, general counsel, and executive teams</li>
         <li>Texas is the application. Strategic intelligence is the practice.</li>
-        <li>Founded by Russian linguists, Situation Room and Pentagon intelligence officers, and cyber commanders</li>
+        <li>Founded by Russian linguists, Situation Room and Pentagon intelligence officers, and a cyber squadron commander</li>
       </ul>
       <div class="hero-actions" style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
         <a href="alamo-threat-brief.html" class="btn-gold">View the Alamo Threat Brief</a>
@@ -2163,7 +2163,7 @@ body [style*="Instrument Sans"]{
     <p class="sec-lead reveal d2">Most technical cyber intelligence stops inside one sector. Liberty CTI tracks how disruption moves across Texas' coupled economy: energy, finance, healthcare, defense, data centers, and government services.</p>
     <div class="cascade-example reveal d3">Data center growth strains grid capacity. Grid instability raises hospital downtime risk. Hospital disruption creates political, regulatory, and public safety pressure. Financial institutions absorb liquidity, claims, and recovery shocks.</div>
     <div class="section-actions reveal d3">
-      <a href="atb/issues/05-10-2026.html" class="btn-gold">View the latest Alamo Threat Brief</a>
+      <a href="atb/issues/05-17-2026.html" class="btn-gold">View the latest Alamo Threat Brief</a>
       <a href="briefing-request.html" class="btn-gold-outline">Discuss a Retainer</a>
     </div>
   </div>
@@ -2196,13 +2196,13 @@ body [style*="Instrument Sans"]{
 <section class="decision-strip" id="priority-information-needs">
   <div class="section-inner">
     <span class="sec-eyebrow reveal">Intelligence Built Around Board Decisions</span>
-    <h2 class="reveal d1" style="color:var(--paper);">Priority Information Needs turn intelligence into<br><em>a defensible governance record.</em></h2>
-    <p class="sec-lead reveal d2">Liberty CTI uses Priority Information Needs to define the questions a board must answer and document before risk becomes disruption. A PIN is not an analytic curiosity. It is the documented contract between the question leadership owes its stakeholders and the expert guidance it received.</p>
-    <div class="pin-list reveal d3">
-      <div class="pin-item"><strong>Energy:</strong> Is adversary pre-positioning increasing against Texas energy infrastructure?</div>
-      <div class="pin-item"><strong>Healthcare:</strong> Are ransomware groups shifting toward regional healthcare disruption?</div>
-      <div class="pin-item"><strong>Defense:</strong> Are PRC-linked actors targeting Texas defense suppliers through managed service providers?</div>
-      <div class="pin-item"><strong>Gulf Coast:</strong> Are geopolitical events increasing risk to Gulf Coast energy operations?</div>
+    <h2 class="reveal d1" style="color:var(--paper);">Priority Intelligence Requirements turn intelligence into<br><em>a defensible governance record.</em></h2>
+    <p class="sec-lead reveal d2">Liberty CTI uses Priority Intelligence Requirements to define the questions a board must answer and document before risk becomes disruption. A PIR is not an analytic curiosity. It is the documented contract between the question leadership owes its stakeholders and the expert guidance it received.</p>
+    <div class="pir-list reveal d3">
+      <div class="pir-item"><strong>Energy:</strong> Is adversary pre-positioning increasing against Texas energy infrastructure?</div>
+      <div class="pir-item"><strong>Healthcare:</strong> Are ransomware groups shifting toward regional healthcare disruption?</div>
+      <div class="pir-item"><strong>Defense:</strong> Are PRC-linked actors targeting Texas defense suppliers through managed service providers?</div>
+      <div class="pir-item"><strong>Gulf Coast:</strong> Are geopolitical events increasing risk to Gulf Coast energy operations?</div>
     </div>
   </div>
 </section>
@@ -2240,7 +2240,7 @@ body [style*="Instrument Sans"]{
       <div class="product-item">
         <div class="product-tag">Primary Model</div>
         <div class="product-name">Executive Intelligence Retainer</div>
-        <p class="product-desc">A standing intelligence partnership for Texas leaders who need recurring warning, custom Priority Information Needs, flash support, and monthly executive calls.</p>
+        <p class="product-desc">A standing intelligence partnership for Texas leaders who need recurring warning, custom Priority Intelligence Requirements, flash support, and monthly executive calls.</p>
         <ul class="product-features">
           <li>ATB Executive access</li>
           <li>Build an intelligence layer around your leadership decisions.</li>
@@ -2353,7 +2353,7 @@ body [style*="Instrument Sans"]{
     <h2 class="reveal d2">Prepare your board.<br><em>Apply strategic judgment before the crisis arrives.</em></h2>
     <p class="cta-body reveal d3">Liberty CTI is a Strategic Cyber Intelligence firm focused on Texas critical infrastructure. We help boards and general counsel maintain the record leadership needs before disruption, scrutiny, or litigation arrives.</p>
     <div class="cta-actions reveal d3">
-      <a href="atb/issues/05-10-2026.html" class="btn-gold">View the latest Alamo Threat Brief</a>
+      <a href="atb/issues/05-17-2026.html" class="btn-gold">View the latest Alamo Threat Brief</a>
       <a href="briefing-request.html" class="btn-dark">Request an Executive Briefing</a>
       <a href="briefing-request.html" class="btn-outline">Discuss a Retainer</a>
     </div>

@@ -8,7 +8,17 @@ $ErrorActionPreference = "Stop"
 Push-Location $Root
 try {
   if (Test-Path -LiteralPath $OutDir) {
-    Remove-Item -LiteralPath $OutDir -Recurse -Force
+    Get-ChildItem -LiteralPath $OutDir -Force |
+      Where-Object { $_.Name -ne ".vercel" } |
+      ForEach-Object {
+        $PublishItem = $_.FullName
+        try {
+          Remove-Item -LiteralPath $PublishItem -Recurse -Force -ErrorAction Stop
+        }
+        catch {
+          Write-Warning "Could not remove locked publish item: $PublishItem"
+        }
+      }
   }
 
   $env:PYTHONIOENCODING = "utf-8"
@@ -89,7 +99,12 @@ try {
   foreach ($ImageRef in $ImageRefs) {
     $SourceImage = Join-Path $Root $ImageRef
     if (Test-Path -LiteralPath $SourceImage) {
-      Copy-Item -LiteralPath $SourceImage -Destination $OutDir -Force
+      try {
+        Copy-Item -LiteralPath $SourceImage -Destination $OutDir -Force -ErrorAction Stop
+      }
+      catch {
+        Write-Warning "Could not copy locked image: $ImageRef"
+      }
     }
   }
 
@@ -101,7 +116,12 @@ try {
         $Relative = $_.FullName.Substring((Join-Path $Root "assets").Length).TrimStart("\")
         $Destination = Join-Path (Join-Path $OutDir "assets") $Relative
         New-Item -ItemType Directory -Force -Path (Split-Path -Parent $Destination) | Out-Null
-        Copy-Item -LiteralPath $_.FullName -Destination $Destination -Force
+        try {
+          Copy-Item -LiteralPath $_.FullName -Destination $Destination -Force -ErrorAction Stop
+        }
+        catch {
+          Write-Warning "Could not copy locked asset: $Relative"
+        }
       }
   }
 

@@ -37,22 +37,22 @@ function Parse-DateValue {
   try { return [DateTimeOffset]::Parse($Value).DateTime } catch { return $null }
 }
 
-function Suggest-Pins {
+function Suggest-PIRs {
   param([string]$Text)
   $t = $Text.ToLowerInvariant()
-  $pins = New-Object System.Collections.Generic.List[int]
+  $pirs = New-Object System.Collections.Generic.List[int]
 
-  if ($t -match "\b(energy|ercot|grid|electric|electricity|power|pipeline|lng|oil|gas|ot|ics|industrial control|refinery|substation)\b") { $pins.Add(1); $pins.Add(2); $pins.Add(3) }
-  if ($t -match "\b(bank|banking|payment|payments|fintech|swift|crypto|cryptocurrency|ofac|fincen|treasury|financial)\b") { $pins.Add(4); $pins.Add(6) }
-  if ($t -match "\b(north korea|dprk|lazarus|it worker|laptop farm)\b") { $pins.Add(5); $pins.Add(12) }
-  if ($t -match "\b(hospital|healthcare|patient|medical|clinic|hhs|hc3|medical device)\b") { $pins.Add(7); $pins.Add(8); $pins.Add(9) }
-  if ($t -match "\b(defense|aerospace|dib|export control|intellectual property|ip theft|china|prc|espionage)\b") { $pins.Add(10); $pins.Add(11) }
-  if ($t -match "\b(russia|russian|ransomware|extortion|access broker|botnet)\b") { $pins.Add(13) }
-  if ($t -match "\b(iran|iranian|proxy|hacktivist|ddos|defacement)\b") { $pins.Add(14) }
-  if ($t -match "\b(artificial intelligence|ai|data center|data centers|cloud|gpu|model)\b") { $pins.Add(15) }
-  if ($t -match "\b(election|elections|voting|voter|county government)\b") { $pins.Add(16) }
+  if ($t -match "\b(energy|ercot|grid|electric|electricity|power|pipeline|lng|oil|gas|ot|ics|industrial control|refinery|substation)\b") { $pirs.Add(1); $pirs.Add(2); $pirs.Add(3) }
+  if ($t -match "\b(bank|banking|payment|payments|fintech|swift|crypto|cryptocurrency|ofac|fincen|treasury|financial)\b") { $pirs.Add(4); $pirs.Add(6) }
+  if ($t -match "\b(north korea|dprk|lazarus|it worker|laptop farm)\b") { $pirs.Add(5); $pirs.Add(12) }
+  if ($t -match "\b(hospital|healthcare|patient|medical|clinic|hhs|hc3|medical device)\b") { $pirs.Add(7); $pirs.Add(8); $pirs.Add(9) }
+  if ($t -match "\b(defense|aerospace|dib|export control|intellectual property|ip theft|china|prc|espionage)\b") { $pirs.Add(10); $pirs.Add(11) }
+  if ($t -match "\b(russia|russian|ransomware|extortion|access broker|botnet)\b") { $pirs.Add(13) }
+  if ($t -match "\b(iran|iranian|proxy|hacktivist|ddos|defacement)\b") { $pirs.Add(14) }
+  if ($t -match "\b(artificial intelligence|ai|data center|data centers|cloud|gpu|model)\b") { $pirs.Add(15) }
+  if ($t -match "\b(election|elections|voting|voter|county government)\b") { $pirs.Add(16) }
 
-  return @($pins | Select-Object -Unique)
+  return @($pirs | Select-Object -Unique)
 }
 
 function Limit-Text {
@@ -90,12 +90,12 @@ function Resolve-FinalUrl {
 }
 
 function Test-LibertyRelevance {
-  param([string]$Text, [string]$Category, [int[]]$Pins)
+  param([string]$Text, [string]$Category, [int[]]$PIRs)
   $t = $Text.ToLowerInvariant()
   if ($Category -eq "Texas / Regional") {
     return ($t -match "\b(cyber|breach|ransomware|ercot|grid|power|energy|oil|gas|lng|pipeline|hospital|healthcare|bank|payment|defense|military|data center|data centers|cloud|critical infrastructure|port|ports|water|telecom|election|elections|voting|emergency management|disaster response)\b")
   }
-  return (($Pins.Count -gt 0) -or ($t -match "\b(cyber|security|infrastructure|ransomware|breach|malware|espionage|sanction|sanctions|taiwan|ukraine|middle east|iran|iranian|china|prc|russia|russian|north korea|dprk|ercot|grid|hospital|healthcare|bank|payment|defense|aerospace|data center|data centers|cloud|artificial intelligence|supply chain|critical infrastructure|port|ports|water|telecom|election|elections|voting|oil|gas|lng|pipeline|ot|ics)\b"))
+  return (($PIRs.Count -gt 0) -or ($t -match "\b(cyber|security|infrastructure|ransomware|breach|malware|espionage|sanction|sanctions|taiwan|ukraine|middle east|iran|iranian|china|prc|russia|russian|north korea|dprk|ercot|grid|hospital|healthcare|bank|payment|defense|aerospace|data center|data centers|cloud|artificial intelligence|supply chain|critical infrastructure|port|ports|water|telecom|election|elections|voting|oil|gas|lng|pipeline|ot|ics)\b"))
 }
 
 if (-not (Test-Path -LiteralPath $FeedList)) {
@@ -125,8 +125,8 @@ foreach ($feed in $feeds) {
 
       if ($title -and $url -and $published -and $published -ge $cutoff) {
         $text = "$title $summary $($feed.name) $($feed.category)"
-        $pins = @(Suggest-Pins $text)
-        $isRelevant = Test-LibertyRelevance $text ([string]$feed.category) $pins
+        $pirs = @(Suggest-PIRs $text)
+        $isRelevant = Test-LibertyRelevance $text ([string]$feed.category) $pirs
         if (-not $isRelevant) { continue }
         $items.Add([pscustomobject]@{
           id = "rss-" + ([guid]::NewGuid().ToString("N"))
@@ -136,7 +136,7 @@ foreach ($feed in $feeds) {
           category = [string]$feed.category
           published = $published.ToString("yyyy-MM-dd")
           summary = $summary
-          suggestedPinIds = $pins
+          suggestedPirIds = $pirs
           suggestedSector = if ($text -match "energy|ercot|grid|power|ot|ics") { "Energy" } elseif ($text -match "bank|payment|financial|crypto") { "Finance" } elseif ($text -match "hospital|health|medical") { "Healthcare" } elseif ($text -match "defense|aerospace|dib") { "Defense Industrial Base" } elseif ($text -match "data center|cloud|artificial intelligence| ai ") { "AI / Data Centers" } else { "Cross-Sector" }
         })
       }

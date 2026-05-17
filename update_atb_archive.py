@@ -91,7 +91,14 @@ ISSUE_OVERRIDES = {
         "title": "The Federal Posture Just Changed",
         "summary": "CI Fortify, Five Eyes agentic AI guidance, healthcare cyber-resilience readiness, DPRK enforcement, Iranian OT pressure, and edge-device exploitation shift board expectations for Texas operators.",
         "tags": ["CISA", "AI", "healthcare", "energy", "DPRK", "Iran"],
-        "data_tags": "latest weekly cisa ai healthcare energy north-korea iran ot data-centers resilience texas",
+        "data_tags": "weekly cisa ai healthcare energy north-korea iran ot data-centers resilience texas",
+        "sector": "all",
+    },
+    "05-17-2026.html": {
+        "title": "Texas Infrastructure Concentration Is the Target",
+        "summary": "CI Fortify, ERCOT demand pressure, simultaneous ICS advisories, and continued DPRK enforcement converge on Texas grid, telecom, cloud, MSP, and identity dependency risk.",
+        "tags": ["CISA", "ERCOT", "ICS", "energy", "DPRK", "Texas"],
+        "data_tags": "latest weekly cisa ercot ics energy dprk texas infrastructure data-centers cloud msp identity",
         "sector": "all",
     },
 }

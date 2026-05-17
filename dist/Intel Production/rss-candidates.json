@@ -1,7 +1,7 @@
 ﻿{
-    "generatedAt":  "2026-05-10T06:31:03-05:00",
+    "generatedAt":  "2026-05-16T12:33:36-05:00",
     "windowDays":  7,
-    "itemCount":  32,
+    "itemCount":  36,
     "failureCount":  10,
     "failures":  [
                      {
@@ -22,7 +22,7 @@
                      {
                          "source":  "Google Cloud Threat Intelligence",
                          "url":  "https://cloud.google.com/blog/topics/threat-intelligence/rss/",
-                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-8795035653024828732\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspa..."
+                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"8583531485498490224\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspañ..."
                      },
                      {
                          "source":  "Dragos",
@@ -57,208 +57,69 @@
                  ],
     "items":  [
                   {
-                      "id":  "rss-ed3b419dda4d4165987d618199add5ee",
+                      "id":  "rss-453bd7c0231d48fdafac84b205939b4c",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/05/08/cisa-adds-one-known-exploited-vulnerability-catalog",
+                      "url":  "https://www.cisa.gov/news-events/alerts/2026/05/15/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
                       "category":  "Government / Official",
-                      "published":  "2026-05-08",
-                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-42208 BerriAI LiteLLM SQL Injection Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 22-01: Reducing the Significant Risk of Known Exploited Vulnerabilities established the KEV Catalog as a living list of known Common Vulnerabilities and Exposures (CVEs) that carry significant risk to the federal enterprise. BOD 22-01 requires Federal Civilian Executive Branch (FCEB) agencies to remediate identified vulnerabilities ...",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-15",
+                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-42897 Microsoft Exchange Server Cross-Site Scripting Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 22-01: Reducing the Significant Risk of Known Exploited Vulnerabilities established the KEV Catalog as a living list of known Common Vulnerabilities and Exposures (CVEs) that carry significant risk to the federal enterprise. BOD 22-01 requires Federal Civilian Executive Branch (FCEB) agencies to remediate identified...",
+                      "suggestedPirIds":  [
 
                                           ],
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-5dfa493c4d374b82ac218be263fec745",
-                      "title":  "In parched Texas, a state fund to boost water projects falls almost $3 billion short of demand",
-                      "url":  "https://www.texastribune.org/2026/05/08/texas-swift-water-development-board-falls-short/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-05-08",
-                      "summary":  "Ten water projects received initial approval to split $1.28 billion in state money this year, but 13 others didn’t make the cut — including one that may supply drought-stricken Corpus Christi.",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-cdfe907fcc63451b8e315fe6ebd0f752",
-                      "title":  "As Adversaries Integrate, U.S. Partners Bypass Washington",
-                      "url":  "https://warontherocks.com/as-adversaries-integrate-u-s-partners-bypass-washington/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-08",
-                      "summary":  "The drones hitting Gulf Arab states daily since the United States and Israel launched large-scale military operations against Iran in February are not merely Iranian. They are originally Iranian, yes. But these designs and production processes were improved and refined by Russia through years of battlefield testing against Ukrainian defenses. So, they were returned to Tehran from Moscow. Confronted with a threat that Ukraine has spent four years learning to counter, the United States found itself in unfamiliar territory. It was one of 11 countries requesting Ukrainian counter-drone assistance to defend against Iran’s attacks, despite the American president’s assertion that The post As Advers...",
-                      "suggestedPinIds":  [
-                                              13,
-                                              14
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-d4e89b4f9d16405889a59505d56e553c",
-                      "title":  "Could Russia Follow the “Hormuz Playbook” in the Baltic and Black Seas?",
-                      "url":  "https://warontherocks.com/could-russia-follow-the-hormuz-playbook-in-the-baltic-and-black-seas/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-08",
-                      "summary":  "On the eve of the U.S.-Israeli strikes on Iran, 56 tankers sailed through the Strait of Hormuz. Two days later, Lloyd’s List, the maritime industry’s journal of record, counted just seven tankers and a single gas carrier — all small and three of them shadow-fleet vessels — with hundreds more drifting in the Gulf of Oman. One of the world’s most important maritime chokepoints had not been mined, blockaded, or seized by a navy. Rather, it had been priced shut by a handful of drone strikes and the insurance market.Within two days of the first U.S.-Israeli strikes on Feb. 28, The post Could Russia Follow the “Hormuz Playbook” in the Baltic and Black Seas? appeared first on War on the Rocks .",
-                      "suggestedPinIds":  [
-                                              1,
-                                              2,
-                                              3,
-                                              13,
-                                              14
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-27d2cd25f2aa4d7a9baf567ed1016747",
-                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/05/07/cisa-adds-one-known-exploited-vulnerability-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-07",
-                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-6973 Ivanti Endpoint Manager Mobile (EPMM) Improper Input Validation Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 22-01: Reducing the Significant Risk of Known Exploited Vulnerabilities established the KEV Catalog as a living list of known Common Vulnerabilities and Exposures (CVEs) that carry significant risk to the federal enterprise. BOD 22-01 requires Federal Civilian Executive Branch (FCEB) agencies to reme...",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-ea153afbe4e34a0d8cc89a427bab1092",
-                      "title":  "MAXHUB Pivot Client Application",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-127-01",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-07",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability may enable an attacker to access tenant email addresses and associated information in cleartext or cause a denial-of-service condition. The following versions of MAXHUB Pivot client application are affected: MAXHUB Pivot client application CVSS Vendor Equipment Vulnerabilities v3 7.3 MAXHUB MAXHUB Pivot client application Use of a Broken or Risky Cryptographic Algorithm Background Critical Infrastructure Sectors: Information Technology Countries/Areas Deployed: Worldwide Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-6411 This vulnerability, in the MAXHUB Pivot client application versions prio...",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-83625824456a4c62a353eaf0ed1a8fbd",
-                      "title":  "PCPJack | Cloud Worm Evicts TeamPCP and Steals Credentials at Scale",
-                      "url":  "https://www.sentinelone.com/labs/cloud-worm-evicts-teampcp-and-steals-credentials-at-scale/",
-                      "source":  "SentinelOne Labs",
+                      "id":  "rss-4ae0446f9d5a4594bd04a49ed83d625c",
+                      "title":  "Gremlin Stealer\u0027s Evolved Tactics: Hiding in Plain Sight With Resource Files",
+                      "url":  "https://unit42.paloaltonetworks.com/gremlin-stealer-evolution/",
+                      "source":  "Palo Alto Unit 42",
                       "category":  "Commercial CTI",
-                      "published":  "2026-05-07",
-                      "summary":  "Cloud attack framework skips cryptomining, harvests financial, messaging, and enterprise credentials for fraud, spam, and potential extortion.",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-15",
+                      "summary":  "Unit 42 analyzes the evolution of Gremlin stealer. This variant uses advanced obfuscation, crypto clipping and session hijacking to compromise data. The post Gremlin Stealer\u0027s Evolved Tactics: Hiding in Plain Sight With Resource Files appeared first on Unit 42 .",
+                      "suggestedPirIds":  [
                                               4,
-                                              6,
-                                              13,
-                                              15
+                                              6
                                           ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-6451940ed88d4b42b6d0b6b2afd3b5a2",
-                      "title":  "Gas power leapfrogs wind for first time in 10 years in Texas’ grid connection queue",
-                      "url":  "https://www.texastribune.org/2026/05/07/texas-power-grid-ercot-interconnection-queue-gas-wind/",
+                      "id":  "rss-28c76dd991ec4cadb39e4825f5afc356",
+                      "title":  "Texas Children’s Hospital must create country’s first “detransition clinic” under legal settlement with state",
+                      "url":  "https://www.texastribune.org/2026/05/15/texas-children-transgender-transition-settlement-attorney-general/",
                       "source":  "Texas Tribune",
                       "category":  "Texas / Regional",
-                      "published":  "2026-05-07",
-                      "summary":  "Data centers are largely driving the sudden rise in natural gas power projects on the waiting list to connect to Texas\u0027 grid.",
-                      "suggestedPinIds":  [
-                                              1,
-                                              2,
-                                              3,
-                                              15
+                      "published":  "2026-05-15",
+                      "summary":  "Attorney General Ken Paxton said on Friday that Texas Children’s must also pay $10 million to the state because it illegally provided transgender care to kids.",
+                      "suggestedPirIds":  [
+                                              7,
+                                              8,
+                                              9
                                           ],
-                      "suggestedSector":  "Energy"
+                      "suggestedSector":  "Healthcare"
                   },
                   {
-                      "id":  "rss-1afee37980c2449b8862b76104c60c9e",
-                      "title":  "Texas Republicans have a data center problem",
-                      "url":  "https://www.texastribune.org/2026/05/07/texas-republicans-data-centers-rural/",
+                      "id":  "rss-a5d84a9319a34f14ba1543a904b3c41c",
+                      "title":  "Texas town may offer a preview of Trump administration plan to force noncitizens from public housing",
+                      "url":  "https://www.texastribune.org/2026/05/15/texas-port-isabel-public-housing-trump-hud-policy-legal-residents/",
                       "source":  "Texas Tribune",
                       "category":  "Texas / Regional",
-                      "published":  "2026-05-07",
-                      "summary":  "Data center construction is unpopular among locals, and a majority of the facilities are being proposed in red, rural counties. That puts Texas Republicans in a tough spot, as the White House has encouraged states to let the centers flourish.",
-                      "suggestedPinIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-f26c51d7549d4e3d9d7c084db88b43e5",
-                      "title":  "The Pentagon Needs a Playbook for Munitions Surge Production",
-                      "url":  "https://warontherocks.com/cogs-of-war/the-pentagon-needs-a-playbook-for-munitions-surge-production/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-07",
-                      "summary":  "The Tomahawk Land Attack Missiles the U.S. military fired during Operation Epic Fury take months to put on contract and years to produce.Whether driven by U.S. military operations or support to partners, the challenge of quickly replenishing U.S. munitions is not new. Exquisite munitions often take an exquisite amount of time to manufacture and deliver. Defense officials, in turn, frequently want to compress that time as much as possible, seeking to restock fast and mitigate future risks.The Russo-Ukrainian War has illuminated the challenge of accomplishing this feat. It also offers lessons for how the U.S can accelerate munitions production timelines The post The Pentagon Needs a Playbook f...",
-                      "suggestedPinIds":  [
-                                              10,
-                                              11
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-a27f5a865736474f9cbacb2e1340da64",
-                      "title":  "What 300 Emails Say About Americans and the Army’s Direct Commission Program",
-                      "url":  "https://warontherocks.com/what-300-emails-say-about-americans-and-the-armys-direct-commission-program/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-07",
-                      "summary":  "For nine months in 2024 and 2025, I had an additional duty — monitoring an inbox that connected potential direct commission candidates with the Army’s individual branches. I served on the Army Reserve’s senior leadership team, helping to stand up a brokerage between mid-career professionals and the decentralized branch pipelines that controlled direct commission slots.During that time, I personally reviewed over 300 inquiries from accomplished professionals — data scientists, logistics engineers, cyber specialists, and strategic communicators — all of whom wanted to serve their country in uniform. The experience taught me two main lessons. First, people either regret not serving The post Wha...",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-8ce7c305ad084c65859439a2f7ac9b08",
-                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/05/06/cisa-adds-one-known-exploited-vulnerability-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-06",
-                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-0300 Palo Alto Networks PAN-OS Out-of-bounds Write Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 22-01: Reducing the Significant Risk of Known Exploited Vulnerabilities established the KEV Catalog as a living list of known Common Vulnerabilities and Exposures (CVEs) that carry significant risk to the federal enterprise. BOD 22-01 requires Federal Civilian Executive Branch (FCEB) agencies to remediate identified v...",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-15",
+                      "summary":  "Half of the residents moved out after the Port Isabel Housing Authority mistakenly said everyone must have legal status under a new HUD policy. The policy hasn’t yet been adopted.",
+                      "suggestedPirIds":  [
 
                                           ],
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-96f2fc7ef5f4493bb4541bc6123a3e4a",
-                      "title":  "LABScon25 Replay | Please Connect to the Foreign Entity to Enhance Your User Experience",
-                      "url":  "https://www.sentinelone.com/labs/labscon25-replay-please-connect-to-the-foreign-entity-to-enhance-your-user-experience/",
-                      "source":  "SentinelOne Labs",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-05-06",
-                      "summary":  "Joe FitzPatrick reveals how consumer imports of networked devices pose a real security risk to small businesses and critical infrastructure alike.",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-d1cc3f488f404b81a7ecdd7ba92b0c3d",
-                      "title":  "Between Intent and Capability: Assessing the Lack of Iranian Attacks on the U.S. Homeland",
-                      "url":  "https://warontherocks.com/between-intent-and-capability-assessing-the-lack-of-iranian-attacks-on-the-u-s-homeland/",
+                      "id":  "rss-d53164017eea455d8c9882ec25c4d62d",
+                      "title":  "Restrain and Hedge: A New U.S. Nuclear Strategy for a Two-Peer World",
+                      "url":  "https://warontherocks.com/restrain-and-hedge-a-new-u-s-nuclear-strategy-for-a-two-peer-world/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-06",
-                      "summary":  "Three days into the Iran war, Iran’s Islamic Revolutionary Guard Corps said the quiet part out loud: The Revolutionary Guard’s Qods Force has long carried out plots around the world and now intended to deploy those capabilities against the U.S. homeland. The United States, a Qods Force statement carried on Iranian television warned, “will no longer be safe” as the Qods Force targets Americans within the homeland and abroad. “The enemy should know that their happy days are over and they will no longer be safe anywhere in the world, not even in their own homes.” U.S. authorities went on a nationwide high alert The post Between Intent and Capability: Assessing the Lack of Iranian Attacks on the...",
-                      "suggestedPinIds":  [
-                                              14
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-38b68943511a4c2fbbfa48a3993aab9e",
-                      "title":  "How Much Longer Can Russia Last in the War?",
-                      "url":  "https://warontherocks.com/how-much-longer-can-russia-last-in-the-war/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-06",
-                      "summary":  "In 2025, Collin Meisel and Mathew Burrows wrote, “Russia Can Afford to Take a Beating in Ukraine,” where they argued Russia was able to absorb the blows Ukraine was delivering and could continue fighting for a while. A year later, we asked Collin and Mathew to revisit their assessments.Image: The Kremlin via Wikimedia CommonsIn your 2025 article, you argued that due to its sheer size — in service-capable population, economy, and munitions production capacity — Russia can absorb more of a hit throughout this war than Ukraine can. After another year of combat, Ukrainian defense innovation, and even more Russian The post How Much Longer Can Russia Last in the War? appeared first on War on the R...",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-15",
+                      "summary":  "What if fielding more nuclear weapons makes the United States less secure, not more? That question is now at the center of a growing debate as the United States confronts a nuclear landscape shaped by two major nuclear rivals.China is rapidly expanding and modernizing its nuclear arsenal, while the New Strategic Arms Reduction Treaty (START), the last remaining nuclear arms control deal between the United States and Russia, has expired. In what appears as the beginning of a new, more dangerous nuclear age, some analysts believe the United States should increase the size of its deployed nuclear arsenal. Others believe The post Restrain and Hedge: A New U.S. Nuclear Strategy for a Two-Peer Wor...",
+                      "suggestedPirIds":  [
                                               10,
                                               11,
                                               13
@@ -266,196 +127,183 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-b1bee51d3b884412b339554785e2093c",
-                      "title":  "The Cop on the Corner Is Our First Line of Defense: Local Police and the Surveillance Detection Gap",
-                      "url":  "https://warontherocks.com/the-cop-on-the-corner-is-our-first-line-of-defense-local-police-and-the-surveillance-detection-gap/",
+                      "id":  "rss-b88a8df17be84194a88ab417a92287c1",
+                      "title":  "South Korea’s 500,000 Drone Warriors Will Be a Hollow Force",
+                      "url":  "https://warontherocks.com/south-koreas-500000-drone-warriors-will-be-a-hollow-force/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-06",
-                      "summary":  "Just before midnight on Nov. 24, 2025, New Castle County police officers conducting a routine property check in Wilmington’s Canby Park spotted a white Toyota Tacoma parked after hours. What initially appeared to be a standard traffic stop uncovered a detailed terror plot. The suspect — a University of Delaware student — was found in possession of a converted machine gun, more than 100 rounds of ammunition, body armor, and a handwritten notebook mapping out a planned attack on the campus police department, including entry points, escape routes, and the name of a specific officer. When FBI agents interviewed him, The post The Cop on the Corner Is Our First Line of Defense: Local Police and th...",
-                      "suggestedPinIds":  [
-                                              10,
-                                              11
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-ddc4b7483c6f42158b6ebf0799f53d81",
-                      "title":  "ABB B\u0026R Automation Runtime",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-03",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-05",
-                      "summary":  "View CSAF Summary ABB became aware of vulnerability in the product versions listed as affected in the advisory. An update is available that resolves a vulnerability. An attacker who successfully exploited this vulnerability could cause the product to stop. The following versions of ABB B\u0026R Automation Runtime are affected: Automation Runtime =6.5, =R4.93 (CVE-2025-11044, CVE-2025-11044) CVSS Vendor Equipment Vulnerabilities v3 6.8 ABB ABB B\u0026R Automation Runtime Allocation of Resources Without Limits or Throttling Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Location: Switzerland Vulnerabilities Expand All + CVE-202...",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-ace7a41ea7f849e3b9206497b455d46e",
-                      "title":  "ABB B\u0026R Automation Studio",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-04",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-05",
-                      "summary":  "View CSAF Summary ABB became aware of vulnerability in the product versions listed as affected in the advisory. An update is available that resolves a vulnerability. Successful exploitation of this vulnerability may enable an attacker to masquerade as a trusted party when B\u0026R Automation Studio establishes a connection with a server via the ANSL over TLS or OPC-UA protocol. The following versions of ABB B\u0026R Automation Studio are affected: Automation Studio CVSS Vendor Equipment Vulnerabilities v3 7.4 ABB ABB B\u0026R Automation Studio Improper Certificate Validation Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Location:...",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-90c0ac3b93214276a9862c076acaa61c",
-                      "title":  "ABB B\u0026R PVI",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-02",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-05",
-                      "summary":  "View CSAF Summary ABB became aware of vulnerability in the product versions listed as affected in the advisory. An update is now available that addresses and remediates the vulnerability. An attacker who successfully exploited this vulnerability could read sensitive information in the logging data of the PVI client application. Logging is deactivated by default in all PVI client versions. The following versions of ABB B\u0026R PVI are affected: PVI CVSS Vendor Equipment Vulnerabilities v3 5 ABB ABB B\u0026R PVI Insertion of Sensitive Information into Log File Background Critical Infrastructure Sectors: Energy Countries/Areas Deployed: Worldwide Company Headquarters Location: Switzerland Vulnerabilitie...",
-                      "suggestedPinIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-e014827a625044b6a6d37879e28b638f",
-                      "title":  "Hitachi Energy PCM600",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-01",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-05",
-                      "summary":  "View CSAF Summary Hitachi Energy is aware of a vulnerability that affects the Hitachi Energy PCM600 product versions listed in this document. An attacker successfully exploiting this vulnerability can impact integrity of the product. Please refer to the Recommended Immediate Actions for information about the mitigation/remediation. The following versions of Hitachi Energy PCM600 are affected: PCM600 Legacy vers:PCM600_Legacy/ PCM600 3.0, 3.0_HF1, 3.0_HF2, 3.0_HF3, 3.1, 3.1_SP1, 3.1_SP2, 3.1_SP3 (CVE-2018-1002208, CVE-2018-1002208, CVE-2018-1002208, CVE-2018-1002208, CVE-2018-1002208, CVE-2018-1002208, CVE-2018-1002208, CVE-2018-1002208) CVSS Vendor Equipment Vulnerabilities v3 4.4 Hitachi En...",
-                      "suggestedPinIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-83e89b84e9aa4f26a87258785ff471f8",
-                      "title":  "Johnson Controls CEM AC2000",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-125-05",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-05",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow a standard user to escalate privileges on the host machine. The following versions of Johnson Controls CEM AC2000 are affected: CEM AC2000 12.0 (CVE-2026-21661) CEM AC2000 11.0 (CVE-2026-21661) CEM AC2000 10.6 (CVE-2026-21661) CVSS Vendor Equipment Vulnerabilities v3 8.7 Johnson Controls Inc. Johnson Controls CEM AC2000 Uncontrolled Search Path Element Background Critical Infrastructure Sectors: Critical Manufacturing, Commercial Facilities, Government Services and Facilities, Transportation Systems, Energy Countries/Areas Deployed: Worldwide Company Headquarters Location: Ireland Vulnerabilities Expand All + CVE-202...",
-                      "suggestedPinIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-ae2a47d5bd1b4623a224dcc6279fa16a",
-                      "title":  "CISA Unveils New Initiative to Fortify America’s Critical Infrastructure",
-                      "url":  "https://www.cisa.gov/news-events/news/cisa-unveils-new-initiative-fortify-americas-critical-infrastructure",
-                      "source":  "CISA News",
-                      "category":  "Government / Official",
-                      "published":  "2026-05-05",
-                      "summary":  "RSS item from CISA News. The feed did not provide a summary, so review the linked article before promotion: CISA Unveils New Initiative to Fortify America’s Critical Infrastructure",
-                      "suggestedPinIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-74fc6504cdd24e2797fb730830c0926a",
-                      "title":  "AI and the New Threat Landscape | Sumit Dhawan with NightDragon | RSAC 2026",
-                      "url":  "https://www.proofpoint.com/us/newsroom/news/ai-and-new-threat-landscape-sumit-dhawan-nightdragon-rsac-2026",
-                      "source":  "Proofpoint Threat Insight",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-05-05",
-                      "summary":  "RSS item from Proofpoint Threat Insight. The feed did not provide a summary, so review the linked article before promotion: AI and the New Threat Landscape | Sumit Dhawan with NightDragon | RSAC 2026",
-                      "suggestedPinIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-440527493425414c8e369e9bcbea530b",
-                      "title":  "Abandoned and Ungoverned: Lebanon’s Palestinian and Syrian Populations and the Emerging Radicalization Landscape",
-                      "url":  "https://warontherocks.com/abandoned-and-ungoverned-lebanons-palestinian-and-syrian-populations-and-the-emerging-radicalization-landscape/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-05",
-                      "summary":  "Inside Lebanon, the conditions for the next extremist uprising are quietly taking root.In the summer of 2007, the Lebanese Armed Forces fought Fatah al-Islam for three months inside Nahr al-Bared, a Palestinian refugee camp in northern Lebanon. Fatah al-Islam was a Salafi-jihadist group that exploited the camp’s power vacuum to establish a strong recruitment base, drawing recruits from Palestinian, Syrian, and broader Arab networks. Once the dust settled, more than 400 people were dead, and the 30,000 residents of Nahr-Bared were displaced for a second time. The very same conditions that led to the Nahr al-Bared clash are reassembling now, The post Abandoned and Ungoverned: Lebanon’s Palesti...",
-                      "suggestedPinIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-449031d6535745059c00bf5a75ad1cd7",
-                      "title":  "Acquisition Reform Needs Its Own Wargame",
-                      "url":  "https://warontherocks.com/cogs-of-war/acquisition-reform-needs-its-own-wargame/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-05",
-                      "summary":  "One number buried in the Pentagon’s Fiscal Year 2027 budget request reveals a decade of acquisition decisions in a data point: The U.S. Navy is requesting 785 Tomahawk cruise missiles. In 2025, Congress funded 55. That 1,200 percent jump is the cost of choices never stress-tested against the scenario unfolding today — a sustained air campaign against Iran while China watches the magazine drain.As a legislative fellow on the Hill, I watch acquisition reform proposals grind through the legislative machinery every day. A proposal usually arrives with a clean rationale: streamline this contracting mechanism, expand multi-year purchasing authority for this The post Acquisition Reform Needs Its Ow...",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-15",
+                      "summary":  "Ukraine has reshaped the battlefield with cheap, expendable drones. South Korea reads the signals and wants to match the scale. North Korea has been reading the same signals through a more direct channel. Since late 2024, North Korea has rotated thousands of troops through Russia’s war in Ukraine, alongside what is currently the world’s most combat tested drone force — tied with Ukraine’s, of course. Ukrainian defense intelligence reports that some of those troops have begun returning home and moving into instructor roles within the North Korean military.What exactly they are bringing back is harder to pin down from the The post South Korea’s 500,000 Drone Warriors Will Be a Hollow Force app...",
+                      "suggestedPirIds":  [
+                                              5,
+                                              12,
                                               10,
                                               11,
-                                              14
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-7f085bf8bc0b4a018d97302aa9774ff5",
-                      "title":  "How the War with Iran Is Shaping U.S.-Chinese Competition",
-                      "url":  "https://warontherocks.com/how-the-war-with-iran-is-shaping-u-s-chinese-competition/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-05",
-                      "summary":  "The war with Iran has once again raised questions about Washington’s ability to prioritize its interests in East Asia and particularly to manage intensifying competition with Beijing. Furthermore, the war and the closure of the Strait of Hormuz have presented American and Chinese leaders with new challenges and potential opportunities, as they respond to the war’s global impacts. We asked five experts to address how the war is shaping competition between Washington and Beijing.Read more below.Zack CooperSenior Fellow at the American Enterprise InstituteBoth sides may be taking different lessons from the Iran War. Beijing appears to see it as another The post How the War with Iran Is Shaping ...",
-                      "suggestedPinIds":  [
-                                              14
+                                              13
                                           ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-cbfbe1c2dceb4260946383d9d25206cf",
-                      "title":  "Breaking the code: Multi-stage ‘code of conduct’ phishing campaign leads to AiTM token compromise",
-                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/04/breaking-the-code-multi-stage-code-of-conduct-phishing-campaign-leads-to-aitm-token-compromise/",
+                      "id":  "rss-5570d64245c3476987de618a916167ee",
+                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
+                      "url":  "https://www.cisa.gov/news-events/alerts/2026/05/14/cisa-adds-one-known-exploited-vulnerability-catalog",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-14",
+                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-20182 Cisco Catalyst SD-WAN Controller Authentication Bypass Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Note: Please adhere to CISA’s guidelines to assess exposure and mitigate risks associated with Cisco SD-WAN devices as outlined in Emergency Directive 26-03: Mitigate Vulnerabilities in Cisco SD-WAN Systems and Supplemental Direction ED 26-03: Hunt and Hardening Guidance for Cisco SD-WAN Systems . Adhere to the applicable Binding Operational D...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-7e157a30c6e942f4bcd1c48af5ccb4d0",
+                      "title":  "Siemens Siemens ROS#",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-134-08",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-14",
+                      "summary":  "View CSAF Summary ROS# contains a ROS service file_server, that before version 2.2.2 contains a path traversal vulnerability which could allow an attacker to access, i.e. read and write, arbitrary files, which are accessible with the user rights of the user that runs the service, on the system that hosts service. Siemens has released a new version for ROS# and recommends to update to the latest version. The following versions of Siemens Siemens ROS# are affected: ROS# vers:intdot/ CVSS Vendor Equipment Vulnerabilities v3 9.1 Siemens Siemens Siemens ROS# Relative Path Traversal Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headq...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-01c9b09140a347d3b8e7a6f742e23a5f",
+                      "title":  "Siemens SIMATIC",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-134-07",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-14",
+                      "summary":  "View CSAF Summary SIMATIC HMI Unified Comfort Panels before V21.0 are affected by a vulnerability that allows an unauthenticated attacker to access the web browser via the help link. This vulnerability allows an attacker to access the web browser through the Control Panel if it is not protected by the corresponding security mechanisms. This opens the possibility for the attacker to find backdoors, which might lead to unwanted misconfigurations. Siemens has released new versions for the affected products and recommends to update to the latest versions. The following versions of Siemens SIMATIC are affected: SIMATIC HMI MTP1000 Unified Comfort Panel (6AV2128-3KB06-0AX1) vers:intdot/ SIMATIC HM...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-4976a2a7208144af8595271ce80e616e",
+                      "title":  "Siemens Solid Edge",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-134-03",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-14",
+                      "summary":  "View CSAF Summary Solid Edge SE2026 before Update 5 is affected by two file parsing vulnerabilities that could be triggered when the application reads specially crafted files in PAR format. This could allow an attacker to crash the application or execute arbitrary code. Siemens has released a new version for Solid Edge SE2026 and recommends to update to the latest version. The following versions of Siemens Solid Edge are affected: Solid Edge vers:intdot/ CVSS Vendor Equipment Vulnerabilities v3 7.8 Siemens Siemens Solid Edge Access of Uninitialized Pointer, Stack-based Buffer Overflow Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Compa...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-cf8b4435f7494cc7a8b86494ef048d78",
+                      "title":  "Universal Robots Polyscope 5",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-134-17",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-14",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to bypass authentication and execute code. The following versions of Universal Robots Polyscope 5 are affected: Polyscope 5 CVSS Vendor Equipment Vulnerabilities v3 9.8 Universal Robots Universal Robots Polyscope 5 Improper Neutralization of Special Elements used in an OS Command (\u0027OS Command Injection\u0027) Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Location: Denmark Vulnerabilities Expand All + CVE-2026-8153 OS command injection in Dashboard Server interface in Universal Robots PolyScope versions prior to 5.25.1 allows unaut...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-398ee98af4a841a3b4b586bfc93a0ece",
+                      "title":  "Kazuar: Anatomy of a nation-state botnet",
+                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/14/kazuar-anatomy-of-a-nation-state-botnet/",
                       "source":  "Microsoft Threat Intelligence",
                       "category":  "Commercial CTI",
-                      "published":  "2026-05-04",
-                      "summary":  "Microsoft Defender Research observed a large-scale credential theft campaign that exemplifies this trend, using code of conduct-themed lures, a multi-step attack chain, and legitimate email services to distribute fully authenticated messages from attacker-controlled domains. The post Breaking the code: Multi-stage ‘code of conduct’ phishing campaign leads to AiTM token compromise appeared first on Microsoft Security Blog .",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-14",
+                      "summary":  "Kazuar, a sophisticated malware family attributed to the Russian state actor Secret Blizzard, has been under constant development for years and continues to evolve in support of espionage-focused operations. Over time, Kazuar has expanded from a relatively traditional backdoor into a highly modular peer-to-peer (P2P) botnet ecosystem designed to enable persistent, covert access to target environments. The post Kazuar: Anatomy of a nation-state botnet appeared first on Microsoft Security Blog .",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11,
+                                              13
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-64b5ccd9fdc24e5497b45197c2d38fa4",
+                      "title":  "LABScon25 Replay | Breach Alpha: Trading on Cyber Fallout",
+                      "url":  "https://www.sentinelone.com/labs/labscon25-replay-breach-alpha-trading-on-cyber-fallout/",
+                      "source":  "SentinelOne Labs",
+                      "category":  "Commercial CTI",
+                      "published":  "2026-05-14",
+                      "summary":  "Mick Baccio and Scott Roberts examine whether public breach signals and market timing models can turn cyber incidents into actionable trading opportunities.",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-40352cacce2f4a0e84fa46097c0a7f17",
+                      "title":  "A Texas town needs Waco’s help to realize its data center dreams. It’s not going well.",
+                      "url":  "https://www.texastribune.org/2026/05/14/waco-data-center-lacy-lakeview-infrakey-texas/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-05-14",
+                      "summary":  "Lacy Lakeview’s hasty approach to the data center project has alienated the Waco officials who would control water service to the site. “Without the City of Waco agreeing to it, Lacy Lakeview can’t do anything out there and neither can Infrakey,\" State Rep. Pat Curry said. \"Those guys don’t know what the hell they’re doing.”",
+                      "suggestedPirIds":  [
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-34fe9f649b44473dbe4bcbc1497cc3a1",
+                      "title":  "Cornyn and Paxton bury each other in negative ads as Senate GOP runoff enters final stretch",
+                      "url":  "https://www.texastribune.org/2026/05/14/texas-us-senate-gop-runoff-cornyn-paxton-attack-ads-spending/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-05-14",
+                      "summary":  "The incumbent senator and his allies have massively outspent the pro-Paxton side, though polling points to a tight finish in the May 26 election.",
+                      "suggestedPirIds":  [
+                                              16
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-6025ca4642564f8593986c30c4b964e1",
+                      "title":  "Cyber Operations Aren’t Slow — Our Thinking Is",
+                      "url":  "https://warontherocks.com/cyber-operations-arent-slow-our-thinking-is/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-14",
+                      "summary":  "The phone rang at 3:45 pm on a Friday afternoon. We were winding down for the weekend when the caller ID lit up — it was the counterterrorism analyst in our office we affectionately called “CT Brian.” When he called, it was never good news. An al-Qaeda-affiliated group seized an American aid worker. Her captors were preparing to move her within the hour and special operations forces needed cyber to pinpoint her location in 30 minutes or less. An assault team stood by, ready to launch — if we could tell them where to go. Weekend plans evaporated. Screens brightened. The post Cyber Operations Aren’t Slow — Our Thinking Is appeared first on War on the Rocks .",
+                      "suggestedPirIds":  [
 
                                           ],
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-1447f20254b047abb0a9398ea335b8b6",
-                      "title":  "The Most Powerful Women Of The Channel 2026: Power 100",
-                      "url":  "https://www.proofpoint.com/us/newsroom/news/most-powerful-women-channel-2026-power-100",
-                      "source":  "Proofpoint Threat Insight",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-05-04",
-                      "summary":  "RSS item from Proofpoint Threat Insight. The feed did not provide a summary, so review the linked article before promotion: The Most Powerful Women Of The Channel 2026: Power 100",
-                      "suggestedPinIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-4a6f1858345b4c8699f40f91b66c08cf",
-                      "title":  "Cheap Missiles, Not Drones, Will Win the Next Air War",
-                      "url":  "https://warontherocks.com/cogs-of-war/cheap-missiles-not-drones-will-win-the-next-air-war/",
+                      "id":  "rss-44dcd4d72f644e0a85975dd1591b0d94",
+                      "title":  "In Talks with Israel, Lebanon is Walking a Thin Line",
+                      "url":  "https://warontherocks.com/in-talks-with-israel-lebanon-is-walking-a-thin-line/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-04",
-                      "summary":  "After four years of watching the war in Ukraine, NATO defense decision-makers are finally beginning to pour money into drones. The Iran conflict has drawn further attention to these investments. The assumption is that unmanned aerial systems will ensure a long-term advantage in conflicts requiring ground operations and infrastructure defense.But the battlefield in Ukraine is already pointing toward a different future. Russia is transforming slow, propeller-driven Shahed drones into cheap, missile-like systems by equipping them with turbojet engines. This has sharply complicated Ukrainian air defense, as the new platforms now fly two to three times faster (about 460 miles per The post Cheap M...",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-14",
+                      "summary":  "This week, Israel and Lebanon are holding their third round of unprecedented direct talks on crucial issues, including borders, the disarmament of Hizballah, and ongoing Israeli military action. The United States, which is clearly driving these talks, views them expansively as seeking a “comprehensive peace and security agreement,” although one that is contingent on Lebanese action against Hizballah. Ironically, as the most injured party, the Lebanese government is the one that can least afford a comprehensive agreement that would isolate it at home. This twist represents the single greatest obstacle to a settlement that would satisfy the United States or The post In Talks with Israel, Leban...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-84f72bda03694725881ce3860cb29776",
+                      "title":  "Maximalist Demands, Victory Day, and a Summit",
+                      "url":  "https://warontherocks.com/the-adversarial-maximalist-demands-victory-day-and-a-summit/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-14",
+                      "summary":  "Welcome to The Adversarial. Every other week, we’ll provide you with expert analysis on America’s greatest challengers: China, Russia, Iran, North Korea, and jihadists. Read more below.***IranA month after negotiators met for historic high-level talks in Pakistan, Washington and Tehran seem closer to a breakdown of the ceasefire that U.S. President Donald Trump announced on April 7 than a breakthrough. In addition to its blockade of Iranian shipping, the United States has been stepping up sanctions against Iran as part of “Economic Fury,” announcing several tranches of designations in recent days targeting its oil trade and banking networks. The toll on The post Maximalist Demands, Victory D...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
+                                              4,
+                                              6,
+                                              5,
+                                              12,
                                               10,
                                               11,
                                               13,
@@ -464,42 +312,261 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-10bd936af33441c3a2b45d24f56932af",
-                      "title":  "Looking at Europe With a Sharper Eye",
-                      "url":  "https://warontherocks.com/looking-at-europe-with-a-sharper-eye/",
+                      "id":  "rss-cede1bf783364954bf2ee0d72e435aed",
+                      "title":  "Meet the New Host of Cogs of War",
+                      "url":  "https://warontherocks.com/cogs-of-war/meet-the-new-host-of-cogs-of-war/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-04",
-                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum only for War on the Rocks members. Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.American coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.Frontline and StrategyЕспресо — The post Looking at Europe With a...",
-                      "suggestedPinIds":  [
-
+                      "published":  "2026-05-14",
+                      "summary":  "Ryan sits down at the Cogs of War mic for the last time to introduce Jonathan Panter, the new host and executive editor of Cogs of War. Jonathan shares his background, from naval officer to scholar. They discuss major defense tech issues, and Jonathan shares what he hopes to accomplish at the helm of Cogs of War. Image: Cpl. Jacquilyn Davis via DVIDS. The post Meet the New Host of Cogs of War appeared first on War on the Rocks .",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Defense Industrial Base"
+                  },
+                  {
+                      "id":  "rss-8e890c3d1bb4424083dbae8af716e728",
+                      "title":  "The New Era of Air and Missile Defense",
+                      "url":  "https://warontherocks.com/cogs-of-war/the-new-era-of-air-and-missile-defense/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-14",
+                      "summary":  "Modern air and missile defense is approaching a structural limit. The model that protected forces over the past two decades remains effective, but only within a narrower envelope than current threats demand. A new approach is required, built on fire-control-level integration, disaggregated survivable architectures, affordable magazine depth, and the integration of offensive action as the central element of defense.I am a retired U.S. Air Force brigadier general and now lead international business development and strategy for Northrop Grumman in Europe, North Africa, and the Middle East. I previously served as chief operating officer of DEFCON AI. As a defense industry The post The New Era of...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11,
+                                              15
                                           ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-bdb1e482d0f440cc8722e361a37efaf4",
-                      "title":  "The Illusion of Sovereignty: How International Law and Big Tech are Eroding the State",
-                      "url":  "https://warontherocks.com/the-illusion-of-sovereignty-how-international-law-and-big-tech-are-eroding-the-state/",
+                      "id":  "rss-a7262d5b52aa43fabf1e6ec5c55e0b46",
+                      "title":  "While the War Continues in Ukraine, the Kremlin’s Real Battlefield is at Home",
+                      "url":  "https://warontherocks.com/what-is-russia-actually-fighting-for-now/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-04",
-                      "summary":  "Caught between two hammers — international law and technological dependence on the private sector — modern state sovereignty is in crisis. When a state attempts to act decisively against an adversary operating below the threshold of armed attack, it risks not only diplomatic sanctions and international condemnation but the loss of access to critical digital infrastructure owned by private corporations. In wartime, that loss is catastrophic, as we both experienced firsthand during Russia’s brutal invasion of Ukraine.The classical understanding of state sovereignty is being challenged. States now must actively ask for permission to use private capabilities for defensive purposes. Two The post ...",
-                      "suggestedPinIds":  [
+                      "published":  "2026-05-14",
+                      "summary":  "On April 1, 2026, Russian officials announced the liberation of the so-called Luhansk People’s Republic — for the third time. The first announcement came under then-Defense Minister Sergei Shoigu in July 2022. The second one, in July 2025, came from the “republic’s” own head. By that point, Shoigu had already been reshuffled to the Security Council of the Russian Federation, but not for lying about Luhansk. The neat reports about Russia’s successes kept coming.In the fifth year of what the Kremlin calls a special military operation, that pattern raises a question worth taking seriously: is winning still Russia’s objective?Russia entered The post While the War Continues in Ukraine, the Kremli...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11,
                                               13
                                           ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-efbc564d8326452bb20005bacd4f0f33",
-                      "title":  "Why Kim Jong Un Won’t Pick Up the Phone and What to Do About It",
-                      "url":  "https://warontherocks.com/why-kim-jong-un-wont-pick-up-the-phone-and-what-to-do-about-it/",
+                      "id":  "rss-2886de70b8584acb8bd42972f0cafbec",
+                      "title":  "Analyzing Trump’s Foreign Policy and Its International Implications",
+                      "url":  "https://warontherocks.com/analyzing-trumps-foreign-policy-and-its-international-implications/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-05-04",
-                      "summary":  "Every American administration pledges to learn from the past when devising a strategy for contending with nuclear North Korea. And yet, few portfolios are so paralyzed by path dependency and resistance to learning. But now, confronted with the inescapable prospect that the legacy approach is actually creating risk rather than reducing it, the time has come to learn and pivot.The Trump administration should sharpen the choice for North Korea, making it enticing, raising the stakes, and being prepared to back it up. In service of this, the U.S. and South Korean governments could make the bold decision to put denuclearization The post Why Kim Jong Un Won’t Pick Up the Phone and What to Do About...",
-                      "suggestedPinIds":  [
-                                              5,
-                                              12
+                      "published":  "2026-05-13",
+                      "summary":  "In 2016, Ben Friedman wrote, “The Trump Administration Will be Hawkish,” where he argued that despite Trump’s non-interventionist campaign rhetoric, structural forces, hawkish appointees, and an entrenched foreign policy bureaucracy would push him closer toward conventional military interventionism. Ten years later, we asked Ben to revisit his arguments.Image: Max Goldberg via Wikimedia CommonsIn your 2016 article, you argued the Trump administration would adopt a hawkish foreign policy, namely towards Russia, China, and Iran. What can we gather about his foreign policy objectives towards those countries from his first term and the first year of his second term? What factors have The post An...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11,
+                                              13,
+                                              14
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-bb99a30294be4bd68bf7307b9e8db068",
+                      "title":  "Dazed and Confused: How Marine Corps Promotion Boards Keep Getting It Wrong",
+                      "url":  "https://warontherocks.com/dazed-and-confused-how-marine-corps-promotion-boards-keep-getting-it-wrong/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-13",
+                      "summary":  "An old adage claims a marine’s career came down to the “two or three minutes of a promotions brief.” Turns out that was a little optimistic. In practice, the Marine Corps promotion system decides the institutional worth of a 20‑year career in about 12 minutes of board attention.Imagine the National Football League compressing the seven primary drills of the Scouting Combine — the 40‑yard dash, bench press, vertical and broad jumps, three‑cone drill, 20‑yard shuttle, and 60‑yard shuttle — into a single 12‑minute window. No game file, no multi-day interviews, no medical deep dives. In 12 minutes, it would be The post Dazed and Confused: How Marine Corps Promotion Boards Keep Getting It Wrong a...",
+                      "suggestedPirIds":  [
+                                              7,
+                                              8,
+                                              9
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-20a0911b26064f17a0b96e3a5c8e9f76",
+                      "title":  "Pakistan’s New Logic of Limited War May Not Keep War Limited",
+                      "url":  "https://warontherocks.com/pakistans-new-logic-of-limited-war-may-not-keep-war-limited/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-13",
+                      "summary":  "In May 2025, as Indian BrahMos missile strikes hit Pakistani air bases — targeting runways, parked aircraft, and critical infrastructure — Islamabad faced a choice. It had the capability to respond with its own long-range systems, but it chose not to. Pakistan deliberately withheld the Babur cruise missile, not because it lacked options, but because using a dual-capable system risked signaling nuclear escalation.That moment captures the changing logic of conflict in South Asia. The four-day crisis was intense but contained, defined less by what was used than by what was held back. Yet, almost a year later, the sustained air The post Pakistan’s New Logic of Limited War May Not Keep War Limite...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-de47df23f5d14c03a24f30135ef5d10d",
+                      "title":  "ABB AC500 V3 Stack Buffer Overflow in Cryptographic Message Syntax",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-132-05",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-12",
+                      "summary":  "View CSAF Summary ABB became aware of vulnerability in the products versions listed as affected in the advisory. An update is available that resolves publicly reported vulnerability. An attacker who successfully exploited these vulnerabilities could cause a crash, denial-of-service (DoS), or potentially remote code execution. The following versions of ABB AC500 V3 Stack Buffer Overflow in Cryptographic Message Syntax are affected: AC500 V3 PM5xxx 3.9.0, 3.9.0_HF1 CVSS Vendor Equipment Vulnerabilities v3 9.8 ABB ABB AC500 V3 Stack Buffer Overflow in Cryptographic Message Syntax Out-of-bounds Write Background Critical Infrastructure Sectors: Chemical, Critical Manufacturing, Energy, Water and ...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-ed4457dcba0648149e6eeb2b1d7006be",
+                      "title":  "ABB Automation Builder Gateway for Windows",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-132-04",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-12",
+                      "summary":  "View CSAF Summary ABB became aware of severe vulnerability in the products versions listed as affected in the advisory. The Windows gateway is accessible remotely by default. Unauthenticated attackers can therefore search for PLCs, but the user management of the PLCs prevents the actual access to the PLCs – unless it is disabled The following versions of ABB Automation Builder Gateway for Windows are affected: Automation Builder CVSS Vendor Equipment Vulnerabilities v3 5.3 ABB ABB Automation Builder Gateway for Windows Initialization of a Resource with an Insecure Default Background Critical Infrastructure Sectors: Chemical, Critical Manufacturing, Energy, Water and Wastewater Countries/Area...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-a9e8f5e3149d4e36801b1963d38d5584",
+                      "title":  "Fuji Electric Tellus",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-132-01",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-12",
+                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to elevate privileges from user to system, which may then enable the attacker to cause a temporary denial of service, open files, or delete files. The following versions of Fuji Electric Tellus are affected: Tellus 5.0.2 CVSS Vendor Equipment Vulnerabilities v3 7.8 Fuji Electric Fuji Electric Tellus Exposed Dangerous Method or Function Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Location: Japan Vulnerabilities Expand All + CVE-2026-8108 The installation of Fuji Tellus adds a driver to the kernel which grants all users read and...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-9ceb055eed1c4da68a94fb855d66c662",
+                      "title":  "Software Bill of Materials for AI - Minimum Elements",
+                      "url":  "https://www.cisa.gov/resources-tools/resources/software-bill-materials-ai-minimum-elements",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-12",
+                      "summary":  "CISA and the Group of Seven (G7) international partners—Germany, Canada, France, Italy, Japan, the United Kingdom, and the European Union—have released joint guidance, Software Bill of Materials for AI – Minimum Elements , to help public and private sector stakeholders improve transparency in their artificial intelligence (AI) systems and supply chains. A software bill of materials (SBOM) acts as an “ingredients list” for software that better positions organizations to understand their supply chains and make risk-informed decisions about how to protect their critical systems. The guidance builds on CISA’s previous work with federal and international partners to establish a shared vision for ...",
+                      "suggestedPirIds":  [
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-c7776a291e1248a5800fd46670014bf4",
+                      "title":  "Subnet Solutions PowerSYSTEM Center",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-132-02",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-05-12",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an authenticated attacker to expose sensitive information or cause a CRLF injection. The following versions of Subnet Solutions PowerSYSTEM Center are affected: PowerSYSTEM Center 2020 PowerSYSTEM Center 2020 \u003e=5.8.x| PowerSYSTEM Center 2020 \u003e=5.11.x| PowerSYSTEM Center 2024 \u003e=6.0.x| PowerSYSTEM Center 2026 7.0.x (CVE-2026-26289, CVE-2026-35555, CVE-2026-35504) CVSS Vendor Equipment Vulnerabilities v3 8.2 Subnet Solutions Inc. Subnet Solutions PowerSYSTEM Center Incorrect Authorization, Improper Neutralization of CRLF Sequences (\u0027CRLF Injection\u0027) Background Critical Infrastructure Sectors: Critical Manufacturing, ...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-965fd88b68ad4cb7adb549d6a3cdea40",
+                      "title":  "Undermining the trust boundary: Investigating a stealthy intrusion through third-party compromise",
+                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/12/undermining-the-trust-boundary-investigating-a-stealthy-intrusion-through-third-party-compromise/",
+                      "source":  "Microsoft Threat Intelligence",
+                      "category":  "Commercial CTI",
+                      "published":  "2026-05-12",
+                      "summary":  "Microsoft Incident Response investigated an attack operated through legitimate and trusted administrative mechanisms to blend seamlessly into routine operations and remain undetected demonstrating that intrusions have increasingly avoided using noisy exploits, obvious malware, or custom tooling, instead leveraging systems that organizations already trust within their environments. The post Undermining the trust boundary: Investigating a stealthy intrusion through third-party compromise appeared first on Microsoft Security Blog .",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-2c938cbbf1f34ab7bbae93b4b761d25a",
+                      "title":  "Closing the Gap? Italy Sets New Rules for Its First National Security Strategy Amidst Old Obstacles",
+                      "url":  "https://warontherocks.com/closing-the-gap-italys-first-national-security-strategy-faces-old-obstacles/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-12",
+                      "summary":  "Italy may finally be about to publish its first-ever national security strategy, a striking development for the only G7 country that has never had one.For decades, a mix of government instability, competition between institutions, a relatively permissive international environment, and the perceived reliability of U.S. security guarantees in Europe and the Mediterranean reduced incentives to produce a strategy. Recently, however, domestic political consolidation and external pressures have appeared to align in a way not seen before. Until recently, limited news articles and confidential interviews with policymakers, diplomats, and military officials pointed to a forthcoming publication that c...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-e6844f38311f4079b2d3f82ee87aff6d",
+                      "title":  "Does OPEC Still Matter?",
+                      "url":  "https://warontherocks.com/does-opec-still-matter/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-12",
+                      "summary":  "On April 28, the United Arab Emirates announced that it would leave OPEC, effective May 1 — ending nearly six decades as an OPEC member. In terms of oil production, it is the most significant country to leave the group. While multiple factors drove the decision to leave, the timing is notable — as the war with Iran has led to the closure of the Strait of Hormuz and focused global attention on oil prices. We asked four experts to consider the impact on OPEC’s future.Read more below. Kristian Coates Ulrichsen Fellow for the Middle East at the Baker Institute The post Does OPEC Still Matter? appeared first on War on the Rocks .",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
+                                              14
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-93977e56ac87428ea72a7d02d9333f4e",
+                      "title":  "The Other Border Problem: How Russia and China’s Lawfare Threaten the Arctic",
+                      "url":  "https://warontherocks.com/the-other-border-problem-how-russia-and-chinas-lawfare-threaten-the-arctic/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-12",
+                      "summary":  "What happens when the Arctic starts to look like the South China Sea?Historically, a neutral region where cooperation prevailed, the Arctic is quickly becoming a contested space. This is no more evident than in the increasing scope and volume of Russian and Chinese lawfare affecting the region. Through excessive maritime regulations, coordinated challenges to Western continental shelf claims, and the use of shadow fleets to avoid accountability, Russia and China are increasingly coordinating their efforts to exert influence and challenge Western claims to Arctic resources and freedom of navigation. As these tactics continue to converge, the United States and its The post The Other Border Pro...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11,
+                                              13
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-32d7e3c28e9c46c8ab697b6349b977f9",
+                      "title":  "Ankara’s Crossroads: Rearmament, Risk, and the Prospect of War with Israel",
+                      "url":  "https://warontherocks.com/ankaras-crossroads-rearmament-risk-and-the-prospect-of-war-with-israel/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-11",
+                      "summary":  "Talk of war in the Middle East abounds on social media, but not just about the one with Iran. A small, but significant, portion of this chatter relates to a conflict that has not begun. For more than a year now, pundits and politicians have warned of a potential clash between Israel and Turkey. Driving this hypothetical confrontation are a series of issues related to Syria, the Palestinian territories, and regional security as a whole. In December 2025, Israeli Prime Minister Benjamin Netanyahu indirectly charged Ankara with wanting to reestablish Ottoman imperial rule over the Levant. To that, he declared, The post Ankara’s Crossroads: Rearmament, Risk, and the Prospect of War with Israel a...",
+                      "suggestedPirIds":  [
+                                              14
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-ea49ad5753794014b31d06ad6e32d992",
+                      "title":  "Conflict, CASEVAC, and the Golden Hour in the Age of Persistent Surveillance",
+                      "url":  "https://warontherocks.com/conflict-casevac-and-the-golden-hour-in-the-age-of-persistent-surveillance/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-11",
+                      "summary":  "Editor’s Note: This article contains frank descriptions of battlefield conditions, including accounts of soldiers dying by suicide following injury. Western battlefield casualty evacuation doctrine is built on assumptions forged during the “Global War on Terror.” Central among these is the belief that the wounded can be rapidly moved from the point of injury to progressively higher levels of medical care within a defined timeframe, commonly referred to as the “golden hour.” The concept itself originated in civilian trauma medicine decades prior, generally attributed to Dr. R. Adams Cowley of Baltimore’s Shock Trauma Institute in 1975. In 2009, Secretary of Defense Robert The post Conflict, C...",
+                      "suggestedPirIds":  [
+                                              7,
+                                              8,
+                                              9,
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-6f8f3731567747399796c41aeab670bc",
+                      "title":  "Sensationalism Doesn’t Serve Society",
+                      "url":  "https://warontherocks.com/sensationalism-doesnt-serve-society/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-05-11",
+                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum only for War on the Rocks members. Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.American coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.Frontline and StrategyОбозреватель — The post Sensationalism Does...",
+                      "suggestedPirIds":  [
+
                                           ],
                       "suggestedSector":  "Energy"
                   }

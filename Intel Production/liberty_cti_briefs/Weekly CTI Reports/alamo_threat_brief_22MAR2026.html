@@ -429,21 +429,21 @@
   }
 
   /* Override for light-background contexts */
-  .pin-body .conf-high,
+  .pir-body .conf-high,
   .outlook-content .conf-high {
     background: rgba(8,20,42,0.08);
     color: var(--navy);
     border: 1px solid var(--navy-light);
   }
 
-  .pin-body .conf-mod,
+  .pir-body .conf-mod,
   .outlook-content .conf-mod {
     background: rgba(201,168,76,0.12);
     color: var(--gold-dim);
     border: 1px solid var(--gold-dim);
   }
 
-  .pin-body .conf-low,
+  .pir-body .conf-low,
   .outlook-content .conf-low {
     background: rgba(154,144,128,0.1);
     color: #6B6055;
@@ -500,14 +500,14 @@
   .tl-high { background: rgba(212,131,26,0.12); color: var(--amber); border: 1px solid rgba(212,131,26,0.3); }
   .tl-elevated { background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); }
 
-  /* ── PIN RESPONSES ── */
-  .pin-block {
+  /* ── PIR RESPONSES ── */
+  .pir-block {
     border: 1px solid rgba(8,20,42,0.12);
     margin: 20px 0;
     overflow: hidden;
   }
 
-  .pin-header {
+  .pir-header {
     background: var(--navy-mid);
     padding: 12px 18px;
     display: flex;
@@ -515,7 +515,7 @@
     gap: 14px;
   }
 
-  .pin-id {
+  .pir-id {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     color: var(--gold);
@@ -525,25 +525,25 @@
     border-radius: 2px;
   }
 
-  .pin-title {
+  .pir-title {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     color: var(--off-white);
     letter-spacing: 1px;
   }
 
-  .pin-body {
+  .pir-body {
     padding: 18px 20px;
     background: #FAFAF7;
     border-top: 1px solid rgba(8,20,42,0.08);
   }
 
-  .pin-body p {
+  .pir-body p {
     margin-bottom: 10px;
     font-size: 14px;
   }
 
-  .pin-body p:last-child { margin-bottom: 0; }
+  .pir-body p:last-child { margin-bottom: 0; }
 
   /* ── SOURCE CITATIONS ── */
   .icd206-block {
@@ -1768,7 +1768,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="../../../atb/issues/05-10-2026.html" role="menuitem">Latest Issue, Week of May 10, 2026</a>
+        <a href="../../../atb/issues/05-17-2026.html" role="menuitem">Latest Issue, Week of May 17, 2026</a>
         <div class="drop-divider"></div>
         <a href="../../../atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1817,7 +1817,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="../../../atb/issues/05-10-2026.html">Latest Issue, Week of May 10, 2026</a>
+    <a href="../../../atb/issues/05-17-2026.html">Latest Issue, Week of May 17, 2026</a>
     <a href="../../../atb/index.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1856,7 +1856,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['05-10-2026.html'],
+    'alamo-threat-brief.html':['05-17-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1907,7 +1907,7 @@ body [style*="Instrument Sans"]{
       </div>
       <div class="meta-item">
         <span class="meta-label">Cycle</span>
-        <span class="meta-value">CY2026 · PIN SET ACTIVE</span>
+        <span class="meta-value">CY2026 · PIR SET ACTIVE</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Torch Fusion Cycle</span>
@@ -1952,7 +1952,7 @@ body [style*="Instrument Sans"]{
   <!-- INTRO -->
   <div class="intro-deck">
     <p>
-      This issue of the <strong>Alamo Threat Brief</strong> covers the period <strong>16–22 March 2026</strong> and is dominated by a single strategic driver: the ongoing <strong>U.S.–Israeli military campaign against Iran</strong> (Operation Epic Fury / Operation Lion's Roar), launched 28 February 2026. The geopolitical and cyber consequences of this conflict are now the most consequential threat environment for Texas critical infrastructure since the Colonial Pipeline attack of 2021. This brief provides Liberty CTI's structured analytical assessment across all four strategic sectors, addresses active Priority Information Needs, and delivers a 30/60/90-day outlook calibrated to the Texas threat landscape.
+      This issue of the <strong>Alamo Threat Brief</strong> covers the period <strong>16–22 March 2026</strong> and is dominated by a single strategic driver: the ongoing <strong>U.S.–Israeli military campaign against Iran</strong> (Operation Epic Fury / Operation Lion's Roar), launched 28 February 2026. The geopolitical and cyber consequences of this conflict are now the most consequential threat environment for Texas critical infrastructure since the Colonial Pipeline attack of 2021. This brief provides Liberty CTI's structured analytical assessment across all four strategic sectors, addresses active Priority Intelligence Requirements, and delivers a 30/60/90-day outlook calibrated to the Texas threat landscape.
     </p>
   </div>
 
@@ -2216,63 +2216,63 @@ body [style*="Instrument Sans"]{
   </div>
 
   <!-- ─────────────────────────────── -->
-  <!-- PIN RESPONSES -->
+  <!-- PIR RESPONSES -->
   <!-- ─────────────────────────────── -->
   <div class="section-rule">
     <span class="section-tag">Section V</span>
     <div class="section-rule-line"></div>
   </div>
-  <h2 class="section-head">Priority Information Need Responses</h2>
+  <h2 class="section-head">Priority Intelligence Requirement Responses</h2>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-1</span>
-      <span class="pin-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-1</span>
+      <span class="pir-title">GEOPOLITICAL TRIGGERS FOR ADVERSARY CYBER RETALIATION AGAINST U.S. INFRASTRUCTURE</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response:</strong> The trigger threshold has been crossed. Operation Epic Fury represents the highest-severity geopolitical trigger event since Russia's 2022 invasion of Ukraine. Iran's IRGC has operationally activated its cyber retaliation capability. Liberty CTI previously assessed that new OFAC sanctions or a military strike against IRGC leadership would trigger retaliatory cyber operations within 30–45 days. The timeline has compressed: operations began within 72 hours of the February 28 strikes.</p>
       <p>The key analytical question is no longer <em>whether</em> Iranian cyber retaliation will occur against U.S. infrastructure, but <em>how destructive</em> that retaliation will become. The IRGC's demonstrated willingness to execute kinetic strikes against commercial cloud infrastructure (AWS data centers, UAE/Bahrain) indicates a threat actor operating with high risk tolerance and escalation authority. Liberty CTI assesses that IRGC-CY operations against U.S. ICS/OT systems — currently at the credential-access and malware-staging phase — <span class="aq">likely</span> will progress toward disruptive execution within 30–60 days absent a ceasefire or significant operational setback to Iranian cyber forces. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-2</span>
-      <span class="pin-title">CHINESE CYBER ADJUSTMENTS AMID U.S. TECH COMPETITION AND TAIWAN STRAIT TENSIONS</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-2</span>
+      <span class="pir-title">CHINESE CYBER ADJUSTMENTS AMID U.S. TECH COMPETITION AND TAIWAN STRAIT TENSIONS</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response:</strong> The Iran conflict provides China with an intelligence windfall and a strategic observation window. Beijing is <em>likely</em> using the current crisis to assess U.S. military operational tempo, logistics, AI/cloud dependency in combat operations, and allied resilience — all directly applicable to China's Taiwan Strait contingency planning.</p>
       <p>Volt Typhoon / Voltzite maintains its persistent pre-positioning posture. There is no current evidence of China activating disruptive ICS capabilities against U.S. infrastructure in response to the Iran conflict. However, the February 2026 Dragos report confirmation that Voltzite was embedded inside U.S. utility control loops through 2025 means the capability is positioned. If U.S.-China tensions escalate — particularly over Taiwan Strait transits or semiconductor export controls — the <span class="aq">probability of activation increases from unlikely to roughly even chance</span> over the subsequent 12 months. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-3</span>
-      <span class="pin-title">RUSSIAN DISRUPTIVE OPS IN RESPONSE TO SANCTIONS / BATTLEFIELD DEVELOPMENTS</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-3</span>
+      <span class="pir-title">RUSSIAN DISRUPTIVE OPS IN RESPONSE TO SANCTIONS / BATTLEFIELD DEVELOPMENTS</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response:</strong> Russia's Sandworm/Electrum remains postured for escalation but has not activated disruptive operations against U.S. infrastructure in the current cycle. Kamacite's 2025 reconnaissance campaign against U.S. ICS devices confirms a standing collection posture. Russia <em>likely</em> calculates that activating against U.S. infrastructure while the U.S. is engaged in the Iran conflict risks full-spectrum escalation at a moment when U.S. attention is divided — a double-edged strategic calculation.</p>
       <p>Liberty CTI assesses that Russia is <em>unlikely</em> to conduct a major disruptive cyber operation against Texas energy infrastructure in the next 30 days but <em>likely</em> will continue collection and pre-positioning activities. The risk calculus shifts if U.S. policy decisions on Ukraine aid or Russia sanctions escalate significantly during the Iran conflict period. <span class="conf conf-mod">MODERATE CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-4</span>
-      <span class="pin-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-4</span>
+      <span class="pir-title">IRANIAN CYBER ACTIVITY FOLLOWING REGIONAL MILITARY ESCALATION</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response:</strong> CONFIRMED ACTIVE. IRGC-affiliated actors are conducting multi-track cyber operations. Track 1: CyberAv3ngers targeting ICS devices with default credentials and custom ladder logic files — consistent with 2023 TTP profile but now deployed at wartime operational scale. Track 2: APT33 and APT55 conducting espionage and disruptive staging operations against American critical infrastructure networks. Track 3: Proxy hacktivist networks generating high-volume DDoS and defacement campaigns to signal political grievance and distract security operations. Over 150 hacktivist incidents were recorded in the first week of the conflict alone (CloudSEK). <span class="conf conf-high">HIGH CONFIDENCE</span></p>
     </div>
   </div>
 
-  <div class="pin-block">
-    <div class="pin-header">
-      <span class="pin-id">PIN-5</span>
-      <span class="pin-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
+  <div class="pir-block">
+    <div class="pir-header">
+      <span class="pir-id">PIR-5</span>
+      <span class="pir-title">TEXAS SECTOR EXPOSURE TO GEOPOLITICAL CYBER PRESSURE</span>
     </div>
-    <div class="pin-body">
+    <div class="pir-body">
       <p><strong>Response:</strong> Texas faces a convergence of threat vectors in this cycle. Energy sector exposure is at CRITICAL levels driven by the Iran conflict and the simultaneous persistence of Volt Typhoon's pre-positioning campaign. Financial sector exposure is elevated by the cloud infrastructure disruption precedent set by the AWS data center strikes — Texas financial firms relying on single-cloud architecture should re-evaluate their resilience assumptions. Defense industrial base exposure is elevated by China's opportunistic intelligence collection during U.S. military operations. Healthcare remains primarily at risk from criminal ransomware operators who predictably exploit crisis-driven security operations center distraction.</p>
       <p>The common thread across all sectors: <strong>Texas organizations that have not conducted tabletop exercises incorporating nation-state ICS attack scenarios in the past 12 months are operating on an outdated threat model.</strong> <span class="conf conf-high">HIGH CONFIDENCE</span></p>
     </div>
@@ -2351,27 +2351,27 @@ body [style*="Instrument Sans"]{
 
     <div class="src-item">
       <span class="src-code">SRC-01</span>
-      <span class="src-desc"><a href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Dragos 2025 Year in Review / Industrial Cybersecurity Report</span></a> — Dragos, Inc., February 2026. Primary source for Voltzite / Volt Typhoon OT control-loop access assessment and Kamacite reconnaissance campaign data. Dragos CEO Robert Lee confirmed. Sourced via The Register, February 17, 2026. RELIABILITY: HIGH. RELEVANCE: CRITICAL to KJ-2, PIN-2.</span>
+      <span class="src-desc"><a href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Dragos 2025 Year in Review / Industrial Cybersecurity Report</span></a> — Dragos, Inc., February 2026. Primary source for Voltzite / Volt Typhoon OT control-loop access assessment and Kamacite reconnaissance campaign data. Dragos CEO Robert Lee confirmed. Sourced via The Register, February 17, 2026. RELIABILITY: HIGH. RELEVANCE: CRITICAL to KJ-2, PIR-2.</span>
     </div>
 
     <div class="src-item">
       <span class="src-code">SRC-02</span>
-      <span class="src-desc"><a href="https://www.cloudsek.com/blog/middle-east-escalation-israel-iran-us-cyber-war-2026" target="_blank" rel="noopener" class="src-link"><span class="src-title">CloudSEK Middle East Escalation Situation Report, 27 Feb–1 March 2026</span></a> — CloudSEK Threat Intelligence, March 2026. Primary source for CyberAv3ngers, APT33, APT55 ICS targeting assessment and hacktivist campaign volume data. RELIABILITY: HIGH (corroborated by Euronews, Recorded Future). RELEVANCE: CRITICAL to KJ-1, PIN-4.</span>
+      <span class="src-desc"><a href="https://www.cloudsek.com/blog/middle-east-escalation-israel-iran-us-cyber-war-2026" target="_blank" rel="noopener" class="src-link"><span class="src-title">CloudSEK Middle East Escalation Situation Report, 27 Feb–1 March 2026</span></a> — CloudSEK Threat Intelligence, March 2026. Primary source for CyberAv3ngers, APT33, APT55 ICS targeting assessment and hacktivist campaign volume data. RELIABILITY: HIGH (corroborated by Euronews, Recorded Future). RELEVANCE: CRITICAL to KJ-1, PIR-4.</span>
     </div>
 
     <div class="src-item">
       <span class="src-code">SRC-03</span>
-      <span class="src-desc"><a href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener" class="src-link"><span class="src-title">Recorded Future: "Ongoing Iran Conflict: What You Need to Know"</span></a> — Recorded Future, March 2026. Primary source for Mosaic Defense doctrine assessment, IRGC operational scope, scenario planning framework. RELIABILITY: HIGH. RELEVANCE: HIGH to PIN-1, PIN-4, Outlook.</span>
+      <span class="src-desc"><a href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener" class="src-link"><span class="src-title">Recorded Future: "Ongoing Iran Conflict: What You Need to Know"</span></a> — Recorded Future, March 2026. Primary source for Mosaic Defense doctrine assessment, IRGC operational scope, scenario planning framework. RELIABILITY: HIGH. RELEVANCE: HIGH to PIR-1, PIR-4, Outlook.</span>
     </div>
 
     <div class="src-item">
       <span class="src-code">SRC-04</span>
-      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA24-038A: "PRC State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure"</span></a> — CISA/NSA/FBI Joint Advisory, February 2024. Governs Volt Typhoon TTP characterization, LOTL technique assessment, five-year persistence claim. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: HIGH to KJ-2, PIN-2.</span>
+      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA24-038A: "PRC State-Sponsored Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure"</span></a> — CISA/NSA/FBI Joint Advisory, February 2024. Governs Volt Typhoon TTP characterization, LOTL technique assessment, five-year persistence claim. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: HIGH to KJ-2, PIR-2.</span>
     </div>
 
     <div class="src-item">
       <span class="src-code">SRC-05</span>
-      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA23-335A (Updated Dec 2024): "IRGC-Affiliated Cyber Actors Exploit PLCs"</span></a> — CISA/FBI/NSA Joint Advisory. Primary source for IRGC-CY TTP characterization, CyberAv3ngers ladder logic and credential attacks, PLC targeting methodology. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: CRITICAL to KJ-1, PIN-4.</span>
+      <span class="src-desc"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener" class="src-link"><span class="src-title">CISA Advisory AA23-335A (Updated Dec 2024): "IRGC-Affiliated Cyber Actors Exploit PLCs"</span></a> — CISA/FBI/NSA Joint Advisory. Primary source for IRGC-CY TTP characterization, CyberAv3ngers ladder logic and credential attacks, PLC targeting methodology. RELIABILITY: AUTHORITATIVE (U.S. Government). RELEVANCE: CRITICAL to KJ-1, PIR-4.</span>
     </div>
 
     <div class="src-item">
@@ -2386,7 +2386,7 @@ body [style*="Instrument Sans"]{
 
     <div class="src-item">
       <span class="src-code">SRC-08</span>
-      <span class="src-desc"><a href="https://www.utilitydive.com/news/doe-awards-grid-security-artificial-intelligence-EPRI-ConEdison-Southern-Ameren/709360/" target="_blank" rel="noopener" class="src-link"><span class="src-title">E-ISAC Year-End Report (citing Volt Typhoon ERCOT targeting)</span></a> — Electricity Information Sharing and Analysis Center, 2024. Source for ERCOT targeting attempt and successful defense characterization. Sourced via Utility Dive, March 6, 2024. RELIABILITY: HIGH. RELEVANCE: HIGH to PIN-2, Texas Energy Sector Assessment.</span>
+      <span class="src-desc"><a href="https://www.utilitydive.com/news/doe-awards-grid-security-artificial-intelligence-EPRI-ConEdison-Southern-Ameren/709360/" target="_blank" rel="noopener" class="src-link"><span class="src-title">E-ISAC Year-End Report (citing Volt Typhoon ERCOT targeting)</span></a> — Electricity Information Sharing and Analysis Center, 2024. Source for ERCOT targeting attempt and successful defense characterization. Sourced via Utility Dive, March 6, 2024. RELIABILITY: HIGH. RELEVANCE: HIGH to PIR-2, Texas Energy Sector Assessment.</span>
     </div>
 
     <div class="src-item">
@@ -2396,7 +2396,7 @@ body [style*="Instrument Sans"]{
 
     <div class="src-item">
       <span class="src-code">SRC-10</span>
-      <span class="src-desc"><a href="https://industrialcyber.co/industrial-cyber-attacks/us-israeli-campaign-triggers-iranian-counteroffensive-targeting-gulf-energy-critical-infrastructure/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Flashpoint / Industrial Cyber: "US-Israeli Campaign Triggers Iranian Counteroffensive"</span></a> — Flashpoint / Industrial Cyber, March 2026. Source for Mosaic Defense doctrine characterization, IRGC multi-domain retaliation scope, casualties and base damage data. RELIABILITY: HIGH (corroborated). RELEVANCE: HIGH to PIN-1, Strategic Context Section.</span>
+      <span class="src-desc"><a href="https://industrialcyber.co/industrial-cyber-attacks/us-israeli-campaign-triggers-iranian-counteroffensive-targeting-gulf-energy-critical-infrastructure/" target="_blank" rel="noopener" class="src-link"><span class="src-title">Flashpoint / Industrial Cyber: "US-Israeli Campaign Triggers Iranian Counteroffensive"</span></a> — Flashpoint / Industrial Cyber, March 2026. Source for Mosaic Defense doctrine characterization, IRGC multi-domain retaliation scope, casualties and base damage data. RELIABILITY: HIGH (corroborated). RELEVANCE: HIGH to PIR-1, Strategic Context Section.</span>
     </div>
 
     <p style="font-size:11px; color:#9A9080; font-family:'IBM Plex Mono', monospace; margin-top: 16px; margin-bottom: 0;">
