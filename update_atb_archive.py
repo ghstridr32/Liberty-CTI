@@ -226,7 +226,8 @@ def group_issues_by_month(issues: list[Issue]) -> OrderedDict[tuple[int, int], l
 def render_issue_card(issue: Issue, latest: Issue) -> str:
     latest_badge = '<span class="status-chip">Latest</span>' if issue.filename == latest.filename else ""
     searchable = " ".join([issue.title, issue.summary, issue.filename, f"ATB-2026-{issue.issue_number}", *issue.tags])
-    return f'''        <a class="issue-card" href="issues/{html.escape(issue.filename)}" data-tags="{html.escape(issue.data_tags)}" data-sector="{html.escape(issue.sector)}" data-search="{html.escape(searchable.lower())}">
+    stem = Path(issue.filename).stem
+    return f'''        <a class="issue-card" href="/atb/2026/{stem}/" data-tags="{html.escape(issue.data_tags)}" data-sector="{html.escape(issue.sector)}" data-search="{html.escape(searchable.lower())}">
           <div class="issue-date-block">
             <span class="issue-day">{issue.date.strftime("%d")}</span>
             <span class="issue-month">{issue.date.strftime("%b").upper()}</span>
@@ -288,9 +289,10 @@ def render_archive_library(issues: list[Issue]) -> str:
 def update_archive_page(content: str, issues: list[Issue]) -> str:
     latest = issues[-1]
     updated = content
+    latest_stem = Path(latest.filename).stem
     updated = re.sub(
         r'<a class="quick-link" href="[^"]*">(Open Latest Issue|View the latest Alamo Threat Brief)</a>',
-        f'<a class="quick-link" href="issues/{latest.filename}">View the latest Alamo Threat Brief</a>',
+        f'<a class="quick-link" href="/atb/2026/{latest_stem}/">View the latest Alamo Threat Brief</a>',
         updated,
         count=1,
     )
