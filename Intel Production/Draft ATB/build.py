@@ -26,6 +26,21 @@ from pathlib import Path
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
+# ─── Paywall control ──────────────────────────────────────────────────────────
+# PAYWALL_ACTIVE:
+#   False → preview period. CTA shows "Read Full Brief → ./full.html".
+#           Both index.html and full.html are publicly accessible.
+#   True  → paywall enforced. CTA shows "Subscribe" → /members/subscribe.html.
+#           Cloudflare Pages Functions gate full.html (Phase 2).
+#           Flip to True ONLY after Phase 2 is live and smoke-tested in production.
+PAYWALL_ACTIVE = False
+
+# PREVIEW_BANNER_ENABLED:
+#   True  → shows a slim banner above the nav during the preview period.
+#   False → no banner. Use False once paywall is active.
+#   Only rendered when PAYWALL_ACTIVE = False. Ignored when PAYWALL_ACTIVE = True.
+PREVIEW_BANNER_ENABLED = True
+
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent          # repo root (two levels up from Intel Production/Draft ATB/)
 TEMPLATE_DIR = HERE / "templates"
@@ -216,7 +231,8 @@ def render_skeleton(skeleton_path: Path, data: dict) -> str:
 
 def main() -> int:
     skeleton_path = TEMPLATE_DIR / "atb_skeleton.html"
-    cta_path = TEMPLATE_DIR / "preview_cta.html"
+    cta_template = "preview_cta_paywall.html" if PAYWALL_ACTIVE else "preview_cta_free.html"
+    cta_path = TEMPLATE_DIR / cta_template
     archive_template = TEMPLATE_DIR / "archive_index.html"
 
     if not skeleton_path.exists():
@@ -232,6 +248,16 @@ def main() -> int:
 
     rendered_html = render_skeleton(skeleton_path, data)
     cta_html = load_template(cta_path)
+
+    # Inject preview banner into full brief (before <nav>, after <body>)
+    if PREVIEW_BANNER_ENABLED and not PAYWALL_ACTIVE:
+        banner_path = TEMPLATE_DIR / "preview_banner.html"
+        banner_html = load_template(banner_path) if banner_path.exists() else ""
+    else:
+        banner_html = ""
+    if banner_html:
+        rendered_html = rendered_html.replace("<body>", "<body>\n" + banner_html, 1)
+        rendered_html = rendered_html.replace("<body ", "<body>", 1)  # handle <body class=...> edge case
 
     year_str, date_slug = slug_from_publish_date(data["publish_date"])
 
