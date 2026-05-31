@@ -1613,22 +1613,6 @@ body [style*="Instrument Sans"]{
 @media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
 </style>
 
-<style>
-.preview-banner{background:rgba(212,160,64,.1);border-bottom:1px solid rgba(212,160,64,.3);padding:9px 24px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
-.preview-banner-text{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-align:center;}
-.preview-banner-link{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi);text-decoration:none;border-bottom:1px solid rgba(212,160,64,.5);white-space:nowrap;transition:color .2s;}
-.preview-banner-link:hover{color:var(--white);}
-.preview-banner-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(212,160,64,.8);flex-shrink:0;}
-</style>
-
-<div class="preview-banner">
-  <div class="preview-banner-dot"></div>
-  <span class="preview-banner-text">Full briefs are free during the preview period.</span>
-  <a href="https://libertycti.substack.com" target="_blank" rel="noopener" class="preview-banner-link">
-    Join the free weekly executive summary &rarr;
-  </a>
-  <div class="preview-banner-dot"></div>
-</div>
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
   <a href="../../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
 <img src="../../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
@@ -1667,9 +1651,9 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="/atb/2026/05-17-2026/" role="menuitem">Latest Issue, Week of May 17, 2026</a>
+        <a href="/atb/2026/05-31-2026/" role="menuitem">Latest Issue, Week of May 31, 2026</a>
         <div class="drop-divider"></div>
-        <a href="/atb/" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="../../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
     </li>
 
@@ -1716,8 +1700,8 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="/atb/2026/05-17-2026/">Latest Issue, Week of May 17, 2026</a>
-    <a href="/atb/" class="lcti-archive-link">Archive</a>
+    <a href="/atb/2026/05-31-2026/">Latest Issue, Week of May 31, 2026</a>
+    <a href="../../index.html" class="lcti-archive-link">Archive</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -1755,7 +1739,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['05-17-2026.html'],
+    'alamo-threat-brief.html':['05-31-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1865,6 +1849,25 @@ body [style*="Instrument Sans"]{
 .paywall-footnote a:hover{color:var(--gold-hi);}
 </style>
 
+<style>
+.paywall-cta{margin:48px 0;background:linear-gradient(180deg,rgba(212,160,64,.05),rgba(6,12,20,0));border:1px solid rgba(212,160,64,.35);border-left:5px solid var(--gold);padding:48px 40px;position:relative;}
+.paywall-cta::before{content:'FREE DURING PREVIEW PERIOD';font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:36px;background:#060c14;padding:0 8px;transform:translateY(-50%);font-weight:600;}
+.paywall-cta-inner{max-width:680px;}
+.paywall-eyebrow{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:14px;}
+.paywall-title{font-family:'Rajdhani',sans-serif;font-size:2.1rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1;}
+.paywall-lede{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;color:var(--text-dim);line-height:1.7;margin-bottom:18px;font-weight:300;}
+.paywall-list{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:8px;}
+.paywall-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.94rem;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
+.paywall-list li::before{content:'\25C6';color:var(--gold);position:absolute;left:0;top:.1em;font-size:.85rem;}
+.paywall-list strong{color:var(--white);font-weight:600;}
+.paywall-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px;}
+.paywall-btn-primary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--bg);padding:14px 28px;border:1px solid var(--gold);transition:all .2s;}
+.paywall-btn-primary:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 16px rgba(212,160,64,.4);}
+.paywall-footnote{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);margin-top:14px;line-height:1.7;}
+.paywall-footnote a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);}
+.paywall-footnote a:hover{color:var(--gold-hi);}
+</style>
+
 <div class="paywall-cta">
   <div class="paywall-cta-inner">
     <div class="paywall-eyebrow">Continue Reading — No Subscription Required</div>
@@ -1912,7 +1915,30 @@ body [style*="Instrument Sans"]{
 @media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr!important;gap:2rem!important}}
 @media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr!important}.lcti-footer{padding:2.5rem 1.25rem 1.5rem!important}.lcti-footer-bottom{flex-direction:column!important;align-items:flex-start!important}}
 </style>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:END --><footer class="lcti-footer" role="contentinfo">
+<!-- LCTI:ARCHIVE_FOOTER_FIX:END --><!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
@@ -1959,9 +1985,10 @@ body [style*="Instrument Sans"]{
     </div>
   </div>
   <div class="lcti-footer-bottom">
-    <div class="lcti-footer-copy">&copy; 2026 Liberty CTI LLC &nbsp;&middot;&nbsp; San Antonio, Texas &nbsp;&middot;&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
     <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
   </div>
 </footer>
+<!-- LCTI:FOOTER:END -->
 </body>
 </html>

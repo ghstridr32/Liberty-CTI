@@ -98,7 +98,21 @@ ISSUE_OVERRIDES = {
         "title": "Texas Infrastructure Concentration Is the Target",
         "summary": "CI Fortify, ERCOT demand pressure, simultaneous ICS advisories, and continued DPRK enforcement converge on Texas grid, telecom, cloud, MSP, and identity dependency risk.",
         "tags": ["CISA", "ERCOT", "ICS", "energy", "DPRK", "Texas"],
-        "data_tags": "latest weekly cisa ercot ics energy dprk texas infrastructure data-centers cloud msp identity",
+        "data_tags": "weekly cisa ercot ics energy dprk texas infrastructure data-centers cloud msp identity",
+        "sector": "all",
+    },
+    "05-24-2026.html": {
+        "title": "Iran's Cyber Campaign Is Wartime Operations",
+        "summary": "Iran-linked aviation and oil-and-gas targeting, confirmed PLC disruption context, suspected ATG access, NERC grid warnings, and AI-enabled adversary operations elevate Texas OT and energy-continuity risk.",
+        "tags": ["Iran", "energy", "OT", "AI", "NERC", "Texas"],
+        "data_tags": "latest weekly iran energy ot ai nerc ercot aviation oil-gas texas governance",
+        "sector": "all",
+    },
+    "05-31-2026.html": {
+        "title": "Infrastructure Convergence: Three Adversaries, One Summer",
+        "summary": "China infrastructure persistence, Russian hybrid escalation, Iranian Hormuz cable coercion, and ERCOT summer demand pressure converge on Texas continuity, cloud-routing, power, and vendor-access assumptions.",
+        "tags": ["China", "Russia", "Iran", "ERCOT", "energy", "AI"],
+        "data_tags": "latest weekly china russia iran ercot energy ai cloud-routing continuity texas infrastructure",
         "sector": "all",
     },
 }
