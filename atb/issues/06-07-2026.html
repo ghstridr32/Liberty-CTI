@@ -5,7 +5,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060c14">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Alamo Threat Brief ATB-2026-7 | Week of April 19-25, 2026 | Liberty CTI</title>
+<title>The Alamo Threat Brief ATB-2026-13 | Week of May 31 – Jun 6, 2026 | Liberty CTI</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -120,7 +120,7 @@ p{margin-bottom:14px;color:var(--text);}
 
 /* WARNING BOX */
 .warning-box{background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:4px solid var(--danger);padding:20px 24px;margin:24px 0;}
-.warning-box::before{content:'⚠ CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
+.warning-box::before{content:'\26A0  CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
 .warning-box p{color:var(--text);font-size:.93rem;}
 
 /* ASSESSMENT BOX */
@@ -155,7 +155,7 @@ p{margin-bottom:14px;color:var(--text);}
 .implication-row.defense .implication-sector{border-left:3px solid var(--defense);color:var(--defense);}
 .implication-row.ai .implication-sector{border-left:3px solid var(--tech);color:var(--tech);}
 
-/* PRQ */
+/* PIR / I&W */
 .prq-block{border:1px solid var(--border);margin:20px 0;overflow:hidden;}
 .prq-header{background:var(--tile);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .prq-id{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);background:rgba(90,188,240,.12);border:1px solid rgba(90,188,240,.3);padding:3px 10px;}
@@ -170,7 +170,7 @@ p{margin-bottom:14px;color:var(--text);}
 .prq-indicators{list-style:none;padding:0;margin:8px 0;}
 .prq-indicators li{font-size:.82rem;color:var(--text-dim);padding:4px 0 4px 16px;border-bottom:1px solid rgba(26,58,92,.3);position:relative;}
 .prq-indicators li:last-child{border-bottom:none;}
-.prq-indicators li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
+.prq-indicators li::before{content:'\2192';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
 
 /* WATCH LIST */
 .watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
@@ -190,11 +190,20 @@ p{margin-bottom:14px;color:var(--text);}
 .exec-brief::before{content:'EXECUTIVE DECISION BRIEF';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
 .exec-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px;}
 .exec-item{padding:14px 16px;border:1px solid rgba(212,160,64,.14);background:rgba(212,160,64,.04);}
-.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--white);margin-bottom:6px;}
+.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--gold-hi);margin-bottom:6px;}
 .exec-item p{font-size:.9rem;color:var(--text);margin:0;line-height:1.65;}
 .exec-item strong{color:var(--gold-hi);}
 .decision-line{margin-top:8px;padding-top:8px;border-top:1px solid rgba(212,160,64,.12);font-size:.82rem;color:var(--text-dim);}
 .decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+
+/* GOVERNANCE / PRIOR JUDGMENT */
+h2.section-head.gold-heading{color:var(--gold-hi);}
+.gov-block{background:var(--panel);border:1px solid rgba(212,160,64,.22);border-left:5px solid var(--gold);padding:26px 30px;margin:24px 0 36px;}
+.gov-row{display:grid;grid-template-columns:190px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(212,160,64,.12);}
+.gov-row:last-child{border-bottom:none;}
+.gov-label{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.04em;color:var(--gold-hi);text-transform:uppercase;}
+.gov-content{font-size:.95rem;color:var(--text);line-height:1.65;}
+
 
 /* SOURCES */
 .src-block{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--blue);padding:26px 28px;margin:36px 0;}
@@ -1179,36 +1188,36 @@ body [style*="Instrument Sans"]{
 </style>
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
-  <a href="../../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="../../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+  <a href="../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../index.html">Home</a></li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../../about.html" role="menuitem">Company Overview</a>
+        <a href="../../about.html" role="menuitem">Company Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Founders</span>
-        <a href="../../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="../../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+        <a href="../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../../decision-support.html" role="menuitem">Products &amp; Services</a>
+        <a href="../../decision-support.html" role="menuitem">Products &amp; Services</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Core Products</span>
-        <a href="../../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
-        <a href="../../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="../../../sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="../../sector-assessments.html" role="menuitem">Sector Assessments</a>
       </div>
     </li>
 
@@ -1218,26 +1227,26 @@ body [style*="Instrument Sans"]{
         <span class="drop-label">Latest Issue</span>
         <a href="/atb/2026/06-07-2026/" role="menuitem">Latest Issue, Week of June 7, 2026</a>
         <div class="drop-divider"></div>
-        <a href="../../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../../texas-focus.html" role="menuitem">Texas Overview</a>
+        <a href="../../texas-focus.html" role="menuitem">Texas Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Priority Sectors</span>
-        <a href="../../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
-        <a href="../../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
-        <a href="../../../financial.html" role="menuitem">Financial Services</a>
-        <a href="../../../healthcare.html" role="menuitem">Healthcare</a>
+        <a href="../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="../../financial.html" role="menuitem">Financial Services</a>
+        <a href="../../healthcare.html" role="menuitem">Healthcare</a>
         <div class="drop-divider"></div>
-        <a href="../../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
+        <a href="../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
       </div>
     </li>
 
-    <li><a href="../../../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+    <li><a href="../../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1246,41 +1255,41 @@ body [style*="Instrument Sans"]{
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="../../../index.html">Home</a>
+  <a href="../../index.html">Home</a>
 
   <span class="m-group-label">About</span>
   <div class="m-sub">
-    <a href="../../../about.html">Company Overview</a>
-    <a href="../../../luis-maldonado.html">Lou Maldonado</a>
-    <a href="../../../angie-maldonado.html">Angie Maldonado</a>
+    <a href="../../about.html">Company Overview</a>
+    <a href="../../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../../angie-maldonado.html">Angie Maldonado</a>
   </div>
 
   <span class="m-group-label">Products</span>
   <div class="m-sub">
-    <a href="../../../decision-support.html">Products &amp; Services</a>
-    <a href="../../../alamo-threat-brief.html">Alamo Threat Brief</a>
-    <a href="../../../texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="../../../sector-assessments.html">Sector Assessments</a>
+    <a href="../../decision-support.html">Products &amp; Services</a>
+    <a href="../../alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="../../texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="../../sector-assessments.html">Sector Assessments</a>
   </div>
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
     <a href="/atb/2026/06-07-2026/">Latest Issue, Week of June 7, 2026</a>
-    <a href="../../index.html" class="lcti-archive-link">Archive</a>
+    <a href="../index.html" class="lcti-archive-link">Archive</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
   <div class="m-sub">
-    <a href="../../../texas-focus.html">Texas Overview</a>
-    <a href="../../../energy-ercot.html">Energy &amp; ERCOT</a>
-    <a href="../../../defense-dib.html">Defense Industrial Base</a>
-    <a href="../../../financial.html">Financial Services</a>
-    <a href="../../../healthcare.html">Healthcare</a>
-    <a href="../../../Energy_data_AI.html">AI Convergence</a>
+    <a href="../../texas-focus.html">Texas Overview</a>
+    <a href="../../energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="../../defense-dib.html">Defense Industrial Base</a>
+    <a href="../../financial.html">Financial Services</a>
+    <a href="../../healthcare.html">Healthcare</a>
+    <a href="../../Energy_data_AI.html">AI Convergence</a>
   </div>
 
   <div class="m-cta-wrap">
-    <a href="../../../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+    <a href="../../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
   </div>
 </div>
 
@@ -1304,7 +1313,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['06-07-2026.html'],
+    'alamo-threat-brief.html':['05-17-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1326,7 +1335,7 @@ body [style*="Instrument Sans"]{
   <div class="masthead-grid"></div>
   <div class="masthead-inner">
     <div class="logo-row">
-      <img src="../../../liberty-cti-emblem.png" class="logo-img" alt="Liberty CTI" onerror="this.style.display='none'">
+      <img src="liberty-cti-emblem.png" class="logo-img" alt="Liberty CTI" onerror="this.style.display='none'">
       <div class="brand-block">
         <div class="brand-name">Liberty CTI</div>
         <div class="brand-sub">Cyber Threat Intelligence &middot; libertycti.com</div>
@@ -1340,28 +1349,28 @@ body [style*="Instrument Sans"]{
       <p class="title-desc">Weekly cyber threat intelligence for Texas industry &mdash; source-backed assessments for executive decision-makers.</p>
     </div>
     <div class="meta-row">
-      <div class="pill"><strong>Issue:</strong> ATB-2026-7</div>
-      <div class="pill"><strong>Week of:</strong> April 19&ndash;25, 2026</div>
-      <div class="pill"><strong>Coverage:</strong> Energy &middot; Finance &middot; DIB &middot; AI</div>
-      <div class="pill"><strong>Next Issue:</strong> 03 May 2026</div>
+      <div class="pill"><strong>Issue:</strong> ATB-2026-13</div>
+      <div class="pill"><strong>Week of:</strong> May 31&ndash;Jun 6, 2026</div>
+      <div class="pill"><strong>Coverage:</strong> Energy &middot; Healthcare &middot; Finance &middot; DIB &middot; AI</div>
+      <div class="pill"><strong>Next Issue:</strong> 14 Jun 2026</div>
     </div>
     <div class="threat-banner">
       <div class="threat-dot"></div>
-      <div class="threat-label">Elevated &mdash; Multi-actor pressure continues; Texas AI-energy convergence expands exposure; financial vendor risk crystallizes; DPRK revenue schemes persist</div>
+      <div class="threat-label">Elevated &mdash; Active adversary exploitation of fuel infrastructure OT confirmed; ERCOT voltage test failures reveal AI load as grid instability amplifier entering peak summer demand</div>
     </div>
   </div>
   <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
     <div class="meta-strip">
-      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">26 APRIL 2026</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">19&ndash;25 APR 2026</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">TEXAS AS STRATEGIC CYBER TERRAIN</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY &middot; FINANCE &middot; DIB &middot; AI</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">7 JUN 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">31 MAY&ndash;6 JUN 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">THE GRID IS THE ATTACK SURFACE</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY &middot; HEALTH &middot; FIN &middot; DIB &middot; AI</div></div>
       <div class="meta-cell"><div class="meta-lbl">Torch Fusion Cycle</div><div class="meta-val">WHAT &middot; WHO &middot; WHY &middot; WHAT NEXT</div></div>
     </div>
     <div class="timestamp-bar">
-      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>26 APR 2026 // 0600 CST</strong></span></div>
-      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>19&ndash;25 APR 2026</strong></span></div>
-      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>03 MAY 2026</strong></span></div>
+      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>7 JUN 2026 // 0600 CST</strong></span></div>
+      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>31 MAY&ndash;6 JUN 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>24 MAY 2026</strong></span></div>
       <div class="ts-item"><span class="ts-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span></div>
     </div>
   </div>
@@ -1375,166 +1384,344 @@ body [style*="Instrument Sans"]{
 <!-- TICKER -->
 <div class="ticker-strip">
   <div class="ticker-inner">
-    <a class="ticker-item" href="https://www.justice.gov/opa/pr/two-us-nationals-sentenced-facilitating-fraudulent-remote-information-technology-worker" target="_blank" rel="noopener">DPRK IT worker laptop-farm operators sentenced — two U.S. nationals facilitated North Korean IT fraud across 100+ U.S. companies generating $5M+ for Pyongyang's WMD programs</a>
-    <a class="ticker-item" href="https://www.businesswire.com/news/home/20260422904150/en/centerpoint-energy-reports-strong-q1-2026-results-reiterates-full-year-2026-guidance-provides-an-update-on-houston-electric-load-growth/" target="_blank" rel="noopener">CenterPoint discloses 12+ GW of committed industrial load in Greater Houston — ERCOT preliminary forecast projects ~368 GW demand by 2032 vs. 85 GW all-time peak</a>
-    <a class="ticker-item" href="https://www.pymnts.com/cybersecurity/2026/citizens-bank-customers-targeted-in-third-party-data-breach/" target="_blank" rel="noopener">Frost Bank class-action proposed after vendor breach affects 100,000+ customers — Citizens Bank also managing third-party data extraction incident</a>
-    <a class="ticker-item" href="https://www.newyorker.com/news/the-lede/how-big-a-threat-are-iranian-backed-cyber-attacks" target="_blank" rel="noopener">CISA warning environment elevated for Iranian PLC activity targeting U.S. water and energy OT environments — Texas industrial operators directly relevant</a>
-    <a class="ticker-item" href="https://www.atlanticcouncil.org/dispatches/dispatches-from-the-front-lines-of-russia-linked-cyberattacks-on-europe/" target="_blank" rel="noopener">Pro-Russian groups escalating from DDoS to attempted destructive cyberattacks against European critical infrastructure — behavioral model warning for Texas</a>
-    <a class="ticker-item" href="https://www.levelblue.com/blogs/levelblue-blog/ai-enabled-cyber-intrusions-what-two-recent-incidents-reveal-for-corporate-counsel/" target="_blank" rel="noopener">AI autonomous cyber agents assessed capable of conducting campaigns at nation-state scale — Texas AI/data-center convergence raises strategic terrain risk</a>
+    <a class="ticker-item" href="https://www.cisa.gov/resources-tools/resources/cisa-and-partners-urge-hardening-automatic-tank-gauge-systems" target="_blank" rel="noopener">
+      CISA + 7 AGENCIES — ATG SYSTEMS UNDER ACTIVE EXPLOITATION &mdash; fuel infrastructure internet exposure confirmed across energy, chemical, agriculture, transport
+    </a>
+    <a class="ticker-item" href="https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4507204/" target="_blank" rel="noopener">
+      FIVE EYES JOINT BULLETIN — China military intelligence targeting government &amp; DIB personnel via LinkedIn, Indeed, Upwork &mdash; first-ever joint public advisory
+    </a>
+    <a class="ticker-item" href="https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia" target="_blank" rel="noopener">
+      CIRCIA TOWN HALLS BEGIN JUN 15 &mdash; final stakeholder input window before mandatory incident reporting rule is finalized across all critical infrastructure sectors
+    </a>
     <!-- duplicate for seamless loop -->
-    <a class="ticker-item" href="https://www.justice.gov/opa/pr/two-us-nationals-sentenced-facilitating-fraudulent-remote-information-technology-worker" target="_blank" rel="noopener">DPRK IT worker laptop-farm operators sentenced — two U.S. nationals facilitated North Korean IT fraud across 100+ U.S. companies generating $5M+ for Pyongyang's WMD programs</a>
-    <a class="ticker-item" href="https://www.businesswire.com/news/home/20260422904150/en/centerpoint-energy-reports-strong-q1-2026-results-reiterates-full-year-2026-guidance-provides-an-update-on-houston-electric-load-growth/" target="_blank" rel="noopener">CenterPoint discloses 12+ GW of committed industrial load in Greater Houston — ERCOT preliminary forecast projects ~368 GW demand by 2032 vs. 85 GW all-time peak</a>
-    <a class="ticker-item" href="https://www.pymnts.com/cybersecurity/2026/citizens-bank-customers-targeted-in-third-party-data-breach/" target="_blank" rel="noopener">Frost Bank class-action proposed after vendor breach affects 100,000+ customers — Citizens Bank also managing third-party data extraction incident</a>
-    <a class="ticker-item" href="https://www.newyorker.com/news/the-lede/how-big-a-threat-are-iranian-backed-cyber-attacks" target="_blank" rel="noopener">CISA warning environment elevated for Iranian PLC activity targeting U.S. water and energy OT environments — Texas industrial operators directly relevant</a>
+    <a class="ticker-item" href="https://www.cisa.gov/resources-tools/resources/cisa-and-partners-urge-hardening-automatic-tank-gauge-systems" target="_blank" rel="noopener">
+      CISA + 7 AGENCIES — ATG SYSTEMS UNDER ACTIVE EXPLOITATION &mdash; fuel infrastructure internet exposure confirmed across energy, chemical, agriculture, transport
+    </a>
+    <a class="ticker-item" href="https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4507204/" target="_blank" rel="noopener">
+      FIVE EYES JOINT BULLETIN — China military intelligence targeting government &amp; DIB personnel via LinkedIn, Indeed, Upwork &mdash; first-ever joint public advisory
+    </a>
+    <a class="ticker-item" href="https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia" target="_blank" rel="noopener">
+      CIRCIA TOWN HALLS BEGIN JUN 15 &mdash; final stakeholder input window before mandatory incident reporting rule is finalized across all critical infrastructure sectors
+    </a>
   </div>
 </div>
-
 <!-- PAGE BODY -->
 <div class="page-body">
 
-  <!-- INTRO -->
+  <!-- INTRO DECK -->
   <div class="intro-deck">
-    <p>This issue of <strong>The Alamo Threat Brief</strong> aligns to the week of <strong>19 April 2026</strong> and assesses a threat environment defined by three simultaneous shifts: <strong>Texas is becoming strategic cyber terrain</strong> as AI infrastructure and ERCOT load growth converge; <strong>financial sector vendor risk is crystallizing</strong> from a theoretical exposure into a lived, litigation-generating reality; and <strong>DPRK insider-adjacent schemes</strong> are moving from counterintelligence abstractions into enforced criminal sentences and active Treasury sanctions. Layered on top of all three is an Iranian OT warning environment that has not degraded since last issue, and a Russian behavioral trend in Europe that signals a deliberate escalation from nuisance operations toward disruptive effect. The central analytic judgment this week is that Texas organizations are no longer managing isolated risk vectors. They are operating inside a strategic terrain competition — where energy, AI compute, financial infrastructure, and defense industrial capacity all converge on the same geography.</p>
+    <p>ATB-2026-13 covers the week of May 31&ndash;June 6, 2026. Two events define this issue: a confirmed eight-agency federal warning of active adversary exploitation of automatic tank gauge systems across U.S. fuel infrastructure, and the disclosure that four Texas data center and crypto facility groups failed ERCOT voltage ride-through tests&mdash;meaning they could abruptly disconnect and amplify a grid disturbance during peak summer demand. These are not separate problems. They are the same attack surface. Simultaneously, the Five Eyes issued an unprecedented joint bulletin on Chinese military intelligence recruiting via LinkedIn, and the Iran ceasefire frayed visibly on June 5. This issue covers all four adversary actors with direct Texas implications.</p>
   </div>
 
+  <!-- EXEC BRIEF -->
   <div class="exec-brief">
     <div class="exec-grid">
       <div class="exec-item">
-        <div class="exec-item-title">Decision 1 — Grid and Infrastructure Dependency</div>
-        <p><strong>If your organization's operations, data centers, or manufacturing are dependent on ERCOT grid reliability,</strong> decide this week whether your continuity plans reflect a future grid operating under unprecedented AI and industrial load — not the grid of the past decade. The infrastructure underneath your operations is changing faster than most continuity plans.</p>
+        <div class="exec-item-title">Isolate ATG Systems Now</div>
+        <p>Eight agencies confirmed active exploitation of internet-exposed automatic tank gauges in fuel, chemical, and transport infrastructure. Password changes are insufficient. Network isolation is the required action.</p>
       </div>
       <div class="exec-item">
-        <div class="exec-item-title">Decision 2 — Vendor Data Accountability</div>
-        <p><strong>If you share customer or employee data with third-party processors, compliance platforms, or marketing vendors,</strong> decide whether you know which of those vendors could expose you to a class-action lawsuit, regulatory notice, and reputational damage without ever touching your core network. Frost and Citizens Bank answered that question the hard way.</p>
+        <div class="exec-item-title">Register for CIRCIA Town Halls</div>
+        <p>Sector-specific input sessions run June 15&ndash;18. Energy, finance, healthcare, and DIB sessions each cover different scope thresholds. This is the last structured window before the final rule sets compliance obligations.</p>
       </div>
       <div class="exec-item">
-        <div class="exec-item-title">Decision 3 — Remote Worker Identity Assurance</div>
-        <p><strong>If your organization employs remote engineers, contractors, or technical workers,</strong> decide whether your identity verification, device validation, and payroll anomaly monitoring are strong enough to detect a DPRK-facilitated IT worker before they generate access, exfiltrate data, or trigger a sanctions compliance exposure.</p>
+        <div class="exec-item-title">Brief the Board on Grid Risk</div>
+        <p>ERCOT confirmed peak demand could exceed 92 GW this summer&mdash;a new record. Four large load groups already failed voltage tests. Continuity plans that assume grid stability are no longer defensible.</p>
       </div>
     </div>
   </div>
 
   <!-- CENTERPIECE -->
   <div class="centerpiece">
-    <div class="centerpiece-title">Texas Is No Longer Just a Target. It Is Becoming Strategic Terrain.</div>
-    <p>The most consequential development this week is not any single adversary action. It is the convergence of forces that are making Texas more valuable — and more vulnerable — simultaneously. <strong>CenterPoint's disclosure of over 12 gigawatts of committed industrial load</strong>, combined with ERCOT's preliminary long-term demand projection of approximately 368,000 megawatts by 2032 against an all-time peak of roughly 85,000 megawatts in 2023, signals something qualitatively new: Texas is becoming the computational and industrial backbone of American AI, cloud, and energy infrastructure at a pace that planning cycles were not built to absorb.</p>
-    <p>That is a business and economic story. It is also a national security story. The more that AI compute, Gulf Coast petrochemicals, financial clearinghouses, health system data, and defense production concentrate on Texas infrastructure, the more attractive that infrastructure becomes to state actors seeking leverage, disruption pathways, and crisis contingency access. <strong>Iran has already demonstrated willingness to move from reconnaissance to operational disruption</strong> against OT environments. China continues to maintain quiet access inside U.S. critical infrastructure as a hedge for future crises. DPRK is monetizing cyber access at machine speed. Russia is signaling behavioral escalation in Europe as a model for what comes next.</p>
-    <p><strong>Bottom line:</strong> Texas boards and executives should stop asking whether they are a target and start asking how their dependency on converging infrastructure — grid, cloud, telecom, AI compute, financial rails — changes their exposure profile as that infrastructure becomes more strategically contested.</p>
+    <div class="centerpiece-title">Dominant Judgment &mdash; The Grid Is the Attack Surface</div>
+    <p>The June 2 ATG advisory and the June 5 ERCOT voltage test disclosures, read together, reveal that the adversary attack surface and the grid reliability risk are now the same problem. Threat actors are actively exploiting internet-exposed fuel monitoring systems. Simultaneously, the grid&rsquo;s largest new demand sources&mdash;AI data centers and crypto facilities&mdash;are failing the stability tests that would prevent them from becoming instability amplifiers during a disturbance.</p>
+    <p>The threat does not require a sophisticated intrusion. ATG manipulation causing a fuel distribution disruption, timed to a grid disturbance during peak summer demand, could cascade across healthcare, logistics, and financial services without a single catastrophic attack. Texas sits at the center of this convergence: the state hosts the most AI compute load under development, operates a historically isolated grid, and is entering its highest-demand summer on record.</p>
   </div>
-  <style>
-.paywall-cta{margin:48px 0;background:linear-gradient(180deg,rgba(212,160,64,.05),rgba(6,12,20,0));border:1px solid rgba(212,160,64,.35);border-left:5px solid var(--gold);padding:48px 40px;position:relative;}
-.paywall-cta::before{content:'PREMIUM ACCESS — ALAMO THREAT BRIEF';font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:36px;background:#060c14;padding:0 8px;transform:translateY(-50%);font-weight:600;}
-.paywall-cta-inner{max-width:680px;}
-.paywall-eyebrow{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:14px;}
-.paywall-title{font-family:'Rajdhani',sans-serif;font-size:2.1rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1;}
-.paywall-lede{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;color:var(--text-dim);line-height:1.7;margin-bottom:18px;font-weight:300;}
-.paywall-list{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:8px;}
-.paywall-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.94rem;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
-.paywall-list li::before{content:'\25C6';color:var(--gold);position:absolute;left:0;top:.1em;font-size:.85rem;}
-.paywall-list strong{color:var(--white);font-weight:600;}
-.paywall-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px;}
-.paywall-btn-primary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--bg);padding:14px 28px;border:1px solid var(--gold);transition:all .2s;}
-.paywall-btn-primary:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 16px rgba(212,160,64,.4);}
-.paywall-btn-secondary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.9rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;background:transparent;color:var(--gold);padding:14px 22px;border:1px solid rgba(212,160,64,.4);transition:all .2s;}
-.paywall-btn-secondary:hover{background:rgba(212,160,64,.08);border-color:var(--gold);}
-.paywall-footnote{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);margin-top:14px;}
-</style>
 
-<style>
-.paywall-cta{margin:48px 0;background:linear-gradient(180deg,rgba(212,160,64,.05),rgba(6,12,20,0));border:1px solid rgba(212,160,64,.35);border-left:5px solid var(--gold);padding:48px 40px;position:relative;}
-.paywall-cta::before{content:'FREE DURING PREVIEW PERIOD';font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:36px;background:#060c14;padding:0 8px;transform:translateY(-50%);font-weight:600;}
-.paywall-cta-inner{max-width:680px;}
-.paywall-eyebrow{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:14px;}
-.paywall-title{font-family:'Rajdhani',sans-serif;font-size:2.1rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1;}
-.paywall-lede{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;color:var(--text-dim);line-height:1.7;margin-bottom:18px;font-weight:300;}
-.paywall-list{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:8px;}
-.paywall-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.94rem;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
-.paywall-list li::before{content:'\25C6';color:var(--gold);position:absolute;left:0;top:.1em;font-size:.85rem;}
-.paywall-list strong{color:var(--white);font-weight:600;}
-.paywall-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px;}
-.paywall-btn-primary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--bg);padding:14px 28px;border:1px solid var(--gold);transition:all .2s;}
-.paywall-btn-primary:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 16px rgba(212,160,64,.4);}
-.paywall-footnote{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);margin-top:14px;line-height:1.7;}
-.paywall-footnote a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);}
-.paywall-footnote a:hover{color:var(--gold-hi);}
-</style>
+  <!-- SECTION I: KEY JUDGMENTS -->
+  <div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Key Judgments</h2>
+  <div class="kj-block">
 
-<style>
-.paywall-cta{margin:48px 0;background:linear-gradient(180deg,rgba(212,160,64,.05),rgba(6,12,20,0));border:1px solid rgba(212,160,64,.35);border-left:5px solid var(--gold);padding:48px 40px;position:relative;}
-.paywall-cta::before{content:'FREE DURING PREVIEW PERIOD';font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:36px;background:#060c14;padding:0 8px;transform:translateY(-50%);font-weight:600;}
-.paywall-cta-inner{max-width:680px;}
-.paywall-eyebrow{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:14px;}
-.paywall-title{font-family:'Rajdhani',sans-serif;font-size:2.1rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1;}
-.paywall-lede{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;color:var(--text-dim);line-height:1.7;margin-bottom:18px;font-weight:300;}
-.paywall-list{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:8px;}
-.paywall-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.94rem;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
-.paywall-list li::before{content:'\25C6';color:var(--gold);position:absolute;left:0;top:.1em;font-size:.85rem;}
-.paywall-list strong{color:var(--white);font-weight:600;}
-.paywall-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px;}
-.paywall-btn-primary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--bg);padding:14px 28px;border:1px solid var(--gold);transition:all .2s;}
-.paywall-btn-primary:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 16px rgba(212,160,64,.4);}
-.paywall-footnote{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);margin-top:14px;line-height:1.7;}
-.paywall-footnote a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);}
-.paywall-footnote a:hover{color:var(--gold-hi);}
-</style>
-
-<div class="paywall-cta">
-  <div class="paywall-cta-inner">
-    <div class="paywall-eyebrow">Continue Reading — No Subscription Required</div>
-    <h2 class="paywall-title">Read the full brief.</h2>
-    <p class="paywall-lede">
-      This issue is free to read in full during the Alamo Threat Brief preview period.
-      The remaining sections:
-    </p>
-    <ul class="paywall-list">
-      <li><strong>What Changed This Week</strong> — cross-sector incident analysis</li>
-      <li><strong>Key Judgments</strong> with ICD-203 confidence levels</li>
-      <li><strong>Geopolitical Driver</strong> — power, conflict, and consequence</li>
-      <li><strong>Cross-Sector Cascade Assessment</strong> — Energy, Finance, Healthcare, DIB, AI</li>
-      <li><strong>Indicators &amp; Warnings</strong> — forward-looking PIRs, 1 to 4 weeks</li>
-      <li><strong>Governance Implication Block</strong> — Decision / Owner / Action / Record</li>
-      <li><strong>Open Source Basis</strong> — primary government and regulatory sourcing</li>
-    </ul>
-    <div class="paywall-actions">
-      <a href="./full.html" class="paywall-btn-primary">Read Full Brief &rarr;</a>
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Texas energy and logistics infrastructure faces elevated operational risk this summer from the intersection of confirmed adversary OT targeting, ERCOT grid instability pressure, and the dependency gap between how fast AI and crypto load is connecting and how its grid behavior is modeled. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Basis: CISA/FBI/NSA/DOE/EPA/TSA/DOT/USDA joint ATG advisory (June 2); ERCOT May 21 internal report; ERCOT Board statements June 3 (Jeff Billo on record). Primary uncertainty: no confirmed Texas ATG compromise identified this week; this is an analytic inference from confirmed national-level exploitation and local infrastructure density.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Continuity plans built on grid stability and uninterrupted fuel supply must be stress-tested before July 4.</div>
+      </div>
     </div>
-    <p class="paywall-footnote">
-      The full brief will become subscriber-only when paid access opens.
-      Get notified: <a href="https://libertycti.substack.com" target="_blank" rel="noopener">subscribe to the free weekly executive summary &rarr;</a>
-    </p>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        China and North Korea are running structurally identical human access operations through professional networking platforms simultaneously. Texas DIB contractors, AI developers, and cleared personnel face a multi-adversary insider threat environment that a single vetting policy must address. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Basis: Five Eyes &ldquo;Safeguarding Our Secrets&rdquo; bulletin (June 3, 2026); DOJ DPRK RevGen Initiative sentencing records (April 2026). No Texas-named victim identified this week.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Pre-hire vetting and contractor access reviews should be elevated for any role touching classified programs, AI development, or crypto custody.</div>
+      </div>
+    </div>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        The April 8 U.S.-Iran ceasefire is fraying. Iran&rsquo;s active OT disruption campaign against U.S. critical infrastructure (confirmed since March 2026) has not stood down. A ceasefire collapse would <span class="aq">almost certainly</span> produce an immediate surge in Iranian cyber operations against energy, water, and fuel infrastructure. <span class="conf conf-high">HIGH CONFIDENCE</span> on intent; <span class="conf conf-mod">MODERATE CONFIDENCE</span> on timeline.
+        <div class="kj-uncertainty">Basis: CISA advisory AA26-097A (April 7, 2026); CENTCOM public statement June 5; CNN/Gulf News live coverage of Gulf of Oman incident. ATG campaign attribution to Iran not formally established&mdash;treated as plausible, not confirmed.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Texas energy and fuel operators should treat the ceasefire as temporary and maintain elevated OT monitoring posture.</div>
+      </div>
+    </div>
+
   </div>
-</div>
+
+  <!-- SECTION II: GEOPOLITICAL ENVIRONMENT -->
+  <div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Geopolitical Environment &mdash; The Four Actors</h2>
+  <p style="margin-bottom:1.4rem;color:var(--text-secondary);font-size:0.92rem;">Developments from 31 May&ndash;6 June 2026 assessed for secondary and tertiary implications to Texas operators. Strategic signal only&mdash;no tactical detail.</p>
+
+  <h3 class="sub-head">China &mdash; Human Intelligence Pivot at Scale</h3>
+  <p>On June 3, the Five Eyes alliance issued its first-ever joint public bulletin warning that Chinese military intelligence is systematically recruiting government, military, and defense personnel through LinkedIn, Indeed, and Upwork using fake HR firms and bogus analyst roles. The joint, public character of this advisory is the signal: Five Eyes agencies coordinate publicly only when a campaign has reached sufficient scale to require collective deterrence. For Texas, JBSA-area contractors, cleared veterans, and defense-adjacent researchers are the target profile. This campaign runs parallel to Volt Typhoon&rsquo;s confirmed pre-positioning in U.S. critical infrastructure&mdash;one collects credentials and human intelligence; the other maintains persistent technical access. Both are part of the same collection architecture.</p>
+
+  <h3 class="sub-head">Russia &mdash; Stalemate Preserves Pre-Positioning Incentive</h3>
+  <p>No new Russian advisory was issued this week. Diplomatic efforts toward a Ukraine ceasefire remain stalled; brief holiday truces (April, May) were violated by both sides. The structural conditions driving Russian cyber escalation are unchanged. GRU-linked Sandworm (APT44) continues a confirmed, multi-year campaign targeting Western energy sector edge devices and cloud infrastructure, documented through 2026 by Amazon threat intelligence. Texas LNG export terminals and pipeline operators remain inside the assessed target set. No current-week escalation indicator&mdash;but no peace framework either.</p>
+
+  <h3 class="sub-head">Iran &mdash; Ceasefire Fraying; OT Campaign Active</h3>
+  <p>The April 8 ceasefire is visibly stressed. On June 5, Iran&rsquo;s navy claimed it fired warning shots at U.S. destroyers in the Gulf of Oman; CENTCOM denied the vessels were fired upon and called any such action a &ldquo;gross violation of the ceasefire.&rdquo; Israeli operations against Hezbollah in Lebanon are intensifying; Hezbollah rejected the Lebanon ceasefire and is not party to the U.S.-Iran agreement. A permanent deal remains contingent on disputed frozen asset terms. Iranian-affiliated APT actors have been confirmed disrupting U.S. OT since March 2026 (CISA AA26-097A). FBI and CISA have specifically warned that Iranian-affiliated groups may act independently of ceasefire terms. Texas petroleum storage, pipeline OT, and fuel distribution are inside the assessed Iranian targeting envelope. A ceasefire collapse is the key escalation signal to watch.</p>
+
+  <h3 class="sub-head">North Korea &mdash; Financial Warfare and Platform Overlap</h3>
+  <p>DPRK-attributed actors stole approximately $577 million in cryptocurrency through April 2026, accounting for 76% of global recorded crypto losses, driven by two high-value attacks (Drift Protocol and KelpDAO). DOJ&rsquo;s April 2026 sentencing records from the RevGen Initiative confirmed DPRK IT workers successfully penetrated military contractors and AI companies. The structural overlap with China&rsquo;s LinkedIn campaign is not coincidental&mdash;professional platform recruitment is now the dominant human access vector across multiple adversaries simultaneously. Texas financial institutions with crypto asset exposure, fintech operators, and any organization with DPRK-attractive remote work structures should treat this as an active targeting environment, not a theoretical risk.</p>
+
+  <div class="warning-box">
+    <p><strong>Four-Actor Convergence:</strong> All four adversaries are targeting the same two vulnerability surfaces this week&mdash;human access via professional platforms (China, DPRK) and internet-exposed OT (Iran, Russia). The same two control points&mdash;pre-hire vetting and OT network isolation&mdash;address threats from all four actors simultaneously. This is not a coincidence; it reflects where U.S. critical infrastructure is weakest.</p>
+  </div>
+
+  <!-- SECTION III: CROSS-SECTOR IMPLICATIONS -->
+  <div class="section-rule"><span class="section-tag">Section III</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Cross-Sector Implications</h2>
+  <div class="implications-table">
+
+    <div class="implication-row energy">
+      <div class="implication-sector">Energy<span>OT &amp; Grid Stability</span></div>
+      <div class="implication-content">
+        <p>The ATG advisory is a network architecture problem, not a patch advisory. Systems that should never have been internet-connected are reachable on port 10001. Shadowserver confirmed 909 U.S. exposures on June 5. A compromised ATG can mask fuel levels, generate false leak alerts, or create safety incidents. Isolation is the required action. Separately, ERCOT has documented 26 abrupt data center disconnection events since 2023. Four more failed voltage ride-through tests in May. If an adversary induces a grid disturbance during peak summer demand, these facilities become instability amplifiers. Grid stability cannot be assumed as a continuity planning input this summer.</p>
+      </div>
+    </div>
+
+    <div class="implication-row finance">
+      <div class="implication-sector">Finance<span>CIRCIA &amp; Macro Risk</span></div>
+      <div class="implication-content">
+        <p>The May jobs report (172,000 added; BLS, June 6) drove the 10-year Treasury above 4.54% and the Nasdaq down over 4%. Rising rates historically correlate with deferred security investment and reduced third-party vendor oversight&mdash;directly compounding CIRCIA compliance risk. The June 18 CIRCIA town hall covers financial services. This is the final structured opportunity to shape scope, burden, and reporting thresholds before the final rule sets obligations. Texas banks, credit unions, and insurance carriers that have not engaged should treat this week as the last actionable window. DPRK is an active adversary for any Texas institution with crypto asset exposure or digital custody services.</p>
+      </div>
+    </div>
+
+    <div class="implication-row healthcare">
+      <div class="implication-sector">Healthcare / DIB / AI<span>CIRCIA, Insider Threat, Grid</span></div>
+      <div class="implication-content">
+        <p>Healthcare ransomware pressure remains elevated (per ATB-2026-10, ATB-2026-11; no new Texas-named incident this week). The June 16 CIRCIA session covers healthcare and public health. The threshold question for health system leadership: does a ransomware event affecting your revenue cycle clearinghouse constitute a &ldquo;covered cyber incident&rdquo;&mdash;and who is your designated reporter? For DIB contractors: the June 18 session covers defense industrial base. DFARS obligations may impose more stringent CIRCIA requirements. JBSA-area contractors should treat the Five Eyes China advisory as a direct personnel security requirement, not background noise. For AI infrastructure operators: the ERCOT voltage test failures are a current-cycle interconnection risk, not a future planning issue. Expect redesign requirements, delayed timelines, and heightened PUCT scrutiny as Batch Zero rules advance toward a June 18 vote.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION IV: INDICATORS TO WATCH -->
+  <div class="section-rule"><span class="section-tag">Section IV</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Indicators to Watch</h2>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">IND 1</span>
+      <span class="prq-title">ATG Operational Impact</span>
+      <span class="prq-risk risk-rising">&#8593; Rising</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>CISA or FBI confirms operational disruption at a U.S. fuel or chemical facility linked to ATG compromise&mdash;masked fuel levels, false leak alerts, or regulatory shutdown. Transitions the campaign from access to harm. <em>Timeframe: 1&ndash;2 weeks.</em></li>
+    </ul>
+  </div>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">IND 2</span>
+      <span class="prq-title">ERCOT Summer Reliability Action</span>
+      <span class="prq-risk risk-rising">&#8593; Rising</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>ERCOT issues Conservation Appeal, Emergency Alert, or EEA Level 1 before July 4&mdash;particularly if coinciding with abrupt large-load disconnection. Watch also for PUCT finalizing Batch Zero ride-through rules at its June 18 vote, which could force data center disconnections. <em>Timeframe: 2&ndash;6 weeks.</em></li>
+    </ul>
+  </div>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">IND 3</span>
+      <span class="prq-title">ATG Attribution</span>
+      <span class="prq-risk risk-sustained">&#8594; Sustained</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Federal agencies formally attribute the ATG campaign to a nation-state actor. Iran is the assessed leading suspect based on prior multi-state ATG investigation reporting. Formal attribution shifts the threat from opportunistic exploitation to deliberate infrastructure coercion. <em>Timeframe: 2&ndash;4 weeks.</em></li>
+    </ul>
+  </div>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">IND 4</span>
+      <span class="prq-title">Iran Ceasefire Status</span>
+      <span class="prq-risk risk-rising">&#8593; Rising</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Gulf of Oman naval incident (June 5) represents active ceasefire stress. Watch for CENTCOM-confirmed hostile fire, Israeli strikes on Iranian territory, or Iranian-affiliated hacktivist escalation claims against U.S. energy targets. Any of these would signal transition from competition to crisis-phase OT operations. <em>Timeframe: 1&ndash;3 weeks.</em></li>
+    </ul>
+  </div>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">IND 5</span>
+      <span class="prq-title">CIRCIA Final Rule Signal</span>
+      <span class="prq-risk risk-sustained">&#8594; Sustained</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Post-town-hall CISA communications (June 15&ndash;18) signaling scope expansion or contraction for covered entities. Expanded definitions trigger immediate compliance escalation inside Texas operators. Narrowed definitions reduce near-term burden but reduce incident visibility. Either outcome reshapes the governance posture of every Texas critical infrastructure operator. <em>Timeframe: 4&ndash;8 weeks.</em></li>
+    </ul>
+  </div>
+
+  <!-- SECTION V: GOVERNANCE IMPLICATION BLOCK -->
+  <div class="section-rule"><span class="section-tag">Section V</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Governance Implication Block</h2>
+  <div class="gov-block">
+    <div class="gov-row">
+      <div class="gov-label">Decision at risk</div>
+      <div class="gov-content">Whether ATG systems have been isolated from internet access and CIRCIA reporting obligations have been assigned before the June 15&ndash;18 town halls close the stakeholder input window.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Owner</div>
+      <div class="gov-content">CISO / COO / General Counsel, jointly. ATG isolation is an OT operations decision. CIRCIA designation is a legal and compliance decision. Neither can be delegated to IT alone.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Consequence of delay</div>
+      <div class="gov-content">ATG systems that remain internet-exposed after a confirmed active exploitation campaign have no defensible posture in a regulatory inquiry or liability proceeding following an incident. Organizations that miss CIRCIA town halls waive their most direct opportunity to shape compliance thresholds before they are fixed.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Action this week</div>
+      <div class="gov-content">
+        1. Direct OT team to confirm internet exposure status of all ATG systems and isolate any exposed systems from internet access&mdash;isolation, not password hardening.<br>
+        2. Register for the applicable CIRCIA town hall before June 13 (two-business-day registration deadline).<br>
+        3. Assign CIRCIA reporting designate in writing before June 18.<br>
+        4. Brief board or risk committee on ERCOT voltage failures and summer continuity assumptions this week.
+      </div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Record to preserve</div>
+      <div class="gov-content">Board minutes documenting awareness of the June 2 ATG advisory and ERCOT findings. Written CIRCIA reporting authority assignment. ATG isolation assessment or accepted-risk documentation. CIRCIA town hall registration or participation records.</div>
+    </div>
+  </div>
+
+  <!-- SECTION VI: SOURCING -->
+  <div class="section-rule"><span class="section-tag">Section VI</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Open Source Basis</h2>
+  <div class="src-block">
+    <div class="src-header">PRIMARY SOURCES &mdash; ATB-2026-13 &mdash; COVERAGE WEEK 31 MAY&ndash;6 JUNE 2026</div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">CISA/FBI/NSA/DOE/EPA/TSA/DOT/USDA &mdash; Joint Fact Sheet: Hardening Automatic Tank Gauge Systems</div>
+      <a class="src-url" href="https://www.cisa.gov/resources-tools/resources/cisa-and-partners-urge-hardening-automatic-tank-gauge-systems" target="_blank" rel="noopener">cisa.gov/resources-tools/resources/cisa-and-partners-urge-hardening-automatic-tank-gauge-systems</a>
+      <div class="src-note">June 2, 2026. Basis for Executive Warning, Dominant Judgment, Energy Implication, IND-1, IND-3, and Governance Block.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">NSA &mdash; Press Release: Guidance on Hardening Automatic Tank Gauge Systems</div>
+      <a class="src-url" href="https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4507204/" target="_blank" rel="noopener">nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4507204/</a>
+      <div class="src-note">June 3, 2026. Confirms joint intelligence community engagement on ATG advisory.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">CISA &mdash; Advisory AA26-097A: Iranian-Affiliated Actors Exploit PLCs Across U.S. Critical Infrastructure</div>
+      <a class="src-url" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener">cisa.gov/news-events/cybersecurity-advisories/aa26-097a</a>
+      <div class="src-note">April 7, 2026. Carried forward as continuing baseline; current-week ceasefire escalation is new development. Basis for KJ-3 and Iran section.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">CISA ICS Advisories &mdash; ICSA-26-155-01 through ICSA-26-155-05</div>
+      <a class="src-url" href="https://www.cisa.gov/news-events/ics-advisories" target="_blank" rel="noopener">cisa.gov/news-events/ics-advisories</a>
+      <div class="src-note">June 4, 2026. Five ICS advisories including Hitachi Energy MACH HiDraw (Energy, Dams, Transportation). Background context for OT vulnerability environment.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">Federal Register &mdash; CIRCIA Town Hall Meetings Rulemaking Notice</div>
+      <a class="src-url" href="https://www.federalregister.gov/documents/2026/05/26/2026-10417/" target="_blank" rel="noopener">federalregister.gov/documents/2026/05/26/2026-10417/</a>
+      <div class="src-note">May 26, 2026. Basis for Finance, Healthcare, DIB implications; IND-5; Governance Block.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">U.S. Bureau of Labor Statistics &mdash; Employment Situation, May 2026</div>
+      <a class="src-url" href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener">bls.gov/news.release/empsit.nr0.htm</a>
+      <div class="src-note">June 6, 2026. 172,000 jobs added; 4.3% unemployment. Basis for Finance macro context.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">ERCOT &mdash; NOGRR 282 / NPRR 1308: Large Electronic Load Ride-Through Requirements</div>
+      <a class="src-url" href="https://www.ercot.com/files/docs/2025/12/01/6.2-NOGRR282-Large-Electronic-Load-Ride-Through-Requirements-and-NPRR1308.pdf" target="_blank" rel="noopener">ercot.com &mdash; NOGRR 282 / NPRR 1308</a>
+      <div class="src-note">Board-approved June 3, 2026. PUC vote on Batch Zero rules scheduled June 18. Basis for Energy implication and IND-2.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">ERCOT &mdash; Market Notice M-B062325-01: Large Load Voltage Ride-Through Survey</div>
+      <a class="src-url" href="https://www.ercot.com/services/comm/mkt_notices/M-B062325-01" target="_blank" rel="noopener">ercot.com/services/comm/mkt_notices/M-B062325-01</a>
+      <div class="src-note">June 23, 2025. Establishes 2,600 MW maximum sustainable load loss threshold. Carried forward as continuing baseline.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">Texas DIR &mdash; Cybersecurity Functions Transition to Texas Cyber Command</div>
+      <a class="src-url" href="https://dir.texas.gov/news/cybersecurity-functions-transition-texas-cyber-command" target="_blank" rel="noopener">dir.texas.gov/news/cybersecurity-functions-transition-texas-cyber-command</a>
+      <div class="src-note">April 9, 2026. Confirms TXCC operational status and Dec. 31, 2026 full transfer deadline.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">INTELLIGENCE COMMUNITY</div>
+      <div class="src-title">FBI/MI5/CSIS/ASIO/NZSIS &mdash; Joint Bulletin: &ldquo;Safeguarding Our Secrets&rdquo;</div>
+      <a class="src-url" href="https://www.fbi.gov" target="_blank" rel="noopener">fbi.gov &mdash; joint bulletin via Five Eyes partner agencies</a>
+      <div class="src-note">June 3, 2026. First-ever joint Five Eyes public advisory on Chinese military intelligence LinkedIn recruitment. Basis for KJ-2 and China section.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">SECONDARY</div>
+      <div class="src-title">ERCOT Board Meeting &mdash; Reported by E&amp;E News (Shelby Webb) / Reuters (Tim McLaughlin)</div>
+      <a class="src-url" href="https://www.eenews.net/articles/texas-advances-major-grid-rules-for-data-centers/" target="_blank" rel="noopener">eenews.net/articles/texas-advances-major-grid-rules-for-data-centers/</a>
+      <div class="src-note">June 3&ndash;5, 2026. Cites ERCOT May 21 internal report and on-record statements by ERCOT VP Jeff Billo and CEO Pablo Vegas. Credible secondary citation of primary ERCOT filings.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">SECONDARY</div>
+      <div class="src-title">TRM Labs &mdash; North Korea Crypto Theft Attribution 2026</div>
+      <a class="src-url" href="https://www.trmlabs.com/resources/blog/north-korea-stole-76-of-all-crypto-hack-value-in-2026-with-just-two-attacks" target="_blank" rel="noopener">trmlabs.com/resources/blog/</a>
+      <div class="src-note">April 30, 2026. DPRK attributed $577M through April 2026; 76% of global recorded crypto losses. TRM Labs is a recognized blockchain intelligence firm. Basis for DPRK section.</div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- TORCH FUSION CYCLE -->
+  <div class="torch-note">
+    <div class="torch-label">// Torch Fusion Cycle &mdash; ATB-2026-13</div>
+    <p><strong>WHAT:</strong> Eight federal agencies confirmed active adversary exploitation of automatic tank gauge systems across U.S. fuel and energy infrastructure (June 2). ERCOT disclosed four data center and crypto facility groups failed voltage ride-through tests, confirming Texas&rsquo;s largest new grid loads may amplify rather than absorb disturbances (June 5). The Five Eyes issued their first-ever joint advisory on Chinese military intelligence LinkedIn recruitment targeting DIB and cleared personnel (June 3). The Iran ceasefire frayed visibly at sea on June 5.</p>
+    <p><strong>WHO:</strong> ATG campaign: unattributed federally; Iran assessed as leading suspect. ERCOT failures: unnamed large load operators. Most exposed this week: Texas fuel distributors and pipeline OT operators; JBSA-area DIB contractors; Texas health systems and finance firms facing CIRCIA deadlines; AI data center operators awaiting PUCT Batch Zero vote June 18.</p>
+    <p><strong>WHY:</strong> Texas is the concentration point for U.S. AI compute infrastructure, LNG export capacity, and energy market pricing. Adversaries do not need to defeat every target. They need to disrupt the weakest accessible link in the dependency chain. Internet-exposed ATG systems are that link. Voltage-unstable AI loads are the amplifier.</p>
+    <p><strong>WHAT NEXT:</strong> CIRCIA town halls begin June 15. PUCT Batch Zero vote June 18. Peak summer demand weeks away. ATG systems still exposed have no defensible posture. The governance clock is running.</p>
+  </div>
+
+  <p style="text-align:center;font-size:0.82rem;color:var(--text-secondary);margin-top:2rem;">
+    Liberty CTI &mdash; San Antonio, Texas &mdash; <a href="https://libertycti.com" style="color:var(--accent);">libertycti.com</a> &mdash; ATB-2026-13 &mdash; 7 June 2026
+  </p>
 
 </div><!-- /page-body -->
 
-<!-- BRIEF FOOTER -->
-<div class="brief-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">Liberty Cyber Threat Intelligence — libertycti.com</div>
-    <div class="footer-legal">THE ALAMO THREAT BRIEF // ATB-2026-7 // 26 APRIL 2026<br>UNCLASSIFIED // OPEN SOURCE // LIBERTY CTI PROPRIETARY<br>© 2026 LIBERTY CTI LLC. ALL RIGHTS RESERVED.<br>NOT FOR PUBLIC DISTRIBUTION WITHOUT AUTHORIZATION.</div>
-  </div>
-</div>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:START -->
-<style>
-.lcti-footer{background:#080c10!important;border-top:1px solid rgba(184,150,62,.2)!important;padding:4rem 2.5rem 2rem!important;font-family:'Instrument Sans',Arial,sans-serif!important;color:#f4efe6!important;clear:both!important}
-.lcti-footer-inner{max-width:1100px!important;margin:0 auto!important;display:grid!important;grid-template-columns:1.6fr 1fr 1fr 1fr!important;gap:3rem!important;align-items:start!important}
-.lcti-footer-brand-row{display:flex!important;align-items:center!important;gap:.75rem!important;margin-bottom:1rem!important}
-.lcti-footer img.lcti-footer-emblem{width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important;object-fit:contain!important;display:block!important;flex:0 0 36px!important}
-.lcti-footer-brand-name{font-family:'Playfair Display',Georgia,serif!important;font-size:1rem!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#f4efe6!important;line-height:1.2!important}
-.lcti-footer-brand-name span{color:#b8963e!important}
-.lcti-footer-tagline{font-size:1rem!important;font-weight:500!important;color:rgba(244,239,230,.78)!important;line-height:1.72!important;max-width:280px!important;margin:0 0 1.25rem!important}
-.lcti-footer-slogan,.lcti-footer-col-title{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.94rem!important;font-weight:500!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#d4af62!important;line-height:1.45!important;margin:0 0 .9rem!important;display:block!important}
-.lcti-footer-links{list-style:none!important;margin:0!important;padding:0!important}
-.lcti-footer-links li{margin:0 0 .45rem!important;padding:0!important}
-.lcti-footer-links a{font-size:.98rem!important;font-weight:500!important;line-height:1.55!important;color:rgba(244,239,230,.74)!important;text-decoration:none!important;transition:color .2s!important}
-.lcti-footer-links a:hover{color:#b8963e!important}
-.lcti-footer-links a.lcti-atb-link{color:#d6554a!important;font-weight:600!important}
-.lcti-footer-bottom{max-width:1100px!important;margin:3rem auto 0!important;border-top:1px solid rgba(184,150,62,.12)!important;padding-top:1.25rem!important;display:flex!important;justify-content:space-between!important;align-items:center!important;flex-wrap:wrap!important;gap:.5rem!important}
-.lcti-footer-copy{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.86rem!important;font-weight:600!important;letter-spacing:.04em!important;color:rgba(244,239,230,.56)!important;line-height:1.5!important}
-@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr!important;gap:2rem!important}}
-@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr!important}.lcti-footer{padding:2.5rem 1.25rem 1.5rem!important}.lcti-footer-bottom{flex-direction:column!important;align-items:flex-start!important}}
-</style>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:END --><!-- LCTI:FOOTER:START -->
+<!-- SITE FOOTER -->
+<!-- LCTI:FOOTER:START -->
 <style>
 .lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
 .lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
@@ -1561,7 +1748,7 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="../../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
       <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
@@ -1571,31 +1758,31 @@ body [style*="Instrument Sans"]{
     <div>
       <span class="lcti-footer-col-title">Products</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../../decision-support.html">Products &amp; Services</a></li>
-        <li><a href="../../../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
-        <li><a href="../../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="../../../sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="../../decision-support.html">Products &amp; Services</a></li>
+        <li><a href="../../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../../sector-assessments.html">Sector Assessments</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Texas Focus</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../../texas-focus.html">Texas Overview</a></li>
-        <li><a href="../../../energy-ercot.html">Energy &amp; ERCOT</a></li>
-        <li><a href="../../../defense-dib.html">Defense Industrial Base</a></li>
-        <li><a href="../../../financial.html">Financial Services</a></li>
-        <li><a href="../../../healthcare.html">Healthcare</a></li>
-        <li><a href="../../../Energy_data_AI.html">AI Convergence</a></li>
+        <li><a href="../../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../../financial.html">Financial Services</a></li>
+        <li><a href="../../healthcare.html">Healthcare</a></li>
+        <li><a href="../../Energy_data_AI.html">AI Convergence</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../../briefing-request.html">Request an Executive Briefing</a></li>
-        <li><a href="../../../briefing-request.html">Discuss a Retainer</a></li>
-        <li><a href="../../../contact.html">Contact</a></li>
+        <li><a href="../../briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="../../briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>

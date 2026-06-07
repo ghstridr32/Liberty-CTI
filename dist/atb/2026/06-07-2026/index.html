@@ -2,933 +2,248 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#060c14">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alamo Threat Brief | 22 March 2026 | Liberty CTI</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<title>The Alamo Threat Brief ATB-2026-13 | Week of May 31 – Jun 6, 2026 | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #08142A;
-    --navy-mid: #0D1F42;
-    --navy-light: #132554;
-    --gold: #C9A84C;
-    --gold-light: #E2C47A;
-    --gold-dim: #8A6E30;
-    --white: #F4F0E8;
-    --off-white: #EAE4D6;
-    --gray: #9A9080;
-    --red: #C1272D;
-    --red-dim: #7A1A1F;
-    --amber: #D4831A;
-    --green: #2A6B4A;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-  padding-top: 66px;
-    background: var(--white);
-    color: var(--navy);
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  /* ── CLASSIFICATION BANNER ── */
-  .class-banner {
-    background: var(--navy);
-    color: var(--gold);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-align: center;
-    padding: 8px 20px;
-    text-transform: uppercase;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 2px solid var(--gold);
-  }
-
-  /* ── MASTHEAD ── */
-  .masthead {
-    background: var(--navy);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .masthead::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 40px,
-        rgba(201,168,76,0.03) 40px,
-        rgba(201,168,76,0.03) 41px
-      );
-  }
-
-  .masthead-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 40px 40px 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .masthead-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-bottom: 1px solid rgba(201,168,76,0.25);
-    padding-bottom: 28px;
-  }
-
-  .emblem-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 40px 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .emblem-hero {
-    width: 110px;
-    height: 110px;
-    margin-bottom: 16px;
-    filter: drop-shadow(0 0 22px rgba(201,168,76,0.45));
-  }
-
-  .masthead-brand { flex: 1; position: relative; }
-
-  .alamo-silhouette {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-    width: 320px;
-    opacity: 0.07;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-  }
-
-  .brand-name, .product-name {
-    position: relative;
-    z-index: 1;
-  }
-
-  .brand-name {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .product-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-  }
-
-  .masthead-meta {
-    display: flex;
-    gap: 40px;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-  }
-
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .meta-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--gold-dim);
-    text-transform: uppercase;
-  }
-
-  .meta-value {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--gold);
-    font-weight: 600;
-  }
-
-  .threat-level-bar {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px 0;
-  }
-
-  .tl-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gray);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .tl-dots {
-    display: flex;
-    gap: 6px;
-  }
-
-  .tl-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.2);
-  }
-
-  .tl-dot.active { background: var(--red); border-color: var(--red); box-shadow: 0 0 8px rgba(193,39,45,0.6); }
-  .tl-dot.active.gold { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
-
-  .tl-status {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--red);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  /* ── TICKER ── */
-  .ticker-strip {
-    background: var(--red-dim);
-    border-top: 1px solid var(--red);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 8px 0;
-    cursor: pointer;
-  }
-
-  .ticker-strip:hover .ticker-inner { animation-play-state: paused; }
-
-  .ticker-inner {
-    display: inline-block;
-    animation: ticker 40s linear infinite;
-  }
-
-  .ticker-inner a.ticker-item {
-    display: inline;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 14px;
-    color: var(--white);
-    letter-spacing: 1.5px;
-    padding: 0 60px;
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .ticker-inner a.ticker-item:hover {
-    color: var(--gold-light);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .ticker-inner a.ticker-item::before {
-    content: '◆ ';
-    color: var(--gold);
-  }
-
-  @keyframes ticker {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* ── LAYOUT ── */
-  .page-body {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 40px 80px;
-  }
-
-  /* ── TIMESTAMP BAR ── */
-  .timestamp-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 14px;
-    border-top: 1px solid rgba(201,168,76,0.12);
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .timestamp-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .timestamp-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 6px rgba(201,168,76,0.7);
-    animation: pulse-dot 2s ease-in-out infinite;
-    flex-shrink: 0;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(201,168,76,0.7); }
-    50%       { opacity: 0.5; box-shadow: 0 0 2px rgba(201,168,76,0.3); }
-  }
-  .timestamp-text {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: rgba(201,168,76,0.65);
-    text-transform: uppercase;
-  }
-  .timestamp-text strong {
-    color: var(--gold);
-    font-weight: 600;
-  }
-
-  /* ── SECTION HEADERS ── */
-  .section-rule {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 48px 0 24px;
-  }
-
-  .section-rule-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, var(--navy), transparent);
-  }
-
-  .section-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    background: var(--navy);
-    padding: 4px 14px;
-    border-radius: 2px;
-    white-space: nowrap;
-  }
-
-  h2.section-head {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  h3.sub-head {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--navy-light);
-    margin: 28px 0 10px;
-    border-left: 3px solid var(--gold);
-    padding-left: 12px;
-  }
-
-  p {
-    margin-bottom: 14px;
-    color: #1a2840;
-  }
-
-  /* ── KEY JUDGMENTS ── */
-  .kj-block {
-    background: var(--navy);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-left: 4px solid var(--gold);
-    padding: 32px 36px;
-    margin: 32px 0;
-    position: relative;
-  }
-
-  .kj-block::before {
-    content: 'KEY JUDGMENTS';
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 4px;
-    color: var(--gold);
-    position: absolute;
-    top: -1px;
-    left: 36px;
-    background: var(--navy);
-    padding: 0 8px;
-    transform: translateY(-50%);
-  }
-
-  .kj-item {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(201,168,76,0.12);
-  }
-
-  .kj-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-
-  .kj-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--gold-dim);
-    font-weight: 600;
-    white-space: nowrap;
-    padding-top: 3px;
-    min-width: 24px;
-  }
-
-  .kj-text {
-    font-family: 'Source Serif 4', serif;
-    font-size: 15px;
-    color: var(--off-white);
-    line-height: 1.65;
-  }
-
-  /* ── WARNING BOX ── */
-  .warning-box {
-    background: rgba(193,39,45,0.06);
-    border: 1px solid rgba(193,39,45,0.3);
-    border-left: 4px solid var(--red);
-    padding: 20px 24px;
-    margin: 24px 0;
-    position: relative;
-  }
-
-  .warning-box::before {
-    content: '⚠ CRITICAL INTELLIGENCE WARNING';
-    display: block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--red);
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
-  .warning-box p {
-    color: #1a2840;
-    font-size: 15px;
-    margin: 0;
-  }
-
-  /* ── ASSESSMENT BOX ── */
-  .assessment-box {
-    background: rgba(8,20,42,0.05);
-    border: 1px solid rgba(8,20,42,0.12);
-    border-left: 3px solid var(--navy-light);
-    padding: 18px 22px;
-    margin: 20px 0;
-  }
-
-  .assessment-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--navy-mid);
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .assessment-box p {
-    margin: 0;
-    font-size: 15px;
-    font-style: italic;
-    color: var(--navy);
-  }
-
-  /* ── CONFIDENCE BADGES ── */
-  .conf {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 2px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 2px;
-    text-transform: uppercase;
-    vertical-align: middle;
-    margin-left: 4px;
-  }
-
-  .conf-high {
-    background: rgba(255,255,255,0.12);
-    color: #FFFFFF;
-    border: 1px solid rgba(255,255,255,0.45);
-  }
-
-  .conf-mod {
-    background: rgba(201,168,76,0.22);
-    color: var(--gold-light);
-    border: 1px solid var(--gold);
-  }
-
-  .conf-low {
-    background: rgba(154,144,128,0.2);
-    color: #C8BFB0;
-    border: 1px solid #9A9080;
-  }
-
-  /* Override for light-background contexts */
-  .pir-body .conf-high,
-  .outlook-content .conf-high {
-    background: rgba(8,20,42,0.08);
-    color: var(--navy);
-    border: 1px solid var(--navy-light);
-  }
-
-  .pir-body .conf-mod,
-  .outlook-content .conf-mod {
-    background: rgba(201,168,76,0.12);
-    color: var(--gold-dim);
-    border: 1px solid var(--gold-dim);
-  }
-
-  .pir-body .conf-low,
-  .outlook-content .conf-low {
-    background: rgba(154,144,128,0.1);
-    color: #6B6055;
-    border: 1px solid var(--gray);
-  }
-
-  /* ── THREAT MATRIX TABLE ── */
-  .threat-matrix {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0;
-    font-size: 13px;
-  }
-
-  .threat-matrix thead tr {
-    background: var(--navy);
-  }
-
-  .threat-matrix th {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: var(--gold);
-    text-align: left;
-    padding: 12px 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .threat-matrix td {
-    padding: 11px 14px;
-    border-bottom: 1px solid rgba(8,20,42,0.08);
-    vertical-align: top;
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-  .threat-matrix tbody tr:hover {
-    background: rgba(8,20,42,0.03);
-  }
-
-  .threat-level {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    padding: 3px 8px;
-    border-radius: 2px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .tl-critical { background: rgba(193,39,45,0.12); color: var(--red); border: 1px solid rgba(193,39,45,0.3); }
-  .tl-high { background: rgba(212,131,26,0.12); color: var(--amber); border: 1px solid rgba(212,131,26,0.3); }
-  .tl-elevated { background: rgba(201,168,76,0.12); color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3); }
-
-  /* ── PIR RESPONSES ── */
-  .pir-block {
-    border: 1px solid rgba(8,20,42,0.12);
-    margin: 20px 0;
-    overflow: hidden;
-  }
-
-  .pir-header {
-    background: var(--navy-mid);
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .pir-id {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--gold);
-    font-weight: 600;
-    background: rgba(201,168,76,0.15);
-    padding: 3px 10px;
-    border-radius: 2px;
-  }
-
-  .pir-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--off-white);
-    letter-spacing: 1px;
-  }
-
-  .pir-body {
-    padding: 18px 20px;
-    background: #FAFAF7;
-    border-top: 1px solid rgba(8,20,42,0.08);
-  }
-
-  .pir-body p {
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-
-  .pir-body p:last-child { margin-bottom: 0; }
-
-  /* ── SOURCE CITATIONS ── */
-  .icd206-block {
-    background: #F7F5F0;
-    border: 1px solid rgba(8,20,42,0.1);
-    padding: 24px 28px;
-    margin: 36px 0;
-  }
-
-  .icd206-header {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gold-dim);
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(8,20,42,0.1);
-    padding-bottom: 12px;
-    margin-bottom: 16px;
-    font-weight: 600;
-  }
-
-  .src-item {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 8px 16px;
-    margin-bottom: 12px;
-    font-size: 13px;
-    align-items: start;
-  }
-
-  .src-code {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--gold-dim);
-    font-weight: 600;
-    padding-top: 2px;
-  }
-
-  .src-desc {
-    color: #2a3a55;
-    line-height: 1.55;
-  }
-
-  .src-desc .src-title {
-    font-style: italic;
-  }
-
-  a.src-link {
-    color: var(--navy);
-    text-decoration: underline;
-    text-decoration-color: var(--gold-dim);
-    text-underline-offset: 3px;
-    transition: color 0.15s, text-decoration-color 0.15s;
-  }
-
-  a.src-link:hover {
-    color: var(--gold-dim);
-    text-decoration-color: var(--gold);
-  }
-
-  a.src-link .src-title {
-    font-style: italic;
-  }
-
-  /* ── SECTOR EXPOSURE GRID ── */
-  .sector-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .sector-card {
-    border: 1px solid rgba(8,20,42,0.1);
-    padding: 18px 20px;
-    background: #FAFAF7;
-  }
-
-  .sector-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(8,20,42,0.08);
-  }
-
-  .sector-icon {
-    font-size: 18px;
-  }
-
-  .sector-name {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--navy);
-    font-weight: 600;
-    text-transform: uppercase;
-    flex: 1;
-    margin-left: 10px;
-  }
-
-  .sector-card p {
-    font-size: 13px;
-    margin-bottom: 8px;
-    color: #2a3a55;
-  }
-
-  .sector-card p:last-child { margin-bottom: 0; }
-
-  /* ── OUTLOOK TABLE ── */
-  .outlook-row {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    border-bottom: 1px solid rgba(8,20,42,0.08);
-    gap: 0;
-  }
-
-  .outlook-row:last-child { border-bottom: none; }
-
-  .outlook-period {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--gold-dim);
-    padding: 14px 16px;
-    background: rgba(8,20,42,0.04);
-    border-right: 1px solid rgba(8,20,42,0.08);
-    display: flex;
-    align-items: flex-start;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .outlook-content {
-    padding: 14px 18px;
-    font-size: 14px;
-    color: #1a2840;
-    line-height: 1.6;
-  }
-
-  /* ── FOOTER ── */
-  .brief-footer {
-    background: var(--navy);
-    padding: 36px 40px;
-    margin-top: 60px;
-  }
-
-  .footer-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .footer-brand {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-
-  .footer-legal {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    color: rgba(201,168,76,0.4);
-    letter-spacing: 1.5px;
-    text-align: right;
-    line-height: 1.8;
-  }
-
-  /* ── DIVIDER ── */
-  .ruled-divider {
-    border: none;
-    border-top: 1px solid rgba(8,20,42,0.12);
-    margin: 36px 0;
-  }
-
-  /* ── INTRO DECK ── */
-  .intro-deck {
-    border-top: 4px solid var(--gold);
-    padding: 28px 0 0;
-    margin-bottom: 12px;
-  }
-
-  .intro-deck p {
-    font-size: 17px;
-    line-height: 1.75;
-    color: #1a2840;
-    font-weight: 300;
-  }
-
-  .intro-deck strong {
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  /* ── HIGHLIGHT PULL ── */
-  .pull-quote {
-    border-left: 3px solid var(--gold);
-    margin: 24px 0;
-    padding: 6px 0 6px 20px;
-    font-size: 17px;
-    font-style: italic;
-    color: var(--navy);
-    line-height: 1.6;
-  }
-
-  /* ── ANALYTICAL QUALIFIER ── */
-  .aq {
-    font-weight: 700;
-    color: var(--gold-light);
-  }
-
-  /* Inside the dark KJ block, strong tags also need to be light */
-  .kj-text strong {
-    color: var(--gold-light);
-  }
-
-  @media (max-width: 700px) {
-    .masthead-inner, .page-body, .brief-footer { padding-left: 20px; padding-right: 20px; }
-    .product-name { font-size: 30px; }
-    .masthead-meta { flex-wrap: wrap; gap: 20px; }
-    .sector-grid { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-    .footer-legal { text-align: left; }
-  }
-
-  @media print {
-    .class-banner { position: relative; }
-    .ticker-strip { display: none; }
-  }
-
-/* ── SITE NAV ── */
-nav { position: fixed; top: 0; width: 100%; z-index: 200; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.97); border-bottom: 1px solid rgba(184,150,62,0.2); }
-.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
-.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
-.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f4efe6; }
-.nav-wordmark span { color: #b8963e; }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: #b8963e; }
-.nav-cta { color: #b8963e !important; border: 1px solid #b8963e; padding: 0.45rem 1.1rem; }
-.nav-cta:hover { background: #b8963e !important; color: #080c10 !important; }
-.nav-links .dropdown { position: relative; }
-.nav-links .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; min-width: 260px; background: rgba(8,12,16,0.98); border: 1px solid rgba(184,150,62,0.2); padding: 0.4rem 0; list-style: none; z-index: 1000; }
-.nav-links .dropdown:hover .dropdown-menu { display: block; }
-.nav-links .dropdown::after { content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 10px; }
-.nav-links .dropdown-menu li { margin: 0; }
-.nav-links .dropdown-menu a { display: block; padding: 0.7rem 1rem; font-size: 0.64rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,239,230,0.62); text-decoration: none; white-space: nowrap; }
-.nav-links .dropdown-menu a:hover { color: #b8963e; background: rgba(184,150,62,0.06); }
-
-/* ── SITE FOOTER ── */
-.site-footer { background: #080c10; padding: 4rem 3rem 2.5rem; border-top: 1px solid rgba(184,150,62,0.2); margin-top: 0; }
-.site-footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
-.site-footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
-.site-footer-emblem { width: 38px; object-fit: contain; }
-.site-footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #f4efe6; }
-.site-footer-brand span { color: #b8963e; }
-.site-footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
-.site-footer-col-title { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: #b8963e; margin-bottom: 1.1rem; }
-.site-footer-links { list-style: none; }
-.site-footer-links li { margin-bottom: 0.5rem; }
-.site-footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
-.site-footer-links a:hover { color: #b8963e; }
-.site-footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 0.5rem; }
-.site-footer-copy { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
-
-/* ── NAV TOGGLE ── */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: 1px solid #b8963e;
-  color: #b8963e;
-  padding: 0.45rem 0.9rem;
-  font-family: 'Instrument Sans', sans-serif;
-  font-size: 0.8rem;
-  cursor: pointer;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  flex-shrink: 0;
+:root {
+  --bg:#060c14;--surface:#091424;--panel:#0c1e30;--tile:#0f2540;--lift:#122848;
+  --border:#1a3a5c;--border-hi:#2a5a8c;
+  --text:#e8f0fa;--text-dim:#c4d8ee;--text-low:#8aaece;--white:#ffffff;
+  --gold:#d4a040;--gold-hi:#f0c870;--gold-dim:rgba(212,160,64,.18);
+  --blue:#5abcf0;--blue-hi:#88d4ff;
+  --energy:#f0c060;--finance:#5abcf0;--health:#60dd98;--defense:#c098f0;--gov:#f09068;--tech:#50e0d0;
+  --danger:#f06854;--amber:#e09030;
+  --screen-glow:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(90,188,240,.08) 0%,transparent 65%);
 }
-.nav-toggle:hover { background: #b8963e; color: #080c10; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#060c14!important}
+body{background:#060c14!important;color:#e8f0fa!important;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;padding-top:56px;}
 
-/* ── DESKTOP HOVER DROPDOWN ── */
-@media (min-width: 769px) {
-  .nav-item.dropdown { position: relative; }
-  .nav-item.dropdown::after { content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 10px; }
-  .nav-item.dropdown .dropdown-menu { display: none !important; position: absolute !important; top: calc(100% + 0px) !important; left: 0 !important; min-width: 260px !important; padding: 0.4rem 0 !important; background: rgba(8,12,16,0.98) !important; border: 1px solid rgba(184,150,62,0.2) !important; border-radius: 4px !important; z-index: 1000 !important; }
-  .nav-item.dropdown:hover .dropdown-menu { display: block !important; }
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);border-bottom:1px solid rgba(212,160,64,.2);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-emblem{width:32px;height:32px;object-fit:contain;}
+.nav-wordmark{font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);}
+.nav-wordmark span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;}
+.nav-links a{font-family:'Rajdhani',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,240,250,.55);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold-hi);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{color:var(--gold)!important;border:1px solid rgba(212,160,64,.5);padding:.35rem 1rem;}
+.nav-cta:hover{background:var(--gold)!important;color:var(--bg)!important;}
+
+/* MASTHEAD */
+.masthead{background:var(--surface);position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.masthead-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.15;pointer-events:none;}
+.masthead::before{content:'';position:absolute;inset:0;background:var(--screen-glow),radial-gradient(ellipse 40% 80% at 95% 50%,rgba(212,160,64,.06) 0%,transparent 60%);pointer-events:none;}
+.masthead::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);pointer-events:none;}
+.masthead-inner{max-width:1040px;margin:0 auto;padding:36px 40px 0;position:relative;z-index:1;}
+.logo-row{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+.logo-img{width:56px;height:56px;border-radius:10px;object-fit:contain;border:1px solid rgba(212,160,64,.25);box-shadow:0 0 20px rgba(212,160,64,.15),0 4px 12px rgba(0,0,0,.5);}
+.brand-block{display:flex;flex-direction:column;gap:3px;}
+.brand-name{font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-hi);}
+.brand-sub{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-low);}
+.title-block{position:relative;z-index:1;padding:16px 0 20px;}
+.alamo-silhouette{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;max-width:820px;opacity:.055;color:var(--blue);pointer-events:none;z-index:0;}
+.title-block h1{position:relative;z-index:1;font-family:'Rajdhani',sans-serif;font-size:clamp(2.2rem,8vw,3.8rem);font-weight:700;letter-spacing:.04em;line-height:1;color:var(--white);text-shadow:0 0 40px rgba(90,188,240,.25),0 2px 20px rgba(0,0,0,.9);margin-bottom:10px;}
+.title-block h1 span{color:var(--blue);}
+.title-desc{position:relative;z-index:1;color:var(--text-dim);font-size:.92rem;font-weight:300;font-style:italic;max-width:560px;line-height:1.55;}
+.meta-row{margin-top:20px;position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;}
+.pill{border:1px solid var(--border-hi);background:rgba(90,188,240,.05);color:var(--gold);padding:6px 12px;border-radius:2px;font-family:'Rajdhani',sans-serif;font-size:1rem;line-height:1.35;font-weight:600;letter-spacing:.04em;white-space:nowrap;text-shadow:0 0 1px rgba(212,175,98,.18);}
+.pill strong{color:var(--blue);font-weight:500;}
+.threat-banner{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-top:16px;padding:9px 14px;background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:3px solid var(--danger);width:fit-content;}
+.threat-dot{width:7px;height:7px;border-radius:50%;background:var(--danger);box-shadow:0 0 8px var(--danger);animation:blink 1.4s ease-in-out infinite;flex:0 0 auto;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.threat-label{font-family:'Rajdhani',sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--danger);font-weight:600;}
+.meta-strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;border-top:1px solid var(--border);}
+.meta-cell{padding:12px 20px;border-right:1px solid var(--border);flex:1;min-width:120px;}
+.meta-cell:last-child{border-right:none;}
+.meta-lbl{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-low);margin-bottom:3px;}
+.meta-val{font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--gold);letter-spacing:.05em;}
+.timestamp-bar{position:relative;z-index:1;display:flex;align-items:center;gap:24px;padding:10px 0 14px;flex-wrap:wrap;border-top:1px solid rgba(26,58,92,.4);}
+.ts-item{display:flex;align-items:center;gap:8px;}
+.ts-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(212,160,64,.7);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
+.ts-text{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,160,64,.7);}
+.ts-text strong{color:var(--gold);}
+
+/* CLASSIFICATION */
+.cls-banner{background:rgba(90,188,240,.07);border-bottom:1px solid var(--border);padding:5px 20px;display:flex;align-items:center;justify-content:space-between;}
+.cls-text{font-family:'Share Tech Mono',monospace;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-low);}
+.cls-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--blue);opacity:.7;}
+
+/* TICKER */
+.ticker-strip{background:rgba(176,40,30,.65);border-top:1px solid rgba(240,104,84,.5);border-bottom:1px solid var(--border);overflow:hidden;white-space:nowrap;padding:8px 0;}
+.ticker-inner{display:inline-block;animation:ticker 60s linear infinite;}
+.ticker-item{display:inline;font-family:'Share Tech Mono',monospace;font-size:.82rem;color:var(--white);letter-spacing:.08em;padding:0 60px;text-decoration:none;}
+.ticker-item::before{content:'\25C6 ';color:var(--gold);}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PAGE */
+.page-body{max-width:1040px;margin:0 auto;padding:0 40px 80px;}
+
+/* SECTION RULES */
+.section-rule{display:flex;align-items:center;gap:14px;margin:48px 0 24px;}
+.section-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;background:rgba(90,188,240,.08);border:1px solid rgba(90,188,240,.25);padding:4px 12px;white-space:nowrap;}
+.section-rule-line{flex:1;height:1px;background:linear-gradient(to right,rgba(90,188,240,.4),transparent);}
+h2.section-head{font-family:'Rajdhani',sans-serif;font-size:1.7rem;font-weight:700;color:var(--white);letter-spacing:.03em;margin-bottom:6px;}
+h3.sub-head{font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:var(--blue-hi);margin:28px 0 10px;border-left:3px solid var(--blue);padding-left:12px;letter-spacing:.04em;}
+p{margin-bottom:14px;color:var(--text);}
+
+/* INTRO */
+.intro-deck{border-top:3px solid var(--blue);padding:28px 0 0;margin-bottom:12px;}
+.intro-deck p{font-size:1.06rem;line-height:1.75;color:var(--text);font-weight:300;}
+.intro-deck strong{font-weight:600;color:var(--white);}
+
+/* CENTERPIECE */
+.centerpiece{background:var(--panel);border:1px solid rgba(90,188,240,.25);border-left:5px solid var(--danger);padding:32px 36px;margin:32px 0;position:relative;}
+.centerpiece::before{content:'THIS WEEK\'S CENTERPIECE ANALYSIS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--danger);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);font-weight:600;}
+.centerpiece-title{font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:16px;letter-spacing:.02em;}
+.centerpiece p{color:var(--text);font-size:.95rem;line-height:1.72;}
+.centerpiece strong{color:var(--gold-hi);}
+
+/* KJ */
+.kj-block{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:32px 36px;margin:32px 0;position:relative;}
+.kj-block::before{content:'KEY JUDGMENTS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.kj-item{display:flex;gap:16px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(90,188,240,.12);}
+.kj-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.kj-num{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);font-weight:600;white-space:nowrap;padding-top:3px;min-width:24px;}
+.kj-text{font-size:.94rem;color:var(--text);line-height:1.68;}
+.kj-text strong{color:var(--white);font-weight:600;}
+.kj-uncertainty{font-size:.82rem;color:var(--text-low);font-style:italic;margin-top:6px;padding-top:6px;border-top:1px solid rgba(90,188,240,.08);}
+.conf{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;vertical-align:middle;margin-left:5px;}
+.conf-high{background:rgba(90,188,240,.15);color:#88d4ff;border:1px solid rgba(90,188,240,.4);}
+.conf-mod{background:rgba(212,160,64,.15);color:var(--gold-hi);border:1px solid rgba(212,160,64,.4);}
+.aq{font-weight:700;color:var(--blue-hi);}
+
+/* WARNING BOX */
+.warning-box{background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:4px solid var(--danger);padding:20px 24px;margin:24px 0;}
+.warning-box::before{content:'\26A0  CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
+.warning-box p{color:var(--text);font-size:.93rem;}
+
+/* ASSESSMENT BOX */
+.assessment-box{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:3px solid var(--blue);padding:18px 22px;margin:20px 0;}
+.assessment-label{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;}
+.assessment-box p{color:var(--text);font-size:.93rem;font-style:italic;}
+
+/* DOCTRINE GRID */
+.doctrine-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
+.doctrine-card{background:var(--panel);padding:20px;position:relative;}
+.doctrine-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;}
+.doctrine-card:nth-child(1)::before{background:linear-gradient(90deg,var(--danger),transparent 70%);}
+.doctrine-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),transparent 70%);}
+.doctrine-card:nth-child(3)::before{background:linear-gradient(90deg,var(--gold),transparent 70%);}
+.doctrine-card:nth-child(4)::before{background:linear-gradient(90deg,var(--health),transparent 70%);}
+.doctrine-label{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.18em;color:var(--text-low);text-transform:uppercase;margin-bottom:6px;}
+.doctrine-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(90,188,240,.15);letter-spacing:.04em;}
+.doctrine-card p{font-size:.82rem;color:var(--text-dim);margin-bottom:6px;line-height:1.6;}
+.doctrine-card strong{color:var(--text);}
+
+/* IMPLICATIONS */
+.implications-table{border:1px solid var(--border);margin:24px 0;}
+.implication-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid rgba(26,58,92,.5);}
+.implication-row:last-child{border-bottom:none;}
+.implication-sector{font-family:'Share Tech Mono',monospace;font-size:.65rem;font-weight:600;color:var(--gold);padding:14px 16px;background:rgba(90,188,240,.04);border-right:1px solid rgba(26,58,92,.5);display:flex;align-items:flex-start;text-transform:uppercase;letter-spacing:.08em;flex-direction:column;gap:4px;}
+.implication-sector span{font-size:.55rem;opacity:.6;}
+.implication-content{padding:14px 18px;font-size:.88rem;color:var(--text);line-height:1.68;}
+.implication-content strong{color:var(--white);}
+.implication-row.energy .implication-sector{border-left:3px solid var(--energy);color:var(--energy);}
+.implication-row.healthcare .implication-sector{border-left:3px solid var(--health);color:var(--health);}
+.implication-row.finance .implication-sector{border-left:3px solid var(--finance);color:var(--finance);}
+.implication-row.defense .implication-sector{border-left:3px solid var(--defense);color:var(--defense);}
+.implication-row.ai .implication-sector{border-left:3px solid var(--tech);color:var(--tech);}
+
+/* PIR / I&W */
+.prq-block{border:1px solid var(--border);margin:20px 0;overflow:hidden;}
+.prq-header{background:var(--tile);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.prq-id{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);background:rgba(90,188,240,.12);border:1px solid rgba(90,188,240,.3);padding:3px 10px;}
+.prq-title{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--text);letter-spacing:.08em;text-transform:uppercase;}
+.prq-risk{margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:3px 8px;border:1px solid;}
+.risk-rising{color:var(--danger);border-color:rgba(240,104,84,.4);background:rgba(240,104,84,.08);}
+.risk-stable{color:var(--gold);border-color:rgba(212,160,64,.4);background:rgba(212,160,64,.08);}
+.risk-unclear{color:var(--text-low);border-color:var(--border);}
+.prq-body{padding:18px 20px;background:var(--panel);border-top:1px solid rgba(26,58,92,.5);}
+.prq-body p{font-size:.88rem;color:var(--text);margin-bottom:8px;}
+.prq-body p:last-child{margin-bottom:0;}
+.prq-indicators{list-style:none;padding:0;margin:8px 0;}
+.prq-indicators li{font-size:.82rem;color:var(--text-dim);padding:4px 0 4px 16px;border-bottom:1px solid rgba(26,58,92,.3);position:relative;}
+.prq-indicators li:last-child{border-bottom:none;}
+.prq-indicators li::before{content:'\2192';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
+
+/* WATCH LIST */
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
+.watch-item{background:var(--panel);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;}
+.watch-num{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--blue);font-weight:700;flex-shrink:0;padding-top:2px;min-width:22px;}
+.watch-text{font-size:.85rem;color:var(--text);line-height:1.6;}
+.watch-text strong{color:var(--gold-hi);}
+
+/* ANALYST NOTE */
+.analyst-note{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:28px 32px;margin:32px 0;position:relative;}
+.analyst-note::before{content:'ANALYST\'S NOTE';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.analyst-note p{font-size:.95rem;color:var(--text);line-height:1.75;margin-bottom:14px;}
+.analyst-note p:last-child{margin-bottom:0;}
+
+/* EXECUTIVE DECISION BRIEF */
+.exec-brief{background:var(--panel);border:1px solid rgba(212,160,64,.25);border-left:5px solid var(--gold);padding:28px 32px;margin:28px 0;position:relative;}
+.exec-brief::before{content:'EXECUTIVE DECISION BRIEF';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.exec-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px;}
+.exec-item{padding:14px 16px;border:1px solid rgba(212,160,64,.14);background:rgba(212,160,64,.04);}
+.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--gold-hi);margin-bottom:6px;}
+.exec-item p{font-size:.9rem;color:var(--text);margin:0;line-height:1.65;}
+.exec-item strong{color:var(--gold-hi);}
+.decision-line{margin-top:8px;padding-top:8px;border-top:1px solid rgba(212,160,64,.12);font-size:.82rem;color:var(--text-dim);}
+.decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+
+/* GOVERNANCE / PRIOR JUDGMENT */
+h2.section-head.gold-heading{color:var(--gold-hi);}
+.gov-block{background:var(--panel);border:1px solid rgba(212,160,64,.22);border-left:5px solid var(--gold);padding:26px 30px;margin:24px 0 36px;}
+.gov-row{display:grid;grid-template-columns:190px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(212,160,64,.12);}
+.gov-row:last-child{border-bottom:none;}
+.gov-label{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.04em;color:var(--gold-hi);text-transform:uppercase;}
+.gov-content{font-size:.95rem;color:var(--text);line-height:1.65;}
+
+
+/* SOURCES */
+.src-block{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--blue);padding:26px 28px;margin:36px 0;}
+.src-header{font-family:'Share Tech Mono',monospace;font-size:.66rem;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:18px;}
+.src-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
+.src-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.98rem;color:var(--text);line-height:1.65;padding:14px 16px;border:1px solid rgba(90,188,240,.16);background:rgba(90,188,240,.045);display:grid;grid-template-columns:auto 1fr;gap:10px 12px;align-items:start;}
+.src-list li:last-child{border-bottom:1px solid rgba(90,188,240,.16);}
+.src-bullet{font-family:'Share Tech Mono',monospace;color:var(--blue);line-height:1.65;}
+.src-list strong,.src-title{font-family:'Rajdhani',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:.03em;color:var(--white);}
+.src-meta{display:block;font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:.18rem 0 .32rem;}
+.src-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.src-links a,.src-list a{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-hi);text-decoration:none;border-bottom:1px solid rgba(136,212,255,.45);}
+.src-links a:hover,.src-list a:hover{color:var(--gold-hi);border-bottom-color:var(--gold-hi);}
+.src-summary{font-family:'Source Serif 4',Georgia,serif!important;font-size:.9rem!important;color:var(--text-dim)!important;line-height:1.7!important;margin-top:16px!important;border-top:1px solid var(--border)!important;padding-top:12px!important;}
+.src-bullet{color:var(--blue);flex-shrink:0;}
+hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
+
+/* TORCH NOTE */
+.torch-note{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:20px 24px;margin:20px 0;}
+.torch-label{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;display:block;}
+.torch-note p{font-size:.88rem;color:var(--text);font-style:italic;}
+.torch-note strong{color:var(--blue-hi);font-style:normal;}
+
+/* BRIEF FOOTER */
+.brief-footer{background:var(--surface);border-top:1px solid rgba(212,160,64,.2);padding:36px 40px;}
+.footer-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+.footer-brand{font-family:'Rajdhani',sans-serif;font-size:.8rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
+.footer-legal{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--text-low);letter-spacing:.1em;text-align:right;line-height:1.8;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .doctrine-grid,.watch-grid{grid-template-columns:1fr!important;}
+  .implication-row{grid-template-columns:1fr!important;}
+  .implication-sector{border-right:none!important;border-bottom:1px solid rgba(26,58,92,.5)!important;}
 }
-
-/* ── MOBILE NAV ── */
-@media (max-width: 768px) {
-  nav { padding: 0.9rem 1.25rem; flex-wrap: wrap; position: fixed; top: 0; width: 100%; z-index: 200; }
-  .nav-toggle { display: inline-flex !important; align-items: center; justify-content: center; margin-left: auto; }
-  .nav-links { display: none; flex-direction: column; width: 100%; gap: 0; padding: 0.75rem 0 0.5rem; border-top: 1px solid rgba(184,150,62,0.15); margin-top: 0.75rem; }
-  .nav-links.open { display: flex !important; }
-  .nav-links li { width: 100%; }
-  .nav-links > li > a { display: block; padding: 0.6rem 0; border-bottom: 1px solid rgba(184,150,62,0.06); }
-  .nav-item.dropdown::after { display: none !important; }
-  .nav-item.dropdown .dropdown-menu { display: block !important; position: static !important; width: 100% !important; min-width: 0 !important; background: rgba(184,150,62,0.04) !important; border: none !important; border-left: 2px solid rgba(184,150,62,0.25) !important; border-radius: 0 !important; }
+@media(max-width:768px){
+  .page-body{padding:0 20px 60px;}
+  .masthead-inner{padding:24px 20px 0;}
 }
-
-/* Source note readability refresh */
-.icd206-block,.src-block{border-left:4px solid var(--gold);padding:28px 30px;margin:36px 0;background:#f8f6f0;}
-.icd206-header,.src-header{font-size:11px;letter-spacing:2px;color:var(--navy);border-bottom:1px solid rgba(8,20,42,.16);margin-bottom:18px;}
-.src-item{display:grid;grid-template-columns:72px 1fr;gap:10px 16px;margin:0 0 12px;padding:14px 16px;border:1px solid rgba(8,20,42,.12);background:#fffdf7;align-items:start;}
-.src-code{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold-dim);font-weight:700;letter-spacing:.08em;padding-top:3px;}
-.src-desc,.src-text{font-family:Georgia,'Times New Roman',serif;font-size:14px;line-height:1.68;color:#1d2d46;}
-.src-desc .src-title,.src-text .src-title,a.src-link span{font-style:normal;font-weight:700;color:var(--navy);}
-a.src-link{color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.65);}
-a.src-link:hover{color:var(--gold-dim);border-bottom-color:var(--gold);}
-.icd206-block p[style*="SOURCE SUMMARY"],.src-block p[style*="SOURCE SUMMARY"]{font-family:Georgia,'Times New Roman',serif!important;font-size:13px!important;line-height:1.65!important;color:#42536d!important;border-top:1px solid rgba(8,20,42,.14)!important;padding-top:12px!important;}</style>
+</style>
 <style id="lcti-stat-legibility">
 html{
   -webkit-text-size-adjust:100%;
@@ -1817,8 +1132,9 @@ body [style*="Instrument Sans"]{
 </style>
 </head>
 <body>
+<div id="dw" style="background:#060c14;min-height:100vh;color:#e8f0fa;">
 
-<!-- SITE NAV -->
+<!-- NAV -->
 <!-- LCTI:NAV:START -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
@@ -1997,7 +1313,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['06-07-2026.html'],
+    'alamo-threat-brief.html':['05-17-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -2014,171 +1330,169 @@ body [style*="Instrument Sans"]{
 </script>
 <!-- LCTI:NAV:END -->
 
-<!-- CLASSIFICATION BANNER -->
-<div class="class-banner">
-  LIBERTY CTI OPEN SOURCE ANALYSIS
-</div>
-
 <!-- MASTHEAD -->
 <div class="masthead">
-  <!-- Emblem centered above title -->
-  <div class="emblem-wrap">
-    <img src="../../../liberty-cti-emblem.png" class="emblem-hero" alt="Liberty CTI Emblem"
-         onerror="this.style.display='none'">
-  </div>
+  <div class="masthead-grid"></div>
   <div class="masthead-inner">
-    <div class="masthead-top">
-      <div class="masthead-brand">
-        <svg class="alamo-silhouette" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- Alamo facade silhouette -->
-          <rect x="60" y="110" width="380" height="110" fill="#C9A84C"/>
-          <path d="M170,110 L170,70 Q172,55 185,50 Q200,42 215,48 Q222,44 230,42 Q245,38 255,38 Q265,38 270,42 Q278,44 285,48 Q300,42 315,50 Q328,55 330,70 L330,110 Z" fill="#C9A84C"/>
-          <path d="M172,70 Q180,60 190,58 L190,110" fill="none" stroke="#C9A84C" stroke-width="1"/>
-          <path d="M328,70 Q320,60 310,58 L310,110" fill="none" stroke="#C9A84C" stroke-width="1"/>
-          <rect x="60" y="90" width="110" height="130" fill="#C9A84C"/>
-          <rect x="60" y="80" width="30" height="15" fill="#C9A84C"/>
-          <rect x="90" y="72" width="30" height="22" fill="#C9A84C"/>
-          <rect x="120" y="84" width="50" height="10" fill="#C9A84C"/>
-          <rect x="330" y="90" width="110" height="130" fill="#C9A84C"/>
-          <rect x="410" y="80" width="30" height="15" fill="#C9A84C"/>
-          <rect x="380" y="72" width="30" height="22" fill="#C9A84C"/>
-          <rect x="330" y="84" width="50" height="10" fill="#C9A84C"/>
-          <path d="M215,220 L215,155 Q215,135 230,130 Q245,125 255,125 Q265,125 270,130 Q285,135 285,155 L285,220 Z" fill="#08142A"/>
-          <rect x="140" y="130" width="35" height="45" rx="17" fill="#08142A"/>
-          <rect x="325" y="130" width="35" height="45" rx="17" fill="#08142A"/>
-          <rect x="75" y="115" width="25" height="35" rx="12" fill="#08142A"/>
-          <rect x="112" y="115" width="25" height="35" rx="12" fill="#08142A"/>
-          <rect x="363" y="115" width="25" height="35" rx="12" fill="#08142A"/>
-          <rect x="400" y="115" width="25" height="35" rx="12" fill="#08142A"/>
-          <rect x="40" y="218" width="420" height="4" fill="#C9A84C"/>
-        </svg>
-        <div class="brand-name">Liberty Cyber Threat Intelligence · libertycti.com</div>
-        <div class="product-name">Alamo Threat Brief</div>
+    <div class="logo-row">
+      <img src="liberty-cti-emblem.png" class="logo-img" alt="Liberty CTI" onerror="this.style.display='none'">
+      <div class="brand-block">
+        <div class="brand-name">Liberty CTI</div>
+        <div class="brand-sub">Cyber Threat Intelligence &middot; libertycti.com</div>
       </div>
     </div>
-    <div class="masthead-meta">
-      <div class="meta-item">
-        <span class="meta-label">Issue Date</span>
-        <span class="meta-value">22 MARCH 2026</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Volume</span>
-        <span class="meta-value">ATB-2026-2</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Sector Coverage</span>
-        <span class="meta-value">ALL SECTORS</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Cycle</span>
-        <span class="meta-value">CY2026 · PIR SET ACTIVE</span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Torch Fusion Cycle</span>
-        <span class="meta-value">WHAT · WHO · WHY · WHAT NEXT</span>
-      </div>
+    <div class="title-block">
+      <svg class="alamo-silhouette" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+        <rect x="0" y="310" width="820" height="10"/><rect x="20" y="220" width="120" height="90"/><rect x="20" y="190" width="40" height="30"/><rect x="100" y="190" width="40" height="30"/><rect x="45" y="242" width="25" height="35" fill="var(--surface)"/><rect x="90" y="242" width="25" height="35" fill="var(--surface)"/><rect x="160" y="160" width="500" height="150"/><rect x="215" y="145" width="125" height="15"/><rect x="480" y="145" width="125" height="15"/><rect x="340" y="85" width="140" height="75"/><path d="M335 85 Q410 22 485 85Z"/><rect x="185" y="170" width="18" height="140" fill="var(--surface)"/><rect x="225" y="170" width="18" height="140" fill="var(--surface)"/><rect x="577" y="170" width="18" height="140" fill="var(--surface)"/><rect x="617" y="170" width="18" height="140" fill="var(--surface)"/><path d="M372 310 L372 242 Q410 200 448 242 L448 310Z" fill="var(--surface)"/><rect x="680" y="220" width="120" height="90"/><rect x="680" y="190" width="40" height="30"/><rect x="760" y="190" width="40" height="30"/><rect x="695" y="242" width="25" height="35" fill="var(--surface)"/><rect x="740" y="242" width="25" height="35" fill="var(--surface)"/>
+      </svg>
+      <h1>The Alamo <span>Threat</span> Brief</h1>
+      <p class="title-desc">Weekly cyber threat intelligence for Texas industry &mdash; source-backed assessments for executive decision-makers.</p>
     </div>
-    <div class="threat-level-bar">
-      <span class="tl-label">Global Threat Level</span>
-      <div class="tl-dots">
-        <div class="tl-dot active"></div>
-        <div class="tl-dot active"></div>
-        <div class="tl-dot active"></div>
-        <div class="tl-dot active"></div>
-        <div class="tl-dot active gold"></div>
-      </div>
-      <span class="tl-status">CRITICAL — ESCALATING</span>
+    <div class="meta-row">
+      <div class="pill"><strong>Issue:</strong> ATB-2026-13</div>
+      <div class="pill"><strong>Week of:</strong> May 31&ndash;Jun 6, 2026</div>
+      <div class="pill"><strong>Coverage:</strong> Energy &middot; Healthcare &middot; Finance &middot; DIB &middot; AI</div>
+      <div class="pill"><strong>Next Issue:</strong> 14 Jun 2026</div>
+    </div>
+    <div class="threat-banner">
+      <div class="threat-dot"></div>
+      <div class="threat-label">Elevated &mdash; Active adversary exploitation of fuel infrastructure OT confirmed; ERCOT voltage test failures reveal AI load as grid instability amplifier entering peak summer demand</div>
+    </div>
+  </div>
+  <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
+    <div class="meta-strip">
+      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">7 JUN 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">31 MAY&ndash;6 JUN 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">THE GRID IS THE ATTACK SURFACE</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY &middot; HEALTH &middot; FIN &middot; DIB &middot; AI</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Torch Fusion Cycle</div><div class="meta-val">WHAT &middot; WHO &middot; WHY &middot; WHAT NEXT</div></div>
     </div>
     <div class="timestamp-bar">
-      <div class="timestamp-item">
-        <div class="timestamp-dot"></div>
-        <span class="timestamp-text">LAST UPDATED: <strong>22 MAR 2026 // 0600 CST</strong></span>
-      </div>
-      <div class="timestamp-item">
-        <span class="timestamp-text">COVERAGE PERIOD: <strong>16–22 MAR 2026</strong></span>
-      </div>
-      <div class="timestamp-item">
-        <span class="timestamp-text">NEXT ISSUE: <strong>29 MAR 2026</strong></span>
-      </div>
-      <div class="timestamp-item">
-        <span class="timestamp-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span>
-      </div>
+      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>7 JUN 2026 // 0600 CST</strong></span></div>
+      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>31 MAY&ndash;6 JUN 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>24 MAY 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span></div>
     </div>
   </div>
 </div>
 
-<!-- BREAKING TICKER -->
+<!-- CLASSIFICATION -->
+<div class="cls-banner">
+  <span class="cls-text">Liberty CTI Open Source Analysis &mdash; For Texas Industry Situational Awareness</span>
+  <span class="cls-badge">UNCLASSIFIED // OPEN SOURCE // PROPRIETARY</span>
+</div>
+<!-- TICKER -->
 <div class="ticker-strip">
   <div class="ticker-inner">
-    <a class="ticker-item" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener">IRGC-CY APT33 actively targeting U.S. ICS systems — CyberAv3ngers logging into industrial control systems using default credentials</a>
-    <a class="ticker-item" href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener">Operation Epic Fury fallout: Iranian cyber retaliation assessed HIGHLY LIKELY against U.S. critical infrastructure — Texas Gulf Coast ELEVATED</a>
-    <a class="ticker-item" href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener">Volt Typhoon (Voltzite) confirmed embedded in U.S. utility OT control loops — Dragos 2026 Annual Report</a>
-    <a class="ticker-item" href="https://theconversation.com/targeting-of-energy-facilities-turned-iran-war-into-worst-case-scenario-for-gulf-states-278730" target="_blank" rel="noopener">Ras Laffan LNG strike March 18 — Gulf energy disruption ripple effects reaching Texas petrochemical markets</a>
-    <a class="ticker-item" href="https://www.adn.com/nation-world/2026/03/03/iranian-strikes-on-amazon-data-centers-highlight-industrys-vulnerability-to-physical-disasters/" target="_blank" rel="noopener">IRGC drone strikes on AWS data centers UAE/Bahrain — dual-use cloud infrastructure now a confirmed kinetic target</a>
-    <a class="ticker-item" href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener">Sandworm (Electrum/Kamacite) scanned U.S. energy ICS devices March-July 2025 — evolved operational posture confirmed</a>
-    <a class="ticker-item" href="https://www.utilitydive.com/news/doe-awards-grid-security-artificial-intelligence-EPRI-ConEdison-Southern-Ameren/709360/" target="_blank" rel="noopener">Texas ERCOT grid: Volt Typhoon attempted breach unsuccessful per E-ISAC — monitoring continues at ELEVATED status</a>
-    <a class="ticker-item" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener">IRGC-CY APT33 actively targeting U.S. ICS systems — CyberAv3ngers logging into industrial control systems using default credentials</a>
-    <a class="ticker-item" href="https://www.recordedfuture.com/blog/ongoing-iran-conflict-what-you-need-to-know" target="_blank" rel="noopener">Operation Epic Fury fallout: Iranian cyber retaliation assessed HIGHLY LIKELY against U.S. critical infrastructure — Texas Gulf Coast ELEVATED</a>
-    <a class="ticker-item" href="https://www.theregister.com/2026/02/17/volt_typhoon_dragos/" target="_blank" rel="noopener">Volt Typhoon (Voltzite) confirmed embedded in U.S. utility OT control loops — Dragos 2026 Annual Report</a>
-    <a class="ticker-item" href="https://theconversation.com/targeting-of-energy-facilities-turned-iran-war-into-worst-case-scenario-for-gulf-states-278730" target="_blank" rel="noopener">Ras Laffan LNG strike March 18 — Gulf energy disruption ripple effects reaching Texas petrochemical markets</a>
-    <a class="ticker-item" href="https://www.adn.com/nation-world/2026/03/03/iranian-strikes-on-amazon-data-centers-highlight-industrys-vulnerability-to-physical-disasters/" target="_blank" rel="noopener">IRGC drone strikes on AWS data centers UAE/Bahrain — dual-use cloud infrastructure now a confirmed kinetic target</a>
+    <a class="ticker-item" href="https://www.cisa.gov/resources-tools/resources/cisa-and-partners-urge-hardening-automatic-tank-gauge-systems" target="_blank" rel="noopener">
+      CISA + 7 AGENCIES — ATG SYSTEMS UNDER ACTIVE EXPLOITATION &mdash; fuel infrastructure internet exposure confirmed across energy, chemical, agriculture, transport
+    </a>
+    <a class="ticker-item" href="https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4507204/" target="_blank" rel="noopener">
+      FIVE EYES JOINT BULLETIN — China military intelligence targeting government &amp; DIB personnel via LinkedIn, Indeed, Upwork &mdash; first-ever joint public advisory
+    </a>
+    <a class="ticker-item" href="https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia" target="_blank" rel="noopener">
+      CIRCIA TOWN HALLS BEGIN JUN 15 &mdash; final stakeholder input window before mandatory incident reporting rule is finalized across all critical infrastructure sectors
+    </a>
+    <!-- duplicate for seamless loop -->
+    <a class="ticker-item" href="https://www.cisa.gov/resources-tools/resources/cisa-and-partners-urge-hardening-automatic-tank-gauge-systems" target="_blank" rel="noopener">
+      CISA + 7 AGENCIES — ATG SYSTEMS UNDER ACTIVE EXPLOITATION &mdash; fuel infrastructure internet exposure confirmed across energy, chemical, agriculture, transport
+    </a>
+    <a class="ticker-item" href="https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4507204/" target="_blank" rel="noopener">
+      FIVE EYES JOINT BULLETIN — China military intelligence targeting government &amp; DIB personnel via LinkedIn, Indeed, Upwork &mdash; first-ever joint public advisory
+    </a>
+    <a class="ticker-item" href="https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia" target="_blank" rel="noopener">
+      CIRCIA TOWN HALLS BEGIN JUN 15 &mdash; final stakeholder input window before mandatory incident reporting rule is finalized across all critical infrastructure sectors
+    </a>
   </div>
 </div>
-
 <!-- PAGE BODY -->
 <div class="page-body">
 
-  <!-- INTRO -->
+  <!-- INTRO DECK -->
   <div class="intro-deck">
-    <p>
-      This issue of the <strong>Alamo Threat Brief</strong> covers the period <strong>16–22 March 2026</strong> and is dominated by a single strategic driver: the ongoing <strong>U.S.–Israeli military campaign against Iran</strong> (Operation Epic Fury / Operation Lion's Roar), launched 28 February 2026. The geopolitical and cyber consequences of this conflict are now the most consequential threat environment for Texas critical infrastructure since the Colonial Pipeline attack of 2021. This brief provides Liberty CTI's structured analytical assessment across all four strategic sectors, addresses active Priority Intelligence Requirements, and delivers a 30/60/90-day outlook calibrated to the Texas threat landscape.
-    </p>
+    <p>ATB-2026-13 covers the week of May 31&ndash;June 6, 2026. Two events define this issue: a confirmed eight-agency federal warning of active adversary exploitation of automatic tank gauge systems across U.S. fuel infrastructure, and the disclosure that four Texas data center and crypto facility groups failed ERCOT voltage ride-through tests&mdash;meaning they could abruptly disconnect and amplify a grid disturbance during peak summer demand. These are not separate problems. They are the same attack surface. Simultaneously, the Five Eyes issued an unprecedented joint bulletin on Chinese military intelligence recruiting via LinkedIn, and the Iran ceasefire frayed visibly on June 5. This issue covers all four adversary actors with direct Texas implications.</p>
   </div>
 
-  <!-- ─────────────────────────────── -->
-  <!-- KEY JUDGMENTS -->
-  <!-- ─────────────────────────────── -->
-  <div class="section-rule">
-    <span class="section-tag">Section I</span>
-    <div class="section-rule-line"></div>
+  <!-- EXEC BRIEF -->
+  <div class="exec-brief">
+    <div class="exec-grid">
+      <div class="exec-item">
+        <div class="exec-item-title">Isolate ATG Systems Now</div>
+        <p>Eight agencies confirmed active exploitation of internet-exposed automatic tank gauges in fuel, chemical, and transport infrastructure. Password changes are insufficient. Network isolation is the required action.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Register for CIRCIA Town Halls</div>
+        <p>Sector-specific input sessions run June 15&ndash;18. Energy, finance, healthcare, and DIB sessions each cover different scope thresholds. This is the last structured window before the final rule sets compliance obligations.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Brief the Board on Grid Risk</div>
+        <p>ERCOT confirmed peak demand could exceed 92 GW this summer&mdash;a new record. Four large load groups already failed voltage tests. Continuity plans that assume grid stability are no longer defensible.</p>
+      </div>
+    </div>
   </div>
-  <style>
-.paywall-cta{margin:48px 0;background:linear-gradient(180deg,rgba(212,160,64,.05),rgba(6,12,20,0));border:1px solid rgba(212,160,64,.35);border-left:5px solid var(--gold);padding:48px 40px;position:relative;}
-.paywall-cta::before{content:'PREMIUM ACCESS — ALAMO THREAT BRIEF';font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:36px;background:#060c14;padding:0 8px;transform:translateY(-50%);font-weight:600;}
-.paywall-cta-inner{max-width:680px;}
-.paywall-eyebrow{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:14px;}
-.paywall-title{font-family:'Rajdhani',sans-serif;font-size:2.1rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1;}
-.paywall-lede{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;color:var(--text-dim);line-height:1.7;margin-bottom:18px;font-weight:300;}
-.paywall-list{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:8px;}
-.paywall-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.94rem;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
-.paywall-list li::before{content:'\25C6';color:var(--gold);position:absolute;left:0;top:.1em;font-size:.85rem;}
-.paywall-list strong{color:var(--white);font-weight:600;}
-.paywall-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px;}
-.paywall-btn-primary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--bg);padding:14px 28px;border:1px solid var(--gold);transition:all .2s;}
-.paywall-btn-primary:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 16px rgba(212,160,64,.4);}
-.paywall-btn-secondary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.9rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;background:transparent;color:var(--gold);padding:14px 22px;border:1px solid rgba(212,160,64,.4);transition:all .2s;}
-.paywall-btn-secondary:hover{background:rgba(212,160,64,.08);border-color:var(--gold);}
-.paywall-footnote{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);margin-top:14px;}
-</style>
 
-<style>
-.paywall-cta{margin:48px 0;background:linear-gradient(180deg,rgba(212,160,64,.05),rgba(6,12,20,0));border:1px solid rgba(212,160,64,.35);border-left:5px solid var(--gold);padding:48px 40px;position:relative;}
-.paywall-cta::before{content:'FREE DURING PREVIEW PERIOD';font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:36px;background:#060c14;padding:0 8px;transform:translateY(-50%);font-weight:600;}
-.paywall-cta-inner{max-width:680px;}
-.paywall-eyebrow{font-family:'Share Tech Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:14px;}
-.paywall-title{font-family:'Rajdhani',sans-serif;font-size:2.1rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:14px;line-height:1.1;}
-.paywall-lede{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;color:var(--text-dim);line-height:1.7;margin-bottom:18px;font-weight:300;}
-.paywall-list{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:8px;}
-.paywall-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.94rem;color:var(--text);line-height:1.6;padding-left:22px;position:relative;}
-.paywall-list li::before{content:'\25C6';color:var(--gold);position:absolute;left:0;top:.1em;font-size:.85rem;}
-.paywall-list strong{color:var(--white);font-weight:600;}
-.paywall-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 18px;}
-.paywall-btn-primary{display:inline-block;font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--bg);padding:14px 28px;border:1px solid var(--gold);transition:all .2s;}
-.paywall-btn-primary:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 0 16px rgba(212,160,64,.4);}
-.paywall-footnote{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);margin-top:14px;line-height:1.7;}
-.paywall-footnote a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);}
-.paywall-footnote a:hover{color:var(--gold-hi);}
-</style>
+  <!-- CENTERPIECE -->
+  <div class="centerpiece">
+    <div class="centerpiece-title">Dominant Judgment &mdash; The Grid Is the Attack Surface</div>
+    <p>The June 2 ATG advisory and the June 5 ERCOT voltage test disclosures, read together, reveal that the adversary attack surface and the grid reliability risk are now the same problem. Threat actors are actively exploiting internet-exposed fuel monitoring systems. Simultaneously, the grid&rsquo;s largest new demand sources&mdash;AI data centers and crypto facilities&mdash;are failing the stability tests that would prevent them from becoming instability amplifiers during a disturbance.</p>
+    <p>The threat does not require a sophisticated intrusion. ATG manipulation causing a fuel distribution disruption, timed to a grid disturbance during peak summer demand, could cascade across healthcare, logistics, and financial services without a single catastrophic attack. Texas sits at the center of this convergence: the state hosts the most AI compute load under development, operates a historically isolated grid, and is entering its highest-demand summer on record.</p>
+  </div>
+
+  <!-- SECTION I: KEY JUDGMENTS -->
+  <div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Key Judgments</h2>
+  <div class="kj-block">
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Texas energy and logistics infrastructure faces elevated operational risk this summer from the intersection of confirmed adversary OT targeting, ERCOT grid instability pressure, and the dependency gap between how fast AI and crypto load is connecting and how its grid behavior is modeled. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Basis: CISA/FBI/NSA/DOE/EPA/TSA/DOT/USDA joint ATG advisory (June 2); ERCOT May 21 internal report; ERCOT Board statements June 3 (Jeff Billo on record). Primary uncertainty: no confirmed Texas ATG compromise identified this week; this is an analytic inference from confirmed national-level exploitation and local infrastructure density.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Continuity plans built on grid stability and uninterrupted fuel supply must be stress-tested before July 4.</div>
+      </div>
+    </div>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        China and North Korea are running structurally identical human access operations through professional networking platforms simultaneously. Texas DIB contractors, AI developers, and cleared personnel face a multi-adversary insider threat environment that a single vetting policy must address. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Basis: Five Eyes &ldquo;Safeguarding Our Secrets&rdquo; bulletin (June 3, 2026); DOJ DPRK RevGen Initiative sentencing records (April 2026). No Texas-named victim identified this week.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Pre-hire vetting and contractor access reviews should be elevated for any role touching classified programs, AI development, or crypto custody.</div>
+      </div>
+    </div>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        The April 8 U.S.-Iran ceasefire is fraying. Iran&rsquo;s active OT disruption campaign against U.S. critical infrastructure (confirmed since March 2026) has not stood down. A ceasefire collapse would <span class="aq">almost certainly</span> produce an immediate surge in Iranian cyber operations against energy, water, and fuel infrastructure. <span class="conf conf-high">HIGH CONFIDENCE</span> on intent; <span class="conf conf-mod">MODERATE CONFIDENCE</span> on timeline.
+        <div class="kj-uncertainty">Basis: CISA advisory AA26-097A (April 7, 2026); CENTCOM public statement June 5; CNN/Gulf News live coverage of Gulf of Oman incident. ATG campaign attribution to Iran not formally established&mdash;treated as plausible, not confirmed.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Texas energy and fuel operators should treat the ceasefire as temporary and maintain elevated OT monitoring posture.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION II: GEOPOLITICAL ENVIRONMENT -->
+  <div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Geopolitical Environment &mdash; The Four Actors</h2>
+  <p style="margin-bottom:1.4rem;color:var(--text-secondary);font-size:0.92rem;">Developments from 31 May&ndash;6 June 2026 assessed for secondary and tertiary implications to Texas operators. Strategic signal only&mdash;no tactical detail.</p>
+
+  <h3 class="sub-head">China &mdash; Human Intelligence Pivot at Scale</h3>
+  <p>On June 3, the Five Eyes alliance issued its first-ever joint public bulletin warning that Chinese military intelligence is systematically recruiting government, military, and defense personnel through LinkedIn, Indeed, and Upwork using fake HR firms and bogus analyst roles. The joint, public character of this advisory is the signal: Five Eyes agencies coordinate publicly only when a campaign has reached sufficient scale to require collective deterrence. For Texas, JBSA-area contractors, cleared veterans, and defense-adjacent researchers are the target profile. This campaign runs parallel to Volt Typhoon&rsquo;s confirmed pre-positioning in U.S. critical infrastructure&mdash;one collects credentials and human intelligence; the other maintains persistent technical access. Both are part of the same collection architecture.</p>
+
+  <h3 class="sub-head">Russia &mdash; Stalemate Preserves Pre-Positioning Incentive</h3>
+  <p>No new Russian advisory was issued this week. Diplomatic efforts toward a Ukraine ceasefire remain stalled; brief holiday truces (April, May) were violated by both sides. The structural conditions driving Russian cyber escalation are unchanged. GRU-linked Sandworm (APT44) continues a confirmed, multi-year campaign targeting Western energy sector edge devices and cloud infrastructure, documented through 2026 by Amazon threat intelligence. Texas LNG export terminals and pipeline operators remain inside the assessed target set. No current-week escalation indicator&mdash;but no peace framework either.</p>
+
+  <h3 class="sub-head">Iran &mdash; Ceasefire Fraying; OT Campaign Active</h3>
+  <p>The April 8 ceasefire is visibly stressed. On June 5, Iran&rsquo;s navy claimed it fired warning shots at U.S. destroyers in the Gulf of Oman; CENTCOM denied the vessels were fired upon and called any such action a &ldquo;gross violation of the ceasefire.&rdquo; Israeli operations against Hezbollah in Lebanon are intensifying; Hezbollah rejected the Lebanon ceasefire and is not party to the U.S.-Iran agreement. A permanent deal remains contingent on disputed frozen asset terms. Iranian-affiliated APT actors have been confirmed disrupting U.S. OT since March 2026 (CISA AA26-097A). FBI and CISA have specifically warned that Iranian-affiliated groups may act independently of ceasefire terms. Texas petroleum storage, pipeline OT, and fuel distribution are inside the assessed Iranian targeting envelope. A ceasefire collapse is the key escalation signal to watch.</p>
+
+  <h3 class="sub-head">North Korea &mdash; Financial Warfare and Platform Overlap</h3>
+  <p>DPRK-attributed actors stole approximately $577 million in cryptocurrency through April 2026, accounting for 76% of global recorded crypto losses, driven by two high-value attacks (Drift Protocol and KelpDAO). DOJ&rsquo;s April 2026 sentencing records from the RevGen Initiative confirmed DPRK IT workers successfully penetrated military contractors and AI companies. The structural overlap with China&rsquo;s LinkedIn campaign is not coincidental&mdash;professional platform recruitment is now the dominant human access vector across multiple adversaries simultaneously. Texas financial institutions with crypto asset exposure, fintech operators, and any organization with DPRK-attractive remote work structures should treat this as an active targeting environment, not a theoretical risk.</p>
+
+  <div class="warning-box">
+    <p><strong>Four-Actor Convergence:</strong> All four adversaries are targeting the same two vulnerability surfaces this week&mdash;human access via professional platforms (China, DPRK) and internet-exposed OT (Iran, Russia). The same two control points&mdash;pre-hire vetting and OT network isolation&mdash;address threats from all four actors simultaneously. This is not a coincidence; it reflects where U.S. critical infrastructure is weakest.</p>
+  </div>
+
 
 <style>
 .paywall-cta{margin:48px 0;background:linear-gradient(180deg,rgba(212,160,64,.05),rgba(6,12,20,0));border:1px solid rgba(212,160,64,.35);border-left:5px solid var(--gold);padding:48px 40px;position:relative;}
@@ -2208,11 +1522,8 @@ body [style*="Instrument Sans"]{
       The remaining sections:
     </p>
     <ul class="paywall-list">
-      <li><strong>What Changed This Week</strong> — cross-sector incident analysis</li>
-      <li><strong>Key Judgments</strong> with ICD-203 confidence levels</li>
-      <li><strong>Geopolitical Driver</strong> — power, conflict, and consequence</li>
-      <li><strong>Cross-Sector Cascade Assessment</strong> — Energy, Finance, Healthcare, DIB, AI</li>
-      <li><strong>Indicators &amp; Warnings</strong> — forward-looking PIRs, 1 to 4 weeks</li>
+      <li><strong>Cross-Sector Implications</strong> — Energy OT &amp; grid stability, Finance CIRCIA &amp; macro risk, Healthcare, DIB, AI/Tech</li>
+      <li><strong>Indicators to Watch</strong> — forward-looking PIRs for the next 1–4 weeks</li>
       <li><strong>Governance Implication Block</strong> — Decision / Owner / Action / Record</li>
       <li><strong>Open Source Basis</strong> — primary government and regulatory sourcing</li>
     </ul>
@@ -2226,28 +1537,9 @@ body [style*="Instrument Sans"]{
   </div>
 </div>
 
-</div>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:START -->
-<style>
-.lcti-footer{background:#080c10!important;border-top:1px solid rgba(184,150,62,.2)!important;padding:4rem 2.5rem 2rem!important;font-family:'Instrument Sans',Arial,sans-serif!important;color:#f4efe6!important;clear:both!important}
-.lcti-footer-inner{max-width:1100px!important;margin:0 auto!important;display:grid!important;grid-template-columns:1.6fr 1fr 1fr 1fr!important;gap:3rem!important;align-items:start!important}
-.lcti-footer-brand-row{display:flex!important;align-items:center!important;gap:.75rem!important;margin-bottom:1rem!important}
-.lcti-footer img.lcti-footer-emblem{width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important;object-fit:contain!important;display:block!important;flex:0 0 36px!important}
-.lcti-footer-brand-name{font-family:'Playfair Display',Georgia,serif!important;font-size:1rem!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#f4efe6!important;line-height:1.2!important}
-.lcti-footer-brand-name span{color:#b8963e!important}
-.lcti-footer-tagline{font-size:1rem!important;font-weight:500!important;color:rgba(244,239,230,.78)!important;line-height:1.72!important;max-width:280px!important;margin:0 0 1.25rem!important}
-.lcti-footer-slogan,.lcti-footer-col-title{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.94rem!important;font-weight:500!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#d4af62!important;line-height:1.45!important;margin:0 0 .9rem!important;display:block!important}
-.lcti-footer-links{list-style:none!important;margin:0!important;padding:0!important}
-.lcti-footer-links li{margin:0 0 .45rem!important;padding:0!important}
-.lcti-footer-links a{font-size:.98rem!important;font-weight:500!important;line-height:1.55!important;color:rgba(244,239,230,.74)!important;text-decoration:none!important;transition:color .2s!important}
-.lcti-footer-links a:hover{color:#b8963e!important}
-.lcti-footer-links a.lcti-atb-link{color:#d6554a!important;font-weight:600!important}
-.lcti-footer-bottom{max-width:1100px!important;margin:3rem auto 0!important;border-top:1px solid rgba(184,150,62,.12)!important;padding-top:1.25rem!important;display:flex!important;justify-content:space-between!important;align-items:center!important;flex-wrap:wrap!important;gap:.5rem!important}
-.lcti-footer-copy{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.86rem!important;font-weight:600!important;letter-spacing:.04em!important;color:rgba(244,239,230,.56)!important;line-height:1.5!important}
-@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr!important;gap:2rem!important}}
-@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr!important}.lcti-footer{padding:2.5rem 1.25rem 1.5rem!important}.lcti-footer-bottom{flex-direction:column!important;align-items:flex-start!important}}
-</style>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:END --><!-- LCTI:FOOTER:START -->
+</div><!-- /page-body -->
+<!-- SITE FOOTER -->
+<!-- LCTI:FOOTER:START -->
 <style>
 .lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
 .lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
@@ -2322,5 +1614,8 @@ body [style*="Instrument Sans"]{
   </div>
 </footer>
 <!-- LCTI:FOOTER:END -->
+
+</div><!-- /darkwrap -->
+
 </body>
 </html>

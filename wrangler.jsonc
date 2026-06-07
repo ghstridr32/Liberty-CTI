@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "liberty-cti",
+  "account_id": "a7c647b0ab139f6804feb69fcebe8a9a",
   "compatibility_date": "2026-05-10",
   "observability": {
     "enabled": true
