@@ -487,6 +487,129 @@
       color: var(--ink);
     }
 
+    /* LCTI: decision-support restructure */
+    .stages {
+      display: grid;
+      gap: 2px;
+      background: var(--rule);
+    }
+    .stage {
+      background: var(--ink);
+      padding: 2.25rem;
+    }
+    .stage-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stage-marker {
+      flex-shrink: 0;
+      width: 2.1rem;
+      height: 2.1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .stage-heading-text { display: flex; flex-direction: column; gap: 0.3rem; }
+    .stage-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--paper);
+    }
+    .stage-sub {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      color: rgba(244,239,230,0.6);
+    }
+    .stage-grid {
+      display: grid;
+      gap: 2px;
+      background: var(--rule);
+    }
+    .stage-grid.cols-1 { grid-template-columns: 1fr; }
+    .stage-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .service-card.featured {
+      background: linear-gradient(180deg, rgba(184,150,62,0.1), rgba(8,12,16,0.82));
+      border: 1px solid var(--gold);
+      border-top-width: 3px;
+      box-shadow: inset 0 0 0 1px rgba(184,150,62,0.14);
+    }
+    .entry-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+    /* Stage 3 retainer tiers */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--rule);
+      align-items: start;
+    }
+    .tier-fit {
+      font-size: 0.84rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(244,239,230,0.62);
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+    }
+    .tier-badge {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+    .tier-note {
+      margin: 1.75rem 0 0;
+      padding: 1.4rem 1.5rem;
+      background: rgba(184,150,62,0.05);
+      border: 1px solid var(--rule);
+      font-size: 0.95rem;
+      font-style: italic;
+      color: rgba(244,239,230,0.72);
+      line-height: 1.7;
+    }
+    .tier-cta-row {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    @media (min-width: 768px) {
+      .tier-grid .service-card.primary {
+        transform: translateY(-8px);
+        box-shadow: inset 0 0 0 1px rgba(184,150,62,0.16), 0 12px 30px rgba(0,0,0,0.45);
+      }
+    }
+    @media (max-width: 767px) {
+      .stage-grid.cols-2 { grid-template-columns: 1fr; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .tier-grid .service-card.primary { transform: none; }
+      .tier-grid .tier-partnership { order: -1; }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .card {
@@ -2188,123 +2311,162 @@ body [style*="Instrument Sans"]{
         </div>
       </div>
 
-      <div class="service-ladder">
-        <article class="service-card">
-          <div class="service-kicker">A · Credibility &amp; Awareness</div>
-          <div class="service-name">Alamo Threat Brief</div>
-          <div class="service-price">Free</div>
-          <p class="service-desc">Weekly executive warning brief covering Texas critical infrastructure cyber risk.</p>
-          <ul class="service-list">
-            <li>Purpose: credibility, awareness, and strategic warning</li>
-            <li>Shows what changed this week and why it matters</li>
-            <li>Entry point into the Liberty CTI warning model</li>
-          </ul>
-        </article>
+      <div class="stages">
 
-        <article class="service-card">
-          <div class="service-kicker">B · Subscription</div>
-          <div class="service-name">ATB Pro</div>
-          <div class="service-price">$29/month or $290/year</div>
-          <p class="service-desc">Full weekly Alamo Threat Brief with deeper sector analysis, actor context, and warning indicators.</p>
-          <ul class="service-list">
-            <li>Deeper sector analysis</li>
-            <li>Actor context and intent framing</li>
-            <li>Warning indicators for Texas operators</li>
-          </ul>
-        </article>
+        <!-- STAGE 1 — SUBSCRIBE -->
+        <div class="stage">
+          <div class="stage-head">
+            <span class="stage-marker">1</span>
+            <div class="stage-heading-text">
+              <h2 class="stage-title">Subscribe</h2>
+              <div class="stage-sub">Weekly warning. Build the habit.</div>
+            </div>
+          </div>
+          <div class="stage-grid cols-1">
+            <article class="service-card">
+              <div class="service-kicker">Always Free</div>
+              <div class="service-name">Alamo Threat Brief</div>
+              <p class="service-desc">The full weekly analytical product, published every Saturday. It shows what changed, who is responsible, why it matters, and what comes next.</p>
+              <ul class="service-list">
+                <li>The full weekly analytical product, published every Saturday</li>
+                <li>Shows what changed, who is responsible, why it matters, and what comes next</li>
+                <li>Entry point into the Liberty CTI warning model</li>
+                <li>Always free</li>
+              </ul>
+            </article>
+          </div>
+        </div>
 
-        <article class="service-card">
-          <div class="service-kicker">C · Executive Subscription</div>
-          <div class="service-name">ATB Executive</div>
-          <div class="service-price">$149/month or $1,490/year</div>
-          <p class="service-desc">Decision-grade version for executives who need the warning, the impact, and the action path without the full analytic read.</p>
-          <ul class="service-list">
-            <li>Executive warning</li>
-            <li>Decision impact</li>
-            <li>What to do this week</li>
-            <li>Escalation path if ignored</li>
-          </ul>
-        </article>
+        <!-- STAGE 2 — ENGAGE -->
+        <div class="stage">
+          <div class="stage-head">
+            <span class="stage-marker">2</span>
+            <div class="stage-heading-text">
+              <h2 class="stage-title">Engage</h2>
+              <div class="stage-sub">Scoped engagements. Feel the gap.</div>
+            </div>
+          </div>
+          <div class="stage-grid cols-2">
 
-        <article class="service-card">
-          <div class="service-kicker">D · Organizational License</div>
-          <div class="service-name">ATB Enterprise</div>
-          <div class="service-price">$5,000/year for up to 10 named seats</div>
-          <p class="service-desc">Distribute the executive brief across your board, general counsel, risk committee, and senior leadership team.</p>
-          <ul class="service-list">
-            <li>Up to 10 named recipients</li>
-            <li>Designed for governance and risk distribution</li>
-            <li>Includes documented record of executive distribution</li>
-          </ul>
-        </article>
+            <article class="service-card featured">
+              <span class="entry-label">Board Entry Point</span>
+              <div class="service-name">Executive Crisis Wargame</div>
+              <div class="service-price">Pricing on inquiry</div>
+              <p class="service-desc">Custom board-level exercise that rehearses decision-making under a live cyber crisis scenario before one occurs. The entry point for board-level engagement with Liberty CTI.</p>
+              <ul class="service-list">
+                <li>Custom scenario for your sector and risk profile</li>
+                <li>Half-day, full-day, or multi-session formats</li>
+                <li>Board, general counsel, and C-suite participation</li>
+                <li>Identifies governance gaps before a real event</li>
+                <li>Produces documented record of responsible preparation</li>
+                <li>Wargame fee credits in full toward a Year 1 retainer signed within 90 days</li>
+              </ul>
+            </article>
 
-        <article class="service-card">
-          <div class="service-kicker">E · Scoped Assessment</div>
-          <div class="service-name">Rapid Threat Assessment</div>
-          <div class="service-price">Pricing on inquiry</div>
-          <p class="service-desc">72-hour custom assessment of a specific emerging cyber, geopolitical, or sector risk facing your organization or sector.</p>
-          <ul class="service-list">
-            <li>What changed</li>
-            <li>Who is likely responsible</li>
-            <li>Why it matters now</li>
-            <li>What leadership should do</li>
-            <li>Documented record for board and governance use</li>
-          </ul>
-        </article>
+            <article class="service-card">
+              <div class="service-kicker">Live Executive Support</div>
+              <div class="service-name">Executive Intelligence Briefing</div>
+              <div class="service-price">Pricing on inquiry</div>
+              <p class="service-desc">Live briefing for boards, general counsel, C-suite, and senior leadership. Available as standard or sector deep-dive format.</p>
+              <ul class="service-list">
+                <li>Standard Briefing: 90-minute executive briefing with sector context</li>
+                <li>Sector Deep-Dive: half-day briefing with cross-sector cascade analysis and documented written summary</li>
+                <li>Documented briefing record for governance archive</li>
+              </ul>
+            </article>
 
-        <article class="service-card">
-          <div class="service-kicker">F · Live Executive Support</div>
-          <div class="service-name">Executive Intelligence Briefing</div>
-          <div class="service-price">Pricing on inquiry</div>
-          <p class="service-desc">Live briefing for boards, general counsel, C-suite, and senior leadership. Available as standard or sector deep-dive format.</p>
-          <ul class="service-list">
-            <li>Standard Briefing: 90-minute executive briefing with sector context</li>
-            <li>Sector Deep-Dive: half-day briefing with cross-sector cascade analysis and documented written summary</li>
-            <li>Documented briefing record for governance archive</li>
-          </ul>
-        </article>
+            <article class="service-card">
+              <div class="service-kicker">Scoped Assessment</div>
+              <div class="service-name">Rapid Threat Assessment</div>
+              <div class="service-price">Pricing on inquiry</div>
+              <p class="service-desc">72-hour custom assessment of a specific emerging cyber, geopolitical, or sector risk facing your organization or sector.</p>
+              <ul class="service-list">
+                <li>What changed</li>
+                <li>Who is likely responsible</li>
+                <li>Why it matters now</li>
+                <li>What leadership should do</li>
+                <li>Documented record for board and governance use</li>
+              </ul>
+            </article>
 
-        <article class="service-card">
-          <div class="service-kicker">G · Sector Intelligence Products</div>
-          <div class="service-name">Sector Intelligence Products</div>
-          <div class="service-price">Pricing on inquiry</div>
-          <p class="service-desc">Finished executive products for sector-specific risk, cascade exposure, and governance planning.</p>
-          <ul class="service-list">
-            <li>Sector Threat Snapshot: focused sector assessment delivered as a finished executive product</li>
-            <li>Snapshot credits toward the Full Sector Assessment if purchased within 90 days</li>
-            <li>Full Sector Intelligence Assessment: comprehensive predictive sector assessment with cross-sector cascade modeling</li>
-            <li>Full assessment includes executive briefing on delivery and credits toward Year 1 retainer</li>
-          </ul>
-        </article>
+            <article class="service-card">
+              <div class="service-kicker">Sector Products</div>
+              <div class="service-name">Sector Intelligence Products</div>
+              <div class="service-price">Pricing on inquiry</div>
+              <p class="service-desc">Finished executive products for sector-specific risk, cascade exposure, and governance planning.</p>
+              <ul class="service-list">
+                <li>Sector Threat Snapshot: focused sector assessment delivered as a finished executive product</li>
+                <li>Snapshot credits toward the Full Sector Assessment if purchased within 90 days</li>
+                <li>Full Sector Intelligence Assessment: comprehensive predictive sector assessment with cross-sector cascade modeling</li>
+                <li>Full assessment includes executive briefing on delivery and credits toward Year 1 retainer</li>
+              </ul>
+            </article>
 
-        <article class="service-card primary" id="retainer">
-          <div class="service-kicker">H · Primary Business Model</div>
-          <div class="service-name">Executive Intelligence Retainer</div>
-          <div class="service-price">Engagements start at $12,000/month</div>
-          <p class="service-desc">Standing intelligence partnership for Texas boards and executive teams. Build documented expert guidance around your governance decisions.</p>
-          <ul class="service-list">
-            <li>ATB Executive access included</li>
-            <li>Monthly executive engagement</li>
-            <li>Custom Priority Intelligence Requirements</li>
-            <li>Flash warning support</li>
-            <li>Sector-specific escalation monitoring</li>
-            <li>Tiered scope available based on engagement depth</li>
-          </ul>
-        </article>
+          </div>
+        </div>
 
-        <article class="service-card">
-          <div class="service-kicker">I · Board Engagement</div>
-          <div class="service-name">Executive Crisis Wargame</div>
-          <div class="service-price">Pricing on inquiry</div>
-          <p class="service-desc">Custom board-level exercise that rehearses decision-making under a live cyber crisis scenario before one occurs. The entry point for board-level engagement with Liberty CTI.</p>
-          <ul class="service-list">
-            <li>Custom scenario for your sector and risk profile</li>
-            <li>Half-day, full-day, or multi-session formats</li>
-            <li>Board, general counsel, and C-suite participation</li>
-            <li>Identifies governance gaps before a real event</li>
-            <li>Produces documented record of responsible preparation</li>
-          </ul>
-        </article>
+        <!-- STAGE 3 — PARTNER -->
+        <div class="stage" id="retainer">
+          <div class="stage-head">
+            <span class="stage-marker">3</span>
+            <div class="stage-heading-text">
+              <h2 class="stage-title">Partner</h2>
+              <div class="stage-sub">Standing intelligence. The primary engagement.</div>
+            </div>
+          </div>
+          <div class="tier-grid">
+
+            <article class="service-card tier-foundation">
+              <div class="service-kicker">Single Sector</div>
+              <div class="service-name">Foundation</div>
+              <p class="tier-fit">For organizations in a single priority sector building board-level risk oversight.</p>
+              <ul class="service-list">
+                <li>ATB access included</li>
+                <li>Quarterly board intelligence brief</li>
+                <li>Monthly executive threat call</li>
+                <li>One priority sector deep</li>
+                <li>Flash warning support</li>
+                <li>Sector-specific escalation monitoring</li>
+              </ul>
+            </article>
+
+            <article class="service-card primary tier-partnership">
+              <span class="tier-badge">Most Engaged</span>
+              <div class="service-name">Partnership</div>
+              <p class="tier-fit">For executive teams governing cyber risk across multiple sectors and vendor dependencies.</p>
+              <ul class="service-list">
+                <li>Everything in Foundation</li>
+                <li>All four priority sectors</li>
+                <li>Custom Priority Intelligence Requirements program</li>
+                <li>Two custom deliverables per year</li>
+                <li>Crisis decision reachback included</li>
+                <li>Annual Executive Crisis Wargame refresh included</li>
+              </ul>
+            </article>
+
+            <article class="service-card tier-enterprise">
+              <div class="service-kicker">Full Partnership</div>
+              <div class="service-name">Enterprise</div>
+              <p class="tier-fit">For boards requiring a standing principal-level intelligence partnership.</p>
+              <ul class="service-list">
+                <li>Everything in Partnership</li>
+                <li>Principal Intelligence Advisor direct access</li>
+                <li>Board-meeting briefing support, in person</li>
+                <li>Custom PIR development with quarterly review</li>
+                <li>Crisis decision support included, priority response</li>
+                <li>Monthly engagement cadence</li>
+              </ul>
+            </article>
+
+          </div>
+
+          <p class="tier-note">Retainer scope and investment are structured around your sector exposure, PIR complexity, and engagement cadence. Begin with a conversation.</p>
+
+          <div class="tier-cta-row">
+            <a class="service-link primary" href="briefing-request.html">Discuss a Retainer</a>
+          </div>
+        </div>
+
       </div>
 
       <div class="decision-band" id="cascade-intelligence">
@@ -2343,7 +2505,6 @@ body [style*="Instrument Sans"]{
       <div class="cta-row">
         <a class="service-link primary" href="atb/2026/06-14-2026/index.html">View the latest Alamo Threat Brief</a>
         <a class="service-link" href="briefing-request.html">Request an Executive Briefing</a>
-        <a class="service-link" href="briefing-request.html">Subscribe to ATB Pro</a>
         <a class="service-link" href="briefing-request.html">Discuss a Retainer</a>
       </div>
 
