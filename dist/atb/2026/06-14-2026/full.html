@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060c14">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Alamo Threat Brief ATB-2026-8 | Week of April 26-May 2, 2026 | Liberty CTI</title>
+<title>The Alamo Threat Brief ATB-2026-14 | Week of June 7-13, 2026 | Liberty CTI</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -21,6 +21,19 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;background:#060c14!important}
 body{background:#060c14!important;color:#e8f0fa!important;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;padding-top:56px;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);border-bottom:1px solid rgba(212,160,64,.2);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-emblem{width:32px;height:32px;object-fit:contain;}
+.nav-wordmark{font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);}
+.nav-wordmark span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;}
+.nav-links a{font-family:'Rajdhani',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,240,250,.55);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold-hi);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{color:var(--gold)!important;border:1px solid rgba(212,160,64,.5);padding:.35rem 1rem;}
+.nav-cta:hover{background:var(--gold)!important;color:var(--bg)!important;}
 
 /* MASTHEAD */
 .masthead{background:var(--surface);position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
@@ -66,7 +79,6 @@ body{background:#060c14!important;color:#e8f0fa!important;font-family:'Source Se
 .ticker-inner{display:inline-block;animation:ticker 60s linear infinite;}
 .ticker-item{display:inline;font-family:'Share Tech Mono',monospace;font-size:.82rem;color:var(--white);letter-spacing:.08em;padding:0 60px;text-decoration:none;}
 .ticker-item::before{content:'\25C6 ';color:var(--gold);}
-.ticker-item:hover{color:var(--gold-hi);}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* PAGE */
@@ -108,7 +120,7 @@ p{margin-bottom:14px;color:var(--text);}
 
 /* WARNING BOX */
 .warning-box{background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:4px solid var(--danger);padding:20px 24px;margin:24px 0;}
-.warning-box::before{content:'âš  CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
+.warning-box::before{content:'\26A0  CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
 .warning-box p{color:var(--text);font-size:.93rem;}
 
 /* ASSESSMENT BOX */
@@ -143,7 +155,7 @@ p{margin-bottom:14px;color:var(--text);}
 .implication-row.defense .implication-sector{border-left:3px solid var(--defense);color:var(--defense);}
 .implication-row.ai .implication-sector{border-left:3px solid var(--tech);color:var(--tech);}
 
-/* PRQ */
+/* PIR / I&W */
 .prq-block{border:1px solid var(--border);margin:20px 0;overflow:hidden;}
 .prq-header{background:var(--tile);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .prq-id{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);background:rgba(90,188,240,.12);border:1px solid rgba(90,188,240,.3);padding:3px 10px;}
@@ -158,7 +170,7 @@ p{margin-bottom:14px;color:var(--text);}
 .prq-indicators{list-style:none;padding:0;margin:8px 0;}
 .prq-indicators li{font-size:.82rem;color:var(--text-dim);padding:4px 0 4px 16px;border-bottom:1px solid rgba(26,58,92,.3);position:relative;}
 .prq-indicators li:last-child{border-bottom:none;}
-.prq-indicators li::before{content:'â†’';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
+.prq-indicators li::before{content:'\2192';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
 
 /* WATCH LIST */
 .watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
@@ -178,11 +190,20 @@ p{margin-bottom:14px;color:var(--text);}
 .exec-brief::before{content:'EXECUTIVE DECISION BRIEF';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
 .exec-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px;}
 .exec-item{padding:14px 16px;border:1px solid rgba(212,160,64,.14);background:rgba(212,160,64,.04);}
-.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--white);margin-bottom:6px;}
+.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--gold-hi);margin-bottom:6px;}
 .exec-item p{font-size:.9rem;color:var(--text);margin:0;line-height:1.65;}
 .exec-item strong{color:var(--gold-hi);}
 .decision-line{margin-top:8px;padding-top:8px;border-top:1px solid rgba(212,160,64,.12);font-size:.82rem;color:var(--text-dim);}
 .decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+
+/* GOVERNANCE / PRIOR JUDGMENT */
+h2.section-head.gold-heading{color:var(--gold-hi);}
+.gov-block{background:var(--panel);border:1px solid rgba(212,160,64,.22);border-left:5px solid var(--gold);padding:26px 30px;margin:24px 0 36px;}
+.gov-row{display:grid;grid-template-columns:190px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(212,160,64,.12);}
+.gov-row:last-child{border-bottom:none;}
+.gov-label{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.04em;color:var(--gold-hi);text-transform:uppercase;}
+.gov-content{font-size:.95rem;color:var(--text);line-height:1.65;}
+
 
 /* SOURCES */
 .src-block{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--blue);padding:26px 28px;margin:36px 0;}
@@ -190,14 +211,16 @@ p{margin-bottom:14px;color:var(--text);}
 .src-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
 .src-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.98rem;color:var(--text);line-height:1.65;padding:14px 16px;border:1px solid rgba(90,188,240,.16);background:rgba(90,188,240,.045);display:grid;grid-template-columns:auto 1fr;gap:10px 12px;align-items:start;}
 .src-list li:last-child{border-bottom:1px solid rgba(90,188,240,.16);}
-.src-bullet{font-family:'Share Tech Mono',monospace;color:var(--blue);line-height:1.65;flex-shrink:0;}
+.src-bullet{font-family:'Share Tech Mono',monospace;color:var(--blue);line-height:1.65;}
 .src-list strong,.src-title{font-family:'Rajdhani',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:.03em;color:var(--white);}
 .src-meta{display:block;font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:.18rem 0 .32rem;}
 .src-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
 .src-links a,.src-list a{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-hi);text-decoration:none;border-bottom:1px solid rgba(136,212,255,.45);}
 .src-links a:hover,.src-list a:hover{color:var(--gold-hi);border-bottom-color:var(--gold-hi);}
 .src-summary{font-family:'Source Serif 4',Georgia,serif!important;font-size:.9rem!important;color:var(--text-dim)!important;line-height:1.7!important;margin-top:16px!important;border-top:1px solid var(--border)!important;padding-top:12px!important;}
+.src-bullet{color:var(--blue);flex-shrink:0;}
 hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
+
 /* TORCH NOTE */
 .torch-note{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:20px 24px;margin:20px 0;}
 .torch-label{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;display:block;}
@@ -1108,7 +1131,6 @@ body [style*="Instrument Sans"]{
 }
 </style>
 </head>
-</head>
 <body>
 <div id="dw" style="background:#060c14;min-height:100vh;color:#e8f0fa;">
 
@@ -1166,36 +1188,36 @@ body [style*="Instrument Sans"]{
 </style>
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
-  <a href="../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+  <a href="../../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="../../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../../index.html">Home</a></li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../about.html" role="menuitem">Company Overview</a>
+        <a href="../../../about.html" role="menuitem">Company Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Founders</span>
-        <a href="../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+        <a href="../../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../decision-support.html" role="menuitem">Products &amp; Services</a>
+        <a href="../../../decision-support.html" role="menuitem">Products &amp; Services</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Core Products</span>
-        <a href="../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
-        <a href="../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="../../sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="../../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="../../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="../../../sector-assessments.html" role="menuitem">Sector Assessments</a>
       </div>
     </li>
 
@@ -1205,26 +1227,26 @@ body [style*="Instrument Sans"]{
         <span class="drop-label">Latest Issue</span>
         <a href="/atb/2026/06-14-2026/" role="menuitem">Latest Issue, Week of June 14, 2026</a>
         <div class="drop-divider"></div>
-        <a href="../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="../../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../texas-focus.html" role="menuitem">Texas Overview</a>
+        <a href="../../../texas-focus.html" role="menuitem">Texas Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Priority Sectors</span>
-        <a href="../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
-        <a href="../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
-        <a href="../../financial.html" role="menuitem">Financial Services</a>
-        <a href="../../healthcare.html" role="menuitem">Healthcare</a>
+        <a href="../../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="../../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="../../../financial.html" role="menuitem">Financial Services</a>
+        <a href="../../../healthcare.html" role="menuitem">Healthcare</a>
         <div class="drop-divider"></div>
-        <a href="../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
+        <a href="../../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
       </div>
     </li>
 
-    <li><a href="../../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+    <li><a href="../../../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1233,41 +1255,41 @@ body [style*="Instrument Sans"]{
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="../../index.html">Home</a>
+  <a href="../../../index.html">Home</a>
 
   <span class="m-group-label">About</span>
   <div class="m-sub">
-    <a href="../../about.html">Company Overview</a>
-    <a href="../../luis-maldonado.html">Lou Maldonado</a>
-    <a href="../../angie-maldonado.html">Angie Maldonado</a>
+    <a href="../../../about.html">Company Overview</a>
+    <a href="../../../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../../../angie-maldonado.html">Angie Maldonado</a>
   </div>
 
   <span class="m-group-label">Products</span>
   <div class="m-sub">
-    <a href="../../decision-support.html">Products &amp; Services</a>
-    <a href="../../alamo-threat-brief.html">Alamo Threat Brief</a>
-    <a href="../../texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="../../sector-assessments.html">Sector Assessments</a>
+    <a href="../../../decision-support.html">Products &amp; Services</a>
+    <a href="../../../alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="../../../texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="../../../sector-assessments.html">Sector Assessments</a>
   </div>
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
     <a href="/atb/2026/06-14-2026/">Latest Issue, Week of June 14, 2026</a>
-    <a href="../index.html" class="lcti-archive-link">Archive</a>
+    <a href="../../index.html" class="lcti-archive-link">Archive</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
   <div class="m-sub">
-    <a href="../../texas-focus.html">Texas Overview</a>
-    <a href="../../energy-ercot.html">Energy &amp; ERCOT</a>
-    <a href="../../defense-dib.html">Defense Industrial Base</a>
-    <a href="../../financial.html">Financial Services</a>
-    <a href="../../healthcare.html">Healthcare</a>
-    <a href="../../Energy_data_AI.html">AI Convergence</a>
+    <a href="../../../texas-focus.html">Texas Overview</a>
+    <a href="../../../energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="../../../defense-dib.html">Defense Industrial Base</a>
+    <a href="../../../financial.html">Financial Services</a>
+    <a href="../../../healthcare.html">Healthcare</a>
+    <a href="../../../Energy_data_AI.html">AI Convergence</a>
   </div>
 
   <div class="m-cta-wrap">
-    <a href="../../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+    <a href="../../../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
   </div>
 </div>
 
@@ -1313,42 +1335,42 @@ body [style*="Instrument Sans"]{
   <div class="masthead-grid"></div>
   <div class="masthead-inner">
     <div class="logo-row">
-      <img src="../../liberty-cti-emblem.png" class="logo-img" alt="Liberty CTI" onerror="this.style.display='none'">
+      <img src="../../../liberty-cti-emblem.png" class="logo-img" alt="Liberty CTI" onerror="this.style.display='none'">
       <div class="brand-block">
         <div class="brand-name">Liberty CTI</div>
-        <div class="brand-sub">Executive Warning &middot; libertycti.com</div>
+        <div class="brand-sub">Cyber Threat Intelligence &middot; libertycti.com</div>
       </div>
     </div>
     <div class="title-block">
       <svg class="alamo-silhouette" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
-        <rect x="0" y="310" width="820" height="10"/><rect x="20" y="220" width="120" height="90"/><rect x="20" y="190" width="40" height="30"/><rect x="100" y="190" width="40" height="30"/><rect x="45" y="242" width="25" height="35" fill="var(--surface)"/><rect x="90" y="242" width="25" height="35" fill="var(--surface)"/><rect x="160" y="160" width="500" height="150"/><rect x="215" y="145" width="125" height="15"/><rect x="230" y="130" width="110" height="15"/><rect x="245" y="115" width="95" height="15"/><rect x="260" y="100" width="80" height="15"/><rect x="480" y="145" width="125" height="15"/><rect x="480" y="130" width="110" height="15"/><rect x="480" y="115" width="95" height="15"/><rect x="480" y="100" width="80" height="15"/><rect x="340" y="85" width="140" height="75"/><path d="M335 85 Q410 22 485 85Z"/><rect x="185" y="170" width="18" height="140" fill="var(--surface)"/><rect x="225" y="170" width="18" height="140" fill="var(--surface)"/><rect x="577" y="170" width="18" height="140" fill="var(--surface)"/><rect x="617" y="170" width="18" height="140" fill="var(--surface)"/><path d="M372 310 L372 242 Q410 200 448 242 L448 310Z" fill="var(--surface)"/><rect x="200" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="250" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="542" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="592" y="195" width="28" height="48" rx="14" fill="var(--surface)"/><rect x="680" y="220" width="120" height="90"/><rect x="680" y="190" width="40" height="30"/><rect x="760" y="190" width="40" height="30"/><rect x="695" y="242" width="25" height="35" fill="var(--surface)"/><rect x="740" y="242" width="25" height="35" fill="var(--surface)"/>
+        <rect x="0" y="310" width="820" height="10"/><rect x="20" y="220" width="120" height="90"/><rect x="20" y="190" width="40" height="30"/><rect x="100" y="190" width="40" height="30"/><rect x="45" y="242" width="25" height="35" fill="var(--surface)"/><rect x="90" y="242" width="25" height="35" fill="var(--surface)"/><rect x="160" y="160" width="500" height="150"/><rect x="215" y="145" width="125" height="15"/><rect x="480" y="145" width="125" height="15"/><rect x="340" y="85" width="140" height="75"/><path d="M335 85 Q410 22 485 85Z"/><rect x="185" y="170" width="18" height="140" fill="var(--surface)"/><rect x="225" y="170" width="18" height="140" fill="var(--surface)"/><rect x="577" y="170" width="18" height="140" fill="var(--surface)"/><rect x="617" y="170" width="18" height="140" fill="var(--surface)"/><path d="M372 310 L372 242 Q410 200 448 242 L448 310Z" fill="var(--surface)"/><rect x="680" y="220" width="120" height="90"/><rect x="680" y="190" width="40" height="30"/><rect x="760" y="190" width="40" height="30"/><rect x="695" y="242" width="25" height="35" fill="var(--surface)"/><rect x="740" y="242" width="25" height="35" fill="var(--surface)"/>
       </svg>
       <h1>The Alamo <span>Threat</span> Brief</h1>
-      <p class="title-desc">Board-Ready executive warning for Texas leaders â€” what changed, why it matters, and what to decide this week.</p>
+      <p class="title-desc">Weekly cyber threat intelligence for Texas industry &mdash; source-backed assessments for executive decision-makers.</p>
     </div>
     <div class="meta-row">
-      <div class="pill"><strong>Issue:</strong> ATB-2026-8</div>
-      <div class="pill"><strong>Week of:</strong> April 26&ndash;May 2, 2026</div>
-      <div class="pill"><strong>Coverage:</strong> Energy &middot; Finance &middot; Healthcare &middot; Defense &middot; AI</div>
-      <div class="pill"><strong>Next Issue:</strong> 10 May 2026</div>
+      <div class="pill"><strong>Issue:</strong> ATB-2026-14</div>
+      <div class="pill"><strong>Week of:</strong> Jun 7&ndash;13, 2026</div>
+      <div class="pill"><strong>Coverage:</strong> Energy &middot; Healthcare &middot; Finance &middot; DIB &middot; AI</div>
+      <div class="pill"><strong>Next Issue:</strong> 21 June 2026</div>
     </div>
     <div class="threat-banner">
       <div class="threat-dot"></div>
-      <div class="threat-label">Elevated &mdash; software teams, energy logistics, exposed public systems, and data-center dependencies</div>
+      <div class="threat-label">Elevated &mdash; an Iran-aligned proxy retaliatory cyber campaign against U.S. critical infrastructure is now confirmed active; Texas Gulf Coast energy and water operators share the exposure profile under the federally confirmed AA26-097A PLC campaign</div>
     </div>
   </div>
   <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
     <div class="meta-strip">
-      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">03 MAY 2026</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">26 APR&ndash;02 MAY 2026</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">BUSINESS DISRUPTION / HIDDEN DEPENDENCIES</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY &middot; HEALTHCARE &middot; DIB &middot; FINANCE</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Torch Fusion Cycle</div><div class="meta-val">WHAT CHANGED &middot; WHY IT MATTERS &middot; WHAT TO DO</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">14 JUN 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">7&ndash;13 JUN 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">RETALIATION CAMPAIGN CONFIRMED ACTIVE</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY &middot; WATER &middot; FIN &middot; HEALTH &middot; DIB</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Torch Fusion Cycle</div><div class="meta-val">WHAT &middot; WHO &middot; WHY &middot; WHAT NEXT</div></div>
     </div>
     <div class="timestamp-bar">
-      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>03 MAY 2026 // 0600 CST</strong></span></div>
-      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>26 APR&ndash;02 MAY 2026</strong></span></div>
-      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>10 MAY 2026</strong></span></div>
+      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>14 JUN 2026 // 0600 CST</strong></span></div>
+      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>7&ndash;13 JUN 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>21 JUN 2026</strong></span></div>
       <div class="ts-item"><span class="ts-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span></div>
     </div>
   </div>
@@ -1356,336 +1378,361 @@ body [style*="Instrument Sans"]{
 
 <!-- CLASSIFICATION -->
 <div class="cls-banner">
-  <span class="cls-text">Liberty CTI Executive Warning &mdash; Board-Level Business Risk Warning</span>
+  <span class="cls-text">Liberty CTI Open Source Analysis &mdash; For Texas Industry Situational Awareness</span>
   <span class="cls-badge">UNCLASSIFIED // OPEN SOURCE // PROPRIETARY</span>
 </div>
-
 <!-- TICKER -->
 <div class="ticker-strip">
   <div class="ticker-inner">
-    <a class="ticker-item" href="https://www.nprillinois.org/2026-04-27/irans-flurry-of-diplomacy-as-trump-insists-u-s-has-the-cards" target="_blank" rel="noopener">Iran foreign minister meets Putin as U.S.-Iran talks stall â€” Russia signals support for Tehran while Hormuz and port access remain central pressure points</a>
-    <a class="ticker-item" href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/04/geopolitical-risk-brief-april-2026" target="_blank" rel="noopener">S&P Global: Hormuz blockade and stalled diplomacy keep renewed U.S.-Iran military action highly likely â€” oil, shipping, and insurance risk remain elevated</a>
-    <a class="ticker-item" href="https://www.russiamatters.org/news/russia-review/russia-review-april-24-may-1-2026" target="_blank" rel="noopener">Russia-Iran coordination deepens as U.S. munition burn rate becomes a strategic concern â€” adversaries are studying U.S. sustainment limits in real time</a>
-    <a class="ticker-item" href="https://www.geopoliticalmonitor.com/geopolitics-weekly-iran-war-japan-arms-sales-balikatan-war-games/" target="_blank" rel="noopener">Middle East conflict strains U.S. precision-missile and air-defense inventories â€” near-term risk rises if another crisis breaks out</a>
-    <a class="ticker-item" href="https://www.maritime.dot.gov/msci-advisories" target="_blank" rel="noopener">MARAD active advisories remain in force for Persian Gulf, Strait of Hormuz, Gulf of Oman, Black Sea, and piracy-risk waters â€” maritime operating risk stays elevated</a>
-    <a class="ticker-item" href="https://www.statesman.com/news/healthcare/article/data-centers-pollution-health-central-texas-22228340.php" target="_blank" rel="noopener">Central Texas data-center buildout creates power, water, health, and grid-planning pressure â€” AI infrastructure is now a local resilience issue</a>
-    <a class="ticker-item" href="https://www.streetinsider.com/Corporate%2BNews/IREN%2Benergizes%2B1.4GW%2BSweetwater%2B1%2Bdata%2Bcenter%2Bsite%2Bin%2BTexas/26417740.html" target="_blank" rel="noopener">IREN energizes 1.4GW Sweetwater data-center site on ERCOT grid â€” Texas AI load growth becomes an operational dependency for critical sectors</a>
-    <a class="ticker-item" href="https://www.washingtonpost.com/world/2026/05/04/russia-ukraine-strikes-oil-disaster/" target="_blank" rel="noopener">Ukraine expands strikes on Russian oil infrastructure â€” energy disruption, environmental damage, and sanctions pressure compound Moscowâ€™s strategic risk</a>
-    <a class="ticker-item" href="https://www.nprillinois.org/2026-04-27/irans-flurry-of-diplomacy-as-trump-insists-u-s-has-the-cards" target="_blank" rel="noopener">Iran foreign minister meets Putin as U.S.-Iran talks stall â€” Russia signals support for Tehran while Hormuz and port access remain central pressure points</a>
-    <a class="ticker-item" href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/04/geopolitical-risk-brief-april-2026" target="_blank" rel="noopener">S&P Global: Hormuz blockade and stalled diplomacy keep renewed U.S.-Iran military action highly likely â€” oil, shipping, and insurance risk remain elevated</a>
-    <a class="ticker-item" href="https://www.russiamatters.org/news/russia-review/russia-review-april-24-may-1-2026" target="_blank" rel="noopener">Russia-Iran coordination deepens as U.S. munition burn rate becomes a strategic concern â€” adversaries are studying U.S. sustainment limits in real time</a>
-    <a class="ticker-item" href="https://www.geopoliticalmonitor.com/geopolitics-weekly-iran-war-japan-arms-sales-balikatan-war-games/" target="_blank" rel="noopener">Middle East conflict strains U.S. precision-missile and air-defense inventories â€” near-term risk rises if another crisis breaks out</a>
+    <a class="ticker-item" href="https://www.securityweek.com/iranian-cyber-group-handala-claims-cal-water-hack/" target="_blank" rel="noopener">Iran-aligned Handala claims breach of California Water Service, accessing a GPS-correction network and customer billing database &mdash; Cal Water finds no IT/OT compromise as investigation continues</a>
+    <a class="ticker-item" href="https://www.ic3.gov/CSA/2026/260407.pdf" target="_blank" rel="noopener">Iranian APT targeting of Rockwell Automation/Allen-Bradley PLCs across U.S. water, energy, government sectors remains the federal baseline since 7 April joint advisory</a>
+    <a class="ticker-item" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA adds Check Point Security Gateway IKEv1 authentication-bypass flaw (CVE-2026-50751) to the KEV catalog &mdash; exploited since early May, linked to Qilin ransomware</a>
+    <a class="ticker-item" href="https://www.lumen.com/blog/en-us/expanded-jdy-iot-and-soho-botnet-enables-rapid-vulnerability-exploitation" target="_blank" rel="noopener">China-linked JDY reconnaissance botnet more than doubles to 1,500+ devices since 2024, scanning newly disclosed CVEs within hours &mdash; primary focus on U.S. military and associated networks</a>
+    <a class="ticker-item" href="https://www.finra.org/rules-guidance/guidance/cybersecurity-alert-heightened-threats-iranian-cyber-actors" target="_blank" rel="noopener">FINRA reiterates heightened-threat alert: Iranian state-sponsored and aligned actors retain capability and intent for disruptive operations against U.S. financial firms during conflict</a>
+    <a class="ticker-item" href="https://www.rferl.org/a/iran-war-us-hormuz-oil-blockade-gulf-israel/33640284.html" target="_blank" rel="noopener">U.S. and Iran reportedly agree on text of a framework agreement, but continued Israeli strikes in Lebanon and an unresolved Hezbollah front complicate any resolution</a>
+    <a class="ticker-item" href="https://www.epa.gov/newsreleases/epa-fbi-cisa-nsa-issue-joint-cybersecurity-advisory-water-system-regarding-iranian" target="_blank" rel="noopener">ERCOT summer-peak demand fragility carried forward from ATB-2026-13 &mdash; any OT disruption during peak demand compounds consequence for Texas energy and water</a>
+    <!-- duplicate for seamless loop -->
+    <a class="ticker-item" href="https://www.securityweek.com/iranian-cyber-group-handala-claims-cal-water-hack/" target="_blank" rel="noopener">Iran-aligned Handala claims breach of California Water Service, accessing a GPS-correction network and customer billing database &mdash; Cal Water finds no IT/OT compromise as investigation continues</a>
+    <a class="ticker-item" href="https://www.ic3.gov/CSA/2026/260407.pdf" target="_blank" rel="noopener">Iranian APT targeting of Rockwell Automation/Allen-Bradley PLCs across U.S. water, energy, government sectors remains the federal baseline since 7 April joint advisory</a>
+    <a class="ticker-item" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA adds Check Point Security Gateway IKEv1 authentication-bypass flaw (CVE-2026-50751) to the KEV catalog &mdash; exploited since early May, linked to Qilin ransomware</a>
+    <a class="ticker-item" href="https://www.lumen.com/blog/en-us/expanded-jdy-iot-and-soho-botnet-enables-rapid-vulnerability-exploitation" target="_blank" rel="noopener">China-linked JDY reconnaissance botnet more than doubles to 1,500+ devices since 2024, scanning newly disclosed CVEs within hours &mdash; primary focus on U.S. military and associated networks</a>
+    <a class="ticker-item" href="https://www.finra.org/rules-guidance/guidance/cybersecurity-alert-heightened-threats-iranian-cyber-actors" target="_blank" rel="noopener">FINRA reiterates heightened-threat alert: Iranian state-sponsored and aligned actors retain capability and intent for disruptive operations against U.S. financial firms during conflict</a>
+    <a class="ticker-item" href="https://www.rferl.org/a/iran-war-us-hormuz-oil-blockade-gulf-israel/33640284.html" target="_blank" rel="noopener">U.S. and Iran reportedly agree on text of a framework agreement, but continued Israeli strikes in Lebanon and an unresolved Hezbollah front complicate any resolution</a>
+    <a class="ticker-item" href="https://www.epa.gov/newsreleases/epa-fbi-cisa-nsa-issue-joint-cybersecurity-advisory-water-system-regarding-iranian" target="_blank" rel="noopener">ERCOT summer-peak demand fragility carried forward from ATB-2026-13 &mdash; any OT disruption during peak demand compounds consequence for Texas energy and water</a>
   </div>
 </div>
 
 <!-- PAGE BODY -->
 <div class="page-body">
 
-  <!-- BOARD-FIRST SUMMARY -->
-  <div class="exec-brief decision-first-block">
-    <div class="exec-grid">
-      <div class="exec-item">
-        <div class="exec-item-title">BOARD WARNING</div>
-        <p>Texas leaders should treat this weekâ€™s signals as a business warning, not a technology update. Foreign-government linked groups and criminal crews are focusing on the systems that keep companies moving: software teams, ports, energy facilities, water systems, hospitals, banks, and data centers. The main risk is not just stolen information. The risk is that operations slow down, payments stop, customers are affected, regulators ask questions, and the board has to explain what it knew before the problem became public.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">DECISION AT RISK</div>
-        <p>Should leadership treat this as an IT issue, or as a business continuity issue that needs board visibility, legal awareness, and executive ownership this week?</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">WHAT TO DO THIS WEEK</div>
-        <p>Name one executive owner, confirm which business services would stop if a key vendor or system failed, test whether backups can actually be restored, and decide when the board or general counsel must be notified.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">BOTTOM LINE</div>
-        <p>Someone does not have to break every system to hurt the business. They only have to hit the one system, vendor, port, pipeline, billing platform, or data center dependency that everything else quietly depends on.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHAT JUST CHANGED -->
-  <div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">What Just Changed, Board Briefing</h2>
-
   <div class="intro-deck">
-    <p>This week showed four separate problems that all point in the same direction: attackers are moving faster, and business operations have more hidden dependencies than most leaders realize. North Korea-linked operators are using artificial intelligence to help create bad software that can slip into normal software-development work. Russia-linked activity is now focused on ports, pipelines, refineries, and liquefied natural gas facilities. Iran-linked groups are looking for exposed water, energy, and municipal systems that are easy to embarrass or disrupt. At the same time, widely used business systems are being attacked quickly after weaknesses become public.</p>
+    <p><strong>Executive Warning:</strong> This week&rsquo;s shift is from assessed risk to confirmed activity. A U.S.-Iran framework agreement may be signed this weekend, but the wider conflict is not resolved &mdash; Israeli forces continued heavy strikes in Lebanon through 13 June, and Tehran has tied any final agreement to a Lebanon ceasefire that Israel has not committed to. Independent of that diplomatic track, the Iran-aligned proxy Handala executed and publicly confirmed a retaliatory cyber operation against California Water Service on 11&ndash;12 June &mdash; accessing a customer billing database and an internal GPS-correction network across multiple service districts, explicitly framed as payback for U.S. strikes on Iranian water infrastructure. No water-delivery or control-system compromise was found, but Handala claimed it could have disrupted service and chose not to. Texas Gulf Coast energy and water operators were not targeted this week, but share the same exposure profile under the federally confirmed AA26-097A PLC campaign. <strong>The decision risk: treating the California incident as an isolated story rather than the opening move of an active campaign with a documented pattern of claim-then-escalate.</strong></p>
   </div>
-
-  <div class="warning-box">
-    <p><strong>Board-Ready warning:</strong> this is not one isolated cyber story. It is a business resilience problem. The same week produced risk to software teams, energy exports, water and municipal systems, business technology platforms, and data-center dependencies. Leaders should assume that disruption in one area can spill into another.</p>
-  </div>
-
-  <!-- WHY THIS MATTERS -->
-  <div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">Why This Matters This Week</h2>
 
   <div class="exec-brief">
     <div class="exec-grid">
       <div class="exec-item">
-        <div class="exec-item-title">1 â€” Software Teams Are Now a Business Risk</div>
-        <p>North Korea is trying to get into companies through normal developer work. In simple terms: a developer may download a tool that looks legitimate, but that tool can quietly steal credentials or open a path into the company. This matters most to Texas defense contractors, AI firms, fintech companies, and any company that builds software.</p>
+        <div class="exec-item-title">Board Implications This Week &mdash; Ask</div>
+        <p>Which dependency pivot exists in our environment? Handala&rsquo;s confirmed attack chain moved from a GPS-correction/survey platform into a customer billing system. Identify the equivalent pivot path in your own IT/operational-support architecture before an adversary finds it for you.</p>
       </div>
       <div class="exec-item">
-        <div class="exec-item-title">2 â€” Ports and Energy Logistics Are Now a Leadership Issue</div>
-        <p>Russia has a strategic reason to pressure U.S. energy exports. Texas Gulf Coast ports, LNG terminals, refineries, and pipelines are not just local assets; they are part of U.S. and allied energy security. A disruption there can affect contracts, commodity prices, insurance, customers, and public confidence.</p>
+        <div class="exec-item-title">Board Implications This Week &mdash; Direct</div>
+        <p>Require confirmation this week of two items: no internet-exposed Rockwell/Allen-Bradley PLCs per AA26-097A, and the remediation status of Check Point CVE-2026-50751 on any IKEv1 VPN or Spark Firewall.</p>
       </div>
       <div class="exec-item">
-        <div class="exec-item-title">3 â€” Small Exposed Systems Can Create Big Public Problems</div>
-        <p>Iran-linked groups do not need elite capability if a water, energy, or municipal system is exposed to the internet with weak access controls. A simple disruption can still create public fear, media coverage, regulatory questions, and executive accountability.</p>
+        <div class="exec-item-title">Board Implications This Week &mdash; Document</div>
+        <p>If a segmentation gap or unpatched edge device is found and not yet remediated, record that as a board-level risk-acceptance decision now &mdash; not after the next incident.</p>
       </div>
       <div class="exec-item">
-        <div class="exec-item-title">4 â€” Data Centers Create Hidden Single Points of Failure</div>
-        <p>Central Texas data-center growth is creating more dependence on power, water, construction labor, cooling, and local public services. If one of those dependencies fails, the impact may not stay inside the data center. It can affect healthcare, payments, cloud services, logistics, and government operations.</p>
+        <div class="exec-item-title">Board Implications This Week &mdash; Rehearse</div>
+        <p>Run a 60-minute tabletop using the Cal Water attack chain as the scenario: GPS/survey-network access pivoting into customer billing. Identify your equivalent pivot point and who owns the response.</p>
       </div>
     </div>
   </div>
 
-  <!-- COST OF BEING WRONG -->
-  <div class="section-rule"><span class="section-tag">Section III</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">Cost of Being Wrong, With U.S. Precedent</h2>
+  <div class="centerpiece">
+    <div class="centerpiece-title">Dominant Geo-Cyber Judgment</div>
+    <p><strong>We assess with High confidence that an Iran-aligned proxy retaliatory cyber campaign against U.S. critical infrastructure is now active &mdash; not merely anticipated &mdash; and with Moderate confidence that it is likely to escalate toward operational-technology targeting or extend to additional U.S. water and energy operators, including Texas Gulf Coast assets, over the next 1&ndash;4 weeks, regardless of the outcome of the U.S.-Iran diplomatic track.</strong></p>
+    <p><strong>Confirmed:</strong> California Water Service stated it conducted a preliminary scan of its internal IT and OT networks and found no signs of compromise to IT, water production, or delivery systems, with the investigation ongoing. Independent technical analysis confirmed the breach was limited to a GPS correction server and a customer billing database, with no evidence of compromise to operational technology or industrial control systems. Cal Water&rsquo;s Chico district was confirmed as the access point, with the compromised GPS-correction platform having been operational for roughly 783 hours and streaming correction data across all seven identified district mountpoints before access.</p>
+    <p><strong>Attribution and framing:</strong> Handala presents publicly as a pro-Palestinian hacktivist group but is widely assessed as a front for Iran-backed Void Manticore, active since at least December 2023, and has significantly escalated U.S.-targeted operations since February 2026. Water infrastructure fits its doctrine of targeting &ldquo;life-sustaining&rdquo; systems for psychological effect. The group published its claim under the banner &ldquo;From Sirik to California: Handala Hits Back at America&rsquo;s Water,&rdquo; explicitly referencing Stuxnet and warning that future actions against Iranian interests would draw further attacks on U.S. infrastructure.</p>
+    <p><strong>Bottom line:</strong> This confirms &mdash; rather than merely supports &mdash; the retaliation thesis carried in ATB-2026-13. The remaining uncertainty is scope: whether this stays at the access/exfiltration level seen in California, or whether Handala (or another Iran-aligned proxy) follows its documented escalation pattern toward OT/ICS targeting. No Texas-specific targeting is in evidence, but a MOIS-linked proxy operating on its own retaliation timeline is not bound by the broader negotiation &mdash; Handala&rsquo;s stated trigger (U.S. strikes on Iranian water infrastructure) is independent of any U.S.-Iran framework agreement.</p>
+  </div>
 
-  <div class="implications-table">
-    <div class="implication-row energy">
-      <div class="implication-sector">Energy<br><span>Ports / LNG / Pipelines</span></div>
-      <div class="implication-content">
-        <strong>Business impact:</strong> fuel or product movement slows, customers and counterparties are affected, contracts and insurance questions follow, and leadership may face public pressure. <strong>U.S. precedent:</strong> Colonial Pipeline, 2021. One pipeline company outage triggered fuel shortages, panic buying, and emergency action across multiple states. <strong>Why it matters here:</strong> a Texas port, LNG terminal, refinery, or pipeline disruption would not be a private IT problem. It would become an energy, logistics, customer, and government-facing event.
+  <!-- SECTION I: WHAT CHANGED -->
+  <div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">What Changed This Week</h2>
+
+  <h3 class="sub-head">Handala Confirms Active Retaliatory Campaign Against a U.S. Water Utility</h3>
+  <p>On <strong>11&ndash;12 June 2026</strong>, the Iran-linked group Handala publicly claimed it had compromised California Water Service (Cal Water), one of the largest investor-owned water utilities in the U.S., and published a 5GB data dump including customer billing records and administrative credentials for an internal GPS-correction (RTKBase/NTRIP) network spanning multiple service districts. Cal Water stated a preliminary scan of its IT and OT networks found no signs of compromise to water production or delivery systems; the investigation continues. Independent technical analysis confirmed access was limited to the GPS-correction server and the billing database, with no evidence reaching ICS/SCADA. This is the clearest evidence to date that the Iran-aligned retaliation campaign anticipated in prior issues is operational now &mdash; not a future contingency.</p>
+
+  <h3 class="sub-head">U.S.-Iran Framework Agreement Reported, Lebanon Front Remains Active</h3>
+  <p>Reporting indicates the U.S. and Iran have agreed on the text of a framework agreement, with a possible signing this weekend. However, <strong>Israeli strikes in Lebanon continued through 13 June</strong>, killing several people, and Tehran has stated any final agreement must include a Lebanon ceasefire &mdash; a condition Israel&rsquo;s defense minister has not accepted. The decision-relevant point: a state-to-state framework agreement does not necessarily bind Iran-aligned proxies operating on independent retaliation timelines, as the Cal Water incident demonstrates.</p>
+
+  <h3 class="sub-head">China-Linked JDY Reconnaissance Botnet Scaling Rapidly &mdash; DIB-Relevant</h3>
+  <p>Lumen&rsquo;s Black Lotus Labs reports the JDY botnet &mdash; a China-nexus reconnaissance network linked to Volt Typhoon &mdash; has more than doubled from roughly 650 compromised devices in January 2024 to over 1,500 today, diversifying from two Cisco router models to seven device manufacturers. The botnet was observed scanning Fortinet equipment within hours of a new vulnerability&rsquo;s April 2026 disclosure. Its scanning shows a clear focus on U.S. military and associated-entity networks, with other sectors scanned at lower, unspecified volume. This is secondary-sourced vendor research, not confirmed against Texas energy, finance, or healthcare &mdash; but it is directly relevant to Texas defense-industrial-base contractors as &ldquo;associated entities,&rdquo; and the scaling velocity is the headline concern regardless of sector specificity.</p>
+
+  <h3 class="sub-head">Check Point VPN Authentication-Bypass Flaw Added to KEV Catalog</h3>
+  <p>On <strong>8 June 2026</strong>, CISA added Check Point Security Gateway improper-authentication vulnerability CVE-2026-50751 to its Known Exploited Vulnerabilities catalog. Per industry reporting, the flaw has been exploited since early May, affects Mobile Access/SSL and Remote Access VPNs and Spark Firewalls running deprecated IKEv1, and has been linked to Qilin ransomware in at least one case. This is a same-week patch-and-audit item on its own timeline &mdash; but a compromised VPN edge is also the kind of access point an Iran-aligned proxy could exploit opportunistically during this heightened-tension window.</p>
+
+  <!-- SECTION II: KEY JUDGMENTS -->
+  <div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Key Judgments</h2>
+  <div class="kj-block">
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <span class="aq">high confidence</span> that an Iran-aligned proxy retaliatory cyber campaign against U.S. critical infrastructure is now <strong>active and confirmed</strong>, not merely anticipated. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: California Water Service&rsquo;s 12 June statement confirming a preliminary IT/OT scan found no compromise to production or delivery systems; independent technical analysis confirming access to a GPS-correction server and billing database; Handala&rsquo;s public claim explicitly framing the operation as retaliation for U.S. strikes on Iranian water infrastructure. Primary uncertainty: the full scope of data accessed and whether other Cal Water districts beyond Chico were affected remains under investigation.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Treat this as confirmation that the threat model is live, not theoretical. Water, energy, and utility operators should move segmentation and OT-exposure reviews from &ldquo;assessment backlog&rdquo; to &ldquo;this week.&rdquo;</div>
       </div>
     </div>
-    <div class="implication-row healthcare">
-      <div class="implication-sector">Healthcare<br><span>Care / Billing / Vendors</span></div>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        Liberty CTI assesses it is <span class="aq">likely</span> (55&ndash;80%) that this campaign escalates toward operational-technology targeting or extends to additional U.S. water/energy operators &mdash; including Texas Gulf Coast assets &mdash; over the next 1&ndash;4 weeks, independent of the U.S.-Iran diplomatic track. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: Handala&rsquo;s documented pattern of initial claims followed by escalated action (March 2026 Stryker wiper attack); the group&rsquo;s explicit statement that it could have disrupted water service and chose restraint as a &ldquo;warning&rdquo;; the standing AA26-097A PLC campaign already covering energy and water. Primary uncertainty: whether a possible U.S.-Iran framework agreement reduces proxy incentive, or whether MOIS-linked proxies operate independent of that track as the Cal Water timing suggests.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Texas Gulf Coast energy and water operators should not wait for a Texas-named victim. The segmentation pattern exploited at Cal Water (field-operations/survey network pivoting to billing) is broadly replicable.</div>
+      </div>
+    </div>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        Liberty CTI assesses with <span class="aq">high confidence</span> that China-linked reconnaissance infrastructure (the JDY botnet) is scaling rapidly and operationalizing newly disclosed vulnerabilities within hours &mdash; a DIB-relevant access-development risk for Texas defense contractors as &ldquo;associated entities&rdquo; of its primary military targeting focus. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: Lumen Black Lotus Labs primary research (10 June 2026) documenting growth from ~650 to 1,500+ devices since January 2024 and a selective post-disclosure scanning spike against Fortinet equipment. Primary uncertainty: Lumen&rsquo;s report does not name energy, finance, or healthcare as targeted sectors &mdash; this remains a DIB-framed implication, not a general Texas cross-sector claim.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Texas DIB-classified or military-adjacent contractors should review edge-device (router/firewall/IoT) inventory and patch cadence given the &ldquo;hours after disclosure&rdquo; targeting pattern.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION III: GEOPOLITICAL DRIVER -->
+  <div class="section-rule"><span class="section-tag">Section III</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Geopolitical Driver</h2>
+  <p>The strategic driver this week is the divergence between state-to-state diplomacy and proxy-actor retaliation timelines. A U.S.-Iran framework agreement may reduce the incentive for direct Iranian state cyber operations, but Handala &mdash; widely assessed as a front for Iran-backed Void Manticore &mdash; operates on its own retaliation cycle, triggered by specific kinetic events (the Sirik water-infrastructure strikes) rather than the overall negotiation status. Separately, China-nexus reconnaissance (JDY/Volt Typhoon) continues its long-running pattern of crisis pre-positioning against U.S. military and associated-entity networks, unrelated to the Iran conflict. Texas matters because its energy, water, finance, healthcare, and DIB sectors sit inside both threat pictures: the confirmed Iran-proxy retaliation pattern (water/energy exposure via AA26-097A and the Cal Water precedent) and the DIB-relevant China reconnaissance pattern (defense contractors as &ldquo;associated entities&rdquo;).</p>
+
+  <div class="warning-box">
+    <p><strong>Continuum assessment:</strong> The Iran-proxy retaliation campaign has moved from <strong>competition</strong> to an active <strong>crisis-response</strong> posture &mdash; a real (if contained) attack has occurred. Texas Gulf Coast energy and water operators should treat the next 1&ndash;4 weeks as a heightened threat window for the segmentation pattern demonstrated against Cal Water, independent of how the U.S.-Iran diplomatic track resolves.</p>
+  </div>
+
+  <!-- SECTION IV: TEXAS CASCADE ASSESSMENT -->
+  <div class="section-rule"><span class="section-tag">Section IV</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Why This Matters to Texas</h2>
+  <p>This week converts an assessed risk into a demonstrated attack chain: a field-operations/survey network (GPS correction) pivoting into a customer-facing billing system, executed by an Iran-aligned proxy explicitly retaliating for U.S. military action. Texas energy and water operators with comparable IT/operational-support architectures &mdash; and there are many &mdash; now have a concrete pattern to test against their own environments, not a hypothetical. Layer in the standing AA26-097A PLC campaign, the active Check Point VPN exploitation, and JDY&rsquo;s DIB-relevant reconnaissance scaling, and the board-level question is no longer whether Texas is in the targeting set. It is whether the specific pivot path used against Cal Water exists, unaudited, inside Texas energy and water operators today.</p>
+
+  <h2 class="section-head">Cross-Sector Cascade Assessment</h2>
+  <div class="implications-table">
+    <div class="implication-row energy">
+      <div class="implication-sector">Energy / Water<br><span>ERCOT / OT / Gulf Coast</span></div>
       <div class="implication-content">
-        <strong>Business impact:</strong> patient care slows, billing gets delayed, staff workarounds increase, and regulators or plaintiffs may ask what leadership knew. <strong>U.S. precedent:</strong> Change Healthcare, 2024. One major healthcare payments and claims platform disruption created nationwide billing and care-delivery problems. <strong>Why it matters here:</strong> Texas health systems depend on many outside platforms. A vendor failure can quickly become a hospital cashflow and patient-service problem.
+        <strong>What changed:</strong> The confirmed Handala/Cal Water attack chain &mdash; pivot from a GPS-correction/survey platform into a customer billing system &mdash; is a segmentation failure pattern, not an OT-specific exploit, meaning it is broadly replicable at any utility with similar architecture. <strong>Why it matters locally:</strong> Combined with AA26-097A&rsquo;s standing finding that an Iranian-affiliated APT has been disrupting internet-exposed Rockwell/Allen-Bradley PLCs and manipulating HMI/SCADA displays across energy, water, and government-services sectors, Texas Gulf Coast operators face two converging risks: the confirmed proxy access/exfiltration pattern, and the standing OT-disruption campaign. <strong>Cascade risk:</strong> ERCOT summer-peak fragility (carried from ATB-2026-13) means any OT disruption during peak demand has materially worse consequences across healthcare, water, and fuel logistics.
       </div>
     </div>
     <div class="implication-row finance">
-      <div class="implication-sector">Finance<br><span>Payments / Payroll / Liquidity</span></div>
+      <div class="implication-sector">Financial<br><span>Availability / Edge Exposure</span></div>
       <div class="implication-content">
-        <strong>Business impact:</strong> payments slow, payroll can be disrupted, customers lose trust, and liquidity pressure can build fast. <strong>U.S. precedent:</strong> ICBC ransomware disruption, 2023. A financial services disruption affected U.S. Treasury market operations and forced manual workarounds. <strong>Why it matters here:</strong> Texas banks, fintech firms, and companies dependent on payment processors need to know which financial functions fail first if a key provider goes down.
+        <strong>What changed:</strong> FINRA&rsquo;s standing warning that Iranian state-sponsored and aligned actors retain capability and intent for disruptive operations is now substantiated by a real, if contained, event. Separately, CISA added Check Point CVE-2026-50751 (IKEv1 authentication bypass, exploited since early May, linked to Qilin ransomware) to its KEV catalog on 8 June. <strong>Cascade risk:</strong> Same-week patch item on its own timeline &mdash; but a compromised VPN edge is exactly the kind of opportunistic access point an Iran-aligned proxy could exploit during this heightened-tension window.
       </div>
     </div>
-    <div class="implication-row defense">
-      <div class="implication-sector">Defense / DIB<br><span>Software / Suppliers</span></div>
+    <div class="implication-row healthcare">
+      <div class="implication-sector">Healthcare / DIB / AI<br><span>Pattern Continuity / Access Governance</span></div>
       <div class="implication-content">
-        <strong>Business impact:</strong> sensitive programs can be delayed, customer trust can be damaged, and legal or government reporting obligations may follow. <strong>U.S. precedent:</strong> SolarWinds, 2020. A trusted software update became the pathway into many public and private organizations. <strong>Why it matters here:</strong> Texas defense contractors and suppliers must assume trusted tools and vendors can become the route into better-protected environments.
-      </div>
-    </div>
-    <div class="implication-row ai">
-      <div class="implication-sector">AI / Data Centers<br><span>Cloud / Compute / Dependencies</span></div>
-      <div class="implication-content">
-        <strong>Business impact:</strong> cloud services slow or fail, customer platforms go offline, and operations that depend on hosted systems lose control of recovery time. <strong>U.S. precedent:</strong> CrowdStrike, 2024. A faulty software update created widespread airline and enterprise disruption, showing how a trusted technology dependency can stop real-world operations. <strong>Why it matters here:</strong> data-center and cloud dependency is now a board issue because a technical failure can quickly become a transportation, economic, legal, and public-confidence crisis.
+        <strong>Healthcare:</strong> Handala&rsquo;s most significant prior operation was the March 2026 wiper attack on medical device maker Stryker. The Cal Water incident confirms this actor remains active and capable against U.S. targets &mdash; not a closed chapter for Texas medtech and hospital systems dependent on similar vendors. <strong>DIB:</strong> The JDY botnet&rsquo;s scaling (650&rarr;1,500+ devices, hours-after-disclosure targeting, primary focus on U.S. military and associated entities) is a secondary-sourced but directly relevant warning for Texas defense contractors. <strong>AI/Tech:</strong> Per vendor reporting (moderate confidence), North Korea&rsquo;s Famous Chollima and UNK_DeadDrop continue AI-enabled fake IT-worker and developer-phishing operations against U.S. tech firms, raising hiring and code-repository access risk. <strong>Cascade risk:</strong> A destructive healthcare event compounds with the same water/energy retaliation pattern if both occur during a degraded-grid scenario.
       </div>
     </div>
   </div>
 
-  <!-- GEOPOLITICAL LENS -->
-  <div class="section-rule"><span class="section-tag">Section IV</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">The Geopolitical Lens, Without the Jargon</h2>
-
-  <div class="exec-brief">
-    <div class="exec-grid">
-      <div class="exec-item">
-        <div class="exec-item-title">North Korea</div>
-        <p>North Korea needs money. It uses cyber operations to steal money, target developers, and reach companies that touch crypto, finance, AI, and defense. For boards, the key point is simple: a normal software-development process can become a route for a foreign government-linked operation to enter the company.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">Russia</div>
-        <p>Russia has a reason to pressure U.S. energy exports because those exports weaken Russian leverage abroad. Texas energy infrastructure matters because it helps supply allies. That makes Gulf Coast energy logistics a strategic target, not just a business target.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">Iran</div>
-        <p>Iran-linked groups often look for visible wins: websites, municipal systems, water systems, and exposed operational equipment. They do not need to cause massive damage to create fear, headlines, and political pressure.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">Why Boards Should Care</div>
-        <p>These foreign-policy tensions can change a companyâ€™s risk level overnight. A Texas company does not need to operate overseas to be affected by a geopolitical cyber event.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- LIKELY / WORST CASE -->
+  <!-- SECTION V: INDICATORS TO WATCH -->
   <div class="section-rule"><span class="section-tag">Section V</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">What This Likely Turns Into</h2>
+  <h2 class="section-head">Indicators &amp; Warnings &mdash; PIR Watch, 1 to 4 Weeks</h2>
 
-  <div class="doctrine-grid">
-    <div class="doctrine-card">
-      <div class="doctrine-label">Most Likely Path</div>
-      <div class="doctrine-title">More Quiet Access Attempts</div>
-      <p>Attackers keep looking for easy ways in through developers, vendors, exposed systems, and common business software.</p>
-      <p><strong>Business effect:</strong> higher chance of surprise disruption later, even if nothing looks wrong today.</p>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 5 / I&amp;W 1</span>
+      <span class="prq-title">Cal Water investigation outcome &mdash; OT/ICS access confirmation or denial</span>
+      <span class="prq-risk risk-rising">&uarr; Rising</span>
     </div>
-    <div class="doctrine-card">
-      <div class="doctrine-label">Worst Credible Path</div>
-      <div class="doctrine-title">One Failure Spreads Across Sectors</div>
-      <p>A port, energy operator, healthcare vendor, payment provider, or data-center dependency fails and affects multiple industries at once.</p>
-      <p><strong>Business effect:</strong> leadership loses control of the recovery timeline and must manage operations, customers, regulators, and public messaging at the same time.</p>
+    <ul class="prq-indicators">
+      <li>Watch for Cal Water or federal investigators confirming (or ruling out) any access to operational technology or industrial control systems beyond the billing/GPS-correction systems already confirmed.</li>
+      <li>Would determine whether this campaign has crossed from data access to control-system exposure &mdash; a direct escalation signal.</li>
+      <li>Tied to: PIR 5, strategic vulnerability exposure across critical infrastructure.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 1 / I&amp;W 2</span>
+      <span class="prq-title">Additional Handala or Iran-aligned claims against U.S. water/energy, especially Texas/Gulf Coast</span>
+      <span class="prq-risk risk-rising">&uarr; Rising</span>
     </div>
-    <div class="doctrine-card">
-      <div class="doctrine-label">Hidden Dependency Risk</div>
-      <div class="doctrine-title">The Weak Link Is Not Inside Your Building</div>
-      <p>The most damaging failure may come from a trusted vendor, software provider, managed service provider, or cloud platform.</p>
-      <p><strong>Business effect:</strong> internal security may look fine while the business still goes down.</p>
+    <ul class="prq-indicators">
+      <li>Watch for new Handala (or affiliated proxy) claims against U.S. water or energy utilities, consistent with the group&rsquo;s documented claim-then-escalate pattern following the Stryker and Cal Water precedents.</li>
+      <li>Would confirm the campaign is expanding geographically and/or escalating in severity rather than remaining a single contained incident.</li>
+      <li>Tied to: PIR 1, nation-state and proxy targeting of Texas critical infrastructure.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 3 / I&amp;W 3</span>
+      <span class="prq-title">U.S.-Iran framework agreement and Lebanon front status</span>
+      <span class="prq-risk risk-rising">&uarr; Rising</span>
     </div>
+    <ul class="prq-indicators">
+      <li>Watch for whether a U.S.-Iran framework agreement is actually signed, and whether the Lebanon/Hezbollah front continues or de-escalates.</li>
+      <li>An unsigned or collapsed agreement, or continued Israel-Hezbollah fighting, sustains proxy retaliation incentive independent of the main negotiation.</li>
+      <li>Tied to: PIR 3 and PIR 7, escalation indicators and geopolitical-cyber acceleration.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 6 / I&amp;W 4</span>
+      <span class="prq-title">New CISA/FBI/WaterISAC advisory referencing the Cal Water incident or water-sector campaign</span>
+      <span class="prq-risk risk-sustained">&#8594; Sustained</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for a federal advisory specifically addressing the Cal Water incident or a broader Iran-aligned water-sector retaliation campaign (none issued as of 13 June).</li>
+      <li>Would confirm federal situational awareness is treating this as a sector-wide concern, not an isolated incident, and may carry specific Texas-relevant guidance.</li>
+      <li>Tied to: PIR 6, executive decision-relevant warning.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 4 / I&amp;W 5</span>
+      <span class="prq-title">JDY/China-nexus scanning against Texas-relevant DIB or edge infrastructure</span>
+      <span class="prq-risk risk-sustained">&#8594; Sustained</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for reporting that JDY-linked scanning has expanded beyond military/DIB-associated networks into energy, finance, or healthcare IP space, or that it has targeted newly disclosed CVEs affecting Texas-relevant DIB or edge infrastructure.</li>
+      <li>Would upgrade the China item from a secondary DIB-framed implication to a Texas cross-sector concern.</li>
+      <li>Tied to: PIR 4, defense-industrial-base and technology-sector targeting.</li>
+    </ul>
   </div>
 
-  <!-- CASCADE INTELLIGENCE -->
+  <!-- SECTION VI: GOVERNANCE -->
   <div class="section-rule"><span class="section-tag">Section VI</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">How One Problem Spreads</h2>
+  <h2 class="section-head gold-heading">Governance Implication Block</h2>
 
-  <div class="watch-grid">
-    <div class="watch-item">
-      <span class="watch-num">1</span>
-      <div class="watch-text"><strong>Energy disruption</strong> â†’ fuel or power constraints â†’ hospital backup pressure and logistics delays â†’ public and regulatory pressure.</div>
+  <div class="gov-block">
+    <div class="gov-row">
+      <div class="gov-label">Decision at risk</div>
+      <div class="gov-content">Whether to treat IT/operational-support segmentation (the Cal Water attack path) and OT exposure (AA26-097A) as an active-campaign priority this week, given a confirmed proxy operation has already succeeded against a comparable utility.</div>
     </div>
-    <div class="watch-item">
-      <span class="watch-num">2</span>
-      <div class="watch-text"><strong>Payment disruption</strong> â†’ payroll and vendor payments slow â†’ operations stall â†’ cashflow and customer trust decline.</div>
+    <div class="gov-row">
+      <div class="gov-label">Owner</div>
+      <div class="gov-content">CISO + COO/OT operations lead, with board risk-committee visibility.</div>
     </div>
-    <div class="watch-item">
-      <span class="watch-num">3</span>
-      <div class="watch-text"><strong>Healthcare vendor failure</strong> â†’ billing and patient workflows break â†’ revenue loss and care delays â†’ legal and regulatory exposure.</div>
+    <div class="gov-row">
+      <div class="gov-label">Consequence of delay</div>
+      <div class="gov-content">A Texas water or energy operator with a similar GPS/survey-to-billing segmentation gap becomes the next confirmed Handala target; an unaddressed AA26-097A PLC exposure becomes an OT-disruption event during ERCOT summer peak.</div>
     </div>
-    <div class="watch-item">
-      <span class="watch-num">4</span>
-      <div class="watch-text"><strong>Data-center strain</strong> â†’ cloud service degradation â†’ customer platforms slow or fail â†’ business interruption across multiple sectors.</div>
+    <div class="gov-row">
+      <div class="gov-label">Action this week</div>
+      <div class="gov-content">Audit segmentation between field-operations/GPS-survey networks and customer-facing IT/billing systems; confirm no internet-exposed Rockwell/Allen-Bradley PLCs and review HMI/SCADA displays for anomalies (AA26-097A); patch Check Point CVE-2026-50751, validate IKEv1 exposure, review VPN logs to early May, rotate credentials; verify DDoS mitigation is current given the now-substantiated FINRA Iran warning.</div>
     </div>
-    <div class="watch-item">
-      <span class="watch-num">5</span>
-      <div class="watch-text"><strong>Defense supplier unauthorized access</strong> â†’ program delay or sensitive access risk â†’ customer confidence damage â†’ government reporting and contract pressure.</div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">6</span>
-      <div class="watch-text"><strong>Municipal water or utility incident</strong> â†’ local service disruption â†’ public concern â†’ mayor, regulator, media, and board attention at once.</div>
+    <div class="gov-row">
+      <div class="gov-label">Record to preserve</div>
+      <div class="gov-content">Segmentation audit results; AA26-097A review/remediation status; Check Point patch and VPN log-review records; DDoS readiness confirmation; Cal Water incident tracked as an external precedent for board briefing; board notification timestamp and decision.</div>
     </div>
   </div>
 
-  <!-- WARNING SIGNS -->
+  <!-- SECTION VII: ACTIONS THIS WEEK -->
   <div class="section-rule"><span class="section-tag">Section VII</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">Early Warning Signs to Watch</h2>
-  <p style="color:var(--text-dim);font-size:.88rem;font-style:italic;margin-bottom:20px;">These are simple signs executives can ask about. If one appears, leadership should not wait for a perfect technical explanation before acting.</p>
-
-  <div class="watch-grid">
-    <div class="watch-item">
-      <span class="watch-num">W-1</span>
-      <div class="watch-text"><strong>A similar company reports an outage.</strong> What it means: your sector may be under pressure. Executive trigger: ask whether your systems, vendors, or backups share the same exposure.</div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">W-2</span>
-      <div class="watch-text"><strong>A key vendor reports unusual issues or delayed service.</strong> What it means: your risk may come through a partner. Executive trigger: confirm business workarounds and notification thresholds.</div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">W-3</span>
-      <div class="watch-text"><strong>Multiple locations report login failures, slow systems, or unexpected lockouts.</strong> What it means: this may be more than a help-desk issue. Executive trigger: convene IT, operations, legal, and communications quickly.</div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">W-4</span>
-      <div class="watch-text"><strong>A port, pipeline, hospital, payment provider, or data center reports disruption.</strong> What it means: cross-sector effects may follow. Executive trigger: check whether your operations depend on that service.</div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">W-5</span>
-      <div class="watch-text"><strong>A public advisory names your sector.</strong> What it means: the government believes the risk is specific enough to warn. Executive trigger: document that leadership reviewed it and assigned action.</div>
-    </div>
-    <div class="watch-item">
-      <span class="watch-num">W-6</span>
-      <div class="watch-text"><strong>Your team cannot prove backup restoration time.</strong> What it means: recovery assumptions may be false. Executive trigger: require a restore test, not a verbal assurance.</div>
-    </div>
+  <h2 class="section-head">Actions This Week</h2>
+  <div class="warning-box">
+    <p><strong>Audit:</strong> Map segmentation between field-operations/GPS-survey networks and customer-facing IT/billing systems &mdash; the exact pivot path Handala used against Cal Water.</p>
+    <p><strong>Confirm:</strong> No internet-exposed Rockwell/Allen-Bradley PLCs per AA26-097A; review HMI/SCADA displays and project files for anomalies.</p>
+    <p><strong>Patch:</strong> Check Point CVE-2026-50751 &mdash; validate IKEv1 exposure, review VPN logs back to early May, rotate credentials.</p>
+    <p><strong>Verify:</strong> DDoS mitigation readiness, given FINRA&rsquo;s now-substantiated warning on Iranian disruptive-operations capability and intent.</p>
   </div>
 
-  <!-- ACTIONS -->
+  <!-- SECTION VIII: PRIOR JUDGMENT TRACKER -->
   <div class="section-rule"><span class="section-tag">Section VIII</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">What Leadership Should Do This Week</h2>
-
-  <div class="exec-brief">
-    <div class="exec-grid">
-      <div class="exec-item">
-        <div class="exec-item-title">1 â€” Put One Executive in Charge</div>
-        <p>Name a business owner, not just a technical owner. That person should be accountable for understanding which services fail first if a vendor, software platform, data center, or operational system goes down.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">2 â€” Ask for Proof That Backups Work</div>
-        <p>Do not accept â€œwe have backups.â€ Ask when the last restore test happened and how long it took. If the answer is unclear, require a test within seven days.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">3 â€” Review Your Top Five Critical Vendors</div>
-        <p>Identify the five outside providers that would hurt operations most if they failed. Ask what backup plan exists for each one.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">4 â€” Set Board and Legal Notification Triggers</div>
-        <p>Decide in advance what type of outage, vendor failure, customer impact, or public reporting requires notification to the board, general counsel, or risk committee.</p>
-      </div>
-      <div class="exec-item">
-        <div class="exec-item-title">5 â€” Run a 30-Minute Tabletop</div>
-        <p>Ask one simple scenario: â€œOur most important vendor is down for 72 hours. What stops, who decides, who calls customers, and when does the board find out?â€</p>
-      </div>
+  <h2 class="section-head gold-heading">Prior Judgment Tracker</h2>
+  <div class="gov-block">
+    <div class="gov-row">
+      <div class="gov-label">Prior judgment</div>
+      <div class="gov-content">ATB-2026-13 assessed the convergence of an eight-agency federal advisory on automatic tank gauge exploitation across U.S. fuel infrastructure with ERCOT&rsquo;s disclosure of voltage ride-through test failures entering peak summer demand as the dominant cross-sector risk.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Current status</div>
+      <div class="gov-content">Carried forward as standing context &mdash; ERCOT summer-peak fragility continues to compound the consequence of any OT disruption &mdash; but superseded as this week&rsquo;s dominant theme by the confirmed Iran-aligned retaliatory campaign.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">What changed</div>
+      <div class="gov-content">Handala&rsquo;s confirmed access to California Water Service is the first evidenced instance of the Iran-retaliation pattern previously assessed as anticipated in prior issues &mdash; the campaign is now demonstrated, not projected.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Confidence movement</div>
+      <div class="gov-content">Confidence that Iran-aligned retaliatory cyber activity is occurring increased from Moderate-to-High (anticipated) to High (confirmed). Confidence in escalation toward OT disruption or extension to Texas-specific targets remains Moderate.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Next indicator</div>
+      <div class="gov-content">Cal Water investigation findings confirming or denying OT/ICS access, an additional Handala claim against a U.S. water or energy operator (especially Gulf Coast), or a new federal advisory referencing this campaign would raise escalation posture.</div>
     </div>
   </div>
 
-  <!-- IF IGNORED -->
-  <div class="section-rule"><span class="section-tag">Section IX</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">What Happens If You Ignore This</h2>
+  <!-- SECTION IX: SOURCING -->
+  <div class="section-rule"><span class="section-tag">Section IX &mdash; Sourcing</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Open Source Basis</h2>
 
-  <div class="analyst-note">
-    <p>If leadership ignores these signals, the likely failure is not that the company gets surprised by a technical detail. The likely failure is that the company discovers too late that one business function, one vendor, one cloud provider, one port dependency, one billing system, or one backup process was more important than anyone had documented.</p>
-    <p>That is how a technical problem becomes a business crisis. Operations slow down. Customers start asking questions. Revenue is delayed. Legal and regulatory questions begin. The board asks what management knew and what it did before the outage became public.</p>
-    <p><strong>The practical question this week is simple:</strong> if one critical dependency failed for three days, would leadership already know what stops, who decides, and how fast the company can recover?</p>
+  <div class="src-block">
+    <div class="src-header">PRIMARY SOURCES &mdash; ATB-2026-14 &mdash; COVERAGE WEEK 7&ndash;13 JUNE 2026 AND CONTINUING BASELINE</div>
+
+    <div class="src-entry">
+      <div class="src-label">VICTIM STATEMENT</div>
+      <div class="src-title">California Water Service &mdash; Statement on Handala Breach Claim</div>
+      <a class="src-url" href="https://www.yahoo.com/news/us/articles/iranian-hacker-group-alleges-breached-162406352.html" target="_blank" rel="noopener">yahoo.com/news/us/articles/iranian-hacker-group-alleges-breached-162406352.html</a>
+      <div class="src-note">12 June 2026. Cal Water director of communications states preliminary IT/OT scan found no compromise to production or delivery systems; investigation ongoing. Used for Executive Warning, Dominant Judgment, KJ-1, and What Changed.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">CISA/FBI/NSA/EPA &mdash; Advisory AA26-097A: Iranian-Affiliated Cyber Actors Exploit PLCs Across U.S. Critical Infrastructure</div>
+      <a class="src-url" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a" target="_blank" rel="noopener">cisa.gov/news-events/cybersecurity-advisories/aa26-097a</a>
+      <div class="src-note">Published 7 April 2026. Standing baseline for Iranian OT targeting of Rockwell/Allen-Bradley PLCs across energy, water, and government sectors. Used for Dominant Judgment, KJ-2, and Cross-Sector Cascade (Energy/Water).</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">CISA &mdash; Known Exploited Vulnerabilities Catalog (CVE-2026-50751)</div>
+      <a class="src-url" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">cisa.gov/known-exploited-vulnerabilities-catalog</a>
+      <div class="src-note">Added 8 June 2026. Check Point Security Gateway IKEv1 improper-authentication vulnerability. Used for What Changed and Cross-Sector Cascade (Finance).</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">REGULATORY / INDUSTRY ALERT</div>
+      <div class="src-title">FINRA &mdash; Cybersecurity Alert: Heightened Threats from Iranian Cyber Actors</div>
+      <a class="src-url" href="https://www.finra.org/rules-guidance/guidance/cybersecurity-alert-heightened-threats-iranian-cyber-actors" target="_blank" rel="noopener">finra.org/rules-guidance/guidance/cybersecurity-alert-heightened-threats-iranian-cyber-actors</a>
+      <div class="src-note">Standing alert. Warns member firms of Iranian state-sponsored and aligned actors&rsquo; capability and intent for disruptive operations during heightened tension. Used for Cross-Sector Cascade (Finance).</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">VENDOR PRIMARY RESEARCH</div>
+      <div class="src-title">Lumen Black Lotus Labs &mdash; Expanded JDY IoT and SOHO Botnet Enables Rapid Vulnerability Exploitation</div>
+      <a class="src-url" href="https://www.lumen.com/blog/en-us/expanded-jdy-iot-and-soho-botnet-enables-rapid-vulnerability-exploitation" target="_blank" rel="noopener">lumen.com/blog/en-us/expanded-jdy-iot-and-soho-botnet-enables-rapid-vulnerability-exploitation</a>
+      <div class="src-note">Published 10 June 2026. Primary vendor research on China-nexus JDY botnet scaling. Used as a DIB-relevant implication (KJ-3), not a general Texas cross-sector claim &mdash; the report does not name energy, finance, or healthcare as targeted sectors.</div>
+    </div>
+
+    <div class="src-header" style="margin-top:20px;">SECONDARY SOURCES (noted where cited)</div>
+
+    <div class="src-entry">
+      <div class="src-label">INDEPENDENT TECHNICAL ANALYSIS</div>
+      <div class="src-title">SecurityWeek / Rescana / SecurityAffairs &mdash; Handala Cal Water Breach Analysis</div>
+      <a class="src-url" href="https://www.securityweek.com/iranian-cyber-group-handala-claims-cal-water-hack/" target="_blank" rel="noopener">securityweek.com/iranian-cyber-group-handala-claims-cal-water-hack</a>
+      <div class="src-note">12&ndash;13 June 2026. Independent (Dataminr) technical analysis confirming access scope limited to GPS-correction server and billing database, with Chico district confirmed as the access point. Used for Dominant Judgment and KJ-1.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">ATTRIBUTION CONTEXT</div>
+      <div class="src-title">Handala Public Claim &mdash; &ldquo;From Sirik to California&rdquo;</div>
+      <a class="src-url" href="https://breachnews.com/cyber-attacks/handala-claims-cyberattack-on-california-water-infrastructure/" target="_blank" rel="noopener">breachnews.com/cyber-attacks/handala-claims-cyberattack-on-california-water-infrastructure</a>
+      <div class="src-note">12 June 2026. Group&rsquo;s own framing and Stuxnet reference, plus threat of further action. Treated as actor self-reporting, not independently verified beyond the technical scope confirmed by Dataminr/Cal Water. Used for Dominant Judgment.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GEOPOLITICAL / WIRE</div>
+      <div class="src-title">RFE/RL &mdash; U.S.-Iran Framework Agreement and Lebanon Front Status</div>
+      <a class="src-url" href="https://www.rferl.org/a/iran-war-us-hormuz-oil-blockade-gulf-israel/33640284.html" target="_blank" rel="noopener">rferl.org/a/iran-war-us-hormuz-oil-blockade-gulf-israel/33640284.html</a>
+      <div class="src-note">13&ndash;14 June 2026. Used for What Changed (framework agreement / Lebanon status) and Geopolitical Driver.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">VENDOR-DERIVED (MODERATE CONFIDENCE)</div>
+      <div class="src-title">CrowdStrike / Proofpoint reporting (via industry press) &mdash; DPRK Famous Chollima &amp; UNK_DeadDrop</div>
+      <div class="src-note">9&ndash;11 June 2026, as relayed in operator-curated source list. Vendor-derived figures on DPRK fake-IT-worker and developer-phishing operations. Used for Cross-Sector Cascade (Healthcare/DIB/AI) at moderate confidence; not independently verified against primary vendor reports this cycle.</div>
+    </div>
   </div>
 
-  <!-- ACCOUNTABILITY -->
-  <div class="section-rule"><span class="section-tag">Section X</span><div class="section-rule-line"></div></div>
-  <h2 class="section-head">Accountability Check</h2>
-
-  <div class="assessment-box">
-    <div class="assessment-label">What Liberty CTI Has Been Tracking</div>
-    <p>Liberty CTIâ€™s standing assessment is that Texas companies face risk because they are part of larger systems: energy, healthcare, finance, defense, data centers, ports, water, and vendors. This week strengthens that judgment. The common thread is not one attacker or one technology problem. The common thread is dependence: businesses rely on systems and partners that can fail quickly and affect more than one sector at the same time.</p>
-  </div>
-
-  <!-- SOURCES -->
   <hr class="divider">
-  <div class="section-rule"><span class="section-tag">Section XI â€” Sourcing</span><div class="section-rule-line"></div></div>
-  
-<div class="section-rule"><span class="section-tag">Sources</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Source Notes</h2>
-<div class="source-notes">
-  <div class="source-group">
-    <strong>Government & Official Advisories</strong>
-    <ul>
-      <li>U.S. government advisories (CISA, DOE, DHS) on targeting of energy, maritime, and municipal systems</li><li>Industry reporting on large-scale service disruptions and software supply chain risks</li>
-    </ul>
+  <div class="torch-note">
+    <span class="torch-label">// Torch Fusion Cycle &mdash; ATB-2026-14</span>
+    <p><strong>WHAT:</strong> An Iran-aligned proxy, Handala, executed and publicly confirmed a retaliatory cyber operation against California Water Service on 11&ndash;12 June, accessing a GPS-correction network and customer billing database in explicit retaliation for U.S. strikes on Iranian water infrastructure; Cal Water found no IT/OT compromise as investigation continues. Separately, a possible U.S.-Iran framework agreement is pending while the Lebanon front remains active; China-linked JDY reconnaissance has doubled since 2024 with a military/DIB focus; and CISA added an actively exploited Check Point VPN flaw to its KEV catalog. <strong>WHO:</strong> Handala (publicly pro-Palestinian hacktivist persona, widely assessed as Iran-backed Void Manticore/MOIS) defines this week&rsquo;s confirmed evidence base. AA26-097A&rsquo;s Iranian-affiliated APT remains the standing OT-disruption reference threat. China-nexus Volt Typhoon (via JDY) remains the DIB-relevant reconnaissance reference threat. DPRK Famous Chollima/UNK_DeadDrop remain a carried-forward, vendor-derived access-governance risk. <strong>WHY:</strong> Handala&rsquo;s operation demonstrates that Iran-aligned proxy retaliation operates on its own timeline, triggered by specific kinetic events rather than the overall U.S.-Iran negotiation status. The confirmed attack chain (survey/GPS network &rarr; billing system) is a segmentation failure pattern broadly replicable across U.S. water and energy utilities, including in Texas. <strong>WHAT NEXT:</strong> Texas Gulf Coast energy and water operators should treat the Cal Water attack chain as a same-week audit item, not a future planning exercise. The immediate task is to find the equivalent pivot path in your own environment before Handala &mdash; or a similar proxy &mdash; finds it first. <em>A confirmed attack against a comparable utility is not a warning anymore. It is the test case.</em></p>
   </div>
-  <div class="source-group">
-    <strong>Industry Reporting & Observed Activity</strong>
-    <ul>
-      <li>Observed patterns of activity from nation-state and criminal groups targeting U.S. infrastructure</li><li>Historical U.S. incidents used as precedent for operational and business impact</li>
-    </ul>
-  </div>
-  <p class="source-note-footer">
-    This assessment reflects combined reporting, historical precedent, and Liberty CTI analysis.
-  </p>
-</div>
-</div>
 
-</div>
-</div>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:START -->
-<style>
-.lcti-footer{background:#080c10!important;border-top:1px solid rgba(184,150,62,.2)!important;padding:4rem 2.5rem 2rem!important;font-family:'Instrument Sans',Arial,sans-serif!important;color:#f4efe6!important;clear:both!important}
-.lcti-footer-inner{max-width:1100px!important;margin:0 auto!important;display:grid!important;grid-template-columns:1.6fr 1fr 1fr 1fr!important;gap:3rem!important;align-items:start!important}
-.lcti-footer-brand-row{display:flex!important;align-items:center!important;gap:.75rem!important;margin-bottom:1rem!important}
-.lcti-footer img.lcti-footer-emblem{width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important;object-fit:contain!important;display:block!important;flex:0 0 36px!important}
-.lcti-footer-brand-name{font-family:'Playfair Display',Georgia,serif!important;font-size:1rem!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#f4efe6!important;line-height:1.2!important}
-.lcti-footer-brand-name span{color:#b8963e!important}
-.lcti-footer-tagline{font-size:1rem!important;font-weight:500!important;color:rgba(244,239,230,.78)!important;line-height:1.72!important;max-width:280px!important;margin:0 0 1.25rem!important}
-.lcti-footer-slogan,.lcti-footer-col-title{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.94rem!important;font-weight:500!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#d4af62!important;line-height:1.45!important;margin:0 0 .9rem!important;display:block!important}
-.lcti-footer-links{list-style:none!important;margin:0!important;padding:0!important}
-.lcti-footer-links li{margin:0 0 .45rem!important;padding:0!important}
-.lcti-footer-links a{font-size:.98rem!important;font-weight:500!important;line-height:1.55!important;color:rgba(244,239,230,.74)!important;text-decoration:none!important;transition:color .2s!important}
-.lcti-footer-links a:hover{color:#b8963e!important}
-.lcti-footer-links a.lcti-atb-link{color:#d6554a!important;font-weight:600!important}
-.lcti-footer-bottom{max-width:1100px!important;margin:3rem auto 0!important;border-top:1px solid rgba(184,150,62,.12)!important;padding-top:1.25rem!important;display:flex!important;justify-content:space-between!important;align-items:center!important;flex-wrap:wrap!important;gap:.5rem!important}
-.lcti-footer-copy{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.86rem!important;font-weight:600!important;letter-spacing:.04em!important;color:rgba(244,239,230,.56)!important;line-height:1.5!important}
-@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr!important;gap:2rem!important}}
-@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr!important}.lcti-footer{padding:2.5rem 1.25rem 1.5rem!important}.lcti-footer-bottom{flex-direction:column!important;align-items:flex-start!important}}
-</style>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:END -->
+  <p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--text-low);text-align:center;margin-top:32px;letter-spacing:.1em;">For tailored executive briefings or advisory retainer inquiries: <strong style="color:var(--gold);">intel@libertycti.com</strong> &middot; <strong style="color:var(--gold);">libertycti.com</strong></p>
+
+</div><!-- /page-body -->
+
+<!-- SITE FOOTER -->
 <!-- LCTI:FOOTER:START -->
 <style>
 .lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
@@ -1713,7 +1760,7 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="../../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
       <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
@@ -1723,31 +1770,31 @@ body [style*="Instrument Sans"]{
     <div>
       <span class="lcti-footer-col-title">Products</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../decision-support.html">Products &amp; Services</a></li>
-        <li><a href="../../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
-        <li><a href="../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="../../sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="../../../decision-support.html">Products &amp; Services</a></li>
+        <li><a href="../../../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../../../sector-assessments.html">Sector Assessments</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Texas Focus</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../texas-focus.html">Texas Overview</a></li>
-        <li><a href="../../energy-ercot.html">Energy &amp; ERCOT</a></li>
-        <li><a href="../../defense-dib.html">Defense Industrial Base</a></li>
-        <li><a href="../../financial.html">Financial Services</a></li>
-        <li><a href="../../healthcare.html">Healthcare</a></li>
-        <li><a href="../../Energy_data_AI.html">AI Convergence</a></li>
+        <li><a href="../../../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../../../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../../../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../../../financial.html">Financial Services</a></li>
+        <li><a href="../../../healthcare.html">Healthcare</a></li>
+        <li><a href="../../../Energy_data_AI.html">AI Convergence</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../briefing-request.html">Request an Executive Briefing</a></li>
-        <li><a href="../../briefing-request.html">Discuss a Retainer</a></li>
-        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="../../../briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="../../../briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="../../../contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -1765,6 +1812,4 @@ body [style*="Instrument Sans"]{
 </div><!-- /darkwrap -->
 
 </body>
-
-<!-- Liberty CTI revision: board-ready tone pass, removed explicit plain-English framing. -->
 </html>
