@@ -334,11 +334,11 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Advisory</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">Products &amp; Services</a>
+        <a href="decision-support.html" role="menuitem">How We Advise</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Core Products</span>
+        <span class="drop-label">Intelligence Record</span>
         <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
         <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
@@ -388,9 +388,9 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
     <a href="angie-maldonado.html">Angie Maldonado</a>
   </div>
 
-  <span class="m-group-label">Products</span>
+  <span class="m-group-label">Advisory</span>
   <div class="m-sub">
-    <a href="decision-support.html">Products &amp; Services</a>
+    <a href="decision-support.html">How We Advise</a>
     <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="sector-assessments.html">Sector Assessments</a>
@@ -489,14 +489,14 @@ def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: 
         <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
-      <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
-      <div class="lcti-footer-slogan">Know what changed. Decide this week.</div>
+      <p class="lcti-footer-tagline">Strategic decision advisory for Texas critical infrastructure.</p>
+      <div class="lcti-footer-slogan">Know what changed. Decide with confidence.</div>
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Products</span>
+      <span class="lcti-footer-col-title">Advisory</span>
       <ul class="lcti-footer-links">
-        <li><a href="decision-support.html">Products &amp; Services</a></li>
+        <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="/alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
