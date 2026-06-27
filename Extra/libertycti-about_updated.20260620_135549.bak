@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Liberty CTI — Strategic Cyber Threat Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #080c10;
+  --navy: #0d1520;
+  --paper: #f4efe6;
+  --cream: #ece7da;
+  --gold: #b8963e;
+  --gold-light: #d4af62;
+  --red: #8b1a1a;
+  --muted: #6b6355;
+  --rule: rgba(184,150,62,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.96); border-bottom: 1px solid var(--rule); }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
+.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+/* PAGE HERO */
+.page-hero { padding: 10rem 3rem 5rem; background: var(--ink); position: relative; overflow: hidden; border-bottom: 1px solid var(--rule); }
+.page-hero::before {
+  content: 'ABOUT';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 22vw;
+  font-weight: 900;
+  color: rgba(184,150,62,0.03);
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px); background-size: 52px 52px; }
+.page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; }
+.eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+.eyebrow::before { content: '// '; opacity: 0.6; }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4vw, 4.4rem); font-weight: 900; line-height: 1.05; color: var(--paper); margin-bottom: 1.5rem; }
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
+.page-hero-body { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.68); line-height: 1.85; }
+.hero-right-col { padding-bottom: 0.5rem; }
+.hero-pull-quote { border-left: 2px solid var(--gold); padding: 1.5rem 2rem; background: rgba(184,150,62,0.04); }
+.hero-pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 400; font-style: italic; color: rgba(244,239,230,0.82); line-height: 1.7; margin-bottom: 0.75rem; }
+.hero-pull-attr { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+
+/* BREADCRUMB */
+.breadcrumb { background: var(--navy); padding: 0.9rem 3rem; border-bottom: 1px solid var(--rule); }
+.breadcrumb-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 0.6rem; align-items: center; }
+.breadcrumb a, .breadcrumb span { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,239,230,0.35); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb .sep { color: rgba(184,150,62,0.3); }
+.breadcrumb .current { color: var(--gold); }
+
+/* SECTION UTILS */
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+.sec-eyebrow::before { content: '// '; opacity: 0.6; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; }
+h2 em { font-style: italic; color: var(--red); }
+.sec-lead { font-size: 1.05rem; font-weight: 300; line-height: 1.85; color: rgba(244,239,230,0.68); max-width: 680px; }
+
+/* MISSION SECTION */
+.mission { background: var(--ink); padding: 7rem 3rem; }
+.mission-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.mission h2 { color: var(--paper); }
+.mission-body { font-size: 0.95rem; font-weight: 300; color: rgba(244,239,230,0.62); line-height: 1.9; margin-bottom: 1.5rem; }
+.mission-body strong { color: var(--paper); font-weight: 500; }
+.mission-pillars { display: flex; flex-direction: column; gap: 2px; background: var(--rule); margin-top: 1.5rem; }
+.pillar { background: var(--ink); padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: background 0.3s; }
+.pillar:hover { background: rgba(184,150,62,0.04); }
+.pillar-num { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.2em; padding-top: 0.2rem; flex-shrink: 0; }
+.pillar-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.35rem; }
+.pillar-body { font-size: 0.83rem; font-weight: 300; color: rgba(244,239,230,0.48); line-height: 1.65; }
+.mission-right { padding-top: 0.5rem; }
+.mission-distinction { background: var(--navy); border: 1px solid var(--rule); padding: 2.5rem; margin-bottom: 2.5rem; }
+.distinction-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: block; }
+.distinction-table { width: 100%; }
+.distinction-table tr { border-bottom: 1px solid rgba(244,239,230,0.05); }
+.distinction-table tr:last-child { border-bottom: none; }
+.distinction-table td { padding: 0.75rem 0; font-size: 0.82rem; font-weight: 300; line-height: 1.5; vertical-align: top; }
+.distinction-table td:first-child { color: rgba(244,239,230,0.35); width: 45%; padding-right: 1rem; font-family: 'Instrument Sans', sans-serif; font-size: 0.72rem; }
+.distinction-table td:last-child { color: var(--paper); font-weight: 400; }
+.distinction-table td:last-child::before { content: '→ '; color: var(--gold); }
+
+/* INTEL STRIP */
+.intel-strip { background: var(--navy); padding: 1.5rem 3rem; display: flex; align-items: center; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.intel-item { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; padding: 0 0.5rem; }
+.intel-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--gold); line-height: 1; white-space: nowrap; }
+.intel-desc { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(244,239,230,0.4); line-height: 1.5; }
+.intel-sep { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+/* FOUNDERS SECTION */
+.founders { background: var(--paper); color: var(--ink); padding: 7rem 3rem; }
+.founders h2 { color: var(--ink); }
+.founders h2 em { color: var(--red); }
+.founders-intro { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 720px; margin-bottom: 4rem; }
+.fc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(10,10,10,0.08); margin-bottom: 3rem; }
+.fc { background: var(--cream); padding: 3rem 2.5rem; position: relative; }
+.fc-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.fc-bar-luis { background: linear-gradient(90deg, var(--gold), transparent); }
+.fc-bar-angie { background: linear-gradient(90deg, var(--red), transparent); }
+.fc-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.fc-label-luis { color: var(--gold); }
+.fc-label-angie { color: var(--red); }
+.fc-name { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+.fc-rank { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 1.75rem; }
+.fc-bio { font-size: 0.92rem; font-weight: 300; color: #3a3530; line-height: 1.85; margin-bottom: 1.75rem; }
+.fc-creds { list-style: none; margin-bottom: 1.75rem; }
+.fc-creds li { font-family: 'Instrument Sans', sans-serif; font-size: 0.67rem; color: #555048; display: flex; gap: 0.6rem; line-height: 1.55; margin-bottom: 0.45rem; }
+.fc-creds li::before { content: '▸'; flex-shrink: 0; }
+.fc-creds-luis li::before { color: var(--gold); }
+.fc-creds-angie li::before { color: var(--red); }
+.fc-edu-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; border-top: 1px solid rgba(10,10,10,0.1); padding-top: 1.25rem; }
+.fc-edu li { font-size: 0.78rem; font-weight: 300; color: #555048; line-height: 1.55; margin-bottom: 0.3rem; list-style: none; }
+.founders-statement { background: var(--ink); padding: 2.75rem 3rem; margin-top: 0; }
+.founders-statement p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; font-weight: 400; color: rgba(244,239,230,0.78); line-height: 1.75; text-align: center; max-width: 820px; margin: 0 auto; }
+.founders-statement p::before { content: '\201C'; color: var(--gold); font-size: 1.5rem; vertical-align: -0.2em; margin-right: 0.25rem; }
+.founders-statement p::after { content: '\201D'; color: var(--gold); font-size: 1.5rem; vertical-align: -0.2em; margin-left: 0.25rem; }
+
+/* APPROACH SECTION */
+.approach { background: var(--navy); padding: 7rem 3rem; }
+.approach h2 { color: var(--paper); }
+.approach-inner { max-width: 1200px; margin: 0 auto; }
+.approach-header { margin-bottom: 4rem; }
+.approach-header .sec-lead { color: rgba(244,239,230,0.62); }
+.approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); margin-bottom: 4rem; }
+.approach-card { background: var(--navy); padding: 2.5rem 2rem; position: relative; overflow: hidden; }
+.approach-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.approach-card:hover::after { transform: scaleX(1); }
+.approach-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: rgba(184,150,62,0.1); line-height: 1; margin-bottom: 0.5rem; }
+.approach-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--paper); margin-bottom: 0.75rem; }
+.approach-body { font-size: 0.83rem; font-weight: 300; color: rgba(244,239,230,0.48); line-height: 1.72; }
+.bulldog-box { background: rgba(184,150,62,0.06); border: 1px solid var(--rule); padding: 2.75rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+.bulldog-left {}
+.bulldog-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+.bulldog-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--paper); margin-bottom: 1rem; line-height: 1.2; }
+.bulldog-body { font-size: 0.88rem; font-weight: 300; color: rgba(244,239,230,0.55); line-height: 1.8; }
+.bulldog-right { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); }
+.bq { background: var(--navy); padding: 1.5rem 1.25rem; text-align: center; }
+.bq-letter { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.35rem; }
+.bq-word { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,239,230,0.35); }
+
+/* PRODUCTS SECTION */
+.products { background: var(--cream); color: var(--ink); padding: 7rem 3rem; }
+.products h2 { color: var(--ink); }
+.products h2 em { color: var(--red); }
+.products-intro { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 640px; margin-bottom: 4rem; }
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(10,10,10,0.1); margin-bottom: 3rem; }
+.product-item { background: var(--cream); padding: 2.75rem 2.25rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.product-item:hover { background: #e6e0d2; }
+.product-tag { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+.product-tag::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+.product-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+.product-desc { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.78; margin-bottom: 1.5rem; }
+.product-features { list-style: none; }
+.product-features li { font-family: 'Instrument Sans', sans-serif; font-size: 0.67rem; color: #777060; display: flex; gap: 0.6rem; line-height: 1.55; margin-bottom: 0.4rem; }
+.product-features li::before { content: '▸'; color: var(--gold); flex-shrink: 0; }
+.product-arrow { position: absolute; bottom: 1.75rem; right: 2.25rem; color: rgba(10,10,10,0.12); font-size: 1rem; transition: all 0.3s; }
+.product-item:hover .product-arrow { color: var(--gold); transform: translateX(4px); }
+.products-note { background: var(--ink); color: var(--paper); padding: 2.25rem 2.5rem; display: flex; gap: 2rem; align-items: center; }
+.products-note-icon { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); flex-shrink: 0; }
+.products-note-body { font-size: 0.85rem; font-weight: 300; color: rgba(244,239,230,0.6); line-height: 1.72; }
+.products-note-body strong { color: var(--paper); font-weight: 500; }
+
+/* VISION SECTION */
+.vision { background: var(--ink); padding: 7rem 3rem; position: relative; overflow: hidden; }
+.vision::before { content: '★'; position: absolute; right: -3rem; top: 50%; transform: translateY(-50%); font-size: 50vw; color: rgba(184,150,62,0.02); pointer-events: none; line-height: 1; }
+.vision-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.vision h2 { color: var(--paper); }
+.vision-body { font-size: 0.95rem; font-weight: 300; color: rgba(244,239,230,0.62); line-height: 1.9; margin-bottom: 1.5rem; }
+.vision-body strong { color: var(--paper); font-weight: 500; }
+.vision-closing { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: rgba(244,239,230,0.75); line-height: 1.7; padding-top: 1.5rem; border-top: 1px solid var(--rule); margin-top: 1.5rem; }
+.sector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); }
+.sector-item { background: rgba(13,21,32,0.9); padding: 1.75rem 1.5rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.sector-item:hover { background: rgba(184,150,62,0.06); }
+.sector-item::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold); transform: scaleY(0); transform-origin: top; transition: transform 0.4s; }
+.sector-item:hover::after { transform: scaleY(1); }
+.sector-icon { font-family: 'Instrument Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.sector-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.4rem; }
+.sector-desc { font-size: 0.78rem; font-weight: 300; color: rgba(244,239,230,0.38); line-height: 1.55; }
+
+/* CTA */
+.cta { background: var(--paper); color: var(--ink); padding: 7rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.cta::before { content: 'LIBERTY CTI'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 13vw; font-weight: 900; color: rgba(10,10,10,0.025); pointer-events: none; }
+.cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-emblem { width: 80px; margin: 0 auto 2rem; display: block; }
+.cta h2 { color: var(--ink); }
+.cta h2 em { color: var(--red); }
+.cta-body { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.78; margin-bottom: 2.75rem; }
+.cta-actions { display: flex; justify-content: center; gap: 1.25rem; }
+.btn-gold { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 0.9rem 1.9rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-dark { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-dark:hover { background: #1e2d40; }
+.btn-outline { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); border: 1px solid rgba(10,10,10,0.25); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-outline:hover { border-color: var(--ink); background: rgba(10,10,10,0.04); }
+
+/* FOOTER */
+footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px solid var(--rule); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.footer-emblem { width: 38px; object-fit: contain; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+.footer-col-title { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.footer-copy { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+</style>
+<style id="lcti-stat-legibility">
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  overflow-x:hidden;
+  font-size:17px;
+  line-height:1.65;
+}
+img,
+video,
+canvas,
+svg{
+  max-width:100%;
+}
+:where(p,li,dd,td,th,blockquote){
+  font-size:max(1rem,16px) !important;
+  line-height:1.75 !important;
+}
+:where(.lead,.hero-sub,.page-hero-body,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,.card p,.product p,.sector-card p,.capability-card p,.approach-card p,.value-card p,.archive-card p,.brief-card p,.contact-card p,.audience-body,.cycle-body,.framework-body,.deliverable-body,.content-card-body,.use-desc,.use-note-body,.form-help,.help-text,.field-note,.hint,.note){
+  font-size:max(1.06rem,17px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+:where(.hero-sub,.hero-lede,.page-hero-body,.lead){
+  font-size:max(1.12rem,18px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.82) !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+  font-size:max(.88rem,14px) !important;
+  font-weight:500 !important;
+  line-height:1.55 !important;
+  letter-spacing:.07em !important;
+  opacity:1 !important;
+  color:rgba(212,175,98,.9) !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.045em !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(212,175,98,.25) !important;
+}
+:where(.section-desc,.submit-note,.chip-sublabel,.caption,.photo-caption,.card-meta,.archive-meta,.brief-meta,.vignette-attr,.j-conf,.confidence,.risk-label,.rail-section-name,.meta,.audience-body,.cycle-body,.framework-body,.deliverable-body,.content-card-body,.use-desc,.use-note-body){
+  color:rgba(244,239,230,.72) !important;
+}
+.audience-tag,
+.cycle-label,
+.cycle-word,
+.framework-label,
+.framework-word,
+.deliverable-tag,
+.content-card-label,
+.use-tag,
+.leader-tag,
+.leader-link,
+.section-label,
+.cs-label,
+.sec-tag,
+.sector-card a,
+.sector-card [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.45 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.sec-tag{
+  display:flex !important;
+  align-items:center !important;
+  gap:.45rem !important;
+  color:#d4af62 !important;
+}
+.sec-tag .sec-icon{
+  font-size:1rem !important;
+  line-height:1 !important;
+}
+.sector-card a{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  margin-top:1rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.sector-card a:hover{
+  color:#f0d27a !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.meta-table,.vignette-timing,.loc,.exec-label,.kiq-list,.use-features),
+body [style*="font-size:0.5"],
+body [style*="font-size: 0.5"],
+body [style*="font-size:0.6"],
+body [style*="font-size: 0.6"],
+body [style*="font-size:0.7"],
+body [style*="font-size: 0.7"]{
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.5 !important;
+  letter-spacing:.06em !important;
+  opacity:1 !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label),
+body [style*="font-family:'Instrument Sans'"][style*="font-size:0."],
+body [style*='font-family:"Instrument Sans"'][style*="font-size:0."],
+body [style*="font-family: 'Instrument Sans'"][style*="font-size: 0."]{
+  font-family:'Instrument Sans',sans-serif !important;
+  color:#d4af62 !important;
+  text-transform:uppercase !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.leader-tag{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:32px !important;
+  padding:.34rem .72rem !important;
+  border-color:rgba(212,175,98,.38) !important;
+  color:rgba(212,175,98,.88) !important;
+}
+.leader-link{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  padding-top:.25rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.leader-link:hover{
+  color:#f0d27a !important;
+}
+.audience-title,
+.deliverable-title,
+.content-card-title{
+  font-size:max(1.2rem,19px) !important;
+  line-height:1.35 !important;
+  color:#f4efe6 !important;
+}
+.audience-body,
+.cycle-body,
+.framework-body,
+.deliverable-body,
+.content-card-body,
+.use-desc,
+.use-note-body{
+  font-size:max(1.04rem,16.75px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+.hero-classification{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.05em !important;
+  line-height:1.55 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] p{
+  font-size:max(1.04rem,16.75px) !important;
+  font-weight:500 !important;
+  line-height:1.78 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] strong{
+  font-weight:800 !important;
+  color:#f4efe6 !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] > p{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.045em !important;
+  line-height:1.55 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] li{
+  font-size:max(1.02rem,16.25px) !important;
+  font-weight:600 !important;
+  line-height:1.58 !important;
+  color:rgba(244,239,230,.84) !important;
+}
+.hero-inner [style*="font-size:0.56rem"],
+.hero-inner [style*="letter-spacing:0.24em"],
+.form-shell [style*="font-size:0.56rem"],
+.form-shell [style*="letter-spacing:0.24em"]{
+  font-size:max(.95rem,15.25px) !important;
+  font-weight:500 !important;
+  letter-spacing:.055em !important;
+  line-height:1.45 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner [style*="font-size:0.82rem"],
+.form-shell [style*="font-size:0.82rem"]{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  line-height:1.7 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+:where(.field-error){
+  color:#d6554a !important;
+}
+:where(.chip.chip-lg .chip-label){
+  font-size:max(1rem,16px) !important;
+  font-weight:700 !important;
+  line-height:1.45 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.86) !important;
+}
+:where(.chip-sublabel){
+  font-size:max(.92rem,14.75px) !important;
+  font-weight:400 !important;
+  line-height:1.6 !important;
+  letter-spacing:.04em !important;
+  color:rgba(244,239,230,.68) !important;
+  text-shadow:none !important;
+}
+.chip.chip-lg .chip-sublabel{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.95rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.7 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.68) !important;
+  max-width:28ch;
+}
+.chip.chip-lg.selected .chip-sublabel{
+  color:rgba(244,239,230,.76) !important;
+}
+:where(.actor-name,.vignette-body h3,.jewel-card h3){
+  font-size:max(1.08rem,17px) !important;
+  line-height:1.35 !important;
+}
+:where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p,.timeline p,.cred-text,.cred-intro,.cred-closing,.pull-attr,.story-summary,.sector-copy,.assessment-copy,.request-copy,.next-panel li){
+  font-size:max(1rem,16px) !important;
+  line-height:1.78 !important;
+}
+.actor-origin,
+.jewel-label{
+  font-size:max(.94rem,15px) !important;
+  font-weight:600 !important;
+  line-height:1.45 !important;
+  letter-spacing:.06em !important;
+  color:#d6554a !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(214,85,74,.22) !important;
+}
+.actor-name,
+.jewel-card h3{
+  font-size:max(1.12rem,18px) !important;
+  font-weight:800 !important;
+  line-height:1.35 !important;
+  color:#f4efe6 !important;
+}
+.actor-card p,
+.jewel-card p{
+  font-size:max(1.02rem,16.25px) !important;
+  font-weight:500 !important;
+  line-height:1.72 !important;
+  color:rgba(244,239,230,.74) !important;
+}
+.jewel-section .lead,
+.jewel-section :where(p,li,dd,td,th,blockquote),
+.crown-jewels .lead,
+.crown-jewels :where(p,li,dd,td,th,blockquote){
+  color:rgba(8,12,16,.72) !important;
+}
+.jewel-section .jewel-label,
+.crown-jewels .jewel-label{
+  color:#b63a32 !important;
+  text-shadow:none !important;
+}
+.jewel-section .jewel-card h3,
+.crown-jewels .jewel-card h3{
+  color:#080c10 !important;
+}
+.jewel-section .jewel-card p,
+.crown-jewels .jewel-card p{
+  color:rgba(8,12,16,.68) !important;
+}
+.posture,
+.shift-card,
+.content-frame,
+.content-card,
+.use-cases,
+.use-item,
+.products,
+.product-item,
+.fc,
+.crown-jewels,
+.jewel-card{
+  color:#080c10 !important;
+}
+.posture :where(p,.lead,.section-lead,.sec-lead),
+.shift-card p,
+.content-frame :where(.content-intro,p,li,dd,td,th,blockquote),
+.content-card :where(p,li,dd,td,th,blockquote),
+.use-cases :where(.use-cases-intro,.use-desc,.use-features li,p,li,dd,td,th,blockquote),
+.use-item :where(p,li,dd,td,th,blockquote),
+.products :where(p,li,.lead),
+.product-item :where(p,li),
+.fc :where(p,li,.fc-rank),
+.crown-jewels :where(p,li,dd,td,th,blockquote),
+.jewel-card :where(p,li,dd,td,th,blockquote){
+  color:rgba(8,12,16,.74) !important;
+  text-shadow:none !important;
+}
+.posture :where(h1,h2,h3,h4,.shift-to),
+.shift-card :where(h1,h2,h3,h4,.shift-to),
+.content-frame :where(h1,h2,h3,h4,.content-card-title),
+.content-card :where(h1,h2,h3,h4,.content-card-title),
+.use-cases :where(h1,h2,h3,h4,.use-name),
+.use-item :where(h1,h2,h3,h4,.use-name),
+.products :where(h1,h2,h3,h4),
+.product-item :where(h1,h2,h3,h4),
+.fc :where(h1,h2,h3,h4),
+.crown-jewels :where(h1,h2,h3,h4),
+.jewel-card :where(h1,h2,h3,h4){
+  color:#080c10 !important;
+  text-shadow:none !important;
+}
+.posture :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag,.fc-label,.fc-edu-label),
+.shift-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag),
+.content-frame :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.content-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.use-cases :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
+.use-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
+.products :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.product-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.fc :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.fc-label,.fc-edu-label),
+.crown-jewels :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label),
+.jewel-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label){
+  color:#9b7626 !important;
+  text-shadow:none !important;
+}
+.posture em,
+.shift-card em,
+.content-frame em,
+.content-card em,
+.use-cases em,
+.use-item em,
+.products em,
+.product-item em,
+.fc em,
+.crown-jewels em,
+.jewel-card em{
+  color:#8f1f1b !important;
+}
+.content-frame .content-card-body,
+.content-card .content-card-body{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(1.05rem,17px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  letter-spacing:0 !important;
+  color:rgba(8,12,16,.76) !important;
+}
+.content-frame .content-card-title,
+.content-card .content-card-title{
+  font-size:max(1.35rem,21px) !important;
+  line-height:1.35 !important;
+}
+.content-frame .content-card:nth-child(2) .content-card-label,
+.content-card:nth-child(2) .content-card-label{
+  color:#8b1a1a !important;
+}
+.content-frame .content-note{
+  background:#080c10 !important;
+  border:1px solid rgba(184,150,62,.28) !important;
+}
+.content-frame .content-note p{
+  font-size:max(1.44rem,23px) !important;
+  line-height:1.65 !important;
+  color:rgba(244,239,230,.9) !important;
+  font-weight:500 !important;
+  text-shadow:none !important;
+}
+.content-frame .content-note p::before,
+.content-frame .content-note p::after{
+  font-size:1.9rem !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-icon,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.product-tag,.product-features,.use-features,.kiq-list,.meta-table,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label,.lcti-logo-slogan,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy),
+body [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
+}
+:where(.use-features li,.product-features li,.kiq-list li,.meta-table td,.meta-table th){
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.96rem,15.5px) !important;
+  font-weight:500 !important;
+  line-height:1.65 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  color:inherit !important;
+}
+:where(.vignette-timing,.stat-label,.hero-stat-label,.pillar-stat-label,.intel-desc,.footer-tagline,.foot-tagline,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy,.footer-copy){
+  font-size:max(.88rem,14px) !important;
+  line-height:1.58 !important;
+  letter-spacing:.1em !important;
+}
+.timeline .tl-role,
+.timeline .tl-unit{
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.timeline .tl-unit{
+  opacity:.86 !important;
+}
+.lcti-footer-tagline,
+.footer-tagline,
+.foot-tagline{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  line-height:1.72 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.78) !important;
+  opacity:1 !important;
+}
+.lcti-footer-slogan,
+.lcti-footer-col-title{
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.45 !important;
+  letter-spacing:.09em !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.lcti-footer-links a{
+  font-size:max(.98rem,15.75px) !important;
+  font-weight:500 !important;
+  line-height:1.55 !important;
+  color:rgba(244,239,230,.74) !important;
+  opacity:1 !important;
+}
+.lcti-footer-links a.lcti-atb-link{
+  color:#d6554a !important;
+  font-weight:600 !important;
+}
+.lcti-footer-copy,
+.footer-copy{
+  font-size:max(.86rem,13.75px) !important;
+  font-weight:600 !important;
+  letter-spacing:.04em !important;
+  color:rgba(244,239,230,.56) !important;
+}
+:where(.subtle,.muted,.fine-print,.small,.micro,.form-disclaimer,.disclaimer,.legal,.attribution){
+  font-size:max(.9rem,14.5px) !important;
+  line-height:1.65 !important;
+}
+:where(input,select,textarea,button){
+  font-size:max(1rem,16px);
+}
+:where(.btn,.button,.btn-gold,.btn-dark,.btn-outline,.btn-gold-outline,.btn-outline-light,.btn-request,.btn-send,.actions a,.hero-actions a,.cta-actions a,.form-actions button){
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:48px !important;
+  padding:.85rem 1.35rem !important;
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.95rem,15.25px) !important;
+  font-weight:800 !important;
+  line-height:1.2 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  opacity:1 !important;
+  border-radius:2px !important;
+}
+:where(.btn-gold,.btn-request,.btn-send,.button-gold){
+  background:#c9a84f !important;
+  border:1px solid #c9a84f !important;
+  color:#080c10 !important;
+  text-shadow:none !important;
+}
+:where(.btn-gold:hover,.btn-request:hover,.btn-send:hover,.button-gold:hover){
+  background:#d4b762 !important;
+  border-color:#d4b762 !important;
+  color:#080c10 !important;
+}
+:where(.btn-dark){
+  background:#101923 !important;
+  border:1px solid rgba(212,175,98,.55) !important;
+  color:#f4efe6 !important;
+}
+:where(.btn-outline,.btn-gold-outline,.btn-outline-light){
+  background:rgba(8,12,16,.28) !important;
+  border:1px solid rgba(212,175,98,.65) !important;
+  color:#d4af62 !important;
+  text-shadow:none !important;
+}
+:where(.btn-outline:hover,.btn-gold-outline:hover,.btn-outline-light:hover){
+  background:#c9a84f !important;
+  border-color:#c9a84f !important;
+  color:#080c10 !important;
+}
+:where(.cta,.cta-section,.section-light,.paper-section) :where(.btn-outline,.btn-gold-outline,.btn-outline-light,.cta-actions a:not(.btn-dark):not(.btn-gold):not(.btn-request):not(.btn-send)){
+  background:#080c10 !important;
+  border:1px solid #080c10 !important;
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+:where(.cta,.cta-section,.section-light,.paper-section) :where(.btn-outline:hover,.btn-gold-outline:hover,.btn-outline-light:hover,.cta-actions a:not(.btn-dark):not(.btn-gold):not(.btn-request):not(.btn-send):hover){
+  background:#1a2430 !important;
+  border-color:#1a2430 !important;
+  color:#f4efe6 !important;
+}
+.actions a{
+  background:#080c10 !important;
+  border:1px solid #080c10 !important;
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.actions a + a{
+  background:#c9a84f !important;
+  border-color:#c9a84f !important;
+  color:#080c10 !important;
+}
+.intel-desc,
+.stat-l,
+.stat-label,
+.hero-stat-label,
+.pillar-stat-label,
+.photo-caption{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.88rem,14px) !important;
+  font-weight:400 !important;
+  line-height:1.55 !important;
+  letter-spacing:.1em !important;
+  text-transform:uppercase !important;
+}
+.stat-l,
+.stat-label,
+.pillar-stat-label,
+.photo-caption{
+  margin-top:.22rem !important;
+}
+.cta-inner img,
+.cta-emblem{
+  height:auto !important;
+  object-fit:contain !important;
+}
+.cta-section .cta-inner > img[src$="liberty-cti-emblem.png"]{
+  width:140px !important;
+}
+.cta .cta-emblem{
+  width:160px !important;
+}
+@media(max-width:700px){
+  .intel-desc,
+  .stat-l,
+  .stat-label,
+  .hero-stat-label,
+  .pillar-stat-label,
+  .photo-caption{
+    font-size:.9rem !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:900px){
+  .page-hero-inner,
+  .hero-inner,
+  .hero-layout,
+  .mission-inner,
+  .founders-grid,
+  .fc-grid,
+  .story,
+  .story-inner,
+  .story-angie,
+  .why-inner,
+  .vision-inner,
+  .bulldog-box,
+  .contact-body-inner,
+  .contact-grid,
+  .form-body,
+  .product-grid,
+  .products-grid,
+  .products-list,
+  .approach-grid,
+  .sector-grid,
+  .sectors-grid,
+  .domain-grid,
+  .actor-grid,
+  .shift-grid,
+  .doctrine-grid,
+  .highlight-grid,
+  .feature-grid,
+  .value-grid,
+  .capability-grid,
+  .atb-grid,
+  .two-col,
+  .grid-2,
+  .footer-inner,
+  .site-footer-inner{
+    grid-template-columns:1fr !important;
+  }
+  .stat-bar,
+  .intel-strip,
+  .cred-strip-inner{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:0 !important;
+  }
+  .intel-sep,
+  .stat-sep,
+  .cred-sep{
+    display:none !important;
+  }
+  .intel-item,
+  .stat,
+  .cred-item{
+    min-width:0 !important;
+  }
+  .intel-item{
+    justify-content:flex-start !important;
+    padding:1rem 1.1rem !important;
+    border-right:1px solid rgba(184,150,62,0.16);
+    border-bottom:1px solid rgba(184,150,62,0.16);
+  }
+}
+@media(max-width:768px){
+  body{
+    min-width:0 !important;
+  }
+  :where(.page-hero,.hero,.mission,.founders,.approach,.products,.vision,.section,.section-navy,.section-accent,.contact-body,.form-body,.cta,.cta-section,footer,.site-footer){
+    padding-left:1.25rem !important;
+    padding-right:1.25rem !important;
+  }
+  :where(.page-hero,.hero){
+    margin-top:var(--nav-h,68px) !important;
+  }
+  :where(.page-hero h1,.hero h1,h1){
+    font-size:clamp(2.15rem,10vw,3.1rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:break-word;
+  }
+  :where(h2,.section-title){
+    font-size:clamp(1.65rem,8vw,2.35rem) !important;
+    line-height:1.12 !important;
+    overflow-wrap:break-word;
+  }
+  :where(.page-hero-body,.hero-sub,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,p,li){
+    overflow-wrap:break-word;
+  }
+  :where(.hero-content,.page-hero-inner){
+    max-width:100% !important;
+  }
+  :where(.hero-emblem,.header-emblem-large,.cta-emblem){
+    max-width:min(220px,62vw) !important;
+    height:auto !important;
+  }
+  :where(.photo-grid,.story-photo-pair){
+    grid-template-columns:1fr !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:320px !important;
+  }
+  :where(input,select,textarea,button,.button,.btn,.nav-cta,.site-nav-cta){
+    max-width:100%;
+  }
+  :where(input,select,textarea){
+    font-size:16px !important;
+  }
+  :where(.cta-actions,.form-actions,.hero-meta,.hero-stat-row){
+    flex-wrap:wrap !important;
+  }
+  .intel-strip{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    padding:0 1.25rem !important;
+  }
+  .intel-item{
+    display:grid !important;
+    grid-template-columns:minmax(5.8rem,auto) minmax(0,1fr) !important;
+    align-items:center !important;
+    justify-content:initial !important;
+    gap:1rem !important;
+    padding:1.15rem 0 !important;
+    border-right:0 !important;
+    border-bottom:1px solid rgba(184,150,62,0.16);
+  }
+  .intel-item:last-child{
+    border-bottom:0 !important;
+  }
+  .intel-num{
+    font-size:clamp(2.15rem,10vw,3rem) !important;
+    line-height:1 !important;
+  }
+  .intel-desc{
+    font-size:.9rem !important;
+    line-height:1.6 !important;
+    letter-spacing:.08em !important;
+  }
+  :where(p,li,dd,td,th,blockquote){
+    font-size:1rem !important;
+    line-height:1.72 !important;
+  }
+  :where(.hero-sub,.hero-lede,.page-hero-body,.lead){
+    font-size:1.04rem !important;
+    line-height:1.7 !important;
+    color:rgba(244,239,230,.82) !important;
+  }
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+    font-size:.9rem !important;
+    font-weight:500 !important;
+    line-height:1.55 !important;
+    letter-spacing:.06em !important;
+    opacity:1 !important;
+  }
+  .chip.chip-lg .chip-sublabel{
+    font-family:'Instrument Sans',sans-serif !important;
+    font-size:1rem !important;
+    font-weight:500 !important;
+    line-height:1.65 !important;
+    letter-spacing:0 !important;
+  }
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
+    font-size:.96rem !important;
+    font-weight:500 !important;
+    letter-spacing:.04em !important;
+  }
+  :where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p){
+    font-size:1rem !important;
+    line-height:1.72 !important;
+  }
+}
+@media(max-width:520px){
+  :where(.stat-bar,.intel-strip,.cred-strip-inner){
+    display:grid !important;
+    grid-template-columns:1fr !important;
+  }
+  :where(.stat,.intel-card,.cred-item,.intel-item){
+    border-right:0 !important;
+  }
+  :where(.intel-item){
+    padding:1rem 0 !important;
+  }
+  :where(.page-hero,.hero){
+    min-height:auto !important;
+  }
+  :where(.hero-content){
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:280px !important;
+  }
+  :where(.cta-actions a,.form-actions button,.button,.btn){
+    width:100%;
+    text-align:center;
+  }
+}
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-hero h1,
+  .luis-hero .hero-eyebrow,
+  .luis-hero .hero-sub{
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .luis-photo-grid .photo-tile:last-child{
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:4 / 5 !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr 1fr !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat-n{
+    display:block !important;
+    max-width:100% !important;
+    font-size:clamp(2.1rem,8vw,3.4rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    hyphens:auto !important;
+  }
+  .luis-stat-bar .stat-l{
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
+  }
+  .luis-hero h1{
+    font-size:clamp(2.05rem,10.5vw,2.4rem) !important;
+    line-height:1.05 !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-photo-grid .photo-tile:not(:first-child){
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    width:100% !important;
+    overflow:visible !important;
+  }
+  .luis-photo-grid .photo-frame img{
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+  .luis-photo-grid .photo-caption{
+    display:block !important;
+    max-width:100% !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+    overflow-wrap:break-word !important;
+    white-space:normal !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr !important;
+  }
+  .luis-stat-bar .stat{
+    border-right:0 !important;
+    border-top:1px solid var(--rule) !important;
+    padding:1.75rem 1.25rem !important;
+  }
+  .luis-stat-bar .stat:first-child{
+    border-top:0 !important;
+  }
+  .luis-stat-bar .stat-n{
+    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    max-width:100% !important;
+  }
+  .luis-stat-bar .stat-l{
+    font-size:clamp(.9rem,4vw,1rem) !important;
+    line-height:1.55 !important;
+    letter-spacing:.07em !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<!-- LCTI:NAV:START -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.75rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="../index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../decision-support.html" role="menuitem">Products &amp; Services</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="../sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <span class="drop-label">Latest Issue</span>
+        <a href="../atb/issues/05-17-2026.html" role="menuitem">Latest Issue, Week of May 17, 2026</a>
+        <div class="drop-divider"></div>
+        <a href="../atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Priority Sectors</span>
+        <a href="../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="../defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="../financial.html" role="menuitem">Financial Services</a>
+        <a href="../healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="../Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="../about.html">Company Overview</a>
+    <a href="../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Products</span>
+  <div class="m-sub">
+    <a href="../decision-support.html">Products &amp; Services</a>
+    <a href="../alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="../texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="../sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="../atb/issues/05-17-2026.html">Latest Issue, Week of May 17, 2026</a>
+    <a href="../atb/index.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="../texas-focus.html">Texas Overview</a>
+    <a href="../energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="../defense-dib.html">Defense Industrial Base</a>
+    <a href="../financial.html">Financial Services</a>
+    <a href="../healthcare.html">Healthcare</a>
+    <a href="../Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['05-17-2026.html'],
+    'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=((link.getAttribute('href')||'').split('/').pop()||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span class="sep">›</span>
+    <span class="current">About Liberty CTI</span>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-left reveal">
+      <span class="eyebrow">About Liberty CTI</span>
+      <h1>Strategic Intelligence<br>for an Uncertain<br><em>Threat Environment.</em></h1>
+      <div class="hero-rule"></div>
+      <p class="page-hero-body">Liberty CTI is a strategic cyber threat intelligence firm based in San Antonio, Texas. We help organizations understand who is targeting them, why, and what comes next — before the threat arrives at their door.</p>
+    </div>
+    <div class="hero-right-col reveal d2">
+      <div class="hero-pull-quote">
+        <p>Liberty CTI was founded by two U.S. Air Force officers who spent their careers supporting national security decision-makers at the highest levels of government.</p>
+        <div class="hero-pull-attr">— The Maldonado Foundation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="mission-inner">
+    <div>
+      <span class="sec-eyebrow reveal">Our Mission</span>
+      <h2 class="reveal d1" style="color:var(--paper);">Closing the<br>Intelligence <em>Gap.</em></h2>
+      <p class="mission-body reveal d2">Texas is the eighth-largest economy in the world. Its energy infrastructure, financial networks, defense industrial base, and healthcare systems are not abstract targets — they are <strong>active priorities for foreign intelligence services and criminal organizations</strong> operating at scale.</p>
+      <p class="mission-body reveal d2">Our mission is to close the gap between what government agencies understand about these threats and what industry leaders are positioned to act on. We apply the same analytical tradecraft used at the highest levels of the U.S. Intelligence Community — adapted for commercial clients who need clarity, not clearances.</p>
+      <div class="mission-pillars reveal d3">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div><div class="pillar-title">Anticipate</div><div class="pillar-body">Identify threats before they materialize into operational crises that demand reactive response.</div></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div><div class="pillar-title">Attribute</div><div class="pillar-body">Understand who is responsible, with calibrated confidence and structured analytic tradecraft.</div></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div><div class="pillar-title">Advise</div><div class="pillar-body">Translate intelligence into actionable guidance for senior leaders and boards of directors.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="mission-right reveal d2">
+      <div class="mission-distinction">
+        <span class="distinction-label">// The Liberty CTI Distinction</span>
+        <table class="distinction-table">
+          <tr>
+            <td>Traditional cybersecurity firms</td>
+            <td>Sell software, manage firewalls, respond to incidents</td>
+          </tr>
+          <tr>
+            <td>Managed security providers</td>
+            <td>Monitor networks and alert on known signatures</td>
+          </tr>
+          <tr>
+            <td>Incident response firms</td>
+            <td>Engage after the breach has occurred</td>
+          </tr>
+          <tr>
+            <td>Liberty CTI</td>
+            <td>Delivers intelligence on who is targeting you and what they plan to do — before they act</td>
+          </tr>
+        </table>
+      </div>
+      <p class="mission-body" style="font-size:0.88rem;">We are not a cybersecurity vendor. We do not sell software, manage firewalls, or respond to incidents. <strong>We produce intelligence</strong> — the kind that helps senior leaders understand the threat landscape before a crisis forces their hand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTEL STRIP -->
+<div class="intel-strip">
+  <div class="intel-item"><div class="intel-num">60</div><div class="intel-desc">Combined Years<br>Intelligence Service</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">345+</div><div class="intel-desc">Total Personnel<br>Commanded</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">5,000+</div><div class="intel-desc">Warfighters Trained<br>Annually</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">2</div><div class="intel-desc">White House &amp;<br>OSD Senior Roles</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">30+</div><div class="intel-desc">Combined<br>Assignments</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">2</div><div class="intel-desc">Russian & Spanish Language<br>Professionals</div></div>
+</div>
+
+<!-- FOUNDERS -->
+<section class="founders" id="founders">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Our Founders</span>
+    <h2 class="reveal d1">Built by Practitioners.<br><em>Not Vendors.</em></h2>
+    <p class="founders-intro reveal d2">Liberty CTI was founded by two career intelligence officers whose combined service spans every level of the U.S. national security apparatus — from the front lines of signals intelligence to the White House, the Pentagon, and command of the Air Force's sole Cyber Intelligence Threat Cell. They didn't study the threat. They tracked it.</p>
+
+    <div class="fc-grid reveal d2">
+      <div class="fc">
+        <div class="fc-bar fc-bar-luis"></div>
+        <div class="fc-label fc-label-luis">Co-Founder & Principal</div>
+        <div class="fc-name">Lou Maldonado</div>
+        <div class="fc-rank">Lieutenant Colonel, USAF (Ret.) · Russian Linguist · Cyber Intelligence Officer</div>
+        <p class="fc-bio">A native New Yorker who chose Texas after a career that took him across the globe in service to national security, Lou Maldonado spent three decades analyzing adversary cyber activity, leading intelligence teams, and briefing the nation's most senior decision-makers. He commanded a 270-person cyber intelligence squadron — one of the most technically demanding intelligence commands in the Air Force — responsible for identifying and assessing emerging threats across the full spectrum of adversary cyber operations.</p>
+        <p class="fc-bio">His career bridges the operational and the strategic. From the signals intelligence tradecraft of a Russian Linguist, to 300-plus briefings delivered as a Watch Officer inside the White House Situation Room, to senior legislative affairs positions shaping national intelligence policy at the National Security Council — Lou has operated at the precise intersection of intelligence analysis and executive decision-making throughout his career.</p>
+        <ul class="fc-creds fc-creds-luis">
+          <li>Commander, 35th Intelligence Squadron — 270-person cyber intelligence unit</li>
+          <li>White House Situation Room Watch Officer — 300+ senior briefings delivered</li>
+          <li>Director for Legislative Affairs, National Security Council</li>
+          <li>Senior assignments across NSA, Pentagon, and theater-level commands</li>
+          <li>Russian Linguist with origins in SIGINT collection and analysis</li>
+        </ul>
+        <div class="fc-edu-label">// Education</div>
+        <ul class="fc-edu">
+          <li>Master of Science, International Relations — Troy University</li>
+          <li>Graduate Certificate, Legislative Studies — Georgetown University</li>
+          <li>Bachelor of Arts, Russian Studies — Excelsior College</li>
+        </ul>
+      </div>
+      <div class="fc">
+        <div class="fc-bar fc-bar-angie"></div>
+        <div class="fc-label fc-label-angie">Co-Founder & Principal</div>
+        <div class="fc-name">Angie Maldonado</div>
+        <div class="fc-rank">Lieutenant Colonel, USAF (Ret.) · Russian Linguist · Senior National Security Officer</div>
+        <p class="fc-bio">Angie Maldonado brings a parallel depth of senior national security experience. A career Air Force officer, she served in demanding assignments that placed her at the intersection of executive decision-making, intelligence assessment, and rapid operational coordination at the highest levels of the U.S. government — including as a Military Assistant to the Deputy Secretary of Defense.</p>
+        <p class="fc-bio">Her roles required the kind of clear-eyed analysis and institutional credibility that senior leaders depend on when the stakes are highest. As a Russian Linguist with experience across intelligence and senior staff environments, Angie brings both the analytical foundation and the operational judgment essential to Liberty CTI's advisory practice. She brings that same standard of rigor and strategic perspective to every client engagement.</p>
+        <ul class="fc-creds fc-creds-angie">
+          <li>Commander, 324th Training Squadron — inducted 5,000 servicemembers per year</li>
+          <li>Military Assistant to the Deputy Secretary of Defense</li>
+          <li>Senior Pentagon staff roles in intelligence and national security affairs</li>
+          <li>Russian Linguist with SIGINT collection and intelligence background</li>
+          <li>Extensive leadership in rapid-tempo, high-stakes decision environments</li>
+          <li>Strategic intelligence and policy coordination at OSD level</li>
+        </ul>
+        <div class="fc-edu-label">// Education</div>
+        <ul class="fc-edu">
+          <li>Master of Science, Strategic Intelligence — National Intelligence University</li>
+          <li>Master of Science, International Relations — Troy University</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="founders-statement reveal">
+      <p>Liberty CTI was founded by two U.S. Air Force officers who spent their careers supporting national security decision-makers at the highest levels of government. Liberty CTI extends that experience — and that standard — into the private sector.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <div class="approach-header reveal">
+      <span class="sec-eyebrow">Our Approach</span>
+      <h2 style="color:var(--paper);">Intelligence First.<br><em>Always.</em></h2>
+      <p class="sec-lead">Most cybersecurity firms are built around technology. Their value proposition is software, detection, and response. That work is necessary — but it is not intelligence. Liberty CTI is built around analysis.</p>
+    </div>
+
+    <div class="approach-grid reveal d2">
+      <div class="approach-card">
+        <div class="approach-num">01</div>
+        <div class="approach-title">Geopolitical Context</div>
+        <p class="approach-body">Cyber threats do not emerge from a vacuum. We ground every assessment in the geopolitical environment — understanding how state competition, sanctions pressure, and military posture shape adversary targeting decisions before they manifest in the digital domain.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">02</div>
+        <div class="approach-title">Adversary Intent</div>
+        <p class="approach-body">We assess not just capabilities, but objectives. Understanding what an adversary is trying to achieve — and why they are targeting your sector now — is the intelligence that transforms reactive security into proactive organizational resilience.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">03</div>
+        <div class="approach-title">Calibrated Confidence</div>
+        <p class="approach-body">Our work is aligned with accepted Intelligence Community analytical practices. Every assessment carries calibrated confidence language, structured analytic tradecraft, and transparent sourcing. Our clients receive intelligence products, not marketing reports.</p>
+      </div>
+    </div>
+
+    <div class="bulldog-box reveal d3">
+      <div class="bulldog-left">
+        <span class="bulldog-label">// Analytical Framework</span>
+        <div class="bulldog-title">The Torch<br>Fusion Cycle</div>
+        <p class="bulldog-body">Every Liberty CTI intelligence product is produced through the Torch Fusion Cycle — a structured analytical methodology that fuses cyber indicators with geopolitical, financial, and behavioral intelligence across four disciplined analytical layers. The result is not a description of what happened. It is an assessment of what comes next — with the indicators to watch and the confidence to act on it.</p>
+      </div>
+      <div class="bulldog-right">
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">What</div></div>
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">Who</div></div>
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">Why</div></div>
+        <div class="bq"><div class="bq-letter">W</div><div class="bq-word">What Next</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Intelligence Products</span>
+    <h2 class="reveal d1">Built for<br>Decision-Makers.<br><em>Not Analysts.</em></h2>
+    <p class="products-intro reveal d2">Liberty CTI produces intelligence in formats designed for senior leaders — concise, structured, and immediately actionable. Our products are built on the premise that the most valuable intelligence is the kind that informs a decision before a crisis makes that decision for you.</p>
+
+    <div class="product-grid reveal d2">
+      <div class="product-item">
+        <div class="product-tag">Flagship Product</div>
+        <div class="product-name">The Alamo Strategic Threat Brief</div>
+        <p class="product-desc">Liberty CTI's flagship strategic intelligence product — a regularly published assessment of emerging cyber threats targeting critical industries across Texas. Drawing on open-source intelligence, geopolitical analysis, and adversary behavioral modeling, the Brief delivers the situational awareness senior leaders need to anticipate rather than react to the threat environment.</p>
+        <ul class="product-features">
+          <li>Nation-state threat actor assessments with calibrated confidence</li>
+          <li>Sector-specific targeting analysis for energy, finance, defense, and healthcare</li>
+          <li>Geopolitical context connecting global developments to Texas risk</li>
+          <li>Executive-ready format aligned with national security-grade analytical standards</li>
+        </ul>
+        <div class="product-arrow">→</div>
+      </div>
+      <div class="product-item">
+        <div class="product-tag">Strategic Framework</div>
+        <div class="product-name">The Alamo Defense Framework</div>
+        <p class="product-desc">Liberty CTI's strategic risk mitigation model — a structured methodology for helping organizations align their defensive priorities against the actual threat actors most likely to target them. Built on a foundational intelligence principle: strategic warning that is not acted upon early offers no protection at all.</p>
+        <ul class="product-features">
+          <li>Adversary targeting matrix matched to client sector and profile</li>
+          <li>Priority Intelligence Requirements (PIR) development</li>
+          <li>30/60/90-day threat horizon forecasting with watch indicators</li>
+          <li>Executive and board-level briefing formats available</li>
+        </ul>
+        <div class="product-arrow">→</div>
+      </div>
+    </div>
+
+    <div class="products-note reveal d3">
+      <div class="products-note-icon">◈</div>
+      <div class="products-note-body">Liberty CTI also produces <strong>adversary intelligence briefings</strong>, <strong>sector-specific threat assessments</strong>, and <strong>bespoke strategic forecasts</strong> tailored to client industry and threat posture. All products are available on a subscription or advisory retainer basis. <strong>Contact us to discuss intelligence support aligned to your organization's needs.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision" id="vision">
+  <div class="vision-inner">
+    <div class="reveal">
+      <span class="sec-eyebrow">Our Vision</span>
+      <h2>Protecting the<br>Economic Engine<br>of <em>Texas.</em></h2>
+      <p class="vision-body">The threat landscape facing Texas's most critical industries is no longer shaped solely by opportunistic criminal actors. It is shaped by <strong>geopolitical competition</strong> — by foreign governments that view energy infrastructure, financial systems, and defense supply chains as legitimate targets in a contest that is already underway.</p>
+      <p class="vision-body">Organizations must understand these dynamics — not as background context, but as operational intelligence that informs investment, governance, and risk posture decisions at the board level. The question is no longer whether your sector is a target. The question is whether you understand who is targeting you and what they intend to achieve.</p>
+      <div class="vision-closing">
+        Strategic awareness is not a luxury. In the current environment, it is a requirement for organizational resilience.
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="sector-grid">
+        <div class="sector-item">
+          <div class="sector-icon">// Energy</div>
+          <div class="sector-name">Energy Infrastructure</div>
+          <div class="sector-desc">ERCOT, Permian Basin, Gulf Coast LNG, and downstream pipeline networks targeted by Volt Typhoon and Sandworm-affiliated actors.</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">// Finance</div>
+          <div class="sector-name">Financial Services</div>
+          <div class="sector-desc">Texas banking and capital markets exposed to Lazarus Group financial operations and IRGC-affiliated disruptive campaigns.</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">// Defense</div>
+          <div class="sector-name">Defense Industrial Base</div>
+          <div class="sector-desc">Texas DIB contractors targeted for technology theft and supply chain infiltration by PRC-sponsored APT campaigns.</div>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">// Healthcare</div>
+          <div class="sector-name">Healthcare Systems</div>
+          <div class="sector-desc">Texas Medical Center and regional health networks increasingly targeted by ransomware ecosystems and data exfiltration campaigns.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <img src="IMG_6690.png" class="cta-emblem reveal" alt="Liberty CTI">
+    <span class="sec-eyebrow reveal d1" style="justify-content:center;display:block;">// San Antonio, Texas</span>
+    <h2 class="reveal d2">Ready to Understand<br>the <em>Threat Landscape?</em></h2>
+    <p class="cta-body reveal d3">Liberty CTI works with a select group of organizations whose leadership understands that intelligence is not a cost center — it is a strategic function. If your organization is ready to move from reactive security to proactive intelligence, we would welcome the conversation.</p>
+    <div class="cta-actions reveal d3">
+      <a href="mailto:contact@libertycti.com" class="btn-gold">Request a Briefing</a>
+      <a href="index.html" class="btn-dark">Return to Homepage</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
+      <div class="lcti-footer-slogan">Know what changed. Decide this week.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Products</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../decision-support.html">Products &amp; Services</a></li>
+        <li><a href="../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../financial.html">Financial Services</a></li>
+        <li><a href="../healthcare.html">Healthcare</a></li>
+        <li><a href="../Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="../briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+    navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === `#${current}`) a.classList.add('active'); });
+  });
+</script>
+</body>
+</html>

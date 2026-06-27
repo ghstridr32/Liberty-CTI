@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liberty CTI | Cyber Threat Intelligence for Texas Critical Infrastructure</title>
+<meta name="description" content="Liberty CTI provides predictive cyber threat intelligence for Texas critical infrastructure, energy, defense, healthcare, finance, and technology leaders.">
+<link rel="icon" type="image/png" href="IMG_6690.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #080c10;
+  --navy: #0d1520;
+  --paper: #f4efe6;
+  --cream: #ece7da;
+  --gold: #b8963e;
+  --gold-light: #d4af62;
+  --red: #8b1a1a;
+  --muted: #6b6355;
+  --rule: rgba(184,150,62,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,12,16,0.96); border-bottom: 1px solid var(--rule); }
+.nav-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+.nav-emblem { width: 38px; height: 38px; object-fit: contain; }
+.nav-wordmark { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--paper); }
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.6); text-decoration: none; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { color: var(--gold) !important; border: 1px solid var(--gold); padding: 0.45rem 1.1rem; }
+.nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+.hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem 3.5rem 5.5rem; }
+.eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.eyebrow::before { content: '// '; opacity: 0.6; }
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 900; line-height: 1.0; color: var(--paper); margin-bottom: 1.5rem; }
+h1 em { font-style: italic; color: var(--gold); }
+.hero-rule { width: 3.5rem; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
+.hero-body { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.72); max-width: 460px; line-height: 1.8; margin-bottom: 2.5rem; }
+.hero-actions { display: flex; gap: 1.25rem; align-items: center; }
+.btn-gold { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 0.9rem 1.9rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-ghost { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,239,230,0.55); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.3s; }
+.btn-ghost:hover { color: var(--paper); }
+.btn-ghost::after { content: '→'; }
+
+.hero-right { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-right::before { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, var(--ink) 0%, transparent 40%); z-index: 1; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,62,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,62,0.04) 1px, transparent 1px); background-size: 52px 52px; }
+.hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 65% 45%, rgba(184,150,62,0.1) 0%, transparent 65%); }
+.hero-emblem { position: relative; z-index: 2; width: clamp(240px, 28vw, 380px); filter: drop-shadow(0 0 50px rgba(184,150,62,0.3)); }
+
+/* INTEL STRIP */
+.intel-strip { background: var(--navy); padding: 1.5rem 3rem; display: flex; align-items: center; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.intel-item { display: flex; align-items: center; gap: 0.75rem; flex: 1; justify-content: center; padding: 0 0.5rem; }
+.intel-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--gold); line-height: 1; white-space: nowrap; }
+.intel-desc { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(244,239,230,0.4); line-height: 1.5; }
+.intel-sep { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
+
+/* SECTION UTILS */
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.sec-eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+.sec-eyebrow::before { content: '// '; opacity: 0.6; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3vw, 3.2rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; }
+h2 em { font-style: italic; color: var(--red); }
+.sec-sub { font-size: 1rem; font-weight: 300; line-height: 1.8; margin-bottom: 3.5rem; max-width: 580px; }
+
+/* FOUNDERS */
+.founders { background: var(--paper); color: var(--ink); padding: 7rem 3rem; }
+.founders-header { text-align: center; margin-bottom: 4rem; }
+.founders-header h2 { color: var(--ink); }
+.founders-header h2 em { color: var(--red); }
+.founders-header .sec-sub { color: var(--muted); max-width: 680px; margin: 0 auto 0; }
+
+/* YEARS BAR */
+.years-bar { display: flex; border: 1px solid rgba(10,10,10,0.1); margin-bottom: 4rem; overflow: hidden; }
+.years-seg { flex: 1; padding: 2rem 1.5rem; text-align: center; border-right: 1px solid rgba(10,10,10,0.1); }
+.years-seg:last-child { border-right: none; background: var(--ink); color: var(--paper); }
+.years-big { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.35rem; }
+.years-seg:last-child .years-big { font-size: 4rem; }
+.years-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+.years-seg:last-child .years-label { color: rgba(244,239,230,0.5); }
+
+/* FOUNDER CARDS */
+.founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(10,10,10,0.08); margin-bottom: 3rem; }
+.fc { background: var(--cream); padding: 3rem 2.5rem; position: relative; }
+.fc-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.fc-bar-luis { background: linear-gradient(90deg, var(--gold), transparent); }
+.fc-bar-angie { background: linear-gradient(90deg, var(--red), transparent); }
+.fc-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.fc-label-luis { color: var(--gold); }
+.fc-label-angie { color: var(--red); }
+.fc-name { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+.fc-rank { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 1.75rem; }
+.fc-bio { font-size: 0.92rem; font-weight: 300; color: #3a3530; line-height: 1.82; margin-bottom: 1.75rem; }
+.fc-creds { list-style: none; margin-bottom: 1.75rem; }
+.fc-creds li { font-family: 'Instrument Sans', sans-serif; font-size: 0.67rem; color: #555048; display: flex; gap: 0.6rem; line-height: 1.55; margin-bottom: 0.45rem; }
+.fc-creds li::before { content: '▸'; flex-shrink: 0; }
+.fc-creds-luis li::before { color: var(--gold); }
+.fc-creds-angie li::before { color: var(--red); }
+.fc-edu-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; border-top: 1px solid rgba(10,10,10,0.1); padding-top: 1.25rem; }
+.fc-edu li { font-size: 0.78rem; font-weight: 300; color: #555048; line-height: 1.55; margin-bottom: 0.3rem; list-style: none; }
+
+/* SHARED CREDENTIALS */
+.shared-creds { background: var(--ink); padding: 3.5rem 3rem; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.cred-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; background: var(--rule); }
+.cred-item { background: var(--ink); padding: 2.5rem 2rem; text-align: center; }
+.cred-icon { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); margin-bottom: 0.75rem; }
+.cred-heading { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.6rem; }
+.cred-body { font-size: 0.82rem; font-weight: 300; color: rgba(244,239,230,0.45); line-height: 1.7; }
+
+/* TIMELINE */
+.timeline { background: var(--navy); padding: 7rem 3rem; }
+.timeline h2 { color: var(--paper); }
+.tl-grid { display: grid; grid-template-columns: 1fr 60px 1fr; margin-top: 3.5rem; }
+.tl-head-luis { font-family: 'Instrument Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); text-align: right; padding: 0 1.5rem 1.25rem 0; border-bottom: 2px solid var(--gold); }
+.tl-head-center { border-bottom: 1px solid rgba(244,239,230,0.08); }
+.tl-head-angie { font-family: 'Instrument Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); padding: 0 0 1.25rem 1.5rem; border-bottom: 2px solid var(--red); }
+.tl-luis { text-align: right; padding: 1.1rem 1.5rem 1.1rem 0; border-right: 1px solid rgba(184,150,62,0.12); }
+.tl-center { display: flex; align-items: center; justify-content: center; border-left: 1px solid rgba(184,150,62,0.08); border-right: 1px solid rgba(139,26,26,0.08); }
+.tl-angie { padding: 1.1rem 0 1.1rem 1.5rem; border-left: 1px solid rgba(139,26,26,0.12); }
+.tl-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(244,239,230,0.15); }
+.tl-dot-shared { background: var(--gold); box-shadow: 0 0 8px rgba(184,150,62,0.5); }
+.tl-year { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(244,239,230,0.28); margin-bottom: 0.2rem; }
+.tl-text { font-size: 0.82rem; font-weight: 300; color: rgba(244,239,230,0.62); line-height: 1.5; }
+.tl-text strong { font-weight: 500; color: var(--paper); }
+.tl-shared-note { font-family: 'Instrument Sans', sans-serif; font-size: 0.57rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-top: 0.2rem; }
+.tl-luis.shared .tl-text { color: rgba(184,150,62,0.8); }
+.tl-angie.shared .tl-text { color: rgba(210,140,140,0.8); }
+
+/* THREAT ACTORS */
+.threats { background: var(--ink); padding: 7rem 3rem; }
+.threats h2 { color: var(--paper); }
+.threats .sec-sub { color: rgba(244,239,230,0.52); }
+.threat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); }
+.threat-card { background: var(--ink); padding: 2.25rem 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
+.threat-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.threat-card:hover { background: rgba(184,150,62,0.04); }
+.threat-card:hover::after { transform: scaleX(1); }
+.threat-origin { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 0.65rem; }
+.threat-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--paper); margin-bottom: 0.65rem; }
+.threat-body { font-size: 0.83rem; font-weight: 300; color: rgba(244,239,230,0.48); line-height: 1.7; }
+
+/* PRODUCTS */
+.products { background: var(--cream); color: var(--ink); padding: 7rem 3rem; }
+.products h2 { color: var(--ink); }
+.products .sec-sub { color: var(--muted); }
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(10,10,10,0.1); }
+.product-item { background: var(--cream); padding: 2.75rem 2.25rem; position: relative; transition: background 0.3s; }
+.product-item:hover { background: #e6e0d2; }
+.product-tag { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+.product-tag::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+.product-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 0.65rem; }
+.product-desc { font-size: 0.87rem; font-weight: 300; color: var(--muted); line-height: 1.72; }
+.product-arrow { position: absolute; bottom: 1.75rem; right: 2.25rem; color: rgba(10,10,10,0.12); font-size: 1rem; transition: all 0.3s; }
+.product-item:hover .product-arrow { color: var(--gold); transform: translateX(4px); }
+
+/* TEXAS */
+.texas { background: var(--ink); padding: 7rem 3rem; position: relative; overflow: hidden; }
+.texas-star { position: absolute; right: -4rem; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-size: 55vw; color: rgba(184,150,62,0.025); font-weight: 900; pointer-events: none; line-height: 1; }
+.texas-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.texas h2 { color: var(--paper); }
+.texas-body { font-size: 1rem; font-weight: 300; color: rgba(244,239,230,0.62); line-height: 1.85; margin-bottom: 1.25rem; }
+.sector-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
+.sector-tag { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,150,62,0.3); padding: 0.32rem 0.8rem; }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); }
+.stat-item { background: rgba(13,21,32,0.9); padding: 2.25rem 1.75rem; text-align: center; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.45rem; }
+.stat-label { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,230,0.38); line-height: 1.4; }
+
+/* CTA */
+.cta { background: var(--paper); color: var(--ink); padding: 7rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.cta::before { content: 'LIBERTY CTI'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 13vw; font-weight: 900; color: rgba(10,10,10,0.025); pointer-events: none; }
+.cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-emblem { width: 80px; margin: 0 auto 2rem; display: block; }
+.cta h2 { color: var(--ink); }
+.cta h2 em { color: var(--red); }
+.cta-body { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.78; margin-bottom: 2.75rem; }
+.cta-actions { display: flex; justify-content: center; gap: 1.25rem; }
+.btn-dark { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-dark:hover { background: #1e2d40; }
+.btn-outline { font-family: 'Instrument Sans', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); border: 1px solid rgba(10,10,10,0.25); padding: 0.95rem 2.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.btn-outline:hover { border-color: var(--ink); background: rgba(10,10,10,0.04); }
+
+/* FOOTER */
+footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px solid var(--rule); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3.5rem; margin-bottom: 2.5rem; }
+.footer-brand-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
+.footer-emblem { width: 38px; object-fit: contain; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); }
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.37); line-height: 1.65; max-width: 280px; }
+.footer-col-title { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { font-size: 0.79rem; font-weight: 300; color: rgba(244,239,230,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(244,239,230,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+.footer-copy { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(244,239,230,0.22); }
+
+
+/* TRUST STRIP */
+.trust-strip { background: var(--ink); padding: 1rem 3rem; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.trust-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: center; }
+.trust-label { font-family: 'Instrument Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(244,239,230,0.35); margin-right: 0.5rem; }
+.trust-badge { font-family: 'Instrument Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(184,150,62,0.22); padding: 0.45rem 0.75rem; }
+
+/* ANALYSIS */
+.analysis { background: var(--paper); color: var(--ink); padding: 7rem 3rem; }
+.analysis h2 { color: var(--ink); }
+.analysis .sec-sub { color: var(--muted); }
+.analysis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(10,10,10,0.1); }
+.analysis-card { background: var(--paper); padding: 2.25rem 2rem; transition: background 0.3s; }
+.analysis-card:hover { background: #ece6d8; }
+.analysis-tag { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 0.85rem; }
+.analysis-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.7rem; line-height: 1.25; }
+.analysis-body { font-size: 0.86rem; font-weight: 300; color: var(--muted); line-height: 1.75; margin-bottom: 1.2rem; }
+.analysis-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+.analysis-link:hover { color: var(--red); }
+
+/* PRICING */
+.pricing-note { margin-top: 2.5rem; padding: 1.25rem 1.5rem; border-left: 3px solid var(--gold); background: rgba(184,150,62,0.06); }
+.pricing-note p { font-size: 0.86rem; color: var(--muted); line-height: 1.7; }
+
+/* MEDIA */
+.media { background: var(--navy); padding: 7rem 3rem; }
+.media h2 { color: var(--paper); }
+.media .sec-sub { color: rgba(244,239,230,0.52); }
+.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); }
+.media-item { background: var(--navy); padding: 2.2rem 2rem; }
+.media-kicker { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
+.media-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--paper); margin-bottom: 0.6rem; }
+.media-body { font-size: 0.85rem; font-weight: 300; color: rgba(244,239,230,0.48); line-height: 1.7; }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 340px; }
+  .footer-inner, .texas-inner, .founder-grid, .product-grid, .analysis-grid, .media-grid, .threat-grid, .cred-grid { grid-template-columns: 1fr; }
+  .tl-grid { grid-template-columns: 1fr; }
+  .tl-head-center, .tl-center { display: none; }
+  .tl-head-luis, .tl-head-angie, .tl-luis, .tl-angie { text-align: left; padding-left: 0; padding-right: 0; border: none; }
+  .footer-bottom, .intel-strip { flex-direction: column; gap: 1rem; }
+  .intel-sep { display: none; }
+}
+
+@media (max-width: 760px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .hero-left, .founders, .timeline, .threats, .products, .texas, .cta, .analysis, .media, footer, .trust-strip, .shared-creds { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hero-left { padding-top: 7rem; padding-bottom: 4rem; }
+  .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
+  .years-bar { flex-direction: column; }
+  .years-seg { border-right: none; border-bottom: 1px solid rgba(10,10,10,0.1); }
+  .years-seg:last-child { border-bottom: none; }
+}
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+</style>
+<style id="lcti-stat-legibility">
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  overflow-x:hidden;
+  font-size:17px;
+  line-height:1.65;
+}
+img,
+video,
+canvas,
+svg{
+  max-width:100%;
+}
+:where(p,li,dd,td,th,blockquote){
+  font-size:max(1rem,16px) !important;
+  line-height:1.75 !important;
+}
+:where(.lead,.hero-sub,.page-hero-body,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,.card p,.product p,.sector-card p,.capability-card p,.approach-card p,.value-card p,.archive-card p,.brief-card p,.contact-card p,.audience-body,.cycle-body,.framework-body,.deliverable-body,.content-card-body,.use-desc,.use-note-body,.form-help,.help-text,.field-note,.hint,.note){
+  font-size:max(1.06rem,17px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+:where(.hero-sub,.hero-lede,.page-hero-body,.lead){
+  font-size:max(1.12rem,18px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.82) !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.btn-gold,.btn-outline-light,.btn-dark,.btn-outline,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+  font-size:max(.88rem,14px) !important;
+  font-weight:500 !important;
+  line-height:1.55 !important;
+  letter-spacing:.07em !important;
+  opacity:1 !important;
+  color:rgba(212,175,98,.9) !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.045em !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(212,175,98,.25) !important;
+}
+:where(.section-desc,.submit-note,.chip-sublabel,.caption,.photo-caption,.card-meta,.archive-meta,.brief-meta,.vignette-attr,.j-conf,.confidence,.risk-label,.rail-section-name,.meta,.audience-body,.cycle-body,.framework-body,.deliverable-body,.content-card-body,.use-desc,.use-note-body){
+  color:rgba(244,239,230,.72) !important;
+}
+.audience-tag,
+.cycle-label,
+.cycle-word,
+.framework-label,
+.framework-word,
+.deliverable-tag,
+.content-card-label,
+.use-tag,
+.leader-tag,
+.leader-link,
+.section-label,
+.cs-label,
+.sec-tag,
+.sector-card a,
+.sector-card [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.45 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.sec-tag{
+  display:flex !important;
+  align-items:center !important;
+  gap:.45rem !important;
+  color:#d4af62 !important;
+}
+.sec-tag .sec-icon{
+  font-size:1rem !important;
+  line-height:1 !important;
+}
+.sector-card a{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  margin-top:1rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.sector-card a:hover{
+  color:#f0d27a !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.meta-table,.vignette-timing,.loc,.exec-label,.kiq-list,.use-features),
+body [style*="font-size:0.5"],
+body [style*="font-size: 0.5"],
+body [style*="font-size:0.6"],
+body [style*="font-size: 0.6"],
+body [style*="font-size:0.7"],
+body [style*="font-size: 0.7"]{
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.5 !important;
+  letter-spacing:.06em !important;
+  opacity:1 !important;
+}
+:where(.hero-badge,.pillar-tag,.pillar-stat-label,.dep-hdr-label,.dep-risk,.shift-from,.product-tag,.product-features,.bulldog-label,.distinction-label,.fc-label,.fc-edu-label,.founders-statement-label,.leader-callsign,.section-id,.cascade-label,.conf-badge,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label),
+body [style*="font-family:'Instrument Sans'"][style*="font-size:0."],
+body [style*='font-family:"Instrument Sans"'][style*="font-size:0."],
+body [style*="font-family: 'Instrument Sans'"][style*="font-size: 0."]{
+  font-family:'Instrument Sans',sans-serif !important;
+  color:#d4af62 !important;
+  text-transform:uppercase !important;
+  text-shadow:0 0 1px rgba(212,175,98,.18) !important;
+}
+.leader-tag{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:32px !important;
+  padding:.34rem .72rem !important;
+  border-color:rgba(212,175,98,.38) !important;
+  color:rgba(212,175,98,.88) !important;
+}
+.leader-link{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:34px !important;
+  padding-top:.25rem !important;
+  color:#d4af62 !important;
+  text-decoration:none !important;
+}
+.leader-link:hover{
+  color:#f0d27a !important;
+}
+.audience-title,
+.deliverable-title,
+.content-card-title{
+  font-size:max(1.2rem,19px) !important;
+  line-height:1.35 !important;
+  color:#f4efe6 !important;
+}
+.audience-body,
+.cycle-body,
+.framework-body,
+.deliverable-body,
+.content-card-body,
+.use-desc,
+.use-note-body{
+  font-size:max(1.04rem,16.75px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+.hero-classification{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.05em !important;
+  line-height:1.55 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] p{
+  font-size:max(1.04rem,16.75px) !important;
+  font-weight:500 !important;
+  line-height:1.78 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+.hero-inner > div[style*="margin-top:1.75rem"] strong{
+  font-weight:800 !important;
+  color:#f4efe6 !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] > p{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  letter-spacing:.045em !important;
+  line-height:1.55 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner > div[style*="margin-top:1.5rem"] li{
+  font-size:max(1.02rem,16.25px) !important;
+  font-weight:600 !important;
+  line-height:1.58 !important;
+  color:rgba(244,239,230,.84) !important;
+}
+.hero-inner [style*="font-size:0.56rem"],
+.hero-inner [style*="letter-spacing:0.24em"],
+.form-shell [style*="font-size:0.56rem"],
+.form-shell [style*="letter-spacing:0.24em"]{
+  font-size:max(.95rem,15.25px) !important;
+  font-weight:500 !important;
+  letter-spacing:.055em !important;
+  line-height:1.45 !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.hero-inner [style*="font-size:0.82rem"],
+.form-shell [style*="font-size:0.82rem"]{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  line-height:1.7 !important;
+  color:rgba(244,239,230,.78) !important;
+}
+:where(.field-error){
+  color:#d6554a !important;
+}
+:where(.chip.chip-lg .chip-label){
+  font-size:max(1rem,16px) !important;
+  font-weight:700 !important;
+  line-height:1.45 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.86) !important;
+}
+:where(.chip-sublabel){
+  font-size:max(.92rem,14.75px) !important;
+  font-weight:400 !important;
+  line-height:1.6 !important;
+  letter-spacing:.04em !important;
+  color:rgba(244,239,230,.68) !important;
+  text-shadow:none !important;
+}
+.chip.chip-lg .chip-sublabel{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.95rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.7 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.68) !important;
+  max-width:28ch;
+}
+.chip.chip-lg.selected .chip-sublabel{
+  color:rgba(244,239,230,.76) !important;
+}
+:where(.actor-name,.vignette-body h3,.jewel-card h3){
+  font-size:max(1.08rem,17px) !important;
+  line-height:1.35 !important;
+}
+:where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p,.timeline p,.cred-text,.cred-intro,.cred-closing,.pull-attr,.story-summary,.sector-copy,.assessment-copy,.request-copy,.next-panel li){
+  font-size:max(1rem,16px) !important;
+  line-height:1.78 !important;
+}
+.actor-origin,
+.jewel-label{
+  font-size:max(.94rem,15px) !important;
+  font-weight:600 !important;
+  line-height:1.45 !important;
+  letter-spacing:.06em !important;
+  color:#d6554a !important;
+  opacity:1 !important;
+  text-shadow:0 0 1px rgba(214,85,74,.22) !important;
+}
+.actor-name,
+.jewel-card h3{
+  font-size:max(1.12rem,18px) !important;
+  font-weight:800 !important;
+  line-height:1.35 !important;
+  color:#f4efe6 !important;
+}
+.actor-card p,
+.jewel-card p{
+  font-size:max(1.02rem,16.25px) !important;
+  font-weight:500 !important;
+  line-height:1.72 !important;
+  color:rgba(244,239,230,.74) !important;
+}
+.jewel-section .lead,
+.jewel-section :where(p,li,dd,td,th,blockquote),
+.crown-jewels .lead,
+.crown-jewels :where(p,li,dd,td,th,blockquote){
+  color:rgba(8,12,16,.72) !important;
+}
+.jewel-section .jewel-label,
+.crown-jewels .jewel-label{
+  color:#b63a32 !important;
+  text-shadow:none !important;
+}
+.jewel-section .jewel-card h3,
+.crown-jewels .jewel-card h3{
+  color:#080c10 !important;
+}
+.jewel-section .jewel-card p,
+.crown-jewels .jewel-card p{
+  color:rgba(8,12,16,.68) !important;
+}
+.posture,
+.shift-card,
+.content-frame,
+.content-card,
+.use-cases,
+.use-item,
+.products,
+.product-item,
+.fc,
+.crown-jewels,
+.jewel-card{
+  color:#080c10 !important;
+}
+.posture :where(p,.lead,.section-lead,.sec-lead),
+.shift-card p,
+.content-frame :where(.content-intro,p,li,dd,td,th,blockquote),
+.content-card :where(p,li,dd,td,th,blockquote),
+.use-cases :where(.use-cases-intro,.use-desc,.use-features li,p,li,dd,td,th,blockquote),
+.use-item :where(p,li,dd,td,th,blockquote),
+.products :where(p,li,.lead),
+.product-item :where(p,li),
+.fc :where(p,li,.fc-rank),
+.crown-jewels :where(p,li,dd,td,th,blockquote),
+.jewel-card :where(p,li,dd,td,th,blockquote){
+  color:rgba(8,12,16,.74) !important;
+  text-shadow:none !important;
+}
+.posture :where(h1,h2,h3,h4,.shift-to),
+.shift-card :where(h1,h2,h3,h4,.shift-to),
+.content-frame :where(h1,h2,h3,h4,.content-card-title),
+.content-card :where(h1,h2,h3,h4,.content-card-title),
+.use-cases :where(h1,h2,h3,h4,.use-name),
+.use-item :where(h1,h2,h3,h4,.use-name),
+.products :where(h1,h2,h3,h4),
+.product-item :where(h1,h2,h3,h4),
+.fc :where(h1,h2,h3,h4),
+.crown-jewels :where(h1,h2,h3,h4),
+.jewel-card :where(h1,h2,h3,h4){
+  color:#080c10 !important;
+  text-shadow:none !important;
+}
+.posture :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag,.fc-label,.fc-edu-label),
+.shift-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.shift-from,.jewel-label,.product-tag),
+.content-frame :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.content-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.content-card-label),
+.use-cases :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
+.use-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.use-tag),
+.products :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.product-item :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.product-tag),
+.fc :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.fc-label,.fc-edu-label),
+.crown-jewels :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label),
+.jewel-card :where(.eyebrow,.sec-eyebrow,.label,.kicker,.overline,.jewel-label){
+  color:#9b7626 !important;
+  text-shadow:none !important;
+}
+.posture em,
+.shift-card em,
+.content-frame em,
+.content-card em,
+.use-cases em,
+.use-item em,
+.products em,
+.product-item em,
+.fc em,
+.crown-jewels em,
+.jewel-card em{
+  color:#8f1f1b !important;
+}
+.content-frame .content-card-body,
+.content-card .content-card-body{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(1.05rem,17px) !important;
+  font-weight:500 !important;
+  line-height:1.75 !important;
+  letter-spacing:0 !important;
+  color:rgba(8,12,16,.76) !important;
+}
+.content-frame .content-card-title,
+.content-card .content-card-title{
+  font-size:max(1.35rem,21px) !important;
+  line-height:1.35 !important;
+}
+.content-frame .content-card:nth-child(2) .content-card-label,
+.content-card:nth-child(2) .content-card-label{
+  color:#8b1a1a !important;
+}
+.content-frame .content-note{
+  background:#080c10 !important;
+  border:1px solid rgba(184,150,62,.28) !important;
+}
+.content-frame .content-note p{
+  font-size:max(1.44rem,23px) !important;
+  line-height:1.65 !important;
+  color:rgba(244,239,230,.9) !important;
+  font-weight:500 !important;
+  text-shadow:none !important;
+}
+.content-frame .content-note p::before,
+.content-frame .content-note p::after{
+  font-size:1.9rem !important;
+}
+:where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.drop-label,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-icon,.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.product-tag,.product-features,.use-features,.kiq-list,.meta-table,.conf-ref,.connector-text,.industries-label,.topline-step,.decision-prompt,.btn-request-hint,.form-note,.cf-label,.cf-error,.meta-label,.vignette-timing,.loc,.exec-label,.lcti-logo-slogan,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy),
+body [style*="Instrument Sans"]{
+  font-family:'Instrument Sans',sans-serif !important;
+}
+:where(.use-features li,.product-features li,.kiq-list li,.meta-table td,.meta-table th){
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.96rem,15.5px) !important;
+  font-weight:500 !important;
+  line-height:1.65 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  color:inherit !important;
+}
+:where(.vignette-timing,.stat-label,.hero-stat-label,.pillar-stat-label,.intel-desc,.footer-tagline,.foot-tagline,.lcti-footer-slogan,.lcti-footer-col-title,.lcti-footer-copy,.footer-copy){
+  font-size:max(.88rem,14px) !important;
+  line-height:1.58 !important;
+  letter-spacing:.1em !important;
+}
+.timeline .tl-role,
+.timeline .tl-unit{
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.timeline .tl-unit{
+  opacity:.86 !important;
+}
+.lcti-footer-tagline,
+.footer-tagline,
+.foot-tagline{
+  font-size:max(1rem,16px) !important;
+  font-weight:500 !important;
+  line-height:1.72 !important;
+  letter-spacing:0 !important;
+  color:rgba(244,239,230,.78) !important;
+  opacity:1 !important;
+}
+.lcti-footer-slogan,
+.lcti-footer-col-title{
+  font-size:max(.94rem,15px) !important;
+  font-weight:500 !important;
+  line-height:1.45 !important;
+  letter-spacing:.09em !important;
+  color:#d4af62 !important;
+  opacity:1 !important;
+}
+.lcti-footer-links a{
+  font-size:max(.98rem,15.75px) !important;
+  font-weight:500 !important;
+  line-height:1.55 !important;
+  color:rgba(244,239,230,.74) !important;
+  opacity:1 !important;
+}
+.lcti-footer-links a.lcti-atb-link{
+  color:#d6554a !important;
+  font-weight:600 !important;
+}
+.lcti-footer-copy,
+.footer-copy{
+  font-size:max(.86rem,13.75px) !important;
+  font-weight:600 !important;
+  letter-spacing:.04em !important;
+  color:rgba(244,239,230,.56) !important;
+}
+:where(.subtle,.muted,.fine-print,.small,.micro,.form-disclaimer,.disclaimer,.legal,.attribution){
+  font-size:max(.9rem,14.5px) !important;
+  line-height:1.65 !important;
+}
+:where(input,select,textarea,button){
+  font-size:max(1rem,16px);
+}
+:where(.btn,.button,.btn-gold,.btn-dark,.btn-outline,.btn-gold-outline,.btn-outline-light,.btn-request,.btn-send,.actions a,.hero-actions a,.cta-actions a,.form-actions button){
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:48px !important;
+  padding:.85rem 1.35rem !important;
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.95rem,15.25px) !important;
+  font-weight:800 !important;
+  line-height:1.2 !important;
+  letter-spacing:.07em !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+  opacity:1 !important;
+  border-radius:2px !important;
+}
+:where(.btn-gold,.btn-request,.btn-send,.button-gold){
+  background:#c9a84f !important;
+  border:1px solid #c9a84f !important;
+  color:#080c10 !important;
+  text-shadow:none !important;
+}
+:where(.btn-gold:hover,.btn-request:hover,.btn-send:hover,.button-gold:hover){
+  background:#d4b762 !important;
+  border-color:#d4b762 !important;
+  color:#080c10 !important;
+}
+:where(.btn-dark){
+  background:#101923 !important;
+  border:1px solid rgba(212,175,98,.55) !important;
+  color:#f4efe6 !important;
+}
+:where(.btn-outline,.btn-gold-outline,.btn-outline-light){
+  background:rgba(8,12,16,.28) !important;
+  border:1px solid rgba(212,175,98,.65) !important;
+  color:#d4af62 !important;
+  text-shadow:none !important;
+}
+:where(.btn-outline:hover,.btn-gold-outline:hover,.btn-outline-light:hover){
+  background:#c9a84f !important;
+  border-color:#c9a84f !important;
+  color:#080c10 !important;
+}
+:where(.cta,.cta-section,.section-light,.paper-section) :where(.btn-outline,.btn-gold-outline,.btn-outline-light,.cta-actions a:not(.btn-dark):not(.btn-gold):not(.btn-request):not(.btn-send)){
+  background:#080c10 !important;
+  border:1px solid #080c10 !important;
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+:where(.cta,.cta-section,.section-light,.paper-section) :where(.btn-outline:hover,.btn-gold-outline:hover,.btn-outline-light:hover,.cta-actions a:not(.btn-dark):not(.btn-gold):not(.btn-request):not(.btn-send):hover){
+  background:#1a2430 !important;
+  border-color:#1a2430 !important;
+  color:#f4efe6 !important;
+}
+.actions a{
+  background:#080c10 !important;
+  border:1px solid #080c10 !important;
+  color:#f4efe6 !important;
+  text-shadow:none !important;
+}
+.actions a + a{
+  background:#c9a84f !important;
+  border-color:#c9a84f !important;
+  color:#080c10 !important;
+}
+.intel-desc,
+.stat-l,
+.stat-label,
+.hero-stat-label,
+.pillar-stat-label,
+.photo-caption{
+  font-family:'Instrument Sans',sans-serif !important;
+  font-size:max(.88rem,14px) !important;
+  font-weight:400 !important;
+  line-height:1.55 !important;
+  letter-spacing:.1em !important;
+  text-transform:uppercase !important;
+}
+.stat-l,
+.stat-label,
+.pillar-stat-label,
+.photo-caption{
+  margin-top:.22rem !important;
+}
+.cta-inner img,
+.cta-emblem{
+  height:auto !important;
+  object-fit:contain !important;
+}
+.cta-section .cta-inner > img[src$="liberty-cti-emblem.png"]{
+  width:140px !important;
+}
+.cta .cta-emblem{
+  width:160px !important;
+}
+@media(max-width:700px){
+  .intel-desc,
+  .stat-l,
+  .stat-label,
+  .hero-stat-label,
+  .pillar-stat-label,
+  .photo-caption{
+    font-size:.9rem !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:900px){
+  .page-hero-inner,
+  .hero-inner,
+  .hero-layout,
+  .mission-inner,
+  .founders-grid,
+  .fc-grid,
+  .story,
+  .story-inner,
+  .story-angie,
+  .why-inner,
+  .vision-inner,
+  .bulldog-box,
+  .contact-body-inner,
+  .contact-grid,
+  .form-body,
+  .product-grid,
+  .products-grid,
+  .products-list,
+  .approach-grid,
+  .sector-grid,
+  .sectors-grid,
+  .domain-grid,
+  .actor-grid,
+  .shift-grid,
+  .doctrine-grid,
+  .highlight-grid,
+  .feature-grid,
+  .value-grid,
+  .capability-grid,
+  .atb-grid,
+  .two-col,
+  .grid-2,
+  .footer-inner,
+  .site-footer-inner{
+    grid-template-columns:1fr !important;
+  }
+  .stat-bar,
+  .intel-strip,
+  .cred-strip-inner{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:0 !important;
+  }
+  .intel-sep,
+  .stat-sep,
+  .cred-sep{
+    display:none !important;
+  }
+  .intel-item,
+  .stat,
+  .cred-item{
+    min-width:0 !important;
+  }
+  .intel-item{
+    justify-content:flex-start !important;
+    padding:1rem 1.1rem !important;
+    border-right:1px solid rgba(184,150,62,0.16);
+    border-bottom:1px solid rgba(184,150,62,0.16);
+  }
+}
+@media(max-width:768px){
+  body{
+    min-width:0 !important;
+  }
+  :where(.page-hero,.hero,.mission,.founders,.approach,.products,.vision,.section,.section-navy,.section-accent,.contact-body,.form-body,.cta,.cta-section,footer,.site-footer){
+    padding-left:1.25rem !important;
+    padding-right:1.25rem !important;
+  }
+  :where(.page-hero,.hero){
+    margin-top:var(--nav-h,68px) !important;
+  }
+  :where(.page-hero h1,.hero h1,h1){
+    font-size:clamp(2.15rem,10vw,3.1rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:break-word;
+  }
+  :where(h2,.section-title){
+    font-size:clamp(1.65rem,8vw,2.35rem) !important;
+    line-height:1.12 !important;
+    overflow-wrap:break-word;
+  }
+  :where(.page-hero-body,.hero-sub,.sec-lead,.section-lead,.mission-body,.story-text p,.copy p,p,li){
+    overflow-wrap:break-word;
+  }
+  :where(.hero-content,.page-hero-inner){
+    max-width:100% !important;
+  }
+  :where(.hero-emblem,.header-emblem-large,.cta-emblem){
+    max-width:min(220px,62vw) !important;
+    height:auto !important;
+  }
+  :where(.photo-grid,.story-photo-pair){
+    grid-template-columns:1fr !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:320px !important;
+  }
+  :where(input,select,textarea,button,.button,.btn,.nav-cta,.site-nav-cta){
+    max-width:100%;
+  }
+  :where(input,select,textarea){
+    font-size:16px !important;
+  }
+  :where(.cta-actions,.form-actions,.hero-meta,.hero-stat-row){
+    flex-wrap:wrap !important;
+  }
+  .intel-strip{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    padding:0 1.25rem !important;
+  }
+  .intel-item{
+    display:grid !important;
+    grid-template-columns:minmax(5.8rem,auto) minmax(0,1fr) !important;
+    align-items:center !important;
+    justify-content:initial !important;
+    gap:1rem !important;
+    padding:1.15rem 0 !important;
+    border-right:0 !important;
+    border-bottom:1px solid rgba(184,150,62,0.16);
+  }
+  .intel-item:last-child{
+    border-bottom:0 !important;
+  }
+  .intel-num{
+    font-size:clamp(2.15rem,10vw,3rem) !important;
+    line-height:1 !important;
+  }
+  .intel-desc{
+    font-size:.9rem !important;
+    line-height:1.6 !important;
+    letter-spacing:.08em !important;
+  }
+  :where(p,li,dd,td,th,blockquote){
+    font-size:1rem !important;
+    line-height:1.72 !important;
+  }
+  :where(.hero-sub,.hero-lede,.page-hero-body,.lead){
+    font-size:1.04rem !important;
+    line-height:1.7 !important;
+    color:rgba(244,239,230,.82) !important;
+  }
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.hero-breadcrumb,.back-link,.label,.kicker,.overline,.meta,.date,.tag,.pill,.badge,.risk-badge,.source,.caption,.photo-caption,.vignette-attr,.j-conf,.confidence,.risk-label,.brief-meta,.archive-meta,.card-meta,.timeline-meta,.tl-unit,.tl-role,.m-sub,.actor-origin,.jewel-label,.j-label,.hero-meta-label,.field-label,.field-error,.rail-section-id,.rail-section-name,.leader-tag,.leader-link,.section-label,.cs-label,.sec-tag,.sector-card a,.sector-card [style*="Instrument Sans"],.audience-tag,.cycle-label,.cycle-word,.framework-label,.framework-word,.deliverable-tag,.content-card-label,.use-tag,.chip-label,.chip-sublabel,.section-kicker,.section-desc,.submit-note,.conf-meta){
+    font-size:.9rem !important;
+    font-weight:500 !important;
+    line-height:1.55 !important;
+    letter-spacing:.06em !important;
+    opacity:1 !important;
+  }
+  .chip.chip-lg .chip-sublabel{
+    font-family:'Instrument Sans',sans-serif !important;
+    font-size:1rem !important;
+    font-weight:500 !important;
+    line-height:1.65 !important;
+    letter-spacing:0 !important;
+  }
+  :where(.eyebrow,.sec-eyebrow,.hero-eyebrow,.hero-classification,.section-kicker,.hero-breadcrumb){
+    font-size:.96rem !important;
+    font-weight:500 !important;
+    letter-spacing:.04em !important;
+  }
+  :where(.actor-card p,.jewel-card p,.vignette-body p,.vignette-impact,.judgment-block p){
+    font-size:1rem !important;
+    line-height:1.72 !important;
+  }
+}
+@media(max-width:520px){
+  :where(.stat-bar,.intel-strip,.cred-strip-inner){
+    display:grid !important;
+    grid-template-columns:1fr !important;
+  }
+  :where(.stat,.intel-card,.cred-item,.intel-item){
+    border-right:0 !important;
+  }
+  :where(.intel-item){
+    padding:1rem 0 !important;
+  }
+  :where(.page-hero,.hero){
+    min-height:auto !important;
+  }
+  :where(.hero-content){
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  :where(.photo-grid img,.photo-frame){
+    max-height:280px !important;
+  }
+  :where(.cta-actions a,.form-actions button,.button,.btn){
+    width:100%;
+    text-align:center;
+  }
+}
+.luis-hero{
+  height:100svh !important;
+  min-height:640px !important;
+  align-items:flex-end !important;
+}
+.luis-hero .hero-content{
+  padding-bottom:4rem !important;
+}
+@media(max-width:900px){
+  .luis-hero{
+    height:auto !important;
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-top:clamp(2rem,7vw,4rem) !important;
+    padding-bottom:clamp(2.5rem,8vw,5rem) !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 2rem 4rem !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-hero h1,
+  .luis-hero .hero-eyebrow,
+  .luis-hero .hero-sub{
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .luis-photo-grid .photo-tile:last-child{
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:4 / 5 !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr 1fr !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat{
+    min-width:0 !important;
+    overflow:hidden !important;
+  }
+  .luis-stat-bar .stat-n{
+    display:block !important;
+    max-width:100% !important;
+    font-size:clamp(2.1rem,8vw,3.4rem) !important;
+    line-height:1.05 !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    hyphens:auto !important;
+  }
+  .luis-stat-bar .stat-l{
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+    letter-spacing:.08em !important;
+  }
+}
+@media(max-width:520px){
+  .luis-hero{
+    min-height:calc(100svh - var(--nav-h,68px)) !important;
+    padding-bottom:3rem !important;
+  }
+  .luis-hero .hero-content{
+    padding:0 0 3.5rem !important;
+  }
+  .luis-hero h1{
+    font-size:clamp(2.05rem,10.5vw,2.4rem) !important;
+    line-height:1.05 !important;
+  }
+  .luis-photo-grid{
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .luis-photo-grid .photo-tile:not(:first-child){
+    display:flex !important;
+  }
+  .luis-photo-grid .photo-frame{
+    aspect-ratio:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    width:100% !important;
+    overflow:visible !important;
+  }
+  .luis-photo-grid .photo-frame img{
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+  }
+  .luis-photo-grid .photo-caption{
+    display:block !important;
+    max-width:100% !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+    overflow-wrap:break-word !important;
+    white-space:normal !important;
+  }
+  .luis-stat-bar{
+    grid-template-columns:1fr !important;
+  }
+  .luis-stat-bar .stat{
+    border-right:0 !important;
+    border-top:1px solid var(--rule) !important;
+    padding:1.75rem 1.25rem !important;
+  }
+  .luis-stat-bar .stat:first-child{
+    border-top:0 !important;
+  }
+  .luis-stat-bar .stat-n{
+    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    max-width:100% !important;
+  }
+  .luis-stat-bar .stat-l{
+    font-size:clamp(.9rem,4vw,1rem) !important;
+    line-height:1.55 !important;
+    letter-spacing:.07em !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<!-- LCTI:NAV:START -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.75rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="../index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../decision-support.html" role="menuitem">Products &amp; Services</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="../sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <span class="drop-label">Latest Issue</span>
+        <a href="../atb/issues/05-17-2026.html" role="menuitem">Latest Issue, Week of May 17, 2026</a>
+        <div class="drop-divider"></div>
+        <a href="../atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Priority Sectors</span>
+        <a href="../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="../defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="../financial.html" role="menuitem">Financial Services</a>
+        <a href="../healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="../Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="../index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="../about.html">Company Overview</a>
+    <a href="../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Products</span>
+  <div class="m-sub">
+    <a href="../decision-support.html">Products &amp; Services</a>
+    <a href="../alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="../texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="../sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="../atb/issues/05-17-2026.html">Latest Issue, Week of May 17, 2026</a>
+    <a href="../atb/index.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="../texas-focus.html">Texas Overview</a>
+    <a href="../energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="../defense-dib.html">Defense Industrial Base</a>
+    <a href="../financial.html">Financial Services</a>
+    <a href="../healthcare.html">Healthcare</a>
+    <a href="../Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['05-17-2026.html'],
+    'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=((link.getAttribute('href')||'').split('/').pop()||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">San Antonio, Texas — Est. 2027</div>
+    <h1>60 Years of<br>Intelligence.<br><em>One Firm.</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-body">Liberty CTI provides geopolitical cyber threat intelligence for the 8th largest economy in the world — Texas. Together, Lou and Angie Maldonado bring six decades of combined intelligence service to the most critical question facing executives: who is coming for your organization, and what will they do when they get there?</p>
+    <div class="hero-actions">
+      <a href="#founders" class="btn-gold">Meet the Team</a>
+      <a href="#products" class="btn-ghost">View Intelligence Products</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <img src="IMG_6690.png" class="hero-emblem" alt="Liberty CTI Emblem">
+  </div>
+</section>
+
+
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-label">Operational Credibility</div>
+    <div class="trust-badge">Former U.S. Intelligence Officers</div>
+    <div class="trust-badge">White House Situation Room</div>
+    <div class="trust-badge">National Security Council</div>
+    <div class="trust-badge">Pentagon</div>
+    <div class="trust-badge">NSA Cyber Operations</div>
+  </div>
+</div>
+
+<!-- INTEL STRIP -->
+<div class="intel-strip">
+  <div class="intel-item"><div class="intel-num">60</div><div class="intel-desc">Combined Years<br>Intelligence Service</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">345+</div><div class="intel-desc">Total Personnel<br>Commanded</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">5,000+</div><div class="intel-desc">Warfighters Trained<br>Annually</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">2</div><div class="intel-desc">White House &amp;<br>OSD Senior Roles</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">30+</div><div class="intel-desc">Combined<br>Assignments</div></div>
+  <div class="intel-sep"></div>
+  <div class="intel-item"><div class="intel-num">2</div><div class="intel-desc">Russian Language<br>Professionals</div></div>
+</div>
+
+<!-- FOUNDERS -->
+<section class="founders" id="founders">
+  <div class="section-inner">
+    <div class="founders-header reveal">
+      <span class="sec-eyebrow">The Leadership</span>
+      <h2>Built by Practitioners.<br><em>Not Vendors.</em></h2>
+      <p class="sec-sub">Liberty CTI was founded by two career intelligence officers whose combined service spans every level of the U.S. national security apparatus — from enlisted linguists to the White House, the Pentagon, and two of the most sensitive intelligence commands in the world. They didn't study the threat. They tracked it.</p>
+    </div>
+
+    <!-- YEARS BAR -->
+    <div class="years-bar reveal">
+      <div class="years-seg">
+        <div class="years-big">30</div>
+        <div class="years-label">Lou<br>Years of Service</div>
+      </div>
+      <div class="years-seg">
+        <div class="years-big">30</div>
+        <div class="years-label">Angie<br>Years of Service</div>
+      </div>
+      <div class="years-seg">
+        <div class="years-big">2</div>
+        <div class="years-label">Pentagon<br>Assignments Each</div>
+      </div>
+      <div class="years-seg">
+        <div class="years-big">2</div>
+        <div class="years-label">White House &amp;<br>OSD Senior Roles</div>
+      </div>
+      <div class="years-seg">
+        <div class="years-big">60</div>
+        <div class="years-label">Combined Years<br>of Intelligence</div>
+      </div>
+    </div>
+
+    <!-- FOUNDER CARDS -->
+    <div class="founder-grid">
+      <div class="fc reveal">
+        <div class="fc-bar fc-bar-luis"></div>
+        <div class="fc-label fc-label-luis">Co-Founder &amp; Principal Analyst</div>
+        <div class="fc-name">Lou Maldonado</div>
+        <div class="fc-rank">Intelligence Officer &nbsp;·&nbsp; Russian Language Professional &nbsp;·&nbsp; USAF (Ret.)</div>
+        <p class="fc-bio">Born in the Bronx, Lou Maldonado enlisted as a Russian linguist in 1997 and built a 30-year career culminating in command of the NSA Cybersecurity Threat Operations Center–Texas, service inside the White House Situation Room, and a final assignment as Director for Legislative Affairs at the National Security Council. He commissioned as a distinguished graduate of Officer Training School in 2009 after more than a decade in the enlisted ranks — a trajectory that gives him an analytical perspective no purely commissioned officer can replicate.</p>
+        <ul class="fc-creds fc-creds-luis">
+          <li>Commander, NSA Cybersecurity Threat Operations Center–Texas, 35th Intelligence Squadron</li>
+          <li>Commanded 270-person cyber intelligence squadron, JB San Antonio–Lackland</li>
+          <li>Duty Officer, White House Situation Room, National Security Council</li>
+          <li>Director for Legislative Affairs, NSC — coordinating intelligence policy across all agencies</li>
+          <li>Chief, C4ISR Programs, Legislative Liaison, Office of the Secretary of the Air Force</li>
+          <li>Director of Intelligence, Combined Joint Special Operations Aviation Component–Afghanistan</li>
+          <li>ISR Mission Commander across Electronic Warfare, Cyber &amp; Special Operations units</li>
+        </ul>
+        <div class="fc-edu-label">Education</div>
+        <ul class="fc-edu">
+          <li>M.A., International Relations — Troy University</li>
+          <li>B.A., Russian Language — Excelsior College</li>
+          <li>Certificate in Legislative Studies — Georgetown University</li>
+          <li>Air Command and Staff College &nbsp;·&nbsp; Air Force Legislative Fellow</li>
+        </ul>
+      </div>
+
+      <div class="fc reveal d2">
+        <div class="fc-bar fc-bar-angie"></div>
+        <div class="fc-label fc-label-angie">Co-Founder &amp; Senior Intelligence Analyst</div>
+        <div class="fc-name">Angie Maldonado</div>
+        <div class="fc-rank">Intelligence Officer &nbsp;·&nbsp; Russian Language Professional &nbsp;·&nbsp; USAF (Ret.)</div>
+        <p class="fc-bio">Raised in Southern California, Angie Maldonado enlisted as a Russian linguist in August 1997 — the same year as Lou, the same language, the same path. She commissioned through Officer Training School on October 27, 2009 — the same date as Lou. Over three decades she built one of the most diverse intelligence portfolios in the Air Force: targeting, ISR strategy, culture and language intelligence, special operations, and ultimately serving as Junior Military Assistant to the Deputy Secretary of Defense. Most recently she commanded the 324th Training Squadron at Joint Base San Antonio–Lackland, leading 75 personnel and producing over 5,000 warfighters annually for the operational Air Force.</p>
+        <ul class="fc-creds fc-creds-angie">
+          <li>Junior Military Assistant to the Deputy Secretary of Defense, Office of the Secretary of Defense</li>
+          <li>Commander, 324th Training Squadron, Basic Military Training, JB San Antonio–Lackland</li>
+          <li>Deputy Director of Staff, A2/6 — ISR and Cyber Effects Operations, Headquarters U.S. Air Force</li>
+          <li>Acting Deputy Division Chief, ISR Strategy and Plans, Headquarters U.S. Air Force, Pentagon</li>
+          <li>Chief, Targeting Policy and Engagements Branch, Multi-Domain ISR Division, HAF</li>
+          <li>Director, EUCOM Course for SOF — USAF Special Operations School, Hurlburt Field</li>
+          <li>Combat Targeting, 609th AOC, Al Udeid AB, Qatar — Operations ODYSSEY DAWN, INHERENT RESOLVE</li>
+        </ul>
+        <div class="fc-edu-label">Education</div>
+        <ul class="fc-edu">
+          <li>M.S., Strategic Intelligence — National Intelligence University (ODNI)</li>
+          <li>M.A., International Relations — Troy University</li>
+          <li>B.A., Russian Language — Excelsior College</li>
+          <li>Program on Applied Security Studies — George C. Marshall Center, Germany</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED CREDENTIALS STRIP -->
+<div class="shared-creds">
+  <div class="cred-grid">
+    <div class="cred-item reveal">
+      <div class="cred-icon">Яз</div>
+      <div class="cred-heading">Russian Language Professionals</div>
+      <p class="cred-body">Both founders began their careers as Russian-language specialists and maintain professional fluency — a rare and strategically relevant capability as Russian cyber operations remain a primary threat to U.S. critical infrastructure.</p>
+    </div>
+    <div class="cred-item reveal d1">
+      <div class="cred-icon">★</div>
+      <div class="cred-heading">Pentagon &amp; White House</div>
+      <p class="cred-body">Between them, the Maldonados have served in the White House Situation Room, the NSC, the Office of the Secretary of Defense, and Headquarters Air Force — giving Liberty CTI unmatched policy and strategic context.</p>
+    </div>
+    <div class="cred-item reveal d2">
+      <div class="cred-icon">⬡</div>
+      <div class="cred-heading">Commissioned Same Day</div>
+      <p class="cred-body">Both commissioned as Second Lieutenants on October 27, 2009. Both promoted to Lieutenant Colonel on November 1, 2023. A career built in parallel, now united in a single analytical mission.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<section class="timeline" id="timeline">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Parallel Careers</span>
+    <h2 class="reveal">Thirty Years Each.<br>Side by Side.</h2>
+    <p class="sec-sub reveal" style="color:rgba(244,239,230,0.52)">Two independent careers built simultaneously across the most critical nodes of the U.S. intelligence enterprise. The combined depth of this experience is what Liberty CTI brings to every client engagement.</p>
+
+    <div class="tl-grid">
+      <div class="tl-head-luis">Lou Maldonado</div>
+      <div class="tl-head-center"></div>
+      <div class="tl-head-angie">Angie Maldonado</div>
+
+      <div class="tl-luis shared reveal"><div class="tl-year">1997</div><div class="tl-text"><strong>Enlisted, USAF</strong> — Russian Linguist</div><span class="tl-shared-note">Same year ↔</span></div>
+      <div class="tl-center"><div class="tl-dot tl-dot-shared"></div></div>
+      <div class="tl-angie shared reveal d1"><div class="tl-year">1997</div><div class="tl-text"><strong>Enlisted, USAF</strong> — Russian Linguist</div><span class="tl-shared-note">↔ Same year</span></div>
+
+      <div class="tl-luis shared reveal"><div class="tl-year">2009</div><div class="tl-text"><strong>Commissioned</strong> — Distinguished Graduate, OTS<br>Top Graduate, Intel Officer Basic Course</div><span class="tl-shared-note">Same date — Oct 27 ↔</span></div>
+      <div class="tl-center"><div class="tl-dot tl-dot-shared"></div></div>
+      <div class="tl-angie shared reveal d1"><div class="tl-year">2009</div><div class="tl-text"><strong>Commissioned</strong> — Officer Training School<br>Oct 27, 2009 — same date</div><span class="tl-shared-note">↔ Same date</span></div>
+
+      <div class="tl-luis reveal"><div class="tl-year">2010–2013</div><div class="tl-text"><strong>ISR Mission Commander</strong><br>30th Intelligence Squadron, Langley</div></div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-angie reveal d1"><div class="tl-year">2010–2013</div><div class="tl-text"><strong>Command Intel Briefer → Flight Cmdr</strong><br>15th &amp; 36th Intelligence Squadrons, Langley</div></div>
+
+      <div class="tl-luis shared reveal"><div class="tl-year">2013–2014</div><div class="tl-text"><strong>609th AOC, Al Udeid AB, Qatar</strong><br>Political, Economic &amp; C3 Desk</div><span class="tl-shared-note">Both in Qatar ↔</span></div>
+      <div class="tl-center"><div class="tl-dot tl-dot-shared"></div></div>
+      <div class="tl-angie shared reveal d1"><div class="tl-year">2015–2016</div><div class="tl-text"><strong>609th AOC, Al Udeid AB, Qatar</strong><br>Targets/Imagery, Combat Targeting</div><span class="tl-shared-note">↔ Both in Qatar</span></div>
+
+      <div class="tl-luis reveal"><div class="tl-year">2016–2017</div><div class="tl-text"><strong>NSA Cybersecurity Threat Ops Center–TX</strong><br>Flight Cmdr &amp; OIC, 35th Intel Sq, JBSA</div></div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-angie reveal d1"><div class="tl-year">2016–2017</div><div class="tl-text"><strong>Flight Commander, DMS-TX</strong><br>531st Intelligence Squadron, JBSA</div></div>
+
+      <div class="tl-luis reveal"><div class="tl-year">2017–2019</div><div class="tl-text"><strong>Dir. of Intelligence, CJSOAC–Afghanistan</strong><br>Special Operations Intelligence, Hurlburt</div></div>
+      <div class="tl-center"><div class="tl-dot"></div></div>
+      <div class="tl-angie reveal d1"><div class="tl-year">2017–2019</div><div class="tl-text"><strong>Director, EUCOM Course for SOF</strong><br>USAF Special Operations School, Hurlburt</div></div>
+
+      <div class="tl-luis shared reveal"><div class="tl-year">2020–2023</div><div class="tl-text"><strong>AF Legislative Fellow → Pentagon → White House</strong><br>C4ISR Programs · Situation Room, NSC</div><span class="tl-shared-note">Both Pentagon ↔</span></div>
+      <div class="tl-center"><div class="tl-dot tl-dot-shared"></div></div>
+      <div class="tl-angie shared reveal d1"><div class="tl-year">2020–2022</div><div class="tl-text"><strong>Targeting Policy → ISR Strategy &amp; Plans</strong><br>Headquarters U.S. Air Force, Pentagon</div><span class="tl-shared-note">↔ Both Pentagon</span></div>
+
+      <div class="tl-luis shared reveal"><div class="tl-year">2023–2026</div><div class="tl-text"><strong>White House Situation Room → NSC</strong><br>Director for Legislative Affairs, NSC</div><span class="tl-shared-note">Both OSD/NSC ↔</span></div>
+      <div class="tl-center"><div class="tl-dot tl-dot-shared"></div></div>
+      <div class="tl-angie shared reveal d1"><div class="tl-year">2022–2026</div><div class="tl-text"><strong>Junior Military Asst, DEPSECDEF → A2/6</strong><br>Office of the Secretary of Defense · HAF Pentagon</div><span class="tl-shared-note">↔ Both OSD/NSC</span></div>
+
+      <div class="tl-luis shared reveal"><div class="tl-year">2027</div><div class="tl-text"><strong>Co-Founder, Liberty CTI</strong><br>San Antonio, Texas</div><span class="tl-shared-note">Founded together ↔</span></div>
+      <div class="tl-center"><div class="tl-dot tl-dot-shared"></div></div>
+      <div class="tl-angie shared reveal d1"><div class="tl-year">2027</div><div class="tl-text"><strong>Co-Founder, Liberty CTI</strong><br>San Antonio, Texas</div><span class="tl-shared-note">↔ Founded together</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- THREAT ACTORS -->
+<section class="threats" id="threats">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Adversary Landscape</span>
+    <h2 class="reveal">We Track the Actors<br>Targeting Your Sector</h2>
+    <p class="sec-sub reveal">Liberty CTI monitors six primary threat ecosystems with sustained targeting interest in Texas critical infrastructure and the broader U.S. economy.</p>
+    <div class="pricing-note reveal"><p><strong>Current analytic weighting:</strong> China remains the leading long-term strategic threat to Texas critical sectors, followed by Russia, Iran, ransomware ecosystems, and emerging proxy networks. In a future build, this can become a full visual chart.</p></div>
+    <div class="threat-grid">
+      <div class="threat-card reveal">
+        <div class="threat-origin">Nation-State · PRC</div>
+        <div class="threat-name">People's Republic of China</div>
+        <p class="threat-body">PRC cyber espionage operations targeting the Texas defense industrial base, technology sector, and critical infrastructure represent the most sustained long-term threat to U.S. economic and national security interests.</p>
+      </div>
+      <div class="threat-card reveal d1">
+        <div class="threat-origin">Nation-State · Russia</div>
+        <div class="threat-name">Russian Federation</div>
+        <p class="threat-body">Russian state actors and criminal ecosystems operating with Kremlin tolerance pose persistent threats to Texas energy infrastructure, financial systems, and government networks — tracked by our Russian-fluent analyst team.</p>
+      </div>
+      <div class="threat-card reveal d2">
+        <div class="threat-origin">Nation-State · Iran</div>
+        <div class="threat-name">Islamic Republic of Iran</div>
+        <p class="threat-body">IRGC-affiliated cyber units demonstrate consistent interest in U.S. energy infrastructure and financial systems, with operations intensifying during periods of geopolitical escalation and sanctions pressure.</p>
+      </div>
+      <div class="threat-card reveal">
+        <div class="threat-origin">Nation-State · DPRK</div>
+        <div class="threat-name">North Korea</div>
+        <p class="threat-body">DPRK cyber operations targeting financial institutions and cryptocurrency infrastructure fund the regime's weapons programs, with Texas financial sector firms representing high-value targets.</p>
+      </div>
+      <div class="threat-card reveal d1">
+        <div class="threat-origin">Criminal Ecosystem</div>
+        <div class="threat-name">Ransomware Syndicates</div>
+        <p class="threat-body">Russian-nexus ransomware organizations are the primary operational threat to Texas healthcare systems, municipal government, and mid-market energy sector companies operating below enterprise security thresholds.</p>
+      </div>
+      <div class="threat-card reveal d2">
+        <div class="threat-origin">Emerging Threat</div>
+        <div class="threat-name">Hacktivist Proxy Networks</div>
+        <p class="threat-body">Nation-state-enabled hacktivist networks provide plausible deniability for state actors conducting disruptive operations against critical infrastructure and financial targets aligned with geopolitical objectives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ANALYSIS -->
+<section class="analysis" id="analysis">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Recent Analysis</span>
+    <h2 class="reveal">Published Intelligence.<br>Not Just Marketing Copy.</h2>
+    <p class="sec-sub reveal">A serious intelligence firm publishes analysis. This draft section gives Liberty CTI a live-content signal and creates a clean bridge to your Substack and future reports.</p>
+    <div class="analysis-grid">
+      <div class="analysis-card reveal">
+        <div class="analysis-tag">Featured Assessment</div>
+        <div class="analysis-title">Iranian Cyber Activity Targeting U.S. Energy Firms</div>
+        <p class="analysis-body">Assessment of IRGC-aligned cyber operations targeting energy infrastructure and industrial control environments during periods of regional escalation.</p>
+        <a class="analysis-link" href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Read on Substack →</a>
+      </div>
+      <div class="analysis-card reveal d1">
+        <div class="analysis-tag">Strategic Warning</div>
+        <div class="analysis-title">Chinese Strategic Access to U.S. Critical Infrastructure</div>
+        <p class="analysis-body">A forward-looking assessment of PRC cyber pre-positioning, infrastructure access, and the long-term implications for Texas-based defense and technology firms.</p>
+        <a class="analysis-link" href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Read on Substack →</a>
+      </div>
+      <div class="analysis-card reveal d2">
+        <div class="analysis-tag">Executive Brief</div>
+        <div class="analysis-title">Why Texas Needs Its Own Threat Intelligence Lens</div>
+        <p class="analysis-body">A market-facing explainer on why national cyber headlines often miss the specific threat picture facing Texas energy, healthcare, finance, and defense sectors.</p>
+        <a class="analysis-link" href="https://libertycti.substack.com" target="_blank" rel="noopener noreferrer">Read on Substack →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Intelligence Products</span>
+    <h2 class="reveal">Strategic Intelligence.<br>Not Technical Services.</h2>
+    <p class="sec-sub reveal">Liberty CTI produces forward-looking intelligence analysis — answering who the adversaries are, what they want, and what risks they pose — for executives and boards who need more than a dashboard.</p>
+    <div class="pricing-note reveal"><p><strong>Draft pricing signal:</strong> Executive intelligence briefings can be positioned from <strong>$5,000–$12,000</strong> depending on scope, while ongoing advisory retainers can start at <strong>$25,000+</strong>. You can leave this in, soften it, or move it to a sales deck later.</p></div>
+    <div class="product-grid">
+      <div class="product-item reveal">
+        <div class="product-tag">Annual Report</div>
+        <div class="product-name">Texas Cyber Threat Outlook</div>
+        <p class="product-desc">The definitive annual assessment of the cyber threat landscape facing Texas critical sectors. Nation-state actors, criminal ecosystems, geopolitical drivers, and a 12-month predictive forecast. Released each January.</p>
+        <div class="product-arrow">→</div>
+      </div>
+      <div class="product-item reveal d1">
+        <div class="product-tag">Monthly Subscription</div>
+        <div class="product-name">Texas Sector Threat Digest</div>
+        <p class="product-desc">Monthly intelligence reporting organized by sector — Energy, Financial Services, Defense Industrial Base, Healthcare, and Technology — with active campaign tracking and a 30-day threat outlook.</p>
+        <div class="product-arrow">→</div>
+      </div>
+      <div class="product-item reveal">
+        <div class="product-tag">Executive Engagement</div>
+        <div class="product-name">Adversary Intelligence Briefing</div>
+        <p class="product-desc">A tailored 90-minute briefing for C-suite and board audiences on the specific threat actors targeting their sector, with contextualized adversary intent analysis and forward-looking risk assessment.</p>
+        <div class="product-arrow">→</div>
+      </div>
+      <div class="product-item reveal d1">
+        <div class="product-tag">Bespoke Assessment</div>
+        <div class="product-name">Predictive Threat Assessment</div>
+        <p class="product-desc">A custom analytical product assessing the threat environment relevant to a specific organization's footprint, sector, geography, and geopolitical exposure — delivered with key judgments and confidence levels.</p>
+        <div class="product-arrow">→</div>
+      </div>
+      <div class="product-item reveal">
+        <div class="product-tag">Ongoing Advisory</div>
+        <div class="product-name">Intelligence Advisory Retainer</div>
+        <p class="product-desc">Monthly access to Liberty CTI analysis, analyst calls, priority distribution of all published products, and direct founder access for strategic intelligence consultation.</p>
+        <div class="product-arrow">→</div>
+      </div>
+      <div class="product-item reveal d1">
+        <div class="product-tag">Workshop</div>
+        <div class="product-name">Red Cell War Gaming</div>
+        <p class="product-desc">Facilitated executive workshops where Liberty CTI analysts role-play as threat actors to stress-test organizational assumptions about the threat environment at the strategic level.</p>
+        <div class="product-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEXAS -->
+<section class="texas" id="texas">
+  <div class="texas-star">★</div>
+  <div class="texas-inner">
+    <div>
+      <span class="sec-eyebrow reveal">Why Texas</span>
+      <h2 class="reveal">The 8th Largest Economy<br>in the World Deserves<br>Its Own Intelligence Firm</h2>
+      <p class="texas-body reveal">Texas controls roughly 40% of U.S. energy production. It hosts the world's largest medical complex. It is home to a dense concentration of defense contractors and the fastest-growing technology sector in the country. The adversaries understand this. Most Texas organizations don't have the intelligence resources to understand the adversaries.</p>
+      <p class="texas-body reveal">Liberty CTI was founded in San Antonio — the heart of American military cyber power — to close that gap permanently.</p>
+      <div class="sector-tags reveal">
+        <span class="sector-tag">Energy</span>
+        <span class="sector-tag">Financial Services</span>
+        <span class="sector-tag">Defense Industrial Base</span>
+        <span class="sector-tag">Healthcare</span>
+        <span class="sector-tag">Technology</span>
+        <span class="sector-tag">Critical Infrastructure</span>
+      </div>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat-item"><div class="stat-num">40%</div><div class="stat-label">U.S. Energy<br>Production</div></div>
+      <div class="stat-item"><div class="stat-num">#1</div><div class="stat-label">Medical Complex<br>Globally (TMC)</div></div>
+      <div class="stat-item"><div class="stat-num">$2T+</div><div class="stat-label">Annual State<br>GDP</div></div>
+      <div class="stat-item"><div class="stat-num">8th</div><div class="stat-label">Largest Economy<br>in the World</div></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- MEDIA -->
+<section class="media" id="media">
+  <div class="section-inner">
+    <span class="sec-eyebrow reveal">Media & Speaking</span>
+    <h2 class="reveal">Trusted Context for Boards,<br>Executives, and Public Audiences</h2>
+    <p class="sec-sub reveal">This section positions Liberty CTI for keynote talks, executive off-sites, podcasts, and media commentary — a strong signal for firms that want strategic context, not just technical alerts.</p>
+    <div class="media-grid">
+      <div class="media-item reveal">
+        <div class="media-kicker">Executive Audience</div>
+        <div class="media-title">Board & C-Suite Threat Briefings</div>
+        <p class="media-body">Tailored sessions translating geopolitical cyber risk into business impact for directors, investors, and executive teams responsible for strategic decisions.</p>
+      </div>
+      <div class="media-item reveal d1">
+        <div class="media-kicker">Public Platform</div>
+        <div class="media-title">Conference, Podcast, and Panel Appearances</div>
+        <p class="media-body">Liberty CTI can support keynote appearances, moderated panels, podcasts, and closed-door executive roundtables focused on nation-state cyber threats and Texas risk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <img src="IMG_6690.png" class="cta-emblem" alt="Liberty CTI">
+    <h2>Know What's Coming<br><em>Before It Arrives.</em></h2>
+    <p class="cta-body">Liberty CTI works with a select group of executives, boards, and security leaders responsible for critical infrastructure, financial systems, and defense programs in Texas. If you need to understand who is targeting your organization and why, let's talk.</p>
+    <div class="cta-actions">
+      <a href="mailto:intel@libertycti.com" class="btn-gold">Request an Executive Briefing</a>
+      <a href="#products" class="btn-dark">View Intelligence Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
+      <div class="lcti-footer-slogan">Know what changed. Decide this week.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Products</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../decision-support.html">Products &amp; Services</a></li>
+        <li><a href="../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../financial.html">Financial Services</a></li>
+        <li><a href="../healthcare.html">Healthcare</a></li>
+        <li><a href="../Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="../briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
