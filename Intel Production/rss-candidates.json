@@ -1,7 +1,7 @@
 ﻿{
-    "generatedAt":  "2026-06-27T06:31:00-05:00",
+    "generatedAt":  "2026-07-04T16:51:09-05:00",
     "windowDays":  7,
-    "itemCount":  36,
+    "itemCount":  33,
     "failureCount":  10,
     "failures":  [
                      {
@@ -22,7 +22,7 @@
                      {
                          "source":  "Google Cloud Threat Intelligence",
                          "url":  "https://cloud.google.com/blog/topics/threat-intelligence/rss/",
-                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"3453273011394642461\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspañ..."
+                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-1130507234610455220\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspa..."
                      },
                      {
                          "source":  "Dragos",
@@ -57,287 +57,39 @@
                  ],
     "items":  [
                   {
-                      "id":  "rss-995f5d9dae564539a748c2bcf971020f",
-                      "title":  "Russian Intelligence Services Continue to Target Commercial Messaging Applications",
-                      "url":  "https://www.cisa.gov/resources-tools/resources/russian-intelligence-services-continue-target-commercial-messaging-applications",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-26",
-                      "summary":  "CISA and the Federal Bureau of Investigation (FBI) issued an updated Public Service Announcement (PSA) warning of Russian Intelligence Services (RIS) cyber threat actors targeting commercial messaging applications in ongoing phishing campaigns. This PSA is an update to the March 2026 Russian Intelligence Services Target Commercial Messaging Application Accounts and provides recent tactics, recommended mitigations, and samples of phishing messages.",
+                      "id":  "rss-c92c1f13b93b4fcf8d0b05a18ee3799c",
+                      "title":  "Happy 250th Birthday, America!",
+                      "url":  "https://warontherocks.com/happy-250th-birthday-america/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-04",
+                      "summary":  "Editor’s Note: Few rivalries in American history have been as consequential — or as personal — as the one between John Adams and Thomas Jefferson. The two men could hardly have been more different. Adams, the stocky and combative Massachusetts lawyer, was blunt to a fault and quick to suspicion. Jefferson, the tall, elegant Virginia planter, was reserved and idealistic. The two held diverging political philosophies as well. Adams preferred a strong, central government while Jefferson favored states’ rights and limited government. This rift eventually led to an epic falling out, culminating in the presidential election of 1800, as Jefferson The post Happy 250th Birthday, America! appeared fir...",
                       "suggestedPirIds":  [
-                                              13
+                                              16
                                           ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-a823076cf23d4bd68ab5f94b3bc6ffd0",
-                      "title":  "Threat Brief: Mitigating Large-Scale Credential Attacks",
-                      "url":  "https://unit42.paloaltonetworks.com/large-scale-credential-attacks/",
-                      "source":  "Palo Alto Unit 42",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-26",
-                      "summary":  "We provide guidance for preparing for and mitigating large-scale credential attacks, focusing on recent campaigns targeting security vendors\u0027 devices. The post Threat Brief: Mitigating Large-Scale Credential Attacks appeared first on Unit 42 .",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-1b9f54fd90e04b4b9366a2a4c99dbaba",
-                      "title":  "Hundreds of data centers are coming to Texas. Hereâs what you need to know.",
-                      "url":  "https://www.texastribune.org/2026/06/26/texas-data-center-guide-what-you-need-to-know/",
+                      "id":  "rss-dce1a689ad3e4e959dda6d80e1b7a566",
+                      "title":  "A year after deadly floods, Texas lawmakers havenât addressed training for emergency coordinators",
+                      "url":  "https://www.texastribune.org/2026/07/03/texas-floods-emergency-management-coordinators-training-legislature/",
                       "source":  "Texas Tribune",
                       "category":  "Texas / Regional",
-                      "published":  "2026-06-26",
-                      "summary":  "Texas is experiencing an AI-driven data center boom with at least 248 projects planned statewide. Hereâs what to know about the industryâs rapid growth and the debate over its impact.",
-                      "suggestedPirIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "AI / Data Centers"
-                  },
-                  {
-                      "id":  "rss-bd9f1ea55b6242c193f458f470980551",
-                      "title":  "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/06/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-12569 PTC Windchill and FlexPLM Improper Input Validation Vulnerability CVE-2026-20230 Cisco Unified Communications Manager Server-Side Request Forgery (SSRF) Vulnerability These types of vulnerabilities are frequent attack vectors for malicious cyber actors and pose significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Cat...",
+                      "published":  "2026-07-03",
+                      "summary":  "Texasâ emergency management chief has repeatedly recommended that lawmakers require minimum training but a bill proposed after the disaster failed.",
                       "suggestedPirIds":  [
 
                                           ],
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-8598d2dbb8bb46de9ac244a18ae13cf5",
-                      "title":  "Daktronics Controller Firmware",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-04",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could could provide an unauthenticated user with complete root-level access and control of the system. The following versions of Daktronics Controller Firmware are affected: VFC-DMP-5000 VFC-DMP-5000 VFC-DMP-5000 DMP-5000 DMP-5000 DMP-5000 DMP-8000 DMP-8000 DMP-8000 CVSS Vendor Equipment Vulnerabilities v3 8.1 Daktronics Daktronics Controller Firmware Improper Limitation of a Pathname to a Restricted Directory (\u0027Path Traversal\u0027), Unrestricted Upload of File with Dangerous Type, Use of Hard-coded Credentials Background Critical Infrastructure Sectors: Commercial Facilities, Information Technology, Emergency Services, Healthcar...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-13efb604fc9646a58cb8c51a5e13f164",
-                      "title":  "Delta Electronics DTM Soft",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-06",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to execute arbitrary code. The following versions of Delta Electronics DTM Soft are affected: DTMSoft vers:all/* CVSS Vendor Equipment Vulnerabilities v3 7.8 Delta Electronics Delta Electronics DTM Soft Deserialization of Untrusted Data Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Location: Taiwan Vulnerabilities Expand All + CVE-2026-12578 The affected product is vulnerable to a deserialization of untrusted data, which may allow an attacker to execute arbitrary code. View CVE Details Affected Products Delta Electronics DTM Sof...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-f61342b5d4df4b1e98ac475ecb46cc4b",
-                      "title":  "EVoke Systems Charging Station Management System",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-02",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could enable attackers to gain unauthorized administrative control over vulnerable charging stations or disrupt charging services through denial-of-service attacks. The following versions of EVoke Systems Charging Station Management System are affected: EVoke CSMS vers:all/* CVSS Vendor Equipment Vulnerabilities v3 9.4 EVoke Systems EVoke Systems Charging Station Management System Missing Authentication for Critical Function, Improper Restriction of Excessive Authentication Attempts, Insufficient Session Expiration, Insufficiently Protected Credentials Background Critical Infrastructure Sectors: Energy, Transportation Systems...",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-9bdcab3d47864850867b6d8072162751",
-                      "title":  "H.VIEW HV-500S6 IP Camera",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-05",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to execute arbitrary code and upload malicious files to the affected device. The following versions of H.VIEW HV-500S6 IP Camera are affected: H.VIEW HV-500S6 IP Camera IPCAM_V4.06.88.251229 CVSS Vendor Equipment Vulnerabilities v3 7.2 H.VIEW H.VIEW HV-500S6 IP Camera Improper Neutralization of Special Elements used in an OS Command (\u0027OS Command Injection\u0027), Unrestricted Upload of File with Dangerous Type Background Critical Infrastructure Sectors: Commercial Facilities Countries/Areas Deployed: Worldwide Company Headquarters Location: China Vulnerabilities Expand All + CVE-2026-55975 A vulnerability e...",
-                      "suggestedPirIds":  [
-                                              10,
-                                              11
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-3683e19dde594334ba282cd5bdce67f6",
-                      "title":  "Horner Automation Cscape",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-03",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow a local attacker to disclose information and execute arbitrary code. The following versions of Horner Automation Cscape are affected: Cscape CVSS Vendor Equipment Vulnerabilities v3 7.8 Horner Automation Horner Automation Cscape Out-of-bounds Read Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-12897 Horner Automation Cscape versions prior to 10.2 SP3 are vulnerable to an Out-of-Bounds Read vulnerability through parsing CSP files. Successful exploitation of this vulnerability could...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-a17655bdf7444c149e385529fca458bb",
-                      "title":  "OHIF Viewers DICOM",
-                      "url":  "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-176-02",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability in a custom integration version could allow an attacker to steal an authenticated clinician\u0027s token via a crafted link. The following versions of OHIF Viewers DICOM are affected: OHIF DICOM Web Viewer Framework CVSS Vendor Equipment Vulnerabilities v3 8.2 Open Health Imaging Foundation (OHIF) OHIF Viewers DICOM Server-Side Request Forgery (SSRF) Background Critical Infrastructure Sectors: Healthcare and Public Health Countries/Areas Deployed: Worldwide Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-12473 Two data sources (DICOMWebProxy and DICOMJSON) shipped in the default configuration fetch ...",
-                      "suggestedPirIds":  [
-                                              7,
-                                              8,
-                                              9
-                                          ],
-                      "suggestedSector":  "Healthcare"
-                  },
-                  {
-                      "id":  "rss-31529dcf936b4c92998b9be8d0c491c3",
-                      "title":  "pydicom pynetdicom Library",
-                      "url":  "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-176-01",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow an unauthenticated attacker to write to arbitrary file paths. The following versions of pydicom pynetdicom Library are affected: pynetdicom \u003e=v1.0.0| CVSS Vendor Equipment Vulnerabilities v3 9.1 pydicom pydicom pynetdicom Library Improper Limitation of a Pathname to a Restricted Directory (\u0027Path Traversal\u0027) Background Critical Infrastructure Sectors: Healthcare and Public Health Countries/Areas Deployed: Worldwide Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-56445 The qrscp application\u0027s C-STORE handler uses a specific instance from attacker-supplied DICOM datasets directly in os...",
-                      "suggestedPirIds":  [
-                                              7,
-                                              8,
-                                              9
-                                          ],
-                      "suggestedSector":  "Healthcare"
-                  },
-                  {
-                      "id":  "rss-a89936e908de4b0fb32ddcb64619d575",
-                      "title":  "Schneider Electric PowerLogic P7",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-07",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Schneider Electric is aware of a vulnerability in its PowerLogic™ P7 product. The PowerLogic™ P7 is a protection and control platform designed for complex and advanced electrical network applications. Failure to apply the remediation provided below may risk unauthorized execution of privileged commands or loss of HMI operability and configuration functionality, which could result in loss of control over system operations and disruption of critical services. The following versions of Schneider Electric PowerLogic P7 are affected: PowerLogic™ P7 vers:intdot/ PowerLogic™ P7 0.2.003.001.000 CVSS Vendor Equipment Vulnerabilities v3 7.5 Schneider Electric Schneider Electric Power...",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-61dbf6d966d14e1d8cc4ba6c78ac81fe",
-                      "title":  "Yokogawa FAST/TOOLS and CI Server",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-176-01",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-25",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability may return a response containing the CI Server setting information. The following versions of Yokogawa FAST/TOOLS and CI Server are affected: FAST/TOOLS \u003e=R9.01| Collaborative Information Server (CI Server) \u003e=R1.01| CVSS Vendor Equipment Vulnerabilities v3 7.5 Yokogawa Yokogawa FAST/TOOLS and CI Server Cleartext Transmission of Sensitive Information Background Critical Infrastructure Sectors: Critical Manufacturing, Energy, Food and Agriculture Countries/Areas Deployed: Worldwide Company Headquarters Location: Japan Vulnerabilities Expand All + CVE-2026-11833 The web server may return a response containing the CI Server setting ...",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-d158d04638a84265bcf9044beec94c99",
-                      "title":  "CL-STA-1062 Targets Southeast Asian Governments and Critical Infrastructure",
-                      "url":  "https://unit42.paloaltonetworks.com/cl-sta-1062-tinyrct-backdoor/",
-                      "source":  "Palo Alto Unit 42",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-25",
-                      "summary":  "Government entities and critical infrastructure were targeted for espionage in SE Asia by attackers using a hybrid toolkit, including custom TinyRCT backdoor. The post CL-STA-1062 Targets Southeast Asian Governments and Critical Infrastructure appeared first on Unit 42 .",
-                      "suggestedPirIds":  [
-                                              10,
-                                              11
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-ba218e0a17ec4ef7828eb1a4c26d665a",
-                      "title":  "Tensions with landowners rise as a raft of gas pipelines push through Texas properties",
-                      "url":  "https://www.texastribune.org/2026/06/25/texas-natural-gas-pipelines-eminent-domain-land-fights/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-06-25",
-                      "summary":  "Rising demand for Texas natural gas by data centers and foreign nations has sparked a surge in pipeline projects",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3,
-                                              15
-                                          ],
-                      "suggestedSector":  "AI / Data Centers"
-                  },
-                  {
-                      "id":  "rss-37082c4c9d864abc9d46000ad27a048b",
-                      "title":  "Open Strait, Unsettled Waters",
-                      "url":  "https://warontherocks.com/open-strait-unsettled-waters/",
+                      "id":  "rss-cf70a14c9be441aeb203dce21fc80113",
+                      "title":  "Misguided and Misunderstood: Trump’s Approach to U.S. Troops in Europe",
+                      "url":  "https://warontherocks.com/misguided-and-misunderstood-trumps-approach-to-u-s-troops-in-europe/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-25",
-                      "summary":  "Welcome to The Adversarial. Every other week, we’ll provide you with expert analysis on America’s greatest challengers: China, Russia, Iran, North Korea, and jihadists. Read more below.***IranOn June 17, U.S. President Donald Trump and Iranian President Masoud Pezeshkian separately signed a memorandum of understanding. Mediated by Pakistan and Qatar, the agreement ends hostilities and provides early returns for both sides: Shipping through the Strait of Hormuz is ticking up, oil prices have been coming down, and Washington has issued a 60-day waiver on Iranian oil and petrochemical sales. But diverging claims on nearly every point the two sides spent weeks litigating The post Open Strait, Un...",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3,
-                                              5,
-                                              12,
-                                              10,
-                                              11,
-                                              13,
-                                              14
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-ca49ac2ee4f6417380d4c93560634f87",
-                      "title":  "The U.S. Navy’s Subsea Rare Earth Vulnerability",
-                      "url":  "https://warontherocks.com/cogs-of-war/the-u-s-navys-subsea-rare-earth-vulnerability/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-25",
-                      "summary":  "The Columbia-class ballistic missile submarine is the next generation of American nuclear deterrence. Twelve of these boats will replace the aging Ohio-class fleet, entering service over the 2030s and 2040s, each carrying 16 Trident IIs and driven by a ghost-quiet electric motor that renders them acoustically invisible to any adversary. What makes all of that possible — the propulsion, the stealth, the strike precision — depends almost entirely on rare earths refined in China. This is perhaps the Navy’s most consequential and least discussed vulnerability.The dependency runs through every layer of the capability stack. The sub’s permanent magnet motor requires The post The U.S. Navy’s Subsea...",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3,
-                                              10,
-                                              11
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-d3a336f1d0f54cda917e9ec31af32756",
-                      "title":  "StealC and Amadey: Breaking down infostealers and the cybercrime services that deliver them",
-                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/06/24/stealc-and-amadey-breaking-down-infostealers-and-the-cybercrime-services-that-deliver-them/",
-                      "source":  "Microsoft Threat Intelligence",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-24",
-                      "summary":  "On June 24, 2026, Microsoft’s Digital Crimes Unit (DCU) facilitated the takedown, suspension, and blocking of domains that formed the backbone of the StealC and Amadey infrastructure. This blog is a technical breakdown of StealC and Amadey. The post StealC and Amadey: Breaking down infostealers and the cybercrime services that deliver them appeared first on Microsoft Security Blog .",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-8da27571af3e4522924a7fba6eff4825",
-                      "title":  "AI Agents and the Unseen Work of War",
-                      "url":  "https://warontherocks.com/cogs-of-war/ai-agents-and-the-unseen-work-of-war/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-24",
-                      "summary":  "Armies run on more than what happens at the front. Behind every operation is a vast amount of coordination, administration, logistics, and judgment. Bill Pessin, senior vice president of national security at Salesforce and a former U.S. Army logistics officer, joins Jonathan to discuss how military organizations can use AI agents, what makes these tools different from ordinary software, and why safety and accountability matter when new technology enters national security work. They also discuss what Pessin learned early in his Army career about the gap between plans, systems, and the people who have to make them work. Image: Petty The post AI Agents and the Unseen Work of War appeared first ...",
-                      "suggestedPirIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-64d3ac6107694b8e9756ae240763b35c",
-                      "title":  "Designing Drones for Africa",
-                      "url":  "https://warontherocks.com/cogs-of-war/designing-drones-for-africa/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-24",
-                      "summary":  "This exclusive Cogs of War interview is with Maxwell Maduka, the co-founder and chief engineer of Terra Industries, an African defense technology company building autonomous drone and counter-drone systems designed for the continent’s operating conditions. As cheap imported airframes flood African markets and non-state actors employ drones across the Sahel, we asked Max why Terra is betting on Africa building its own defense industrial base.Cheap Turkish and Chinese drones and sensor systems have proliferated across Africa for years. Where do those systems fall short, and what capabilities do you hope to add to the crowded unmanned market?Imported Turkish and Chinese The post Designing Drone...",
+                      "published":  "2026-07-03",
+                      "summary":  "For many observers, Secretary of Defense Pete Hegseth’s speech on the future of NATO, delivered in Brussels on June 18, 2026, constituted a perfect example of how the Trump administration is angrily abandoning the longstanding U.S. commitment to European security. The prevailing picture is that the administration is eager to shift the burden of Europe’s defense and is thus moving to withdraw U.S. forces from the continent, even though Europe is moving to do more militarily. Hegseth stated, “we’re doubling down on our effort to make NATO what it always was supposed to be, a balanced alliance with Europe in The post Misguided and Misunderstood: Trump’s Approach to U.S. Troops in Europe appeare...",
                       "suggestedPirIds":  [
                                               10,
                                               11
@@ -345,26 +97,13 @@
                       "suggestedSector":  "Defense Industrial Base"
                   },
                   {
-                      "id":  "rss-e2caf320edbc4e8680e6a0b3bfaf19aa",
-                      "title":  "From Vietnam to Iran: Wartime Diplomacy and Secret Deals",
-                      "url":  "https://warontherocks.com/from-vietnam-to-iran-wartime-diplomacy-and-secret-deals/",
+                      "id":  "rss-3494f58101e74ac8bbec88b596895e57",
+                      "title":  "The Integrated Circuit and the Future of AI Leadership",
+                      "url":  "https://warontherocks.com/cogs-of-war/the-integrated-circuit-and-the-future-of-ai-leadership/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-24",
-                      "summary":  "Wars rarely end in a single act of diplomacy. More often, they pass through a succession of ceasefires, frameworks, understandings, as well as provisional and even secret arrangements before anyone can determine whether peace is actually at hand. The Trump administration’s memorandum with Iran is best understood in those terms. In both form and logic, it recalls an earlier American effort to negotiate an exit from an unpopular conflict: the Paris Peace Accords of 1973.The four primary parties to the Vietnam War (1965 to 1975) — the United States, South Vietnam, North Vietnam, and the Provisional Revolutionary Government of the The post From Vietnam to Iran: Wartime Diplomacy and Secret Deals...",
-                      "suggestedPirIds":  [
-                                              14
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-9b486a26f36842089a6f1ba103a184c3",
-                      "title":  "Nuclear Stability in the Age of AI",
-                      "url":  "https://warontherocks.com/nuclear-stability-in-the-age-of-ai/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-24",
-                      "summary":  "In 2024, Paul Scharre and Michael Depp wrote, “Artificial Intelligence and Nuclear Stability,” where they argued integrating artificial intelligence into the nuclear chain of command presents both opportunities and risks. Two years later, as AI becomes increasingly integrated into military systems and processes, we asked them to revisit their arguments. Image: Senior Airman Jason Wiese via Wikimedia CommonsIn 2024, you argued that integrating artificial intelligence into the nuclear chain of command presents both opportunities and risks. Where does that integration stand today? Is nuclear AI a priority for the Department of Defense, or does it currently take a back seat The post Nuclear Stab...",
+                      "published":  "2026-07-03",
+                      "summary":  "Editor’s note: This is the first article in a limited series celebrating American defense technologies born from wartime and their effects on broader national security, politics, and society. This series will run for several weeks to commemorate America’s 250th anniversary, and winners will be selected by a reader vote undertaken through our newsletter later this summer. Prior installments can be found at the Arsenal of Innovation page. The history of the semiconductor is an origin story for modern computing but also reveals a recurring pattern in American innovation: government helps underwrite technological breakthroughs, and commercial markets transform them into general-purpose technolog...",
                       "suggestedPirIds":  [
                                               10,
                                               11,
@@ -373,39 +112,204 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-0f15f581f7314ab19b5ec63e70f85445",
-                      "title":  "ABB Freelance Security Lock",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-05",
+                      "id":  "rss-679bb2d4bb9942679818847bf547828e",
+                      "title":  "CubeSpace CW0057 Reaction Wheel",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-02",
                       "source":  "CISA Cybersecurity Advisories",
                       "category":  "Government / Official",
-                      "published":  "2026-06-23",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow access to underlying OS functions even when Freelance Operations is active, depending on system configuration and user permissions. The following versions of ABB Freelance Security Lock are affected: ABB System Version ( ABB System Version (Freelance 2013 SP1) installed with ABB Freelance Security Lock(All versions) vers:all/* ABB System Version (Freelance 2016) installed with ABB Freelance Security Lock(All versions) vers:all/* ABB System Version (Freelance 2016 SP1) installed with ABB Freelance Security Lock(All versions) vers:all/* ABB System Version (Freelance 2019) installed with ABB Freelance Security Lock(All ...",
+                      "published":  "2026-07-02",
+                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to upload arbitrary malicious firmware to the device. The following versions of CubeSpace CW0057 Reaction Wheel are affected: CW0057 Reaction Wheel CVSS Vendor Equipment Vulnerabilities v3 6.1 CubeSpace CubeSpace CW0057 Reaction Wheel Improper Verification of Cryptographic Signature Background Critical Infrastructure Sectors: Communications Countries/Areas Deployed: Worldwide Company Headquarters Location: South Africa Vulnerabilities Expand All + CVE-2026-13743 CubeSpace CW0057 Reaction Wheel firmware versions prior to 5.0.20 are vulnerable to an Improper Verification of Cryptographic Signature vulnerabi...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Finance"
+                  },
+                  {
+                      "id":  "rss-4a8e51ac12f947a197d7dcd3cb613dde",
+                      "title":  "Gardyn IoT Hub",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-03",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-07-02",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow unauthenticated users to access and control IoT Hub managed devices. The following versions of Gardyn IoT Hub are affected: Home Firmware Studio Firmware Cloud API CVSS Vendor Equipment Vulnerabilities v3 10 Gardyn Gardyn IoT Hub Use of Hard-coded Credentials, Exposure of Sensitive System Information to an Unauthorized Control Sphere, Improper Neutralization of HTTP Headers for Scripting Syntax Background Critical Infrastructure Sectors: Food and Agriculture Countries/Areas Deployed: United States Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-13768 Gardyn devices expose a privi...",
+                      "suggestedPirIds":  [
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-d09733fa7e4f4fd2885aa1c8b76b785b",
+                      "title":  "ST Engineering iDirect iQ-Series Terminals",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-183-01",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-07-02",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to gain unauthorized access to device information or cause a denial-of-service condition. The following versions of ST Engineering iDirect iQ-Series Terminals are affected: Evolution iQ‑Series terminals 3315‑Series terminals 9‑Series terminals CVSS Vendor Equipment Vulnerabilities v3 8.1 ST Engineering iDirect ST Engineering iDirect iQ-Series Terminals Missing Authentication for Critical Function, Cross-Site Request Forgery (CSRF) Background Critical Infrastructure Sectors: Communications, Defense Industrial Base, Energy, Government Services and Facilities, Transportation Systems Countries/Areas Deploy...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-d2df191645c844acad86475c4ca71eb5",
+                      "title":  "Context Engineering | Compaction \u0026 Agent Memory for Automated Malware Analysis",
+                      "url":  "https://www.sentinelone.com/labs/context-engineering-compaction-agent-memory-for-automated-malware-analysis/",
+                      "source":  "SentinelOne Labs",
+                      "category":  "Commercial CTI",
+                      "published":  "2026-07-02",
+                      "summary":  "Compaction cut input tokens 86% across long-running agent evals with no quality loss. Context discipline matters as much as model selection.",
+                      "suggestedPirIds":  [
+                                              15
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-62d1f02a62314520b0ea9ae30a46a5fd",
+                      "title":  "Rep. Nate Schatzline resigns from Texas House to lead âelection integrityâ policy in Gov. Abbottâs office",
+                      "url":  "https://www.texastribune.org/2026/07/02/texas-nate-schatzline-appointed-greg-abbott-governors-office-election-adviser/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-07-02",
+                      "summary":  "The Fort Worth Republican, one of the most hardline conservatives in the Texas House, had been floated for secretary of state in unconfirmed media reports ahead of his hire by the governor.",
+                      "suggestedPirIds":  [
+                                              16
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-ecc7c3a3a1554999950c4c361a619119",
+                      "title":  "River authorityâs budget woes are another blow to water-needy Corpus Christi",
+                      "url":  "https://www.texastribune.org/2026/07/02/texas-corpus-christi-water-crisis-nueces-river-authority/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-07-02",
+                      "summary":  "Cities and other water users have already paid $4.1 million to reserve water from a seawater desalination plant that is not close to construction.",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-d627bf1c43c3455597bbfef6b8e2c164",
+                      "title":  "The Blind Spots in Chinese Military Studies",
+                      "url":  "https://warontherocks.com/the-blind-spots-in-chinese-military-studies/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-02",
+                      "summary":  "During a recent conference on the People’s Liberation Army, I heard the same question posed to attendees and paper writers: “How would China react to U.S. force posture change X, Y, or Z?” or “How would the Chinese military respond to U.S. strikes in certain locations?” Having participated in dozens of unclassified wargames at the RAND Corporation and elsewhere, I hear a similar refrain when playing the “red team.”This is a reasonable and legitimate question. Policymakers and war planners should understand likely Chinese responses in studying and preparing for possible contingencies between China and the United States.To make well-grounded assessments The post The Blind Spots in Chinese Mili...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-8cd36470060d451fafd21b5a1c6d27f1",
+                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
+                      "url":  "https://www.cisa.gov/news-events/alerts/2026/07/01/cisa-adds-one-known-exploited-vulnerability-catalog",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-07-01",
+                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-45659 Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Catalog and requires federal agencies to prioritize rapid remediation of high-risk vulnerabilities,...",
                       "suggestedPirIds":  [
 
                                           ],
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-69b2f8f77f434a32817fc81abe71daf8",
-                      "title":  "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
+                      "id":  "rss-77714905898840979b6ffa37b4667592",
+                      "title":  "CISA Announces New Advisory Council to Strengthen Partnerships and Secure Critical Infrastructure",
+                      "url":  "https://www.cisa.gov/news-events/news/cisa-announces-new-advisory-council-strengthen-partnerships-and-secure-critical-infrastructure",
+                      "source":  "CISA News",
                       "category":  "Government / Official",
-                      "published":  "2026-06-23",
-                      "summary":  "CISA has added four new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2025-67038 Lantronix EDS5000 Code Injection Vulnerability CVE-2026-34908 Ubiquiti UniFi OS Improper Access Control Vulnerability CVE-2026-34909 Ubiquiti UniFi OS Path Traversal Vulnerability CVE-2026-34910 Ubiquiti UniFi OS Improper Input Validation Vulnerability These types of vulnerabilities are frequent attack vectors for malicious cyber actors and pose significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civili...",
+                      "published":  "2026-07-01",
+                      "summary":  "RSS item from CISA News. The feed did not provide a summary, so review the linked article before promotion: CISA Announces New Advisory Council to Strengthen Partnerships and Secure Critical Infrastructure",
                       "suggestedPirIds":  [
 
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-2ba6f8af96c74085a68a128b3e23f985",
+                      "title":  "Phantom Squatting: AI-Hallucinated Domains as a Software Supply Chain Vector",
+                      "url":  "https://unit42.paloaltonetworks.com/phantom-squatting-hallucinated-web-domains/",
+                      "source":  "Palo Alto Unit 42",
+                      "category":  "Commercial CTI",
+                      "published":  "2026-07-01",
+                      "summary":  "Attackers can exploit LLM domain hallucinations through phantom squatting to target supply chains. Read the analysis to learn more. The post Phantom Squatting: AI-Hallucinated Domains as a Software Supply Chain Vector appeared first on Unit 42 .",
+                      "suggestedPirIds":  [
+                                              15
                                           ],
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-c3b300c7dc5f482c870d5906a4ee254e",
-                      "title":  "Hubbell Aclara Metrum Cellular Web Interface",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-07",
+                      "id":  "rss-48558129f08745869179dc93469d679d",
+                      "title":  "Texas leads nation in proposed power plants for data centers, which would emit large amounts of greenhouse gases",
+                      "url":  "https://www.texastribune.org/2026/07/01/texas-data-center-power-plans-emissions/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-07-01",
+                      "summary":  "Nearly half of the power plants planned to supply electricity for data centers would be in Texas. Experts warn they will emit significant pollution that could harm the health of communities nearby.",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-b159e7a4599e4dc98880780a2d71a6be",
+                      "title":  "The Hizballah Predicament: Why An Integrated Approach Is Necessary",
+                      "url":  "https://warontherocks.com/the-hizballah-predicament-why-an-integrated-approach-is-necessary/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-01",
+                      "summary":  "What can leaders do about a transnational organization that is a militia, a political party, a social services network, and a smuggling operation at the same time — and one that has resisted various dialogues and survived repeated attacks?American, Lebanese, and other leaders should recognize Hizballah’s hybrid, transnational nature and grapple with the unique challenges the organization creates. Otherwise, they will fail to resolve the Hizballah predicament while creating conditions for ineffective agreements, new wars, and squandered opportunities in the Levant.Meeting openly for the first time in decades, Lebanese and Israeli representatives have negotiated on security and political track...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-7fecf1fbbfe445878c0ea7bd9b4bdb66",
+                      "title":  "The Three Nevers: To Invade Taiwan, China Would Have to Make Military History Thrice",
+                      "url":  "https://warontherocks.com/the-three-nevers-to-invade-taiwan-china-would-have-to-make-military-history-thrice/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-01",
+                      "summary":  "The amphibious invasion of Normandy on June 6, 1944, remains the largest and most complex amphibious operation in history. On the first day alone, Allied forces landed eight divisions, including five amphibious assault and three airborne, totaling roughly 160,000 personnel. That force more than doubled within days.Normandy was unprecedented in scale but not in kind. A Taiwan invasion would present the reverse problem: Taiwan’s size is not the unprecedented part — the operational challenges are. Analysis of a potential Chinese invasion of Taiwan typically emphasizes the People’s Liberation Army’s rapid modernization and the possibility of strategic surprise. Far less attention The post The Th...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-ddd0ff23805d4af19220b6ac406e6397",
+                      "title":  "Delta Electronics DVP12SE PLC",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-07",
                       "source":  "CISA Cybersecurity Advisories",
                       "category":  "Government / Official",
-                      "published":  "2026-06-23",
-                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow attackers to manipulate critical device settings and repeatedly disrupt operations, potentially causing a loss of communications to the device. The following versions of Hubbell Aclara Metrum Cellular Web Interface are affected: Aclara Metrum Cellular Web Interface CVSS Vendor Equipment Vulnerabilities v3 7.5 Hubbell Hubbell Aclara Metrum Cellular Web Interface Missing Authentication for Critical Function Background Critical Infrastructure Sectors: Energy Countries/Areas Deployed: United States Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-1840 The Aclara Metrum Cellular Web Inter...",
+                      "published":  "2026-06-30",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to remotely issue commands, modify operational values, interfere with control logic, and alter device behavior without authentication or privilege enforcement. The following versions of Delta Electronics DVP12SE PLC are affected: DVP12SE PLC vers:all/* (CVE-2026-12819, CVE-2026-12818) CVSS Vendor Equipment Vulnerabilities v3 9.8 Delta Electronics Delta Electronics DVP12SE PLC Missing Authentication for Critical Function, Allocation of Resources Without Limits or Throttling Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Locatio...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-c6c8106d5e1b4d71a51d6036b389f106",
+                      "title":  "Frangoteam FUXA SCADA/HMI",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-02",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-06-30",
+                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow an unauthenticated remote attacker to enumerate all user accounts and role assignments on a FUXA SCADA/HMI instance. The following versions of Frangoteam FUXA SCADA/HMI are affected: FUXA SCADA/HMI CVSS Vendor Equipment Vulnerabilities v3 7.5 Frangoteam Frangoteam FUXA SCADA/HMI Authentication Bypass by Spoofing Background Critical Infrastructure Sectors: Critical Manufacturing, Energy, Water and Wastewater Countries/Areas Deployed: Worldwide Company Headquarters Location: Switzerland Vulnerabilities Expand All + CVE-2026-13207 FUXA versions 1.3.1 and prior contain an authentication bypass vulnerability via dot-segme...",
                       "suggestedPirIds":  [
                                               1,
                                               2,
@@ -414,158 +318,199 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-af89bc91943c410e8407f09ea3d065fd",
-                      "title":  "Siemens Products using OpenSSL",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-03",
+                      "id":  "rss-c7b97d8d7e974bcb942736a002937ca7",
+                      "title":  "Mitsubishi Electric MELSOFT Update Manager SW1DND-UDM-M",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-01",
                       "source":  "CISA Cybersecurity Advisories",
                       "category":  "Government / Official",
-                      "published":  "2026-06-23",
-                      "summary":  "View CSAF Summary OpenSSL has published a stack based buffer overflow vulnerability that allows a remote attacker to cause a denial of service (DoS) or potentially allow for remote code execution. Siemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available. The following versions of Siemens Products using OpenSSL are affected: AI Lightweight Inference Server vers:all/* (CVE-2025-15467) Connector for Azure vers:intdot/ Databus vers:intdot/ HiMed Cockpit vers:all/* (CVE-2025-15467) RUGGEDCOM RM1224 LTE(4G) ...",
-                      "suggestedPirIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-ad89526719754079ad206459c0719288",
-                      "title":  "Siemens SINEC INS",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-174-04",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-06-23",
-                      "summary":  "View CSAF Summary SINEC INS before V1.0 SP2 Update 6 is affected by multiple vulnerabilities. Siemens has released a new version for SINEC INS and recommends to update to the latest version. The following versions of Siemens SINEC INS are affected: SINEC INS vers:intdot/ CVSS Vendor Equipment Vulnerabilities v3 8.8 Siemens Siemens SINEC INS Improper Neutralization of Special Elements used in an OS Command (\u0027OS Command Injection\u0027), Path Traversal: \u0027/dir/../filename\u0027, Execution with Unnecessary Privileges, Use of a One-Way Hash with a Predictable Salt Background Critical Infrastructure Sectors: Critical Manufacturing, Transportation Systems, Energy, Healthcare and Public Health, Financial Serv...",
+                      "published":  "2026-06-30",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow a local attacker to tamper with or destroy information in the affected product, cause a denial-of-service condition in the affected product, or execute arbitrary code when a specially crafted archive file is decompressed by the 7-Zip component included in MELSOFT Update Manager. The following versions of Mitsubishi Electric MELSOFT Update Manager SW1DND-UDM-M are affected: MELSOFT Update Manager SW1DND-UDM-M \u003e=1.000A| CVSS Vendor Equipment Vulnerabilities v3 8.8 Mitsubishi Electric Mitsubishi Electric MELSOFT Update Manager SW1DND-UDM-M Heap-based Buffer Overflow, NULL Pointer Dereference, Improper Link Resolution...",
                       "suggestedPirIds":  [
                                               1,
                                               2,
-                                              3,
-                                              4,
-                                              6,
+                                              3
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-f5f7665baaa84cf4879e85e5decb3c4d",
+                      "title":  "OFFIS DCMTK Toolkit",
+                      "url":  "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-181-01",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-06-30",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to write files, access unauthorized information, exhaust memory, or crash affected DCMTK client or server processes. The following versions of OFFIS DCMTK Toolkit are affected: DCMTK CVSS Vendor Equipment Vulnerabilities v3 9.8 OFFIS OFFIS DCMTK Toolkit Improper Limitation of a Pathname to a Restricted Directory (\u0027Path Traversal\u0027), Missing Release of Memory after Effective Lifetime, Access of Resource Using Incompatible Type (\u0027Type Confusion\u0027) Background Critical Infrastructure Sectors: Healthcare and Public Health Countries/Areas Deployed: Worldwide Company Headquarters Location: Germany Vulnerabiliti...",
+                      "suggestedPirIds":  [
                                               7,
                                               8,
                                               9
                                           ],
+                      "suggestedSector":  "Healthcare"
+                  },
+                  {
+                      "id":  "rss-42b4dcceccca47508007f90901d7e6bc",
+                      "title":  "Schneider Electric EasyLogic T150 and Saitel DP RTU",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-04",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-06-30",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities can allow an attacker to cause unauthorized access and exposure of sensitive information when the unauthenticated attacker accesses credentials stored within firmware or system files. The following versions of Schneider Electric EasyLogic T150 and Saitel DP RTU are affected: EasyLogic T150 (formerly Saitel DR) Remote Terminal Unit \u0026 Controller EasyLogic T150 (formerly Saitel DR) Remote Terminal Unit \u0026 Controller Saitel DP Remote Terminal Unit \u0026 Controller Saitel DP Remote Terminal Unit \u0026 Controller CVSS Vendor Equipment Vulnerabilities v3 7.5 Schneider Electric Schneider Electric EasyLogic T150 and Saitel DP RTU Insufficientl...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3
+                                          ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-ccd64933c29242f6894c7b69031f909a",
-                      "title":  "OpenClaw’s Skill Marketplace and the Emerging AI Supply Chain Threat",
-                      "url":  "https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/",
-                      "source":  "Palo Alto Unit 42",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-23",
-                      "summary":  "Unit 42\u0027s analysis of ClawHub revealed evasive malicious skills bypassing automated scanners to deploy infostealers and execute agentic financial fraud. The post OpenClaw’s Skill Marketplace and the Emerging AI Supply Chain Threat appeared first on Unit 42 .",
+                      "id":  "rss-d723522b067648efbec95fbfba988b6e",
+                      "title":  "Schneider Electric EcoStruxure IT Data Center Expert",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-03",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-06-30",
+                      "summary":  "View CSAF Summary Schneider Electric is aware of a vulnerability in its EcoStruxure™ IT Data Center Expert. The EcoStruxure™ IT Data Center Expert product is a scalable monitoring software that collects, organizes, and distributes critical device information providing a comprehensive view of equipment. Failure to apply the remediation provided below may risk information disclosure. The following versions of Schneider Electric EcoStruxure IT Data Center Expert are affected: EcoStruxure IT Data Center Expert vers:intdot/ CVSS Vendor Equipment Vulnerabilities v3 6.5 Schneider Electric Schneider Electric EcoStruxure IT Data Center Expert Improper Restriction of XML External Entity Reference Back...",
                       "suggestedPirIds":  [
-                                              4,
-                                              6,
+                                              1,
+                                              2,
+                                              3,
                                               15
                                           ],
-                      "suggestedSector":  "Finance"
-                  },
-                  {
-                      "id":  "rss-aa677aaf93a445cda4866aa2be472295",
-                      "title":  "macOS.Gaslight | Rust Backdoor Turns Prompt Injection on the Analyst, Not the Sandbox",
-                      "url":  "https://www.sentinelone.com/labs/macos-gaslight-rust-backdoor-turns-prompt-injection-on-the-analyst-not-the-sandbox/",
-                      "source":  "SentinelOne Labs",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-23",
-                      "summary":  "DPRK-linked implant embeds 38 fabricated system messages that spoof an LLM triage harness, hiding a credential stealer and Telegram C2 underneath.",
-                      "suggestedPirIds":  [
-                                              5,
-                                              12
-                                          ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-01844c053c9241209ebf8e7f43e1c2a9",
-                      "title":  "A Claim to Lead, a Hesitation to Act: Germany’s New Military Strategy",
-                      "url":  "https://warontherocks.com/a-claim-to-lead-a-hesitation-to-act-germanys-new-military-strategy/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-23",
-                      "summary":  "In the public perception, it seems like a big deal for Germany to publish a military strategy for the first time. But let me pour a little cold water on that. A form of military strategy has always existed. Where today we have a National Security Strategy paired with a military strategy and Plan for the Armed Forces, the past offered the White Paper, Defence Policy Guidelines, and the Bundeswehr concept, which spelled out the armed forces’ structure in more concrete terms. Yet even the new military strategy, released in late April, reads more as analysis than as a clear The post A Claim to Lead, a Hesitation to Act: Germany’s New Military Strategy appeared first on War on the Rocks .",
+                      "id":  "rss-098cc1b96a614eed8d73d6167ebf9b0a",
+                      "title":  "XZ Utils vulnerability impacting B\u0026R Products",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-181-05",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-06-30",
+                      "summary":  "View CSAF Summary An update is available that resolves vulnerability in the product versions listed as affected in the advisory. An attacker who successfully exploited this vulnerability could cause the product to stop or corrupt memory data. The following versions of XZ Utils vulnerability impacting B\u0026R Products are affected: PPC3100 C50 C80 FT50 MT50 T30 T80 T50 CVSS Vendor Equipment Vulnerabilities v3 7.5 B\u0026R Industrial Automation GmbH XZ Utils vulnerability impacting B\u0026R Products Race Condition within a Thread Background Critical Infrastructure Sectors: Critical Manufacturing Countries/Areas Deployed: Worldwide Company Headquarters Location: Switzerland Vulnerabilities Expand All + CVE-2...",
                       "suggestedPirIds":  [
 
                                           ],
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-9cbb419ef1f546479c3881b483a25d37",
-                      "title":  "Adapting to Uncertainty in the Strait of Hormuz",
-                      "url":  "https://warontherocks.com/adapting-to-uncertainty-in-the-strait-of-hormuz/",
+                      "id":  "rss-db30edc8c8a44142b421387ae8f41d8e",
+                      "title":  "Corpus Christi declines to seek federal grant for long-debated water desalination plant",
+                      "url":  "https://www.texastribune.org/2026/06/30/texas-corpus-christi-desalination-plant-federal-grant/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-06-30",
+                      "summary":  "City Council members traded insults before the 5-4 vote blocked an effort to apply for up to $120 million in federal grants to help build the treatment plant.",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-3d047ff751c649c7ad86ecbbce5d43dc",
+                      "title":  "Gov. Greg Abbott calls for ban on data center development in rural Texas neighborhoods",
+                      "url":  "https://www.texastribune.org/2026/06/30/texas-abbott-data-center-development-ban-rural-communities/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-06-30",
+                      "summary":  "Abbott previously outlined a broad regulatory framework around data centers amid backlash from rural communities around their impact on residential neighborhoods.",
+                      "suggestedPirIds":  [
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-012e5407813c4bada068b2e87c31319e",
+                      "title":  "Lost in Translation: How A Premier Chinese Think Tank Views U.S.-Chinese Competition",
+                      "url":  "https://warontherocks.com/lost-in-translation-how-a-premier-chinese-think-tank-views-u-s-chinese-competition/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-23",
-                      "summary":  "Iran’s threats to shipping through the Strait of Hormuz — in response to the U.S. and Israeli strikes on Iran that began on Feb. 28 — effectively closed the strait, sending economic shockwaves around the world. As part of negotiations between Tehran and Washington, Iran has eased restrictions, and shipping traffic has picked up in recent days — albeit well below pre-war levels.Whatever the outcome of negotiations, Iran has clearly demonstrated its ability to shut down the strait. It could happen again. That reality significantly increases incentives for many countries to reduce their reliance on the strait. We asked five The post Adapting to Uncertainty in the Strait of Hormuz appeared first...",
+                      "published":  "2026-06-30",
+                      "summary":  "On May 13, 2026, Air Force One landed in Beijing for President Donald Trump’s first state visit to China in nearly a decade. That same morning, the China Institutes of Contemporary International Relations published a report titled The Evolving World and the Right Way to China-US Coexistence. The summit dominated global media coverage for two days. The report received almost none.The Beijing summit produced familiar imagery: honor guards, a state banquet in the Great Hall of the People, and carefully choreographed warmth. Chinese leader Xi Jinping announced that both sides had agreed to “strategic stability” as a framework for the The post Lost in Translation: How A Premier Chinese Think Tank...",
                       "suggestedPirIds":  [
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-df5c27a708ee4336b2a0cdba6ac93dbf",
+                      "title":  "Mapping America’s Domestic Drone Supply Chain",
+                      "url":  "https://warontherocks.com/cogs-of-war/at-a-glance-american-quadcopter-component-manufacturing/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-06-30",
+                      "summary":  "The extent of China’s drone dominance — and how to decouple from it — has long been a source of debate and anxiety in Washington. Last month, the Wall Street Journal reignited controversy by publishing a visual analysis of military quadcopter components, exploring China’s advantages in parts manufacturing and cost. The director of the Defense Innovation Unit objected to the report, stating on X that “By leaving out the dozens of U.S. companies that have plunged into drone component manufacturing, this article disappoints.”Underlying this debate is disagreement about how to measure drone supply chain security. At the very top of The post Mapping America’s Domestic Drone Supply Chain appeared ...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Defense Industrial Base"
+                  },
+                  {
+                      "id":  "rss-472a0d4c90b549d3b22d1b30b712198b",
+                      "title":  "The Shifting Fortunes of the Kurds",
+                      "url":  "https://warontherocks.com/the-shifting-fortunes-of-the-kurds/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-06-30",
+                      "summary":  "The Kurds’ fortunes have ebbed and flowed in recent years, but the fall of the Assad regime in Syria in December 2024, the 2025 decision by the Kurdistan Workers’ Party (PKK) to dissolve and engage in talks with the Turkish government, and the 2026 U.S.-Israeli war with Iran had enormous ripple effects on the lives of Kurds in the Middle East and Kurdish hopes for autonomy. We asked four experts to assess how recent regional events are presenting risks and opportunities for the Kurds in Turkey, Iraq, Syria, and Iran.Read more below. Gönül TolSenior Fellow at the Middle East InstituteThe Iran The post The Shifting Fortunes of the Kurds appeared first on War on the Rocks .",
+                      "suggestedPirIds":  [
+                                              14
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-093e2a3eaf9d42ddb54ed31c01c9b14d",
+                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
+                      "url":  "https://www.cisa.gov/news-events/alerts/2026/06/29/cisa-adds-one-known-exploited-vulnerability-catalog",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-06-29",
+                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-48558 SimpleHelp Authentication Bypass Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Catalog and requires federal agencies to prioritize rapid remediation of high-risk vulnerabilities, specifically those identifie...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-509d4f246bcc4815b1fadc0cc36de865",
+                      "title":  "The Art of Statecraft in an Age of Strategic Failure",
+                      "url":  "https://warontherocks.com/the-art-of-statecraft-in-an-age-of-strategic-failure/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-06-29",
+                      "summary":  "Jack Watling, Statecraft: The New Rules of Power in a Divided World (Macmillan, 2026)The war against Iran exposed a multitude of forced errors and own goals in the conduct of statecraft. The purpose of sound statecraft is the integrated application of a state’s tools and its repertoire of governmental instruments of power to gain its desired outcomes in international relations. The yet-to-be-resolved contest against the Islamic Republic of Iran reveals a litany of shortfalls in the conduct of U.S. statecraft.It is unlikely that the present U.S. government will conduct a candid assessment of its shortcomings. Acknowledging the failure to achieve The post The Art of Statecraft in an Age of Str...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
                                               14
                                           ],
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-847a790b16a44530b50c1d2cf464309a",
-                      "title":  "The Global Namespace Risk: Universal Bucket Hijacking Technique for Cloud Data Exfiltration",
-                      "url":  "https://unit42.paloaltonetworks.com/cloud-bucket-hijacking-risks/",
-                      "source":  "Palo Alto Unit 42",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-22",
-                      "summary":  "Unit 42 research details how attackers could exploit global name uniqueness in bucket hijacking to redirect cloud data streams across major CSPs. The post The Global Namespace Risk: Universal Bucket Hijacking Technique for Cloud Data Exfiltration appeared first on Unit 42 .",
-                      "suggestedPirIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "AI / Data Centers"
-                  },
-                  {
-                      "id":  "rss-69fa93529886409ea249f9bf683b6f8c",
-                      "title":  "OpenAI Lets Cyber Vendors Embed GPT-5.5 in Defenses",
-                      "url":  "https://www.proofpoint.com/us/newsroom/news/openai-lets-cyber-vendors-embed-gpt-55-defenses",
-                      "source":  "Proofpoint Threat Insight",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-22",
-                      "summary":  "RSS item from Proofpoint Threat Insight. The feed did not provide a summary, so review the linked article before promotion: OpenAI Lets Cyber Vendors Embed GPT-5.5 in Defenses",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-058a98c4295f44f88da7439dafb0c6e5",
-                      "title":  "Proofpoint Joins the OpenAI Daybreak Cyber Partner Program to Advance Responsible AI-Powered Cyber Defense",
-                      "url":  "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-joins-openai-daybreak-cyber-partner-program-advance-responsible",
-                      "source":  "Proofpoint Threat Insight",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-06-22",
-                      "summary":  "RSS item from Proofpoint Threat Insight. The feed did not provide a summary, so review the linked article before promotion: Proofpoint Joins the OpenAI Daybreak Cyber Partner Program to Advance Responsible AI-Powered Cyber Defense",
-                      "suggestedPirIds":  [
-                                              10,
-                                              11,
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-b7b09362d9544b19b2da2d24a979cf1b",
-                      "title":  "Is There a Place in Ukrainian Media for War Skeptics?",
-                      "url":  "https://warontherocks.com/is-there-a-place-in-ukrainian-media-for-war-skeptics/",
+                      "id":  "rss-8456deb1b3ab43ec8e7b3f9100f6253d",
+                      "title":  "The Defense Industrial Alliance Washington Is Throwing Away",
+                      "url":  "https://warontherocks.com/cogs-of-war/the-defense-industrial-alliance-washington-is-throwing-away/",
                       "source":  "War on the Rocks",
                       "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-22",
-                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum only for War on the Rocks members. Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.American coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.Frontline and StrategyЦензор.НЕТ — The post Is There a Place in U...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-2707ea4204524296960b956f54e8c627",
-                      "title":  "Too Big To Break Again: India, Italy, and the Defense Partnership That Almost Wasn’t",
-                      "url":  "https://warontherocks.com/too-big-to-break-again-india-italy-and-the-defense-partnership-that-almost-wasnt/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-06-22",
-                      "summary":  "A single bribe nearly ruined a defense partnership most people didn’t know even existed. It took India and Italy almost a decade to recover.The story of how that rupture happened — and what it exposed about Italy’s quiet but deep role in India’s military — is essential to understanding why both countries now treat their renewed ties as something too valuable to lose again.When Indian authorities cancelled the AgustaWestland helicopter contract in 2014, the fallout went far beyond the headlines. Torpedo supplies to the Indian Navy’s Scorpène-class submarines froze, upgrades to over 20 Sea King helicopters stalled, and a naval The post Too Big To Break Again: India, Italy, and the Defense Part...",
+                      "published":  "2026-06-29",
+                      "summary":  "As the relationship between the United States and Canada continues to degrade, it now comes at the expense of each country’s industrial security.Last month, the Pentagon announced the unilateral suspension of the 86-year-old Canadian Permanent Joint Board on Defense in response to what the White House sees as Ottawa’s failure to present a credible plan to spend 3.5 percent of GDP on defense by 2035. And the opening of the gleaming new bridge between Detroit and Windsor has been long delayed in the tense run-up to the continental trade deal review.What many policymakers in Washington fail to realize is that The post The Defense Industrial Alliance Washington Is Throwing Away appeared first on...",
                       "suggestedPirIds":  [
                                               10,
                                               11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-4f39540731b84bedba2afbe02cfce3eb",
+                      "title":  "The Ukrainian Push for Long-Term Strategic Planning",
+                      "url":  "https://warontherocks.com/the-ukrainian-push-for-long-term-strategic-planning/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-06-29",
+                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum only for War on the Rocks members. Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.American coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.Frontline and StrategyОбозреватель — The post The Ukrainian Push ...",
+                      "suggestedPirIds":  [
+
                                           ],
                       "suggestedSector":  "Energy"
                   }
