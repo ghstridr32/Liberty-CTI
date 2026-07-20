@@ -1,5 +1,5 @@
 ﻿{
-    "generatedAt":  "2026-07-17T06:31:02-05:00",
+    "generatedAt":  "2026-07-20T06:30:59-05:00",
     "windowDays":  7,
     "itemCount":  43,
     "failureCount":  10,
@@ -22,7 +22,7 @@
                      {
                          "source":  "Google Cloud Threat Intelligence",
                          "url":  "https://cloud.google.com/blog/topics/threat-intelligence/rss/",
-                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-920181313298614993\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspañ..."
+                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":false,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-8764691948274778527\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspa..."
                      },
                      {
                          "source":  "Dragos",
@@ -57,7 +57,36 @@
                  ],
     "items":  [
                   {
-                      "id":  "rss-fceb6a519ec842bca996df283ca0dc6e",
+                      "id":  "rss-d14ebcfc0d6b4261a2878c408627a6a4",
+                      "title":  "Before Q-Day: The Race to Quantum First",
+                      "url":  "https://warontherocks.com/cogs-of-war/before-q-day-the-race-to-quantum-first/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-20",
+                      "summary":  "Somewhere, a hard drive is filling up with secrets no one can read yet, and its owner is waiting for the machine that opens them all at once. On March 30, 2026, that wait got shorter.Two independent research teams lowered the public estimates for breaking the encryption that secures banking, communications, and classified traffic. One showed that Shor’s algorithm, the quantum method for factoring the large numbers behind public-key encryption, could run at cryptographically relevant scale with as few as 10,000 reconfigurable neutral-atom qubits. Google Quantum AI, with the Ethereum Foundation and Stanford, put the threshold for breaking elliptic-curve encryption The post Before Q-Day: The Ra...",
+                      "suggestedPirIds":  [
+                                              4,
+                                              6,
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-85008520f2a14dd0926e0f02130a523a",
+                      "title":  "The Make-or-Buy Line has Moved",
+                      "url":  "https://warontherocks.com/the-make-or-buy-line-has-moved/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-20",
+                      "summary":  "The secretary of defense’s November announcement on acquisition reform laid out an unprecedented vision across the entire acquisition spectrum to improve the delivery speed of critical capabilities to our warfighters. One foundational pillar is the implementation of a commercial first policy, which laid out several initiatives: leveraging existing but less often used acquisition authorities, maximizing non-traditional contract vehicles, and increasing the use of more flexible solicitations. Most critically, it drives a commercial solution-first paradigm. If the immediate commercial solution isn’t sufficient, acquisition officers then find ways to modify it. If that approach does not work, th...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-87f5f6b404fc459ab7ccbcb8dd8ecf02",
                       "title":  "Three Steps to the Terminal: A Siemens ROX II Zero-Day Trilogy",
                       "url":  "https://unit42.paloaltonetworks.com/siemens-rox-ii-zero-day-vulnerabilities/",
                       "source":  "Palo Alto Unit 42",
@@ -72,7 +101,20 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-1f95226fd9524154bbfae565c70dfbce",
+                      "id":  "rss-345d23d26f51485f86f7a1a187fa13f8",
+                      "title":  "Robert Howden, Abbott aide, to succeed Jane Nelson as Texasâ top election official",
+                      "url":  "https://www.texastribune.org/2026/07/17/texas-secretary-of-state-robert-howden-appointed-greg-abbott/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-07-17",
+                      "summary":  "Howdenâs appointment follows weeks of speculation over who would take over running Texasâ elections before the November midterms.",
+                      "suggestedPirIds":  [
+                                              16
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-55881b3766424f9c8824931185653a16",
                       "title":  "Broken Drone, Far from Home: The Case for Overseas Autonomous System Sustainment",
                       "url":  "https://warontherocks.com/broken-drone-far-from-home-the-case-for-overseas-autonomous-system-sustainment/",
                       "source":  "War on the Rocks",
@@ -89,7 +131,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-65cdead5632f426696e483ba19392320",
+                      "id":  "rss-9812bb5d4e60425ea511d690fd1e1164",
                       "title":  "How Revolutions Break Their Believers",
                       "url":  "https://warontherocks.com/how-revolutions-break-their-believers/",
                       "source":  "War on the Rocks",
@@ -102,7 +144,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-b63167435d4a43a493d0ec0896f54af1",
+                      "id":  "rss-267e88c708fe4872902e4e1cf84a1d7d",
                       "title":  "The Blood Bank and the Logistics of Wartime Medicine",
                       "url":  "https://warontherocks.com/cogs-of-war/the-blood-bank-and-the-logistics-of-wartime-medicine/",
                       "source":  "War on the Rocks",
@@ -116,7 +158,33 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-cb3b16ac69f549c0beed66f868d738bd",
+                      "id":  "rss-532a462bf3674d76b7d1c21942c903d9",
+                      "title":  "The Fedorov Dismissal: On Trust, Technology, and Turnover",
+                      "url":  "https://warontherocks.com/the-fedorov-dismissal-on-trust-technology-and-turnover-2/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-17",
+                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum only for War on the Rocks members.Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.Western coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.This week, The post The Fedorov Dismissal: On Trust, Technology, an...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-9e658f5238334b2a80e6cb250214e324",
+                      "title":  "The Fedorov Dismissal: On Trust, Technology, and Turnover",
+                      "url":  "https://warontherocks.com/the-fedorov-dismissal-on-trust-technology-and-turnover/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-07-17",
+                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary from across the political spectrum.Every Monday, War on the Rocks members get a curated selection of op-eds and editorials from Ukrainian-language media to understand how Ukrainians themselves debate the biggest issues shaping their country. Western coverage of Ukraine often narrows to the battlefield; these pieces widen the view to daily life, politics, and public argument in a nation at war.A typical edition provides roughly a dozen pieces sorted into five categories: Frontline and Strategy, Allies and Diplomacy, Domestic Politics, Economy, and Society and Culture — closing with detailed Editor’s The post The Fedorov D...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-9fe99d5275634ace9f57a6de92a2e67b",
                       "title":  "AutomationDirect Productivity Suite",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-04",
                       "source":  "CISA Cybersecurity Advisories",
@@ -129,7 +197,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-5362b6c60ff2480792d5bae19f5145db",
+                      "id":  "rss-5245b245d29b4735866c1935448a5b4a",
                       "title":  "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -142,7 +210,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-429802c3b6aa4560bbd447303e19552e",
+                      "id":  "rss-4efb715025a4485d823b9d8ef47820e8",
                       "title":  "NASA Core Flight System (cFS) Health \u0026 Safety (HS) Application",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-03",
                       "source":  "CISA Cybersecurity Advisories",
@@ -155,7 +223,7 @@
                       "suggestedSector":  "Healthcare"
                   },
                   {
-                      "id":  "rss-b0746725247848ea92511f7b14e94dce",
+                      "id":  "rss-bb7ac793512643089bf8217b9b902377",
                       "title":  "Rockwell Automation 1756-EN2, 1756-EN3, and 1756-ENBT",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-02",
                       "source":  "CISA Cybersecurity Advisories",
@@ -168,7 +236,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-08b277d4f04347e8b57e6805f170b996",
+                      "id":  "rss-e651e14437ae4fdcb445ef44e63bb9bb",
                       "title":  "Rockwell Automation Arena",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-01",
                       "source":  "CISA Cybersecurity Advisories",
@@ -181,7 +249,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-d714e5d96e33455e9a1c74fd5a6df99d",
+                      "id":  "rss-19171a1ee5914ca9aacdcf5161a1853f",
                       "title":  "Rockwell Automation FactoryTalk DataMosaix",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-09",
                       "source":  "CISA Cybersecurity Advisories",
@@ -194,7 +262,7 @@
                       "suggestedSector":  "AI / Data Centers"
                   },
                   {
-                      "id":  "rss-94aa1f861d71408084d210fe126d1879",
+                      "id":  "rss-75d3206be32b422ba487545e486eba5d",
                       "title":  "Rockwell Automation Flex 5000 Adapter",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-08",
                       "source":  "CISA Cybersecurity Advisories",
@@ -207,7 +275,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-fba041d2062a4caaad8df493ad8f984e",
+                      "id":  "rss-67aaacbfcce645aaa827eb14cc1ce79e",
                       "title":  "SALTO ProAccess Space",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-197-07",
                       "source":  "CISA Cybersecurity Advisories",
@@ -220,7 +288,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-73cd63d9d76d48e9b96fd41ef1528f07",
+                      "id":  "rss-c9fb7cf87ea840fbba6a826657b182f8",
                       "title":  "ACR Stealer: Two observed intrusion chains amid increased threat activity",
                       "url":  "https://www.microsoft.com/en-us/security/blog/2026/07/16/acr-stealer-two-observed-intrusion-chains-amid-increased-threat-activity/",
                       "source":  "Microsoft Threat Intelligence",
@@ -233,7 +301,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-27d3b1e94eeb4d3a838e873618f40641",
+                      "id":  "rss-f4afc97c455a4f67b968f5cf958c8af1",
                       "title":  "Unpacking the AsyncAPI npm supply chain compromise and import-time payload delivery",
                       "url":  "https://www.microsoft.com/en-us/security/blog/2026/07/15/unpacking-asyncapi-npm-supply-chain-compromise-import-time-payload-delivery/",
                       "source":  "Microsoft Threat Intelligence",
@@ -246,7 +314,7 @@
                       "suggestedSector":  "Defense Industrial Base"
                   },
                   {
-                      "id":  "rss-d3d3cca15a404468b8f6f0a61fb58724",
+                      "id":  "rss-387ecf6af4294adeae6cc637a1b71379",
                       "title":  "AI, Automation and Attacks: Unpacking the Unit 42 2026 Global Incident Response Report",
                       "url":  "https://unit42.paloaltonetworks.com/ai-incident-response-report/",
                       "source":  "Palo Alto Unit 42",
@@ -259,36 +327,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-f26bcc8ac24546a7bcc566d0f732c3d9",
-                      "title":  "Proposed EPA rule could weaken Texansâ voice on certain air permits used by data centers",
-                      "url":  "https://www.texastribune.org/2026/07/16/texas-epa-rule-minor-pollution-permits-public-input-tceq-data-centers/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-07-16",
-                      "summary":  "The change would give states greater power on deciding how much notice and public input residents receive before such permits are approved or denied.",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3,
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-e1aeda446d0f42ecb4e7d8edeb266f92",
-                      "title":  "Texas election chief raised concerns about the federal tool used to flag potential noncitizens",
-                      "url":  "https://www.texastribune.org/2026/07/16/texas-jane-nelson-concerns-save-data-voter-citizenship-uscis/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-07-16",
-                      "summary":  "Jane Nelson wrote a letter in April to federal officials to ensure they were using the most accurate data after the SAVE program flagged U.S. citizens as potential noncitizens.",
-                      "suggestedPirIds":  [
-                                              16
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-ebe0edcae31b4a28b5eed1c565b657e3",
+                      "id":  "rss-ccc7ab64219043ed87f4cda978c1a72a",
                       "title":  "Academia’s Critical Role in Developing an Economic Security Workforce",
                       "url":  "https://warontherocks.com/academias-critical-role-in-developing-an-economic-security-workforce/",
                       "source":  "War on the Rocks",
@@ -302,7 +341,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-5e3c2d04dcdc4548a53d2709bb7d29b8",
+                      "id":  "rss-0fb637c8865547e08b52bb572aed6ccf",
                       "title":  "Reading through the Lines of the FY2027 NDAA",
                       "url":  "https://warontherocks.com/cogs-of-war/reading-through-the-lines-of-the-fy2027-ndaa/",
                       "source":  "War on the Rocks",
@@ -320,7 +359,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-724c0fb2253d4188b310c60fe53c5089",
+                      "id":  "rss-fd93849c8a5840babb5ccd40247fef88",
                       "title":  "The Peace That Redistributes War: What Camp David Reveals About Lebanon and Iran",
                       "url":  "https://warontherocks.com/the-peace-that-redistributes-war-what-camp-david-reveals-about-lebanon-and-iran/",
                       "source":  "War on the Rocks",
@@ -333,7 +372,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-8ff86b8e79654cbda25a59420b9eb846",
+                      "id":  "rss-90b802fc6e9147c2affe04a8a1b34118",
                       "title":  "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/07/15/cisa-adds-two-known-exploited-vulnerabilities-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -346,7 +385,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-9efde5e9025149619beac5cc5a9bc8ba",
+                      "id":  "rss-c546cef393b94850b026fbce4a909b78",
                       "title":  "Establishing a Coordinated Vulnerability Disclosure Program to Work With Security Researchers",
                       "url":  "https://www.cisa.gov/resources-tools/resources/establishing-coordinated-vulnerability-disclosure-program-work-security-researchers",
                       "source":  "CISA Cybersecurity Advisories",
@@ -359,7 +398,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-4b557bfe3f87452483ade84d5d526dc5",
+                      "id":  "rss-8055c7d8314241efa909d8eea51ff612",
                       "title":  "CISA and Partners Publish Guidance to Help Software Manufacturers and Online Service Providers Work With Security Researchers",
                       "url":  "https://www.cisa.gov/news-events/news/cisa-and-partners-publish-guidance-help-software-manufacturers-and-online-service-providers-work",
                       "source":  "CISA News",
@@ -372,7 +411,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-d6b7fd5c872d4290917200f91591ff9b",
+                      "id":  "rss-da5863982b3c425c86a81e8ab3d1d38b",
                       "title":  "The npm Threat Landscape: Attack Surface and Mitigations (Updated July 15)",
                       "url":  "https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/",
                       "source":  "Palo Alto Unit 42",
@@ -385,7 +424,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-87b182a978d44dbab7c01413c88618f3",
+                      "id":  "rss-9ccf19590f074413a86c25d2d20ed2de",
                       "title":  "TuxBot v3: Inside an IoT Botnet Framework With LLM-Assisted Development",
                       "url":  "https://unit42.paloaltonetworks.com/tuxbot-v3-evolution-iot-botnet/",
                       "source":  "Palo Alto Unit 42",
@@ -398,7 +437,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-3124a0be8642497cbcf92f21e1187523",
+                      "id":  "rss-f30caf34f75c49009977d2c28219233c",
                       "title":  "Before the Next Mythos Moment: The Case for an AI Threat Fusion Center",
                       "url":  "https://warontherocks.com/before-the-next-mythos-moment-the-case-for-an-ai-threat-fusion-center/",
                       "source":  "War on the Rocks",
@@ -411,7 +450,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-c59bf9981d3a4b1481ca7c198b1a85ee",
+                      "id":  "rss-6fc17490ac684ba8a0c26db062094825",
                       "title":  "Breaking America’s Promise to Pacific Island Veterans",
                       "url":  "https://warontherocks.com/breaking-americas-promise-to-pacific-island-veterans/",
                       "source":  "War on the Rocks",
@@ -424,7 +463,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-af5c2a1813c7418c8d894c5782318297",
+                      "id":  "rss-72f80d82a0874dfba18bc4ac9fc3eefa",
                       "title":  "MOLLE, PALS, and the Empty Loops of America’s Civil-Military Divide",
                       "url":  "https://warontherocks.com/cogs-of-war/molle-pals-and-the-empty-loops-of-americas-civil-military-divide/",
                       "source":  "War on the Rocks",
@@ -438,7 +477,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-a78e9f48fcc54b1cbbe56098478eb87b",
+                      "id":  "rss-563640130a394830b861553b4098a397",
                       "title":  "ABB Advant Master Online Builder",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-01",
                       "source":  "CISA Cybersecurity Advisories",
@@ -451,7 +490,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-50842f13043f48e4a70ea98656c877d3",
+                      "id":  "rss-4b55cf652da442ae8fd58af0446ae91b",
                       "title":  "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-adds-four-known-exploited-vulnerabilities-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -464,7 +503,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-2461562cffc34d82950499b0268afe3e",
+                      "id":  "rss-0af210f0f0f142dd8307b68426c639e6",
                       "title":  "CISA Urges SharePoint Hardening After New Exploitations",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-urges-sharepoint-hardening-after-new-exploitations",
                       "source":  "CISA Cybersecurity Advisories",
@@ -477,7 +516,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-62a93aa7df864f18a2fefa7f3ba78548",
+                      "id":  "rss-a0a54b470b3449ccba9cb8c4b5cb7d00",
                       "title":  "Rockwell Automation 1715-AENTR EtherNet/IP Adapter",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-195-04",
                       "source":  "CISA Cybersecurity Advisories",
@@ -492,7 +531,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-d6736acb1bdc46a09d0f60967facb07c",
+                      "id":  "rss-99b34f291d124344b78e8a0ec2d0a50e",
                       "title":  "CISA Joins NSA, FBI, DC3 and International Partners Warning of Russian Cyber Threat Activity Targeting Communications, Energy, Government and Other Critical Infrastructure Sectors",
                       "url":  "https://www.cisa.gov/news-events/news/cisa-joins-nsa-fbi-dc3-and-international-partners-warning-russian-cyber-threat-activity-targeting",
                       "source":  "CISA News",
@@ -508,7 +547,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-e4579589d69f4281acb0af653094ab27",
+                      "id":  "rss-1e5084f8256442a783bd3d28c716490b",
                       "title":  "A Return to Mass: Russian Force Expansion in the War with Ukraine",
                       "url":  "https://warontherocks.com/a-return-to-mass-russian-force-expansion-in-the-war-with-ukraine/",
                       "source":  "War on the Rocks",
@@ -521,7 +560,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-764a4faf81aa425d95c9ead0f1ba85cf",
+                      "id":  "rss-dbd7f24748b3482aa6f317c9b7763c01",
                       "title":  "NATO’s Unity on Paper and Fractures Beneath the Surface",
                       "url":  "https://warontherocks.com/natos-unity-on-paper-and-fractures-beneath-the-surface/",
                       "source":  "War on the Rocks",
@@ -536,7 +575,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-785dae2c434e4c11bb42b1b79536c5e6",
+                      "id":  "rss-042a9716af654a5bbc61c4dffa6fb6c9",
                       "title":  "Outgunned, But Not Outplayed: Iran’s Theory of Victory",
                       "url":  "https://warontherocks.com/outgunned-but-not-outplayed-irans-theory-of-victory/",
                       "source":  "War on the Rocks",
@@ -549,7 +588,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-9a76fb42a63d4946826e48e16bb12121",
+                      "id":  "rss-376058f057184bef8e06f041918f391c",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/07/13/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -562,7 +601,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-a48fd6a7827442c7b8a8881ca3f900f6",
+                      "id":  "rss-21b8e6689a5c460b9faaaa5f86fad919",
                       "title":  "Improve Router Hygiene to Protect Against Russian State-Sponsored Targeting",
                       "url":  "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-194a",
                       "source":  "CISA Cybersecurity Advisories",
@@ -575,7 +614,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-b44ac5e57e0b42929b06da534402df01",
+                      "id":  "rss-d5c2c95b436d4bd4a79af74a9899c6ac",
                       "title":  "An Unlearned Lesson: The Sorry Record of Regime Change Operations in the Middle East",
                       "url":  "https://warontherocks.com/an-unlearned-lesson-the-sorry-record-of-regime-change-operations-in-the-middle-east/",
                       "source":  "War on the Rocks",
@@ -588,7 +627,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-1219825d016c4cad9b34ac0c55c86c2c",
+                      "id":  "rss-43220f1203ed4232adb9388ffc7da70c",
                       "title":  "Big Promises, Bigger Blind Spots for Ukraine’s Security",
                       "url":  "https://warontherocks.com/big-promises-bigger-blind-spots-for-ukraines-security/",
                       "source":  "War on the Rocks",
@@ -597,46 +636,6 @@
                       "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum only for War on the Rocks members. Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.American coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.Frontline and StrategyОбозреватель — The post Big Promises, Bigge...",
                       "suggestedPirIds":  [
 
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-ed42140c1afb4e4fbd5657eb6e563b2d",
-                      "title":  "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-07-10",
-                      "summary":  "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-48939 iCagenda Unrestricted Upload of File with Dangerous Type Vulnerability CVE-2026-56291 Balbooa Forms Unrestricted Upload of File with Dangerous Type Vulnerability These types of vulnerabilities are a frequent attack vector for malicious cyber actors and pose significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Catalog...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-c55fd172650a432fa0aa865ad67ce578",
-                      "title":  "No Manners Here: The Ruthless Rise of The Gentlemen Ransomware",
-                      "url":  "https://unit42.paloaltonetworks.com/the-gentlemen-ransomware/",
-                      "source":  "Palo Alto Unit 42",
-                      "category":  "Commercial CTI",
-                      "published":  "2026-07-10",
-                      "summary":  "Unit 42 explores The Gentlemen ransomware operations, revealing the affiliate model driving its rapid growth. Learn more here. The post No Manners Here: The Ruthless Rise of The Gentlemen Ransomware appeared first on Unit 42 .",
-                      "suggestedPirIds":  [
-                                              13,
-                                              15
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-e55a0fa28cbb421dae4206005acbedda",
-                      "title":  "Going Over the Brink: How Hizballah’s Risk Strategy Made Lebanon Impossible to Ignore",
-                      "url":  "https://warontherocks.com/going-over-the-brink-how-hizballahs-risk-strategy-made-lebanon-impossible-to-ignore/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-07-10",
-                      "summary":  "When the United States and Iran announced their framework agreement on June 15, attention focused on the direct U.S.-Iran dimensions of the deal, including the reopening of the Strait of Hormuz, the lifting of the U.S. naval blockade, and the fate of Iran’s nuclear program. But the agreement also included a commitment to the “immediate and permanent termination of military operations on all fronts, including Lebanon.” Washington had spent months treating Lebanon as a separate issue in negotiations, even as the Israel-Hizballah conflict remained active under a nominal ceasefire in place since April 16.It was ultimately this second front that The post Going Over the Brink: How Hizballah’s Risk...",
-                      "suggestedPirIds":  [
-                                              14
                                           ],
                       "suggestedSector":  "Energy"
                   }
