@@ -5,13 +5,24 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060c14">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alamo Threat Brief ATB-2026-6 | Week of April 14-19, 2026 | Liberty CTI</title>
+<title>The Alamo Threat Brief ATB-2026-22 | Week of August 2-8, 2026 | Liberty CTI</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060c14;--surface:#091424;--panel:#0c1e30;--tile:#0f2540;--border:#1a3a5c;--border-hi:#2a5a8c;--text:#e8f0fa;--text-dim:#c4d8ee;--text-low:#8aaece;--white:#ffffff;--gold:#d4a040;--gold-hi:#f0c870;--blue:#5abcf0;--blue-hi:#88d4ff;--energy:#f0c060;--finance:#5abcf0;--health:#60dd98;--defense:#c098f0;--tech:#50e0d0;--danger:#f06854;--amber:#e09030;--screen-glow:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(90,188,240,.08) 0%,transparent 65%);}
+:root {
+  --bg:#060c14;--surface:#091424;--panel:#0c1e30;--tile:#0f2540;--lift:#122848;
+  --border:#1a3a5c;--border-hi:#2a5a8c;
+  --text:#e8f0fa;--text-dim:#c4d8ee;--text-low:#8aaece;--white:#ffffff;
+  --gold:#d4a040;--gold-hi:#f0c870;--gold-dim:rgba(212,160,64,.18);
+  --blue:#5abcf0;--blue-hi:#88d4ff;
+  --energy:#f0c060;--finance:#5abcf0;--health:#60dd98;--defense:#c098f0;--gov:#f09068;--tech:#50e0d0;
+  --danger:#f06854;--amber:#e09030;
+  --screen-glow:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(90,188,240,.08) 0%,transparent 65%);
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;background:#060c14!important}
 body{background:#060c14!important;color:#e8f0fa!important;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;padding-top:56px;}
+
+/* NAV */
 nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);border-bottom:1px solid rgba(212,160,64,.2);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .nav-emblem{width:32px;height:32px;object-fit:contain;}
@@ -19,9 +30,12 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);bor
 .nav-wordmark span{color:var(--gold);}
 .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;}
 .nav-links a{font-family:'Rajdhani',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,240,250,.55);text-decoration:none;transition:color .2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-links a:hover{color:var(--gold-hi);}
+.nav-links a.active{color:var(--gold);}
 .nav-cta{color:var(--gold)!important;border:1px solid rgba(212,160,64,.5);padding:.35rem 1rem;}
 .nav-cta:hover{background:var(--gold)!important;color:var(--bg)!important;}
+
+/* MASTHEAD */
 .masthead{background:var(--surface);position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
 .masthead-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.15;pointer-events:none;}
 .masthead::before{content:'';position:absolute;inset:0;background:var(--screen-glow),radial-gradient(ellipse 40% 80% at 95% 50%,rgba(212,160,64,.06) 0%,transparent 60%);pointer-events:none;}
@@ -54,87 +68,144 @@ nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);bor
 .ts-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(212,160,64,.7);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
 .ts-text{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,160,64,.7);}
 .ts-text strong{color:var(--gold);}
+
+/* CLASSIFICATION */
 .cls-banner{background:rgba(90,188,240,.07);border-bottom:1px solid var(--border);padding:5px 20px;display:flex;align-items:center;justify-content:space-between;}
 .cls-text{font-family:'Share Tech Mono',monospace;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-low);}
 .cls-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--blue);opacity:.7;}
+
+/* TICKER */
 .ticker-strip{background:rgba(176,40,30,.65);border-top:1px solid rgba(240,104,84,.5);border-bottom:1px solid var(--border);overflow:hidden;white-space:nowrap;padding:8px 0;}
 .ticker-inner{display:inline-block;animation:ticker 60s linear infinite;}
 .ticker-item{display:inline;font-family:'Share Tech Mono',monospace;font-size:.82rem;color:var(--white);letter-spacing:.08em;padding:0 60px;text-decoration:none;}
 .ticker-item::before{content:'\25C6 ';color:var(--gold);}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PAGE */
 .page-body{max-width:1040px;margin:0 auto;padding:0 40px 80px;}
+
+/* SECTION RULES */
 .section-rule{display:flex;align-items:center;gap:14px;margin:48px 0 24px;}
 .section-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;background:rgba(90,188,240,.08);border:1px solid rgba(90,188,240,.25);padding:4px 12px;white-space:nowrap;}
 .section-rule-line{flex:1;height:1px;background:linear-gradient(to right,rgba(90,188,240,.4),transparent);}
 h2.section-head{font-family:'Rajdhani',sans-serif;font-size:1.7rem;font-weight:700;color:var(--white);letter-spacing:.03em;margin-bottom:6px;}
 h3.sub-head{font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:var(--blue-hi);margin:28px 0 10px;border-left:3px solid var(--blue);padding-left:12px;letter-spacing:.04em;}
 p{margin-bottom:14px;color:var(--text);}
+
+/* INTRO */
 .intro-deck{border-top:3px solid var(--blue);padding:28px 0 0;margin-bottom:12px;}
-.intro-deck p{font-size:1.06rem;line-height:1.75;font-weight:300;}
+.intro-deck p{font-size:1.06rem;line-height:1.75;color:var(--text);font-weight:300;}
 .intro-deck strong{font-weight:600;color:var(--white);}
+
+/* CENTERPIECE */
 .centerpiece{background:var(--panel);border:1px solid rgba(90,188,240,.25);border-left:5px solid var(--danger);padding:32px 36px;margin:32px 0;position:relative;}
 .centerpiece::before{content:'THIS WEEK\'S CENTERPIECE ANALYSIS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--danger);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);font-weight:600;}
 .centerpiece-title{font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:16px;letter-spacing:.02em;}
-.centerpiece p{font-size:.95rem;line-height:1.72;}
+.centerpiece p{color:var(--text);font-size:.95rem;line-height:1.72;}
 .centerpiece strong{color:var(--gold-hi);}
+
+/* KJ */
 .kj-block{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:32px 36px;margin:32px 0;position:relative;}
 .kj-block::before{content:'KEY JUDGMENTS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
 .kj-item{display:flex;gap:16px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(90,188,240,.12);}
 .kj-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
 .kj-num{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);font-weight:600;white-space:nowrap;padding-top:3px;min-width:24px;}
-.kj-text{font-size:.94rem;line-height:1.68;}
+.kj-text{font-size:.94rem;color:var(--text);line-height:1.68;}
 .kj-text strong{color:var(--white);font-weight:600;}
 .kj-uncertainty{font-size:.82rem;color:var(--text-low);font-style:italic;margin-top:6px;padding-top:6px;border-top:1px solid rgba(90,188,240,.08);}
 .conf{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;vertical-align:middle;margin-left:5px;}
 .conf-high{background:rgba(90,188,240,.15);color:#88d4ff;border:1px solid rgba(90,188,240,.4);}
 .conf-mod{background:rgba(212,160,64,.15);color:var(--gold-hi);border:1px solid rgba(212,160,64,.4);}
 .aq{font-weight:700;color:var(--blue-hi);}
-.decision-line{margin-top:8px;padding-top:8px;border-top:1px solid rgba(90,188,240,.08);font-size:.82rem;color:var(--text-dim);}
-.decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+
+/* WARNING BOX */
+.warning-box{background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:4px solid var(--danger);padding:20px 24px;margin:24px 0;}
+.warning-box::before{content:'\26A0  CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
+.warning-box p{color:var(--text);font-size:.93rem;}
+
+/* ASSESSMENT BOX */
 .assessment-box{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:3px solid var(--blue);padding:18px 22px;margin:20px 0;}
 .assessment-label{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;}
-.assessment-box p{font-size:.93rem;font-style:italic;}
+.assessment-box p{color:var(--text);font-size:.93rem;font-style:italic;}
+
+/* DOCTRINE GRID */
+.doctrine-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
+.doctrine-card{background:var(--panel);padding:20px;position:relative;}
+.doctrine-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;}
+.doctrine-card:nth-child(1)::before{background:linear-gradient(90deg,var(--danger),transparent 70%);}
+.doctrine-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),transparent 70%);}
+.doctrine-card:nth-child(3)::before{background:linear-gradient(90deg,var(--gold),transparent 70%);}
+.doctrine-card:nth-child(4)::before{background:linear-gradient(90deg,var(--health),transparent 70%);}
+.doctrine-label{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.18em;color:var(--text-low);text-transform:uppercase;margin-bottom:6px;}
+.doctrine-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(90,188,240,.15);letter-spacing:.04em;}
+.doctrine-card p{font-size:.82rem;color:var(--text-dim);margin-bottom:6px;line-height:1.6;}
+.doctrine-card strong{color:var(--text);}
+
+/* IMPLICATIONS */
 .implications-table{border:1px solid var(--border);margin:24px 0;}
 .implication-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid rgba(26,58,92,.5);}
 .implication-row:last-child{border-bottom:none;}
-.implication-sector{font-family:'Share Tech Mono',monospace;font-size:.65rem;font-weight:600;padding:14px 16px;background:rgba(90,188,240,.04);border-right:1px solid rgba(26,58,92,.5);display:flex;align-items:flex-start;text-transform:uppercase;letter-spacing:.08em;flex-direction:column;gap:4px;}
+.implication-sector{font-family:'Share Tech Mono',monospace;font-size:.65rem;font-weight:600;color:var(--gold);padding:14px 16px;background:rgba(90,188,240,.04);border-right:1px solid rgba(26,58,92,.5);display:flex;align-items:flex-start;text-transform:uppercase;letter-spacing:.08em;flex-direction:column;gap:4px;}
 .implication-sector span{font-size:.55rem;opacity:.6;}
-.implication-content{padding:14px 18px;font-size:.88rem;line-height:1.68;}
+.implication-content{padding:14px 18px;font-size:.88rem;color:var(--text);line-height:1.68;}
 .implication-content strong{color:var(--white);}
 .implication-row.energy .implication-sector{border-left:3px solid var(--energy);color:var(--energy);}
-.implication-row.finance .implication-sector{border-left:3px solid var(--finance);color:var(--finance);}
 .implication-row.healthcare .implication-sector{border-left:3px solid var(--health);color:var(--health);}
+.implication-row.finance .implication-sector{border-left:3px solid var(--finance);color:var(--finance);}
 .implication-row.defense .implication-sector{border-left:3px solid var(--defense);color:var(--defense);}
 .implication-row.ai .implication-sector{border-left:3px solid var(--tech);color:var(--tech);}
+
+/* PIR / I&W */
 .prq-block{border:1px solid var(--border);margin:20px 0;overflow:hidden;}
 .prq-header{background:var(--tile);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .prq-id{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);background:rgba(90,188,240,.12);border:1px solid rgba(90,188,240,.3);padding:3px 10px;}
-.prq-title{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--text);letter-spacing:.08em;text-transform:uppercase;flex:1;}
-.prq-risk{font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:3px 8px;border:1px solid;white-space:nowrap;}
+.prq-title{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--text);letter-spacing:.08em;text-transform:uppercase;}
+.prq-risk{margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:3px 8px;border:1px solid;}
 .risk-rising{color:var(--danger);border-color:rgba(240,104,84,.4);background:rgba(240,104,84,.08);}
 .risk-stable{color:var(--gold);border-color:rgba(212,160,64,.4);background:rgba(212,160,64,.08);}
+.risk-unclear{color:var(--text-low);border-color:var(--border);}
 .prq-body{padding:18px 20px;background:var(--panel);border-top:1px solid rgba(26,58,92,.5);}
-.prq-body p{font-size:.88rem;margin-bottom:8px;}
+.prq-body p{font-size:.88rem;color:var(--text);margin-bottom:8px;}
+.prq-body p:last-child{margin-bottom:0;}
 .prq-indicators{list-style:none;padding:0;margin:8px 0;}
 .prq-indicators li{font-size:.82rem;color:var(--text-dim);padding:4px 0 4px 16px;border-bottom:1px solid rgba(26,58,92,.3);position:relative;}
 .prq-indicators li:last-child{border-bottom:none;}
-.prq-indicators li::before{content:'\2192';position:absolute;left:0;color:var(--blue);}
+.prq-indicators li::before{content:'\2192';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
+
+/* WATCH LIST */
 .watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
 .watch-item{background:var(--panel);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;}
 .watch-num{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--blue);font-weight:700;flex-shrink:0;padding-top:2px;min-width:22px;}
-.watch-text{font-size:.85rem;line-height:1.6;}
+.watch-text{font-size:.85rem;color:var(--text);line-height:1.6;}
 .watch-text strong{color:var(--gold-hi);}
+
+/* ANALYST NOTE */
 .analyst-note{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:28px 32px;margin:32px 0;position:relative;}
 .analyst-note::before{content:'ANALYST\'S NOTE';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
-.analyst-note p{font-size:.95rem;line-height:1.75;margin-bottom:14px;}
+.analyst-note p{font-size:.95rem;color:var(--text);line-height:1.75;margin-bottom:14px;}
 .analyst-note p:last-child{margin-bottom:0;}
+
+/* EXECUTIVE DECISION BRIEF */
 .exec-brief{background:var(--panel);border:1px solid rgba(212,160,64,.25);border-left:5px solid var(--gold);padding:28px 32px;margin:28px 0;position:relative;}
 .exec-brief::before{content:'EXECUTIVE DECISION BRIEF';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
 .exec-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px;}
 .exec-item{padding:14px 16px;border:1px solid rgba(212,160,64,.14);background:rgba(212,160,64,.04);}
-.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--white);margin-bottom:6px;}
-.exec-item p{font-size:.9rem;margin:0;line-height:1.65;}
+.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--gold-hi);margin-bottom:6px;}
+.exec-item p{font-size:.9rem;color:var(--text);margin:0;line-height:1.65;}
 .exec-item strong{color:var(--gold-hi);}
+.decision-line{margin-top:8px;padding-top:8px;border-top:1px solid rgba(212,160,64,.12);font-size:.82rem;color:var(--text-dim);}
+.decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+
+/* GOVERNANCE / PRIOR JUDGMENT */
+h2.section-head.gold-heading{color:var(--gold-hi);}
+.gov-block{background:var(--panel);border:1px solid rgba(212,160,64,.22);border-left:5px solid var(--gold);padding:26px 30px;margin:24px 0 36px;}
+.gov-row{display:grid;grid-template-columns:190px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(212,160,64,.12);}
+.gov-row:last-child{border-bottom:none;}
+.gov-label{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.04em;color:var(--gold-hi);text-transform:uppercase;}
+.gov-content{font-size:.95rem;color:var(--text);line-height:1.65;}
+
+
+/* SOURCES */
 .src-block{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--blue);padding:26px 28px;margin:36px 0;}
 .src-header{font-family:'Share Tech Mono',monospace;font-size:.66rem;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:18px;}
 .src-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
@@ -149,32 +220,29 @@ p{margin-bottom:14px;color:var(--text);}
 .src-summary{font-family:'Source Serif 4',Georgia,serif!important;font-size:.9rem!important;color:var(--text-dim)!important;line-height:1.7!important;margin-top:16px!important;border-top:1px solid var(--border)!important;padding-top:12px!important;}
 .src-bullet{color:var(--blue);flex-shrink:0;}
 hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
+
+/* TORCH NOTE */
 .torch-note{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:20px 24px;margin:20px 0;}
 .torch-label{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;display:block;}
-.torch-note p{font-size:.88rem;font-style:italic;}
+.torch-note p{font-size:.88rem;color:var(--text);font-style:italic;}
 .torch-note strong{color:var(--blue-hi);font-style:normal;}
+
+/* BRIEF FOOTER */
 .brief-footer{background:var(--surface);border-top:1px solid rgba(212,160,64,.2);padding:36px 40px;}
 .footer-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
 .footer-brand{font-family:'Rajdhani',sans-serif;font-size:.8rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
 .footer-legal{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--text-low);letter-spacing:.1em;text-align:right;line-height:1.8;}
-.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,.2);padding:4rem 2.5rem 2rem;}
-.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;}
-.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;}
-.lcti-footer-emblem{width:36px;height:36px;object-fit:contain;}
-.lcti-footer-brand-name{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6;}
-.lcti-footer-brand-name span{color:#b8963e;}
-.lcti-footer-tagline{font-size:.95rem;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem;}
-.lcti-footer-slogan{font-family:'Share Tech Mono',monospace;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;}
-.lcti-footer-col-title{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;margin-bottom:.9rem;display:block;}
-.lcti-footer-links{list-style:none;}
-.lcti-footer-links li{margin-bottom:.45rem;}
-.lcti-footer-links a{font-size:.88rem;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s;}
-.lcti-footer-links a:hover{color:#b8963e;}
-.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600;}
-.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;}
-.lcti-footer-copy{font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:rgba(244,239,230,.56);}
-@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem;}}
-@media(max-width:700px){.masthead-inner,.page-body{padding-left:20px;padding-right:20px;}.watch-grid{grid-template-columns:1fr;}.implication-row{grid-template-columns:1fr;}.implication-sector{border-bottom:1px solid rgba(26,58,92,.4);}.kj-block,.centerpiece,.exec-brief,.analyst-note{padding:20px;}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .doctrine-grid,.watch-grid{grid-template-columns:1fr!important;}
+  .implication-row{grid-template-columns:1fr!important;}
+  .implication-sector{border-right:none!important;border-bottom:1px solid rgba(26,58,92,.5)!important;}
+}
+@media(max-width:768px){
+  .page-body{padding:0 20px 60px;}
+  .masthead-inner{padding:24px 20px 0;}
+}
 </style>
 <style id="lcti-stat-legibility">
 html{
@@ -1064,7 +1132,7 @@ body [style*="Instrument Sans"]{
 </style>
 </head>
 <body>
-<div id="dw" style="background:#060c14;min-height:100vh;">
+<div id="dw" style="background:#060c14;min-height:100vh;color:#e8f0fa;">
 
 <!-- NAV -->
 <!-- LCTI:NAV:START -->
@@ -1157,7 +1225,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="/atb/2026/05-31-2026/" role="menuitem">Latest Issue, Week of May 31, 2026</a>
+        <a href="08-08-2026.html" role="menuitem">Latest Issue, Week of Aug 2–8, 2026</a>
         <div class="drop-divider"></div>
         <a href="../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
       </div>
@@ -1206,7 +1274,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
   <div class="m-sub">
-    <a href="/atb/2026/05-31-2026/">Latest Issue, Week of May 31, 2026</a>
+    <a href="08-08-2026.html">Latest Issue, Week of Aug 2–8, 2026</a>
     <a href="../index.html" class="lcti-archive-link">Archive</a>
   </div>
 
@@ -1245,7 +1313,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['05-31-2026.html'],
+    'alamo-threat-brief.html':['08-08-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1281,28 +1349,28 @@ body [style*="Instrument Sans"]{
       <p class="title-desc">Weekly cyber threat intelligence for Texas industry &mdash; source-backed assessments for executive decision-makers.</p>
     </div>
     <div class="meta-row">
-      <div class="pill"><strong>Issue:</strong> ATB-2026-6</div>
-      <div class="pill"><strong>Week of:</strong> April 14&ndash;19, 2026</div>
-      <div class="pill"><strong>Coverage:</strong> Energy &middot; Finance &middot; Healthcare &middot; Defense &middot; AI</div>
-      <div class="pill"><strong>Next Issue:</strong> 26 Apr 2026</div>
+      <div class="pill"><strong>Issue:</strong> ATB-2026-22</div>
+      <div class="pill"><strong>Week of:</strong> Aug 2&ndash;8, 2026</div>
+      <div class="pill"><strong>Coverage:</strong> Water &middot; Energy &middot; Finance &middot; Healthcare &middot; DIB</div>
+      <div class="pill"><strong>Next Issue:</strong> 15 August 2026</div>
     </div>
     <div class="threat-banner">
       <div class="threat-dot"></div>
-      <div class="threat-label">Elevated &mdash; Geopolitical pressure drives adversary activity; Iran OT risk persists; DPRK weaponizes AI against people; criminal infrastructure disrupted but expected to reconstitute</div>
+      <div class="threat-label">Elevated &mdash; Water-sector OT campaign widens to Michigan and New Jersey (unconfirmed reporting places the total at 12 states); identity-centric extortion pivots into major U.S. financial and private-equity firms; neither has produced a confirmed Texas-specific incident to date</div>
     </div>
   </div>
   <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
     <div class="meta-strip">
-      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">19 APRIL 2026</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">14&ndash;19 APR 2026</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">GEOPOLITICS SHAPING THE THREAT SURFACE</div></div>
-      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY &middot; FINANCE &middot; DIB &middot; HEALTHCARE</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">08 AUGUST 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">02&ndash;08 AUGUST 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">ACCESS IS THE NEW PERIMETER</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">WATER &middot; ENERGY &middot; FIN &middot; HEALTH &middot; DIB</div></div>
       <div class="meta-cell"><div class="meta-lbl">Torch Fusion Cycle</div><div class="meta-val">WHAT &middot; WHO &middot; WHY &middot; WHAT NEXT</div></div>
     </div>
     <div class="timestamp-bar">
-      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>19 APR 2026 // 0600 CST</strong></span></div>
-      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>14&ndash;19 APR 2026</strong></span></div>
-      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>26 APR 2026</strong></span></div>
+      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>08 AUGUST 2026 // 0600 CST</strong></span></div>
+      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>02&ndash;08 AUGUST 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>15 AUGUST 2026</strong></span></div>
       <div class="ts-item"><span class="ts-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span></div>
     </div>
   </div>
@@ -1313,362 +1381,352 @@ body [style*="Instrument Sans"]{
   <span class="cls-text">Liberty CTI Open Source Analysis &mdash; For Texas Industry Situational Awareness</span>
   <span class="cls-badge">UNCLASSIFIED // OPEN SOURCE // PROPRIETARY</span>
 </div>
-
 <!-- TICKER -->
 <div class="ticker-strip">
   <div class="ticker-inner">
-    <a class="ticker-item" href="https://thehackernews.com/2026/04/cisco-patches-four-critical-identity.html" target="_blank" rel="noopener">CRITICAL: Cisco discloses four critical flaws in enterprise collaboration and network access platforms &mdash; unauthenticated user impersonation confirmed; administrator action required beyond vendor-side patches</a>
-    <a class="ticker-item" href="https://thehackernews.com/2026/04/apache-activemq-cve-2026-34197-added-to.html" target="_blank" rel="noopener">CISA adds Apache ActiveMQ to Known Exploited Vulnerabilities list &mdash; 13-year-old code injection flaw under active exploitation; federal patch deadline April 30; widely deployed in Texas enterprise environments</a>
-    <a class="ticker-item" href="https://thehackernews.com/2026/04/three-microsoft-defender-zero-days.html" target="_blank" rel="noopener">Three Microsoft Defender zero-days under active exploitation &mdash; privilege escalation and definition-disruption capabilities confirmed; two remain unpatched as of April 17</a>
-    <a class="ticker-item" href="https://thehackernews.com/2026/04/operation-poweroff-seizes-53-ddos.html" target="_blank" rel="noopener">Operation PowerOFF: 21-nation action seizes 53 DDoS-for-hire domains &mdash; 4 arrests, 3 million criminal accounts exposed; near-term rebound activity expected</a>
-    <a class="ticker-item" href="https://www.gadgets360.com/cryptocurrency/news/zerion-links-crypto-attack-to-dprk-hackers-using-ai-tactics-crypto-scams-april-2026-11361393/amp" target="_blank" rel="noopener">DPRK AI-enabled social engineering confirmed at Zerion &mdash; $100K stolen via employee session hijacking; North Korea uses AI to make human targeting indistinguishable from legitimate contact</a>
-    <a class="ticker-item" href="https://www.nist.gov/news-events/news/2026/04/nist-updates-nvd-operations-address-record-cve-growth" target="_blank" rel="noopener">NIST narrows vulnerability database enrichment scope &mdash; CVE volume up 263% since 2020; organizations without supplemental intelligence now face structural patch prioritization gaps</a>
-    <a class="ticker-item" href="https://thehackernews.com/2026/04/cisco-patches-four-critical-identity.html" target="_blank" rel="noopener">CRITICAL: Cisco discloses four critical flaws in enterprise collaboration and network access platforms &mdash; unauthenticated user impersonation confirmed; administrator action required beyond vendor-side patches</a>
-    <a class="ticker-item" href="https://thehackernews.com/2026/04/apache-activemq-cve-2026-34197-added-to.html" target="_blank" rel="noopener">CISA adds Apache ActiveMQ to Known Exploited Vulnerabilities list &mdash; 13-year-old code injection flaw under active exploitation; federal patch deadline April 30; widely deployed in Texas enterprise environments</a>
+    <a class="ticker-item" href="https://www.epa.gov/cyberwater/cybersecurity-102" target="_blank" rel="noopener">EPA continues OT-focused Cybersecurity 102 training for water utilities amid active multi-state PLC campaign &mdash; sector risk now treated as persistent operational problem, not episodic IT concern</a>
+    <a class="ticker-item" href="https://www.fedramp.gov/notices/0014/" target="_blank" rel="noopener">FedRAMP&rsquo;s 7 August BOD 26-04 milestone compresses vulnerability-remediation timelines &mdash; legacy monthly scanning no longer an adequate benchmark for federal-adjacent and regulated enterprises</a>
+    <a class="ticker-item" href="https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit" target="_blank" rel="noopener">Gov. Abbott orders PUCT/ERCOT to audit the entire data-center interconnection queue &mdash; ERCOT pauses Batch Zero notifications pending the 20 August PUCT hearing</a>
+    <!-- duplicate for seamless loop -->
+    <a class="ticker-item" href="https://www.epa.gov/cyberwater/cybersecurity-102" target="_blank" rel="noopener">EPA continues OT-focused Cybersecurity 102 training for water utilities amid active multi-state PLC campaign &mdash; sector risk now treated as persistent operational problem, not episodic IT concern</a>
+    <a class="ticker-item" href="https://www.fedramp.gov/notices/0014/" target="_blank" rel="noopener">FedRAMP&rsquo;s 7 August BOD 26-04 milestone compresses vulnerability-remediation timelines &mdash; legacy monthly scanning no longer an adequate benchmark for federal-adjacent and regulated enterprises</a>
+    <a class="ticker-item" href="https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit" target="_blank" rel="noopener">Gov. Abbott orders PUCT/ERCOT to audit the entire data-center interconnection queue &mdash; ERCOT pauses Batch Zero notifications pending the 20 August PUCT hearing</a>
   </div>
 </div>
 
-<!-- BODY -->
+<!-- PAGE BODY -->
 <div class="page-body">
 
-<div class="intro-deck">
-  <p>This issue of the <strong>Alamo Threat Brief</strong> covers the week of <strong>19 April 2026</strong> and assesses a threat environment that cannot be understood without its geopolitical frame. The Iran-U.S. confrontation that began with February&rsquo;s strikes is unresolved. North Korea is operating under tightening sanctions with a strategic requirement to extract revenue by any means available. China is watching a Taiwan Strait environment that grows more consequential by the quarter. Russia&rsquo;s war economy continues to shelter criminal cyber actors targeting Western institutions. This week&rsquo;s developments &mdash; North Korea using artificial intelligence to compromise individuals rather than systems, Iran&rsquo;s OT disruption campaign continuing without retreat, and law enforcement disrupting criminal infrastructure that will reconstitute &mdash; are <strong>geopolitics expressing itself through technology.</strong> Texas is in the target set for all of it.</p>
-</div>
-
-<div class="exec-brief">
-  <div class="exec-grid">
-    <div class="exec-item">
-      <div class="exec-item-title">Decision 1 &mdash; The Adversary Is Targeting Your People, Not Just Your Systems</div>
-      <p><strong>North Korea confirmed this week that it can make a fraudulent contact indistinguishable from a legitimate one.</strong> If your organization has employees with privileged access to financial systems, cloud infrastructure, or sensitive data, decide whether your session monitoring, access controls, and awareness posture reflect that threat model. The adversary is not at your firewall. They are in your employee&rsquo;s inbox.</p>
-    </div>
-    <div class="exec-item">
-      <div class="exec-item-title">Decision 2 &mdash; Iran&rsquo;s OT Campaign Did Not End Last Week</div>
-      <p><strong>The federal advisory confirming Iranian disruption of U.S. industrial systems described an ongoing campaign.</strong> No Texas-named victim appeared in open reporting this week. That is a gap in public disclosure, not evidence the campaign paused. If you operate energy, water, or industrial infrastructure in Texas, decide whether you are treating this as an active condition or a closed news cycle.</p>
-    </div>
-    <div class="exec-item">
-      <div class="exec-item-title">Decision 3 &mdash; Your Intelligence Layer May Have a Structural Gap</div>
-      <p><strong>The federal government permanently narrowed its vulnerability intelligence support this week.</strong> If your organization relies on national databases for patch prioritization, that process is now less complete than it was seven days ago. Decide whether you have a supplemental source of threat intelligence, or whether gaps in federal enrichment become gaps in your defenses.</p>
-    </div>
+  <div class="intro-deck">
+    <p><strong>Executive Warning:</strong> The exploited seam this week is not a network perimeter &mdash; it is the boundary between digital access and operational authority, and adversaries are working both sides of it. A water-sector intrusion campaign first confirmed in Minnesota has widened to Michigan and New Jersey, with unconfirmed wire reporting placing the total at twelve states; attackers who gain remote control of small-utility systems are forcing operators into manual operations to preserve safety. Separately, an identity-centric extortion group has pivoted from retail and healthcare into private equity, hedge funds, and law firms &mdash; walking through corporate identity systems by phone call rather than by exploit. Neither campaign has produced a confirmed Texas-specific incident, but both expose a pattern Texas leadership should not assume applies only to someone else&rsquo;s utility or someone else&rsquo;s bank. A federal remediation deadline and a state grid-connection audit both landed this week, compressing the window boards have to decide who holds emergency authority before the next event forces the question.</p>
   </div>
-</div>
 
-<div class="centerpiece">
-  <div class="centerpiece-title">Adversaries Have Stopped Competing With Your Defenses &mdash; They Are Working Around Them</div>
-  <p>The central insight of this week&rsquo;s threat picture is strategic, not technical. <strong>The most capable adversaries targeting Texas organizations have concluded that trusted access is cheaper to exploit than defended perimeters.</strong> North Korea does not need to crack your network if it can compromise the person who already has the keys. Iran does not need to defeat your firewall if it can disrupt the industrial system your firewall was never designed to protect. China does not need to announce its presence if it can sit quietly inside your infrastructure until the geopolitical moment that makes that access consequential.</p>
-  <p>These are not separate campaigns. They are a shared doctrine &mdash; one in which the attack surface is not your technology stack but the trusted relationships your organization depends on to function. The people you trust. The platforms your teams communicate through. The enterprise software woven invisibly into your operations. <strong>When those relationships are compromised, the breach is often invisible until the damage has already occurred.</strong></p>
-  <p>For Texas, this is not a theoretical risk distributed across a national threat landscape. ERCOT, the Gulf Coast industrial corridor, the Texas Medical Center, the San Antonio defense ecosystem, and the state&rsquo;s rapidly expanding AI and financial infrastructure are specific, identifiable, and documented targets. The convergence of geopolitical pressure and adversary capability this week does not change that reality. It intensifies it.</p>
-  <p><strong>Bottom line:</strong> Texas executives should stop asking whether they are in the target set. They are. The more urgent question is whether they would recognize when a trusted relationship has been turned against them &mdash; and whether they would know before the decision space to respond has closed.</p>
-</div>
-
-<div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Key Judgments</h2>
-<div class="kj-block">
-
-  <div class="kj-item">
-    <span class="kj-num">KJ-1</span>
-    <div class="kj-text">
-      Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that North Korea&rsquo;s use of artificial intelligence to conduct social engineering against individuals with privileged access to financial systems and technology infrastructure will <span class="aq">almost certainly</span> continue to intensify through 2026, and that <strong>Texas financial institutions, fintech operators, and technology companies are inside the operational target profile.</strong> <span class="conf conf-high">HIGH CONFIDENCE</span>
-      <div class="kj-uncertainty">Primary uncertainty: direct Texas victimization in this cycle is not yet confirmed in open reporting. The targeting logic follows money, access, and opportunity &mdash; not geography alone.</div>
-      <div class="decision-line"><strong>Decision Implication:</strong> Privileged employees need session monitoring and awareness programs that specifically address AI-generated impersonation &mdash; not generic phishing training designed for a different threat environment.</div>
+  <div class="exec-brief">
+    <div class="exec-grid">
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Ask</div>
+        <p>Who is authorized, right now, to isolate OT remote access or lock down an identity/help-desk workflow during an active campaign &mdash; without waiting for a scheduled meeting?</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Direct</div>
+        <p>Require a named executive for OT-isolation authority and a named executive for identity/help-desk lockdown authority, confirmed in writing this week.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Document</div>
+        <p>Record which vulnerability-remediation exceptions leadership has accepted this week and why, ahead of the 14 August federal remediation-policy milestone.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Rehearse</div>
+        <p>Run a five-minute tabletop: your help desk gets a call from someone with an employee&rsquo;s real phone number, capable of capturing their MFA token live. Who do they call, and what can that person authorize without you?</p>
+      </div>
     </div>
   </div>
 
-  <div class="kj-item">
-    <span class="kj-num">KJ-2</span>
-    <div class="kj-text">
-      Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that Iran&rsquo;s demonstrated willingness to generate operational disruption against U.S. industrial infrastructure, confirmed in last week&rsquo;s joint federal advisory, <span class="aq">very likely</span> represents a persistent posture &mdash; not a temporary campaign &mdash; and that <strong>Texas energy and water operators remain in the highest-risk tier</strong> as long as U.S.-Iran geopolitical confrontation remains unresolved. <span class="conf conf-high">HIGH CONFIDENCE</span>
-      <div class="kj-uncertainty">Primary uncertainty: escalation decisions inside Tehran are driven by political leadership, not technical opportunity alone. The capability is in place. The trigger is geopolitical.</div>
-      <div class="decision-line"><strong>Decision Implication:</strong> The absence of a Texas-named victim in open reporting this week does not constitute an all-clear. Texas OT operators should maintain elevated posture on internet-reachable industrial systems.</div>
+  <div class="centerpiece">
+    <div class="centerpiece-title">Dominant Geo-Cyber Judgment</div>
+    <p>Liberty CTI assesses with <strong>high confidence</strong> that the exploited failure point across this week&rsquo;s two lead stories is the same: control over operational or identity systems is shifting to whoever can reach the access channel, not whoever holds the perimeter. Water utilities are losing control of programmable control systems through internet-exposed remote-access paths. Financial and legal firms are losing control of identity through help-desk trust, not through defeated multi-factor authentication. These are different sectors and different adversary types, but they present the same executive decision problem: who has pre-authorized emergency authority to sever or restrict an access channel before an intrusion becomes an operational or extortion event.</p>
+    <p>This is an <strong>escalation of a standing call, not a new hypothesis.</strong> ATB-2026-21 assessed the water-sector campaign&rsquo;s occurrence at high confidence &mdash; confirmed operational effects, seven-plus states &mdash; with Iranian affiliation carried as the leading hypothesis at moderate confidence, explicitly unconfirmed. This week&rsquo;s reporting is consistent with that trend line and does not change either judgment. What is genuinely new this week is the identity-centric extortion campaign against major financial and private-equity firms, which has not previously received standalone ATB treatment.</p>
+    <p><strong>Bottom line:</strong> Attribution on the water campaign remains unresolved &mdash; treat it as assessed likely origin, not confirmed fact, in any board or regulator communication. The finance-sector campaign requires no attribution debate to be actionable: the technique defeats trust, not technology, and any organization running federated identity with a human-staffed help desk is a plausible target regardless of sector label.</p>
+  </div>
+
+  <!-- SECTION I: WHAT CHANGED -->
+  <div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">What Changed This Week</h2>
+
+  <h3 class="sub-head">Water-Sector Campaign Widens to Michigan and New Jersey</h3>
+  <p>Michigan confirmed cyber incidents affecting nine water systems, and New Jersey confirmed two affected utilities where operators shifted to manual operations without service disruption or contamination. Unconfirmed wire reporting (Axios, ABC News, anonymous sourcing) places the total number of affected states at twelve as of 4 August, alongside a separate finding that a volunteer cyber-defense corps has reached only 21 of roughly 50,000 small water utilities nationwide. Liberty CTI treats the twelve-state figure as directionally consistent with the confirmed trend but not yet corroborated to the standard of the named-official confirmations in Michigan and New Jersey.</p>
+
+  <h3 class="sub-head">Identity-Centric Extortion Pivots Into Major Financial and Private-Equity Firms</h3>
+  <p>An extortion cluster tracked by primary vendor research rebranded from a retired public identity into several new fronts and shifted its primary targeting from retail and healthcare into private equity, hedge funds, law firms, and ratings agencies. Reporting names several large financial and private-equity firms among those targeted this month; some have confirmed attempted or blocked intrusions, most declined further comment. The technique bypasses multi-factor authentication by convincing an employee to authenticate the attacker, not by defeating the control technically. See Technical Annex for full TTP detail.</p>
+
+  <h3 class="sub-head">Texas Orders Audit of Entire Data-Center Interconnection Queue</h3>
+  <p>On 3 August, Governor Abbott directed PUCT and ERCOT to audit every data-center project in the grid interconnection queue &mdash; roughly 1,800 projects, over 474 GW, approximately 90 percent data centers &mdash; before any further connections proceed. ERCOT has paused its Batch Zero classification notifications and will seek a good-cause exception at PUCT&rsquo;s 20 August open meeting. This is a governance and timeline development, not a cyber incident, but it directly affects Energy and AI/cloud clients with projects in the queue and compounds the OT-exposure question raised by the water-sector campaign: audited interconnection means audited infrastructure.</p>
+
+  <h3 class="sub-head">CMMC Reform Window Closes in One Week</h3>
+  <p>The Department of War&rsquo;s CMMC Reform Task Force Request for Information closes 14 August, with recommendations due to the CMMC Reform Task Force by mid-September. Phase I self-assessment, DFARS 252.204-7012, and False Claims Act exposure remain fully in force regardless of the Phase II suspension. Defense contractors have one week left to shape the reformed program before the input window closes.</p>
+
+  <!-- SECTION II: KEY JUDGMENTS -->
+  <div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Key Judgments</h2>
+  <div class="kj-block">
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        Liberty CTI assesses that the exploited failure point across this week&rsquo;s water-sector and financial-sector campaigns is the same: control over operational or identity systems is shifting to whoever can reach the access channel, not whoever holds the perimeter. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: confirmed water-sector reporting (Michigan, New Jersey state officials); primary vendor threat research on the financial-sector extortion campaign; current wire reporting on named financial and private-equity targets. Primary uncertainty: this is a structural pattern judgment across two independently confirmed campaigns, not a claim that the two campaigns are operationally linked.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Boards should treat OT-isolation authority and identity/help-desk lockdown authority as the same category of decision &mdash; pre-authorized, named, and exercised before an incident forces the question.</div>
+      </div>
+    </div>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        Liberty CTI assesses, unchanged from ATB-2026-21, that the water-sector campaign&rsquo;s occurrence is confirmed at multi-state scale with operational effects requiring manual operations. <span class="conf conf-high">HIGH CONFIDENCE</span>. Iranian affiliation remains the leading hypothesis and is not a confirmed attribution. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: Michigan and New Jersey state-official confirmations this week; ATB-2026-21&rsquo;s FBI/EPA PSA I-073026-PSA and CISA companion-alert basis carried forward. Primary uncertainty: the unconfirmed twelve-state figure and any specific Iran attribution in current reporting rely on anonymous sourcing and do not meet Liberty CTI&rsquo;s threshold for a confidence upgrade on either count.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Communicate occurrence to boards and regulators as confirmed fact; communicate attribution as assessed likely origin, not confirmed fact. Overstating certainty on attribution is a credibility risk if it later shifts.</div>
+      </div>
+    </div>
+
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        Liberty CTI assesses that identity-centric extortion targeting private equity, hedge funds, and law firms materially raises executive risk for any Texas enterprise running federated identity (Microsoft 365, Okta, SSO) with a human-staffed help desk. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: primary vendor threat research documenting the TTP chain and rebrand; current wire reporting naming targeted firms. Primary uncertainty: the full victim list and total campaign scale rely on current media reporting; not every attempted intrusion succeeded, and no Texas-domiciled victim has been named.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Confirm whether your help desk can independently verify an employee&rsquo;s identity on an inbound call without relying on caller ID or a phone number the employee already appears to hold.</div>
+      </div>
     </div>
   </div>
 
-  <div class="kj-item">
-    <span class="kj-num">KJ-3</span>
-    <div class="kj-text">
-      Liberty CTI assesses with <strong>HIGH CONFIDENCE</strong> that PRC Typhoon actors <span class="aq">very likely</span> retain dormant access inside U.S. critical infrastructure and telecommunications ecosystems, and that the strategic value of that access <strong>increases as U.S.-China competition over Taiwan and technology accelerates</strong> &mdash; meaning the risk to Texas is not static; it grows with geopolitical tension. <span class="conf conf-high">HIGH CONFIDENCE</span>
-      <div class="kj-uncertainty">Primary uncertainty: Texas-specific dwell time and access points are not publicly quantified. The national pattern is sufficiently established to justify active threat hunting now.</div>
-      <div class="decision-line"><strong>Decision Implication:</strong> Communications security and vendor assurance in the Defense Industrial Base are strategic controls. A compromised communication channel defeats cleared personnel practices before a single classified document is involved.</div>
+  <!-- SECTION III: GEOPOLITICAL DRIVER -->
+  <div class="section-rule"><span class="section-tag">Section III</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Geopolitical Driver</h2>
+  <p>The strategic backdrop remains Iranian OT targeting tied to retaliation capacity amid continued U.S.-Iran friction, layered onto a persistent baseline of criminal extortion ecosystems monetizing identity trust rather than technical exploits. What changed this week is not the underlying driver &mdash; it is the demonstrated reach of both patterns: OT compromise expanding geographically among under-resourced utilities, and identity compromise expanding upmarket into sophisticated, well-defended financial institutions.</p>
+
+  <div class="warning-box">
+    <p><strong>Continuum assessment:</strong> Late-stage Competition with acute Crisis-conditioning indicators, unchanged from ATB-2026-21. No retained reporting supports a transition to Conflict. <strong>No Flash Warning threshold was met.</strong></p>
+  </div>
+
+  <!-- SECTION IV: TEXAS CASCADE ASSESSMENT -->
+  <div class="section-rule"><span class="section-tag">Section IV</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Why This Matters to Texas</h2>
+  <p>No Texas utility and no Texas-domiciled financial or legal firm has been named in either campaign. That is not the same as Texas being unexposed. The confirmed water-sector technique does not require a sophisticated or well-resourced target, and Texas has hundreds of small municipal water systems with comparable remote-access architecture. The confirmed finance-sector technique does not require a technical vulnerability at all &mdash; only a help desk willing to trust a caller. Texas energy trading desks, PE-backed operators, and law firms serving them carry the same exposure as their Wall Street counterparts.</p>
+
+  <h2 class="section-head">Cross-Sector Cascade Assessment</h2>
+  <div class="implications-table">
+    <div class="implication-row energy">
+      <div class="implication-sector">Energy / AI<br><span>ERCOT / OT / Data Centers</span></div>
+      <div class="implication-content">
+        <strong>What changed:</strong> The water-sector exposure pattern &mdash; internet-exposed control systems, vendor remote access &mdash; is directly transferable to small and distributed grid OT. Separately, Governor Abbott&rsquo;s 3 August directive requires PUCT and ERCOT to audit the entire data-center interconnection queue before further grid connections proceed. <strong>Why it matters locally:</strong> This is a governance and timeline risk, not a cyber incident, but it compounds the OT-exposure question for Energy and AI/cloud clients: audited infrastructure is infrastructure boards should already understand the security posture of. <strong>Cascade risk:</strong> Interconnection delay affects capital planning and vendor-risk timelines for any AI/cloud operator depending on Texas grid capacity.
+      </div>
+    </div>
+    <div class="implication-row finance">
+      <div class="implication-sector">Financial<br><span>Identity / Extortion / Recovery</span></div>
+      <div class="implication-content">
+        <strong>What changed:</strong> A rebranded extortion cluster has pivoted from retail/healthcare into private equity, hedge funds, and law firms, using help-desk vishing and adversary-in-the-middle credential capture rather than technical exploits. <strong>Why it matters locally:</strong> Texas energy trading desks, PE-backed operators, and law firms serving them carry the same identity-trust exposure regardless of sector label. <strong>Cascade risk:</strong> A successful intrusion creates extortion, disclosure, privilege, and customer-trust decisions even when core systems remain fully operational.
+      </div>
+    </div>
+    <div class="implication-row healthcare">
+      <div class="implication-sector">Healthcare / DIB<br><span>Continuity / Compliance</span></div>
+      <div class="implication-content">
+        <strong>Healthcare:</strong> Water and identity infrastructure are both under active pressure simultaneously this week; hospitals depend on both for sanitation, sterilization, cooling, and patient-record access. <strong>DIB:</strong> The CMMC Reform RFI window closes 14 August &mdash; contractors have one week left to shape the reformed program; Phase I self-assessment and DFARS 252.204-7012 obligations are unchanged regardless of the input window&rsquo;s outcome. <strong>Cascade risk:</strong> Healthcare degradation creates immediate safety pressure; DIB degradation creates contract-performance and compliance pressure ahead of a hard deadline.
+      </div>
     </div>
   </div>
 
-  <div class="kj-item">
-    <span class="kj-num">KJ-4</span>
-    <div class="kj-text">
-      Liberty CTI assesses with <strong>MODERATE CONFIDENCE</strong> that Operation PowerOFF&rsquo;s disruption of criminal denial-of-service infrastructure will <span class="aq">likely</span> produce a near-term rebound in disruptive activity &mdash; consistent with historical pattern across prior iterations &mdash; and that Texas financial services, healthcare portals, and public-facing critical infrastructure operators should treat the next 30 days as a period of elevated availability risk. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
-      <div class="kj-uncertainty">Primary uncertainty: rebound timing and target selection are not predictable from open sources. Prior PowerOFF phases show reconstitution within two to four weeks, often with elevated activity against high-visibility targets.</div>
+  <!-- SECTION V: INDICATORS TO WATCH -->
+  <div class="section-rule"><span class="section-tag">Section V</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Indicators &amp; Warnings &mdash; PIR Watch, 1 to 4 Weeks</h2>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 7 / I&amp;W 1</span>
+      <span class="prq-title">Official U.S. attribution statement on the water-sector campaign</span>
+      <span class="prq-risk risk-sustained">&#8594; Sustained</span>
     </div>
-  </div>
-
-  <div class="kj-item">
-    <span class="kj-num">KJ-5</span>
-    <div class="kj-text">
-      Liberty CTI assesses with <strong>MODERATE CONFIDENCE</strong> that the federal government&rsquo;s permanent narrowing of its national vulnerability intelligence program <span class="aq">likely</span> creates a structural intelligence gap for Texas organizations without supplemental threat intelligence sources &mdash; increasing the probability that high-impact enterprise software vulnerabilities go unaddressed due to delayed or absent severity guidance. <span class="conf conf-mod">MODERATE CONFIDENCE</span>
-      <div class="kj-uncertainty">Primary uncertainty: impact will not be uniform. Organizations with mature threat intelligence programs will absorb the shift. Smaller operators dependent on national databases as their primary source are more exposed.</div>
-      <div class="decision-line"><strong>Decision Implication:</strong> Sector ISAC membership, CISA advisory subscriptions, and commercial threat intelligence are no longer optional supplements for Texas organizations in high-risk sectors. They are the baseline.</div>
-    </div>
-  </div>
-
-</div>
-
-<div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">What Happened This Week</h2>
-
-<h3 class="sub-head">North Korea &mdash; Artificial Intelligence Is Now a Social Engineering Weapon</h3>
-<p><strong>What Happened:</strong> A confirmed North Korean threat actor compromised a technology company this week not by defeating a security system, but by targeting a person. Using AI-enhanced tools to craft contact indistinguishable from legitimate communication, the actor gained access to active login sessions and internal credentials, draining internal accounts before the company detected and contained the intrusion. The financial impact was limited. The method is the warning.</p>
-<p><strong>Why It Matters:</strong> Pyongyang&rsquo;s cyber operations have always been patient and adaptive. What has changed is the quality of deception now available at scale. Artificial intelligence allows North Korean operators to personalize contact in ways that defeat awareness programs designed for generic phishing. Security researchers tracking these campaigns have documented that individuals with privileged system access &mdash; developers, IT administrators, finance staff &mdash; are now primary targets, not incidental ones, because they are faster and more reliable entry points than defended technical perimeters.</p>
-<p><strong>Geopolitical Context:</strong> North Korea is operating under maximum sanctions pressure. Cyber theft is not a tactical nuisance in Pyongyang&rsquo;s strategic calculus &mdash; it is a budget line funding weapons programs and regime survival. The pace of North Korean financial cyber operations in 2026 is tracking above any prior year. That acceleration is a direct consequence of external pressure, not coincidence. The more constrained the regime&rsquo;s economy becomes, the more intensively its cyber forces are directed at financial targets globally.</p>
-<p><strong>Business Risk (Texas Lens):</strong> Texas financial institutions, fintech operators, and technology companies employ the exact workforce profile North Korean actors are targeting &mdash; developers with cloud and system access, finance staff with privileged credentials, IT administrators holding the keys to enterprise platforms. The operation does not need to be directed specifically at Texas to land in Texas. It follows the people.</p>
-<div class="assessment-box">
-  <div class="assessment-label">// Liberty CTI Assessment</div>
-  <p>AI-enhanced social engineering has materially outpaced most corporate awareness programs. Organizations that have not specifically revised training, session monitoring, and access controls to reflect this threat model are operating on assumptions that no longer describe the adversary they face.</p>
-</div>
-
-<h3 class="sub-head">Iran &mdash; Last Week&rsquo;s Warning Has Not Expired</h3>
-<p><strong>What Happened:</strong> No new Iran-specific incident emerged in open reporting this week. That is not an all-clear. The joint federal advisory issued last week &mdash; from FBI, CISA, NSA, EPA, DOE, and U.S. Cyber Command &mdash; confirmed an active Iranian campaign against U.S. industrial control systems already producing operational disruption and financial loss at victim organizations. That campaign did not conclude because a new advisory was not issued.</p>
-<p><strong>Why It Matters:</strong> The absence of a new headline does not change the operational picture. Iranian actors demonstrated in late March and early April that they are willing to move from access to disruption. That willingness is a strategic decision made in Tehran, not a technical capability toggle. The capability has been in place for months. What shifted was the decision to use it &mdash; and there is no open-source evidence that decision has been reversed.</p>
-<p><strong>Geopolitical Context:</strong> The February 2026 U.S.-Israel strikes against Iranian targets accelerated a strategic recalculation inside the Iranian regime. Iran&rsquo;s doctrine in response to kinetic pressure has historically included intensified cyber activity against adversary infrastructure &mdash; a pattern documented consistently across the past decade of Iran-U.S. confrontation. The current environment is the most conducive to Iranian cyber escalation since the Soleimani period. That pressure has not eased.</p>
-<p><strong>Business Risk (Texas Lens):</strong> Texas holds more concentrated energy infrastructure per square mile than any other U.S. state. ERCOT&rsquo;s grid isolation, the Gulf Coast LNG export corridor, and the density of petrochemical and water treatment systems in South Texas and the Houston Ship Channel are specific, identifiable, and high-value targets that Iranian actors have documented intent and confirmed capability to affect.</p>
-<div class="assessment-box">
-  <div class="assessment-label">// Executive Takeaway</div>
-  <p>Texas OT operators should read last week&rsquo;s federal advisory as a current condition, not a historical document. The campaign it described is assessed as ongoing. The absence of a named Texas victim in open reporting is a disclosure gap, not evidence the threat has passed.</p>
-</div>
-
-<h3 class="sub-head">China &mdash; Quiet Access, Growing Consequence</h3>
-<p><strong>What Happened:</strong> No new major PRC-attributed incident emerged in open reporting this week. PRC Typhoon operations are not designed to generate weekly headlines. That is, by strategic intent, precisely the point.</p>
-<p><strong>Why It Matters:</strong> China&rsquo;s cyber doctrine inside U.S. critical infrastructure is explicitly preparatory. The ODNI&rsquo;s 2026 Annual Threat Assessment assessed with high confidence that PRC actors have pre-positioned access inside American infrastructure specifically to enable disruption options in a crisis contingency &mdash; most plausibly tied to a Taiwan scenario. The access is there. The question is when the geopolitical conditions make activating it worth the cost.</p>
-<p><strong>Geopolitical Context:</strong> U.S.-China competition across trade, technology, and military posture has not abated. Chinese leadership has stated unambiguously that Taiwan reunification is a national priority. Every escalation in that competition increases the strategic value of dormant access inside U.S. infrastructure. China does not need to be in an active conflict to derive leverage from what it already holds inside American networks.</p>
-<p><strong>Business Risk (Texas Lens):</strong> Texas Defense Industrial Base organizations &mdash; contractors, suppliers, and technology partners supporting JBSA, Fort Cavazos, and the broader San Antonio defense enterprise &mdash; are high-value PRC intelligence targets. Texas telecommunications infrastructure, which underpins executive communications across every sector, remains a documented access layer for PRC actors. An executive whose communications are observable to a foreign intelligence service is a strategic vulnerability, not merely an IT problem.</p>
-<div class="assessment-box">
-  <div class="assessment-label">// Liberty CTI Assessment</div>
-  <p>The most consequential PRC cyber outcome for Texas organizations is not a visible disruption. It is the quiet erosion of decision advantage &mdash; executives and boards making decisions without knowing their communications and plans are already known to an adversary preparing for a contingency they have not yet fully considered.</p>
-</div>
-
-<h3 class="sub-head">Russia &mdash; A Criminal Ecosystem That Serves Strategic Interests</h3>
-<p><strong>What Happened:</strong> An international law enforcement coalition executed the latest phase of Operation PowerOFF, seizing 53 criminal platforms used to conduct denial-of-service attacks for hire. Four arrests were made across 21 participating nations. More than 75,000 identified criminal users received formal warnings that their activity is known. The operation exposed over three million criminal user accounts.</p>
-<p><strong>Why It Matters:</strong> This is significant law enforcement work. It is also, historically, temporary. Criminal cyber infrastructure disrupted by enforcement actions reconstitutes within weeks in most documented prior cases. The Russia-based ransomware and criminal ecosystem that most directly threatens Texas organizations operates at a scale that a single enforcement action does not permanently dismantle. Moscow&rsquo;s tolerance of criminal cyber activity on Russian soil is a strategic policy &mdash; not an oversight &mdash; and that policy has not changed.</p>
-<p><strong>Geopolitical Context:</strong> Russia&rsquo;s war economy in Ukraine has entered its fifth year. Western sanctions pressure is sustained. The criminal cyber ecosystem operating from Russian territory provides Moscow with disruption capacity against adversaries, strategic ambiguity, and plausible deniability &mdash; all at minimal cost. So long as those conditions hold, Russia has no incentive to constrain the infrastructure its territory shelters.</p>
-<p><strong>Business Risk (Texas Lens):</strong> Texas healthcare systems, municipalities, manufacturers, and regional financial institutions remain the consistent target profile for Russia-based ransomware operators. The operational tempo will likely spike in the weeks following PowerOFF as displaced actors reconstitute or retaliate, with Texas public-facing infrastructure a plausible near-term target.</p>
-<div class="assessment-box">
-  <div class="assessment-label">// Executive Takeaway</div>
-  <p>Operation PowerOFF disrupted infrastructure. It did not change the geopolitical conditions that make Russian-tolerated cybercrime strategically useful to Moscow. Texas organizations should expect a near-term increase in criminal activity as displaced actors reconstitute.</p>
-</div>
-
-<div class="section-rule"><span class="section-tag">Section III</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Texas Sector Implications</h2>
-<div class="implications-table">
-  <div class="implication-row energy">
-    <div class="implication-sector">&#9889; Energy<br><span>SEVERE</span></div>
-    <div class="implication-content">
-      <strong>Primary risk this week:</strong> Iran&rsquo;s confirmed OT disruption posture remains active; PRC pre-positioning in grid and utility environments continues; criminal ransomware targeting operational continuity through vendor and identity pathways.<br><br>
-      <strong>Why Texas is exposed:</strong> ERCOT&rsquo;s grid isolation means Texas cannot import power from neighboring grids during a major disruption event. The Gulf Coast concentration of LNG export terminals, petrochemical plants, and water systems makes Texas the highest-density energy target in the country.<br><br>
-      <strong>Executive implication:</strong> Iranian actors have demonstrated willingness to generate real disruption, not just maintain access. That risk does not expire between news cycles. <strong>Killer line:</strong> Texas grid isolation is a resilience feature in normal operations and a compounding factor when coordinated adversary disruption is the scenario.
-    </div>
-  </div>
-  <div class="implication-row finance">
-    <div class="implication-sector">&#128176; Finance<br><span>HIGH</span></div>
-    <div class="implication-content">
-      <strong>Primary risk this week:</strong> North Korean AI-enhanced social engineering targeting individuals with financial system access; criminal ransomware exploiting vendor and third-party trust pathways; near-term DDoS rebound following Operation PowerOFF.<br><br>
-      <strong>Why Texas is exposed:</strong> Texas combines major banking institutions with a growing fintech ecosystem and expanding digital-asset adjacent sector &mdash; a combination that matches DPRK&rsquo;s documented targeting profile precisely: money, digital access pathways, and a developer workforce with privileged credentials.<br><br>
-      <strong>Executive implication:</strong> The threat to Texas financial organizations is not arriving through the technical perimeter. It is arriving through the judgment of individuals your organization trusts. <strong>Killer line:</strong> If your employees hold privileged access to financial systems, they are already inside the adversary&rsquo;s target scope.
-    </div>
-  </div>
-  <div class="implication-row healthcare">
-    <div class="implication-sector">&#9829; Healthcare<br><span>HIGH</span></div>
-    <div class="implication-content">
-      <strong>Primary risk this week:</strong> Ransomware actors leveraging vendor concentration and shared access pathways; enterprise software vulnerabilities embedded in clinical data operations; endpoint defense degradation from unpatched systems in regulated environments.<br><br>
-      <strong>Why Texas is exposed:</strong> The Texas Medical Center is the largest medical complex in the world. Regional health systems across San Antonio, Dallas, Houston, and Austin operate with a shared vendor ecosystem that creates amplification risk &mdash; one compromised supplier can affect multiple institutions simultaneously.<br><br>
-      <strong>Executive implication:</strong> In healthcare, cyber disruption is not an IT problem. It is a patient safety and regulatory problem with a clock attached. <strong>Killer line:</strong> A Texas hospital&rsquo;s cyber risk no longer stops at its own network boundary &mdash; it extends to every vendor, platform, and integration that touches patient data or clinical operations.
-    </div>
-  </div>
-  <div class="implication-row defense">
-    <div class="implication-sector">&#128737; Defense / DIB<br><span>HIGH</span></div>
-    <div class="implication-content">
-      <strong>Primary risk this week:</strong> PRC espionage through enterprise communication platforms and telecom access layers; North Korean workforce infiltration through AI-assisted impersonation targeting cleared personnel; enterprise access platform vulnerabilities exploitable in contractor network environments.<br><br>
-      <strong>Why Texas is exposed:</strong> JBSA hosts the densest concentration of military cyber and intelligence units in the country. Port San Antonio and the surrounding DIB ecosystem employ thousands of cleared contractors whose communications and credentials are high-value targets for both Chinese espionage and North Korean infiltration campaigns.<br><br>
-      <strong>Executive implication:</strong> Communications security is a strategic control, not a compliance checkbox. <strong>Killer line:</strong> The adversary does not need to breach your classified systems if they can read the business discussions that precede classification decisions.
-    </div>
-  </div>
-  <div class="implication-row ai">
-    <div class="implication-sector">&#11042; AI / Data Centers<br><span>ELEVATED</span></div>
-    <div class="implication-content">
-      <strong>Primary risk this week:</strong> Developer and engineering workforce targeted by AI-enhanced social engineering; enterprise integration software under active exploitation in AI data pipeline environments; federal vulnerability intelligence narrowing creating patch prioritization gaps for rapidly evolving AI infrastructure stacks.<br><br>
-      <strong>Why Texas is exposed:</strong> Texas is adding AI and data center infrastructure faster than almost any other state. The engineers managing that buildout hold privileged access to cloud environments and large-scale data systems &mdash; the exact workforce profile North Korean operators are now specifically pursuing.<br><br>
-      <strong>Executive implication:</strong> AI infrastructure is only as secure as the people who access it and the intelligence your team has about the threats targeting them. <strong>Killer line:</strong> The most consequential cyber risk to Texas AI infrastructure this week is not a novel exploit &mdash; it is a person with the wrong message in their inbox and no training that addresses what that message now looks like.
-    </div>
-  </div>
-</div>
-
-<div class="section-rule"><span class="section-tag">Section IV</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Priority Intelligence Requirements (PIRs)</h2>
-
-<div class="prq-block">
-  <div class="prq-header">
-    <span class="prq-id">PIR-1</span>
-    <span class="prq-title">Does the Iranian OT disruption campaign confirmed last week extend to Texas-specific targets?</span>
-    <span class="prq-risk risk-rising">&#8593; RISING</span>
-  </div>
-  <div class="prq-body">
-    <p>The joint federal advisory described an ongoing campaign producing real operational disruption. Texas-specific victim identification has not emerged in public reporting. That is a disclosure gap, not evidence the campaign is absent from Texas. The operating assumption for Texas energy and water operators should be: within scope until confirmed otherwise.</p>
     <ul class="prq-indicators">
-      <li>CISA, FBI, or Texas DIR reporting that names Texas-specific sectors or operators in connection with the Iranian ICS campaign</li>
-      <li>Anomalous activity in industrial control environments &mdash; unexplained configuration changes, access events, or display manipulation</li>
-      <li>Utility, water, or petrochemical disruption in Texas with unclear or unattributed technical origin</li>
-      <li>Iranian leadership statements or U.S.-Iran developments that would change escalation calculus in Tehran</li>
+      <li>Watch for a named-actor statement from CISA, FBI, or ODNI.</li>
+      <li>Would upgrade attribution confidence above Moderate; continued official silence holds it in place regardless of anonymous-sourced media framing.</li>
+      <li>Tied to: PIR 7, geopolitical-cyber acceleration.</li>
     </ul>
   </div>
-</div>
-
-<div class="prq-block">
-  <div class="prq-header">
-    <span class="prq-id">PIR-2</span>
-    <span class="prq-title">Are Texas financial and technology organizations adapting human-layer defenses to match North Korea&rsquo;s AI-enhanced social engineering threat?</span>
-    <span class="prq-risk risk-rising">&#8593; RISING</span>
-  </div>
-  <div class="prq-body">
-    <p>DPRK actors successfully used AI-enhanced tools to compromise a technology firm employee this week. The attack surface is not the network &mdash; it is the person. Most corporate awareness programs were not designed for this threat model. The gap is real and actively being exploited.</p>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 1 / I&amp;W 2</span>
+      <span class="prq-title">A Texas-named victim in either campaign</span>
+      <span class="prq-risk risk-rising">&uarr; Rising</span>
+    </div>
     <ul class="prq-indicators">
-      <li>Unusual or high-pressure outreach to employees with privileged system access, particularly from new or unverified contacts</li>
-      <li>Anomalous session activity &mdash; logins from unexpected locations, devices, or outside normal hours for privileged accounts</li>
-      <li>New contractor or vendor onboarding with unusually rapid access grants to sensitive systems</li>
-      <li>Developer community reports of suspicious recruitment contacts that include technical assessments requiring code execution</li>
+      <li>Watch for a Texas utility, municipality, financial firm, or law firm named in water-sector or identity-extortion reporting.</li>
+      <li>Would meet the outstanding condition ATB-2026-21 identified as the threshold for Flash Warning consideration.</li>
+      <li>Tied to: PIR 1, nation-state and criminal targeting of Texas entities.</li>
     </ul>
   </div>
-</div>
-
-<div class="prq-block">
-  <div class="prq-header">
-    <span class="prq-id">PIR-3</span>
-    <span class="prq-title">Are Texas organizations completing required remediation on this week&rsquo;s critical enterprise access platform disclosures before adversaries weaponize them?</span>
-    <span class="prq-risk risk-rising">&#8593; RISING</span>
-  </div>
-  <div class="prq-body">
-    <p>This week&rsquo;s Cisco disclosures in enterprise collaboration and network access platforms require manual administrator action &mdash; not only vendor-side patching. Large enterprise environments historically lag weeks behind critical disclosures when remediation requires active configuration changes. The exploitation window is already open.</p>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 5 / I&amp;W 3</span>
+      <span class="prq-title">CMMC Reform Task Force output ahead of the mid-September deadline</span>
+      <span class="prq-risk risk-sustained">&#8594; Sustained</span>
+    </div>
     <ul class="prq-indicators">
-      <li>Confirmation from IT leadership that manual steps &mdash; beyond automated patches &mdash; have been completed</li>
-      <li>Authentication anomalies in collaboration platform logs suggesting unexpected session activity</li>
-      <li>Unusual lateral movement in network segments managed by access control systems</li>
-      <li>InfraGard or sector ISAC reporting of active exploitation against these platforms in peer organizations</li>
+      <li>Watch for early signals on which NIST SP 800-171 controls survive the review.</li>
+      <li>Would reshape DIB compliance planning before the formal report lands.</li>
+      <li>Tied to: PIR 5, strategic vulnerability exposure across the defense industrial base.</li>
     </ul>
   </div>
-</div>
-
-<div class="prq-block">
-  <div class="prq-header">
-    <span class="prq-id">PIR-4</span>
-    <span class="prq-title">Do Texas organizations in high-risk sectors have independent threat intelligence sources now that federal vulnerability enrichment support has permanently narrowed?</span>
-    <span class="prq-risk risk-stable">&#8594; EMERGING</span>
-  </div>
-  <div class="prq-body">
-    <p>NIST&rsquo;s reduction in national vulnerability database enrichment is structural and permanent, driven by a volume increase that has outpaced federal capacity. Organizations without supplemental sources will not receive timely severity guidance for most newly disclosed enterprise software vulnerabilities.</p>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 6 / I&amp;W 4</span>
+      <span class="prq-title">PUCT&rsquo;s 20 August ruling on ERCOT&rsquo;s good-cause exception</span>
+      <span class="prq-risk risk-sustained">&#8594; Sustained</span>
+    </div>
     <ul class="prq-indicators">
-      <li>Current patch prioritization process &mdash; does it depend solely on federal enrichment or national severity scores?</li>
-      <li>Active CISA advisory subscriptions and sector ISAC membership status</li>
-      <li>InfraGard San Antonio participation and direct engagement with sector information sharing</li>
-      <li>Internal capacity to evaluate vendor advisories independently when national enrichment is absent</li>
+      <li>Watch for the docket outcome setting the near-term timeline for every paused interconnection project.</li>
+      <li>Would clarify capital-planning exposure for Energy and AI/cloud clients with projects in the queue.</li>
+      <li>Tied to: PIR 6, executive decision-relevant warning.</li>
     </ul>
   </div>
-</div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 4 / I&amp;W 5</span>
+      <span class="prq-title">Identity-extortion expansion beyond named large-cap firms</span>
+      <span class="prq-risk risk-rising">&uarr; Rising</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for movement into mid-market private equity, regional banks, or Texas-domiciled financial or legal entities.</li>
+      <li>Would raise this from a large-cap story to a Texas board-level one.</li>
+      <li>Tied to: PIR 4, adversary innovation and TTP effectiveness against mature enterprises.</li>
+    </ul>
+  </div>
 
-<div class="section-rule"><span class="section-tag">Section V</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Indicators to Watch &mdash; Next 2&ndash;4 Weeks</h2>
-<div class="watch-grid">
-  <div class="watch-item"><span class="watch-num">01</span><div class="watch-text"><strong>Texas-named victims or operators</strong> appearing in federal or state reporting connected to the Iranian industrial control system campaign confirmed last week.</div></div>
-  <div class="watch-item"><span class="watch-num">02</span><div class="watch-text"><strong>Iran-U.S. geopolitical developments</strong> &mdash; diplomatic signals, military posture changes, or Iranian leadership statements &mdash; that would increase likelihood of intensified cyber activity against U.S. energy infrastructure.</div></div>
-  <div class="watch-item"><span class="watch-num">03</span><div class="watch-text"><strong>Additional DPRK social engineering incidents</strong> targeting Texas fintech, financial, or technology developer communities &mdash; the AI-enabled method confirmed this week will be replicated at scale.</div></div>
-  <div class="watch-item"><span class="watch-num">04</span><div class="watch-text"><strong>DDoS rebound activity</strong> targeting Texas financial services portals, healthcare systems, or public-facing critical infrastructure following Operation PowerOFF.</div></div>
-  <div class="watch-item"><span class="watch-num">05</span><div class="watch-text"><strong>Active exploitation of enterprise access platform vulnerabilities</strong> in Texas organizations &mdash; particularly healthcare, DIB, and financial services where these platforms are most densely deployed.</div></div>
-  <div class="watch-item"><span class="watch-num">06</span><div class="watch-text"><strong>Ransomware claims naming Texas hospitals, municipalities, or manufacturers</strong> with shared vendor or third-party access origin &mdash; the supply-chain amplification pattern from Q1 2026 continues.</div></div>
-  <div class="watch-item"><span class="watch-num">07</span><div class="watch-text"><strong>PRC-linked reporting on telecom or communications compromise</strong> affecting Texas-based cleared contractors or executives in the defense ecosystem around JBSA and Fort Cavazos.</div></div>
-  <div class="watch-item"><span class="watch-num">08</span><div class="watch-text"><strong>Taiwan Strait developments</strong> &mdash; Chinese military exercises, diplomatic escalation, or U.S. policy responses &mdash; that would increase probability of PRC cyber activation in pre-positioned U.S. infrastructure access.</div></div>
-</div>
+  <!-- SECTION VI: GOVERNANCE -->
+  <div class="section-rule"><span class="section-tag">Section VI</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head gold-heading">Governance Implication Block</h2>
 
-<div class="section-rule"><span class="section-tag">Section VI</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Executive Implications &amp; Recommended Actions</h2>
-<div class="exec-brief">
-  <div class="exec-grid">
-    <div class="exec-item">
-      <div class="exec-item-title">1 &mdash; Treat Your People as Part of Your Security Perimeter</div>
-      <p>North Korea confirmed this week that it can make a fraudulent contact indistinguishable from a legitimate one. If employees hold privileged access to financial systems, cloud infrastructure, or sensitive data, your awareness program needs to specifically address AI-generated impersonation. Session monitoring for privileged accounts and additional scrutiny for new vendor relationships are not optional. <strong>What happens if you get this wrong:</strong> the adversary enters through your most trusted employee &mdash; invisibly &mdash; and the damage is done before your security team sees an alert.</p>
+  <div class="gov-block">
+    <div class="gov-row">
+      <div class="gov-label">Decision at risk</div>
+      <div class="gov-content">Whether leadership has pre-authorized, named authority to sever OT remote-access paths and to lock down identity/help-desk workflows fast enough to prevent an intrusion from becoming an operational outage or an extortion event.</div>
     </div>
-    <div class="exec-item">
-      <div class="exec-item-title">2 &mdash; Maintain Elevated Posture on Iranian OT Risk</div>
-      <p>Last week&rsquo;s federal advisory confirmed an active Iranian campaign producing real operational disruption. No new Texas incident in open reporting this week does not mean the threat has passed. Texas energy and water operators should maintain elevated vigilance on industrial systems reachable from external networks. <strong>What happens if you get this wrong:</strong> when disruption arrives, leadership responds from a standing start rather than from an elevated posture that could have shortened detection and decision time.</p>
+    <div class="gov-row">
+      <div class="gov-label">Owner</div>
+      <div class="gov-content">CEO/COO for OT isolation authority; CISO/CIO with General Counsel for identity-control and help-desk lockdown authority; board/audit-risk committee for oversight and documentation.</div>
     </div>
-    <div class="exec-item">
-      <div class="exec-item-title">3 &mdash; Confirm Enterprise Platform Remediation Is Actually Complete</div>
-      <p>This week&rsquo;s critical disclosures in enterprise collaboration and network access platforms required manual administrator actions &mdash; beyond vendor-side patches. Ask your IT leadership directly whether those steps have been taken and whether anomalous authentication is being monitored. <strong>What happens if you get this wrong:</strong> an adversary with no privileged access can impersonate any user in your collaboration environment or achieve code execution on your network controller, with no visible indicator until a downstream event forces it into the open.</p>
+    <div class="gov-row">
+      <div class="gov-label">Consequence of delay</div>
+      <div class="gov-content">An intrusion that could have been contained in hours becomes a multi-day manual-operations event, an extortion negotiation, or a disclosure decision made for the first time under live pressure &mdash; with no prior record showing informed oversight.</div>
     </div>
-    <div class="exec-item">
-      <div class="exec-item-title">4 &mdash; Build an Independent Intelligence Layer Before You Need It</div>
-      <p>The federal government has permanently narrowed its vulnerability intelligence support. Organizations still treating national databases as their primary patch prioritization input are now operating with structural gaps. Sector ISAC membership, CISA advisory subscriptions, and commercial threat intelligence are not premium additions &mdash; they are the baseline for the current environment. <strong>What happens if you get this wrong:</strong> a high-impact vulnerability sits unaddressed in your environment because it never received a federal severity score, and you learn about it through an incident rather than a warning.</p>
+    <div class="gov-row">
+      <div class="gov-label">Action this week</div>
+      <div class="gov-content">Confirm, in writing, who can order OT isolation/manual operations and who can suspend help-desk/identity workflows during an active campaign. Run the five-minute help-desk tabletop described above.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Record to preserve</div>
+      <div class="gov-content">The named authority for OT isolation and identity lockdown, the date it was confirmed, any vulnerability-remediation exceptions accepted this week and why, and documentation of ERCOT/PUCT interconnection exposure for any client with projects in the queue.</div>
     </div>
   </div>
-</div>
 
-<div class="section-rule"><span class="section-tag">Section VII</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Analyst&rsquo;s Note</h2>
-<div class="analyst-note">
-  <p>What strikes me most this week is how clearly technology is following geopolitics. Iran did not escalate against U.S. industrial systems because a particular technical opportunity emerged. It escalated because the political decision was made in Tehran, after February&rsquo;s strikes, that raising the cost of confrontation was strategically necessary. North Korea is not targeting financial systems because the opportunity arose this week. It is targeting them because regime survival requires the revenue that cyber theft provides, and that requirement intensifies as external pressure grows. China is not maintaining access inside American infrastructure because it is technically interesting. It is maintaining it because contingency planning for a potential Taiwan scenario requires it.</p>
-  <p>These are durable strategic conditions. They do not resolve between news cycles. Every executive reading this brief is operating an organization that exists inside the target logic of at least one of them &mdash; and in Texas, more likely two or three simultaneously.</p>
-  <p>The practical question this week is the same one it was last week: <strong>if a trusted relationship &mdash; a person, a platform, an industrial system, a communication channel &mdash; was turned against you today, how long before you would know?</strong> For most organizations, the honest answer is measured in days or weeks. Closing that gap is not a security project. It is a business resilience decision that belongs at the board level, informed by an understanding of the geopolitical conditions that are making it urgent.</p>
-</div>
-
-<hr class="divider">
-<div class="section-rule"><span class="section-tag">Section VIII &mdash; Sourcing</span><div class="section-rule-line"></div></div>
-<h2 class="section-head">Source Notes</h2>
-<div class="src-block">
-  <div class="src-header">OPEN SOURCE BASIS &mdash; ATB-2026-6 &mdash; UPDATED FOR THE WEEK OF 19 APRIL 2026</div>
-  <ul class="src-list">
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Cisco and enterprise platform vulnerability reporting</span><span class="src-meta">April 15-16, 2026 | Collaboration and network access platforms</span><span class="src-desc">Used for judgments on enterprise collaboration and network access flaws requiring administrator action beyond vendor-side patching.</span><span class="src-links"><a href="https://thehackernews.com/2026/04/cisco-patches-four-critical-identity.html" target="_blank" rel="noopener">Article</a></span></div></li>
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">CISA Known Exploited Vulnerabilities catalog</span><span class="src-meta">April 16, 2026 | Apache ActiveMQ exploitation</span><span class="src-desc">Used for judgments on active exploitation, federal remediation deadlines, and prioritization pressure for widely deployed enterprise middleware.</span><span class="src-links"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV catalog</a><a href="https://thehackernews.com/2026/04/apache-activemq-cve-2026-34197-added-to.html" target="_blank" rel="noopener">Article</a></span></div></li>
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">NIST National Vulnerability Database operations update</span><span class="src-meta">April 2026 | Vulnerability enrichment gaps</span><span class="src-desc">Used for judgments that organizations need supplemental intelligence for patch prioritization as federal enrichment support narrows.</span><span class="src-links"><a href="https://www.nist.gov/news-events/news/2026/04/nist-updates-nvd-operations-address-record-cve-growth" target="_blank" rel="noopener">NIST update</a></span></div></li>
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Zerion and DPRK AI-enabled social engineering reporting</span><span class="src-meta">April 14-17, 2026 | Human-layer targeting</span><span class="src-desc">Used for judgments on DPRK-linked AI-enabled impersonation, employee session compromise, and theft from internal wallets.</span><span class="src-links"><a href="https://www.gadgets360.com/cryptocurrency/news/zerion-links-crypto-attack-to-dprk-hackers-using-ai-tactics-crypto-scams-april-2026-11361393/amp" target="_blank" rel="noopener">Incident reporting</a></span></div></li>
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Operation PowerOFF law-enforcement reporting</span><span class="src-meta">April 17, 2026 | Criminal infrastructure disruption</span><span class="src-desc">Used for judgments on disruption of DDoS-for-hire infrastructure and likely reconstitution behavior after seizures and arrests.</span><span class="src-links"><a href="https://thehackernews.com/2026/04/operation-poweroff-seizes-53-ddos.html" target="_blank" rel="noopener">Article</a></span></div></li>
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Huntress / Microsoft Defender zero-day reporting</span><span class="src-meta">April 17, 2026 | Endpoint exploitation</span><span class="src-desc">Used for judgments on active exploitation of Microsoft Defender zero-days and residual risk where two flaws remained unpatched.</span><span class="src-links"><a href="https://thehackernews.com/2026/04/three-microsoft-defender-zero-days.html" target="_blank" rel="noopener">Article</a></span></div></li>
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">Iranian PLC exploitation advisory</span><span class="src-meta">April 7, 2026 | Sustained OT relevance</span><span class="src-desc">Used as prior-week source material with continuing relevance to Texas water, energy, and industrial control environments.</span><span class="src-links"><a href="https://www.epa.gov/newsreleases/epa-fbi-cisa-nsa-issue-joint-cybersecurity-advisory-water-system-regarding-iranian" target="_blank" rel="noopener">EPA advisory release</a></span></div></li>
-  <li><span class="src-bullet">&rarr;</span><div><span class="src-title">ODNI and CrowdStrike threat baselines</span><span class="src-meta">2026 | Strategic context</span><span class="src-desc">Used to frame PRC critical-infrastructure pre-positioning, DPRK financial operations, Iranian escalation patterns, Russia-tolerated criminal ecosystems, and identity-first intrusion trends.</span><span class="src-links"><a href="https://www.dni.gov/index.php/newsroom/reports-publications/reports-publications-2026" target="_blank" rel="noopener">ODNI reports</a><a href="https://www.crowdstrike.com/global-threat-report/" target="_blank" rel="noopener">CrowdStrike report</a></span></div></li>
-</ul>
-  <p class="src-summary">This product is based exclusively on open-source reporting, authoritative government advisories, and commercial threat intelligence. All Liberty CTI analysis is aligned with accepted national security-grade analytical practices. No classified sources or methods are used or implied.</p>
-</div>
-
-<hr class="divider">
-<div class="torch-note">
-  <span class="torch-label">// Torch Fusion Cycle</span>
-  <p><strong>WHAT:</strong> North Korea weaponized AI against people rather than systems; Iran&rsquo;s OT disruption posture from last week remains active without evidence of retreat; China holds pre-positioned access growing more consequential as Taiwan-related tension persists; Russia&rsquo;s tolerated criminal ecosystem disrupted by law enforcement but assessed to reconstitute within weeks; federal vulnerability intelligence support permanently narrowed. <strong>WHO:</strong> DPRK Lazarus ecosystem, Iranian state-directed cyber units, PRC Typhoon clusters, Russia-based ransomware operators, displaced criminal DDoS actors. <strong>WHY:</strong> Geopolitical pressure &mdash; Iranian confrontation with the U.S., North Korean sanctions, Chinese Taiwan contingency planning, Russian wartime interests &mdash; is driving every major adversary behavior pattern threatening Texas organizations this week. <strong>WHAT NEXT:</strong> Texas organizations should plan for sustained multi-actor pressure through Q2 and Q3 2026, with highest-probability near-term impact arriving through human-layer targeting, trusted access compromise, and vendor-path ransomware rather than headline infrastructure attacks.</p>
-</div>
-
-<p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--text-low);text-align:center;margin-top:32px;letter-spacing:.1em;">For tailored executive briefings or advisory retainer inquiries: <strong style="color:var(--gold);">intel@libertycti.com</strong> &middot; <strong style="color:var(--gold);">libertycti.com</strong></p>
-
-</div>
-
-<!-- BRIEF FOOTER -->
-<div class="brief-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">Liberty Cyber Threat Intelligence &mdash; libertycti.com</div>
-    <div class="footer-legal">ALAMO THREAT BRIEF // ATB-2026-6 // 19 APRIL 2026<br>UNCLASSIFIED // OPEN SOURCE // LIBERTY CTI PROPRIETARY<br>&copy; 2026 LIBERTY CTI LLC. ALL RIGHTS RESERVED.<br>NOT FOR PUBLIC DISTRIBUTION WITHOUT AUTHORIZATION.</div>
+  <!-- SECTION VII: ACTIONS THIS WEEK -->
+  <div class="section-rule"><span class="section-tag">Section VII</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Actions This Week</h2>
+  <div class="warning-box">
+    <p><strong>Ask:</strong> Who can order OT isolation and manual operations, and who can suspend help-desk/identity workflows, without waiting for a scheduled meeting?</p>
+    <p><strong>Approve:</strong> The five-minute help-desk vishing tabletop &mdash; a real employee phone number, a live-captured MFA token, and no advance warning.</p>
+    <p><strong>Document:</strong> Vulnerability-remediation exceptions accepted this week, and why, ahead of the 14 August CMMC RFI deadline and the 7 August BOD 26-04 milestone.</p>
+    <p><strong>Rehearse:</strong> A combined scenario &mdash; OT control loss plus an identity-workflow compromise attempt in the same week, the pattern this issue actually describes.</p>
   </div>
-</div>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:START -->
-<style>
-.lcti-footer{background:#080c10!important;border-top:1px solid rgba(184,150,62,.2)!important;padding:4rem 2.5rem 2rem!important;font-family:'Instrument Sans',Arial,sans-serif!important;color:#f4efe6!important;clear:both!important}
-.lcti-footer-inner{max-width:1100px!important;margin:0 auto!important;display:grid!important;grid-template-columns:1.6fr 1fr 1fr 1fr!important;gap:3rem!important;align-items:start!important}
-.lcti-footer-brand-row{display:flex!important;align-items:center!important;gap:.75rem!important;margin-bottom:1rem!important}
-.lcti-footer img.lcti-footer-emblem{width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important;object-fit:contain!important;display:block!important;flex:0 0 36px!important}
-.lcti-footer-brand-name{font-family:'Playfair Display',Georgia,serif!important;font-size:1rem!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#f4efe6!important;line-height:1.2!important}
-.lcti-footer-brand-name span{color:#b8963e!important}
-.lcti-footer-tagline{font-size:1rem!important;font-weight:500!important;color:rgba(244,239,230,.78)!important;line-height:1.72!important;max-width:280px!important;margin:0 0 1.25rem!important}
-.lcti-footer-slogan,.lcti-footer-col-title{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.94rem!important;font-weight:500!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#d4af62!important;line-height:1.45!important;margin:0 0 .9rem!important;display:block!important}
-.lcti-footer-links{list-style:none!important;margin:0!important;padding:0!important}
-.lcti-footer-links li{margin:0 0 .45rem!important;padding:0!important}
-.lcti-footer-links a{font-size:.98rem!important;font-weight:500!important;line-height:1.55!important;color:rgba(244,239,230,.74)!important;text-decoration:none!important;transition:color .2s!important}
-.lcti-footer-links a:hover{color:#b8963e!important}
-.lcti-footer-links a.lcti-atb-link{color:#d6554a!important;font-weight:600!important}
-.lcti-footer-bottom{max-width:1100px!important;margin:3rem auto 0!important;border-top:1px solid rgba(184,150,62,.12)!important;padding-top:1.25rem!important;display:flex!important;justify-content:space-between!important;align-items:center!important;flex-wrap:wrap!important;gap:.5rem!important}
-.lcti-footer-copy{font-family:'Instrument Sans',Arial,sans-serif!important;font-size:.86rem!important;font-weight:600!important;letter-spacing:.04em!important;color:rgba(244,239,230,.56)!important;line-height:1.5!important}
-@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr!important;gap:2rem!important}}
-@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr!important}.lcti-footer{padding:2.5rem 1.25rem 1.5rem!important}.lcti-footer-bottom{flex-direction:column!important;align-items:flex-start!important}}
-</style>
-<!-- LCTI:ARCHIVE_FOOTER_FIX:END -->
+
+  <!-- SECTION VIII: PRIOR JUDGMENT TRACKER -->
+  <div class="section-rule"><span class="section-tag">Section VIII</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head gold-heading">Prior Judgment Tracker</h2>
+  <div class="gov-block">
+    <div class="gov-row">
+      <div class="gov-label">Prior judgment</div>
+      <div class="gov-content">ATB-2026-21 (published 1 Aug) assessed water-sector occurrence at High confidence &mdash; confirmed operational effects, seven-plus states &mdash; with Iranian affiliation as the leading hypothesis at Moderate confidence, explicitly unconfirmed.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Current status</div>
+      <div class="gov-content">Occurrence holds at High confidence, reinforced by named-official confirmations in Michigan and New Jersey. Attribution holds at Moderate confidence, unchanged &mdash; this week&rsquo;s &ldquo;prime suspect&rdquo; framing in anonymous-sourced reporting is consistent with, not an upgrade from, the prior &ldquo;leading hypothesis&rdquo; language.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">What changed</div>
+      <div class="gov-content">ATB-2026-21&rsquo;s own next-indicator condition &mdash; a Texas victim, formal attribution, or a second confirmed multi-victim wave &mdash; has been partially met via the Michigan/New Jersey wave, but not fully: no Texas victim, no formal attribution. Flash Warning threshold not met. Separately, identity-centric extortion enters standalone ATB treatment for the first time this issue.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Confidence movement</div>
+      <div class="gov-content">No confidence movement on either water-sector judgment this issue. New judgment established this issue (KJ-3, finance-sector identity risk) at Moderate confidence.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Next indicator</div>
+      <div class="gov-content">A Texas-named victim in either campaign, formal U.S. government attribution on the water-sector campaign, or identity-extortion expansion into mid-market Texas financial or legal entities would raise escalation posture.</div>
+    </div>
+  </div>
+
+  <!-- SECTION IX: SOURCING -->
+  <div class="section-rule"><span class="section-tag">Section IX &mdash; Sourcing</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Open Source Basis</h2>
+
+  <div class="src-block">
+    <div class="src-header">PRIMARY SOURCES &mdash; ATB-2026-22 &mdash; COVERAGE WEEK 02&ndash;08 AUGUST 2026</div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">U.S. EPA &mdash; Cybersecurity 102 Water-Sector Training</div>
+      <a class="src-url" href="https://www.epa.gov/cyberwater/cybersecurity-102" target="_blank" rel="noopener">epa.gov/cyberwater/cybersecurity-102</a>
+      <div class="src-note">Published 5 Aug 2026. Basis for water-sector governance posture; not evidence of a new attack, used as context only.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">PRESS / STATE AUTHORITY</div>
+      <div class="src-title">NBC10 Philadelphia citing NJCCIC &mdash; New Jersey Water Utility Incidents</div>
+      <a class="src-url" href="https://www.nbcphiladelphia.com/news/local/cyberattack-targets-water-systems-new-jersey/4443279/" target="_blank" rel="noopener">nbcphiladelphia.com/news/local/cyberattack-targets-water-systems-new-jersey</a>
+      <div class="src-note">Published 4 Aug 2026. Single-source for New Jersey-specific incident detail; corroborated at pattern level by national reporting.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / REGULATORY</div>
+      <div class="src-title">FedRAMP &mdash; Response to CISA BOD 26-04</div>
+      <a class="src-url" href="https://www.fedramp.gov/notices/0014/" target="_blank" rel="noopener">fedramp.gov/notices/0014</a>
+      <div class="src-note">7 Aug 2026 milestone; notice published 16 Jun 2026. Basis for DIB and federal-adjacent governance implication.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / STATE</div>
+      <div class="src-title">Office of the Texas Governor &mdash; Data Center Audit Directive</div>
+      <a class="src-url" href="https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit" target="_blank" rel="noopener">gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit</a>
+      <div class="src-note">Published 3 Aug 2026. Basis for Energy/AI cross-sector implication.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">MARKET NOTICE</div>
+      <div class="src-title">ERCOT &mdash; Market Notice M-A080326-01</div>
+      <a class="src-url" href="https://www.ercot.com/services/comm/mkt_notices/M-A080326-01" target="_blank" rel="noopener">ercot.com/services/comm/mkt_notices/M-A080326-01</a>
+      <div class="src-note">Basis for Batch Zero pause and 20 Aug PUCT hearing date.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">PRIMARY VENDOR RESEARCH</div>
+      <div class="src-title">Google Threat Intelligence Group &mdash; Identity-Extortion Campaign Update</div>
+      <a class="src-url" href="https://cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments" target="_blank" rel="noopener">cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments</a>
+      <div class="src-note">Published 6 Aug 2026. Basis for KJ-3 and Technical Annex TTP detail. Full technical indicators reserved for the Technical Annex.</div>
+    </div>
+
+    <div class="src-header" style="margin-top:20px;">SECONDARY SOURCES (noted where cited)</div>
+
+    <div class="src-entry">
+      <div class="src-label">PRESS</div>
+      <div class="src-title">Axios &mdash; Water-Sector State Count Expansion</div>
+      <a class="src-url" href="https://www.axios.com/2026/08/04/water-cyberattacks-us-iran" target="_blank" rel="noopener">axios.com/2026/08/04/water-cyberattacks-us-iran</a>
+      <div class="src-note">4 Aug 2026. Anonymous sourcing; cited for the unconfirmed 12-state figure and the volunteer-defense-corps coverage gap only. Not used to move attribution or occurrence confidence.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">PRESS</div>
+      <div class="src-title">ABC News &mdash; 12-State Water Sector Report</div>
+      <a class="src-url" href="https://abcnews.com/US/12-states-face-cyberattacks-water-systems-sources/story?id=135348482" target="_blank" rel="noopener">abcnews.com &mdash; 12 states face cyberattacks on water systems</a>
+      <div class="src-note">4 Aug 2026. Anonymous sourcing on Iran as &ldquo;prime suspect.&rdquo; Cited for public-reporting context only; not treated as an attribution upgrade.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">PRESS / SECONDARY</div>
+      <div class="src-title">Reuters/Bloomberg-Derived Coverage &mdash; Named Financial-Sector Targets</div>
+      <a class="src-url" href="https://www.pymnts.com/cybersecurity/2026/wall-streets-new-cybersecurity-threat-starts-with-a-phone-call/" target="_blank" rel="noopener">pymnts.com &mdash; Wall Street&rsquo;s new cybersecurity threat starts with a phone call</a>
+      <div class="src-note">6&ndash;7 Aug 2026. Cited for named-target reporting only; victim list and campaign scale not independently verified beyond primary vendor TTP corroboration.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="torch-note">
+    <span class="torch-label">// Torch Fusion Cycle &mdash; ATB-2026-22</span>
+    <p><strong>WHAT:</strong> A water-sector OT campaign confirmed in Minnesota widened to Michigan and New Jersey this week, with unconfirmed wire reporting placing the total at twelve states; separately, an identity-centric extortion group pivoted from retail and healthcare into major private equity, hedge fund, and law firm targets using help-desk vishing rather than technical exploits. <strong>WHO:</strong> State officials in Michigan and New Jersey, and primary vendor threat research, defined the current-week evidence base. Iranian-affiliated actors remain the leading hypothesis for the water campaign, unconfirmed by federal agencies. The identity-extortion cluster operates under multiple rebranded public fronts tracked as a single core group. <strong>WHY:</strong> Small, under-resourced water utilities and sophisticated financial institutions are both exposed through the same underlying failure &mdash; the party that reaches the access channel controls the outcome, not the party that holds the perimeter. <strong>WHAT NEXT:</strong> Leadership should not wait for a Texas-named victim in either campaign before acting. The immediate task is naming who holds OT-isolation authority and who holds identity-lockdown authority, in writing, this week. <em>Warnings that arrive too late are not warnings. They are after-action reports.</em></p>
+  </div>
+
+  <p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--text-low);text-align:center;margin-top:32px;letter-spacing:.1em;">CISO-level technical detail &mdash; PLC device specifics, full TTP/IOC detail on the identity-extortion campaign, and ERCOT docket citations &mdash; is available upon request for retainer clients and technical points of contact.</p>
+
+  <p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--text-low);text-align:center;margin-top:12px;letter-spacing:.1em;">For tailored executive briefings or advisory retainer inquiries: <strong style="color:var(--gold);">intel@libertycti.com</strong> &middot; <strong style="color:var(--gold);">libertycti.com</strong></p>
+
+</div><!-- /page-body -->
+
+<!-- SITE FOOTER -->
 <!-- LCTI:FOOTER:START -->
 <style>
 .lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
@@ -1745,6 +1803,7 @@ body [style*="Instrument Sans"]{
 </footer>
 <!-- LCTI:FOOTER:END -->
 
-</div>
+</div><!-- /darkwrap -->
+
 </body>
 </html>
