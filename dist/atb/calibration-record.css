@@ -4,7 +4,7 @@
   --c-border:#1a3a5c; --c-border-hi:#2a5a8c;
   --c-text:#e8f0fa; --c-text-dim:#c4d8ee; --c-text-low:#8aaece;
   --c-gold:#d4a040; --c-gold-hi:#f0c870;
-  --c-blue:#5abcf0; --c-danger:#f06854;
+  --c-blue:#5abcf0; --c-danger:#f06854; --c-amber:#e09030;
 }
 .calib-flag {
   display:inline-block;
@@ -42,6 +42,81 @@
 }
 .calib-legend span{white-space:nowrap}
 .calib-legend .dot{display:inline-block;width:6px;height:6px;margin-right:.4rem;border-radius:1px}
+.calib-taxonomy {
+  margin-top:1.1rem;
+  border:1px solid var(--c-border);
+  background:var(--c-panel);
+}
+.calib-taxonomy summary {
+  cursor:pointer;
+  list-style:none;
+  padding:.85rem 1.1rem;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--c-gold);
+}
+.calib-taxonomy summary::-webkit-details-marker{display:none}
+.calib-taxonomy summary::before{content:'\25B8\00A0 ';display:inline-block}
+.calib-taxonomy[open] summary::before{content:'\25BE\00A0 '}
+.calib-taxonomy-body {
+  padding:0 1.1rem 1.25rem;
+  border-top:1px solid var(--c-border);
+}
+.calib-taxonomy-intro {
+  padding-top:1rem;
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:.86rem;
+  line-height:1.65;
+  color:var(--c-text-low);
+}
+.calib-taxonomy h3 {
+  margin-top:1.4rem;
+  margin-bottom:.6rem;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:700;
+  font-size:.92rem;
+  letter-spacing:.02em;
+  color:var(--c-text);
+}
+.calib-taxonomy h3 span {
+  font-family:'Instrument Sans',sans-serif;
+  font-weight:400;
+  font-size:.7rem;
+  color:var(--c-text-low);
+  text-transform:none;
+  letter-spacing:normal;
+  margin-left:.4rem;
+}
+.calib-taxonomy-table {
+  border:1px solid var(--c-border);
+}
+.calib-taxonomy-row {
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:1rem;
+  padding:.75rem .9rem;
+  border-bottom:1px solid var(--c-border);
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:.82rem;
+  line-height:1.55;
+  color:var(--c-text-dim);
+}
+.calib-taxonomy-row-3col {
+  grid-template-columns:170px 1fr 1fr;
+}
+.calib-taxonomy-row:last-child{border-bottom:none}
+.calib-taxonomy-head {
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.64rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--c-text-low);
+  background:rgba(184,150,62,.05);
+}
 .calib-table {
   border:1px solid var(--c-border);
   background:var(--c-panel);
@@ -138,6 +213,39 @@
 .calib-status-tag[data-status="Revised"]{color:var(--c-blue);border-color:rgba(90,188,240,.45)}
 .calib-status-tag[data-status="Superseded"]{color:var(--c-text-low);border-color:var(--c-border)}
 .calib-status-tag[data-status="Unresolved / Tracking"]{color:var(--c-text-low);border-color:var(--c-border);border-style:dashed}
+.calib-status-tag[data-status-base="Held"]{color:var(--c-gold-hi);border-color:rgba(212,160,64,.55)}
+.calib-status-tag[data-status-base="Escalated"]{color:var(--c-blue);border-color:rgba(90,188,240,.45)}
+.calib-status-tag[data-status-base="Revised"]{color:var(--c-amber);border-color:rgba(224,144,48,.5)}
+.calib-status-tag[data-status-base="Revised"][data-subtier="Reversed"]{background:rgba(240,104,84,.12);color:#ff8a78;border-color:rgba(240,104,84,.55);font-weight:700}
+.calib-status-tag[data-status-base="Unchanged"]{color:var(--c-text-low);border-color:var(--c-border);border-style:dashed}
+.calib-status-tag[data-status-base="Withdrawn"]{color:var(--c-text-low);background:rgba(240,104,84,.08);border-color:rgba(240,104,84,.35);text-decoration:line-through;text-decoration-color:rgba(240,104,84,.5)}
+.calib-accuracy {
+  display:block;
+  margin-top:.35rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.6rem;
+  letter-spacing:.04em;
+  color:var(--c-text-low);
+}
+.calib-row-backfilled .calib-field {
+  margin-top:.55rem;
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:.86rem;
+  line-height:1.6;
+  color:var(--c-text-dim);
+}
+.calib-field-label {
+  display:block;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.64rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--c-gold);
+  margin-bottom:.15rem;
+}
+.calib-record-note-field .calib-field-label{color:var(--c-text-low)}
+.calib-record-note-field .calib-field-body{font-style:italic;color:var(--c-text-low);font-size:.82rem}
 .calib-loading{
   padding:1.5rem;
   font-family:'Share Tech Mono',monospace;
@@ -382,4 +490,5 @@
   .calib-issue-date{margin-bottom:.1rem}
   .calib-results-bar{flex-direction:column;align-items:flex-start}
   .calib-pagination{gap:.75rem}
+  .calib-taxonomy-row,.calib-taxonomy-row-3col{grid-template-columns:1fr;gap:.35rem}
 }

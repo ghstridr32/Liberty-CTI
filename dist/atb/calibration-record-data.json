@@ -21,7 +21,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-02-KJ2",
@@ -43,7 +52,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-02-KJ3",
@@ -65,7 +83,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-02-KJ4",
@@ -87,7 +114,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-02-KJ5",
@@ -109,7 +145,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-03-KJ1",
@@ -129,7 +174,16 @@
         "finance",
         "healthcare",
         "iran"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-03-KJ2",
@@ -149,7 +203,16 @@
         "finance",
         "healthcare",
         "iran"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-03-KJ3",
@@ -169,7 +232,16 @@
         "finance",
         "healthcare",
         "iran"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-03-KJ4",
@@ -189,7 +261,16 @@
         "finance",
         "healthcare",
         "iran"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-03-KJ5",
@@ -209,7 +290,16 @@
         "finance",
         "healthcare",
         "iran"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-04-KJ1",
@@ -228,7 +318,16 @@
         "ai",
         "healthcare",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-04-KJ2",
@@ -247,7 +346,16 @@
         "ai",
         "healthcare",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-04-KJ3",
@@ -266,7 +374,16 @@
         "ai",
         "healthcare",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-04-KJ4",
@@ -285,7 +402,16 @@
         "ai",
         "healthcare",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-05-KJ1",
@@ -304,7 +430,16 @@
         "china",
         "criminal",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-05-KJ2",
@@ -323,7 +458,16 @@
         "china",
         "criminal",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-05-KJ3",
@@ -342,7 +486,16 @@
         "china",
         "criminal",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-05-KJ4",
@@ -361,7 +514,16 @@
         "china",
         "criminal",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-05-KJ5",
@@ -380,7 +542,16 @@
         "china",
         "criminal",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-06-KJ1",
@@ -401,7 +572,16 @@
         "finance",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-06-KJ2",
@@ -422,7 +602,16 @@
         "finance",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-06-KJ3",
@@ -443,7 +632,16 @@
         "finance",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-06-KJ4",
@@ -464,7 +662,16 @@
         "finance",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-06-KJ5",
@@ -485,7 +692,16 @@
         "finance",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-07-KJ1",
@@ -507,7 +723,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-07-KJ2",
@@ -529,7 +754,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-07-KJ3",
@@ -551,7 +785,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-07-KJ4",
@@ -573,7 +816,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-07-KJ5",
@@ -595,7 +847,16 @@
         "iran",
         "north-korea",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-09-KJ1",
@@ -616,7 +877,16 @@
         "healthcare",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-09-KJ2",
@@ -637,7 +907,16 @@
         "healthcare",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-09-KJ3",
@@ -658,7 +937,16 @@
         "healthcare",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-09-KJ4",
@@ -679,7 +967,16 @@
         "healthcare",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-09-KJ5",
@@ -700,7 +997,16 @@
         "healthcare",
         "iran",
         "north-korea"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-10-KJ1",
@@ -720,7 +1026,16 @@
         "north-korea",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-10-KJ2",
@@ -740,7 +1055,16 @@
         "north-korea",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-10-KJ3",
@@ -760,7 +1084,16 @@
         "north-korea",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-11-KJ1",
@@ -781,7 +1114,16 @@
         "iran",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-11-KJ2",
@@ -802,7 +1144,16 @@
         "iran",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-11-KJ3",
@@ -823,7 +1174,16 @@
         "iran",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-12-KJ1",
@@ -844,7 +1204,16 @@
         "energy",
         "iran",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-12-KJ2",
@@ -865,7 +1234,16 @@
         "energy",
         "iran",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-12-KJ3",
@@ -886,7 +1264,16 @@
         "energy",
         "iran",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-13-KJ1",
@@ -907,7 +1294,16 @@
         "iran",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-13-KJ2",
@@ -928,7 +1324,16 @@
         "iran",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-13-KJ3",
@@ -949,7 +1354,16 @@
         "iran",
         "ot",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-14-KJ1",
@@ -971,7 +1385,16 @@
         "ot",
         "texas",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-14-KJ2",
@@ -993,7 +1416,16 @@
         "ot",
         "texas",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-14-KJ3",
@@ -1015,7 +1447,16 @@
         "ot",
         "texas",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-15-KJ1",
@@ -1037,7 +1478,16 @@
         "maritime",
         "russia",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-15-KJ2",
@@ -1059,7 +1509,16 @@
         "maritime",
         "russia",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-15-KJ3",
@@ -1081,7 +1540,16 @@
         "maritime",
         "russia",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-15-KJ4",
@@ -1103,7 +1571,16 @@
         "maritime",
         "russia",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-16-KJ1",
@@ -1125,7 +1602,16 @@
         "russia",
         "texas",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-16-KJ2",
@@ -1147,7 +1633,16 @@
         "russia",
         "texas",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-16-KJ3",
@@ -1169,7 +1664,16 @@
         "russia",
         "texas",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-17-KJ1",
@@ -1191,7 +1695,16 @@
         "maritime",
         "russia",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-17-KJ2",
@@ -1213,7 +1726,16 @@
         "maritime",
         "russia",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-17-KJ3",
@@ -1235,7 +1757,16 @@
         "maritime",
         "russia",
         "texas"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-18-KJ1",
@@ -1256,7 +1787,16 @@
         "ot",
         "russia",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-18-KJ2",
@@ -1277,7 +1817,16 @@
         "ot",
         "russia",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-18-KJ3",
@@ -1298,7 +1847,16 @@
         "ot",
         "russia",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-18-KJ4",
@@ -1319,7 +1877,16 @@
         "ot",
         "russia",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-19-KJ1",
@@ -1339,7 +1906,16 @@
         "energy",
         "iran",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-19-KJ2",
@@ -1359,7 +1935,16 @@
         "energy",
         "iran",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-19-KJ3",
@@ -1379,7 +1964,16 @@
         "energy",
         "iran",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-19-KJ4",
@@ -1399,7 +1993,16 @@
         "energy",
         "iran",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-20-KJ1",
@@ -1420,7 +2023,16 @@
         "iran",
         "ot",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-20-KJ2",
@@ -1441,7 +2053,16 @@
         "iran",
         "ot",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-20-KJ3",
@@ -1462,7 +2083,16 @@
         "iran",
         "ot",
         "russia"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-21-KJ1",
@@ -1483,7 +2113,16 @@
         "north-korea",
         "ot",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-21-KJ2",
@@ -1504,7 +2143,16 @@
         "north-korea",
         "ot",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-21-KJ3",
@@ -1525,7 +2173,16 @@
         "north-korea",
         "ot",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-22-KJ1",
@@ -1546,7 +2203,16 @@
         "iran",
         "ot",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-22-KJ2",
@@ -1567,7 +2233,16 @@
         "iran",
         "ot",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     },
     {
       "kj_id": "ATB-2026-22-KJ3",
@@ -1588,7 +2263,16 @@
         "iran",
         "ot",
         "water"
-      ]
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
     }
   ]
 }

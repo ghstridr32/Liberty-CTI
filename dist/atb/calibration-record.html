@@ -239,6 +239,65 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
         <span><span class="dot" style="background:var(--c-text-low)"></span>Superseded</span>
         <span><span class="dot" style="background:var(--c-text-low);opacity:.5"></span>Unresolved / Tracking</span>
       </div>
+
+      <details class="calib-taxonomy">
+        <summary>How to read this record</summary>
+        <div class="calib-taxonomy-body">
+          <p class="calib-taxonomy-intro">As entries are individually re-reviewed against evidence, they move to a graded status below. Entries not yet re-reviewed keep the legend above in the meantime.</p>
+
+          <h3>Base status <span>(required on every backfilled entry)</span></h3>
+          <div class="calib-taxonomy-table">
+            <div class="calib-taxonomy-row calib-taxonomy-head">
+              <div>Status</div>
+              <div>Trigger criteria</div>
+            </div>
+            <div class="calib-taxonomy-row">
+              <div><span class="calib-status-tag" data-status-base="Held">Held</span></div>
+              <div>Every load-bearing claim in the original judgment &mdash; direction, target class, mechanism, timeframe &mdash; is confirmed by subsequent primary-source evidence. No correction needed.</div>
+            </div>
+            <div class="calib-taxonomy-row">
+              <div><span class="calib-status-tag" data-status-base="Escalated">Escalated</span></div>
+              <div>Judgment is confirmed AND new evidence meets the existing evidentiary-trigger standard for raising confidence or urgency. The call didn&rsquo;t change; its intensity rating did.</div>
+            </div>
+            <div class="calib-taxonomy-row">
+              <div><span class="calib-status-tag" data-status-base="Revised">Revised</span></div>
+              <div>At least one load-bearing claim was wrong and requires correction, but the judgment is not being withdrawn &mdash; see sub-tiers below for how wrong.</div>
+            </div>
+            <div class="calib-taxonomy-row">
+              <div><span class="calib-status-tag" data-status-base="Unchanged">Unchanged</span></div>
+              <div>Insufficient new evidence has arrived either way. Too early to test. Not a verdict &mdash; a placeholder.</div>
+            </div>
+            <div class="calib-taxonomy-row">
+              <div><span class="calib-status-tag" data-status-base="Withdrawn">Withdrawn</span></div>
+              <div>The judgment is no longer analytically defensible and is retired rather than carried forward. Reserved for cases where continuing to track it would misrepresent the record.</div>
+            </div>
+          </div>
+
+          <h3>Revised sub-tiers <span>(use one; never stack)</span></h3>
+          <div class="calib-taxonomy-table">
+            <div class="calib-taxonomy-row calib-taxonomy-head">
+              <div>Sub-tier</div>
+              <div>Trigger criteria</div>
+              <div>What it signals to a reader</div>
+            </div>
+            <div class="calib-taxonomy-row calib-taxonomy-row-3col">
+              <div><span class="calib-status-tag" data-status-base="Revised" data-subtier="Confidence">Revised &mdash; Confidence</span></div>
+              <div>Direction and mechanism were both correct. Only the stated confidence level (or probability range) needed to move up or down based on how events actually unfolded.</div>
+              <div>Smallest miss. The call was right; the certainty language was off.</div>
+            </div>
+            <div class="calib-taxonomy-row calib-taxonomy-row-3col">
+              <div><span class="calib-status-tag" data-status-base="Revised" data-subtier="Mechanism">Revised &mdash; Mechanism</span></div>
+              <div>Direction was correct &mdash; something happened in the sector/timeframe forecast &mdash; but how it happened, or which specific claim materialized, differs from what was stated.</div>
+              <div>Mid-tier. You called the right outcome space; one component needs re-description.</div>
+            </div>
+            <div class="calib-taxonomy-row calib-taxonomy-row-3col">
+              <div><span class="calib-status-tag" data-status-base="Revised" data-subtier="Reversed">Revised &mdash; Reversed</span></div>
+              <div>The assessed direction itself was wrong &mdash; the thing you said was likely didn&rsquo;t happen, or the opposite occurred.</div>
+              <div>The real miss. This is the only tier that should read as &ldquo;we got this wrong,&rdquo; and it must be reserved for cases that actually meet this bar, or the whole taxonomy loses credibility.</div>
+            </div>
+          </div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -384,6 +443,60 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
   var prevBtn = document.getElementById('calib-page-prev');
   var nextBtn = document.getElementById('calib-page-next');
 
+  function esc(s){
+    return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function buildLegacyJudgmentHtml(e){
+    var noteHtml = '';
+    if(e.note){
+      var link = e.status_url ? ('<a href="' + e.status_url + '">' + (e.status_issue || 'source') + '</a>') : (e.status_issue || '');
+      noteHtml = '<span class="calib-note">' + e.note.replace(/^AMBIGUOUS:\s*/,'') + (link ? ' &mdash; see ' + link : '') + '</span>';
+    }
+    var tagsHtml = '';
+    if(e.tags && e.tags.length){
+      tagsHtml = '<div class="calib-tags">' + e.tags.map(function(t){ return '<span class="calib-tag">' + t.replace('-', ' ') + '</span>'; }).join('') + '</div>';
+    }
+    return (e.text || '') + (e.original_confidence ? '<span class="calib-conf" data-confidence="' + e.original_confidence + '">' + e.original_confidence.toUpperCase() + ' CONFIDENCE</span>' : '') + noteHtml + tagsHtml;
+  }
+
+  function buildBackfilledJudgmentHtml(e){
+    var parts = [];
+    if(e.what_held){
+      parts.push('<div class="calib-field"><span class="calib-field-label">What Held</span><span class="calib-field-body">' + esc(e.what_held) + '</span></div>');
+    }
+    if(e.what_revised){
+      parts.push('<div class="calib-field"><span class="calib-field-label">What Revised</span><span class="calib-field-body">' + esc(e.what_revised) + '</span></div>');
+    }
+    if(e.confidence_movement){
+      parts.push('<div class="calib-field"><span class="calib-field-label">Confidence Movement</span><span class="calib-field-body">' + esc(e.confidence_movement) + '</span></div>');
+    }
+    if(e.corrected_judgment){
+      parts.push('<div class="calib-field"><span class="calib-field-label">Corrected Judgment</span><span class="calib-field-body">' + esc(e.corrected_judgment) + '</span></div>');
+    }
+    if(e.record_note){
+      parts.push('<div class="calib-field calib-record-note-field"><span class="calib-field-label">Record Note</span><span class="calib-field-body">' + esc(e.record_note) + '</span></div>');
+    }
+    return parts.join('');
+  }
+
+  function buildStatusHtml(e){
+    if(e.status_base){
+      var label = e.status_base;
+      if(e.status_base === 'Revised' && e.status_subtier){
+        label = 'Revised &mdash; ' + e.status_subtier;
+      }
+      var subtierAttr = e.status_subtier ? ' data-subtier="' + e.status_subtier + '"' : '';
+      var badge = '<span class="calib-status-tag" data-status-base="' + e.status_base + '"' + subtierAttr + '>' + label + '</span>';
+      var accuracy = '';
+      if(e.accuracy_total){
+        accuracy = '<span class="calib-accuracy">' + (e.accuracy_confirmed != null ? e.accuracy_confirmed : '?') + ' / ' + e.accuracy_total + ' confirmed</span>';
+      }
+      return badge + accuracy;
+    }
+    return '<span class="calib-status-tag" data-status="' + (e.status || '') + '">' + (e.status || '') + '</span>';
+  }
+
   function getFiltered(){
     var term = searchTerm.trim().toLowerCase();
     return ALL_ENTRIES.filter(function(e){
@@ -419,20 +532,12 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
     table.innerHTML = '';
     pageEntries.forEach(function(e){
       var row = document.createElement('div');
-      row.className = 'calib-row';
-      var noteHtml = '';
-      if(e.note){
-        var link = e.status_url ? ('<a href="' + e.status_url + '">' + (e.status_issue || 'source') + '</a>') : (e.status_issue || '');
-        noteHtml = '<span class="calib-note">' + e.note.replace(/^AMBIGUOUS:\s*/,'') + (link ? ' &mdash; see ' + link : '') + '</span>';
-      }
-      var tagsHtml = '';
-      if(e.tags && e.tags.length){
-        tagsHtml = '<div class="calib-tags">' + e.tags.map(function(t){ return '<span class="calib-tag">' + t.replace('-', ' ') + '</span>'; }).join('') + '</div>';
-      }
+      var backfilled = !!e.status_base;
+      row.className = 'calib-row' + (backfilled ? ' calib-row-backfilled' : '');
       row.innerHTML =
         '<div class="calib-issue"><a href="' + (e.origin_url || '#') + '">' + (e.origin_issue || '') + '</a><span class="calib-issue-date">' + (e.origin_date || '') + '</span></div>' +
-        '<div class="calib-judgment">' + (e.text || '') + (e.original_confidence ? '<span class="calib-conf" data-confidence="' + e.original_confidence + '">' + e.original_confidence.toUpperCase() + ' CONFIDENCE</span>' : '') + noteHtml + tagsHtml + '</div>' +
-        '<div class="calib-status"><span class="calib-status-tag" data-status="' + (e.status || '') + '">' + (e.status || '') + '</span></div>';
+        '<div class="calib-judgment">' + (backfilled ? buildBackfilledJudgmentHtml(e) : buildLegacyJudgmentHtml(e)) + '</div>' +
+        '<div class="calib-status">' + buildStatusHtml(e) + '</div>';
       table.appendChild(row);
     });
 
