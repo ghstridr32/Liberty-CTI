@@ -1549,48 +1549,6 @@ body [style*="Instrument Sans"]{
     </div>
   </section>
 
-  <!-- TODO: Lou to spot-check every extracted status (esp. the 3 entries flagged ambiguous in calibration-record-data.json) before this section ships live. -->
-  <section class="calib-teaser" id="calibration-record" aria-labelledby="calib-heading">
-    <div class="calib-inner">
-      <div class="calib-flag">Calibration entries below are being validated this week</div>
-      <div class="calib-teaser-head">
-        <div>
-          <span class="calib-eyebrow">Track Record</span>
-          <h2 id="calib-heading">The Calibration Record</h2>
-          <p>Which Alamo Threat Brief judgments held up and which were revised, pulled directly from each issue&rsquo;s own prior-judgment review. Most recent status changes below &mdash; the full record is searchable and filterable by sector.</p>
-        </div>
-        <a class="calib-view-all" href="calibration-record.html">View Full Calibration Record &rarr;</a>
-      </div>
-      <div class="calib-table calib-teaser-table" id="calib-table">
-        <div class="calib-loading">Loading calibration record&hellip;</div>
-      </div>
-    </div>
-  </section>
-  <script>
-  (function(){
-    var VISIBLE_TEASER = 6;
-    var table = document.getElementById('calib-table');
-    fetch('calibration-record-data.json').then(function(r){ return r.json(); }).then(function(data){
-      var entries = (data.entries || []).slice().sort(function(a,b){
-        return (b.status_date || '').localeCompare(a.status_date || '');
-      }).slice(0, VISIBLE_TEASER);
-      if(!entries.length){ table.innerHTML = '<div class="calib-loading">No calibration record entries yet.</div>'; return; }
-      table.innerHTML = '';
-      entries.forEach(function(e){
-        var row = document.createElement('div');
-        row.className = 'calib-row';
-        row.innerHTML =
-          '<div class="calib-issue"><a href="' + (e.origin_url || '#') + '">' + (e.origin_issue || '') + '</a><span class="calib-issue-date">' + (e.origin_date || '') + '</span></div>' +
-          '<div class="calib-judgment">' + (e.text || '') + (e.original_confidence ? '<span class="calib-conf">' + e.original_confidence.toUpperCase() + ' CONFIDENCE</span>' : '') + '</div>' +
-          '<div class="calib-status"><span class="calib-status-tag" data-status="' + (e.status || '') + '">' + (e.status || '') + '</span></div>';
-        table.appendChild(row);
-      });
-    }).catch(function(){
-      table.innerHTML = '<div class="calib-loading">Calibration record unavailable.</div>';
-    });
-  })();
-  </script>
-
   <section class="controls">
     <div class="controls-inner">
       <span class="control-label">Filter</span>
@@ -2020,6 +1978,48 @@ body [style*="Instrument Sans"]{
       </div>
     </div>
   </section>
+
+  <!-- TODO: Lou to spot-check every extracted status (esp. the 3 entries flagged ambiguous in calibration-record-data.json) before this section ships live. -->
+  <section class="calib-teaser" id="calibration-record" aria-labelledby="calib-heading">
+    <div class="calib-inner">
+      <div class="calib-flag">Calibration entries are being continuously updated as new developments emerge</div>
+      <div class="calib-teaser-head">
+        <div>
+          <span class="calib-eyebrow">Track Record</span>
+          <h2 id="calib-heading">The Calibration Record</h2>
+          <p>Which Alamo Threat Brief judgments held up and which were revised, pulled directly from each issue&rsquo;s own prior-judgment review. Most recent status changes below &mdash; the full record is searchable and filterable by sector.</p>
+        </div>
+        <a class="calib-view-all" href="calibration-record.html">View Full Calibration Record &rarr;</a>
+      </div>
+      <div class="calib-table calib-teaser-table" id="calib-table">
+        <div class="calib-loading">Loading calibration record&hellip;</div>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var VISIBLE_TEASER = 6;
+    var table = document.getElementById('calib-table');
+    fetch('calibration-record-data.json').then(function(r){ return r.json(); }).then(function(data){
+      var entries = (data.entries || []).slice().sort(function(a,b){
+        return (b.status_date || '').localeCompare(a.status_date || '');
+      }).slice(0, VISIBLE_TEASER);
+      if(!entries.length){ table.innerHTML = '<div class="calib-loading">No calibration record entries yet.</div>'; return; }
+      table.innerHTML = '';
+      entries.forEach(function(e){
+        var row = document.createElement('div');
+        row.className = 'calib-row';
+        row.innerHTML =
+          '<div class="calib-issue"><a href="' + (e.origin_url || '#') + '">' + (e.origin_issue || '') + '</a><span class="calib-issue-date">' + (e.origin_date || '') + '</span></div>' +
+          '<div class="calib-judgment">' + (e.text || '') + (e.original_confidence ? '<span class="calib-conf" data-confidence="' + e.original_confidence + '">' + e.original_confidence.toUpperCase() + ' CONFIDENCE</span>' : '') + '</div>' +
+          '<div class="calib-status"><span class="calib-status-tag" data-status="' + (e.status || '') + '">' + (e.status || '') + '</span></div>';
+        table.appendChild(row);
+      });
+    }).catch(function(){
+      table.innerHTML = '<div class="calib-loading">Calibration record unavailable.</div>';
+    });
+  })();
+  </script>
 </div>
 <!-- LCTI:FOOTER:START -->
 <style>
