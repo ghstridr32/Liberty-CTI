@@ -1,0 +1,300 @@
+/* Shared styles for The Calibration Record — used by atb/index.html (teaser) and atb/calibration-record.html (full record). */
+:root {
+  --c-bg:#060c14; --c-panel:#0c1e30; --c-tile:#0f2540;
+  --c-border:#1a3a5c; --c-border-hi:#2a5a8c;
+  --c-text:#e8f0fa; --c-text-dim:#c4d8ee; --c-text-low:#8aaece;
+  --c-gold:#d4a040; --c-gold-hi:#f0c870;
+  --c-blue:#5abcf0; --c-danger:#f06854;
+}
+.calib-flag {
+  display:inline-block;
+  margin-bottom:1rem;
+  border:1px solid rgba(240,104,84,.4);
+  color:var(--c-danger);
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.66rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  padding:.32rem .6rem;
+}
+.calib-eyebrow {
+  display:block;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.66rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--c-gold);
+  margin-bottom:.6rem;
+}
+.calib-legend {
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.1rem;
+  margin-bottom:1.25rem;
+  padding-bottom:1.1rem;
+  border-bottom:1px solid var(--c-border);
+  font-family:'Share Tech Mono',monospace;
+  font-size:.66rem;
+  letter-spacing:.04em;
+  color:var(--c-text-low);
+}
+.calib-legend span{white-space:nowrap}
+.calib-legend .dot{display:inline-block;width:6px;height:6px;margin-right:.4rem;border-radius:1px}
+.calib-table {
+  border:1px solid var(--c-border);
+  background:var(--c-panel);
+}
+.calib-row {
+  display:grid;
+  grid-template-columns:118px minmax(0,1fr) 148px;
+  gap:1.1rem;
+  align-items:start;
+  padding:1rem 1.15rem;
+  border-bottom:1px solid var(--c-border);
+}
+.calib-row:last-child{border-bottom:none}
+.calib-row.calib-hidden{display:none}
+.calib-issue {
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.78rem;
+  letter-spacing:.05em;
+  color:var(--c-gold);
+}
+.calib-issue a{color:inherit;text-decoration:none}
+.calib-issue a:hover{color:var(--c-gold-hi)}
+.calib-issue-date {
+  display:block;
+  margin-top:.2rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.62rem;
+  color:var(--c-text-low);
+}
+.calib-judgment {
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:.88rem;
+  line-height:1.6;
+  color:var(--c-text-dim);
+}
+.calib-judgment .calib-conf {
+  font-family:'Share Tech Mono',monospace;
+  font-size:.62rem;
+  letter-spacing:.05em;
+  color:var(--c-text-low);
+  margin-left:.4rem;
+}
+.calib-note {
+  display:block;
+  margin-top:.35rem;
+  font-family:'Source Serif 4',Georgia,serif;
+  font-style:italic;
+  font-size:.82rem;
+  line-height:1.55;
+  color:var(--c-text-low);
+}
+.calib-note a{color:var(--c-blue);text-decoration:none}
+.calib-note a:hover{text-decoration:underline}
+.calib-tags {
+  margin-top:.4rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem;
+}
+.calib-tag {
+  font-family:'Share Tech Mono',monospace;
+  font-size:.56rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--c-text-low);
+  border:1px solid var(--c-border);
+  padding:.12rem .4rem;
+}
+.calib-status {
+  text-align:right;
+}
+.calib-status-tag {
+  display:inline-block;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.64rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:.28rem .5rem;
+  border:1px solid var(--c-border-hi);
+  color:var(--c-text-dim);
+}
+.calib-status-tag[data-status="Confirmed"]{color:var(--c-gold-hi);border-color:rgba(212,160,64,.55)}
+.calib-status-tag[data-status="Revised"]{color:var(--c-blue);border-color:rgba(90,188,240,.45)}
+.calib-status-tag[data-status="Superseded"]{color:var(--c-text-low);border-color:var(--c-border)}
+.calib-status-tag[data-status="Unresolved / Tracking"]{color:var(--c-text-low);border-color:var(--c-border);border-style:dashed}
+.calib-loading{
+  padding:1.5rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;
+  color:var(--c-text-low);
+}
+
+/* Teaser (archive page) */
+.calib-teaser {
+  background:var(--c-bg);
+  border-bottom:1px solid var(--c-border);
+  padding:2.5rem 2rem 2.75rem;
+}
+.calib-inner {
+  max-width:1200px;
+  margin:0 auto;
+}
+.calib-teaser-head {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:1.5rem;
+  margin-bottom:1.25rem;
+  flex-wrap:wrap;
+}
+.calib-teaser-head h2 {
+  font-family:'Rajdhani',sans-serif;
+  font-weight:700;
+  font-size:1.7rem;
+  letter-spacing:.01em;
+  color:var(--c-text);
+  margin-bottom:.5rem;
+}
+.calib-teaser-head p {
+  max-width:560px;
+  color:var(--c-text-low);
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:.88rem;
+  line-height:1.65;
+}
+.calib-view-all {
+  flex-shrink:0;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.76rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--c-gold);
+  text-decoration:none;
+  border:1px solid rgba(212,160,64,.4);
+  padding:.55rem 1rem;
+  white-space:nowrap;
+}
+.calib-view-all:hover{color:var(--c-gold-hi);border-color:var(--c-gold)}
+.calib-teaser-table .calib-row{padding:.85rem 1.1rem}
+.calib-teaser-table .calib-judgment{font-size:.84rem}
+
+/* Full record page (filters + search) */
+.calib-page-hero {
+  background:var(--c-bg);
+  border-bottom:1px solid var(--c-border);
+  padding:3rem 2rem 2rem;
+}
+.calib-page-hero .calib-inner h1 {
+  font-family:'Rajdhani',sans-serif;
+  font-weight:700;
+  font-size:clamp(1.9rem,4vw,2.6rem);
+  color:var(--c-text);
+  margin-bottom:.85rem;
+}
+.calib-page-hero .calib-inner p {
+  max-width:680px;
+  color:var(--c-text-low);
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:.98rem;
+  line-height:1.75;
+}
+.calib-back {
+  display:inline-block;
+  margin-bottom:1.25rem;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.72rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--c-text-low);
+  text-decoration:none;
+}
+.calib-back:hover{color:var(--c-gold)}
+.calib-controls {
+  position:sticky;
+  top:56px;
+  z-index:40;
+  background:rgba(6,12,20,.97);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--c-border);
+  padding:1rem 2rem;
+}
+.calib-controls-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.85rem;
+}
+.calib-search {
+  margin-left:auto;
+  min-width:240px;
+}
+.calib-search input {
+  width:100%;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--c-border-hi);
+  color:var(--c-text);
+  padding:.55rem .9rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.68rem;
+  letter-spacing:.03em;
+  outline:none;
+}
+.calib-search input:focus{border-color:var(--c-gold)}
+.calib-pills{display:flex;gap:.5rem;flex-wrap:wrap}
+.calib-pill {
+  border:1px solid var(--c-border-hi);
+  background:transparent;
+  color:var(--c-text-low);
+  padding:.36rem .75rem;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  font-size:.66rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.calib-pill.active,.calib-pill:hover {
+  background:var(--c-gold);
+  color:var(--c-bg);
+  border-color:var(--c-gold);
+}
+.calib-results {
+  padding:2rem 2rem 4rem;
+}
+.calib-results-count {
+  max-width:1200px;
+  margin:0 auto 1rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.68rem;
+  letter-spacing:.04em;
+  color:var(--c-text-low);
+}
+.calib-results .calib-inner{max-width:1200px;margin:0 auto}
+.calib-empty {
+  display:none;
+  border:1px dashed var(--c-border-hi);
+  padding:2.5rem 1.5rem;
+  text-align:center;
+  color:var(--c-text-low);
+  font-family:'Source Serif 4',Georgia,serif;
+}
+
+@media (max-width: 760px) {
+  .calib-teaser-head{flex-direction:column;align-items:flex-start}
+  .calib-page-hero,.calib-controls,.calib-results{padding-left:1.25rem;padding-right:1.25rem}
+  .calib-controls-inner{flex-direction:column;align-items:stretch}
+  .calib-search{margin-left:0;min-width:100%}
+  .calib-row{grid-template-columns:1fr;gap:.4rem}
+  .calib-status{text-align:left}
+  .calib-issue-date{margin-bottom:.1rem}
+}
