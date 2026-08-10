@@ -138,8 +138,18 @@
 /* Teaser (archive page) */
 .calib-teaser {
   background:var(--c-bg);
-  border-bottom:1px solid var(--c-border);
-  padding:2.5rem 2rem 2.75rem;
+  border-bottom:1px solid rgba(184,150,62,.18);
+  padding:2.25rem 2rem 2.75rem;
+}
+.calib-teaser .calib-flag,
+.calib-page-hero .calib-flag {
+  border-color:rgba(184,150,62,.45);
+  color:var(--gold, #b8963e);
+  font-family:'Instrument Sans',sans-serif;
+  font-weight:500;
+}
+.calib-teaser .calib-eyebrow {
+  font-family:'Instrument Sans',sans-serif;
 }
 .calib-inner {
   max-width:1200px;
@@ -150,27 +160,28 @@
   align-items:end;
   justify-content:space-between;
   gap:1.5rem;
-  margin-bottom:1.25rem;
+  margin-bottom:1.5rem;
   flex-wrap:wrap;
 }
 .calib-teaser-head h2 {
-  font-family:'Rajdhani',sans-serif;
+  font-family:'Playfair Display',serif;
   font-weight:700;
-  font-size:1.7rem;
-  letter-spacing:.01em;
+  font-size:1.85rem;
+  letter-spacing:normal;
   color:var(--c-text);
   margin-bottom:.5rem;
 }
 .calib-teaser-head p {
   max-width:560px;
   color:var(--c-text-low);
-  font-family:'Source Serif 4',Georgia,serif;
+  font-family:'Instrument Sans',sans-serif;
+  font-weight:300;
   font-size:.88rem;
   line-height:1.65;
 }
 .calib-view-all {
   flex-shrink:0;
-  font-family:'Rajdhani',sans-serif;
+  font-family:'Instrument Sans',sans-serif;
   font-weight:600;
   font-size:.76rem;
   letter-spacing:.08em;
@@ -183,7 +194,11 @@
 }
 .calib-view-all:hover{color:var(--c-gold-hi);border-color:var(--c-gold)}
 .calib-teaser-table .calib-row{padding:.85rem 1.1rem}
-.calib-teaser-table .calib-judgment{font-size:.84rem}
+.calib-teaser-table .calib-judgment{font-size:.84rem;font-family:'Instrument Sans',sans-serif;font-weight:300}
+.calib-teaser-table .calib-issue{font-family:'Instrument Sans',sans-serif}
+.calib-teaser-table .calib-issue-date,
+.calib-teaser-table .calib-conf,
+.calib-teaser-table .calib-status-tag{font-family:'Instrument Sans',sans-serif}
 
 /* Full record page (filters + search) */
 .calib-page-hero {
