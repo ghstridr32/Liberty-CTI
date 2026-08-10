@@ -269,13 +269,25 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
 
   <section class="calib-results">
     <div class="calib-inner">
-      <div class="calib-results-count" id="calib-results-count"></div>
+      <div class="calib-results-bar">
+        <div class="calib-results-count" id="calib-results-count"></div>
+        <div class="calib-page-size">
+          <span>Show</span>
+          <button type="button" class="calib-page-size-btn active" data-page-size="10">10</button>
+          <button type="button" class="calib-page-size-btn" data-page-size="25">25</button>
+        </div>
+      </div>
       <div class="calib-table" id="calib-full-table">
         <div class="calib-loading">Loading calibration record&hellip;</div>
       </div>
       <div class="calib-empty" id="calib-empty">
         No entries match this filter.<br>Try a different sector or search term.
       </div>
+      <nav class="calib-pagination" id="calib-pagination" aria-label="Calibration record pagination">
+        <button type="button" class="calib-page-nav" id="calib-page-prev">&larr; Prev</button>
+        <span class="calib-page-indicator" id="calib-page-indicator"></span>
+        <button type="button" class="calib-page-nav" id="calib-page-next">Next &rarr;</button>
+      </nav>
     </div>
   </section>
 </main>
@@ -361,20 +373,33 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
   var ALL_ENTRIES = [];
   var activeFilter = 'all';
   var searchTerm = '';
+  var pageSize = 10;
+  var currentPage = 1;
 
   var table = document.getElementById('calib-full-table');
   var empty = document.getElementById('calib-empty');
   var countEl = document.getElementById('calib-results-count');
+  var pagination = document.getElementById('calib-pagination');
+  var pageIndicator = document.getElementById('calib-page-indicator');
+  var prevBtn = document.getElementById('calib-page-prev');
+  var nextBtn = document.getElementById('calib-page-next');
 
-  function render(){
+  function getFiltered(){
     var term = searchTerm.trim().toLowerCase();
-    var filtered = ALL_ENTRIES.filter(function(e){
+    return ALL_ENTRIES.filter(function(e){
       var tagMatch = activeFilter === 'all' || (e.tags || []).indexOf(activeFilter) !== -1;
       if(!tagMatch) return false;
       if(!term) return true;
       var hay = ((e.text||'') + ' ' + (e.origin_issue||'') + ' ' + (e.note||'') + ' ' + (e.status||'')).toLowerCase();
       return hay.indexOf(term) !== -1;
     });
+  }
+
+  function render(){
+    var filtered = getFiltered();
+    var totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    if(currentPage > totalPages) currentPage = totalPages;
+    if(currentPage < 1) currentPage = 1;
 
     countEl.textContent = filtered.length + ' of ' + ALL_ENTRIES.length + ' judgments';
 
@@ -382,12 +407,17 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
       table.innerHTML = '';
       table.style.display = 'none';
       empty.style.display = 'block';
+      pagination.style.display = 'none';
       return;
     }
     table.style.display = 'block';
     empty.style.display = 'none';
+
+    var start = (currentPage - 1) * pageSize;
+    var pageEntries = filtered.slice(start, start + pageSize);
+
     table.innerHTML = '';
-    filtered.forEach(function(e){
+    pageEntries.forEach(function(e){
       var row = document.createElement('div');
       row.className = 'calib-row';
       var noteHtml = '';
@@ -405,6 +435,15 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
         '<div class="calib-status"><span class="calib-status-tag" data-status="' + (e.status || '') + '">' + (e.status || '') + '</span></div>';
       table.appendChild(row);
     });
+
+    if(totalPages <= 1){
+      pagination.style.display = 'none';
+    } else {
+      pagination.style.display = 'flex';
+      pageIndicator.textContent = 'Page ' + currentPage + ' of ' + totalPages;
+      prevBtn.disabled = currentPage <= 1;
+      nextBtn.disabled = currentPage >= totalPages;
+    }
   }
 
   fetch('calibration-record-data.json').then(function(r){ return r.json(); }).then(function(data){
@@ -422,12 +461,36 @@ body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',G
     document.querySelectorAll('.calib-pill').forEach(function(p){ p.classList.remove('active'); });
     btn.classList.add('active');
     activeFilter = btn.getAttribute('data-filter');
+    currentPage = 1;
     render();
   });
 
   document.getElementById('calib-search-input').addEventListener('input', function(e){
     searchTerm = e.target.value;
+    currentPage = 1;
     render();
+  });
+
+  document.querySelectorAll('.calib-page-size-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.calib-page-size-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      pageSize = parseInt(btn.getAttribute('data-page-size'), 10);
+      currentPage = 1;
+      render();
+    });
+  });
+
+  prevBtn.addEventListener('click', function(){
+    currentPage -= 1;
+    render();
+    table.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  nextBtn.addEventListener('click', function(){
+    currentPage += 1;
+    render();
+    table.scrollIntoView({behavior:'smooth', block:'start'});
   });
 })();
 </script>
