@@ -55,6 +55,7 @@ import sys
 import os
 import shutil
 import argparse
+import html
 from pathlib import Path
 from datetime import datetime
 
@@ -79,6 +80,8 @@ NAV_START    = "<!-- LCTI:NAV:START -->"
 NAV_END      = "<!-- LCTI:NAV:END -->"
 FOOTER_START = "<!-- LCTI:FOOTER:START -->"
 FOOTER_END   = "<!-- LCTI:FOOTER:END -->"
+ISSUES_START = "<!-- LCTI:RECENT-ISSUES:START -->"
+ISSUES_END   = "<!-- LCTI:RECENT-ISSUES:END -->"
 
 NAV_PATTERN = re.compile(
     r"<!-- LCTI:NAV:START -->.*?<!-- LCTI:NAV:END -->",
@@ -86,6 +89,10 @@ NAV_PATTERN = re.compile(
 )
 FOOTER_PATTERN = re.compile(
     r"<!-- LCTI:FOOTER:START -->.*?<!-- LCTI:FOOTER:END -->",
+    re.DOTALL
+)
+ISSUES_PATTERN = re.compile(
+    r"<!-- LCTI:RECENT-ISSUES:START -->.*?<!-- LCTI:RECENT-ISSUES:END -->",
     re.DOTALL
 )
 
@@ -537,6 +544,91 @@ def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: 
     return relativize_component_links(html, current_page, root)
 
 
+def _issue_meta(root: Path, dated_rel_path: Path) -> dict | None:
+    """Load atb/<year>/<slug>/meta.json for a dated ATB file, if it exists.
+
+    meta.json (written when each issue is produced) is the authoritative source for
+    the issue number, display title (dominant_theme), and week label — the archive
+    page's own titles are hand-set per issue and cannot be reliably re-derived from
+    the dated atb/issues/MM-DD-YYYY.html file itself (its <h1> is a static banner,
+    not the issue-specific headline).
+    """
+    stem = dated_rel_path.stem
+    try:
+        year = datetime.strptime(stem, "%m-%d-%Y").year
+    except ValueError:
+        return None
+    meta_path = root / "atb" / str(year) / stem / "meta.json"
+    if not meta_path.exists():
+        return None
+    try:
+        import json
+        return json.loads(meta_path.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return None
+
+
+def build_recent_issues_html(root: Path, current_page: Path, count: int = 3) -> str:
+    dated_files = find_dated_atb_files(root)
+    archive_href = relative_href(current_page, "atb/index.html", root)
+
+    if not dated_files:
+        return f"{ISSUES_START}\n{ISSUES_END}"
+
+    cards = []
+    for dated_rel in dated_files[:count]:
+        meta = _issue_meta(root, dated_rel)
+        stem = dated_rel.stem
+        pretty_target = Path("atb") / stem[-4:] / stem / "index.html"
+        if (root / pretty_target).exists():
+            href = relative_href(current_page, pretty_target, root)
+        else:
+            href = relative_href(current_page, dated_rel, root)
+
+        if meta:
+            kicker = f"{html.escape(meta.get('issue', ''))} &middot; {html.escape(meta.get('week_of', format_week_label(dated_rel.name)))}"
+            title = meta.get("dominant_theme") or "The Alamo Threat Brief"
+        else:
+            kicker = html.escape(format_week_label(dated_rel.name))
+            title = "The Alamo Threat Brief"
+
+        cards.append(f"""      <a class="lcti-issue-card" href="{href}">
+        <span class="lcti-issue-kicker">{kicker}</span>
+        <h3 class="lcti-issue-title">{html.escape(title)}</h3>
+        <span class="lcti-issue-link">Read the brief &rarr;</span>
+      </a>""")
+
+    cards_html = "\n".join(cards)
+
+    return f"""{ISSUES_START}
+<style>
+.lcti-issues{{padding:4rem 2.5rem;background:#0d1520;border-top:1px solid rgba(184,150,62,0.2);border-bottom:1px solid rgba(184,150,62,0.2)}}
+.lcti-issues-inner{{max-width:1100px;margin:0 auto}}
+.lcti-issues-head{{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}}
+.lcti-issues-head h2{{font-family:'Playfair Display',serif;color:#f4efe6;font-size:1.5rem;margin:0}}
+.lcti-issues-head a{{font-family:'Instrument Sans',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#b8963e;text-decoration:underline;text-underline-offset:3px}}
+.lcti-issues-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}}
+.lcti-issue-card{{display:flex;flex-direction:column;gap:.75rem;padding:1.75rem;border:1px solid rgba(184,150,62,0.22);background:#080c10;text-decoration:none;transition:border-color .25s,background .25s}}
+.lcti-issue-card:hover{{border-color:#b8963e;background:#0d1520}}
+.lcti-issue-kicker{{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e}}
+.lcti-issue-title{{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#f4efe6;margin:0;line-height:1.35}}
+.lcti-issue-link{{font-family:'Instrument Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#d4af62}}
+@media(max-width:820px){{.lcti-issues-grid{{grid-template-columns:1fr}}}}
+</style>
+<section class="lcti-issues" aria-label="Recent Alamo Threat Brief issues">
+  <div class="lcti-issues-inner">
+    <div class="lcti-issues-head">
+      <h2>Recent Issues</h2>
+      <a href="{archive_href}">View the full archive &rarr;</a>
+    </div>
+    <div class="lcti-issues-grid">
+{cards_html}
+    </div>
+  </div>
+</section>
+{ISSUES_END}"""
+
+
 def has_sentinel(content: str, start: str, end: str) -> bool:
     return start in content and end in content
 
@@ -552,11 +644,12 @@ def backup(path: Path) -> Path:
     return bak
 
 
-def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, footer_html: str, latest_issue_file: Path | None, root: Path) -> dict:
+def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, footer_html: str, issues_html: str, latest_issue_file: Path | None, root: Path) -> dict:
     result = {
         "path": str(path),
         "nav": False,
         "footer": False,
+        "issues": False,
         "latest": False,
         "skipped": False,
         "error": None,
@@ -571,6 +664,7 @@ def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, foo
 
     has_nav = has_sentinel(content, NAV_START, NAV_END)
     has_footer = has_sentinel(content, FOOTER_START, FOOTER_END)
+    has_issues = has_sentinel(content, ISSUES_START, ISSUES_END)
 
     new_content = content
 
@@ -582,16 +676,21 @@ def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, foo
         new_content = inject(new_content, FOOTER_PATTERN, footer_html)
         result["footer"] = True
 
+    if has_issues:
+        new_content = inject(new_content, ISSUES_PATTERN, issues_html)
+        result["issues"] = True
+
     new_content, latest_changed = sync_latest_issue_links(new_content, latest_issue_file, path, root)
     result["latest"] = latest_changed
 
-    if not has_nav and not has_footer and not latest_changed:
+    if not has_nav and not has_footer and not has_issues and not latest_changed:
         result["skipped"] = True
         return result
 
     if new_content == content:
         result["nav"] = False
         result["footer"] = False
+        result["issues"] = False
         result["latest"] = False
         return result
 
@@ -723,14 +822,15 @@ def main():
         else:
             nav_html = build_nav_html(latest_issue, path, root)
             footer_html = build_footer_html(latest_issue, path, root)
-            r = process_file(path, write=args.write, backup_files=backup_files, nav_html=nav_html, footer_html=footer_html, latest_issue_file=latest_issue, root=root)
+            issues_html = build_recent_issues_html(root, path)
+            r = process_file(path, write=args.write, backup_files=backup_files, nav_html=nav_html, footer_html=footer_html, issues_html=issues_html, latest_issue_file=latest_issue, root=root)
             if r["error"]:
                 print(f"  ✗  {rel}  —  ERROR: {r['error']}")
                 errors += 1
             elif r["skipped"]:
                 print(f"  ·  {rel}  —  no sentinels (skipped)")
                 skipped += 1
-            elif not r["nav"] and not r["footer"]:
+            elif not r["nav"] and not r["footer"] and not r["issues"]:
                 print(f"  ✓  {rel}  —  already up to date")
                 skipped += 1
             else:
@@ -739,6 +839,8 @@ def main():
                     parts.append("nav")
                 if r["footer"]:
                     parts.append("footer")
+                if r["issues"]:
+                    parts.append("recent issues")
                 if r.get("latest"):
                     parts.append("latest issue links")
                 flag = "" if args.write else " [dry run — not written]"
