@@ -1266,38 +1266,26 @@ body [style*="Instrument Sans"]{
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="index.html">Home</a></li>
-
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="about.html" role="menuitem">Company Overview</a>
+        <span class="drop-label">Latest Issue</span>
+        <a href="atb/issues/08-22-2026.html" role="menuitem">Latest Issue, Week of Aug 22, 2026</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Founders</span>
-        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
-      </div>
-    </li>
-
-    <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Advisory</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">How We Advise</a>
+        <a href="atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Intelligence Record</span>
-        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
         <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
       <div class="lcti-drop-panel" role="menu">
-        <span class="drop-label">Latest Issue</span>
-        <a href="atb/issues/08-22-2026.html" role="menuitem">Latest Issue, Week of Aug 16–22, 2026</a>
-        <div class="drop-divider"></div>
-        <a href="atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="decision-support.html" role="menuitem">How We Advise</a>
+        <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
+        <a href="briefing-request.html" role="menuitem">Executive Crisis Wargame</a>
       </div>
     </li>
 
@@ -1316,7 +1304,18 @@ body [style*="Instrument Sans"]{
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1325,27 +1324,20 @@ body [style*="Instrument Sans"]{
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="index.html">Home</a>
-
-  <span class="m-group-label">About</span>
+  <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
-    <a href="about.html">Company Overview</a>
-    <a href="luis-maldonado.html">Lou Maldonado</a>
-    <a href="angie-maldonado.html">Angie Maldonado</a>
-  </div>
-
-  <span class="m-group-label">Advisory</span>
-  <div class="m-sub">
-    <a href="decision-support.html">How We Advise</a>
-    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="atb/issues/08-22-2026.html">Latest Issue, Week of Aug 22, 2026</a>
+    <a href="atb/index.html" class="lcti-archive-link">Archive</a>
+    <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="sector-assessments.html">Sector Assessments</a>
   </div>
 
-  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <span class="m-group-label">Services</span>
   <div class="m-sub">
-    <a href="atb/issues/08-22-2026.html">Latest Issue, Week of Aug 16–22, 2026</a>
-    <a href="atb/index.html" class="lcti-archive-link">Archive</a>
+    <a href="decision-support.html">How We Advise</a>
+    <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
+    <a href="briefing-request.html">Executive Crisis Wargame</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -1358,8 +1350,15 @@ body [style*="Instrument Sans"]{
     <a href="Energy_data_AI.html">AI Convergence</a>
   </div>
 
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Lou Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
   <div class="m-cta-wrap">
-    <a href="briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
   </div>
 </div>
 
@@ -1582,6 +1581,120 @@ body [style*="Instrument Sans"]{
   </div>
 </div>
 
+<!-- ── STRATEGIC VS. TECHNICAL ── -->
+<div class="section" id="strategic-vs-technical">
+  <div class="section-inner">
+    <div class="split">
+      <div>
+        <span class="section-label">Strategic vs. Technical</span>
+        <h2>Not a technical<br>CTI feed.</h2>
+      </div>
+      <div>
+        <p>Technical CTI helps security teams detect, block, and respond. Strategic Cyber Intelligence helps executives understand why cyber pressure is building, which decisions it affects, and what strategic judgment the board needs before disruption arrives.</p>
+        <p>The reference set is strategic intelligence: Stratfor (RANE), Eurasia Group, Control Risks, and Teneo. Liberty CTI applies that analytical discipline to cyber risk and Texas critical infrastructure — buyers are boards, general counsel, CEOs, and executive risk owners, not SOC and detection teams. The output is strategic judgment and executive action paths, not indicators and campaign tracking.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── THE CATEGORY THESIS ── -->
+<div class="section-dark" id="category-thesis">
+  <div class="section-inner">
+    <div class="split">
+      <div>
+        <span class="section-label">The Category Thesis</span>
+        <h2>A missing discipline<br>in the private-sector<br>cyber market.</h2>
+      </div>
+      <div>
+        <p>Texas is the proof. Energy, finance, healthcare, defense, data centers, and logistics sit inside the same operating system adversaries study for access, pressure, and disruption. For thirty years, government taught us how adversaries think before the private sector sees the full picture. Liberty CTI closes that gap for Texas leaders with intelligence-community tradecraft, plain-language strategic judgment, and decision records executives can stand behind.</p>
+        <p>Every product answers three questions: what changed in the strategic environment, what decision it affects, and what leadership should document now.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── THE TORCH FUSION CYCLE ── -->
+<div class="section" id="torch-fusion-cycle">
+  <div class="section-inner">
+    <div class="split">
+      <div>
+        <span class="section-label">Analytical Discipline</span>
+        <h2>The Torch<br>Fusion Cycle.</h2>
+      </div>
+      <div>
+        <p>Every Liberty CTI product is built to answer four leadership questions: what changed, what decision it affects, what it costs to be wrong, and what leadership should document now. The method fuses adversary behavior with geopolitical, financial, and operational context so the output becomes strategic judgment executives can use.</p>
+        <div class="callsign-grid" style="grid-template-columns:repeat(4,1fr);margin-top:1.5rem;">
+          <div class="callsign-card" style="text-align:center;"><p class="cs-label" style="margin-bottom:0.5rem;">C</p><h3 style="font-size:0.95rem;">Context</h3></div>
+          <div class="callsign-card" style="text-align:center;"><p class="cs-label" style="margin-bottom:0.5rem;">I</p><h3 style="font-size:0.95rem;">Intent</h3></div>
+          <div class="callsign-card" style="text-align:center;"><p class="cs-label" style="margin-bottom:0.5rem;">R</p><h3 style="font-size:0.95rem;">Risk</h3></div>
+          <div class="callsign-card" style="text-align:center;"><p class="cs-label" style="margin-bottom:0.5rem;">D</p><h3 style="font-size:0.95rem;">Decision</h3></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHAT WE ARE NOT ── -->
+<div class="section-dark" id="what-we-are-not">
+  <div class="section-inner">
+    <span class="section-label">What We Are Not</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:700;color:var(--paper);margin-bottom:0.75rem;">Not an MSSP. Not MDR. Not incident response.<br>Not a SOC. Not a technical CTI feed.</h2>
+    <p class="kicker">Liberty CTI produces strategic intelligence products for executive audiences. We do not run your tools, manage your alerts, or respond to your incident. We help leadership understand the strategic environment, decide what matters, and document why.</p>
+    <div class="callsign-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="callsign-card">
+        <p class="cs-label">Not Security Operations</p>
+        <h3>We do not replace the SOC.</h3>
+        <p>Your security team owns detection, engineering, response, and remediation. Liberty CTI adds external strategic context for leaders who must decide under consequence.</p>
+      </div>
+      <div class="callsign-card">
+        <p class="cs-label">Not Incident Response</p>
+        <h3>We are built before the crisis.</h3>
+        <p>Incident response matters after impact. Strategic Cyber Intelligence matters before the decision window closes.</p>
+      </div>
+      <div class="callsign-card">
+        <p class="cs-label">Not Indicator-Driven CTI</p>
+        <h3>We do not sell noise.</h3>
+        <p>Indicators are inputs. The product is strategic judgment for executive cyber decisions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── THE LIABILITY QUESTION ── -->
+<div class="section" id="liability-question">
+  <div class="section-inner">
+    <div class="split">
+      <div>
+        <span class="section-label">The Liability Question</span>
+        <h2>What happens when<br>boards lack strategic<br>judgment.</h2>
+      </div>
+      <div>
+        <p>Most organizations do not fail because they lack security tooling. They fail because leadership cannot show it received warning, understood foreseeable risk, and applied strategic judgment before the incident.</p>
+        <p><strong>The board cannot demonstrate due diligence.</strong> When the inquiry comes, leadership has no documented record of expert guidance received, decisions weighed, or thresholds set before the event.</p>
+        <p><strong>Counsel and communications operate on conflicting assumptions.</strong> Legal, security, operations, finance, and communications move without a shared view of risk, timing, or governance posture, increasing avoidable exposure rather than reducing it.</p>
+        <p><strong>Liability and reputational damage compound.</strong> A contained problem can expand into regulatory enforcement, derivative litigation, board exposure, customer attrition, and reputational damage that survives the incident itself.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OUR VISION ── -->
+<div class="section-dark" id="vision">
+  <div class="section-inner">
+    <div class="split">
+      <div>
+        <span class="section-label">Our Vision</span>
+        <h2>Helping Texas leaders<br>see across the next<br>disruption.</h2>
+      </div>
+      <div>
+        <p>Texas leaders are operating in an environment where cyber risk no longer sits neatly inside the security function. Geopolitical competition, criminal ecosystems, supply-chain concentration, and cross-sector dependency now shape operating decisions across infrastructure, finance, healthcare, and defense.</p>
+        <p>Boards and general counsel should treat these dynamics as strategic intelligence problems, not just security concerns. The practical question is whether your organization can demonstrate it received warning, understood the risk, and documented action before a crisis forced the decision.</p>
+        <p>Warning without a decision record is fragile. The record matters when regulators, insurers, shareholders, or courts ask what leadership knew and what it did next. See the <a href="texas-focus.html" class="leader-link">Texas Focus</a> pages for sector-by-sector detail on energy, finance, defense, and healthcare.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── CALL SIGNS ── -->
 <div class="section">
   <div class="section-inner">
@@ -1654,10 +1767,10 @@ body [style*="Instrument Sans"]{
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Advisory</span>
+      <span class="lcti-footer-col-title">Insights</span>
       <ul class="lcti-footer-links">
-        <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>

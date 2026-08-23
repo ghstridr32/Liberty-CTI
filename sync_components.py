@@ -327,38 +327,26 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="index.html">Home</a></li>
-
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="about.html" role="menuitem">Company Overview</a>
+        <span class="drop-label">Latest Issue</span>
+        <a href="{latest_issue_href}" role="menuitem">{latest_issue_label}</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Founders</span>
-        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
-      </div>
-    </li>
-
-    <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Advisory</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">How We Advise</a>
+        <a href="{archive_href}" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Intelligence Record</span>
-        <a href="alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
         <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
       <div class="lcti-drop-panel" role="menu">
-        <span class="drop-label">Latest Issue</span>
-        <a href="{latest_issue_href}" role="menuitem">{latest_issue_label}</a>
-        <div class="drop-divider"></div>
-        <a href="{archive_href}" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="decision-support.html" role="menuitem">How We Advise</a>
+        <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
+        <a href="briefing-request.html" role="menuitem">Executive Crisis Wargame</a>
       </div>
     </li>
 
@@ -377,7 +365,18 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -386,27 +385,20 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="index.html">Home</a>
-
-  <span class="m-group-label">About</span>
+  <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
-    <a href="about.html">Company Overview</a>
-    <a href="luis-maldonado.html">Lou Maldonado</a>
-    <a href="angie-maldonado.html">Angie Maldonado</a>
-  </div>
-
-  <span class="m-group-label">Advisory</span>
-  <div class="m-sub">
-    <a href="decision-support.html">How We Advise</a>
-    <a href="alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="{latest_issue_href}">{latest_issue_label}</a>
+    <a href="{archive_href}" class="lcti-archive-link">Archive</a>
+    <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="sector-assessments.html">Sector Assessments</a>
   </div>
 
-  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <span class="m-group-label">Services</span>
   <div class="m-sub">
-    <a href="{latest_issue_href}">{latest_issue_label}</a>
-    <a href="{archive_href}" class="lcti-archive-link">Archive</a>
+    <a href="decision-support.html">How We Advise</a>
+    <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
+    <a href="briefing-request.html">Executive Crisis Wargame</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -419,8 +411,15 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
     <a href="Energy_data_AI.html">AI Convergence</a>
   </div>
 
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Lou Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
   <div class="m-cta-wrap">
-    <a href="briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
   </div>
 </div>
 
@@ -501,10 +500,10 @@ def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: 
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Advisory</span>
+      <span class="lcti-footer-col-title">Insights</span>
       <ul class="lcti-footer-links">
-        <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="/alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>

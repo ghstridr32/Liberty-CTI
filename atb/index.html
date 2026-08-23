@@ -1394,38 +1394,26 @@ body [style*="Instrument Sans"]{
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="../index.html">Home</a></li>
-
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../about.html" role="menuitem">Company Overview</a>
+        <span class="drop-label">Latest Issue</span>
+        <a href="issues/08-22-2026.html" role="menuitem">Latest Issue, Week of Aug 22, 2026</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Founders</span>
-        <a href="../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
-      </div>
-    </li>
-
-    <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Advisory</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="../decision-support.html" role="menuitem">How We Advise</a>
+        <a href="./index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="../alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief</a>
         <div class="drop-divider"></div>
-        <span class="drop-label">Intelligence Record</span>
-        <a href="../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
         <a href="../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
         <a href="../sector-assessments.html" role="menuitem">Sector Assessments</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
       <div class="lcti-drop-panel" role="menu">
-        <span class="drop-label">Latest Issue</span>
-        <a href="issues/08-22-2026.html" role="menuitem">Latest Issue, Week of Aug 16–22, 2026</a>
-        <div class="drop-divider"></div>
-        <a href="./index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="../decision-support.html" role="menuitem">How We Advise</a>
+        <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
+        <a href="../briefing-request.html" role="menuitem">Executive Crisis Wargame</a>
       </div>
     </li>
 
@@ -1444,7 +1432,18 @@ body [style*="Instrument Sans"]{
       </div>
     </li>
 
-    <li><a href="../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li><a href="../briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1453,27 +1452,20 @@ body [style*="Instrument Sans"]{
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="../index.html">Home</a>
-
-  <span class="m-group-label">About</span>
+  <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
-    <a href="../about.html">Company Overview</a>
-    <a href="../luis-maldonado.html">Lou Maldonado</a>
-    <a href="../angie-maldonado.html">Angie Maldonado</a>
-  </div>
-
-  <span class="m-group-label">Advisory</span>
-  <div class="m-sub">
-    <a href="../decision-support.html">How We Advise</a>
-    <a href="../alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="issues/08-22-2026.html">Latest Issue, Week of Aug 22, 2026</a>
+    <a href="./index.html" class="lcti-archive-link">Archive</a>
+    <a href="../alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="../texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="../sector-assessments.html">Sector Assessments</a>
   </div>
 
-  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <span class="m-group-label">Services</span>
   <div class="m-sub">
-    <a href="issues/08-22-2026.html">Latest Issue, Week of Aug 16–22, 2026</a>
-    <a href="./index.html" class="lcti-archive-link">Archive</a>
+    <a href="../decision-support.html">How We Advise</a>
+    <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
+    <a href="../briefing-request.html">Executive Crisis Wargame</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -1486,8 +1478,15 @@ body [style*="Instrument Sans"]{
     <a href="../Energy_data_AI.html">AI Convergence</a>
   </div>
 
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="../about.html">Company Overview</a>
+    <a href="../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
   <div class="m-cta-wrap">
-    <a href="../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+    <a href="../briefing-request.html" class="m-cta">Request a Briefing</a>
   </div>
 </div>
 
@@ -1624,29 +1623,29 @@ body [style*="Instrument Sans"]{
           <span class="month-count">4 issues</span>
         </div>
         <div class="month-issues">
-        <a class="issue-card" href="2026/08-22-2026/index.html" data-tags="latest weekly iran russia china north-korea maritime water ercot ot-ics energy finance healthcare dib ai texas ot plc hormuz dprk infrastructure" data-sector="all" data-search="economic warfare, texas exposure texas organizations face a widening two-track risk this week. on the geopolitical track, washington moved from the tanker-attack-driven volatility rep 08-22-2026 atb-2026-24 latest weekly iran russia china north-korea maritime water ercot ot-ics energy finance healthcare dib ai texas ot plc hormuz dprk infrastructure">
+        <a class="issue-card" href="2026/08-22-2026/index.html" data-tags="weekly texas cyber-risk" data-sector="all" data-search="the alamo threat brief issue 24 weekly executive warning intelligence for texas critical infrastructure leaders. 08-22-2026.html atb-2026-24 weekly texas cyber risk">
           <div class="issue-date-block">
             <span class="issue-day">22</span>
             <span class="issue-month">AUG</span>
           </div>
           <div class="issue-main">
             <div class="issue-kicker">ATB-2026-24<span class="status-chip">Latest</span></div>
-            <div class="issue-title">Economic Warfare, Texas Exposure</div>
-            <div class="issue-summary">Texas organizations face a widening two-track risk this week. On the geopolitical track, Washington moved from the tanker-attack-driven volatility reported in ATB-2026-23 toward declared economic war against Iran: on 20 August, Treasury Secretary Scott Bessent pledged the “toughe</div>
-            <div class="issue-tags"><span class="tag">Iran</span><span class="tag">Russia</span><span class="tag">China</span><span class="tag">North Korea</span><span class="tag">Maritime</span><span class="tag">Water</span></div>
+            <div class="issue-title">The Alamo Threat Brief Issue 24</div>
+            <div class="issue-summary">Weekly executive warning intelligence for Texas critical infrastructure leaders.</div>
+            <div class="issue-tags"><span class="tag">weekly</span><span class="tag">texas</span><span class="tag">cyber risk</span></div>
           </div>
           <div class="issue-arrow">Open</div>
         </a>
-        <a class="issue-card" href="2026/08-15-2026/index.html" data-tags="latest weekly iran russia north-korea cybercrime maritime water ercot ot-ics energy finance healthcare dib texas ot hormuz ai dprk supply-chain infrastructure" data-sector="all" data-search="hormuz is now a texas risk driver the u.s.-iran war has moved from a background risk to an active driver of texas energy exposure: iran has struck at least three tankers in the strait  08-15-2026 atb-2026-23 latest weekly iran russia north-korea cybercrime maritime water ercot ot-ics energy finance healthcare dib texas ot hormuz ai dprk supply-chain infrastructure">
+        <a class="issue-card" href="2026/08-15-2026/index.html" data-tags="weekly texas cyber-risk" data-sector="all" data-search="the alamo threat brief issue 23 weekly executive warning intelligence for texas critical infrastructure leaders. 08-15-2026.html atb-2026-23 weekly texas cyber risk">
           <div class="issue-date-block">
             <span class="issue-day">15</span>
             <span class="issue-month">AUG</span>
           </div>
           <div class="issue-main">
             <div class="issue-kicker">ATB-2026-23</div>
-            <div class="issue-title">Hormuz Is Now A Texas Risk Driver</div>
-            <div class="issue-summary">The U.S.-Iran war has moved from a background risk to an active driver of Texas energy exposure: Iran has struck at least three tankers in the Strait of Hormuz this week alone, including two UAE state-owned vessels on 13–14 August, with shipping traffic running well below normal </div>
-            <div class="issue-tags"><span class="tag">Iran</span><span class="tag">Russia</span><span class="tag">North Korea</span><span class="tag">Cybercrime</span><span class="tag">Maritime</span><span class="tag">Water</span></div>
+            <div class="issue-title">The Alamo Threat Brief Issue 23</div>
+            <div class="issue-summary">Weekly executive warning intelligence for Texas critical infrastructure leaders.</div>
+            <div class="issue-tags"><span class="tag">weekly</span><span class="tag">texas</span><span class="tag">cyber risk</span></div>
           </div>
           <div class="issue-arrow">Open</div>
         </a>
@@ -2081,10 +2080,10 @@ body [style*="Instrument Sans"]{
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Advisory</span>
+      <span class="lcti-footer-col-title">Insights</span>
       <ul class="lcti-footer-links">
-        <li><a href="../decision-support.html">How We Advise</a></li>
         <li><a href="../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../decision-support.html">How We Advise</a></li>
         <li><a href="../texas-threat-outlook.html">Texas Threat Outlook</a></li>
         <li><a href="../sector-assessments.html">Sector Assessments</a></li>
       </ul>
