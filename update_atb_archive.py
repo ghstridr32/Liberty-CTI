@@ -272,7 +272,7 @@ def render_issue_card(issue: Issue, latest: Issue) -> str:
     latest_badge = '<span class="status-chip">Latest</span>' if issue.filename == latest.filename else ""
     searchable = " ".join([issue.title, issue.summary, issue.filename, f"ATB-2026-{issue.issue_number}", *issue.tags])
     stem = Path(issue.filename).stem
-    return f'''        <a class="issue-card" href="/atb/2026/{stem}/" data-tags="{html.escape(issue.data_tags)}" data-sector="{html.escape(issue.sector)}" data-search="{html.escape(searchable.lower())}">
+    return f'''        <a class="issue-card" href="2026/{stem}/" data-tags="{html.escape(issue.data_tags)}" data-sector="{html.escape(issue.sector)}" data-search="{html.escape(searchable.lower())}">
           <div class="issue-date-block">
             <span class="issue-day">{issue.date.strftime("%d")}</span>
             <span class="issue-month">{issue.date.strftime("%b").upper()}</span>
@@ -350,7 +350,7 @@ def update_archive_page(content: str, issues: list[Issue]) -> str:
     latest_stem = Path(latest.filename).stem
     updated = re.sub(
         r'<a class="quick-link" href="[^"]*">(Open Latest Issue|View the latest Alamo Threat Brief)</a>',
-        f'<a class="quick-link" href="/atb/2026/{latest_stem}/">View the latest Alamo Threat Brief</a>',
+        f'<a class="quick-link" href="2026/{latest_stem}/">View the latest Alamo Threat Brief</a>',
         updated,
         count=1,
     )
