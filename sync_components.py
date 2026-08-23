@@ -189,11 +189,18 @@ def relative_href(current_page: Path, target: str | Path, root: Path) -> str:
 
 
 def latest_issue_href_for_page(latest_issue_file: Path | None, current_page: Path, root: Path) -> str:
-    """Use the protected ATB issue path for public site pages."""
+    """Point at the same public preview page as the archive, so the registration CTA always shows."""
     if not latest_issue_file:
         return relative_href(current_page, "alamo-threat-brief.html", root)
 
-    return relative_href(current_page, latest_issue_file, root)
+    stem = latest_issue_file.stem
+    try:
+        year = datetime.strptime(stem, "%m-%d-%Y").strftime("%Y")
+    except ValueError:
+        return relative_href(current_page, latest_issue_file, root)
+
+    href = relative_href(current_page, f"atb/{year}/{stem}/", root)
+    return href if href.endswith("/") else href + "/"
 
 
 def relativize_component_links(html: str, current_page: Path, root: Path) -> str:
