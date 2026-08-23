@@ -167,6 +167,33 @@ def discover_issue_files(root: Path) -> list[Path]:
     return sorted(chosen.values(), key=lambda p: issue_date(p.name))
 
 
+def meta_text(root: Path, filename: str) -> tuple[str, str, list[str], str, str] | None:
+    """Pull title/summary from atb/<year>/<slug>/meta.json (dominant_theme, threat_banner).
+
+    Issues published after the hand-curated ISSUE_OVERRIDES list stopped being
+    maintained still carry a per-issue dominant_theme and threat_banner written
+    at publish time — prefer that over scraping a generic <h1> banner.
+    """
+    stem = Path(filename).stem
+    try:
+        year = datetime.strptime(stem, "%m-%d-%Y").year
+    except ValueError:
+        return None
+    meta_path = root / "atb" / str(year) / stem / "meta.json"
+    if not meta_path.exists():
+        return None
+    try:
+        import json
+        meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return None
+    title = (meta.get("dominant_theme") or "").strip()
+    if not title:
+        return None
+    summary = (meta.get("threat_banner") or "").strip() or "Weekly executive warning intelligence for Texas critical infrastructure leaders."
+    return title, summary, ["weekly", "texas", "cyber risk"], "weekly texas cyber-risk", "all"
+
+
 def fallback_text(path: Path, issue_number: int) -> tuple[str, str, list[str], str, str]:
     text = path.read_text(encoding="utf-8", errors="ignore")
     h1_match = re.search(r"<h1[^>]*>(.*?)</h1>", text, re.IGNORECASE | re.DOTALL)
@@ -194,7 +221,11 @@ def build_issues(root: Path) -> list[Issue]:
             data_tags = override["data_tags"]
             sector = override["sector"]
         else:
-            title, summary, tags, data_tags, sector = fallback_text(path, number)
+            from_meta = meta_text(root, path.name)
+            if from_meta:
+                title, summary, tags, data_tags, sector = from_meta
+            else:
+                title, summary, tags, data_tags, sector = fallback_text(path, number)
         issues.append(
             Issue(
                 filename=path.name,
