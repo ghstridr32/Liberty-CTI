@@ -3,30 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Calibration Record | Alamo Threat Brief | Liberty CTI</title>
-<meta name="description" content="The record of which Alamo Threat Brief judgments held up and which were revised, searchable and filterable by sector.">
-<link rel="canonical" href="https://libertycti.com/atb/calibration-record.html">
-<meta name="robots" content="noindex">
+<title>Executive Crisis Wargaming | Liberty CTI</title>
+<meta name="description" content="Liberty CTI's Executive Crisis Wargame puts your leadership team inside a realistic cyber and geopolitical crisis to expose where warning, authority, and decision-making break down under pressure.">
+<link rel="canonical" href="https://libertycti.com/crisis-wargame.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Liberty CTI">
-<meta property="og:title" content="The Calibration Record | Alamo Threat Brief | Liberty CTI">
-<meta property="og:description" content="The record of which Alamo Threat Brief judgments held up and which were revised, searchable and filterable by sector.">
-<meta property="og:url" content="https://libertycti.com/atb/calibration-record.html">
+<meta property="og:title" content="Executive Crisis Wargaming | Liberty CTI">
+<meta property="og:description" content="Find the decision gaps before the crisis does. Liberty CTI's Executive Crisis Wargame is the starting point for every engagement.">
+<meta property="og:url" content="https://libertycti.com/crisis-wargame.html">
 <meta property="og:image" content="https://libertycti.com/liberty-cti-emblem.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Calibration Record | Alamo Threat Brief | Liberty CTI">
-<meta name="twitter:description" content="The record of which Alamo Threat Brief judgments held up and which were revised, searchable and filterable by sector.">
+<meta name="twitter:title" content="Executive Crisis Wargaming | Liberty CTI">
+<meta name="twitter:description" content="Find the decision gaps before the crisis does.">
 <meta name="twitter:image" content="https://libertycti.com/liberty-cti-emblem.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+:root{
+  --ink:#060a0f; --navy:#0b1422; --panel:#0e1a2e; --paper:#f4efe6;
+  --gold:#b8963e; --gold-light:#d4af62; --gold-dim:rgba(184,150,62,0.12); --gold-glow:rgba(184,150,62,0.06);
+  --red:#8b1a1a;
+  --muted:rgba(244,239,230,0.6); --dim:rgba(244,239,230,0.3);
+  --rule:rgba(184,150,62,0.16); --rule-bright:rgba(184,150,62,0.35);
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--c-bg,#060c14);color:#e8f0fa;font-family:'Source Serif 4',Georgia,serif;line-height:1.6;padding-top:68px}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:'Instrument Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(184,150,62,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(184,150,62,0.02) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;z-index:0}
 .skip-link{position:fixed;left:1rem;top:-4rem;z-index:3000;background:#f4efe6;color:#080c10;padding:.65rem .85rem;border:2px solid #b8963e;text-decoration:none;font-weight:700}
 .skip-link:focus{top:1rem}
+img{max-width:100%;height:auto}
+.page{position:relative;z-index:1;padding-top:68px}
+
+.eyebrow{font-family:'Instrument Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.9;display:flex;align-items:center;gap:1rem}
+.eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--rule-bright)}
+
+/* ── HERO ── */
+.cw-hero{padding:6.5rem 3rem 5rem;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.cw-hero::after{content:'WARGAME';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:17vw;font-weight:900;color:rgba(184,150,62,0.025);pointer-events:none;line-height:1;white-space:nowrap}
+.cw-hero-inner{max-width:840px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.cw-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:900;line-height:1.12;color:var(--paper);margin:1.6rem 0 1.5rem}
+.cw-hero h1 em{font-style:italic;color:var(--gold-light)}
+.cw-hero-sub{font-size:1.08rem;font-weight:400;color:rgba(244,239,230,.72);line-height:1.85;max-width:640px;margin:0 auto}
+.cw-hero-ctas{display:flex;gap:1rem;justify-content:center;margin-top:2.6rem;flex-wrap:wrap}
+.btn-gold{font-family:'Instrument Sans',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:1px solid var(--gold);padding:1rem 2.2rem;text-decoration:none;display:inline-block;transition:background .22s,color .22s}
+.btn-gold:hover{background:var(--gold-light);border-color:var(--gold-light)}
+.btn-outline-gold{font-family:'Instrument Sans',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:transparent;color:var(--gold);border:1px solid rgba(184,150,62,.45);padding:1rem 2.2rem;text-decoration:none;display:inline-block;transition:background .22s,color .22s}
+.btn-outline-gold:hover{background:var(--gold-dim);color:var(--gold-light)}
+.cw-hero-micro{margin-top:2rem;font-size:.85rem;font-style:italic;color:rgba(184,150,62,.6);letter-spacing:.02em}
+
+/* ── SECTION SHELL ── */
+.cw-section{max-width:1100px;margin:0 auto;padding:5rem 3rem;border-bottom:1px solid var(--rule)}
+.cw-section:last-of-type{border-bottom:none}
+.cw-section-head{max-width:760px;margin:0 auto 3rem;text-align:center}
+.cw-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;color:var(--paper);line-height:1.24;margin-top:1.1rem}
+
+/* ── REVEALS GRID ── */
+.reveal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem}
+.reveal-card{background:var(--panel);padding:2rem 1.6rem;position:relative}
+.reveal-node{width:10px;height:10px;border-radius:50%;border:1px solid var(--gold);background:transparent;margin-bottom:1.1rem;position:relative}
+.reveal-node::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(184,150,62,.25)}
+.reveal-card.warn .reveal-node{border-color:var(--red);box-shadow:0 0 0 3px rgba(139,26,26,.12)}
+.reveal-label{font-family:'Instrument Sans',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.7rem}
+.reveal-q{font-size:.95rem;font-weight:400;color:rgba(244,239,230,.82);line-height:1.6}
+.cw-section-close{max-width:680px;margin:2.6rem auto 0;text-align:center;font-size:.98rem;color:rgba(244,239,230,.62);line-height:1.85}
+
+/* ── MODEL FLOW ── */
+.flow{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-top:.5rem}
+.flow-node{background:var(--panel);border:1px solid var(--rule-bright);padding:1.1rem 1.5rem;text-align:center;min-width:150px}
+.flow-node.emphasis{border-color:var(--gold);box-shadow:0 0 0 1px rgba(184,150,62,.25)}
+.flow-node-label{font-family:'Instrument Sans',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--paper)}
+.flow-arrow{color:var(--gold);font-size:1.2rem;opacity:.7}
+.cw-model-support{max-width:620px;margin:2.4rem auto 0;text-align:center;font-size:.95rem;color:rgba(244,239,230,.6);line-height:1.8}
+.cw-model-tagline{max-width:560px;margin:2rem auto 0;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--gold-light);line-height:1.55}
+
+/* ── WHO RUNS IT ── */
+.cw-who{max-width:680px;margin:0 auto;text-align:center}
+.cw-who-body{font-size:1.02rem;color:rgba(244,239,230,.72);line-height:1.9;margin-top:1.6rem}
+.cw-who-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;color:var(--paper);line-height:1.5;margin-top:2.4rem;padding-top:2rem;border-top:1px solid var(--rule)}
+.cw-who-quote span{color:var(--gold-light)}
+
+/* ── CLOSE ── */
+.cw-close{background:var(--navy);text-align:center}
+.cw-close h2{max-width:800px;margin:1.1rem auto 0}
+.cw-close-sub{max-width:580px;margin:1.4rem auto 0;font-size:1rem;color:rgba(244,239,230,.68);line-height:1.85}
+.cw-close-cta{margin-top:2.4rem}
+.cw-close-micro{margin-top:1.6rem;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(184,150,62,.55)}
+
+@media(max-width:900px){
+  .reveal-grid{grid-template-columns:1fr 1fr}
+  .flow{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg)}
+}
+@media(max-width:640px){
+  .cw-hero{padding:4.5rem 1.5rem 3.5rem}
+  .cw-section{padding:3.5rem 1.5rem}
+  .reveal-grid{grid-template-columns:1fr}
+  .cw-hero-ctas{flex-direction:column;align-items:stretch}
+  .btn-gold,.btn-outline-gold{text-align:center}
+}
 </style>
-<link rel="stylesheet" href="calibration-record.css">
 <style id="lcti-stat-legibility">
 html{
   -webkit-text-size-adjust:100%;
@@ -916,6 +992,8 @@ body [style*="Instrument Sans"]{
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- NAV -->
 <!-- LCTI:NAV:START -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
@@ -969,34 +1047,34 @@ body [style*="Instrument Sans"]{
 </style>
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
-  <a href="../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html">Home</a></li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="issues/08-22-2026.html" role="menuitem">Latest Issue, Week of Aug 22, 2026</a>
+        <a href="atb/issues/08-22-2026.html" role="menuitem">Latest Issue, Week of Aug 22, 2026</a>
         <div class="drop-divider"></div>
-        <a href="./index.html" role="menuitem" class="lcti-archive-link">Archive</a>
-        <a href="../alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief</a>
+        <a href="atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief</a>
         <div class="drop-divider"></div>
-        <a href="../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="../sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../decision-support.html" role="menuitem">How We Advise</a>
+        <a href="decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
         <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
       </div>
@@ -1005,30 +1083,30 @@ body [style*="Instrument Sans"]{
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../texas-focus.html" role="menuitem">Texas Overview</a>
+        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Priority Sectors</span>
-        <a href="../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
-        <a href="../defense-dib.html" role="menuitem">Defense Industrial Base</a>
-        <a href="../financial.html" role="menuitem">Financial Services</a>
-        <a href="../healthcare.html" role="menuitem">Healthcare</a>
+        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="financial.html" role="menuitem">Financial Services</a>
+        <a href="healthcare.html" role="menuitem">Healthcare</a>
         <div class="drop-divider"></div>
-        <a href="../Energy_data_AI.html" role="menuitem">AI Convergence</a>
+        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../about.html" role="menuitem">Company Overview</a>
+        <a href="about.html" role="menuitem">Company Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Founders</span>
-        <a href="../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
       </div>
     </li>
 
-    <li><a href="../briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1037,43 +1115,43 @@ body [style*="Instrument Sans"]{
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="../index.html">Home</a>
+  <a href="index.html">Home</a>
 
   <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
-    <a href="issues/08-22-2026.html">Latest Issue, Week of Aug 22, 2026</a>
-    <a href="./index.html" class="lcti-archive-link">Archive</a>
-    <a href="../alamo-threat-brief.html">About the Alamo Threat Brief</a>
-    <a href="../texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="../sector-assessments.html">Sector Assessments</a>
+    <a href="atb/issues/08-22-2026.html">Latest Issue, Week of Aug 22, 2026</a>
+    <a href="atb/index.html" class="lcti-archive-link">Archive</a>
+    <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
+    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="sector-assessments.html">Sector Assessments</a>
   </div>
 
   <span class="m-group-label">Services</span>
   <div class="m-sub">
-    <a href="../decision-support.html">How We Advise</a>
+    <a href="decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
     <a href="crisis-wargame.html">Executive Crisis Wargame</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
   <div class="m-sub">
-    <a href="../texas-focus.html">Texas Overview</a>
-    <a href="../energy-ercot.html">Energy &amp; ERCOT</a>
-    <a href="../defense-dib.html">Defense Industrial Base</a>
-    <a href="../financial.html">Financial Services</a>
-    <a href="../healthcare.html">Healthcare</a>
-    <a href="../Energy_data_AI.html">AI Convergence</a>
+    <a href="texas-focus.html">Texas Overview</a>
+    <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
+    <a href="financial.html">Financial Services</a>
+    <a href="healthcare.html">Healthcare</a>
+    <a href="Energy_data_AI.html">AI Convergence</a>
   </div>
 
   <span class="m-group-label">About</span>
   <div class="m-sub">
-    <a href="../about.html">Company Overview</a>
-    <a href="../luis-maldonado.html">Lou Maldonado</a>
-    <a href="../angie-maldonado.html">Angie Maldonado</a>
+    <a href="about.html">Company Overview</a>
+    <a href="luis-maldonado.html">Lou Maldonado</a>
+    <a href="angie-maldonado.html">Angie Maldonado</a>
   </div>
 
   <div class="m-cta-wrap">
-    <a href="../briefing-request.html" class="m-cta">Request a Briefing</a>
+    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
   </div>
 </div>
 
@@ -1114,132 +1192,96 @@ body [style*="Instrument Sans"]{
 </script>
 <!-- LCTI:NAV:END -->
 
-<main id="main-content" tabindex="-1">
-  <section class="calib-page-hero">
-    <div class="calib-inner">
-      <a class="calib-back" href="index.html">&larr; Back to Archive</a>
-      <div class="calib-flag">Calibration entries are continuously updated as new developments emerge</div>
-      <span class="calib-eyebrow">Track Record</span>
-      <h1>The Calibration Record</h1>
-      <p>Every Key Judgment carried in the Alamo Threat Brief, tracked against what happened next, pulled directly from each issue&rsquo;s own prior-judgment review. Confidence and sourcing discipline aligned with accepted IC analytical practices. Every entry links back to the issue it originated in and the issue where its status was last addressed, so it can be checked, not just cited.</p>
-      <div class="calib-legend">
-        <span><span class="dot" style="background:var(--c-gold-hi)"></span>Confirmed</span>
-        <span><span class="dot" style="background:var(--c-blue)"></span>Revised</span>
-        <span><span class="dot" style="background:var(--c-text-low)"></span>Superseded</span>
-        <span><span class="dot" style="background:var(--c-text-low);opacity:.5"></span>Unresolved / Tracking</span>
+<main class="page" id="main-content">
+
+  <!-- 1. HERO -->
+  <section class="cw-hero">
+    <div class="cw-hero-inner">
+      <div class="eyebrow" style="justify-content:center">Executive Crisis Wargaming</div>
+      <h1>Find the Decision Gaps <em>Before the Crisis Does.</em></h1>
+      <p class="cw-hero-sub">Liberty CTI places leadership teams inside realistic cyber and geopolitical crises to expose where warning, authority, information, and executive decision-making break down under pressure.</p>
+      <div class="cw-hero-ctas">
+        <a href="briefing-request.html" class="btn-gold">Run the Wargame</a>
+        <a href="#reveals" class="btn-outline-gold">How It Works</a>
       </div>
-
-      <details class="calib-taxonomy">
-        <summary>How to read this record</summary>
-        <div class="calib-taxonomy-body">
-          <p class="calib-taxonomy-intro">As entries are individually re-reviewed against evidence, they move to a graded status below. Entries not yet re-reviewed keep the legend above in the meantime.</p>
-
-          <h3>Base status <span>(required on every backfilled entry)</span></h3>
-          <div class="calib-taxonomy-table">
-            <div class="calib-taxonomy-row calib-taxonomy-head">
-              <div>Status</div>
-              <div>Trigger criteria</div>
-            </div>
-            <div class="calib-taxonomy-row">
-              <div><span class="calib-status-tag" data-status-base="Held">Held</span></div>
-              <div>Every load-bearing claim in the original judgment &mdash; direction, target class, mechanism, timeframe &mdash; is confirmed by subsequent primary-source evidence. No correction needed.</div>
-            </div>
-            <div class="calib-taxonomy-row">
-              <div><span class="calib-status-tag" data-status-base="Escalated">Escalated</span></div>
-              <div>Judgment is confirmed AND new evidence meets the existing evidentiary-trigger standard for raising confidence or urgency. The call didn&rsquo;t change; its intensity rating did.</div>
-            </div>
-            <div class="calib-taxonomy-row">
-              <div><span class="calib-status-tag" data-status-base="Revised">Revised</span></div>
-              <div>At least one load-bearing claim was wrong and requires correction, but the judgment is not being withdrawn &mdash; see sub-tiers below for how wrong.</div>
-            </div>
-            <div class="calib-taxonomy-row">
-              <div><span class="calib-status-tag" data-status-base="Unchanged">Unchanged</span></div>
-              <div>Insufficient new evidence has arrived either way. Too early to test. Not a verdict &mdash; a placeholder.</div>
-            </div>
-            <div class="calib-taxonomy-row">
-              <div><span class="calib-status-tag" data-status-base="Withdrawn">Withdrawn</span></div>
-              <div>The judgment is no longer analytically defensible and is retired rather than carried forward. Reserved for cases where continuing to track it would misrepresent the record.</div>
-            </div>
-          </div>
-
-          <h3>Revised sub-tiers <span>(use one; never stack)</span></h3>
-          <div class="calib-taxonomy-table">
-            <div class="calib-taxonomy-row calib-taxonomy-head">
-              <div>Sub-tier</div>
-              <div>Trigger criteria</div>
-              <div>What it signals to a reader</div>
-            </div>
-            <div class="calib-taxonomy-row calib-taxonomy-row-3col">
-              <div><span class="calib-status-tag" data-status-base="Revised" data-subtier="Confidence">Revised &mdash; Confidence</span></div>
-              <div>Direction and mechanism were both correct. Only the stated confidence level (or probability range) needed to move up or down based on how events actually unfolded.</div>
-              <div>Smallest miss. The call was right; the certainty language was off.</div>
-            </div>
-            <div class="calib-taxonomy-row calib-taxonomy-row-3col">
-              <div><span class="calib-status-tag" data-status-base="Revised" data-subtier="Mechanism">Revised &mdash; Mechanism</span></div>
-              <div>Direction was correct &mdash; something happened in the sector/timeframe forecast &mdash; but how it happened, or which specific claim materialized, differs from what was stated.</div>
-              <div>Mid-tier. You called the right outcome space; one component needs re-description.</div>
-            </div>
-            <div class="calib-taxonomy-row calib-taxonomy-row-3col">
-              <div><span class="calib-status-tag" data-status-base="Revised" data-subtier="Reversed">Revised &mdash; Reversed</span></div>
-              <div>The assessed direction itself was wrong &mdash; the thing you said was likely didn&rsquo;t happen, or the opposite occurred.</div>
-              <div>The real miss. This is the only tier that should read as &ldquo;we got this wrong,&rdquo; and it must be reserved for cases that actually meet this bar, or the whole taxonomy loses credibility.</div>
-            </div>
-          </div>
-        </div>
-      </details>
+      <p class="cw-hero-micro">The scenario is simulated. The decisions are not.</p>
     </div>
   </section>
 
-  <section class="calib-controls">
-    <div class="calib-controls-inner">
-      <div class="calib-pills" id="calib-pills">
-        <button class="calib-pill active" data-filter="all">All</button>
-        <button class="calib-pill" data-filter="energy">Energy</button>
-        <button class="calib-pill" data-filter="healthcare">Healthcare</button>
-        <button class="calib-pill" data-filter="defense">Defense</button>
-        <button class="calib-pill" data-filter="finance">Finance</button>
-        <button class="calib-pill" data-filter="iran">Iran</button>
-        <button class="calib-pill" data-filter="russia">Russia</button>
-        <button class="calib-pill" data-filter="china">China</button>
-        <button class="calib-pill" data-filter="north-korea">North Korea</button>
-        <button class="calib-pill" data-filter="criminal">Cybercrime</button>
-        <button class="calib-pill" data-filter="water">Water</button>
-        <button class="calib-pill" data-filter="maritime">Maritime</button>
-        <button class="calib-pill" data-filter="ot">OT / ICS</button>
-        <button class="calib-pill" data-filter="ai">AI</button>
-        <button class="calib-pill" data-filter="texas">Texas</button>
+  <!-- 2. WHAT THE WARGAME REVEALS -->
+  <section class="cw-section" id="reveals">
+    <div class="cw-section-head">
+      <div class="eyebrow" style="justify-content:center">What the Wargame Reveals</div>
+      <h2>We Don't Start With Your Technology.<br>We Start With Your Decisions.</h2>
+    </div>
+    <div class="reveal-grid">
+      <div class="reveal-card warn">
+        <div class="reveal-node"></div>
+        <div class="reveal-label">Warning</div>
+        <div class="reveal-q">What did leadership know&mdash;and when?</div>
       </div>
-      <div class="calib-search">
-        <input id="calib-search-input" type="text" placeholder="Search judgment text or issue">
+      <div class="reveal-card">
+        <div class="reveal-node"></div>
+        <div class="reveal-label">Authority</div>
+        <div class="reveal-q">Who could actually make the call?</div>
       </div>
+      <div class="reveal-card">
+        <div class="reveal-node"></div>
+        <div class="reveal-label">Dependencies</div>
+        <div class="reveal-q">What outside your organization changed the decision?</div>
+      </div>
+      <div class="reveal-card">
+        <div class="reveal-node"></div>
+        <div class="reveal-label">Intelligence</div>
+        <div class="reveal-q">What could you have known earlier that would have changed the outcome?</div>
+      </div>
+    </div>
+    <p class="cw-section-close">The exercise reveals the intelligence requirements, warning thresholds, and decision gaps that Liberty CTI can help address.</p>
+  </section>
+
+  <!-- 3. THE LIBERTY CTI MODEL -->
+  <section class="cw-section">
+    <div class="cw-section-head">
+      <div class="eyebrow" style="justify-content:center">The Liberty CTI Model</div>
+      <h2>The Wargame Is the Baseline.</h2>
+    </div>
+    <div class="flow">
+      <div class="flow-node emphasis"><div class="flow-node-label">Wargame</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-node"><div class="flow-node-label">Find the Gaps</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-node"><div class="flow-node-label">Build the Warning</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-node"><div class="flow-node-label">Support the Decision</div></div>
+    </div>
+    <p class="cw-model-support">Everything Liberty CTI provides afterward is shaped by what we learn about how your organization actually makes consequential decisions.</p>
+    <p class="cw-model-tagline">The wargame tells us what matters.<br>Our intelligence helps you see it coming.</p>
+  </section>
+
+  <!-- 4. WHO RUNS IT -->
+  <section class="cw-section">
+    <div class="cw-who">
+      <div class="eyebrow" style="justify-content:center">Who Runs It</div>
+      <h2>This Isn't Run by Someone Reading a Facilitator Guide.</h2>
+      <p class="cw-who-body">Liberty CTI's exercises are personally designed and facilitated by principals with decades of real-world military, intelligence, cyber, national-security, and crisis-response experience. They have operated in environments where information was incomplete, time was short, senior leaders needed answers, and the cost of a wrong judgment was real. They understand the difference between receiving information and receiving the information that changes a decision.</p>
+      <p class="cw-who-quote">The scenario may be simulated.<br><span>The judgment behind it isn't.</span></p>
     </div>
   </section>
 
-  <section class="calib-results">
-    <div class="calib-inner">
-      <div class="calib-results-bar">
-        <div class="calib-results-count" id="calib-results-count"></div>
-        <div class="calib-page-size">
-          <span>Show</span>
-          <button type="button" class="calib-page-size-btn active" data-page-size="10">10</button>
-          <button type="button" class="calib-page-size-btn" data-page-size="25">25</button>
-        </div>
-      </div>
-      <div class="calib-table" id="calib-full-table">
-        <div class="calib-loading">Loading calibration record&hellip;</div>
-      </div>
-      <div class="calib-empty" id="calib-empty">
-        No entries match this filter.<br>Try a different sector or search term.
-      </div>
-      <nav class="calib-pagination" id="calib-pagination" aria-label="Calibration record pagination">
-        <button type="button" class="calib-page-nav" id="calib-page-prev">&larr; Prev</button>
-        <span class="calib-page-indicator" id="calib-page-indicator"></span>
-        <button type="button" class="calib-page-nav" id="calib-page-next">Next &rarr;</button>
-      </nav>
+  <!-- 5. CLOSE -->
+  <section class="cw-section cw-close">
+    <div class="eyebrow" style="justify-content:center">Get Started</div>
+    <h2>Your First Crisis Shouldn't Be the First Time Your Leadership Team Makes These Decisions.</h2>
+    <p class="cw-close-sub">Put the team in the room. Introduce the warning. Start the clock. Find the gaps while they can still be fixed.</p>
+    <div class="cw-close-cta">
+      <a href="briefing-request.html" class="btn-gold">Run an Executive Crisis Wargame</a>
     </div>
+    <p class="cw-close-micro">90 minutes. Executive team. Real decisions.</p>
   </section>
+
 </main>
 
+<!-- FOOTER -->
 <!-- LCTI:FOOTER:START -->
 <style>
 .lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
@@ -1267,7 +1309,7 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
       <p class="lcti-footer-tagline">Strategic decision advisory for Texas critical infrastructure.</p>
@@ -1277,31 +1319,31 @@ body [style*="Instrument Sans"]{
     <div>
       <span class="lcti-footer-col-title">Insights</span>
       <ul class="lcti-footer-links">
-        <li><a href="../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
-        <li><a href="../decision-support.html">How We Advise</a></li>
-        <li><a href="../texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="../sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="decision-support.html">How We Advise</a></li>
+        <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="sector-assessments.html">Sector Assessments</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Texas Focus</span>
       <ul class="lcti-footer-links">
-        <li><a href="../texas-focus.html">Texas Overview</a></li>
-        <li><a href="../energy-ercot.html">Energy &amp; ERCOT</a></li>
-        <li><a href="../defense-dib.html">Defense Industrial Base</a></li>
-        <li><a href="../financial.html">Financial Services</a></li>
-        <li><a href="../healthcare.html">Healthcare</a></li>
-        <li><a href="../Energy_data_AI.html">AI Convergence</a></li>
+        <li><a href="texas-focus.html">Texas Overview</a></li>
+        <li><a href="energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="financial.html">Financial Services</a></li>
+        <li><a href="healthcare.html">Healthcare</a></li>
+        <li><a href="Energy_data_AI.html">AI Convergence</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="../briefing-request.html">Request an Executive Briefing</a></li>
-        <li><a href="../briefing-request.html">Discuss a Retainer</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -1316,177 +1358,5 @@ body [style*="Instrument Sans"]{
 </footer>
 <!-- LCTI:FOOTER:END -->
 
-<script>
-(function(){
-  var ALL_ENTRIES = [];
-  var activeFilter = 'all';
-  var searchTerm = '';
-  var pageSize = 10;
-  var currentPage = 1;
-
-  var table = document.getElementById('calib-full-table');
-  var empty = document.getElementById('calib-empty');
-  var countEl = document.getElementById('calib-results-count');
-  var pagination = document.getElementById('calib-pagination');
-  var pageIndicator = document.getElementById('calib-page-indicator');
-  var prevBtn = document.getElementById('calib-page-prev');
-  var nextBtn = document.getElementById('calib-page-next');
-
-  function esc(s){
-    return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
-
-  function buildLegacyJudgmentHtml(e){
-    var noteHtml = '';
-    if(e.note){
-      var link = e.status_url ? ('<a href="' + e.status_url + '">' + (e.status_issue || 'source') + '</a>') : (e.status_issue || '');
-      noteHtml = '<span class="calib-note">' + e.note.replace(/^AMBIGUOUS:\s*/,'') + (link ? ' &mdash; see ' + link : '') + '</span>';
-    }
-    var tagsHtml = '';
-    if(e.tags && e.tags.length){
-      tagsHtml = '<div class="calib-tags">' + e.tags.map(function(t){ return '<span class="calib-tag">' + t.replace('-', ' ') + '</span>'; }).join('') + '</div>';
-    }
-    return (e.text || '') + (e.original_confidence ? '<span class="calib-conf" data-confidence="' + e.original_confidence + '">' + e.original_confidence.toUpperCase() + ' CONFIDENCE</span>' : '') + noteHtml + tagsHtml;
-  }
-
-  function buildBackfilledJudgmentHtml(e){
-    var parts = [];
-    if(e.what_held){
-      parts.push('<div class="calib-field"><span class="calib-field-label">What Held</span><span class="calib-field-body">' + esc(e.what_held) + '</span></div>');
-    }
-    if(e.what_revised){
-      parts.push('<div class="calib-field"><span class="calib-field-label">What Revised</span><span class="calib-field-body">' + esc(e.what_revised) + '</span></div>');
-    }
-    if(e.confidence_movement){
-      parts.push('<div class="calib-field"><span class="calib-field-label">Confidence Movement</span><span class="calib-field-body">' + esc(e.confidence_movement) + '</span></div>');
-    }
-    if(e.corrected_judgment){
-      parts.push('<div class="calib-field"><span class="calib-field-label">Corrected Judgment</span><span class="calib-field-body">' + esc(e.corrected_judgment) + '</span></div>');
-    }
-    if(e.record_note){
-      parts.push('<div class="calib-field calib-record-note-field"><span class="calib-field-label">Record Note</span><span class="calib-field-body">' + esc(e.record_note) + '</span></div>');
-    }
-    return parts.join('');
-  }
-
-  function buildStatusHtml(e){
-    if(e.status_base){
-      var label = e.status_base;
-      if(e.status_base === 'Revised' && e.status_subtier){
-        label = 'Revised &mdash; ' + e.status_subtier;
-      }
-      var subtierAttr = e.status_subtier ? ' data-subtier="' + e.status_subtier + '"' : '';
-      var badge = '<span class="calib-status-tag" data-status-base="' + e.status_base + '"' + subtierAttr + '>' + label + '</span>';
-      var accuracy = '';
-      if(e.accuracy_total){
-        accuracy = '<span class="calib-accuracy">' + (e.accuracy_confirmed != null ? e.accuracy_confirmed : '?') + ' / ' + e.accuracy_total + ' confirmed</span>';
-      }
-      return badge + accuracy;
-    }
-    return '<span class="calib-status-tag" data-status="' + (e.status || '') + '">' + (e.status || '') + '</span>';
-  }
-
-  function getFiltered(){
-    var term = searchTerm.trim().toLowerCase();
-    return ALL_ENTRIES.filter(function(e){
-      var tagMatch = activeFilter === 'all' || (e.tags || []).indexOf(activeFilter) !== -1;
-      if(!tagMatch) return false;
-      if(!term) return true;
-      var hay = ((e.text||'') + ' ' + (e.origin_issue||'') + ' ' + (e.note||'') + ' ' + (e.status||'')).toLowerCase();
-      return hay.indexOf(term) !== -1;
-    });
-  }
-
-  function render(){
-    var filtered = getFiltered();
-    var totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
-    if(currentPage > totalPages) currentPage = totalPages;
-    if(currentPage < 1) currentPage = 1;
-
-    countEl.textContent = filtered.length + ' of ' + ALL_ENTRIES.length + ' judgments';
-
-    if(!filtered.length){
-      table.innerHTML = '';
-      table.style.display = 'none';
-      empty.style.display = 'block';
-      pagination.style.display = 'none';
-      return;
-    }
-    table.style.display = 'block';
-    empty.style.display = 'none';
-
-    var start = (currentPage - 1) * pageSize;
-    var pageEntries = filtered.slice(start, start + pageSize);
-
-    table.innerHTML = '';
-    pageEntries.forEach(function(e){
-      var row = document.createElement('div');
-      var backfilled = !!e.status_base;
-      row.className = 'calib-row' + (backfilled ? ' calib-row-backfilled' : '');
-      row.innerHTML =
-        '<div class="calib-issue"><a href="' + (e.origin_url || '#') + '">' + (e.origin_issue || '') + '</a><span class="calib-issue-date">' + (e.origin_date || '') + '</span></div>' +
-        '<div class="calib-judgment">' + (backfilled ? buildBackfilledJudgmentHtml(e) : buildLegacyJudgmentHtml(e)) + '</div>' +
-        '<div class="calib-status">' + buildStatusHtml(e) + '</div>';
-      table.appendChild(row);
-    });
-
-    if(totalPages <= 1){
-      pagination.style.display = 'none';
-    } else {
-      pagination.style.display = 'flex';
-      pageIndicator.textContent = 'Page ' + currentPage + ' of ' + totalPages;
-      prevBtn.disabled = currentPage <= 1;
-      nextBtn.disabled = currentPage >= totalPages;
-    }
-  }
-
-  fetch('calibration-record-data.json').then(function(r){ return r.json(); }).then(function(data){
-    ALL_ENTRIES = (data.entries || []).slice().sort(function(a,b){
-      return (b.status_date || '').localeCompare(a.status_date || '');
-    });
-    render();
-  }).catch(function(){
-    table.innerHTML = '<div class="calib-loading">Calibration record unavailable.</div>';
-  });
-
-  document.getElementById('calib-pills').addEventListener('click', function(e){
-    var btn = e.target.closest('.calib-pill');
-    if(!btn) return;
-    document.querySelectorAll('.calib-pill').forEach(function(p){ p.classList.remove('active'); });
-    btn.classList.add('active');
-    activeFilter = btn.getAttribute('data-filter');
-    currentPage = 1;
-    render();
-  });
-
-  document.getElementById('calib-search-input').addEventListener('input', function(e){
-    searchTerm = e.target.value;
-    currentPage = 1;
-    render();
-  });
-
-  document.querySelectorAll('.calib-page-size-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.calib-page-size-btn').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      pageSize = parseInt(btn.getAttribute('data-page-size'), 10);
-      currentPage = 1;
-      render();
-    });
-  });
-
-  prevBtn.addEventListener('click', function(){
-    currentPage -= 1;
-    render();
-    table.scrollIntoView({behavior:'smooth', block:'start'});
-  });
-
-  nextBtn.addEventListener('click', function(){
-    currentPage += 1;
-    render();
-    table.scrollIntoView({behavior:'smooth', block:'start'});
-  });
-})();
-</script>
 </body>
 </html>

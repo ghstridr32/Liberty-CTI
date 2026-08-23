@@ -1007,7 +1007,7 @@ body [style*="Instrument Sans"]{
       <div class="lcti-drop-panel" role="menu">
         <a href="../decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
-        <a href="../briefing-request.html" role="menuitem">Executive Crisis Wargame</a>
+        <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
       </div>
     </li>
 
@@ -1061,7 +1061,7 @@ body [style*="Instrument Sans"]{
   <div class="m-sub">
     <a href="../decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
-    <a href="../briefing-request.html">Executive Crisis Wargame</a>
+    <a href="crisis-wargame.html">Executive Crisis Wargame</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -1123,24 +1123,70 @@ body [style*="Instrument Sans"]{
 </script>
 <!-- LCTI:NAV:END -->
 
+<style>
+.login-shell{max-width:520px;width:100%}
+.field-grid{display:grid;gap:16px;margin-top:24px}
+.field-grid label{display:grid;gap:7px;font-family:'Rajdhani',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi)}
+.field-grid input{width:100%;background:#06111d;border:1px solid rgba(138,174,206,.32);color:var(--text);font:500 1rem/1.4 'Source Serif 4',Georgia,serif;padding:13px 14px;border-radius:2px}
+.field-grid input:focus{outline:2px solid rgba(90,188,240,.36);border-color:var(--blue)}
+.form-status{min-height:24px;margin-top:14px;font-family:'Share Tech Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-low)}
+.form-status.error{color:#ff8a7f}
+.form-status.success{color:#7dd8a7}
+.form-links{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:18px;font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.form-links a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4)}
+</style>
+
 <main>
-  <div class="card">
-    <div class="eyebrow">Member Sign In</div>
-    <h1 class="headline">Sign In Coming Soon</h1>
-    <p class="body">
-      The member portal is launching shortly alongside premium subscriptions. In the meantime, access weekly intelligence summaries free on Substack — or contact us directly for early access.
-    </p>
-    <a href="https://libertycti.substack.com" class="cta-primary" target="_blank" rel="noopener">
-      Access Free Summaries on Substack
-    </a>
-    <a href="mailto:intel@libertycti.com" class="cta-secondary">
-      Contact for Early Access
-    </a>
-    <p class="footnote">
-      Not a subscriber yet? <a href="subscribe.html">Subscribe here</a>
-    </p>
+  <div class="login-shell">
+    <div class="card">
+      <div class="eyebrow">Registered Reader</div>
+      <h1 class="headline">Sign in to ATB access</h1>
+      <p class="body">
+        Enter the email you used to register. If the address is on the ATB access list, we will reopen the full brief on this device.
+      </p>
+      <form id="login-form" class="field-grid" method="post" action="../api/atb/login" novalidate>
+        <input type="hidden" name="next" id="next-field" value="/atb/index.html">
+        <label>Email <input type="email" name="email" autocomplete="email" required></label>
+        <button class="cta-primary" type="submit">Sign In and Continue</button>
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+      <div class="form-links">
+        <a href="subscribe.html" id="register-link">Register free access</a>
+        <a href="mailto:intel@libertycti.com">Need help?</a>
+      </div>
+    </div>
   </div>
 </main>
+
+<script>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var next=params.get('next')||'/atb/index.html';
+  if(!next.startsWith('/')||next.startsWith('//')) next='/atb/index.html';
+  document.getElementById('next-field').value=next;
+  var register=document.getElementById('register-link');
+  if(register) register.href='subscribe.html?next='+encodeURIComponent(next);
+  var form=document.getElementById('login-form');
+  var status=document.getElementById('form-status');
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    status.className='form-status';
+    status.textContent='Checking access...';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+      .then(function(response){return response.json().then(function(body){return {ok:response.ok,body:body};});})
+      .then(function(result){
+        if(!result.ok){throw new Error(result.body&&result.body.error?result.body.error:'Sign in failed.');}
+        status.className='form-status success';
+        status.textContent='Access restored. Redirecting...';
+        window.location.href=result.body.next||next;
+      })
+      .catch(function(error){
+        status.className='form-status error';
+        status.textContent=error.message;
+      });
+  });
+})();
+</script>
 
 <!-- LCTI:FOOTER:START -->
 <style>

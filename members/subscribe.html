@@ -5,8 +5,8 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060c14">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subscribe to the Alamo Threat Brief | Liberty CTI</title>
-<meta name="description" content="Get weekly decision-grade cyber and infrastructure intelligence for Texas executives. Subscribe to the Alamo Threat Brief by Liberty CTI.">
+<title>Register for Alamo Threat Brief Access | Liberty CTI</title>
+<meta name="description" content="Register for free access to weekly decision-grade cyber and infrastructure intelligence for Texas executives from Liberty CTI.">
 <link rel="canonical" href="https://libertycti.com/members/subscribe.html">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -1005,7 +1005,7 @@ body [style*="Instrument Sans"]{
       <div class="lcti-drop-panel" role="menu">
         <a href="../decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
-        <a href="../briefing-request.html" role="menuitem">Executive Crisis Wargame</a>
+        <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
       </div>
     </li>
 
@@ -1059,7 +1059,7 @@ body [style*="Instrument Sans"]{
   <div class="m-sub">
     <a href="../decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
-    <a href="../briefing-request.html">Executive Crisis Wargame</a>
+    <a href="crisis-wargame.html">Executive Crisis Wargame</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -1121,21 +1121,109 @@ body [style*="Instrument Sans"]{
 </script>
 <!-- LCTI:NAV:END -->
 
+<style>
+.registration-shell{max-width:980px;width:100%;display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,1fr);gap:28px;align-items:stretch}
+.access-panel{background:rgba(9,20,36,.74);border:1px solid rgba(90,188,240,.18);padding:38px;border-left:5px solid var(--blue)}
+.access-list{list-style:none;margin:26px 0 0;display:grid;gap:13px}
+.access-list li{position:relative;padding-left:24px;color:var(--text-dim);font-size:1rem;line-height:1.55}
+.access-list li::before{content:'◆';position:absolute;left:0;top:0;color:var(--gold);font-size:.82rem}
+.form-card{background:var(--panel);border:1px solid rgba(212,160,64,.3);border-left:5px solid var(--gold);padding:42px;position:relative}
+.form-card::before{content:'FREE ATB REGISTRATION';font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:36px;background:var(--bg);padding:0 8px;transform:translateY(-50%);font-weight:600}
+.field-grid{display:grid;gap:16px;margin-top:24px}
+.field-grid label{display:grid;gap:7px;font-family:'Rajdhani',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi)}
+.field-grid input,.field-grid select{width:100%;background:#06111d;border:1px solid rgba(138,174,206,.32);color:var(--text);font:500 1rem/1.4 'Source Serif 4',Georgia,serif;padding:13px 14px;border-radius:2px}
+.field-grid input:focus,.field-grid select:focus{outline:2px solid rgba(90,188,240,.36);border-color:var(--blue)}
+.checkbox-row{display:flex;gap:10px;align-items:flex-start;color:var(--text-dim);font-size:.94rem;line-height:1.45}
+.checkbox-row input{width:18px;height:18px;margin-top:2px;accent-color:var(--gold);flex:0 0 auto}
+.honeypot{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.form-status{min-height:24px;margin-top:14px;font-family:'Share Tech Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-low)}
+.form-status.error{color:#ff8a7f}
+.form-status.success{color:#7dd8a7}
+.form-links{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:18px;font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.form-links a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4)}
+@media(max-width:860px){.registration-shell{grid-template-columns:1fr}.access-panel,.form-card{padding:30px 24px}}
+</style>
+
 <main>
-  <div class="card">
-    <div class="eyebrow">Subscriptions Opening Soon</div>
-    <h1 class="headline">Subscribe to the Alamo Threat Brief</h1>
-    <p class="body">
-      Premium subscriptions are launching shortly. In the meantime, join the free executive summary newsletter on Substack to stay current on Texas critical infrastructure threats every week.
-    </p>
-    <a href="https://libertycti.substack.com" class="cta-primary" target="_blank" rel="noopener">
-      Join the Free Newsletter on Substack
-    </a>
-    <p class="footnote">
-      Premium full-brief access &middot; Coming soon &middot; <a href="mailto:intel@libertycti.com">intel@libertycti.com</a>
-    </p>
+  <div class="registration-shell">
+    <section class="access-panel" aria-labelledby="registration-context">
+      <div class="eyebrow">Alamo Threat Brief</div>
+      <h1 class="headline" id="registration-context">Register free to read the full brief.</h1>
+      <p class="body">
+        ATB full-brief access is free during the registration period. Registration helps Liberty CTI understand which Texas leaders are using the brief and keeps future subscriber access ready without sending readers to a third-party newsletter gate.
+      </p>
+      <ul class="access-list" role="list">
+        <li>Immediate access to full weekly ATB issues after registration.</li>
+        <li>No payment required for the current access period.</li>
+        <li>Optional weekly summary updates from Liberty CTI.</li>
+      </ul>
+    </section>
+
+    <section class="form-card" aria-labelledby="registration-form-title">
+      <div class="eyebrow">Reader Access</div>
+      <h2 class="headline" id="registration-form-title">Create free access</h2>
+      <p class="body">Use your work email so we can keep ATB readership tied to executive, legal, security, and infrastructure roles.</p>
+      <form id="registration-form" class="field-grid" method="post" action="../api/atb/register" novalidate>
+        <input type="hidden" name="next" id="next-field" value="/atb/index.html">
+        <label class="honeypot">Website <input type="text" name="website" autocomplete="off"></label>
+        <label>Full name <input type="text" name="fullName" autocomplete="name" required></label>
+        <label>Work email <input type="email" name="email" autocomplete="email" required></label>
+        <label>Organization <input type="text" name="organization" autocomplete="organization" required></label>
+        <label>Role <input type="text" name="role" autocomplete="organization-title" placeholder="CISO, GC, board member, operator"></label>
+        <label>Sector
+          <select name="sector">
+            <option value="">Select one</option>
+            <option>Energy / ERCOT</option>
+            <option>Defense Industrial Base</option>
+            <option>Financial services</option>
+            <option>Healthcare</option>
+            <option>Public sector</option>
+            <option>Legal / advisory</option>
+            <option>Other critical infrastructure</option>
+          </select>
+        </label>
+        <label class="checkbox-row"><input type="checkbox" name="updates"> Send the free weekly executive summary and Liberty CTI updates.</label>
+        <label class="checkbox-row"><input type="checkbox" name="consent" required> I understand this access is for Liberty CTI readership and may be converted to a paid subscriber model later.</label>
+        <button class="cta-primary" type="submit">Register and Continue</button>
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+      <div class="form-links">
+        <a href="login.html" id="login-link">Already registered? Sign in</a>
+        <a href="mailto:intel@libertycti.com">Need help?</a>
+      </div>
+    </section>
   </div>
 </main>
+
+<script>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var next=params.get('next')||'/atb/index.html';
+  if(!next.startsWith('/')||next.startsWith('//')) next='/atb/index.html';
+  document.getElementById('next-field').value=next;
+  var login=document.getElementById('login-link');
+  if(login) login.href='login.html?next='+encodeURIComponent(next);
+  var form=document.getElementById('registration-form');
+  var status=document.getElementById('form-status');
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    status.className='form-status';
+    status.textContent='Submitting registration...';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+      .then(function(response){return response.json().then(function(body){return {ok:response.ok,body:body};});})
+      .then(function(result){
+        if(!result.ok){throw new Error(result.body&&result.body.error?result.body.error:'Registration failed.');}
+        status.className='form-status success';
+        status.textContent='Access granted. Redirecting...';
+        window.location.href=result.body.next||next;
+      })
+      .catch(function(error){
+        status.className='form-status error';
+        status.textContent=error.message;
+      });
+  });
+})();
+</script>
 
 <!-- LCTI:FOOTER:START -->
 <style>

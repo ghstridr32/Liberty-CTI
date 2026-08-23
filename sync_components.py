@@ -112,6 +112,8 @@ def find_html_files(root: Path) -> list[Path]:
                 continue
             p = Path(dirpath) / filename
             rel_path = p.relative_to(root)
+            if rel_path.parts[:3] == ("Intel Production", "Draft ATB", "templates"):
+                continue
             rel = str(rel_path)
             if len(rel_path.parts) == 1 and (
                 p.name.lower() == "atb-archive.html"
@@ -348,7 +350,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
       <div class="lcti-drop-panel" role="menu">
         <a href="decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
-        <a href="briefing-request.html" role="menuitem">Executive Crisis Wargame</a>
+        <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
       </div>
     </li>
 
@@ -402,7 +404,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
   <div class="m-sub">
     <a href="decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
-    <a href="briefing-request.html">Executive Crisis Wargame</a>
+    <a href="crisis-wargame.html">Executive Crisis Wargame</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
