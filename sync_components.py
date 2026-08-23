@@ -246,6 +246,7 @@ def sync_latest_issue_links(content: str, latest_issue_file: Path | None, curren
             "latest issue" not in normalized_text
             and "latest brief" not in normalized_text
             and "latest alamo threat brief" not in normalized_text
+            and "read the alamo threat brief" not in normalized_text
         ):
             return tag
         return re.sub(r'href=(["\'])(.*?)\1', f'href="{latest_href}"', tag, count=1, flags=re.IGNORECASE)
