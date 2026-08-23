@@ -327,6 +327,8 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
   </a>
 
   <ul class="lcti-links" role="list">
+    <li><a href="index.html">Home</a></li>
+
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
       <div class="lcti-drop-panel" role="menu">
@@ -385,6 +387,8 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+
   <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
     <a href="{latest_issue_href}">{latest_issue_label}</a>
