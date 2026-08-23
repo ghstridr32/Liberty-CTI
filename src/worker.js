@@ -1,7 +1,7 @@
 const ACCESS_COOKIE = "lcti_atb_access";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
 const FULL_BRIEF_RE = /^\/atb\/2026\/\d{2}-\d{2}-\d{4}\/full(?:\.html)?\/?$/;
-const CANONICAL_ISSUE_RE = /^\/atb\/issues\/\d{2}-\d{2}-\d{4}(?:\.html)?\/?$/;
+const CANONICAL_ISSUE_RE = /^\/atb\/issues\/(\d{2}-\d{2}-(\d{4}))(?:\.html)?\/?$/;
 
 export default {
   async fetch(request, env, ctx) {
@@ -24,14 +24,18 @@ export default {
       return json({ registered: Boolean(session), emailHash: session?.emailHash || null });
     }
 
-    if (
-      (request.method === "GET" || request.method === "HEAD") &&
-      (FULL_BRIEF_RE.test(url.pathname) || CANONICAL_ISSUE_RE.test(url.pathname))
-    ) {
-      const session = await readSession(request, env);
-      if (!session) {
-        const next = encodeURIComponent(url.pathname + url.search);
-        return redirect(`/members/subscribe.html?next=${next}`);
+    if (request.method === "GET" || request.method === "HEAD") {
+      const canonicalMatch = url.pathname.match(CANONICAL_ISSUE_RE);
+      if (canonicalMatch || FULL_BRIEF_RE.test(url.pathname)) {
+        const session = await readSession(request, env);
+        if (!session) {
+          if (canonicalMatch) {
+            const [, slug, year] = canonicalMatch;
+            return redirect(`/atb/${year}/${slug}/`);
+          }
+          const next = encodeURIComponent(url.pathname + url.search);
+          return redirect(`/members/subscribe.html?next=${next}`);
+        }
       }
     }
 
