@@ -291,6 +291,7 @@ def sync_latest_issue_links(content: str, latest_issue_file: Path | None, curren
 def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Path) -> str:
     latest_issue_href = latest_issue_href_for_page(latest_issue_file, current_page, root)
     archive_href = relative_href(current_page, "atb/index.html", root)
+    calibration_href = relative_href(current_page, "atb/calibration-record.html", root)
     latest_issue_label = f"Latest Issue, {format_week_label(str(latest_issue_file))}" if latest_issue_file else "Latest Issue"
 
     aliases = [f"'{latest_issue_file.name.lower()}'"] if latest_issue_file else []
@@ -367,6 +368,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
         <a href="{latest_issue_href}" role="menuitem">{latest_issue_label}</a>
         <div class="drop-divider"></div>
         <a href="{archive_href}" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="{calibration_href}" role="menuitem">Calibration Record</a>
         <a href="alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief</a>
         <div class="drop-divider"></div>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
@@ -425,6 +427,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
   <div class="m-sub">
     <a href="{latest_issue_href}">{latest_issue_label}</a>
     <a href="{archive_href}" class="lcti-archive-link">Archive</a>
+    <a href="{calibration_href}">Calibration Record</a>
     <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="sector-assessments.html">Sector Assessments</a>
