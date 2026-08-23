@@ -389,7 +389,7 @@ nav {
 }
 .contact-field:focus-within .cf-label { color: var(--gold); }
 .cf-required { color: var(--gold); margin-left: 1px; }
-input[type="text"], input[type="email"] {
+input[type="text"], input[type="email"], select, textarea {
   background: transparent; border: none; outline: none;
   color: var(--paper);
   font-family: 'Instrument Sans', sans-serif;
@@ -397,7 +397,9 @@ input[type="text"], input[type="email"] {
   width: 100%; padding: 0;
   caret-color: var(--gold);
 }
-input::placeholder { color: rgba(244,239,230,0.18); font-style: italic; }
+select option { color: #080c10; }
+textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+input::placeholder, textarea::placeholder { color: rgba(244,239,230,0.18); font-style: italic; }
 .cf-error {
   font-family: 'Instrument Sans', sans-serif; font-size: 0.55rem;
   letter-spacing: 0.1em; color: #c0392b; display: none;
@@ -2047,7 +2049,7 @@ body [style*="Instrument Sans"]{
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
   <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="425" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
@@ -2073,9 +2075,10 @@ body [style*="Instrument Sans"]{
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">How We Advise</a>
-        <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
         <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
+        <a href="decision-support.html" role="menuitem">How We Advise</a>
+        <a href="decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Assessments</a>
       </div>
     </li>
 
@@ -2105,7 +2108,7 @@ body [style*="Instrument Sans"]{
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+    <li><a href="briefing-request.html?service=wargame" class="lcti-cta">Run a Wargame</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -2127,9 +2130,10 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label">Services</span>
   <div class="m-sub">
-    <a href="decision-support.html">How We Advise</a>
-    <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
     <a href="crisis-wargame.html">Executive Crisis Wargame</a>
+    <a href="decision-support.html">How We Advise</a>
+    <a href="decision-support.html#retainer">Standing Intelligence Advisory</a>
+    <a href="sector-assessments.html">Strategic Assessments</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -2150,7 +2154,7 @@ body [style*="Instrument Sans"]{
   </div>
 
   <div class="m-cta-wrap">
-    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
+    <a href="briefing-request.html?service=wargame" class="m-cta">Run a Wargame</a>
   </div>
 </div>
 
@@ -2197,14 +2201,13 @@ body [style*="Instrument Sans"]{
   <section class="hero" id="main-content" tabindex="-1">
     <div class="hero-grid-bg"></div>
     <div class="hero-inner">
-      <div class="hero-classification">Board-Ready Guidance for Texas Critical Infrastructure</div>
-      <h1>Submit an <em>Executive Briefing Request</em></h1>
-      <p class="hero-sub">When a board cannot afford to say "we did not know," Liberty CTI delivers strategic cyber intelligence tailored to your sector, regulatory exposure, and governance obligations. Complete the sections below to initiate a scoped strategic judgment engagement.</p>
+      <div class="hero-classification">Work With Liberty CTI</div>
+      <h1 id="request-hero-title">Start the Right <em>Strategic Intelligence Conversation</em></h1>
+      <p class="hero-sub" id="request-hero-sub">Tell us what decision is in front of leadership. Liberty CTI will help scope whether the right next step is an Executive Crisis Wargame, a Strategic Assessment, or a Standing Intelligence Advisory relationship.</p>
       <div style="margin-top:1.75rem; max-width:760px; border-left:2px solid var(--gold); padding:1rem 1.4rem; background:rgba(184,150,62,0.04);">
         <p style="font-size:0.9rem; font-weight:300; color:rgba(244,239,230,0.62); line-height:1.8;">
-          <strong style="color:var(--paper); font-weight:500;">This is not a general inquiry.</strong><br>
-          This request initiates a scoped strategic intelligence engagement designed to answer a specific governance requirement: understanding a developing risk, assessing sector exposure, or preparing leadership to document responsible action before a crisis forces the decision.<br><br>
-          <strong style="color:var(--paper); font-weight:500;">If you are here, something matters.</strong>
+          <strong style="color:var(--paper); font-weight:500;">This is a scoping request.</strong><br>
+          Use it when leadership needs help understanding external cyber pressure, testing a crisis decision, or sustaining a board-ready intelligence rhythm before events force the timeline.
         </p>
       </div>
 
@@ -2228,20 +2231,20 @@ body [style*="Instrument Sans"]{
 
       <div class="hero-meta">
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Format</span>
-          <span class="hero-meta-value">Scoped Executive Intelligence Engagement</span>
+          <span class="hero-meta-label">Primary Path</span>
+          <span class="hero-meta-value" id="request-meta-format">Wargame / Assessment / Advisory</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Tailored To</span>
-          <span class="hero-meta-value">Your Board / Governance Profile</span>
+          <span class="hero-meta-value" id="request-meta-tailored">Your Leadership Decision</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Response</span>
           <span class="hero-meta-value">Initial Review Within 48 Hours</span>
         </div>
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Engagement Model</span>
-          <span class="hero-meta-value">Scoped Product, Briefing, or Advisory</span>
+          <span class="hero-meta-label">Best Fit</span>
+          <span class="hero-meta-value">Scoped With Liberty CTI</span>
         </div>
       </div>
     </div>
@@ -2249,253 +2252,77 @@ body [style*="Instrument Sans"]{
 
   <!-- FORM BODY -->
   <div class="form-body" id="form-body">
-
-    <!-- PROGRESS RAIL -->
-    <nav class="progress-rail" aria-label="Form sections">
-      <div class="rail-item active" data-target="sec-a">
-        <div class="rail-dot"></div>
-        <div class="rail-text">
-          <span class="rail-section-id">Section A</span>
-          <span class="rail-section-name">Industry / Sector</span>
-        </div>
-      </div>
-      <div class="rail-divider"></div>
-      <div class="rail-item" data-target="sec-b">
-        <div class="rail-dot"></div>
-        <div class="rail-text">
-          <span class="rail-section-id">Section B</span>
-          <span class="rail-section-name">Threat Focus</span>
-        </div>
-      </div>
-      <div class="rail-divider"></div>
-      <div class="rail-item" data-target="sec-c">
-        <div class="rail-dot"></div>
-        <div class="rail-text">
-          <span class="rail-section-id">Section C</span>
-          <span class="rail-section-name">Time Horizon</span>
-        </div>
-      </div>
-      <div class="rail-divider"></div>
-      <div class="rail-item" data-target="sec-d">
-        <div class="rail-dot"></div>
-        <div class="rail-text">
-          <span class="rail-section-id">Section D</span>
-          <span class="rail-section-name">Engagement Type</span>
-        </div>
-      </div>
-      <div class="rail-divider"></div>
-      <div class="rail-item" data-target="sec-e">
-        <div class="rail-dot"></div>
-        <div class="rail-text">
-          <span class="rail-section-id">Section E</span>
-          <span class="rail-section-name">Contact Information</span>
-        </div>
-      </div>
-    </nav>
-
-    <!-- FORM SECTIONS -->
-    <form id="briefing-form" action="https://formspree.io/f/xojkbbnn" method="POST">
-      <input type="hidden" name="sector" id="input-sector">
-      <input type="hidden" name="threat" id="input-threat">
-      <input type="hidden" name="horizon" id="input-horizon">
-      <input type="hidden" name="engagement" id="input-engagement">
-      <input type="hidden" name="_subject" value="New Liberty CTI Support Request">
+    <form id="briefing-form" action="https://formspree.io/f/xojkbbnn" method="POST" novalidate>
+      <input type="hidden" name="service_context" id="input-service">
+      <input type="hidden" name="sector_context" id="input-sector">
+      <input type="hidden" name="source_url" id="input-source-url">
+      <input type="hidden" name="_subject" id="input-subject" value="New Liberty CTI Engagement Request">
       <input type="hidden" name="_next" value="thank-you.html">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--rule); margin-bottom:2.5rem;">
-        <div style="background:var(--panel); padding:1.5rem 1.5rem;">
-          <div style="font-family:'Instrument Sans', sans-serif; font-size:0.56rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); margin-bottom:0.55rem;">Urgent Path</div>
-          <div style="font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--paper); margin-bottom:0.5rem;">I need immediate clarity</div>
-          <div style="font-size:0.82rem; color:rgba(244,239,230,0.5); line-height:1.7;">Use this form when leadership is actively preparing for a decision, event, or elevated risk discussion and needs intelligence support quickly.</div>
-        </div>
-        <div style="background:var(--panel); padding:1.5rem 1.5rem;">
-          <div style="font-family:'Instrument Sans', sans-serif; font-size:0.56rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); margin-bottom:0.55rem;">Planning Path</div>
-          <div style="font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--paper); margin-bottom:0.5rem;">I’m exploring support</div>
-          <div style="font-size:0.82rem; color:rgba(244,239,230,0.5); line-height:1.7;">Use this form when you are evaluating a briefing, sector assessment, or advisory relationship and want to scope the right fit.</div>
-        </div>
-      </div>
+
       <div class="form-sections">
-
-        <!-- SECTION A: SECTOR -->
-        <div class="form-section" id="sec-a">
+        <div class="form-section" id="sec-contact">
           <div class="section-header">
-            <span class="section-id">// Section A</span>
-            <div class="section-title">Industry / Sector Focus</div>
-            <div class="section-desc">Select the primary sector your organization operates in. Select all that apply.</div>
+            <span class="section-id">// Engagement Request</span>
+            <div class="section-title" id="context-heading">Start the right conversation.</div>
+            <div class="section-desc" id="context-desc">Tell Liberty CTI what decision is in front of leadership. We will scope the intelligence requirement with you.</div>
           </div>
-          <div class="chip-grid multi-col" id="chips-sector">
-            <div class="chip" data-group="sector" data-value="energy">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Energy</span>
-            </div>
-            <div class="chip" data-group="sector" data-value="financial">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Financial Services</span>
-            </div>
-            <div class="chip" data-group="sector" data-value="healthcare">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Healthcare</span>
-            </div>
-            <div class="chip" data-group="sector" data-value="defense">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Defense &amp; Industrial Base</span>
-            </div>
-            <div class="chip" data-group="sector" data-value="technology">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Technology</span>
-            </div>
-            <div class="chip" data-group="sector" data-value="other">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Other</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- SECTION B: THREAT FOCUS -->
-        <div class="form-section" id="sec-b">
-          <div class="section-header">
-            <span class="section-id">// Section B</span>
-            <div class="section-title">Threat Focus</div>
-            <div class="section-desc">Select the threat categories most relevant to your intelligence requirements. Select all that apply.</div>
-          </div>
-          <div class="chip-grid multi-col" id="chips-threat">
-            <div class="chip" data-group="threat" data-value="nation-state">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Nation-State Threats</span>
-            </div>
-            <div class="chip" data-group="threat" data-value="ransomware">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Ransomware / Cybercriminal Activity</span>
-            </div>
-            <div class="chip" data-group="threat" data-value="supply-chain">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Supply Chain Risk</span>
-            </div>
-            <div class="chip" data-group="threat" data-value="emerging">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Emerging Threat Trends</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECTION C: TIME HORIZON -->
-        <div class="form-section" id="sec-c">
-          <div class="section-header">
-            <span class="section-id">// Section C</span>
-            <div class="section-title">Time Horizon</div>
-            <div class="section-desc">What analytical window best reflects your current intelligence need?</div>
-          </div>
-          <div class="chip-grid" id="chips-horizon">
-            <div class="chip" data-group="horizon" data-value="immediate" data-single="true">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Immediate: Current Threats</span>
-            </div>
-            <div class="chip" data-group="horizon" data-value="near-term" data-single="true">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Near-Term: 30 to 90 Days</span>
-            </div>
-            <div class="chip" data-group="horizon" data-value="strategic" data-single="true">
-              <div class="chip-indicator"></div>
-              <span class="chip-label">Strategic: 6 to 12 Month Outlook</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECTION D: ENGAGEMENT TYPE -->
-        <div class="form-section" id="sec-d">
-          <div class="section-header">
-            <span class="section-id">// Section D</span>
-            <div class="section-title">What Do You Need to Decide?</div>
-            <div class="section-desc">Select the format that best matches the decision you are preparing to make.</div>
-          </div>
-          <div class="chip-grid multi-col" id="chips-engagement">
-            <div class="chip chip-lg" data-group="engagement" data-value="custom-product" data-single="true">
-              <div class="chip-top">
-                <div class="chip-indicator"></div>
-                <span class="chip-label">Custom Intelligence Product</span>
-              </div>
-              <span class="chip-sublabel">Used when leadership needs a clear written assessment before making a decision</span>
-            </div>
-            <div class="chip chip-lg" data-group="engagement" data-value="executive-briefing" data-single="true">
-              <div class="chip-top">
-                <div class="chip-indicator"></div>
-                <span class="chip-label">Executive Briefing</span>
-              </div>
-              <span class="chip-sublabel">Used when leadership needs rapid clarity and alignment in a live setting</span>
-            </div>
-            <div class="chip chip-lg" data-group="engagement" data-value="sector-assessment" data-single="true">
-              <div class="chip-top">
-                <div class="chip-indicator"></div>
-                <span class="chip-label">Sector Assessment</span>
-              </div>
-              <span class="chip-sublabel">Used when leadership needs to understand how the entire sector is being targeted</span>
-            </div>
-            <div class="chip chip-lg" data-group="engagement" data-value="advisory-support" data-single="true">
-              <div class="chip-top">
-                <div class="chip-indicator"></div>
-                <span class="chip-label">Ongoing Advisory Support</span>
-              </div>
-              <span class="chip-sublabel">Used when leadership needs continuous awareness and analytic reachback</span>
-            </div>
-            <div class="chip chip-lg" data-group="engagement" data-value="crisis-wargame" data-single="true">
-              <div class="chip-top">
-                <div class="chip-indicator"></div>
-                <span class="chip-label">Executive Crisis Wargame</span>
-              </div>
-              <span class="chip-sublabel">Used when the board needs to rehearse defensible decision-making under a live crisis scenario before one occurs</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- SECTION E: CONTACT -->
-        <div class="form-section" id="sec-e">
-          <div class="section-header">
-            <span class="section-id">// Section E</span>
-            <div class="section-title">Who Will Be Engaged</div>
-            <div class="section-desc">This ensures Liberty CTI aligns the assessment or briefing to the right level of leadership and decision authority.</div>
-          </div>
           <div class="contact-grid">
             <div class="contact-field" id="cf-name">
-              <label class="cf-label" for="full-name">Full Name <span class="cf-required">*</span></label>
-              <input type="text" id="full-name" name="full-name" placeholder="Your full name" autocomplete="name">
+              <label class="cf-label" for="full-name">Name <span class="cf-required">*</span></label>
+              <input type="text" id="full-name" name="name" placeholder="Your full name" autocomplete="name" required>
               <span class="cf-error">Required.</span>
             </div>
             <div class="contact-field" id="cf-org">
               <label class="cf-label" for="organization">Organization <span class="cf-required">*</span></label>
-              <input type="text" id="organization" name="organization" placeholder="Company name" autocomplete="organization">
-              <span class="cf-error">Required.</span>
-            </div>
-            <div class="contact-field" id="cf-role">
-              <label class="cf-label" for="role">Role / Title <span class="cf-required">*</span></label>
-              <input type="text" id="role" name="role" placeholder="CISO, CEO, VP Risk..." autocomplete="honorific-prefix">
+              <input type="text" id="organization" name="organization" placeholder="Organization name" autocomplete="organization" required>
               <span class="cf-error">Required.</span>
             </div>
             <div class="contact-field" id="cf-email">
-              <label class="cf-label" for="email">Email Address <span class="cf-required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="you@organization.com" autocomplete="email">
+              <label class="cf-label" for="email">Work Email <span class="cf-required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@organization.com" autocomplete="email" required>
               <span class="cf-error">Valid email required.</span>
+            </div>
+            <div class="contact-field" id="cf-role">
+              <label class="cf-label" for="role">Role / Title <span class="cf-required">*</span></label>
+              <input type="text" id="role" name="role" placeholder="CEO, GC, CISO, COO..." autocomplete="organization-title" required>
+              <span class="cf-error">Required.</span>
+            </div>
+            <div class="contact-field full" id="cf-decision">
+              <label class="cf-label" for="decision">What decision is in front of leadership? <span class="cf-required">*</span></label>
+              <textarea id="decision" name="leadership_decision" placeholder="Briefly describe the decision, pressure, event, or concern prompting the conversation." required></textarea>
+              <span class="cf-error">Required.</span>
+            </div>
+            <div class="contact-field full" id="cf-interest">
+              <label class="cf-label" for="interest">Engagement Interest <span class="cf-required">*</span></label>
+              <select id="interest" name="engagement_interest" required>
+                <option value="">Select one</option>
+                <option value="Executive Crisis Wargame">Executive Crisis Wargame</option>
+                <option value="Strategic Assessment">Strategic Assessment</option>
+                <option value="Standing Advisory">Standing Advisory</option>
+                <option value="Not Sure / Talk With Liberty CTI">Not Sure / Talk With Liberty CTI</option>
+              </select>
+              <span class="cf-error">Required.</span>
             </div>
           </div>
         </div>
 
-        <!-- SUBMIT -->
         <div class="submit-row">
-          <p class="submit-note">Your information is never shared or sold. This request is reviewed personally by the Liberty CTI principals. Each request is scoped to a defined intelligence requirement, and pricing is aligned to scope, urgency, and level of support required.</p>
+          <p class="submit-note">Your information is never shared or sold. Liberty CTI will review the request personally and follow up to scope the right conversation.</p>
           <div style="display:flex;flex-direction:column;align-items:flex-end;">
-            <button type="submit" class="btn-request" id="btn-request" disabled>Initiate Engagement →</button>
-            <span class="btn-request-hint visible" id="btn-hint">// Complete all sections to submit</span>
+            <button type="submit" class="btn-request" id="btn-request">Submit Request &rarr;</button>
+            <span class="btn-request-hint" id="btn-hint">// We will perform the scoping with you</span>
           </div>
         </div>
-
       </div>
     </form>
 
-    <!-- CONFIRMATION (replaces form) -->
     <div class="confirmation" id="confirmation">
       <span class="conf-badge">Request Received: Liberty CTI</span>
-      <div class="conf-heading">Intelligence Request<br>Acknowledged.</div>
+      <div class="conf-heading">Engagement Request<br>Acknowledged.</div>
       <div class="conf-rule"></div>
-      <p class="conf-body">Thank you. <strong>Liberty CTI will review your request and follow up within 48 hours to scope the appropriate product, briefing, or advisory engagement.</strong> This request has been logged and will be reviewed against current threat reporting and sector conditions. A member of the analytical team will contact you directly to discuss your sector focus, threat priorities, and the format best suited to your leadership requirement before scoping begins.</p>
-      <div class="conf-ref">// LIBERTY CTI · UNCLASSIFIED · <a href="cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="274e4953424b674b4e454255535e44534e0944484a">[email&#160;protected]</a></div>
+      <p class="conf-body">Thank you. <strong>Liberty CTI will review your request and follow up within 48 hours.</strong> We will use the first conversation to clarify the decision, sector context, and appropriate engagement path.</p>
+      <div class="conf-ref">// LIBERTY CTI · UNCLASSIFIED · intel@libertycti.com</div>
     </div>
 
   </div><!-- end form-body -->
@@ -2530,7 +2357,7 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="425" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
       <p class="lcti-footer-tagline">Strategic decision advisory for Texas critical infrastructure.</p>
@@ -2562,8 +2389,8 @@ body [style*="Instrument Sans"]{
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="briefing-request.html">Request an Executive Briefing</a></li>
-        <li><a href="briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
+        <li><a href="briefing-request.html?service=advisory">Discuss Standing Advisory</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
@@ -2579,187 +2406,147 @@ body [style*="Instrument Sans"]{
 </footer>
 <!-- LCTI:FOOTER:END -->
 
-<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── CHIP TOGGLE ──
-  document.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('click', function() {
-      const group = this.dataset.group;
-      const isSingle = this.dataset.single === 'true';
-
-      if (isSingle) {
-        // Radio behavior — deselect others in group
-        document.querySelectorAll(`.chip[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
-        this.classList.add('selected');
-      } else {
-        // Multi-select toggle
-        this.classList.toggle('selected');
-      }
-
-      // Update rail progress
-      updateRail();
-      updateHiddenInputs();
-      checkFormComplete();
-    });
-  });
-
-  function updateHiddenInputs() {
-    const groups = ['sector', 'threat', 'horizon', 'engagement'];
-
-    groups.forEach(group => {
-      const selected = [...document.querySelectorAll(`.chip[data-group="${group}"].selected`)]
-        .map(el => el.dataset.value)
-        .join(', ');
-
-      const input = document.getElementById(`input-${group}`);
-      if (input) input.value = selected;
-    });
-  }
-
-  // ── FORM COMPLETENESS CHECK ──
-  function isTextFieldsComplete() {
-    const fields = [
-      { inputId: 'full-name',    emailCheck: false },
-      { inputId: 'organization', emailCheck: false },
-      { inputId: 'role',         emailCheck: false },
-      { inputId: 'email',        emailCheck: true  },
-    ];
-    return fields.every(f => {
-      const val = (document.getElementById(f.inputId) || {}).value?.trim() || '';
-      if (!val) return false;
-      if (f.emailCheck && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) return false;
-      return true;
-    });
-  }
-
-  function isChipsComplete() {
-    const groups = ['sector', 'threat', 'horizon', 'engagement'];
-    return groups.every(group =>
-      document.querySelector(`.chip[data-group="${group}"].selected`) !== null
-    );
-  }
-
-  function checkFormComplete() {
-    const btn  = document.getElementById('btn-request');
-    const hint = document.getElementById('btn-hint');
-    const complete = isChipsComplete() && isTextFieldsComplete();
-
-    btn.disabled = !complete;
-
-    if (complete) {
-      hint.classList.remove('visible');
-    } else {
-      hint.classList.add('visible');
-      // Contextual hint
-      if (!isChipsComplete() && !isTextFieldsComplete()) {
-        hint.textContent = '// Complete all sections to submit';
-      } else if (!isChipsComplete()) {
-        hint.textContent = '// Select at least one option in each section above';
-      } else {
-        hint.textContent = '// Fill in your contact details to submit';
-      }
-    }
-  }
-
-  // ── RAIL PROGRESS ──
-  function updateRail() {
-    const sections = ['sec-a', 'sec-b', 'sec-c', 'sec-d'];
-    const groupMap = { 'sec-a': 'sector', 'sec-b': 'threat', 'sec-c': 'horizon', 'sec-d': 'engagement' };
-
-    sections.forEach(secId => {
-      const group = groupMap[secId];
-      const hasSelection = document.querySelector(`.chip[data-group="${group}"].selected`);
-      const railItem = document.querySelector(`.rail-item[data-target="${secId}"]`);
-      if (railItem) {
-        if (hasSelection) railItem.classList.add('complete');
-      }
-    });
-  }
-
-  // ── RAIL CLICK NAVIGATION ──
-  document.querySelectorAll('.rail-item').forEach(item => {
-    item.addEventListener('click', function() {
-      const target = document.getElementById(this.dataset.target);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      document.querySelectorAll('.rail-item').forEach(r => r.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-
-  // ── SCROLL SPY ──
-  const sections = document.querySelectorAll('.form-section');
-  const railItems = document.querySelectorAll('.rail-item');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        railItems.forEach(r => {
-          r.classList.remove('active');
-          if (r.dataset.target === id) r.classList.add('active');
-        });
-      }
-    });
-  }, { threshold: 0.4, rootMargin: '-100px 0px -50% 0px' });
-  sections.forEach(s => observer.observe(s));
-
-  updateHiddenInputs();
-  checkFormComplete(); // Set initial disabled state
-
-  // ── FORM SUBMISSION ──
-  document.getElementById('briefing-form').addEventListener('submit', function(e) {
-    let valid = true;
-
-    const fields = [
-      { id: 'cf-name',  inputId: 'full-name',    emailCheck: false },
-      { id: 'cf-org',   inputId: 'organization', emailCheck: false },
-      { id: 'cf-role',  inputId: 'role',         emailCheck: false },
-      { id: 'cf-email', inputId: 'email',         emailCheck: true  },
-    ];
-
-    fields.forEach(f => {
-      const field = document.getElementById(f.id);
-      const input = document.getElementById(f.inputId);
-      const val = input.value.trim();
-      if (!val || (f.emailCheck && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val))) {
-        field.classList.add('has-error');
-        valid = false;
-      } else {
-        field.classList.remove('has-error');
-      }
-    });
-
-    if (!valid) {
-      document.getElementById('sec-e').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-
-    // Hide form, show confirmation
-    this.closest('.form-sections').style.display = 'none';
-    document.querySelector('.progress-rail').style.opacity = '0.3';
-    const conf = document.getElementById('confirmation');
-    conf.style.display = 'block';
-    requestAnimationFrame(() => requestAnimationFrame(() => conf.classList.add('visible')));
-  });
-
-  // Clear errors on input + re-check completeness
-  document.querySelectorAll('input').forEach(el => {
-    el.addEventListener('input', function() {
-      const parent = this.closest('.contact-field');
-      if (parent) parent.classList.remove('has-error');
-      checkFormComplete();
-    });
-  });
-</script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var nav = document.querySelector('.nav-links') || document.querySelector('.site-nav-links');
-  var btn = document.querySelector('.nav-toggle') || document.querySelector('.site-nav-toggle');
-  if (nav && btn) {
-    btn.addEventListener('click', function () {
-      nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', nav.classList.contains('open') ? 'true' : 'false');
+  var params = new URLSearchParams(window.location.search);
+  var service = (params.get('service') || '').toLowerCase();
+  var sector = (params.get('sector') || '').toLowerCase();
+
+  var serviceLabels = {
+    wargame: 'Executive Crisis Wargame',
+    advisory: 'Standing Advisory',
+    assessment: 'Strategic Assessment'
+  };
+  var sectorLabels = {
+    energy: 'Energy / ERCOT',
+    healthcare: 'Healthcare',
+    finance: 'Financial Services',
+    financial: 'Financial Services',
+    dib: 'Defense Industrial Base',
+    defense: 'Defense Industrial Base',
+    'ai-data': 'AI / Data Infrastructure',
+    ai: 'AI / Data Infrastructure',
+    data: 'AI / Data Infrastructure'
+  };
+
+  var selectedService = serviceLabels[service] || '';
+  var selectedSector = sectorLabels[sector] || '';
+  var heading = 'Start the right conversation.';
+  var desc = 'Tell Liberty CTI what decision is in front of leadership. We will scope the intelligence requirement with you.';
+
+  if (service === 'wargame') {
+    heading = selectedSector ? 'Run a ' + selectedSector + ' Executive Crisis Wargame.' : 'Run an Executive Crisis Wargame.';
+    desc = 'Use this request to scope a 90-minute leadership exercise around the decision, sector pressure, and cross-functional participants that matter most.';
+  } else if (service === 'advisory') {
+    heading = 'Discuss Standing Intelligence Advisory.';
+    desc = 'Use this request to discuss a recurring intelligence relationship for leadership, board, legal, risk, and security decision support.';
+  } else if (service === 'assessment') {
+    heading = selectedSector ? 'Discuss a ' + selectedSector + ' Strategic Assessment.' : 'Discuss a Strategic Assessment.';
+    desc = 'Use this request to scope a board-ready assessment around sector exposure, operational consequence, and executive decision points.';
+  }
+
+  var heroTitle = document.getElementById('request-hero-title');
+  var heroSub = document.getElementById('request-hero-sub');
+  var metaFormat = document.getElementById('request-meta-format');
+  var metaTailored = document.getElementById('request-meta-tailored');
+  var contextHeading = document.getElementById('context-heading');
+  var contextDesc = document.getElementById('context-desc');
+  var serviceInput = document.getElementById('input-service');
+  var sectorInput = document.getElementById('input-sector');
+  var sourceInput = document.getElementById('input-source-url');
+  var subjectInput = document.getElementById('input-subject');
+  var interest = document.getElementById('interest');
+
+  if (service === 'wargame' && heroTitle) heroTitle.innerHTML = 'Run an <em>Executive Crisis Wargame</em>';
+  if (service === 'advisory' && heroTitle) heroTitle.innerHTML = 'Discuss <em>Standing Intelligence Advisory</em>';
+  if (service === 'assessment' && heroTitle) heroTitle.innerHTML = 'Discuss a <em>Strategic Assessment</em>';
+  if (selectedSector && heroSub) heroSub.textContent = 'Tell us what decision is in front of leadership in the ' + selectedSector + ' environment. Liberty CTI will scope the right engagement path with you.';
+  if (metaFormat && selectedService) metaFormat.textContent = selectedService;
+  if (metaTailored && selectedSector) metaTailored.textContent = selectedSector + ' leadership context';
+  if (contextHeading) contextHeading.textContent = heading;
+  if (contextDesc) contextDesc.textContent = desc;
+  if (serviceInput) serviceInput.value = selectedService || service;
+  if (sectorInput) sectorInput.value = selectedSector || sector;
+  if (sourceInput) sourceInput.value = window.location.href;
+  if (subjectInput) subjectInput.value = 'Liberty CTI Engagement Request - ' + heading.replace(/\.$/, '');
+  if (interest && selectedService) interest.value = selectedService;
+
+  var form = document.getElementById('briefing-form');
+  var btn = document.getElementById('btn-request');
+  var hint = document.getElementById('btn-hint');
+  var confirmation = document.getElementById('confirmation');
+
+  function markField(fieldId, inputId, emailCheck) {
+    var field = document.getElementById(fieldId);
+    var input = document.getElementById(inputId);
+    var value = input ? input.value.trim() : '';
+    var valid = !!value;
+    if (valid && emailCheck) valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (field) field.classList.toggle('has-error', !valid);
+    return valid;
+  }
+
+  function validateForm() {
+    var checks = [
+      markField('cf-name', 'full-name', false),
+      markField('cf-org', 'organization', false),
+      markField('cf-email', 'email', true),
+      markField('cf-role', 'role', false),
+      markField('cf-decision', 'decision', false),
+      markField('cf-interest', 'interest', false)
+    ];
+    return checks.every(Boolean);
+  }
+
+  document.querySelectorAll('#briefing-form input, #briefing-form textarea, #briefing-form select').forEach(function (el) {
+    el.addEventListener('input', function () {
+      var parent = el.closest('.contact-field');
+      if (parent) parent.classList.remove('has-error');
+      if (hint) hint.textContent = '// We will perform the scoping with you';
+    });
+    el.addEventListener('change', function () {
+      var parent = el.closest('.contact-field');
+      if (parent) parent.classList.remove('has-error');
+    });
+  });
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateForm()) {
+        var firstError = form.querySelector('.contact-field.has-error');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (hint) hint.textContent = '// Complete the required fields to submit';
+        return;
+      }
+
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Submitting...';
+      }
+      if (hint) hint.textContent = '// Sending request to Liberty CTI';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      }).then(function (response) {
+        if (!response.ok) throw new Error('Form submission failed');
+        var sections = form.querySelector('.form-sections');
+        if (sections) sections.style.display = 'none';
+        if (confirmation) {
+          confirmation.style.display = 'block';
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () { confirmation.classList.add('visible'); });
+          });
+        }
+      }).catch(function () {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = 'Submit Request \u2192';
+        }
+        if (hint) hint.textContent = '// Submission failed. Email intel@libertycti.com or try again.';
+      });
     });
   }
 });

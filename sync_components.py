@@ -71,8 +71,13 @@ SKIP_FILES = {
 SKIP_DIRS = {
     ".git",
     ".next",
+    "About Us",
+    "April 2026",
     "dist",
+    "Extra",
+    "Intel Production",
     "node_modules",
+    "Operational Dashboard",
     "out",
 }
 
@@ -173,19 +178,31 @@ def relative_href(current_page: Path, target: str | Path, root: Path) -> str:
     if target_text.startswith(("http://", "https://", "mailto:", "tel:", "#")):
         return target_text
 
+    fragment = ""
+    query = ""
+    if "#" in target_text:
+        target_text, fragment_text = target_text.split("#", 1)
+        fragment = f"#{fragment_text}"
+    if "?" in target_text:
+        target_text, query_text = target_text.split("?", 1)
+        query = f"?{query_text}"
+
+    if not target_text:
+        return f"{query}{fragment}"
+
     target_path = Path(target_text.lstrip("/"))
     if target_path.is_absolute():
         try:
             target_path = target_path.resolve().relative_to(root.resolve())
         except ValueError:
-            return target_path.as_posix()
+            return f"{target_path.as_posix()}{query}{fragment}"
 
     target_abs = (root / target_path).resolve()
     current_dir = current_page.resolve().parent
     rel = os.path.relpath(target_abs, current_dir).replace("\\", "/")
     if rel == "index.html" and "/" in target_text.strip("/"):
-        return "./index.html"
-    return rel
+        return f"./index.html{query}{fragment}"
+    return f"{rel}{query}{fragment}"
 
 
 def latest_issue_href_for_page(latest_issue_file: Path | None, current_page: Path, root: Path) -> str:
@@ -210,6 +227,8 @@ def relativize_component_links(html: str, current_page: Path, root: Path) -> str
         "luis-maldonado.html",
         "angie-maldonado.html",
         "decision-support.html",
+        "decision-support.html#retainer",
+        "crisis-wargame.html",
         "alamo-threat-brief.html",
         "texas-threat-outlook.html",
         "sector-assessments.html",
@@ -221,6 +240,8 @@ def relativize_component_links(html: str, current_page: Path, root: Path) -> str
         "healthcare.html",
         "Energy_data_AI.html",
         "briefing-request.html",
+        "briefing-request.html?service=wargame",
+        "briefing-request.html?service=advisory",
         "contact.html",
         "liberty-cti-emblem.png",
     ]
@@ -356,9 +377,10 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="decision-support.html" role="menuitem">How We Advise</a>
-        <a href="decision-support.html#retainer" role="menuitem">Executive Intelligence Retainer</a>
         <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
+        <a href="decision-support.html" role="menuitem">How We Advise</a>
+        <a href="decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Assessments</a>
       </div>
     </li>
 
@@ -388,7 +410,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
       </div>
     </li>
 
-    <li><a href="briefing-request.html" class="lcti-cta">Request a Briefing</a></li>
+    <li><a href="briefing-request.html?service=wargame" class="lcti-cta">Run a Wargame</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -410,9 +432,10 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
 
   <span class="m-group-label">Services</span>
   <div class="m-sub">
-    <a href="decision-support.html">How We Advise</a>
-    <a href="decision-support.html#retainer">Executive Intelligence Retainer</a>
     <a href="crisis-wargame.html">Executive Crisis Wargame</a>
+    <a href="decision-support.html">How We Advise</a>
+    <a href="decision-support.html#retainer">Standing Intelligence Advisory</a>
+    <a href="sector-assessments.html">Strategic Assessments</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -433,7 +456,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
   </div>
 
   <div class="m-cta-wrap">
-    <a href="briefing-request.html" class="m-cta">Request a Briefing</a>
+    <a href="briefing-request.html?service=wargame" class="m-cta">Run a Wargame</a>
   </div>
 </div>
 
@@ -538,8 +561,8 @@ def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: 
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="briefing-request.html">Request an Executive Briefing</a></li>
-        <li><a href="briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
+        <li><a href="briefing-request.html?service=advisory">Discuss Standing Advisory</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>

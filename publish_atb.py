@@ -286,14 +286,14 @@ def build_paywall_html(full_html: str, src_html: str) -> str:
 
     paywall = f'''  <!-- PAYWALL -->
   <div style="margin:48px 0;background:rgba(212,160,64,.06);border:1px solid rgba(212,160,64,.3);border-left:5px solid var(--gold);padding:36px 40px;">
-    <div style="font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);margin-bottom:14px;text-transform:uppercase;">Subscriber Content — Full Brief</div>
-    <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:12px;">Sections {range_text} are available to ATB subscribers</h3>
-    <p style="color:var(--text-dim);font-size:.95rem;margin-bottom:20px;">This brief continues with:</p>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);margin-bottom:14px;text-transform:uppercase;">Free Registration Required</div>
+    <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:12px;">Sections {range_text} are available after free registration</h3>
+    <p style="color:var(--text-dim);font-size:.95rem;margin-bottom:20px;">The Alamo Threat Brief is free. Register once to continue with:</p>
     <ul style="list-style:none;padding:0;margin-bottom:28px;display:grid;gap:8px;">
 {items_html}
     </ul>
     <a href="./full.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--bg);font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 28px;">Read Full Brief →</a>
-    <p style="margin-top:16px;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--text-low);letter-spacing:.08em;">Subscriber access — intel@libertycti.com</p>
+    <p style="margin-top:16px;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--text-low);letter-spacing:.08em;">Free weekly Strategic Cyber Intelligence for Texas leaders. Registration required for full access.</p>
   </div>
 '''
 
