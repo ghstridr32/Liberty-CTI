@@ -7,6 +7,9 @@
   "observability": {
     "enabled": true
   },
+  "vars": {
+    "BREVO_LIST_ID": "3"
+  },
   "assets": {
     "directory": "dist",
     "binding": "ASSETS",

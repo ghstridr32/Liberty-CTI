@@ -8,7 +8,7 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === "POST" && url.pathname === "/api/atb/register") {
-      return handleRegister(request, env);
+      return handleRegister(request, env, ctx);
     }
 
     if (request.method === "POST" && url.pathname === "/api/atb/login") {
@@ -39,7 +39,7 @@ export default {
   },
 };
 
-async function handleRegister(request, env) {
+async function handleRegister(request, env, ctx) {
   const form = await readBody(request);
   const next = safeNext(form.next);
 
@@ -94,6 +94,9 @@ async function handleRegister(request, env) {
   };
 
   await env.ATB_REGISTRATIONS.put(registrantKey(emailHash), JSON.stringify(record));
+  if (updates) {
+    ctx.waitUntil(syncBrevoContact(record, env));
+  }
 
   const token = await signSession({ emailHash, exp: Math.floor(Date.now() / 1000) + COOKIE_MAX_AGE }, env, request);
   const headers = authHeaders(token);
@@ -103,6 +106,76 @@ async function handleRegister(request, env) {
   }
 
   return json({ ok: true, next }, 200, headers);
+}
+
+async function syncBrevoContact(record, env) {
+  const listId = Number(env.BREVO_LIST_ID);
+  if (!env.BREVO_API_KEY || !Number.isInteger(listId) || listId <= 0) {
+    await noteBrevoSync(record.emailHash, env, "skipped", "Brevo API key or list ID is not configured.");
+    return;
+  }
+
+  try {
+    const response = await fetch("https://api.brevo.com/v3/contacts", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "api-key": env.BREVO_API_KEY,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: record.email,
+        attributes: brevoAttributes(record),
+        listIds: [listId],
+        emailBlacklisted: false,
+        updateEnabled: true,
+      }),
+    });
+
+    if (!response.ok) {
+      const details = cleanText(await response.text(), 500);
+      await noteBrevoSync(record.emailHash, env, "failed", `Brevo returned ${response.status}: ${details}`);
+      return;
+    }
+
+    await noteBrevoSync(record.emailHash, env, "synced", "");
+  } catch (error) {
+    await noteBrevoSync(record.emailHash, env, "failed", error?.message || "Brevo sync failed.");
+  }
+}
+
+async function noteBrevoSync(emailHash, env, status, message) {
+  if (!env.ATB_REGISTRATIONS) return;
+  const key = registrantKey(emailHash);
+  const existing = await env.ATB_REGISTRATIONS.get(key, "json");
+  if (!existing) return;
+
+  existing.brevo = {
+    status,
+    message,
+    syncedAt: new Date().toISOString(),
+  };
+  await env.ATB_REGISTRATIONS.put(key, JSON.stringify(existing));
+}
+
+function brevoAttributes(record) {
+  const name = splitName(record.fullName);
+  const attributes = {
+    FIRSTNAME: name.firstName,
+    LASTNAME: name.lastName,
+  };
+  if (record.role) attributes.JOB_TITLE = record.role;
+  return attributes;
+}
+
+function splitName(fullName) {
+  const parts = cleanText(fullName, 120).split(" ").filter(Boolean);
+  if (parts.length === 0) return { firstName: "", lastName: "" };
+  if (parts.length === 1) return { firstName: parts[0], lastName: "" };
+  return {
+    firstName: parts.slice(0, -1).join(" "),
+    lastName: parts[parts.length - 1],
+  };
 }
 
 async function handleLogin(request, env) {
