@@ -367,9 +367,9 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
         <span class="drop-label">Latest Issue</span>
         <a href="{latest_issue_href}" role="menuitem">{latest_issue_label}</a>
         <div class="drop-divider"></div>
-        <a href="{archive_href}" role="menuitem" class="lcti-archive-link">Archive</a>
-        <a href="{calibration_href}" role="menuitem">Calibration Record</a>
+        <a href="{calibration_href}" role="menuitem">The Track Record</a>
         <a href="alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief</a>
+        <a href="{archive_href}" role="menuitem" class="lcti-archive-link">Archive</a>
         <div class="drop-divider"></div>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
         <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
@@ -426,9 +426,9 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
   <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
     <a href="{latest_issue_href}">{latest_issue_label}</a>
-    <a href="{archive_href}" class="lcti-archive-link">Archive</a>
-    <a href="{calibration_href}">Calibration Record</a>
+    <a href="{calibration_href}">The Track Record</a>
     <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
+    <a href="{archive_href}" class="lcti-archive-link">Archive</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
     <a href="sector-assessments.html">Sector Assessments</a>
   </div>
