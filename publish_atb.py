@@ -176,6 +176,56 @@ def normalize_nav_label(html: str, new_label: str) -> str:
     )
 
 
+WARGAME_CTA_PRIMARY = '''  <!-- WARGAME CTA -->
+  <div class="wargame-cta" style="margin:40px 0;background:rgba(212,160,64,.05);border:1px solid rgba(212,160,64,.28);border-left:4px solid #d4a040;padding:28px 32px;">
+    <div style="font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#d4a040;margin-bottom:10px;">From Warning to Decision</div>
+    <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;color:#ffffff;margin:0 0 10px;letter-spacing:.01em;">Would your leadership team act in time?</h3>
+    <p style="color:#c4d8ee;font-size:.9rem;line-height:1.6;margin:0 0 16px;max-width:640px;">Reading the warning is one thing. Making the decision with incomplete information and the clock running is another.</p>
+    <a href="../../crisis-wargame.html" style="font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:#f0c870;text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);padding-bottom:2px;">EXECUTIVE CRISIS WARGAMING &rarr;</a>
+  </div>
+
+'''
+
+WARGAME_CTA_CLOSING = '''  <!-- WARGAME CTA — CLOSING -->
+  <div class="wargame-cta-closing" style="margin:36px 0 8px;padding-top:22px;border-top:1px solid rgba(212,160,64,.15);text-align:center;">
+    <p style="color:#8aaece;font-size:.85rem;font-style:italic;margin:0 0 8px;">Test these decisions before they become real.</p>
+    <a href="../../crisis-wargame.html" style="font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:#d4a040;text-decoration:none;">EXECUTIVE CRISIS WARGAMING &rarr;</a>
+  </div>
+
+'''
+
+
+def insert_wargame_cta(src: str) -> str:
+    """Insert the Executive Crisis Wargame CTA at the Decision-Impact -> Action
+    transition (before 'Actions This Week'), and a quieter closing CTA at the
+    end of the brief (before the site footer). Hrefs are written at atb/issues/
+    depth (../../) — make_deep_html's generic href depth-fix rewrites them for
+    the atb/YEAR/SLUG/ copy automatically.
+    """
+    html = src
+
+    primary_anchor = None
+    for marker in ('<!-- SECTION VII: ACTIONS THIS WEEK -->',
+                   '<!-- SECTION VI: ACTIONS THIS WEEK -->'):
+        if marker in html:
+            primary_anchor = marker
+            break
+    if primary_anchor:
+        html = html.replace(primary_anchor, WARGAME_CTA_PRIMARY + primary_anchor, 1)
+    else:
+        print('  WARNING: "Actions This Week" marker not found — '
+              'primary wargame CTA not inserted; add it manually.')
+
+    footer_marker = '<!-- LCTI:FOOTER:START -->'
+    if footer_marker in html:
+        html = html.replace(footer_marker, WARGAME_CTA_CLOSING + footer_marker, 1)
+    else:
+        print('  WARNING: Footer sentinel not found — '
+              'closing wargame CTA not inserted; add it manually.')
+
+    return html
+
+
 def make_issues_html(src: str, meta: dict) -> str:
     """Transform source for atb/issues/ depth (bare logo → ../../)."""
     html = src
@@ -517,6 +567,7 @@ def main():
         sys.exit(f'ERROR: Filename must be MM-DD-YYYY.html, got: {src_path.name}')
 
     src = src_path.read_text(encoding='utf-8')
+    src = insert_wargame_cta(src)
 
     print(f'\n=== Publishing {slug} ===')
 
