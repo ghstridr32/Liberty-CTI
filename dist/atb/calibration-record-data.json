@@ -8,7 +8,7 @@
       "origin_url": "issues/03-22-2026.html",
       "text": "Iranian IRGC-affiliated cyber actors (CyberAv3ngers, APT33, APT55) are almost certainly conducting active cyber operations against U.S. critical infrastructure in retaliation for Operation Epic Fury, with Texas Gulf Coast energy infrastructure assessed as a priority target given the strategic significance of Permian Basin and LNG export infrastructure.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-02",
       "status_date": "2026-03-22",
       "status_url": "issues/03-22-2026.html",
@@ -22,15 +22,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. CISA/FBI/NSA/EPA joint advisory AA26-097A (7 April 2026, updated 22 July) documents active Iranian-affiliated PLC exploitation with operational disruption across Government Services, Water and Wastewater, and Energy — the multi-state water-sector campaign (July–August 2026) is the same threat realized at scale.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-02-KJ2",
@@ -39,7 +39,7 @@
       "origin_url": "issues/03-22-2026.html",
       "text": "China's Volt Typhoon/Voltzite very likely maintains persistent access inside at least one U.S. critical-infrastructure network connected to the electric grid and is almost certainly positioned to cause disruption in a future conflict scenario; ERCOT, despite defeating a known 2024 Volt Typhoon breach attempt, likely faces continued reconnaissance.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-02",
       "status_date": "2026-03-22",
       "status_url": "issues/03-22-2026.html",
@@ -53,15 +53,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. CISA's February 2026 Volt Typhoon supplementary advisory found VT/Voltzite activity intensified since mid-2025; the CI Fortify emergency-isolation initiative (6 May) is explicitly premised on the same access. No named ERCOT compromise, consistent with the original 'faces continued reconnaissance' framing.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-02-KJ3",
@@ -101,7 +101,7 @@
       "origin_url": "issues/03-22-2026.html",
       "text": "Russia's GRU-linked Sandworm (Electrum/Kamacite) likely remains postured for opportunistic escalation against U.S. energy infrastructure should the Iran conflict create a strategic window, demonstrating a standing collection posture rather than a dormant one.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-02",
       "status_date": "2026-03-22",
       "status_url": "issues/03-22-2026.html",
@@ -115,15 +115,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed as a standing posture, not yet tested by escalation. The 13 July FSB Centre-16 router advisory (19 nations) and 23 July Laundry Bear/Void Blizzard espionage advisory (16 nations) both confirm sustained Russian collection against energy and defense-contracting targets. No opportunistic-escalation event has occurred to test that half of the claim.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-02-KJ5",
@@ -132,7 +132,7 @@
       "origin_url": "issues/03-22-2026.html",
       "text": "The Ras Laffan LNG terminal strikes of 18-19 March 2026 and associated Gulf energy attacks will likely drive LNG price volatility and supply-chain disruption for Texas Gulf Coast operators within 30-60 days, with roughly even chances of follow-on IRGC-affiliated cyber operations.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-02",
       "status_date": "2026-03-22",
       "status_url": "issues/03-22-2026.html",
@@ -146,15 +146,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. Hormuz has been functionally disrupted since the 28 February strikes; national gasoline averages reached $4.10/gal by 20 August, consistent with sustained LNG/energy price volatility. The cyber sub-claim was framed as 'roughly even chances' and remains untested either way.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-03-KJ1",
@@ -163,7 +163,7 @@
       "origin_url": "issues/03-29-2026.html",
       "text": "Handala, a confirmed MOIS-operated persona, almost certainly will continue offensive cyber operations against U.S. targets regardless of U.S. government domain seizures; DomainTools confirmed Handala reconstituted domains within hours of the DOJ's March 19 seizure, stating 'We decided to respond to their seizure.'",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-03",
       "status_date": "2026-03-29",
       "status_url": "issues/03-29-2026.html",
@@ -175,15 +175,15 @@
         "healthcare",
         "iran"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed and then demonstrated. Handala reconstituted domains within hours of the March 19 DOJ seizure as forecast, then executed the California Water Service operation (11–12 June) explicitly framed as retaliation — the exact behavior pattern predicted.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-03-KJ2",
@@ -221,7 +221,7 @@
       "origin_url": "issues/03-29-2026.html",
       "text": "The Patel Gmail breach reveals a persistent Iranian long-cycle collection operation against U.S. national-security officials that almost certainly predates the current conflict; NBC News reporting confirms the emails were organized into folders last modified in May 2025, nine months before the current war.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-03",
       "status_date": "2026-03-29",
       "status_url": "issues/03-29-2026.html",
@@ -233,15 +233,15 @@
         "healthcare",
         "iran"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed at origin and undisturbed since. NBC News's folder-metadata reporting (May 2025 last-modified dates) established the pre-staged, long-cycle nature of the collection; no subsequent reporting has contradicted this reading.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-03-KJ4",
@@ -279,7 +279,7 @@
       "origin_url": "issues/03-29-2026.html",
       "text": "Iran's cyber doctrine is almost certainly executing along three simultaneous tracks: destructive state operations (Stryker wiper), hack-and-leak influence operations (Patel Gmail), and ongoing ICS/OT reconnaissance against energy and critical infrastructure; Texas faces exposure across all three tracks.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-03",
       "status_date": "2026-03-29",
       "status_url": "issues/03-29-2026.html",
@@ -291,15 +291,15 @@
         "healthcare",
         "iran"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. All three tracks materialized as described: the Stryker wiper (Track 1), hack-and-leak operations (Track 2), and ICS/OT reconnaissance that matured into the confirmed multi-state water-sector disruption campaign (Track 3).",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-04-KJ1",
@@ -308,7 +308,7 @@
       "origin_url": "issues/04-03-2026.html",
       "text": "Cyber risk is almost certainly migrating from data exposure toward operational disruption, as evidenced by Hasbro's disclosure that a March 28 intrusion forced systems offline and may delay fulfillment for weeks; the SEC 8-K disclosure pattern is becoming standard for material cyber events.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-04",
       "status_date": "2026-04-03",
       "status_url": "issues/04-03-2026.html",
@@ -319,15 +319,15 @@
         "healthcare",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed as the dominant 2026 pattern. Hasbro's weeks-long recovery was followed by the water-sector campaign's operational effects, the JPS Health Network multi-week outage (August), and UTSA's breach — disruption, not just data exposure, has been the recurring consequence.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-04-KJ2",
@@ -336,7 +336,7 @@
       "origin_url": "issues/04-03-2026.html",
       "text": "The LiteLLM/Trivy supply-chain compromise very likely represents the leading edge of a sustained extortion wave targeting AI-dependent organizations; TeamPCP's partnership with Lapsus$ mirrors the 2023 MOVEit campaign pattern, with Texas technology, financial-services, and defense contractors as probable follow-on targets.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-04",
       "status_date": "2026-04-03",
       "status_url": "issues/04-03-2026.html",
@@ -347,15 +347,15 @@
         "healthcare",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed and larger than initially scoped. CloudSEK later measured 2,500+ organizations and 434,000 CI/CD pipelines exposed; a 153GB credential dataset tied to the breach surfaced in August (CybelAngel). Lapsus$ monetization proceeded as forecast; no Texas-named victim has surfaced.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-04-KJ3",
@@ -392,7 +392,7 @@
       "origin_url": "issues/04-03-2026.html",
       "text": "Healthcare almost certainly remains the sector most structurally exposed to both data theft and operational disruption; the Nacogdoches Memorial Hospital disclosure (257,073 individuals affected, attacker present Jan 15-31 before detection) illustrates 16-day dwell times occurring without visible indicators in Texas regional hospitals.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-04",
       "status_date": "2026-04-03",
       "status_url": "issues/04-03-2026.html",
@@ -403,15 +403,15 @@
         "healthcare",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed as a sustained sector pattern. The Nacogdoches disclosure was followed by the AHISD Texas AG filing (26,629 individuals), South Texas Spinal Clinic and Soniva Dental litigation, and continued into Heights Finance (ATB-24) — healthcare/public-sector breach litigation became a running thread, not an isolated case.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-05-KJ1",
@@ -420,7 +420,7 @@
       "origin_url": "issues/04-12-2026.html",
       "text": "Iranian-affiliated cyber actors are almost certainly expanding disruptive OT targeting against U.S. energy and water infrastructure, and Texas falls into the highest-risk tier given its concentration of Gulf Coast petrochemical, utility, and water-treatment environments. Primary uncertainty: open reporting does not yet name Texas victims.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Escalated",
       "status_issue": "ATB-2026-05",
       "status_date": "2026-04-12",
       "status_url": "issues/04-12-2026.html",
@@ -431,15 +431,15 @@
         "criminal",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated to a confirmed, multi-state operational campaign. The 30 July FBI/EPA PSA and CISA companion alert documented physical operational effects (loss of pressure, flooding, loss of automated control); coverage placed the campaign at 12 states by 13 August (Foreign Policy). AA26-097A itself was expanded 22 July to add Siemens and Schneider Electric PLC families to the original Rockwell/Allen-Bradley scope.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from High to Escalated — the campaign moved from advisory-documented capability to confirmed, physically consequential, multi-state disruption, meeting the evidentiary-trigger standard for raised urgency without any correction to the underlying claim.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-05-KJ2",
@@ -448,7 +448,7 @@
       "origin_url": "issues/04-12-2026.html",
       "text": "PRC Typhoon actors very likely retain dormant access inside U.S. critical-infrastructure and telecommunications ecosystems; the greatest near-term danger for Texas is not immediate disruption but silent compromise that reduces warning time in a future crisis.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-05",
       "status_date": "2026-04-12",
       "status_url": "issues/04-12-2026.html",
@@ -459,15 +459,15 @@
         "criminal",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. Consistent with the February CISA Volt Typhoon supplement and the CI Fortify premise; the 2026 ODNI Annual Threat Assessment reaffirms PRC pre-positioning as a standing risk. No contradicting reporting.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-05-KJ3",
@@ -476,7 +476,7 @@
       "origin_url": "issues/04-12-2026.html",
       "text": "DPRK financial cyber operations will almost certainly continue at scale through 2026; Texas financial institutions with crypto, fintech, or DeFi-adjacent exposure face elevated third-party and integration risk. The Drift theft demonstrated DPRK actors can execute nine-figure thefts at machine speed once access is established.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Escalated",
       "status_issue": "ATB-2026-05",
       "status_date": "2026-04-12",
       "status_url": "issues/04-12-2026.html",
@@ -487,15 +487,15 @@
         "criminal",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated. TRM Labs measured North Korea responsible for 76% of all 2026 crypto-hack losses through just two attacks (KelpDAO $290M, Drift $285M); Blockaid's H1 2026 report puts total losses at $1.1B with Lazarus responsible for roughly 55%.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from High to Escalated — DPRK financial cyber operations did not merely continue at scale as forecast; 2026 became a record year by dollar volume, meeting the standard for raised confidence.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-05-KJ4",
@@ -532,7 +532,7 @@
       "origin_url": "issues/04-12-2026.html",
       "text": "Reduced federal cyber capacity will likely increase the intelligence and response burden on private organizations, raising the value of commercial warning, internal detection maturity, and direct state-level coordination for Texas decision-makers.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-05",
       "status_date": "2026-04-12",
       "status_url": "issues/04-12-2026.html",
@@ -543,15 +543,15 @@
         "criminal",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Directionally confirmed. NIST's 15 April 2026 shift to selective NVD enrichment (prioritizing KEV-listed and federal-critical CVEs only) is exactly the capacity narrowing forecast. The downstream consequence for under-resourced organizations is not yet independently measurable in open reporting.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-06-KJ1",
@@ -560,7 +560,7 @@
       "origin_url": "issues/04-19-2026.html",
       "text": "North Korea's use of AI to conduct social engineering against individuals with privileged access to financial systems and technology infrastructure will almost certainly continue to intensify through 2026; Texas financial institutions, fintech operators, and technology companies are inside the operational target profile.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-06",
       "status_date": "2026-04-19",
       "status_url": "issues/04-19-2026.html",
@@ -573,15 +573,15 @@
         "iran",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. CrowdStrike measured an 89% year-over-year increase in AI-enabled adversary operations (cited via CFR, May); the DPRK 'Operation Dream Job' wave, later corroborated by federal advisory rather than vendor reporting alone (ATB-23), sustained the pattern through August.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-06-KJ2",
@@ -590,7 +590,7 @@
       "origin_url": "issues/04-19-2026.html",
       "text": "Iran's demonstrated willingness to generate operational disruption against U.S. industrial infrastructure, confirmed in a joint federal advisory, very likely represents a persistent posture, not a temporary campaign; Texas energy and water operators remain in the highest-risk tier while the U.S.-Iran confrontation remains unresolved.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Escalated",
       "status_issue": "ATB-2026-06",
       "status_date": "2026-04-19",
       "status_url": "issues/04-19-2026.html",
@@ -603,15 +603,15 @@
         "iran",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated. The persistent-posture forecast was tested and exceeded: Iran's OT disruption campaign continued from April through August and escalated to confirmed, physically consequential, multi-state effects in the water sector — not merely a sustained posture but an active operational one.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from High to Escalated as the underlying campaign moved from posture to confirmed multi-state operational effect.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-06-KJ3",
@@ -620,7 +620,7 @@
       "origin_url": "issues/04-19-2026.html",
       "text": "PRC Typhoon actors very likely retain dormant access inside U.S. critical-infrastructure and telecommunications ecosystems, and the strategic value of that access increases as U.S.-China competition over Taiwan and technology accelerates; the risk to Texas grows with geopolitical tension.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-06",
       "status_date": "2026-04-19",
       "status_url": "issues/04-19-2026.html",
@@ -633,15 +633,15 @@
         "iran",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. No advisory or incident contradicts the dormant-access framing; PRC Typhoon activity continued to be characterized as pre-positioning rather than disruption throughout the audit window.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-06-KJ4",
@@ -680,7 +680,7 @@
       "origin_url": "issues/04-19-2026.html",
       "text": "The federal government's permanent narrowing of its national vulnerability intelligence program likely creates a structural intelligence gap for Texas organizations without supplemental threat intelligence sources, increasing the probability that high-impact enterprise software vulnerabilities go unaddressed.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-06",
       "status_date": "2026-04-19",
       "status_url": "issues/04-19-2026.html",
@@ -693,15 +693,15 @@
         "iran",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Directionally confirmed. NIST's 15 April 2026 NVD scope-narrowing announcement is the structural gap forecast; the specific consequence (high-impact vulnerabilities going unaddressed) is plausible but not yet independently documented.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-07-KJ1",
@@ -741,7 +741,7 @@
       "origin_url": "issues/04-26-2026.html",
       "text": "Third-party vendor compromise is likely the most probable near-term pathway for significant cyber-related financial and reputational harm to Texas banking and financial institutions; 'our network was not breached' will not constitute an adequate defense following a vendor-linked incident.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-07",
       "status_date": "2026-04-26",
       "status_url": "issues/04-26-2026.html",
@@ -755,15 +755,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed precisely. Frost Bank and Citizens Bank both faced proposed class actions within weeks (American Banker, May 2026); Everest's claimed theft of 250,000+ Social Security numbers from Frost bore out the 'liability follows the data, not the breach location' framing exactly as stated.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-07-KJ3",
@@ -772,7 +772,7 @@
       "origin_url": "issues/04-26-2026.html",
       "text": "North Korean IT-worker insertion schemes almost certainly represent a live insider-adjacent risk to U.S. technology, defense, AI, and financial-sector organizations, including those in Texas; DOJ sentencing and Treasury sanctions this month signal sustained enforcement attention but not elimination of the threat.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-07",
       "status_date": "2026-04-26",
       "status_url": "issues/04-26-2026.html",
@@ -786,15 +786,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed and sustained. DOJ sentencing cadence continued (7th and 8th sentences by early May); Nisos documented a verified 22-operative cell (June); an FBI Austin Cyber Task Force briefing to InfraGard Central Texas (13 August) confirmed the threat as live and Texas-relevant.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-07-KJ4",
@@ -803,7 +803,7 @@
       "origin_url": "issues/04-26-2026.html",
       "text": "Iranian cyber actors likely remain in a posture of active capability development and selective OT disruption; Texas energy, water, and petrochemical operators using internet-exposed PLCs remain inside the highest-risk tier even as advisory-driven headline attention recedes.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Escalated",
       "status_issue": "ATB-2026-07",
       "status_date": "2026-04-26",
       "status_url": "issues/04-26-2026.html",
@@ -817,15 +817,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated via the same Iran-OT thread carried across 02-KJ1, 05-KJ1, and 06-KJ2. The multi-state water-sector campaign (July–August 2026) and the 22 July expansion of AA26-097A both post-date and substantially exceed the 'selective OT disruption' framing.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from Moderate to Escalated as the standing thread's confirming evidence accumulated across the summer.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-07-KJ5",
@@ -834,7 +834,7 @@
       "origin_url": "issues/04-26-2026.html",
       "text": "Pro-Russian cyber groups are likely deliberately escalating from denial-of-service nuisance operations toward attempted destructive cyberattacks against critical infrastructure in Europe, a leading indicator of what Russia's cyber-adjacent ecosystem may bring to U.S. infrastructure as geopolitical friction intensifies.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-07",
       "status_date": "2026-04-26",
       "status_url": "issues/04-26-2026.html",
@@ -848,15 +848,15 @@
         "north-korea",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. 2026 reporting on pro-Russian hacktivist groups documents assessed capability for physical-damage attacks on Western infrastructure, consistent with the forecast escalation from nuisance DDoS toward destructive intent.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-09-KJ1",
@@ -955,7 +955,7 @@
       "origin_url": "issues/05-10-2026.html",
       "text": "It is likely (55-80%) that Iranian OT-targeting tempo against U.S. water and energy operators persists at the current elevated baseline through at least the end of Q3 2026; the 7 April joint advisory has not been retired or downgraded and the conflict environment has not resolved in a de-escalatory direction.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Escalated",
       "status_issue": "ATB-2026-09",
       "status_date": "2026-05-10",
       "status_url": "issues/05-10-2026.html",
@@ -968,15 +968,15 @@
         "iran",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated. The 'elevated baseline through Q3 2026' forecast was met and then exceeded: the July–August multi-state water campaign and the 22 July AA26-097A expansion represent tempo above baseline, not merely sustained baseline.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from High to Escalated — the time-bound forecast (persistence through Q3) was not just satisfied but overtaken by escalation within the window.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-09-KJ5",
@@ -985,7 +985,7 @@
       "origin_url": "issues/05-10-2026.html",
       "text": "It is almost certain (95-99%) that perimeter edge devices (VPN, firewall, gateway) remain the dominant ransomware initial-access vector against Texas mid-market manufacturers, healthcare practices, and DIB suppliers through the remainder of 2026.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-09",
       "status_date": "2026-05-10",
       "status_url": "issues/05-10-2026.html",
@@ -998,15 +998,15 @@
         "iran",
         "north-korea"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed and sustained through the audit window. Akira's SonicWall SSL-VPN campaign continued into August 2026 (Arctic Wolf, Rapid7 reporting); SonicWall advisory SNWLID-2026-0008 and its KEV listing, plus the 13 July Russian router advisory, reaffirm edge devices as the dominant initial-access vector.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-10-KJ1",
@@ -1102,7 +1102,7 @@
       "origin_url": "issues/05-24-2026.html",
       "text": "It is highly likely (>80%) that Iran's wartime cyber campaign is in an active, multi-vector operational phase, not a pre-positioning or background collection phase: confirmed PLC disruption (CISA AA26-097a), suspected ATG infrastructure access, and active human-capital targeting of aviation and oil-and-gas software engineers (Unit 42, 22 May) constitute an escalating operational pattern.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-11",
       "status_date": "2026-05-24",
       "status_url": "issues/05-24-2026.html",
@@ -1115,15 +1115,15 @@
         "ot",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. The subsequent multi-state water-sector campaign and the 22 July AA26-097A expansion (adding Siemens and Schneider Electric PLC families) validate the 'active, multi-vector operational phase' framing over a pre-positioning read.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-11-KJ2",
@@ -1162,7 +1162,7 @@
       "origin_url": "issues/05-24-2026.html",
       "text": "It is likely (55-80%) that AI-enabled adversary operations have outpaced the identity and access governance frameworks most Texas enterprises currently operate under, creating a category of cyber risk that does not fit conventional IT security models and is already being operationalized against U.S. organizations.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-11",
       "status_date": "2026-05-24",
       "status_url": "issues/05-24-2026.html",
@@ -1175,15 +1175,15 @@
         "ot",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. CrowdStrike's 89% YoY rise in AI-enabled operations and the 19 August Siemens S7 advisory describing AI-generated exploitation scripts both post-date and support this judgment.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-12-KJ1",
@@ -1312,7 +1312,7 @@
       "origin_url": "issues/06-07-2026.html",
       "text": "China and North Korea are running structurally identical human-access operations through professional networking platforms simultaneously; Texas DIB contractors, AI developers, and cleared personnel face a multi-adversary insider-threat environment that a single vetting policy must address.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-13",
       "status_date": "2026-06-07",
       "status_url": "issues/06-07-2026.html",
@@ -1325,15 +1325,15 @@
         "ot",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. Nisos's verified 22-operative DPRK employment-fraud cell (June), the sustained Dream Job wave (federally corroborated by ATB-23), and the standing Five Eyes 'Safeguarding Our Secrets' bulletin together sustain the multi-adversary human-access framing.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-13-KJ3",
@@ -1342,7 +1342,7 @@
       "origin_url": "issues/06-07-2026.html",
       "text": "The April 8 U.S.-Iran ceasefire is fraying; Iran's active OT disruption campaign against U.S. critical infrastructure (confirmed since March 2026) has not stood down. A ceasefire collapse would almost certainly produce an immediate surge in Iranian cyber operations against energy, water, and fuel infrastructure. (High confidence on intent, Moderate confidence on timeline.)",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-13",
       "status_date": "2026-06-07",
       "status_url": "issues/06-07-2026.html",
@@ -1355,15 +1355,15 @@
         "ot",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. The ceasefire collapsed 8 July as anticipated; the multi-state water-sector campaign escalated within roughly three weeks of the collapse. 'Immediate' is the only word doing more work than the evidence strictly supports — three weeks is fast, not instantaneous.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-14-KJ1",
@@ -1372,7 +1372,7 @@
       "origin_url": "issues/06-14-2026.html",
       "text": "An Iran-aligned proxy retaliatory cyber campaign against U.S. critical infrastructure is now active and confirmed, not merely anticipated.",
       "original_confidence": "High",
-      "status": "Revised",
+      "status": "Escalated",
       "status_issue": "ATB-2026-15",
       "status_date": "2026-06-21",
       "status_url": "issues/06-21-2026.html",
@@ -1386,15 +1386,15 @@
         "texas",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Every load-bearing claim. An Iran-aligned proxy retaliatory cyber campaign against U.S. critical infrastructure was active and confirmed at publication (Handala/California Water Service, 12 June 2026); the subsequent multi-state water-sector operations with confirmed physical effects (FBI/EPA PSA I-073026-PSA, 30 July 2026) extended the same pattern.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised at ATB-2026-15: 'Escalated and reframed... confidence in the pre-positioning judgment increased to High.' The frame widened from Iran-specific to multi-adversary; the original claim itself was not corrected.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Originally published as 'Revised', mapped from ATB-2026-15's 'Escalated and reframed' tracker language. Reclassified Escalated under the graded taxonomy following the 23 AUG 2026 calibration audit: the judgment was confirmed and its intensity rating raised; no load-bearing claim required correction."
     },
     {
       "kj_id": "ATB-2026-14-KJ2",
@@ -1403,7 +1403,7 @@
       "origin_url": "issues/06-14-2026.html",
       "text": "It is likely (55-80%) that the confirmed Iran-aligned proxy retaliatory cyber campaign escalates toward operational-technology targeting or extends to additional U.S. water/energy operators -- including Texas Gulf Coast assets -- over the next 1-4 weeks, independent of the U.S.-Iran diplomatic track.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-14",
       "status_date": "2026-06-14",
       "status_url": "issues/06-14-2026.html",
@@ -1417,15 +1417,15 @@
         "texas",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed at scale. The campaign extended to additional U.S. water/energy operators exactly as forecast: the FBI/EPA PSA of 30 July and CISA's companion alert documented operational effects (loss of pressure, flooding, loss of automated control) across multiple states within roughly six weeks of this judgment — direction, target class, and mechanism all held.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-14-KJ3",
@@ -1434,7 +1434,7 @@
       "origin_url": "issues/06-14-2026.html",
       "text": "China-linked reconnaissance infrastructure (the JDY botnet) is scaling rapidly and operationalizing newly disclosed vulnerabilities within hours, a DIB-relevant access-development risk for Texas defense contractors as 'associated entities' of its primary military targeting focus.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-14",
       "status_date": "2026-06-14",
       "status_url": "issues/06-14-2026.html",
@@ -1448,15 +1448,15 @@
         "texas",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. Lumen's Black Lotus Labs documented JDY's growth past 1,500 devices and hours-after-disclosure scanning against newly patched Fortinet equipment (June 2026), plus expansion into U.S. military-network targeting.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-15-KJ1",
@@ -1465,7 +1465,7 @@
       "origin_url": "issues/06-21-2026.html",
       "text": "It is very likely (80-95%) that state-linked pre-positioning inside critical infrastructure and its supporting ecosystem extends beyond the UK to U.S. and Texas-relevant telecom, cloud, vendor, and identity pathways.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-15",
       "status_date": "2026-06-21",
       "status_url": "issues/06-21-2026.html",
@@ -1479,15 +1479,15 @@
         "russia",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. The 13 July FSB Centre-16 router advisory names energy, communications, DIB, and water among the sectors targeted by pre-positioned Russian access — exactly the extension beyond the UK this judgment anticipated.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-15-KJ2",
@@ -1496,7 +1496,7 @@
       "origin_url": "issues/06-21-2026.html",
       "text": "It is likely (55-80%) that Iran will rely on deniable, proxy, or hacktivist cyber activity against U.S. public-service and energy-linked targets rather than overt state action, even if the Strait of Hormuz dispute escalates further.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-15",
       "status_date": "2026-06-21",
       "status_url": "issues/06-21-2026.html",
@@ -1510,15 +1510,15 @@
         "russia",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. The 2026 water-sector campaign ran under the deniable CyberAv3ngers persona; as of this audit (23 August) the U.S. government has still not issued formal public attribution — precisely the proxy/deniable pattern this judgment forecast, not overt state action.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-15-KJ3",
@@ -1527,10 +1527,10 @@
       "origin_url": "issues/06-21-2026.html",
       "text": "It is likely (55-80%) that Russian cyber-retaliation incentives against Western infrastructure and energy-linked suppliers have increased as Ukrainian strikes degrade a growing share of Russian refining capacity.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
-      "status_issue": "ATB-2026-15",
-      "status_date": "2026-06-21",
-      "status_url": "issues/06-21-2026.html",
+      "status": "Escalated",
+      "status_issue": "ATB-2026-20",
+      "status_date": "2026-07-25",
+      "status_url": "issues/07-25-2026.html",
       "note": "",
       "ambiguous": false,
       "tags": [
@@ -1541,15 +1541,15 @@
         "russia",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated. This is the same standing Russia fuel-crisis/refining-capacity judgment carried forward through 16-KJ2, 17-KJ2, and resolved at 18-KJ4. ATB-2026-20's tracker: 'Raised to HIGH. The 23 July multinational advisory is the confirming indicator that was missing.' That advisory (16-nation Laundry Bear/Void Blizzard) is the same evidence that resolved the thread's other entries.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from Moderate to High at ATB-20, citing the 23 July joint advisory as the confirming indicator the thread had been waiting on since ATB-16.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-15-KJ4",
@@ -1558,7 +1558,7 @@
       "origin_url": "issues/06-21-2026.html",
       "text": "It is likely (55-80%) that DPRK employment-fraud access represents an executive-level insider-risk exposure for Texas AI, cloud, software, and defense-industrial employers that bypasses traditional security monitoring.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-15",
       "status_date": "2026-06-21",
       "status_url": "issues/06-21-2026.html",
@@ -1572,15 +1572,15 @@
         "russia",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. Nisos's verified DPRK employment-fraud cell and sustained federal enforcement (sentencing cadence, FBI InfraGard briefing) both post-date and support the executive-level insider-risk framing.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-16-KJ1",
@@ -1589,7 +1589,7 @@
       "origin_url": "issues/06-29-2026.html",
       "text": "Iranian-affiliated cyber actors are confirmed exploiting internet-exposed PLCs and HMIs across U.S. critical infrastructure, and the June 25 Hormuz exchange is likely to accelerate that campaign in the near term. (High confidence on active campaign; Moderate confidence on the acceleration assessment.)",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Escalated",
       "status_issue": "ATB-2026-17",
       "status_date": "2026-07-04",
       "status_url": "issues/07-04-2026.html",
@@ -1603,15 +1603,15 @@
         "texas",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated. ATB-2026-17's tracker initially held this at Moderate ('partially corroborated... single, foreign, non-U.S.-government source'), but the subsequent multi-state water-sector campaign resolved the acceleration question the original judgment left open — the Hormuz-exchange-driven acceleration did occur.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from Moderate to High as the multi-state operational campaign overtook the single-source corroboration ATB-17 had available at the time.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-16-KJ2",
@@ -1620,10 +1620,10 @@
       "origin_url": "issues/06-29-2026.html",
       "text": "Russia's domestic fuel crisis is assessed at a severity historically correlated with expanded state-authorized cyber activity against Western energy and logistics targets.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
-      "status_issue": "ATB-2026-18",
-      "status_date": "2026-07-11",
-      "status_url": "issues/07-11-2026.html",
+      "status": "Escalated",
+      "status_issue": "ATB-2026-20",
+      "status_date": "2026-07-25",
+      "status_url": "issues/07-25-2026.html",
       "note": "Prior Judgment Tracker (ATB-2026-17), citing 'Prior judgment (KJ-2, ATB-2026-16)': 'Trend continues (4 July St. Petersburg/Vysotsk strike); no new cyber-specific evidence this week. Confidence held at MODERATE, unchanged.' Prior Judgment Tracker (ATB-2026-18), citing 'Prior judgment (KJ-2, ATB-2026-16→17)' (most recent): 'Tested and held, now with institutional escalation (standing command). MODERATE confidence, unchanged -- third consecutive issue without a cyber-specific confirming indicator.'",
       "ambiguous": false,
       "tags": [
@@ -1634,15 +1634,15 @@
         "texas",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated. Same standing Russia fuel-crisis thread as 15-KJ3 and 17-KJ2, resolved at ATB-2026-20: 'Raised to HIGH. The 23 July multinational advisory is the confirming indicator that was missing.'",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from Moderate to High at ATB-20 on the 23 July 16-nation advisory; this entry was not independently updated at the time and is backfilled here to match the thread's resolution.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-16-KJ3",
@@ -1651,7 +1651,7 @@
       "origin_url": "issues/06-29-2026.html",
       "text": "Texas healthcare and public-sector organizations face confirmed executive litigation and regulatory exposure from ransomware disclosure governance failures, independent of adversary nation-state activity.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-16",
       "status_date": "2026-06-29",
       "status_url": "issues/06-29-2026.html",
@@ -1665,15 +1665,15 @@
         "texas",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed and extended. The AHISD Texas AG breach filing and South Texas Spinal Clinic / Soniva Dental litigation proceeded as forecast; the same pattern (disclosure-governance litigation exposure) recurred again with Heights Finance in ATB-2026-24.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-17-KJ1",
@@ -1682,7 +1682,7 @@
       "origin_url": "issues/07-04-2026.html",
       "text": "It is likely (55-80%) that Iran's diplomatic and cyber tracks are diverging rather than moving together; Texas energy, water, and finance operators should treat diplomatic progress as analytically separate from cyber risk.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-18",
       "status_date": "2026-07-11",
       "status_url": "issues/07-11-2026.html",
@@ -1696,15 +1696,15 @@
         "russia",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. U.S.-Iran diplomatic talks collapsed into confirmed kinetic exchange 7–9 July while the cyber-specific track (the water-sector campaign) proceeded on its own, independent timeline — the analytical separation this judgment called for held up.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-17-KJ2",
@@ -1713,10 +1713,10 @@
       "origin_url": "issues/07-04-2026.html",
       "text": "Liberty CTI maintains its assessment from ATB-2026-16 that Russia's fuel crisis is likely (55-80%) to raise cyber-enabled collection and retaliation-signaling incentive against Western energy and logistics targets.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
-      "status_issue": "ATB-2026-17",
-      "status_date": "2026-07-04",
-      "status_url": "issues/07-04-2026.html",
+      "status": "Escalated",
+      "status_issue": "ATB-2026-20",
+      "status_date": "2026-07-25",
+      "status_url": "issues/07-25-2026.html",
       "note": "",
       "ambiguous": false,
       "tags": [
@@ -1727,15 +1727,15 @@
         "russia",
         "texas"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated. Same standing Russia fuel-crisis thread as 15-KJ3 and 16-KJ2, resolved at ATB-2026-20 on the 23 July advisory.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "Raised from Moderate to High at ATB-20; this entry was carried forward unchanged through ATB-17 and is backfilled here to match the thread's eventual resolution.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-17-KJ3",
@@ -1775,7 +1775,7 @@
       "origin_url": "issues/07-11-2026.html",
       "text": "The U.S.-Iran ceasefire ended July 8, with reciprocal strikes July 7-9 and reaffirmation July 10 (confirmed fact). Separately, Liberty CTI assesses it is likely that renewed hostilities increase Iran's incentive for retaliatory cyber activity against U.S. water, energy, and financial infrastructure. (High confidence on the fact of collapse; Moderate confidence, unchanged, on the retaliatory-cyber-increase judgment.)",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Escalated",
       "status_issue": "ATB-2026-19",
       "status_date": "2026-07-18",
       "status_url": "issues/07-18-2026.html",
@@ -1788,15 +1788,15 @@
         "russia",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Escalated on the confirmed half of the claim. Renewed hostilities did increase Iran's retaliatory-cyber incentive, borne out by the subsequent multi-state water-sector campaign. Iranian affiliation remains the leading, still-unconfirmed hypothesis for that campaign as of 23 August 2026 — no formal U.S. attribution has been issued.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "The retaliatory-incentive judgment is raised from Moderate to High on the strength of the campaign that followed; the separate attribution sub-claim stays exactly where it was — assessed likely, not confirmed.",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-18-KJ2",
@@ -1865,7 +1865,7 @@
       "origin_url": "issues/07-11-2026.html",
       "text": "Standing assessment maintained from ATB-2026-16/17: Ukraine's creation of a dedicated 'long-range impact' command, a Russian diesel export ban, refinery output near 65% of capacity, and an expanded tanker/shadow-fleet campaign (approx. 48-50 vessels struck in five days) raise Russia's incentive for cyber-enabled retaliation against Western energy and logistics networks.",
       "original_confidence": "Moderate",
-      "status": "Revised",
+      "status": "Escalated",
       "status_issue": "ATB-2026-20",
       "status_date": "2026-07-25",
       "status_url": "issues/07-25-2026.html",
@@ -1878,15 +1878,15 @@
         "russia",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Escalated",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Direction and mechanism. Russia's fuel crisis raising incentive for cyber-enabled retaliation and collection against Western energy and logistics networks was confirmed by the 23 July 2026 sixteen-government advisory documenting a Russian state-backed email-collection campaign against sectors including energy and defense contracting.",
       "what_revised": null,
-      "confidence_movement": "",
+      "confidence_movement": "MODERATE to HIGH at ATB-2026-20: 'The 23 July multinational advisory is the confirming indicator that was missing. This meets the upgrade criteria set in prior issues.'",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Originally published as 'Revised', mapped from ATB-2026-20's 'Raised to HIGH' tracker language. Reclassified Escalated under the graded taxonomy following the 23 AUG 2026 calibration audit: confidence was raised on pre-registered confirming evidence; the call itself did not change."
     },
     {
       "kj_id": "ATB-2026-19-KJ1",
@@ -1895,7 +1895,7 @@
       "origin_url": "issues/07-18-2026.html",
       "text": "Russian government hackers will keep breaking into routers and network equipment that still have factory-default settings, and Texas organizations with older equipment or informal IT management carry the same risk demonstrated this week.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-19",
       "status_date": "2026-07-18",
       "status_url": "issues/07-18-2026.html",
@@ -1907,15 +1907,15 @@
         "iran",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. AA26-194A (13 July, 19-nation joint advisory) attributes to FSB Centre 16 an ongoing router-exploitation campaign across six sectors including energy, communications, and DIB — sustained through the audit window with no contradicting reporting.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-19-KJ2",
@@ -1924,7 +1924,7 @@
       "origin_url": "issues/07-18-2026.html",
       "text": "The weak point isn't routers alone -- it's any equipment that sits on the edge of the network and connects to the internet, including systems employees use for remote access; a second, unrelated attacker proved this the same week by exploiting a critical SonicWall SMA1000 flaw.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-19",
       "status_date": "2026-07-18",
       "status_url": "issues/07-18-2026.html",
@@ -1936,15 +1936,15 @@
         "iran",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. CVE-2026-15409 and CVE-2026-15410 (SonicWall SMA1000) were added to the CISA KEV catalog and actively exploited by Akira through August 2026 (Arctic Wolf, Rapid7) — the edge-device pattern generalized beyond routers exactly as this judgment forecast.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-19-KJ3",
@@ -2011,7 +2011,7 @@
       "origin_url": "issues/07-25-2026.html",
       "text": "It is very likely (80-95%) that the interval between public disclosure of a security flaw and its exploitation against a specific organization has compressed materially, and organizations relying on scheduled patch cycles for internet-facing systems are accepting substantially more risk than their governance documents assume.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-20",
       "status_date": "2026-07-25",
       "status_url": "issues/07-25-2026.html",
@@ -2024,15 +2024,15 @@
         "ot",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. The JDY botnet's hours-after-disclosure Fortinet scanning, same-week KEV catalog additions, and the 19 August Siemens S7 advisory describing AI-generated exploitation scripts all reinforce a compressed disclosure-to-exploitation interval.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-20-KJ2",
@@ -2041,7 +2041,7 @@
       "origin_url": "issues/07-25-2026.html",
       "text": "It is likely (55-80%) that Russian collection against Western energy and defense-contracting email estates is reconnaissance in support of future options, not opportunistic data theft, given the covert and persistent character of the activity and the absence of any financial extortion.",
       "original_confidence": "High",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-20",
       "status_date": "2026-07-25",
       "status_url": "issues/07-25-2026.html",
@@ -2054,15 +2054,15 @@
         "ot",
         "russia"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed. The 23 July joint advisory assesses the Laundry Bear/Void Blizzard campaign as 'almost certainly espionage' conducted for the Russian government, collecting up to 90 days of correspondence and full organizational directories — no extortion or destructive effect has been observed, consistent with a reconnaissance read.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-20-KJ3",
@@ -2101,7 +2101,7 @@
       "origin_url": "issues/08-01-2026.html",
       "text": "U.S. water-sector cyber risk moved this week from documented warning to demonstrated operational effect.",
       "original_confidence": "High",
-      "status": "Confirmed",
+      "status": "Held",
       "status_issue": "ATB-2026-22",
       "status_date": "2026-08-08",
       "status_url": "issues/08-08-2026.html",
@@ -2114,15 +2114,15 @@
         "ot",
         "water"
       ],
-      "status_base": null,
+      "status_base": "Held",
       "status_subtier": null,
       "accuracy_confirmed": null,
       "accuracy_total": null,
-      "what_held": "",
+      "what_held": "Confirmed as stated — the record's own tracker (ATB-2026-22) already grades this Held at High confidence, reinforced by named-official confirmations in Michigan and New Jersey. Backfilled here under the graded taxonomy for consistency; no change in substance.",
       "what_revised": null,
       "confidence_movement": "",
       "corrected_judgment": null,
-      "record_note": ""
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
     },
     {
       "kj_id": "ATB-2026-21-KJ2",
@@ -2222,10 +2222,10 @@
       "text": "Unchanged from ATB-2026-21: the water-sector campaign's occurrence is confirmed at multi-state scale with operational effects requiring manual operations (High Confidence). Iranian affiliation remains the leading hypothesis and is not a confirmed attribution (Moderate Confidence).",
       "original_confidence": "High",
       "status": "Unresolved / Tracking",
-      "status_issue": "ATB-2026-22",
-      "status_date": "2026-08-08",
-      "status_url": "issues/08-08-2026.html",
-      "note": "",
+      "status_issue": "ATB-2026-23",
+      "status_date": "2026-08-15",
+      "status_url": "issues/08-15-2026.html",
+      "note": "Prior Judgment Tracker (ATB-2026-23): 'Unchanged this issue. No Texas-named victim and no formal U.S. government attribution emerged this week.' Occurrence remains confirmed at High confidence; Iranian affiliation remains Moderate confidence, the leading but still-unconfirmed hypothesis as of 23 AUG 2026.",
       "ambiguous": false,
       "tags": [
         "energy",
@@ -2251,7 +2251,7 @@
       "origin_url": "issues/08-08-2026.html",
       "text": "Identity-centric extortion targeting private equity, hedge funds, and law firms materially raises executive risk for any Texas enterprise running federated identity (Microsoft 365, Okta, SSO) with a human-staffed help desk.",
       "original_confidence": "Moderate",
-      "status": "Unresolved / Tracking",
+      "status": "Held",
       "status_issue": "ATB-2026-22",
       "status_date": "2026-08-08",
       "status_url": "issues/08-08-2026.html",
@@ -2263,6 +2263,203 @@
         "iran",
         "ot",
         "water"
+      ],
+      "status_base": "Held",
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "Confirmed and escalating. Google's Threat Intelligence Group (August 2026) confirmed the BlackFile/UNC6671 infrastructure now operates under multiple simultaneous brands (Redact, Pink, Helix, Falcon), collected $10.6M in five months, and expanded intrusion attempts to Point72, Millennium Management, Two Sigma, and Citadel.",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": "Backfilled under the graded taxonomy following the 23 AUG 2026 internal calibration audit."
+    },
+    {
+      "kj_id": "ATB-2026-23-KJ1",
+      "origin_issue": "ATB-2026-23",
+      "origin_date": "2026-08-15",
+      "origin_url": "issues/08-15-2026.html",
+      "text": "Liberty CTI assesses that attacks on UAE-operated tankers in the Strait of Hormuz materially increase near-term energy-price, shipping, insurance, and supply-chain volatility. Texas is partially insulated as a major oil, gas, refining, petrochemical, and LNG producer, but Texas firms remain exposed to global pricing, tanker availability, marine insurance, imported feedstocks, and customer-market disruption.",
+      "original_confidence": "High",
+      "status": "Unresolved / Tracking",
+      "status_issue": "ATB-2026-23",
+      "status_date": "2026-08-15",
+      "status_url": "issues/08-15-2026.html",
+      "note": "",
+      "ambiguous": false,
+      "tags": [
+        "energy",
+        "finance",
+        "iran",
+        "maritime",
+        "texas"
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
+    },
+    {
+      "kj_id": "ATB-2026-23-KJ2",
+      "origin_issue": "ATB-2026-23",
+      "origin_date": "2026-08-15",
+      "origin_url": "issues/08-15-2026.html",
+      "text": "Liberty CTI assesses that the JPS Health Network outage is an executive-relevant Texas critical-infrastructure disruption. JPS publicly confirms a network outage and directs patients to alternative communication channels. Cyber causation remains unconfirmed in primary-source reporting; Liberty CTI therefore does not attribute the outage to malicious activity.",
+      "original_confidence": "High",
+      "status": "Unresolved / Tracking",
+      "status_issue": "ATB-2026-23",
+      "status_date": "2026-08-15",
+      "status_url": "issues/08-15-2026.html",
+      "note": "",
+      "ambiguous": false,
+      "tags": [
+        "healthcare",
+        "texas"
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
+    },
+    {
+      "kj_id": "ATB-2026-23-KJ3",
+      "origin_issue": "ATB-2026-23",
+      "origin_date": "2026-08-15",
+      "origin_url": "issues/08-15-2026.html",
+      "text": "Liberty CTI assesses that North Korea is very likely increasing the sophistication of access operations against defense, aerospace, and software targets, now corroborated by federal confirmation rather than single-vendor reporting alone.",
+      "original_confidence": "High",
+      "status": "Unresolved / Tracking",
+      "status_issue": "ATB-2026-23",
+      "status_date": "2026-08-15",
+      "status_url": "issues/08-15-2026.html",
+      "note": "",
+      "ambiguous": false,
+      "tags": [
+        "defense",
+        "north-korea",
+        "ai"
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
+    },
+    {
+      "kj_id": "ATB-2026-23-KJ4",
+      "origin_issue": "ATB-2026-23",
+      "origin_date": "2026-08-15",
+      "origin_url": "issues/08-15-2026.html",
+      "text": "Liberty CTI assesses that the new White House transnational-crime cyber framework will likely increase government-private sector operational interaction during major cyber investigations and disruption campaigns.",
+      "original_confidence": "High",
+      "status": "Unresolved / Tracking",
+      "status_issue": "ATB-2026-23",
+      "status_date": "2026-08-15",
+      "status_url": "issues/08-15-2026.html",
+      "note": "",
+      "ambiguous": false,
+      "tags": [
+        "criminal"
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
+    },
+    {
+      "kj_id": "ATB-2026-24-KJ1",
+      "origin_issue": "ATB-2026-24",
+      "origin_date": "2026-08-22",
+      "origin_url": "issues/08-22-2026.html",
+      "text": "Liberty CTI assesses it is likely (60–75%) that Iran's incentive to employ pre-positioned cyber or industrial-control access against U.S. critical infrastructure rises as the declared economic-war campaign intensifies.",
+      "original_confidence": "Moderate",
+      "status": "Unresolved / Tracking",
+      "status_issue": "ATB-2026-24",
+      "status_date": "2026-08-22",
+      "status_url": "issues/08-22-2026.html",
+      "note": "",
+      "ambiguous": false,
+      "tags": [
+        "iran",
+        "ot",
+        "energy"
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
+    },
+    {
+      "kj_id": "ATB-2026-24-KJ2",
+      "origin_issue": "ATB-2026-24",
+      "origin_date": "2026-08-22",
+      "origin_url": "issues/08-22-2026.html",
+      "text": "It is a confirmed fact that UT San Antonio notified Texas Cyber Command early in its response to a network intrusion, and that TXCC has since confirmed the incident as a data breach while publicly characterizing UTSA's response favorably.",
+      "original_confidence": "High",
+      "status": "Unresolved / Tracking",
+      "status_issue": "ATB-2026-24",
+      "status_date": "2026-08-22",
+      "status_url": "issues/08-22-2026.html",
+      "note": "",
+      "ambiguous": false,
+      "tags": [
+        "texas",
+        "criminal"
+      ],
+      "status_base": null,
+      "status_subtier": null,
+      "accuracy_confirmed": null,
+      "accuracy_total": null,
+      "what_held": "",
+      "what_revised": null,
+      "confidence_movement": "",
+      "corrected_judgment": null,
+      "record_note": ""
+    },
+    {
+      "kj_id": "ATB-2026-24-KJ3",
+      "origin_issue": "ATB-2026-24",
+      "origin_date": "2026-08-22",
+      "origin_url": "issues/08-22-2026.html",
+      "text": "It is a confirmed fact that NSA, CISA, FBI, and IC3 disclosed on 19 August 2026 that threat actors are using AI-generated exploitation scripts, disguised as legitimate monitoring tools, to compromise internet-exposed Siemens S7 series PLCs across Critical Manufacturing, Energy, Water and Wastewater, Chemical, Food and Agriculture, Commercial Facilities, and Defense Industrial Base environments. Liberty CTI assesses it is likely (55–80%) that exposed Texas assets exist within this population, though none has been publicly confirmed as of this issue.",
+      "original_confidence": "Moderate",
+      "status": "Unresolved / Tracking",
+      "status_issue": "ATB-2026-24",
+      "status_date": "2026-08-22",
+      "status_url": "issues/08-22-2026.html",
+      "note": "",
+      "ambiguous": false,
+      "tags": [
+        "ot",
+        "ai",
+        "energy",
+        "water",
+        "criminal",
+        "defense"
       ],
       "status_base": null,
       "status_subtier": null,

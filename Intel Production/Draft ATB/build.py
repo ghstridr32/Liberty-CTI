@@ -30,16 +30,15 @@ if hasattr(sys.stdout, "reconfigure"):
 # PAYWALL_ACTIVE:
 #   False → preview period. CTA shows "Read Full Brief → ./full.html".
 #           Both index.html and full.html are publicly accessible.
-#   True  → paywall enforced. CTA shows "Subscribe" → /members/subscribe.html.
-#           Cloudflare Pages Functions gate full.html (Phase 2).
-#           Flip to True ONLY after Phase 2 is live and smoke-tested in production.
-PAYWALL_ACTIVE = False
+#   True  → free registration enforced. CTA sends readers to /members/subscribe.html.
+#           The Cloudflare Worker gates full.html and sets an access cookie after registration.
+PAYWALL_ACTIVE = True
 
 # PREVIEW_BANNER_ENABLED:
 #   True  → shows a slim banner above the nav during the preview period.
-#   False → no banner. Use False once paywall is active.
+#   False → no banner. Use False once registration gating is active.
 #   Only rendered when PAYWALL_ACTIVE = False. Ignored when PAYWALL_ACTIVE = True.
-PREVIEW_BANNER_ENABLED = True
+PREVIEW_BANNER_ENABLED = False
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent          # repo root (two levels up from Intel Production/Draft ATB/)
@@ -260,6 +259,7 @@ def main() -> int:
         rendered_html = rendered_html.replace("<body ", "<body>", 1)  # handle <body class=...> edge case
 
     year_str, date_slug = slug_from_publish_date(data["publish_date"])
+    cta_html = cta_html.replace("{{DATE_SLUG}}", date_slug).replace("{{YEAR}}", year_str)
 
     issue_dir = ARCHIVE_ROOT / year_str / date_slug
     issue_dir.mkdir(parents=True, exist_ok=True)

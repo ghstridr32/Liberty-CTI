@@ -41,6 +41,11 @@ try {
     Copy-Item -LiteralPath $AtbSource -Destination (Join-Path $OutDir "atb") -Recurse -Force
   }
 
+  $MembersSource = Join-Path $Root "members"
+  if (Test-Path -LiteralPath $MembersSource) {
+    Copy-Item -LiteralPath $MembersSource -Destination (Join-Path $OutDir "members") -Recurse -Force
+  }
+
   $RootSupportFiles = @("rss-feeds.json", "update_rss_collection.ps1", "install_rss_collection_task.ps1")
   foreach ($SupportFile in $RootSupportFiles) {
     $SupportPath = Join-Path $Root $SupportFile
@@ -124,6 +129,9 @@ try {
         }
       }
   }
+
+  Get-ChildItem -LiteralPath $OutDir -Recurse -File -Filter "*.bak" |
+    Remove-Item -Force
 
   Write-Host "Publish folder ready: $OutDir"
 }

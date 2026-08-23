@@ -287,12 +287,16 @@ def render_issue_card(issue: Issue, latest: Issue) -> str:
         </a>'''
 
 
+VISIBLE_MONTHS_DEFAULT = 2
+
+
 def render_archive_library(issues: list[Issue]) -> str:
     latest = issues[-1]
     grouped = group_issues_by_month(issues)
     rail_links = []
     month_sections = []
-    for (year, month), month_issues in grouped.items():
+    has_collapsed = len(grouped) > VISIBLE_MONTHS_DEFAULT
+    for index, ((year, month), month_issues) in enumerate(grouped.items()):
         label = month_label(year, month)
         anchor = month_id(year, month)
         count = len(month_issues)
@@ -304,8 +308,9 @@ def render_archive_library(issues: list[Issue]) -> str:
         </a>'''
         )
         cards = "\n".join(render_issue_card(issue, latest) for issue in month_issues)
+        collapsed_attr = ' data-default-collapsed="true"' if index >= VISIBLE_MONTHS_DEFAULT else ""
         month_sections.append(
-            f'''      <section class="month-group" id="{anchor}" data-month="{html.escape(label)}" data-year="{year}">
+            f'''      <section class="month-group" id="{anchor}" data-month="{html.escape(label)}" data-year="{year}"{collapsed_attr}>
         <div class="month-head">
           <div>
             <span class="month-eyebrow">{year}</span>
@@ -318,6 +323,13 @@ def render_archive_library(issues: list[Issue]) -> str:
         </div>
       </section>'''
         )
+    show_more = (
+        '''      <div class="archive-show-more" id="archive-show-more">
+        <button type="button" class="show-more-btn" id="show-more-months">Show earlier issues</button>
+      </div>'''
+        if has_collapsed
+        else ""
+    )
     return f'''<!-- LCTI:ATB_ARCHIVE:START -->
     <div class="archive-library" id="archive-library">
       <aside class="archive-rail" aria-label="Archive months">
@@ -326,6 +338,7 @@ def render_archive_library(issues: list[Issue]) -> str:
       </aside>
       <div class="archive-timeline">
 {chr(10).join(month_sections)}
+{show_more}
       </div>
     </div>
     <!-- LCTI:ATB_ARCHIVE:END -->'''

@@ -211,6 +211,8 @@
 }
 .calib-status-tag[data-status="Confirmed"]{color:var(--c-gold-hi);border-color:rgba(212,160,64,.55)}
 .calib-status-tag[data-status="Revised"]{color:var(--c-blue);border-color:rgba(90,188,240,.45)}
+.calib-status-tag[data-status="Escalated"]{color:var(--c-blue);border-color:rgba(90,188,240,.45)}
+.calib-status-tag[data-status="Held"]{color:var(--c-gold-hi);border-color:rgba(212,160,64,.55)}
 .calib-status-tag[data-status="Superseded"]{color:var(--c-text-low);border-color:var(--c-border)}
 .calib-status-tag[data-status="Unresolved / Tracking"]{color:var(--c-text-low);border-color:var(--c-border);border-style:dashed}
 .calib-status-tag[data-status-base="Held"]{color:var(--c-gold-hi);border-color:rgba(212,160,64,.55)}

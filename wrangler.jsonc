@@ -1,14 +1,27 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "liberty-cti",
+  "main": "src/worker.js",
   "account_id": "a7c647b0ab139f6804feb69fcebe8a9a",
   "compatibility_date": "2026-05-10",
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "dist"
+    "directory": "dist",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*",
+      "/atb/2026/*/full*",
+      "/atb/issues/*"
+    ]
   },
+  "kv_namespaces": [
+    {
+      "binding": "ATB_REGISTRATIONS",
+      "id": "adb6fabc66f74b29a72d943ed2fd28bc"
+    }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ]
