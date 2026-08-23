@@ -1229,11 +1229,21 @@ def repair_mojibake(content: str) -> str:
     return content
 
 
+def _is_noindex(path: Path) -> bool:
+    try:
+        head = path.read_text(encoding="utf-8")[:4000]
+    except OSError:
+        return False
+    return bool(re.search(r'<meta\s+name="robots"\s+content="[^"]*noindex', head, re.IGNORECASE))
+
+
 def write_sitemap() -> None:
     urls = []
     for filename in PUBLIC_PAGES:
         path = SITE_ROOT / filename
         if not path.exists():
+            continue
+        if _is_noindex(path):
             continue
         priority = "1.0" if filename == "index.html" else "0.8"
         changefreq = "weekly" if filename in {"index.html", "alamo-threat-brief.html", "atb-archive.html"} else "monthly"
@@ -1251,6 +1261,8 @@ def write_sitemap() -> None:
     for filename in PUBLIC_PAGES:
         path = SITE_ROOT / filename
         if not path.exists():
+            continue
+        if _is_noindex(path):
             continue
         mtime = __import__("datetime").datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
         priority = "1.0" if filename == "index.html" else "0.8"

@@ -16,6 +16,7 @@
 <meta name="twitter:title" content="Contact | Liberty CTI Strategic Decision Advisory">
 <meta name="twitter:description" content="Contact Liberty CTI for executive decision intelligence, briefings, and retainers.">
 <meta name="twitter:image" content="https://libertycti.com/liberty-cti-emblem.png">
+<meta name="robots" content="noindex, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -1894,7 +1895,9 @@ body [style*="Instrument Sans"]{
       <!-- RIGHT: FORM -->
       <div class="form-panel">
 
-        <form id="contact-form" novalidate>
+        <form id="contact-form" action="https://formspree.io/f/xojkbbnn" method="POST" novalidate>
+
+          <input type="hidden" name="_subject" value="New Liberty CTI Contact Form Message">
 
           <div class="field-group" id="fg-name">
             <label class="field-label" for="full-name">Full Name <span class="field-required">*</span></label>
@@ -2040,9 +2043,22 @@ body [style*="Instrument Sans"]{
 
     if (!valid) return;
 
-    form.style.display = 'none';
-    confirmation.style.display = 'block';
-    requestAnimationFrame(() => requestAnimationFrame(() => confirmation.classList.add('visible')));
+    const submitBtn = form.querySelector('.btn-send');
+    submitBtn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+      if (!response.ok) throw new Error('Submission failed');
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+      requestAnimationFrame(() => requestAnimationFrame(() => confirmation.classList.add('visible')));
+    }).catch(function() {
+      submitBtn.disabled = false;
+      alert('There was a problem sending your message. Please email intel@libertycti.com directly.');
+    });
   });
 
   document.querySelectorAll('input, textarea').forEach(el => {
