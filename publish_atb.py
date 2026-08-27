@@ -194,6 +194,29 @@ WARGAME_CTA_CLOSING = '''  <!-- WARGAME CTA — CLOSING -->
 
 '''
 
+ATB_COPYRIGHT_TEMPLATE = (
+    '  <p class="atb-copyright" style="font-family:\'Share Tech Mono\',monospace;'
+    'font-size:.72rem;letter-spacing:.04em;color:rgba(244,239,230,.56);'
+    'text-align:center;margin:28px 0 4px;">&copy; {year} Liberty CTI LLC. All rights '
+    'reserved. The Alamo Threat Brief and its original analysis may not be reproduced '
+    'or redistributed without permission.</p>\n\n'
+)
+
+
+def insert_atb_copyright(src: str, year: str) -> str:
+    """Insert the ATB-specific copyright/reproduction notice at the end of the
+    brief's analytical content, just before the page-body container closes.
+    Placed before the '/page-body' close (rather than before the closing
+    WARGAME_CTA_CLOSING/footer block) so build_paywall_html's Section III cut
+    excludes it from the free paywall preview, matching full-issue-only scope.
+    """
+    marker = '</div><!-- /page-body -->'
+    if marker in src:
+        return src.replace(marker, ATB_COPYRIGHT_TEMPLATE.format(year=year) + marker, 1)
+    print('  WARNING: page-body closing marker not found — '
+          'ATB copyright notice not inserted; add it manually.')
+    return src
+
 
 def insert_wargame_cta(src: str) -> str:
     """Insert the Executive Crisis Wargame CTA at the Decision-Impact -> Action
@@ -567,6 +590,7 @@ def main():
         sys.exit(f'ERROR: Filename must be MM-DD-YYYY.html, got: {src_path.name}')
 
     src = src_path.read_text(encoding='utf-8')
+    src = insert_atb_copyright(src, slug[-4:])
     src = insert_wargame_cta(src)
 
     print(f'\n=== Publishing {slug} ===')
