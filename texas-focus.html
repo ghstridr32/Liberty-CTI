@@ -65,7 +65,10 @@ nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.2rem 3rem; 
 .hero-layout { position: relative; z-index: 2; width: 100%; max-width: 1740px; margin: 0 auto; display: grid; grid-template-columns: .78fr 1.22fr; align-items: center; }
 .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 7rem 3.5rem 6rem; }
 .hero-right { position: relative; overflow: hidden; display: flex; align-items: flex-start; justify-content: center; min-height: auto; padding: 2.5rem 1.5rem 0.5rem 0.5rem; }
-.hero-map-image { position: relative; width: min(100%, 1180px); max-width: 100%; height: auto; max-height: none; object-fit: contain; object-position: top center; transform: none; transform-origin: center center; image-rendering: auto; filter: brightness(1.01) contrast(1.08) saturate(1.03) drop-shadow(0 10px 24px rgba(0,0,0,0.18)); }
+.hero-map-wrap { position: relative; width: min(100%, 1180px); max-width: 100%; }
+.hero-map-image { position: relative; display: block; width: 100%; height: auto; max-height: none; object-fit: contain; object-position: top center; transform: none; transform-origin: center center; image-rendering: auto; filter: brightness(1.01) contrast(1.08) saturate(1.03) drop-shadow(0 10px 24px rgba(0,0,0,0.18)); }
+.map-hotspot { position: absolute; aspect-ratio: 1 / 1; border-radius: 50%; transform: translate(-50%, -50%); cursor: pointer; }
+.map-hotspot:focus-visible { outline: 2px solid #d4af62; outline-offset: 3px; }
 .hero-bottom-fade { display: none; }
 .hero-corner-mask { display: none; }
 .eyebrow { font-family: 'Instrument Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
@@ -182,7 +185,7 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
   .hero-layout { grid-template-columns: 1fr; }
   .hero-right { display: flex; justify-content: center; padding: 0; min-height: auto; }
   .hero-left { padding: 5rem 2rem 2.5rem; min-height: auto; justify-content: flex-end; }
-  .hero-map-image { width: min(100%, 980px); }
+  .hero-map-wrap { width: min(100%, 980px); }
   .sector-grid { grid-template-columns: 1fr 1fr; }
   .actor-grid { grid-template-columns: repeat(3, 1fr); }
   .shift-grid { grid-template-columns: repeat(2, 1fr); }
@@ -193,7 +196,7 @@ footer { background: var(--ink); padding: 4rem 3rem 2.5rem; border-top: 1px soli
   .nav-links { gap: 1.25rem; }
   section { padding: 4rem 1.5rem; }
   .hero-right { padding: 0; }
-  .hero-map-image { width: min(100%, 920px); }
+  .hero-map-wrap { width: min(100%, 920px); }
   .intel-strip { padding: 1.2rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
@@ -1320,15 +1323,15 @@ body [style*="Instrument Sans"]{
       <p class="hero-lede">Texas boards and general counsel face a strategic intelligence question that grows more consequential each year: can your organization show it understood adversary intent, geopolitical pressure, sector exposure, and documented action before a cyber crisis forced the decision? The threat environment is active, not hypothetical. The accountability question is already here.</p>
     </div>
     <div class="hero-right">
-      <img class="hero-map-image" src="texas-focus-map.png" alt="Texas cyber threat environment map" decoding="async" fetchpriority="high" width="1536" height="1024" usemap="#texas-sector-map">
-      <map name="texas-sector-map">
-        <area shape="circle" coords="1065,145,70" href="Energy_data_AI.html" alt="Data Centers &amp; AI Load">
-        <area shape="circle" coords="1125,355,70" href="financial.html" alt="Financial Systems &amp; Payment Rails">
-        <area shape="circle" coords="1110,580,70" href="healthcare.html" alt="Healthcare Systems &amp; Medical Networks">
-        <area shape="circle" coords="1098,780,70" href="sector-assessments.html" alt="Third-Party Vendors &amp; Technology Platforms">
-        <area shape="circle" coords="833,825,70" href="energy-ercot.html" alt="Power &amp; Facility Infrastructure">
-        <area shape="circle" coords="418,820,70" href="energy-ercot.html" alt="Energy Production &amp; Infrastructure">
-      </map>
+      <div class="hero-map-wrap">
+        <img class="hero-map-image" src="texas-focus-map.png" alt="Texas cyber threat environment map" decoding="async" fetchpriority="high" width="1536" height="1024">
+        <a class="map-hotspot" href="Energy_data_AI.html" aria-label="Data Centers &amp; AI Load" style="left:69.34%;top:14.16%;width:9.11%;"></a>
+        <a class="map-hotspot" href="financial.html" aria-label="Financial Systems &amp; Payment Rails" style="left:73.24%;top:34.67%;width:9.11%;"></a>
+        <a class="map-hotspot" href="healthcare.html" aria-label="Healthcare Systems &amp; Medical Networks" style="left:72.27%;top:56.64%;width:9.11%;"></a>
+        <a class="map-hotspot" href="sector-assessments.html" aria-label="Third-Party Vendors &amp; Technology Platforms" style="left:71.48%;top:76.17%;width:9.11%;"></a>
+        <a class="map-hotspot" href="energy-ercot.html" aria-label="Power &amp; Facility Infrastructure" style="left:54.23%;top:80.57%;width:9.11%;"></a>
+        <a class="map-hotspot" href="energy-ercot.html" aria-label="Energy Production &amp; Infrastructure" style="left:27.21%;top:80.08%;width:9.11%;"></a>
+      </div>
       <div class="hero-bottom-fade"></div>
       <div class="hero-corner-mask"></div>
     </div>
