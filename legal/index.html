@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legal | Liberty CTI</title>
-<meta name="description" content="Legal information for Liberty CTI and the Alamo Threat Brief, including our Privacy Policy and Terms of Use.">
+<meta name="description" content="Liberty CTI's Terms of Use and Privacy Policy, covering the Liberty CTI website and the Alamo Threat Brief.">
 <link rel="canonical" href="https://libertycti.com/legal/">
 <meta name="robots" content="noindex, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,19 +24,24 @@ body{background:var(--ink);color:var(--paper);font-family:'Instrument Sans',sans
 .legal-body{max-width:760px;margin:0 auto;padding:3rem 1.5rem 5rem}
 .legal-body h2{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--paper);margin:2.5rem 0 .9rem;padding-top:.25rem;border-top:1px solid var(--rule)}
 .legal-body section:first-of-type h2{border-top:none;padding-top:0;margin-top:0}
+.legal-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--paper);margin:2rem 0 .8rem;padding-top:.1rem;border-top:1px solid var(--rule)}
+.legal-body section:first-of-type h3{border-top:none;padding-top:0;margin-top:0}
 .legal-body p{font-size:1rem;color:var(--muted);margin:0 0 1rem;max-width:68ch}
 .legal-body ul{margin:0 0 1rem 1.2rem;color:var(--muted)}
 .legal-body li{margin-bottom:.5rem;max-width:64ch}
 .legal-body a{color:var(--gold-light)}
 .legal-body strong{color:var(--paper);font-weight:600}
-.legal-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0 2.5rem}
-@media(max-width:640px){.legal-cards{grid-template-columns:1fr}}
-.legal-card{display:block;border:1px solid var(--rule);padding:1.75rem 1.5rem;text-decoration:none;transition:border-color .2s,background .2s}
-.legal-card:hover{border-color:var(--gold);background:rgba(184,150,62,.05)}
-.legal-card .card-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:.5rem}
-.legal-card h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--paper);margin:0 0 .6rem;padding:0;border:none}
-.legal-card p{font-size:.92rem;color:var(--muted);margin:0;max-width:none}
-.legal-card .card-link{display:inline-block;margin-top:1rem;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.legal-note{background:rgba(184,150,62,.06);border-left:3px solid var(--gold);padding:1rem 1.25rem;margin:1rem 0;font-size:.92rem;color:var(--muted)}
+.legal-toc{max-width:760px;margin:0 auto;padding:0 1.5rem;font-size:.88rem;line-height:1.9}
+.legal-toc a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(244,239,230,.25)}
+.legal-toc a:hover{color:var(--gold-light)}
+.legal-toc .toc-part{margin-bottom:1.5rem}
+.legal-toc .toc-part-title{font-family:'Instrument Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:.4rem}
+.legal-toc ol{margin-left:1.2rem;columns:2;column-gap:2rem}
+@media(max-width:640px){.legal-toc ol{columns:1}}
+.part-divider{margin:3.5rem 0 2rem;padding-top:2rem;border-top:2px solid var(--gold)}
+.part-divider .part-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:.4rem}
+.part-divider h2{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--paper);margin:0;padding:0;border:none}
 </style>
 </head>
 <body>
@@ -250,46 +255,275 @@ body{background:var(--ink);color:var(--paper);font-family:'Instrument Sans',sans
     <p class="updated">Last Updated: August 27, 2026</p>
   </section>
 
+  <nav class="legal-toc" aria-label="Legal page sections">
+    <div class="toc-part">
+      <span class="toc-part-title">Terms of Use</span>
+      <ol>
+        <li><a href="#terms-acceptance">Acceptance of Terms</a></li>
+        <li><a href="#terms-ownership">Ownership &amp; Intellectual Property</a></li>
+        <li><a href="#terms-permitted-use">Permitted Use</a></li>
+        <li><a href="#terms-prohibited-use">Prohibited Use</a></li>
+        <li><a href="#terms-intel-disclaimer">Intelligence &amp; Informational-Use Disclaimer</a></li>
+        <li><a href="#terms-no-professional-advice">No Professional Advice</a></li>
+        <li><a href="#terms-no-guarantee">No Guarantee of Outcomes</a></li>
+        <li><a href="#terms-governance">Governance &amp; Compliance Disclaimer</a></li>
+        <li><a href="#terms-third-party">Third-Party Sources &amp; Links</a></li>
+        <li><a href="#terms-liability">Limitation of Liability</a></li>
+        <li><a href="#terms-indemnification">Indemnification</a></li>
+        <li><a href="#terms-governing-law">Governing Law</a></li>
+        <li><a href="#terms-modifications">Modifications</a></li>
+        <li><a href="#terms-contact">Contact</a></li>
+      </ol>
+    </div>
+    <div class="toc-part">
+      <span class="toc-part-title">Privacy Policy</span>
+      <ol>
+        <li><a href="#privacy-info-provided">Information You Provide</a></li>
+        <li><a href="#privacy-info-automatic">Automatically Collected Information</a></li>
+        <li><a href="#privacy-atb-tracking">ATB Reader Tracking</a></li>
+        <li><a href="#privacy-purposes">Purposes of Processing</a></li>
+        <li><a href="#privacy-vendors">Vendors &amp; Service Providers</a></li>
+        <li><a href="#privacy-cookies">Cookies &amp; Similar Technologies</a></li>
+        <li><a href="#privacy-retention">Data Retention</a></li>
+        <li><a href="#privacy-security">Data Security</a></li>
+        <li><a href="#privacy-choices">Your Choices</a></li>
+        <li><a href="#privacy-texas">Texas Privacy Considerations</a></li>
+        <li><a href="#privacy-children">Children</a></li>
+        <li><a href="#privacy-updates">Policy Updates</a></li>
+      </ol>
+    </div>
+    <div class="toc-part">
+      <span class="toc-part-title">Additional Legal Information</span>
+      <ol>
+        <li><a href="#trademarks">Trademarks</a></li>
+        <li><a href="#reporting">Reporting Unauthorized Use</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ol>
+    </div>
+  </nav>
+
   <article class="legal-body">
 
     <section>
-      <p>Liberty CTI LLC (&ldquo;Liberty CTI&rdquo;) publishes the Alamo Threat Brief&trade; and related intelligence products for executive, board, and risk-governance audiences. The two documents below govern your use of the Liberty CTI website and the Alamo Threat Brief, and explain what information we collect and how we use it.</p>
-      <p>In short: the Alamo Threat Brief is provided free of charge; our original analysis and frameworks are Liberty CTI&rsquo;s intellectual property, while the underlying facts, government documents, and third-party reporting we cite remain the property of their respective owners; our assessments are analytical judgments under uncertainty, not guarantees, and do not constitute legal, financial, or other professional advice; and these Terms are governed by the laws of the State of Texas. The full terms, including limitations, disclaimers, and your rights, are set out in the pages below.</p>
+      <p>Liberty CTI LLC (&ldquo;Liberty CTI&rdquo;) publishes the Alamo Threat Brief&trade; and related intelligence products for executive, board, and risk-governance audiences. The Terms of Use and Privacy Policy below, together, govern your use of the Liberty CTI website and the Alamo Threat Brief, and explain what information we collect and how we use it.</p>
+      <p>In short: the Alamo Threat Brief is provided free of charge; our original analysis and frameworks are Liberty CTI&rsquo;s intellectual property, while the underlying facts, government documents, and third-party reporting we cite remain the property of their respective owners; our assessments are analytical judgments under uncertainty, not guarantees, and do not constitute legal, financial, or other professional advice; and these Terms are governed by the laws of the State of Texas. The full documents below set out the details, including limitations, disclaimers, and your rights.</p>
     </section>
 
-    <div class="legal-cards">
-      <a class="legal-card" href="/terms/">
-        <span class="card-eyebrow">Governs Use of Our Services</span>
-        <h2>Terms of Use</h2>
-        <p>Ownership of Liberty CTI&rsquo;s analysis, permitted and prohibited use, the intelligence &amp; informational-use disclaimer, limitations of liability, and governing law.</p>
-        <span class="card-link">Read the Terms of Use &rarr;</span>
-      </a>
-      <a class="legal-card" href="/privacy/">
-        <span class="card-eyebrow">Governs Your Information</span>
-        <h2>Privacy Policy</h2>
-        <p>What information we collect from registered readers and site visitors, how it is used, which vendors process it, and your choices.</p>
-        <span class="card-link">Read the Privacy Policy &rarr;</span>
-      </a>
+    <div class="part-divider" id="part-terms">
+      <span class="part-eyebrow">Part One</span>
+      <h2>Terms of Use</h2>
     </div>
 
-    <section>
-      <h2>Trademarks</h2>
-      <p>Alamo Threat Brief&trade; and the Alamo Threat Brief&trade; masthead are trademarks of Liberty CTI LLC. Use of this mark without Liberty CTI&rsquo;s prior written permission is prohibited, except as permitted under the Terms of Use (for example, citation with attribution).</p>
+    <section id="terms-acceptance">
+      <h3>1. Acceptance of Terms</h3>
+      <p>By accessing or using the Liberty CTI website, the Alamo Threat Brief, or any related Liberty CTI products or services (collectively, the &ldquo;Services&rdquo;), you agree to be bound by these Terms of Use (&ldquo;Terms&rdquo;). If you do not agree to these Terms, do not access or use the Services.</p>
+      <p>The Alamo Threat Brief is provided free of charge to registered readers. These Terms govern that free access; they do not apply to separately contracted Liberty CTI engagements, such as briefing requests, tabletop exercises, or advisory retainers, which are governed by their own written agreements.</p>
     </section>
 
-    <section>
-      <h2>Reporting Unauthorized Use</h2>
-      <p>If you believe Liberty CTI content has been republished, copied, or distributed without authorization &mdash; by a third party, or in a way inconsistent with the Terms of Use &mdash; please contact <a href="mailto:intel@libertycti.com">intel@libertycti.com</a> with the location of the content in question. We will review and respond to legitimate reports.</p>
+    <section id="terms-ownership">
+      <h3>2. Ownership &amp; Intellectual Property</h3>
+      <p>The original analysis, assessments, analytical judgments, graphics, methodology, page design, reports, and the content of the Alamo Threat Brief &mdash; including the &ldquo;Cascade Intelligence&rdquo; analysis and Liberty CTI&rsquo;s proprietary analytical frameworks &mdash; are owned by Liberty CTI LLC or used with the rights necessary to publish them, and are protected by applicable intellectual property laws.</p>
+      <p>This ownership applies to Liberty CTI&rsquo;s original analytical work product. It does not extend to, and Liberty CTI does not claim ownership of, the underlying facts, events, government documents, public reporting, or third-party materials that Liberty CTI&rsquo;s analysis may reference, cite, or draw upon. Those materials remain the property of their respective owners.</p>
     </section>
 
-    <section>
-      <h2>Cookies &amp; Tracking</h2>
-      <p>The Liberty CTI website uses a single functional session cookie to keep registered readers signed in; it does not use advertising or third-party tracking cookies. See the Privacy Policy&rsquo;s <a href="/privacy/#cookies">Cookies &amp; Similar Technologies</a> section for details.</p>
+    <section id="terms-permitted-use">
+      <h3>3. Permitted Use</h3>
+      <p>Unless a separate written agreement between you and Liberty CTI provides otherwise, you may:</p>
+      <ul>
+        <li>View and read the Services for your own informational purposes;</li>
+        <li>Print pages for internal, non-commercial use;</li>
+        <li>Save reasonable copies for your own internal or personal use; and</li>
+        <li>Quote or cite Liberty CTI content with clear attribution to Liberty CTI.</li>
+      </ul>
     </section>
 
-    <section>
-      <h2>Questions</h2>
-      <p>Questions about either document can be sent to <a href="mailto:intel@libertycti.com">intel@libertycti.com</a>.</p>
+    <section id="terms-prohibited-use">
+      <h3>4. Prohibited Use</h3>
+      <p>Except as permitted above or under a separate written agreement with Liberty CTI, you agree not to:</p>
+      <ul>
+        <li>Republish or redistribute substantial portions of Liberty CTI content;</li>
+        <li>Resell or commercially redistribute Liberty CTI content;</li>
+        <li>Systematically copy or scrape the Services in order to reproduce Liberty CTI&rsquo;s content library or to build a competing product or database;</li>
+        <li>Remove or alter copyright, attribution, or other proprietary notices; or</li>
+        <li>Misattribute Liberty CTI content to another source, or attribute another source&rsquo;s content to Liberty CTI.</li>
+      </ul>
+      <p>Nothing in this section is intended to prohibit legitimate quotation, citation, commentary, or other use protected by fair use or an equivalent legal doctrine.</p>
+    </section>
+
+    <section id="terms-intel-disclaimer">
+      <h3>5. Intelligence &amp; Informational-Use Disclaimer</h3>
+      <p>Liberty CTI products provide intelligence analysis and decision support based on information available at the time of publication. Assessments reflect analytical judgments under uncertainty and are not guarantees of future events. The threat landscape changes continuously, and information in any Liberty CTI product may become outdated after publication.</p>
+    </section>
+
+    <section id="terms-no-professional-advice">
+      <h3>6. No Professional Advice</h3>
+      <p>Liberty CTI provides intelligence analysis and decision support &mdash; a distinct discipline from legal, investment, financial, accounting, insurance, or technical cybersecurity implementation services. Nothing in the Services constitutes legal, investment, financial, accounting, insurance, or technical cybersecurity implementation advice. You should rely on qualified professional advisers &mdash; counsel, financial advisers, insurance brokers, or technical security practitioners, as applicable &mdash; for advice specific to your organization&rsquo;s circumstances.</p>
+    </section>
+
+    <section id="terms-no-guarantee">
+      <h3>7. No Guarantee of Outcomes</h3>
+      <p>Liberty CTI's products are designed to sharpen the quality of your organization&rsquo;s decisions under uncertainty. They do not guarantee any particular outcome. Specifically, Liberty CTI does not guarantee:</p>
+      <ul>
+        <li>The prevention of any security incident;</li>
+        <li>That every relevant threat will be identified;</li>
+        <li>Uninterrupted business operations;</li>
+        <li>The accuracy of third-party reporting that Liberty CTI cites or relies upon;</li>
+        <li>That any forecast or warning judgment will be realized; or</li>
+        <li>Any specific business outcome.</li>
+      </ul>
+    </section>
+
+    <section id="terms-governance">
+      <h3>8. Governance &amp; Compliance Disclaimer</h3>
+      <p>Liberty CTI analysis may support risk governance, executive decision-making, due diligence, board deliberation, continuity planning, and regulatory preparation. On its own, however, Liberty CTI analysis does not establish legal compliance, satisfy fiduciary duties, satisfy regulatory obligations, constitute a cybersecurity certification, or create a legal safe harbor.</p>
+      <p>Liberty CTI products do not, by themselves, create an attorney-client privilege. Where Liberty CTI works alongside qualified legal counsel on a client engagement, any privilege or related protections are governed by separate contractual arrangements between the client and its counsel, not by these Terms.</p>
+    </section>
+
+    <section id="terms-third-party">
+      <h3>9. Third-Party Sources &amp; Links</h3>
+      <p>Liberty CTI analysis relies on, cites, and in some cases links to third-party sources, including news reporting, government publications, vendor research, and other open-source material. That reporting, and the websites, trademarks, data, and graphics associated with it, remain the property of their respective owners. A reference to a third-party source does not constitute Liberty CTI&rsquo;s endorsement of that source, its owner, or its content, unless expressly stated otherwise.</p>
+    </section>
+
+    <!-- ATTORNEY REVIEW: limitation of liability section — confirm scope/cap before commercial launch -->
+    <section id="terms-liability">
+      <h3>10. Limitation of Liability</h3>
+      <p>To the fullest extent permitted by applicable law, Liberty CTI LLC and its officers, employees, and contributors will not be liable for any indirect, incidental, consequential, or special damages arising out of or relating to your access to or use of, or inability to access or use, the Services, even if Liberty CTI has been advised of the possibility of such damages. The Services are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis, without warranties of any kind, express or implied, regarding accuracy, completeness, or fitness for a particular purpose. Some jurisdictions do not allow the exclusion or limitation of certain damages or warranties, so some of the above limitations may not apply to you.</p>
+    </section>
+
+    <!-- ATTORNEY REVIEW: indemnification terms — confirm whether/how this should be expanded for commercial client agreements -->
+    <section id="terms-indemnification">
+      <h3>11. Indemnification</h3>
+      <p>General indemnification obligations for public users of the Services are not established by these Terms. Where Liberty CTI enters into a separate written agreement with a client (for example, a briefing, advisory, or retainer engagement), indemnification terms, if any, are addressed in that agreement.</p>
+    </section>
+
+    <!-- ATTORNEY REVIEW: governing law/venue — confirm whether arbitration, jury waiver, venue, or class-action-waiver clauses should be added before commercial launch -->
+    <section id="terms-governing-law">
+      <h3>12. Governing Law</h3>
+      <p>These Terms are governed by the laws of the State of Texas, without regard to its conflict-of-laws principles.</p>
+    </section>
+
+    <section id="terms-modifications">
+      <h3>13. Modifications</h3>
+      <p>Liberty CTI may update these Terms from time to time. The &ldquo;Last Updated&rdquo; date at the top of this page reflects the date of the most recent material revision. Continued use of the Services after a revision constitutes acceptance of the updated Terms.</p>
+    </section>
+
+    <!-- ATTORNEY REVIEW: a dedicated business mailing address for legal notices is not currently established anywhere in this repository; only intel@libertycti.com is confirmed. Add a registered business address here once one is available — do not insert a residential address. -->
+    <section id="terms-contact">
+      <h3>14. Contact</h3>
+      <p>Questions about these Terms can be sent to <a href="mailto:intel@libertycti.com">intel@libertycti.com</a>.</p>
+    </section>
+
+    <div class="part-divider" id="part-privacy">
+      <span class="part-eyebrow">Part Two</span>
+      <h2>Privacy Policy</h2>
+    </div>
+
+    <section id="privacy-info-provided">
+      <h3>1. Information You Provide</h3>
+      <p>Liberty CTI collects information you choose to give us directly, including:</p>
+      <ul>
+        <li><strong>Alamo Threat Brief registration:</strong> full name, work email address, organization, role/title, and industry sector, plus whether you opt in to receive the free weekly executive summary and Liberty CTI updates.</li>
+        <li><strong>Sign-in:</strong> the email address you use to sign back in to a registered account.</li>
+        <li><strong>Contact form:</strong> full name, organization, email address, and the content of your message.</li>
+      </ul>
+      <p>We do not currently collect payment information, account passwords, or government identification through the Services.</p>
+    </section>
+
+    <section id="privacy-info-automatic">
+      <h3>2. Automatically Collected Information</h3>
+      <p>Liberty CTI does not run third-party analytics or advertising trackers on the website. Beyond the standard server and content-delivery logs generated by our hosting infrastructure (Cloudflare) &mdash; which may include IP address, browser and device information, and request timestamps for security and reliability purposes &mdash; the site does not automatically collect additional behavioral or analytics data about visitors.</p>
+      <p>When you register for Alamo Threat Brief access, our system additionally records the page you registered from and, where provided by your browser, the referring page, as part of the registration record described below.</p>
+    </section>
+
+    <section id="privacy-atb-tracking">
+      <h3>3. ATB Reader Tracking</h3>
+      <p>Liberty CTI may record when a registered reader's account was created, last used to sign in, and updated, in order to administer Alamo Threat Brief access. We do not currently track which individual ATB issues a registered reader has opened; if Liberty CTI begins recording issue-level readership in the future, this policy will be updated to describe that practice before it takes effect.</p>
+    </section>
+
+    <section id="privacy-purposes">
+      <h3>4. Purposes of Processing</h3>
+      <p>Liberty CTI uses the information described above to:</p>
+      <ul>
+        <li>Administer Alamo Threat Brief reader accounts and grant access to full issues;</li>
+        <li>Respond to inquiries submitted through the contact form;</li>
+        <li>Send the free weekly executive summary and Liberty CTI updates to readers who opt in;</li>
+        <li>Maintain the security, integrity, and reliability of the Services and prevent abuse (for example, the registration form's spam-prevention safeguard); and</li>
+        <li>Improve Liberty CTI's products over time.</li>
+      </ul>
+    </section>
+
+    <section id="privacy-vendors">
+      <h3>5. Vendors &amp; Service Providers</h3>
+      <p>Liberty CTI uses a limited number of third-party service providers to operate the Services:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> &mdash; hosting, content delivery, and the Workers KV storage that holds Alamo Threat Brief registration records.</li>
+        <li><strong>Brevo</strong> &mdash; email delivery, used only for readers who opt in to receive the free weekly executive summary and Liberty CTI updates.</li>
+        <li><strong>Formspree</strong> &mdash; processes submissions from the website contact form.</li>
+      </ul>
+      <p>Each provider processes information only as necessary to perform these functions on Liberty CTI's behalf.</p>
+    </section>
+
+    <!-- LEGAL REVIEW: confirm whether current cookie/consent practice requires a consent banner as Liberty CTI's audience and jurisdiction footprint grows. -->
+    <section id="privacy-cookies">
+      <h3>6. Cookies &amp; Similar Technologies</h3>
+      <p>The Services use one functional cookie: a signed session cookie (<code>lcti_atb_access</code>) that keeps a registered reader signed in to Alamo Threat Brief access for up to 180 days. This cookie is set only after registration or sign-in, is used solely to maintain your session, and is not used for advertising or cross-site tracking. Liberty CTI does not currently use analytics, advertising, or third-party tracking cookies.</p>
+    </section>
+
+    <!-- LEGAL REVIEW: no specific retention period has been established internally; flag for an internal data retention policy. -->
+    <section id="privacy-retention">
+      <h3>7. Data Retention</h3>
+      <p>Liberty CTI retains registration and contact information for as long as reasonably necessary to provide the Services, maintain reader accounts, and meet legitimate business and legal needs. Liberty CTI is developing a formal internal data retention schedule as the business grows.</p>
+    </section>
+
+    <section id="privacy-security">
+      <h3>8. Data Security</h3>
+      <p>Liberty CTI applies reasonable administrative, technical, and organizational measures designed to protect the information we hold, including signed, HTTP-only session cookies and access controls on our hosting infrastructure. No method of transmission or storage is completely secure, and Liberty CTI cannot guarantee absolute, "military-grade," or breach-proof security under all circumstances.</p>
+    </section>
+
+    <section id="privacy-choices">
+      <h3>9. Your Choices</h3>
+      <ul>
+        <li><strong>Marketing communications:</strong> you may decline or later stop the free weekly executive summary and Liberty CTI updates by not opting in at registration, or by contacting Liberty CTI to be removed.</li>
+        <li><strong>Account information:</strong> contact Liberty CTI to update or correct your registration information.</li>
+        <li><strong>Account deletion:</strong> contact Liberty CTI to request deletion of your registration record.</li>
+        <li><strong>General privacy questions:</strong> contact Liberty CTI at any time using the details below.</li>
+      </ul>
+    </section>
+
+    <!-- LEGAL REVIEW: confirm applicability and compliance posture under the Texas Data Privacy and Security Act (TDPSA) as Liberty CTI's subscriber base and revenue grow. -->
+    <section id="privacy-texas">
+      <h3>10. Texas Privacy Considerations</h3>
+      <p>Liberty CTI is based in San Antonio, Texas. As Liberty CTI's business grows, we intend to structure our data practices to align with the Texas Data Privacy and Security Act (TDPSA) and other applicable Texas privacy law. This Policy does not represent a present claim of full TDPSA compliance; Liberty CTI will update this section as our practices and legal obligations evolve.</p>
+    </section>
+
+    <section id="privacy-children">
+      <h3>11. Children</h3>
+      <p>The Services are intended for business and professional users and are not directed to children. Liberty CTI does not knowingly collect personal information from children.</p>
+    </section>
+
+    <section id="privacy-updates">
+      <h3>12. Policy Updates</h3>
+      <p>Liberty CTI may update this Privacy Policy from time to time. The "Last Updated" date at the top of this page reflects the date of the most recent material revision.</p>
+    </section>
+
+    <div class="part-divider" id="part-additional">
+      <span class="part-eyebrow">Part Three</span>
+      <h2>Additional Legal Information</h2>
+    </div>
+
+    <section id="trademarks">
+      <h3>Trademarks</h3>
+      <p>Alamo Threat Brief&trade; and the Alamo Threat Brief&trade; masthead are trademarks of Liberty CTI LLC. Use of this mark without Liberty CTI&rsquo;s prior written permission is prohibited, except as permitted under the Terms of Use above (for example, citation with attribution).</p>
+    </section>
+
+    <section id="reporting">
+      <h3>Reporting Unauthorized Use</h3>
+      <p>If you believe Liberty CTI content has been republished, copied, or distributed without authorization &mdash; by a third party, or in a way inconsistent with the Terms of Use above &mdash; please contact <a href="mailto:intel@libertycti.com">intel@libertycti.com</a> with the location of the content in question. We will review and respond to legitimate reports.</p>
+    </section>
+
+    <section id="questions">
+      <h3>Questions</h3>
+      <p>Questions about the Terms of Use or Privacy Policy above can be sent to <a href="mailto:intel@libertycti.com">intel@libertycti.com</a>.</p>
     </section>
 
   </article>
@@ -369,7 +603,7 @@ body{background:var(--ink);color:var(--paper);font-family:'Instrument Sans',sans
     </div>
   </div>
   <div class="lcti-footer-bottom">
-    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="/legal/">Legal</a><span>&middot;</span><a href="/privacy/">Privacy Policy</a><span>&middot;</span><a href="/terms/">Terms of Use</a></span></div>
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="/legal/">Legal &amp; Privacy</a></span></div>
     <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
     <div class="lcti-footer-copy">Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</div>
   </div>
