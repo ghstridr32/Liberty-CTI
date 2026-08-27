@@ -46,6 +46,13 @@ try {
     Copy-Item -LiteralPath $MembersSource -Destination (Join-Path $OutDir "members") -Recurse -Force
   }
 
+  foreach ($CleanUrlDir in @("legal", "terms", "privacy")) {
+    $CleanUrlSource = Join-Path $Root $CleanUrlDir
+    if (Test-Path -LiteralPath $CleanUrlSource) {
+      Copy-Item -LiteralPath $CleanUrlSource -Destination (Join-Path $OutDir $CleanUrlDir) -Recurse -Force
+    }
+  }
+
   $RootSupportFiles = @("rss-feeds.json", "update_rss_collection.ps1", "install_rss_collection_task.ps1")
   foreach ($SupportFile in $RootSupportFiles) {
     $SupportPath = Join-Path $Root $SupportFile
