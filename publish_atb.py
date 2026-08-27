@@ -202,6 +202,29 @@ ATB_COPYRIGHT_TEMPLATE = (
     'or redistributed without permission.</p>\n\n'
 )
 
+# Intelligence disclaimer + third-party source notice, inserted immediately after
+# ATB_COPYRIGHT_TEMPLATE by insert_atb_copyright() (see below) so every issue's
+# end matter carries all three: copyright, disclaimer, and source-ownership note.
+# Written at atb/issues/ depth (../../) — make_deep_html's generic href depth-fix
+# rewrites "../../terms/" to "../../../terms/" for the atb/YEAR/SLUG/ copy.
+ATB_DISCLAIMER_TEMPLATE = (
+    '  <p class="atb-disclaimer" style="font-family:\'Instrument Sans\',sans-serif;'
+    'font-size:.76rem;font-weight:400;line-height:1.6;color:rgba(244,239,230,.5);'
+    'text-align:center;max-width:640px;margin:0 auto 4px;">'
+    'Liberty CTI assessments reflect analytical judgments based on information available '
+    'at the time of publication. Forecasts and warning judgments involve uncertainty and '
+    'may change as new information becomes available. The Alamo Threat Brief provides '
+    'intelligence decision support and does not constitute legal, financial, investment, '
+    'or technical cybersecurity advice. See '
+    '<a href="../../terms/" style="color:rgba(212,175,98,.75);">Terms of Use</a>.</p>\n\n'
+    '  <p class="atb-source-notice" style="font-family:\'Instrument Sans\',sans-serif;'
+    'font-size:.76rem;font-weight:400;line-height:1.6;color:rgba(244,239,230,.5);'
+    'text-align:center;max-width:640px;margin:0 auto 4px;">'
+    'Third-party reporting cited in this brief remains the property of its respective '
+    'owners; citation does not constitute endorsement. Liberty CTI&rsquo;s original '
+    'analytical judgments remain Liberty CTI intellectual property.</p>\n\n'
+)
+
 
 def insert_atb_copyright(src: str, year: str) -> str:
     """Insert the ATB-specific copyright/reproduction notice at the end of the
@@ -211,8 +234,9 @@ def insert_atb_copyright(src: str, year: str) -> str:
     excludes it from the free paywall preview, matching full-issue-only scope.
     """
     marker = '</div><!-- /page-body -->'
+    end_matter = ATB_COPYRIGHT_TEMPLATE.format(year=year) + ATB_DISCLAIMER_TEMPLATE
     if marker in src:
-        return src.replace(marker, ATB_COPYRIGHT_TEMPLATE.format(year=year) + marker, 1)
+        return src.replace(marker, end_matter + marker, 1)
     print('  WARNING: page-body closing marker not found — '
           'ATB copyright notice not inserted; add it manually.')
     return src
