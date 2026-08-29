@@ -148,7 +148,7 @@ h2 em { font-style: italic; color: var(--red); }
 .intel-sep { width: 1px; height: 2.5rem; background: var(--rule); flex-shrink: 0; }
 .trust-heading { font-size: 1.15rem; white-space: normal; line-height: 1.3; }
 .trust-sentence { text-transform: none; letter-spacing: 0.01em; font-size: 0.82rem; color: rgba(244,239,230,0.62); }
-@media(max-width:768px){ .trust-heading{ font-size:clamp(1.3rem,5vw,1.6rem) !important; } }
+@media(max-width:768px){ .trust-heading{ font-size:clamp(1.3rem,5vw,1.6rem) !important; } .intel-num.trust-heading{ font-size:clamp(1.3rem,5vw,1.6rem) !important; } }
 
 /* FOUNDERS SECTION */
 .founders { background: var(--paper); color: var(--ink); padding: 7rem 3rem; }
@@ -206,7 +206,8 @@ h2 em { font-style: italic; color: var(--red); }
 .products h2 { color: var(--ink); }
 .products h2 em { color: var(--red); }
 .products-intro { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 640px; margin-bottom: 4rem; }
-.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(10,10,10,0.1); margin-bottom: 3rem; }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(10,10,10,0.1); margin-bottom: 3rem; }
+@media(min-width:901px) and (max-width:1200px){ .product-grid { grid-template-columns: repeat(2, 1fr); } }
 .product-item { background: var(--cream); padding: 2.75rem 2.25rem; position: relative; overflow: hidden; transition: background 0.3s; }
 .product-item:hover { background: #e6e0d2; }
 .product-tag { font-family: 'Instrument Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -1632,8 +1633,9 @@ body [style*="Instrument Sans"]{
   }
 }
 .luis-hero{
-  height:100svh !important;
-  min-height:640px !important;
+  height:auto !important;
+  min-height:620px !important;
+  max-height:900px !important;
   align-items:flex-end !important;
 }
 .luis-hero .hero-content{
@@ -1681,8 +1683,8 @@ body [style*="Instrument Sans"]{
   .luis-stat-bar .stat-n{
     display:block !important;
     max-width:100% !important;
-    font-size:clamp(2.1rem,8vw,3.4rem) !important;
-    line-height:1.05 !important;
+    font-size:clamp(1.5rem,5.5vw,2.2rem) !important;
+    line-height:1.1 !important;
     overflow-wrap:anywhere !important;
     word-break:normal !important;
     hyphens:auto !important;
@@ -1736,25 +1738,17 @@ body [style*="Instrument Sans"]{
     overflow-wrap:break-word !important;
     white-space:normal !important;
   }
-  .luis-stat-bar{
-    grid-template-columns:1fr !important;
-  }
   .luis-stat-bar .stat{
-    border-right:0 !important;
-    border-top:1px solid var(--rule) !important;
-    padding:1.75rem 1.25rem !important;
-  }
-  .luis-stat-bar .stat:first-child{
-    border-top:0 !important;
+    padding:1.5rem 1rem !important;
   }
   .luis-stat-bar .stat-n{
-    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    font-size:clamp(1.3rem,7vw,1.8rem) !important;
     max-width:100% !important;
   }
   .luis-stat-bar .stat-l{
-    font-size:clamp(.9rem,4vw,1rem) !important;
-    line-height:1.55 !important;
-    letter-spacing:.07em !important;
+    font-size:clamp(.68rem,3vw,.78rem) !important;
+    line-height:1.5 !important;
+    letter-spacing:.06em !important;
   }
 }
 </style>
@@ -1837,7 +1831,7 @@ body [style*="Instrument Sans"]{
         <a href="atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
         <div class="drop-divider"></div>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -1847,7 +1841,7 @@ body [style*="Instrument Sans"]{
         <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
         <a href="decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
-        <a href="sector-assessments.html" role="menuitem">Strategic Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -1895,7 +1889,7 @@ body [style*="Instrument Sans"]{
     <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="atb/index.html" class="lcti-archive-link">Archive</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="sector-assessments.html">Sector Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Services</span>
@@ -1903,7 +1897,7 @@ body [style*="Instrument Sans"]{
     <a href="crisis-wargame.html">Executive Crisis Wargame</a>
     <a href="decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Standing Intelligence Advisory</a>
-    <a href="sector-assessments.html">Strategic Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -2045,7 +2039,7 @@ body [style*="Instrument Sans"]{
 <section class="products" id="services">
   <div class="section-inner">
     <span class="sec-eyebrow reveal">How to Engage</span>
-    <h2 class="reveal d1">Read the warning.<br><em>Test the decision. Sustain the watch.</em></h2>
+    <h2 class="reveal d1">Read the warning. Test the decision.<br><em>Deepen when needed. Sustain the watch.</em></h2>
 
     <div class="product-grid reveal d2">
       <div class="product-item">
@@ -2061,9 +2055,15 @@ body [style*="Instrument Sans"]{
         <a class="product-arrow" href="crisis-wargame.html" aria-label="Explore the Executive Crisis Wargame">→</a>
       </div>
       <div class="product-item">
-        <div class="product-tag">3. Sustain</div>
+        <div class="product-tag">3. Deepen</div>
+        <div class="product-name">Strategic Exposure Assessment</div>
+        <p class="product-desc">An optional, organization-specific look at what a threat or change means for your sector and dependencies.</p>
+        <a class="product-arrow" href="sector-assessments.html" aria-label="Explore the Strategic Exposure Assessment">→</a>
+      </div>
+      <div class="product-item">
+        <div class="product-tag">4. Sustain</div>
         <div class="product-name">Standing Intelligence Advisory</div>
-        <p class="product-desc">Turn gaps from the Wargame into persistent Priority Information Needs and executive warning.</p>
+        <p class="product-desc">Stay ahead of conditions with recurring, principal-level warning and advisory support.</p>
         <a class="product-arrow" href="decision-support.html#retainer" aria-label="Explore Standing Intelligence Advisory">→</a>
       </div>
     </div>
@@ -2202,7 +2202,7 @@ body [style*="Instrument Sans"]{
         <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="sector-assessments.html">Strategic Exposure Assessment</a></li>
       </ul>
     </div>
 
@@ -2222,7 +2222,8 @@ body [style*="Instrument Sans"]{
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
         <li><a href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
-        <li><a href="briefing-request.html?service=advisory">Discuss Standing Advisory</a></li>
+        <li><a href="briefing-request.html?service=assessment">Assess Your Exposure</a></li>
+        <li><a href="briefing-request.html?service=advisory">Discuss an Advisory Relationship</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>

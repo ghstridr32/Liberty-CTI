@@ -372,7 +372,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
         <a href="{archive_href}" role="menuitem" class="lcti-archive-link">Archive</a>
         <div class="drop-divider"></div>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -382,7 +382,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
         <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
         <a href="decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
-        <a href="sector-assessments.html" role="menuitem">Strategic Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -430,7 +430,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
     <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="{archive_href}" class="lcti-archive-link">Archive</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="sector-assessments.html">Sector Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Services</span>
@@ -438,7 +438,7 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
     <a href="crisis-wargame.html">Executive Crisis Wargame</a>
     <a href="decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Standing Intelligence Advisory</a>
-    <a href="sector-assessments.html">Strategic Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -549,7 +549,7 @@ def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: 
         <li><a href="/alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="sector-assessments.html">Strategic Exposure Assessment</a></li>
       </ul>
     </div>
 
@@ -569,7 +569,8 @@ def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: 
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
         <li><a href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
-        <li><a href="briefing-request.html?service=advisory">Discuss Standing Advisory</a></li>
+        <li><a href="briefing-request.html?service=assessment">Assess Your Exposure</a></li>
+        <li><a href="briefing-request.html?service=advisory">Discuss an Advisory Relationship</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
