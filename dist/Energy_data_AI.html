@@ -1488,7 +1488,7 @@ body [style*="Instrument Sans"]{
   }
   .intel-item{
     display:grid !important;
-    grid-template-columns:minmax(5.8rem,45%) minmax(0,1fr) !important;
+    grid-template-columns:minmax(5.8rem,auto) minmax(0,1fr) !important;
     align-items:center !important;
     justify-content:initial !important;
     gap:1rem !important;
@@ -1500,9 +1500,8 @@ body [style*="Instrument Sans"]{
     border-bottom:0 !important;
   }
   .intel-num{
-    font-size:clamp(1.5rem,7vw,3rem) !important;
-    line-height:1.1 !important;
-    white-space:normal !important;
+    font-size:clamp(2.15rem,10vw,3rem) !important;
+    line-height:1 !important;
   }
   .intel-desc{
     font-size:.9rem !important;
@@ -1569,8 +1568,9 @@ body [style*="Instrument Sans"]{
   }
 }
 .luis-hero{
-  height:100svh !important;
-  min-height:640px !important;
+  height:auto !important;
+  min-height:620px !important;
+  max-height:900px !important;
   align-items:flex-end !important;
 }
 .luis-hero .hero-content{
@@ -1618,8 +1618,8 @@ body [style*="Instrument Sans"]{
   .luis-stat-bar .stat-n{
     display:block !important;
     max-width:100% !important;
-    font-size:clamp(2.1rem,8vw,3.4rem) !important;
-    line-height:1.05 !important;
+    font-size:clamp(1.5rem,5.5vw,2.2rem) !important;
+    line-height:1.1 !important;
     overflow-wrap:anywhere !important;
     word-break:normal !important;
     hyphens:auto !important;
@@ -1673,25 +1673,17 @@ body [style*="Instrument Sans"]{
     overflow-wrap:break-word !important;
     white-space:normal !important;
   }
-  .luis-stat-bar{
-    grid-template-columns:1fr !important;
-  }
   .luis-stat-bar .stat{
-    border-right:0 !important;
-    border-top:1px solid var(--rule) !important;
-    padding:1.75rem 1.25rem !important;
-  }
-  .luis-stat-bar .stat:first-child{
-    border-top:0 !important;
+    padding:1.5rem 1rem !important;
   }
   .luis-stat-bar .stat-n{
-    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    font-size:clamp(1.3rem,7vw,1.8rem) !important;
     max-width:100% !important;
   }
   .luis-stat-bar .stat-l{
-    font-size:clamp(.9rem,4vw,1rem) !important;
-    line-height:1.55 !important;
-    letter-spacing:.07em !important;
+    font-size:clamp(.68rem,3vw,.78rem) !important;
+    line-height:1.5 !important;
+    letter-spacing:.06em !important;
   }
 }
 </style>
@@ -1754,7 +1746,7 @@ body [style*="Instrument Sans"]{
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
   <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="425" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
@@ -1774,7 +1766,7 @@ body [style*="Instrument Sans"]{
         <a href="atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
         <div class="drop-divider"></div>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -1784,7 +1776,7 @@ body [style*="Instrument Sans"]{
         <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
         <a href="decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
-        <a href="sector-assessments.html" role="menuitem">Strategic Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -1832,7 +1824,7 @@ body [style*="Instrument Sans"]{
     <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="atb/index.html" class="lcti-archive-link">Archive</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="sector-assessments.html">Sector Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Services</span>
@@ -1840,7 +1832,7 @@ body [style*="Instrument Sans"]{
     <a href="crisis-wargame.html">Executive Crisis Wargame</a>
     <a href="decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Standing Intelligence Advisory</a>
-    <a href="sector-assessments.html">Strategic Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -2331,7 +2323,7 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="425" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
       <p class="lcti-footer-tagline">Strategic decision advisory for Texas critical infrastructure.</p>
@@ -2344,7 +2336,7 @@ body [style*="Instrument Sans"]{
         <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="sector-assessments.html">Strategic Exposure Assessment</a></li>
       </ul>
     </div>
 
@@ -2364,7 +2356,8 @@ body [style*="Instrument Sans"]{
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
         <li><a href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
-        <li><a href="briefing-request.html?service=advisory">Discuss Standing Advisory</a></li>
+        <li><a href="briefing-request.html?service=assessment">Assess Your Exposure</a></li>
+        <li><a href="briefing-request.html?service=advisory">Discuss an Advisory Relationship</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
@@ -2374,7 +2367,7 @@ body [style*="Instrument Sans"]{
     </div>
   </div>
   <div class="lcti-footer-bottom">
-    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="/legal/">Legal &amp; Privacy</a></span></div>
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="legal/index.html">Legal &amp; Privacy</a></span></div>
     <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
     <div class="lcti-footer-copy">Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</div>
   </div>

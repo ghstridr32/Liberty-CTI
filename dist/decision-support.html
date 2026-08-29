@@ -1874,7 +1874,7 @@ body [style*="Instrument Sans"]{
   }
   .intel-item{
     display:grid !important;
-    grid-template-columns:minmax(5.8rem,45%) minmax(0,1fr) !important;
+    grid-template-columns:minmax(5.8rem,auto) minmax(0,1fr) !important;
     align-items:center !important;
     justify-content:initial !important;
     gap:1rem !important;
@@ -1886,9 +1886,8 @@ body [style*="Instrument Sans"]{
     border-bottom:0 !important;
   }
   .intel-num{
-    font-size:clamp(1.5rem,7vw,3rem) !important;
-    line-height:1.1 !important;
-    white-space:normal !important;
+    font-size:clamp(2.15rem,10vw,3rem) !important;
+    line-height:1 !important;
   }
   .intel-desc{
     font-size:.9rem !important;
@@ -1955,8 +1954,9 @@ body [style*="Instrument Sans"]{
   }
 }
 .luis-hero{
-  height:100svh !important;
-  min-height:640px !important;
+  height:auto !important;
+  min-height:620px !important;
+  max-height:900px !important;
   align-items:flex-end !important;
 }
 .luis-hero .hero-content{
@@ -2004,8 +2004,8 @@ body [style*="Instrument Sans"]{
   .luis-stat-bar .stat-n{
     display:block !important;
     max-width:100% !important;
-    font-size:clamp(2.1rem,8vw,3.4rem) !important;
-    line-height:1.05 !important;
+    font-size:clamp(1.5rem,5.5vw,2.2rem) !important;
+    line-height:1.1 !important;
     overflow-wrap:anywhere !important;
     word-break:normal !important;
     hyphens:auto !important;
@@ -2059,25 +2059,17 @@ body [style*="Instrument Sans"]{
     overflow-wrap:break-word !important;
     white-space:normal !important;
   }
-  .luis-stat-bar{
-    grid-template-columns:1fr !important;
-  }
   .luis-stat-bar .stat{
-    border-right:0 !important;
-    border-top:1px solid var(--rule) !important;
-    padding:1.75rem 1.25rem !important;
-  }
-  .luis-stat-bar .stat:first-child{
-    border-top:0 !important;
+    padding:1.5rem 1rem !important;
   }
   .luis-stat-bar .stat-n{
-    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    font-size:clamp(1.3rem,7vw,1.8rem) !important;
     max-width:100% !important;
   }
   .luis-stat-bar .stat-l{
-    font-size:clamp(.9rem,4vw,1rem) !important;
-    line-height:1.55 !important;
-    letter-spacing:.07em !important;
+    font-size:clamp(.68rem,3vw,.78rem) !important;
+    line-height:1.5 !important;
+    letter-spacing:.06em !important;
   }
 }
 </style>
@@ -2139,7 +2131,7 @@ body [style*="Instrument Sans"]{
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
   <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="425" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
@@ -2159,7 +2151,7 @@ body [style*="Instrument Sans"]{
         <a href="atb/index.html" role="menuitem" class="lcti-archive-link">Archive</a>
         <div class="drop-divider"></div>
         <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="sector-assessments.html" role="menuitem">Sector Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -2169,7 +2161,7 @@ body [style*="Instrument Sans"]{
         <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
         <a href="decision-support.html" role="menuitem">How We Advise</a>
         <a href="decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
-        <a href="sector-assessments.html" role="menuitem">Strategic Assessments</a>
+        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
@@ -2217,7 +2209,7 @@ body [style*="Instrument Sans"]{
     <a href="alamo-threat-brief.html">About the Alamo Threat Brief</a>
     <a href="atb/index.html" class="lcti-archive-link">Archive</a>
     <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="sector-assessments.html">Sector Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Services</span>
@@ -2225,7 +2217,7 @@ body [style*="Instrument Sans"]{
     <a href="crisis-wargame.html">Executive Crisis Wargame</a>
     <a href="decision-support.html">How We Advise</a>
     <a href="decision-support.html#retainer">Standing Intelligence Advisory</a>
-    <a href="sector-assessments.html">Strategic Assessments</a>
+    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
@@ -2296,11 +2288,13 @@ body [style*="Instrument Sans"]{
           <div class="header-text">
             <span class="eyebrow">How We Advise</span>
             <h1>Strategic Cyber Intelligence for Texas Leadership<br><em>Before the Decision Is Forced</em></h1>
-            <p class="header-sub">Liberty CTI advises Texas boards and executive teams by translating adversary intent, geopolitical pressure, and sector exposure into leadership decisions. The public path is simple: read the free Alamo Threat Brief (ATB), run an Executive Crisis Wargame, and sustain the rhythm through Standing Intelligence Advisory.</p>
+            <p class="header-sub">Liberty CTI advises Texas boards and executive teams by translating adversary intent, geopolitical pressure, and sector exposure into leadership decisions. Read the free Alamo Threat Brief (ATB), then test leadership with an Executive Crisis Wargame or go deeper with a Strategic Exposure Assessment, whichever the moment calls for, and sustain the rhythm through Standing Intelligence Advisory.</p>
             <div class="topline">
               <span class="topline-step active">Read</span>
               <span class="topline-arrow">→</span>
               <span class="topline-step active">Test</span>
+              <span class="topline-arrow">→</span>
+              <span class="topline-step active">Deepen</span>
               <span class="topline-arrow">→</span>
               <span class="topline-step active">Sustain</span>
             </div>
@@ -2354,12 +2348,11 @@ body [style*="Instrument Sans"]{
               <div class="stage-sub">Run the decision before the crisis runs it for you.</div>
             </div>
           </div>
-          <div class="stage-grid cols-2">
+          <div class="stage-grid cols-1">
 
             <article class="service-card featured">
-              <span class="entry-label">Board Entry Point</span>
+              <span class="entry-label">Primary Executive Engagement</span>
               <div class="service-name">Executive Crisis Wargame</div>
-              <div class="service-price">Pricing on inquiry</div>
               <p class="service-desc">A 90-minute leadership exercise that rehearses decision-making under a cyber crisis scenario before one occurs. This is the primary paid entry point for board-level engagement with Liberty CTI.</p>
               <p class="service-desc">Rehearse the decisions Liberty CTI's founders made in real time at the highest levels of national security leadership, before your team has to make them live.</p>
               <ul class="service-list">
@@ -2368,15 +2361,28 @@ body [style*="Instrument Sans"]{
                 <li>Board, general counsel, and C-suite participation</li>
                 <li>Identifies governance gaps before a real event</li>
                 <li>Produces documented record of responsible preparation</li>
-                <li>Wargame fee credits in full toward a Year 1 retainer signed within 90 days</li>
+                <li>Decision gaps identified may point toward continuing Standing Intelligence Advisory support</li>
               </ul>
             </article>
 
+          </div>
+        </div>
+
+        <!-- STAGE 3 - DEEPEN -->
+        <div class="stage">
+          <div class="stage-head">
+            <span class="stage-marker">3</span>
+            <div class="stage-heading-text">
+              <h2 class="stage-title">Deepen</h2>
+              <div class="stage-sub">Understand what this specifically means for your organization.</div>
+            </div>
+          </div>
+          <div class="stage-grid cols-1">
+
             <article class="service-card">
               <div class="service-kicker">Written Decision Support</div>
-              <div class="service-name">Strategic Assessment</div>
-              <div class="service-price">Pricing on inquiry</div>
-              <p class="service-desc">A board-ready written product for a specific sector, emerging threat, acquisition, investment, continuity question, or governance decision.</p>
+              <div class="service-name">Strategic Exposure Assessment</div>
+              <p class="service-desc">A board-ready written product for a specific sector, emerging threat, acquisition, investment, continuity question, or governance decision. Optional, and not a prerequisite for the Wargame.</p>
               <ul class="service-list">
                 <li>Defines what changed and why it matters now</li>
                 <li>Frames sector exposure and cross-sector cascade risk</li>
@@ -2388,10 +2394,10 @@ body [style*="Instrument Sans"]{
           </div>
         </div>
 
-        <!-- STAGE 3 - SUSTAIN -->
+        <!-- STAGE 4 - SUSTAIN -->
         <div class="stage" id="retainer">
           <div class="stage-head">
-            <span class="stage-marker">3</span>
+            <span class="stage-marker">4</span>
             <div class="stage-heading-text">
               <h2 class="stage-title">Sustain</h2>
               <div class="stage-sub">Standing intelligence. The primary engagement.</div>
@@ -2415,7 +2421,7 @@ body [style*="Instrument Sans"]{
           <p class="tier-note">Advisory scope is structured around sector exposure, decision cadence, PIR complexity, and the leadership rhythm the client actually needs.</p>
 
           <div class="tier-cta-row">
-            <a class="service-link primary" href="briefing-request.html?service=advisory">Discuss Standing Advisory</a>
+            <a class="service-link primary" href="briefing-request.html?service=advisory">Discuss an Advisory Relationship</a>
           </div>
         </div>
 
@@ -2457,7 +2463,8 @@ body [style*="Instrument Sans"]{
       <div class="cta-row">
         <a class="service-link primary" href="atb/2026/08-22-2026/">View the latest Alamo Threat Brief</a>
         <a class="service-link" href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a>
-        <a class="service-link" href="briefing-request.html?service=advisory">Discuss Standing Advisory</a>
+        <a class="service-link" href="briefing-request.html?service=assessment">Assess Your Exposure</a>
+        <a class="service-link" href="briefing-request.html?service=advisory">Discuss an Advisory Relationship</a>
       </div>
 
     </div>
@@ -2495,7 +2502,7 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="425" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
       <p class="lcti-footer-tagline">Strategic decision advisory for Texas critical infrastructure.</p>
@@ -2508,7 +2515,7 @@ body [style*="Instrument Sans"]{
         <li><a href="alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
         <li><a href="decision-support.html">How We Advise</a></li>
         <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="sector-assessments.html">Strategic Exposure Assessment</a></li>
       </ul>
     </div>
 
@@ -2528,7 +2535,8 @@ body [style*="Instrument Sans"]{
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
         <li><a href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
-        <li><a href="briefing-request.html?service=advisory">Discuss Standing Advisory</a></li>
+        <li><a href="briefing-request.html?service=assessment">Assess Your Exposure</a></li>
+        <li><a href="briefing-request.html?service=advisory">Discuss an Advisory Relationship</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
@@ -2538,7 +2546,7 @@ body [style*="Instrument Sans"]{
     </div>
   </div>
   <div class="lcti-footer-bottom">
-    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="/legal/">Legal &amp; Privacy</a></span></div>
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="legal/index.html">Legal &amp; Privacy</a></span></div>
     <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
     <div class="lcti-footer-copy">Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</div>
   </div>
