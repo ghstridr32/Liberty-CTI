@@ -1,7 +1,7 @@
 ﻿{
-    "generatedAt":  "2026-08-23T08:31:38-05:00",
+    "generatedAt":  "2026-08-27T06:31:03-05:00",
     "windowDays":  7,
-    "itemCount":  28,
+    "itemCount":  31,
     "failureCount":  10,
     "failures":  [
                      {
@@ -22,7 +22,7 @@
                      {
                          "source":  "Google Cloud Threat Intelligence",
                          "url":  "https://cloud.google.com/blog/topics/threat-intelligence/rss/",
-                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":true,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"8983444968718467807\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspaño..."
+                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":true,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-3451167384952256648\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspañ..."
                      },
                      {
                          "source":  "Dragos",
@@ -57,23 +57,306 @@
                  ],
     "items":  [
                   {
-                      "id":  "rss-55a743bbcb6e4dc8a5d5f9453097e42c",
-                      "title":  "In Laredo, Jon Rosenthal makes his first public pitch for a seat on Texas Railroad Commission",
-                      "url":  "https://www.texastribune.org/2026/08/22/texas-railroad-commissioner-jon-rosenthal-laredo-town-hall/",
+                      "id":  "rss-a243ecdcd2264ea5863077cb3cdc2899",
+                      "title":  "Hereâs what Greg Abbott, Gina Hinojosa say about education priorities in Texas governorâs race",
+                      "url":  "https://www.texastribune.org/2026/08/27/texas-governor-race-abbott-hinojosa-education/",
                       "source":  "Texas Tribune",
                       "category":  "Texas / Regional",
-                      "published":  "2026-08-23",
-                      "summary":  "Rosenthal, a Democratic state representative from Houston, fielded questions about data centers and oil field pollution at a town hall hosted by the Webb County Democratic Party.",
+                      "published":  "2026-08-27",
+                      "summary":  "From school takeovers to college affordability, the Democrat and Republican are rolling out their education priorities ahead of Novemberâs election.",
+                      "suggestedPirIds":  [
+                                              16
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-fc2008b5aa9e49a3987d1df38d01ff98",
+                      "title":  "The Goldilocks Fallacy: The Undefined Limits of Korea’s Nuclear Role",
+                      "url":  "https://warontherocks.com/the-goldilocks-fallacy-the-undefined-limits-of-koreas-nuclear-role/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-27",
+                      "summary":  "“Unthreatening and respectful.” That is how the president of the United States described North Korea on Aug. 16, 2026, in his social media post ordering his secretary of defense to scale back joint exercises with South Korea. Two years earlier in Seoul, the U.S.-South Korean alliance agreed that South Korea’s role in an American nuclear operation would involve exercises and training, formalizing those guidelines at a Nuclear Consultative Group meeting co-chaired by Vipin Narang, then-acting assistant secretary of defense for space policy.Three weeks before the president’s post, on July 24, Narang spoke at the second Deterrence Symposium hosted by South The post The Goldilocks Fallacy: The Un...",
+                      "suggestedPirIds":  [
+                                              5,
+                                              12,
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Defense Industrial Base"
+                  },
+                  {
+                      "id":  "rss-de09be4cc10948e7b188398770ed3c6a",
+                      "title":  "CISA Vulnerability Review",
+                      "url":  "https://www.cisa.gov/resources-tools/resources/cisa-vulnerability-review",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-26",
+                      "summary":  "Most compromises do not rely on advanced techniques or cutting-edge tools. Cyber threat actors scan the internet looking for exposed, well-known software vulnerabilities to exploit. Basic security failures enable most compromises and organizations can reduce their risk by addressing these underlying weaknesses and prioritizing vulnerabilities for action based on the risk they pose. The CISA Vulnerability Review provides organizations with critical insights into the root causes of insecure software and practical steps they can take to address these flaws to prevent exploitation. Analyzing CISA and open source data from fiscal years 2024 and 2025, the review establishes a baseline of today’s v...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-17f5fd4f4c3146ff87e6ee4c5c44e80a",
+                      "title":  "Austin races to regulate AI data centers before they strain cityâs water and power",
+                      "url":  "https://www.texastribune.org/2026/08/26/austin-data-center-rules/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-08-26",
+                      "summary":  "Austin is considering new regulations for massive AI data centers amid growing concerns over their significant water and energy demands.",
                       "suggestedPirIds":  [
                                               1,
                                               2,
                                               3,
                                               15
                                           ],
-                      "suggestedSector":  "AI / Data Centers"
+                      "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-beac7a483394434392e925011df99533",
+                      "id":  "rss-2f2ff78639d64a248d5d67020db9943b",
+                      "title":  "Talarico campaign asks court to unseal Paxtonâs depositions in energy investing dispute",
+                      "url":  "https://www.texastribune.org/2026/08/26/texas-james-talarico-ken-paxton-depositions-motion-to-unseal-securities-fraud-dispute/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-08-26",
+                      "summary":  "The petition, to be filed in Collin County, seeks the transcripts from two rounds of testimony Paxton gave as part of a legal clash that entangled his financial adviser and former business associates.",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
+                                              4,
+                                              6
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-04dc22a4e7d64ad3b103df411f8a6d3e",
+                      "title":  "“Zero Problems” Abroad, Plenty at Home: Reassessing al Sharaa’s Leadership in Syria",
+                      "url":  "https://warontherocks.com/zero-problems-abroad-plenty-at-home-reassessing-al-sharaas-leadership-in-syria/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-26",
+                      "summary":  "In 2025, Rob Geist Pinfold wrote, “The March Massacres Show That Syria Urgently Needs Solutions, Not Sanctions,” in which he argued that sanctions relief was a major way the West could positively engage with the new Syrian government. A year later, after sanctions relief materialized and the United States removed Syria from its list of terrorism sponsors, we asked him to revisit his arguments and reassess President Ahmed al Sharaa’s leadership, both foreign and domestic. Image: Voice of America via Wikimedia CommonsIn your 2025 article, you argued that one way the West should engage with post-Assad Syria was through sanctions relief. The post “Zero Problems” Abroad, Plenty at Home: Reassessi...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-5b1676f1086447848de771c1f83fbbe7",
+                      "title":  "From Hormuz to the Caucasus: The New Geography of Energy Security",
+                      "url":  "https://warontherocks.com/from-hormuz-to-the-caucasus-the-new-geography-of-energy-security/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-26",
+                      "summary":  "Every crisis in the Middle East returns the world’s attention to the same stretch of water. When tankers are seized, or missiles fly near the Persian Gulf, oil prices move, insurers reprice risk, shipping reroutes, and the United States repositions naval and airpower to keep the Strait of Hormuz open. The reflex is sound, because the strait carries volumes nothing else can. Alongside the maritime map, a second geography of energy security is taking shape: the pipelines, railways, power lines, and transit corridors linking the Caspian Basin and the South Caucasus to Europe.Western governments are pairing forward military presence in The post From Hormuz to the Caucasus: The New Geography of E...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-646320e9174c44fb8cf4973917ba9a4e",
+                      "title":  "Would Wartime Elections Save Democracy or End It?",
+                      "url":  "https://warontherocks.com/46430/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-26",
+                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum, only for War on the Rocks members. Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.American coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.Frontline and StrategyЕспресо The post Would Wartime Elections S...",
+                      "suggestedPirIds":  [
+                                              16
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-820e342a07a842309b7f89ed01df6c93",
+                      "title":  "A Tale of Two SOCs: Insights From Two Red Team Assessments",
+                      "url":  "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-25",
+                      "summary":  "Advisory at a Glance Title A Tale of Two SOCs: Insights From Two Red Team Assessments Original Publication August 25, 2026 Executive Summary The Cybersecurity and Infrastructure Security Agency (CISA) conducted simultaneous red team assessments at two organizations and observed different defensive outcomes. In both environments, the red team achieved full domain compromise and accessed sensitive business systems (SBSs) and cloud resources. Organization A failed to detect or contain the activity, but Organization B rapidly identified initial compromise attempts, isolated affected systems, and forced the red team into an assume breach model. This advisory details the red team’s activity and or...",
+                      "suggestedPirIds":  [
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-3aceb4e401ae4e529706787b7b758c42",
+                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
+                      "url":  "https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-25",
+                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-60004 Gitea Code Injection Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Catalog and requires federal agencies to prioritize rapid remediation of high-risk vulnerabilities, specifically those identified by Common ...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-43b275288e8b4e729575f18d2fcedcf4",
+                      "title":  "FURUNO FA-50 Class B AIS Transponder",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-07",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-25",
+                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to alter device settings. The following versions of FURUNO FA-50 Class B AIS Transponder are affected: FURUNO FA-50 Class B AIS Transponder vers:all/* CVSS Vendor Equipment Vulnerabilities v3 9.1 FURUNO ELECTRIC CO.,LTD. FURUNO FA-50 Class B AIS Transponder Use of Hard-coded Credentials, Missing Authentication for Critical Function Background Critical Infrastructure Sectors: Transportation Systems Countries/Areas Deployed: Worldwide Company Headquarters Location: Japan Vulnerabilities Expand All + CVE-2026-59769 An attacker, who knows the credentials and has access to the in-vessel network to which the...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-7f0d82073d0e4b4194fcc17692b0ca56",
+                      "title":  "PayRange API",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-04",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-25",
+                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow a remote, authenticated or unauthenticated attacker to disclose sensitive information, arbitrarily modify the device to cause a denial of service, or alter a devices displayed image. The following versions of PayRange API are affected: PayRange API vers:all/* CVSS Vendor Equipment Vulnerabilities v3 8.8 PayRange PayRange API Missing Authorization Background Critical Infrastructure Sectors: Commercial Facilities Countries/Areas Deployed: United States, Canada Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-18965 The affected product is missing proper authorization on management endpo...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-5411bb57be2e4613a2bc6ce5e5118d43",
+                      "title":  "Rently Smart Home",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-01",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-25",
+                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to access sensitive information and override user permissions. The following versions of Rently Smart Home are affected: Smart Home CVSS Vendor Equipment Vulnerabilities v3 8.1 Rently Rently Smart Home Insufficiently Protected Credentials Background Critical Infrastructure Sectors: Commercial Facilities, Communications, Information Technology Countries/Areas Deployed: United States, India Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-75960 Rently Smart Home versions 20.1.0 and prior are vulnerable to an Insufficiently Protected Credentials vulnerability. This could all...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-35f3ea1e7d4b48ec8ac60a261d0947d1",
+                      "title":  "Zoneminder",
+                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-02",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-25",
+                      "summary":  "View CSAF Summary Successful exploitation of this vulnerability could result in full Remote Code Execution (RCE) as the web server user. The following versions of Zoneminder are affected: Zoneminder 1.37.48|1.38.3 CVSS Vendor Equipment Vulnerabilities v3 8.8 Zoneminder Zoneminder Improper Neutralization of Special Elements used in an OS Command (\u0027OS Command Injection\u0027) Background Critical Infrastructure Sectors: Information Technology Countries/Areas Deployed: Worldwide Company Headquarters Location: United States Vulnerabilities Expand All + CVE-2026-76060 An authenticated OS Command Injection vulnerability exists in ZoneMinder\u0027s event export functionality. The exportFile HTTP request param...",
+                      "suggestedPirIds":  [
+
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-b6f6f0994a524bac85d2920536dc57a3",
+                      "title":  "The State of AI-Enabled Malware August 2026: From Brand Abuse to Agentic Execution",
+                      "url":  "https://unit42.paloaltonetworks.com/ai-enabled-malware-analysis/",
+                      "source":  "Palo Alto Unit 42",
+                      "category":  "Commercial CTI",
+                      "published":  "2026-08-25",
+                      "summary":  "Explore Unit 42 research on AI-enabled malware. Learn how existing behavioral detection and endpoint analytics stop AI-authored code before execution. The post The State of AI-Enabled Malware August 2026: From Brand Abuse to Agentic Execution appeared first on Unit 42 .",
+                      "suggestedPirIds":  [
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-8d9b888de3434df3be2cbbb4da12ba5c",
+                      "title":  "Russia’s Next Top General: Promotions in Russian Military Leadership",
+                      "url":  "https://warontherocks.com/russias-next-top-general-promotions-in-russian-military-leadership/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-25",
+                      "summary":  "Judged by the initial strategic goals set by Russian President Vladimir Putin in 2022, Russia’s military lost its war against Ukraine some time ago. Yet Russia’s armed forces have not stopped fighting and continue to prosecute large-scale combat operations in a brutalizing, protracted war sucking up much of Russia’s assets of national power, from pure military capacity to foreign policy priorities to considerable societal and economic resources. While Putin calls the most important strategic shots, it is Russia’s senior military elite that makes the strategic and operational decisions impacting warfighting outcomes every day. Who are these senior officers, where did The post Russia’s Next To...",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
+                                              13
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-ae01e471ee3b4ec694377c2497f7b586",
+                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
+                      "url":  "https://www.cisa.gov/news-events/alerts/2026/08/24/cisa-adds-one-known-exploited-vulnerability-catalog",
+                      "source":  "CISA Cybersecurity Advisories",
+                      "category":  "Government / Official",
+                      "published":  "2026-08-24",
+                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-21962 Oracle HTTP Server and Oracle Weblogic Server Proxy Plug-in Improper Access Control Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Catalog and requires federal agencies to prioritize rapid remediation of high...",
+                      "suggestedPirIds":  [
+                                              14
+                                          ],
+                      "suggestedSector":  "Cross-Sector"
+                  },
+                  {
+                      "id":  "rss-d00075ac9ab1407c9f60f66bbe0cbb29",
+                      "title":  "Industry warns of blackouts, economic woes if Texas overreacts to data center, transmission line anger",
+                      "url":  "https://www.texastribune.org/2026/08/24/texas-765-transmissions-lines-data-centers-pauses-delays/",
+                      "source":  "Texas Tribune",
+                      "category":  "Texas / Regional",
+                      "published":  "2026-08-24",
+                      "summary":  "Energy regulators and industry experts warn that the stateâs delays to major projects amid backlash from residents could create rolling blackouts and strangle growth of other industries that need power.",
+                      "suggestedPirIds":  [
+                                              1,
+                                              2,
+                                              3,
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-34078f1283a9442486ddd41651553ec4",
+                      "title":  "Betting on Autonomous Aircraft",
+                      "url":  "https://warontherocks.com/cogs-of-war/betting-on-autonomous-aircraft/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-24",
+                      "summary":  "This exclusive Cogs of War interview is with Brandon Tseng, the co-founder and president of Shield AI and a former Navy SEAL, whose company builds the Hivemind autonomy software, the V-BAT and X-BAT aircraft, and Aechelon synthetic reality and simulation technologies. We asked Brandon about the bet at the center of his company — that the AI pilot matters more than the airframe — and about what a decade building autonomy for the Pentagon has taught him. Sign Up for Our Newsletter You founded Shield AI in 2015, before defense tech was fashionable, and when few in Washington believed a startup could The post Betting on Autonomous Aircraft appeared first on War on the Rocks .",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11,
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-2bd3aa57c8624fa99f08fb004ea4c930",
+                      "title":  "Command and Politics in the War Between Moscow and Kyiv",
+                      "url":  "https://warontherocks.com/command-and-politics-in-the-war-between-moscow-and-kyiv/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-24",
+                      "summary":  "Our intrepid team covers a lot of ground in this episode: the increasing fluidity of the battlefield, drones and air defense, the biting Black Sea campaign, the causes and aftermath of the firing of Ukraine’s popular defense minister, why Ukraine probably cannot produce PAC-3 air defense missiles (despite what some journalists are telling you), and the likelihood of a new round of Russian mobilization. This episode is Dara Massicot and Michael Kofman at their best.Thanks to NODA AI for supporting this episode. NODA AI is building mission command for autonomous forces. Learn more at warontherocks.com/nodaImage: ArmyInform The post Command and Politics in the War Between Moscow and Kyiv appear...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11,
+                                              13,
+                                              15
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-ca347372cc8241d29bb6e1792e473144",
+                      "title":  "The Risks of Downplaying China’s Military",
+                      "url":  "https://warontherocks.com/the-risks-of-downplaying-chinas-military/",
+                      "source":  "War on the Rocks",
+                      "category":  "Geopolitical / Strategy",
+                      "published":  "2026-08-24",
+                      "summary":  "China has spent years modifying civilian ferries to launch amphibious armored vehicles, developing specialized equipment to move forces ashore without conventional port facilities, hardening dozens of air bases, and rapidly expanding the missile forces that could be used to deter or defeat a U.S. intervention. Yet at the same time, a recurring line of analysis has argued that concerns about China’s military capabilities are overstated — and that an invasion of Taiwan remains beyond the reach of the People’s Liberation Army.These analyses differ in important ways. Some emphasize the Chinese military’s political character, lack of combat experience, and institutional shortcomings. Others The p...",
+                      "suggestedPirIds":  [
+                                              10,
+                                              11
+                                          ],
+                      "suggestedSector":  "Energy"
+                  },
+                  {
+                      "id":  "rss-d271be06446c4f1a8460922d938c1b59",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -86,7 +369,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-3d21663d27774bce90f013d8fb62051b",
+                      "id":  "rss-6aaa6cb7f63c42ff8a96ec559a5f272a",
                       "title":  "Connecting the Dots: Securing the Overlooked Corners of the Software Development Lifecycle (SDLC) Supply Chain",
                       "url":  "https://unit42.paloaltonetworks.com/sdlc-supply-chain/",
                       "source":  "Palo Alto Unit 42",
@@ -99,22 +382,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-fe5cb7970bd148f79a54f7d9573415f1",
-                      "title":  "Pressure mounts to allow treated oilfield waste in Texas rivers and on rangeland",
-                      "url":  "https://www.texastribune.org/2026/08/21/texas-oil-gas-wastewater-produced-water-disposal/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-08-21",
-                      "summary":  "As oil and gas companies run out of places to dispose of their wastewater, Texas regulators are drafting permits to treat and reuse it outside the oilfields.",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-edab65ecebc649d1934a732a543317f1",
+                      "id":  "rss-ff7e9f6c294a4c92bf49bbd992c43447",
                       "title":  "A Rock and China’s Three-Sea Problem",
                       "url":  "https://warontherocks.com/a-rock-and-chinas-three-sea-problem/",
                       "source":  "War on the Rocks",
@@ -129,7 +397,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-2a72ee1a19a047e8bf707150b2fb842f",
+                      "id":  "rss-134e9958ee7c4723815b3c6d5a74669f",
                       "title":  "Mental Health Is a Warfighting Readiness Problem for the U.S. Navy",
                       "url":  "https://warontherocks.com/mental-health-is-a-warfighting-readiness-problem-for-the-u-s-navy/",
                       "source":  "War on the Rocks",
@@ -142,7 +410,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-aaf33c20d0624b7c8c4cf54f18f8be80",
+                      "id":  "rss-650afdb939294fc68c4c28a1c7d52cdf",
                       "title":  "Pressure Points: Economic Strain, Allied Discord, and War Fatigue",
                       "url":  "https://warontherocks.com/pressure-points-economic-strain-allied-discord-and-war-fatigue/",
                       "source":  "War on the Rocks",
@@ -162,7 +430,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-f4d71282e567409d918fdd76eb813934",
+                      "id":  "rss-e54d04b51fdd4602beb733a2a292f0df",
                       "title":  "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/08/20/cisa-adds-two-known-exploited-vulnerabilities-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -175,7 +443,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-0af8a17da50045e0bbba3dcabd5665ed",
+                      "id":  "rss-4b68bed72f564b63b58f3a31a251c5c7",
                       "title":  "Johnson Controls Simplex Incident Manager",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-232-01",
                       "source":  "CISA Cybersecurity Advisories",
@@ -188,7 +456,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-0e047a29b55d47e99347e52deae09213",
+                      "id":  "rss-4a8df0392ed440599b591d3ed492037e",
                       "title":  "Identity Abuse Through Trusted Communication Channels",
                       "url":  "https://unit42.paloaltonetworks.com/communication-channel-identity-risks/",
                       "source":  "Palo Alto Unit 42",
@@ -202,33 +470,7 @@
                       "suggestedSector":  "Defense Industrial Base"
                   },
                   {
-                      "id":  "rss-9d73d3a7a4c14e46bc58f4f8402718d8",
-                      "title":  "Residents and industry leaders at odds over transmission lines at legislative hearing",
-                      "url":  "https://www.texastribune.org/2026/08/19/texas-house-meeting-data-centers-transmission-lines-backlash/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-08-20",
-                      "summary":  "The growing backlash surrounding 765 kv lines, as well as data centers, was tackled at a nine-hour House hearing that included testimony and recommendations but no definitive answers.",
-                      "suggestedPirIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "AI / Data Centers"
-                  },
-                  {
-                      "id":  "rss-5545c1d9275c49558a16fe2dd2923fb4",
-                      "title":  "Talarico floods Texas airwaves in U.S. Senate race as Paxton, GOP stay quiet",
-                      "url":  "https://www.texastribune.org/2026/08/20/texas-us-senate-race-donors-ken-paxton-james-talarico/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-08-20",
-                      "summary":  "With early voting about two months away, the Democrat has had TV nearly to himself, outspending his Republican rival more than 200-to-1 on advertising as GOP groups weigh when â or whether â to get involved.",
-                      "suggestedPirIds":  [
-                                              16
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-98b0ed02788a468ca634eff973710f02",
+                      "id":  "rss-773a68a4928f4d46bb13e89500c35c79",
                       "title":  "China’s Military Says AI Can’t Replace Commanders. Xi Is Testing That",
                       "url":  "https://warontherocks.com/chinas-military-says-ai-cant-replace-commanders-xi-is-testing-that/",
                       "source":  "War on the Rocks",
@@ -243,7 +485,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-08d1ed64db7b4c2a883878960cd91595",
+                      "id":  "rss-f568541a2aef4654bfb5f324731ad159",
                       "title":  "War: Watt Is It Good For?",
                       "url":  "https://warontherocks.com/cogs-of-war/war-watt-is-it-good-for/",
                       "source":  "War on the Rocks",
@@ -253,196 +495,6 @@
                       "suggestedPirIds":  [
                                               13,
                                               15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-80514af171ee47dc99fc9606e8ddb3ad",
-                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/08/19/cisa-adds-one-known-exploited-vulnerability-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-08-19",
-                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-64849 MLflow Server-Side Request Forgery Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Catalog and requires federal agencies to prioritize rapid remediation of high-risk vulnerabilities, specifically those identif...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-ad998052f54d4f1ab2884178aa7fdf65",
-                      "title":  "Defending Against an Active Threat to Siemens S7 Series PLCs",
-                      "url":  "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-08-19",
-                      "summary":  "Executive summary Note: This advisory relates to an active threat to Siemens S7 Series programmable logic controllers (PLCs). However, ongoing PLC targeting activity is broader than Siemens PLCs. All PLC owners and operators should apply relevant mitigations to reduce the risk to their devices and systems. The Siemens-specific content in this advisory should be understood and applied as one subset of the wider threat landscape. Top Mitigations Inventory all Siemens S7 Series programmable logic controllers (PLCs) Apply critical security patches Ensure PLCs are not accessible from the Internet Strengthen access controls Monitor for unauthorized activity Harden PLC services, protocols, and ladd...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-80262626c6b9415997bf886b1b2c9d40",
-                      "title":  "How Corpus Christiâs water emergency exposed flaws in Texasâ water planning",
-                      "url":  "https://www.texastribune.org/2026/08/19/texas-water-planning-drought-corpus-christi/",
-                      "source":  "Texas Tribune",
-                      "category":  "Texas / Regional",
-                      "published":  "2026-08-19",
-                      "summary":  "State water planners donât use climate projections when they plan for future water supply. Experts say they should model for more extreme droughts rather than relying on historical data.",
-                      "suggestedPirIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-2d6eed745e194d72816afe64568ea44c",
-                      "title":  "Contested Logistics and the “Last Unmanned Mile”",
-                      "url":  "https://warontherocks.com/cogs-of-war/contested-logistics-and-the-last-unmanned-mile/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-19",
-                      "summary":  "In a Pacific war, the U.S. military cannot assume uncontested access to its depots and supply lines for munitions, spare parts, food, water, and energy. Jonathan is joined by David Tuttle (Rune Technologies), Paul Lwin (HavocAI), and Tom Garvey (CACI) to discuss sustaining a dispersed force that’s facing enemy fire and lacks stable, secure communications. They debate autonomy versus automation, predictive resupply, where the data comes from, and which lessons from Ukraine transfer across theaters.Image: Sgt. Alora Finigan via DVIDS. The post Contested Logistics and the “Last Unmanned Mile” appeared first on War on the Rocks .",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-149e98c251f046f59a069dfc63816ab8",
-                      "title":  "Inside Iran’s Wartime Regime",
-                      "url":  "https://warontherocks.com/inside-irans-wartime-regime/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-19",
-                      "summary":  "Afshon Ostovar, one of the leading experts on Iran and the host of the members-only podcast The Iran Reckoning, is joined by War on the Rocks membership editor Kerry Anderson for a state-of-play conversation on the conflict between the United States and Iran. They consider why the fighting has settled into a stalemate and dig into which figures in the Iranian regime have influence over Iran’s approach to the war. Afshon unpacks the implications of Mohsen Rezaei’s recent appointment as head of Iran’s Supreme National Security Council, before the two look ahead to what comes next. Normally members-only content, this The post Inside Iran’s Wartime Regime appeared first on War on the Rocks .",
-                      "suggestedPirIds":  [
-                                              14
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-4a181772cbdd42ff9803e1ac8ab9de28",
-                      "title":  "Managed Instability: Why the Wars Against Iran and Ukraine Can Go On and On and On…",
-                      "url":  "https://warontherocks.com/managed-instability-why-the-wars-against-iran-and-ukraine-can-go-on-and-on-and-on/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-19",
-                      "summary":  "The Iran war is beginning to resemble the Ukraine war in one important way. Operationally, the wars themselves are still very different — Ukraine is a large-scale ground invasion, while the Iran war is not there just yet. But their political logic after a failure to achieve a quick result is starting to look very similar. In both cases, a larger power expected its overwhelming military force to produce a quick political result. And in both cases, that expectation failed.The targeted state adapted, outside supporters helped it remain afloat, and both conflicts moved from the promise of a decisive outcome The post Managed Instability: Why the Wars Against Iran and Ukraine Can Go On and On and ...",
-                      "suggestedPirIds":  [
-                                              1,
-                                              2,
-                                              3,
-                                              14
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-894e55d9dc784cf6825686f59924a039",
-                      "title":  "Proving the Negative: Three Warnings from Arms Control for the Age of AI",
-                      "url":  "https://warontherocks.com/proving-the-negative-three-warnings-from-arms-control-for-the-age-of-ai/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-19",
-                      "summary":  "In early 1963, a single number characterized the difference in the positions of the United States and the Soviet Union on a comprehensive nuclear test ban. Nikita Khrushchev had proposed three on-site inspections each year. Washington was asking for seven. Other differences remained, including inspection procedures and treaty language. But the difference mattered: Seismology could not always distinguish an underground test from an earthquake, and inspections created both assurance and opportunities for espionage.Neither number had been delivered by a technical expert wielding a seismograph. Each represented a political judgment about how much residual uncertainty its government should accept...",
-                      "suggestedPirIds":  [
-                                              10,
-                                              11,
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-6bc03f68f5344cbeb9f1d495e5eabb45",
-                      "title":  "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-08-18",
-                      "summary":  "CISA has added four new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2026-33824 Microsoft Internet Key Exchange (IKE) Service Extensions Double Free Vulnerability CVE-2026-55040 Microsoft SharePoint Weak Authentication Vulnerability CVE-2026-59310 Broadcom VMware vCenter Path Traversal Vulnerability CVE-2026-65400 Apple macOS Improper Authentication Vulnerability These types of vulnerabilities are a frequent attack vector for malicious cyber actors and pose significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability manageme...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-f784ffc27df84d6b8a4ec26b4144875d",
-                      "title":  "CISA Malcolm",
-                      "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-230-01",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-08-18",
-                      "summary":  "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to cause a denial-of-service condition or execute arbitrary code. The following versions of CISA Malcolm are affected: Malcolm Malcolm Malcolm CVSS Vendor Equipment Vulnerabilities v3 8.8 CISA CISA Malcolm Allocation of Resources Without Limits or Throttling, Improper Limitation of a Pathname to a Restricted Directory (\u0027Path Traversal\u0027), Unrestricted Upload of File with Dangerous Type, Incorrect Authorization, Improper Handling of Highly Compressed Data (Data Amplification) Background Critical Infrastructure Sectors: Information Technology Countries/Areas Deployed: Worldwide Company Headquarters Locati...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-6842fc5c7ee34022836800742ec1b68e",
-                      "title":  "AI and the Risks of Tearing Down an Old System",
-                      "url":  "https://warontherocks.com/ai-and-the-risks-of-tearing-down-an-old-system/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-18",
-                      "summary":  "Operation Epic Fury made clear that AI is now at the heart of American warfighting. Central Command used Claude through Palantir’s Maven Smart System platform to generate and prioritize roughly 1,000 targets in the first 24 hours of the campaign, at an operational tempo that more than doubled the opening phase of the 2003 Iraq invasion. Over 38 days, the campaign reached 13,000 total strikes, according to Pentagon data. Project Maven says that the program has accelerated targeting even further to 5,000 in a single day. The question is whether the department can evaluate what it deploys before it deploys The post AI and the Risks of Tearing Down an Old System appeared first on War on the Rock...",
-                      "suggestedPirIds":  [
-                                              15
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-eca8defc5a33402db5285e40c61826b0",
-                      "title":  "How Feasible Is a European Nuclear Deterrent Without Washington?",
-                      "url":  "https://warontherocks.com/how-feasible-is-a-european-nuclear-deterrent-without-washington/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-18",
-                      "summary":  "In 2025, James Cameron wrote, “Eurodeterrent: A Vision for an Anglo-French Nuclear Force,” where he argued the United Kingdom and France should cooperate to develop a nuclear deterrent umbrella for Europe, independent of Washington. A year later, after French President Emmanuel Macron’s landmark nuclear speech, we asked him to revisit his argument. Image: SAC Rob Bourne/MODIn your 2025 article, you argued that, given Europe’s perceived uncertainty about the U.S. commitment to its security and defense, the United Kingdom and France should cooperate to develop a nuclear deterrent umbrella independent of Washington. In July 2025, the United Kingdom and France signed the Northwood Declaration, a...",
-                      "suggestedPirIds":  [
-                                              10,
-                                              11
-                                          ],
-                      "suggestedSector":  "Energy"
-                  },
-                  {
-                      "id":  "rss-af7f32d2fee1480a947a58c06b5b47e2",
-                      "title":  "Inside Brazil’s 3D-Printed Gun Supply Chain",
-                      "url":  "https://warontherocks.com/inside-brazils-3d-printed-gun-supply-chain/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-18",
-                      "summary":  "On June 26, 2026, the Civil Police of Rio de Janeiro, through its specialized firearms, ammunition, and explosives unit, raided a clandestine workshop in Rio das Pedras, on the city’s west side. Investigators said the group used a 3D printer seized at the scene to produce pistol frames and structural rifle parts in polymer and then completed them with metal parts. Early reports described those parts as imported, but police said on the day of the raid that they were still determining the metal’s origin. Police described the operation’s main target as an international arms and ammunition trafficker who supplied The post Inside Brazil’s 3D-Printed Gun Supply Chain appeared first on War on the R...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-1e04a4e3567e44c3b7cbc0323ca0b6a4",
-                      "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
-                      "url":  "https://www.cisa.gov/news-events/alerts/2026/08/17/cisa-adds-one-known-exploited-vulnerability-catalog",
-                      "source":  "CISA Cybersecurity Advisories",
-                      "category":  "Government / Official",
-                      "published":  "2026-08-17",
-                      "summary":  "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog , based on evidence of active exploitation. CVE-2025-62593 Ray-Project Ray Code Injection Vulnerability This type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise. Binding Operational Directive (BOD) 26-04: Prioritizing Security Updates Based on Risk establishes vulnerability management requirements for Federal Civilian Executive Branch (FCEB) agencies. BOD 26-04 reinforces the importance of the KEV Catalog and requires federal agencies to prioritize rapid remediation of high-risk vulnerabilities, specifically those identified ...",
-                      "suggestedPirIds":  [
-
-                                          ],
-                      "suggestedSector":  "Cross-Sector"
-                  },
-                  {
-                      "id":  "rss-cfc2ee74a12b460f90f0bd6f61c24e78",
-                      "title":  "The Tension Between Collectivism and Individualism in Ukraine",
-                      "url":  "https://warontherocks.com/the-tension-between-collectivism-and-individualism-in-ukraine/",
-                      "source":  "War on the Rocks",
-                      "category":  "Geopolitical / Strategy",
-                      "published":  "2026-08-17",
-                      "summary":  "Welcome to The Ukraine Compass, a weekly digest of Ukrainian commentary and analysis from across the political spectrum, only for War on the Rocks members. Each Monday, we bring you a curated selection of articles from Ukrainian media offering insight into how Ukrainians themselves debate the issues shaping their country.American coverage often narrows the view to the battlefield — these pieces widen it, revealing the texture of daily life, politics, and public argument in a nation at war. The perspectives gathered here are varied, candid, and often surprising, together forming a more complete picture of Ukraine as it really is.Frontline and StrategyОбозреватель The post The Tension Between ...",
-                      "suggestedPirIds":  [
-
                                           ],
                       "suggestedSector":  "Energy"
                   }
