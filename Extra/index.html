@@ -929,7 +929,7 @@ body [style*="Instrument Sans"]{
   }
   .intel-item{
     display:grid !important;
-    grid-template-columns:minmax(5.8rem,auto) minmax(0,1fr) !important;
+    grid-template-columns:minmax(5.8rem,45%) minmax(0,1fr) !important;
     align-items:center !important;
     justify-content:initial !important;
     gap:1rem !important;
@@ -1009,8 +1009,9 @@ body [style*="Instrument Sans"]{
   }
 }
 .luis-hero{
-  height:100svh !important;
-  min-height:640px !important;
+  height:auto !important;
+  min-height:620px !important;
+  max-height:900px !important;
   align-items:flex-end !important;
 }
 .luis-hero .hero-content{
@@ -1058,8 +1059,8 @@ body [style*="Instrument Sans"]{
   .luis-stat-bar .stat-n{
     display:block !important;
     max-width:100% !important;
-    font-size:clamp(2.1rem,8vw,3.4rem) !important;
-    line-height:1.05 !important;
+    font-size:clamp(1.5rem,5.5vw,2.2rem) !important;
+    line-height:1.1 !important;
     overflow-wrap:anywhere !important;
     word-break:normal !important;
     hyphens:auto !important;
@@ -1113,25 +1114,17 @@ body [style*="Instrument Sans"]{
     overflow-wrap:break-word !important;
     white-space:normal !important;
   }
-  .luis-stat-bar{
-    grid-template-columns:1fr !important;
-  }
   .luis-stat-bar .stat{
-    border-right:0 !important;
-    border-top:1px solid var(--rule) !important;
-    padding:1.75rem 1.25rem !important;
-  }
-  .luis-stat-bar .stat:first-child{
-    border-top:0 !important;
+    padding:1.5rem 1rem !important;
   }
   .luis-stat-bar .stat-n{
-    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    font-size:clamp(1.3rem,7vw,1.8rem) !important;
     max-width:100% !important;
   }
   .luis-stat-bar .stat-l{
-    font-size:clamp(.9rem,4vw,1rem) !important;
-    line-height:1.55 !important;
-    letter-spacing:.07em !important;
+    font-size:clamp(.68rem,3vw,.78rem) !important;
+    line-height:1.5 !important;
+    letter-spacing:.06em !important;
   }
 }
 </style>
