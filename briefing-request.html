@@ -2207,7 +2207,7 @@ body [style*="Instrument Sans"]{
     <div class="hero-inner">
       <div class="hero-classification">Work With Liberty CTI</div>
       <h1 id="request-hero-title">Start the Right <em>Strategic Intelligence Conversation</em></h1>
-      <p class="hero-sub" id="request-hero-sub">Tell us what decision is in front of leadership. Liberty CTI will help scope whether the right next step is an Executive Crisis Wargame, a Strategic Exposure Assessment, or a Standing Intelligence Advisory relationship.</p>
+      <p class="hero-sub" id="request-hero-sub">What issue, decision, or concern is bringing you here? Liberty CTI will help scope whether the right next step is an Executive Crisis Wargame, a Strategic Exposure Assessment, or a Standing Intelligence Advisory relationship.</p>
       <div style="margin-top:1.75rem; max-width:760px; border-left:2px solid var(--gold); padding:1rem 1.4rem; background:rgba(184,150,62,0.04);">
         <p style="font-size:0.9rem; font-weight:300; color:rgba(244,239,230,0.62); line-height:1.8;">
           <strong style="color:var(--paper); font-weight:500;">This is a scoping request.</strong><br>
@@ -2268,7 +2268,7 @@ body [style*="Instrument Sans"]{
           <div class="section-header">
             <span class="section-id">// Engagement Request</span>
             <div class="section-title" id="context-heading">Start the right conversation.</div>
-            <div class="section-desc" id="context-desc">Tell Liberty CTI what decision is in front of leadership. We will scope the intelligence requirement with you.</div>
+            <div class="section-desc" id="context-desc">Tell Liberty CTI what issue, decision, or concern is bringing you here. We will scope the right engagement with you.</div>
           </div>
 
           <div class="contact-grid">
@@ -2446,7 +2446,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var selectedService = serviceLabels[service] || '';
   var selectedSector = sectorLabels[sector] || '';
   var heading = 'Start the right conversation.';
-  var desc = 'Tell Liberty CTI what decision is in front of leadership. We will scope the intelligence requirement with you.';
+  var desc = 'Tell Liberty CTI what issue, decision, or concern is bringing you here. We will scope the right engagement with you.';
 
   if (service === 'wargame') {
     heading = selectedSector ? 'Run a ' + selectedSector + ' Executive Crisis Wargame.' : 'Run an Executive Crisis Wargame.';
@@ -2474,7 +2474,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (service === 'wargame' && heroTitle) heroTitle.innerHTML = 'Run an <em>Executive Crisis Wargame</em>';
   if (service === 'advisory' && heroTitle) heroTitle.innerHTML = 'Discuss <em>Standing Intelligence Advisory</em>';
   if (service === 'assessment' && heroTitle) heroTitle.innerHTML = 'Assess Your <em>Exposure</em>';
-  if (selectedSector && heroSub) heroSub.textContent = 'Tell us what decision is in front of leadership in the ' + selectedSector + ' environment. Liberty CTI will scope the right engagement path with you.';
+  if (selectedSector && heroSub) heroSub.textContent = 'What issue, decision, or concern is bringing you here in the ' + selectedSector + ' environment? Liberty CTI will scope the right engagement path with you.';
   if (metaFormat && selectedService) metaFormat.textContent = selectedService;
   if (metaTailored && selectedSector) metaTailored.textContent = selectedSector + ' leadership context';
   if (contextHeading) contextHeading.textContent = heading;

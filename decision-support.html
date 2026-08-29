@@ -441,6 +441,9 @@
       max-width: 860px;
       margin-bottom: 1rem;
     }
+    .decision-grid.decision-grid-2col {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .decision-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -618,7 +621,8 @@
       }
       .exec { height: auto; }
       .service-ladder,
-      .decision-grid {
+      .decision-grid,
+      .decision-grid.decision-grid-2col {
         grid-template-columns: 1fr;
       }
       .header-inner {
@@ -2328,6 +2332,15 @@ body [style*="Instrument Sans"]{
           <div class="decision-tile"><strong>Decision at risk</strong> Whether to elevate posture, brief the board, adjust continuity assumptions, or activate sector-specific escalation thresholds, and whether that decision is documented.</div>
           <div class="decision-tile"><strong>Cost of being wrong</strong> Regulatory pressure, reputational damage, cashflow disruption, safety risk, supply-chain interruption, and the inability to explain why leadership acted when it did.</div>
           <div class="decision-tile"><strong>This week</strong> Read the latest ATB, define the governance question, assign the decision owner, and set the trigger for escalation.</div>
+        </div>
+      </div>
+
+      <div class="decision-band">
+        <h2>I.T. owns cyber operations. Leadership owns cyber judgment.</h2>
+        <p>Good security teams handle the technical response with real skill. Liberty CTI exists for the questions a technical team was never positioned to answer alone, the ones that determine whether the business, legal, and public response holds up afterward.</p>
+        <div class="decision-grid decision-grid-2col">
+          <div class="decision-tile"><strong>Your security team can answer</strong> Are we compromised? Which systems are affected? What actor may be responsible? Can we contain the activity?</div>
+          <div class="decision-tile"><strong>Leadership still has to decide</strong> Whether to interrupt operations, when to notify customers or regulators, what risk to accept, and what should not be decided for the first time during a live crisis.</div>
         </div>
       </div>
 
