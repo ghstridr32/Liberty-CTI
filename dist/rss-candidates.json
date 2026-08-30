@@ -1,5 +1,5 @@
 ﻿{
-    "generatedAt":  "2026-08-29T06:51:37-05:00",
+    "generatedAt":  "2026-08-30T06:31:02-05:00",
     "windowDays":  7,
     "itemCount":  31,
     "failureCount":  10,
@@ -22,7 +22,7 @@
                      {
                          "source":  "Google Cloud Threat Intelligence",
                          "url":  "https://cloud.google.com/blog/topics/threat-intelligence/rss/",
-                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":true,\"Bwo7Jf\":\"%.@.\\\"ZZ\\\",null,true]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-1181816788431237563\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u2..."
+                         "error":  "Cannot convert value \" window.WIZ_global_data = {\"AfY8Hf\":true,\"Bwo7Jf\":\"%.@.\\\"US\\\",4]\",\"CGQM5\":\"%.@.[[1]]]\",\"DpimGf\":false,\"EP1ykd\":[\"/_/*\",\"/accounts/*\",\"/sitemap/*\",\"/sitemaplanding/*\",\"/sitemapsummary/*\",\"/sitemapsummarylanding/*\",\"/static/*\",\"/transform\",\"/transform/*\"],\"FdrFJe\":\"-3479352352869478263\",\"HiPsbb\":1,\"Im6cmf\":\"/blog/_/TransformBlogUi\",\"JvMKJd\":\"%.@.\\\"GTM-5CVQBG\\\",[[\\\"en\\\",\\\"\\\\u202aEnglish\\\\u202c\\\",true,\\\"en\\\"],[\\\"de\\\",\\\"\\\\u202aDeutsch\\\\u202c\\\",true,\\\"de\\\"],[\\\"es\\\",\\\"\\\\u202aEspañ..."
                      },
                      {
                          "source":  "Dragos",
@@ -57,7 +57,7 @@
                  ],
     "items":  [
                   {
-                      "id":  "rss-cf2bc09a19ae46dbbf3192b2c8a9ce6b",
+                      "id":  "rss-56072e33deda4897a2a902a98cb5456d",
                       "title":  "TerminalFix campaign deploys a reverse tunnel through multistage intrusion",
                       "url":  "https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/",
                       "source":  "Microsoft Threat Intelligence",
@@ -70,7 +70,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-44048e0ba54746bea1eab5042a00ee79",
+                      "id":  "rss-fa3a402b370943e08ca9d7ad636b5ef9",
                       "title":  "Perturbation Probing: A New Diagnostic for the Fragility of LLM Safety",
                       "url":  "https://unit42.paloaltonetworks.com/perturbation-probing-llm-safety/",
                       "source":  "Palo Alto Unit 42",
@@ -83,7 +83,7 @@
                       "suggestedSector":  "AI / Data Centers"
                   },
                   {
-                      "id":  "rss-e7380a4e540a4c58a0942c986595e91c",
+                      "id":  "rss-8f0bb7b1a8df4f50b022c7025c7a1c66",
                       "title":  "Texas lawmaker wants oil regulators to explain why they ended public comment at meetings",
                       "url":  "https://www.texastribune.org/2026/08/28/texas-railroad-commission-public-comment/",
                       "source":  "Texas Tribune",
@@ -98,7 +98,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-112cc1dd941946b5826048f2cfc13e11",
+                      "id":  "rss-0d027e1622cc4412896a24cabaf136b9",
                       "title":  "Texas regulators approve two massive West Texas transmission lines amid outcry from landowners",
                       "url":  "https://www.texastribune.org/2026/08/28/transmission-lines-texas-energy/",
                       "source":  "Texas Tribune",
@@ -113,7 +113,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-85f1e0fce63d468bb4d9c90cf735dd4c",
+                      "id":  "rss-6556fbc39dcd4854b96252c49a8f7110",
                       "title":  "With costs up, healthcare a defining issue in South Texasâ battleground House races",
                       "url":  "https://www.texastribune.org/2026/08/28/south-texas-congress-healthcare-costs-medicaid-rio-grande-valley-midterms/",
                       "source":  "Texas Tribune",
@@ -128,7 +128,7 @@
                       "suggestedSector":  "Healthcare"
                   },
                   {
-                      "id":  "rss-e2dd2bdcab904b6d853403b6df8869a7",
+                      "id":  "rss-d147b83c225c4938967328d8327bf787",
                       "title":  "All-Line Equipment Company Fuel-Boss",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-02",
                       "source":  "CISA Cybersecurity Advisories",
@@ -142,7 +142,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-4d1a27fb16cb4057aa70224f42259796",
+                      "id":  "rss-579c28aed16d4a009266b02e7d308adc",
                       "title":  "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -155,7 +155,7 @@
                       "suggestedSector":  "AI / Data Centers"
                   },
                   {
-                      "id":  "rss-93e63a345e50428a8ee1e55d38cae1ec",
+                      "id":  "rss-67511c1ea7014103835d946a30204903",
                       "title":  "Mitsubishi Electric CNC Series (Update A)",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05",
                       "source":  "CISA Cybersecurity Advisories",
@@ -170,7 +170,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-f96c730ff7294d3b85042183e6f2c1c0",
+                      "id":  "rss-047fe35ba648448cb856abca6db781c3",
                       "title":  "Mitsubishi Electric Multiple FA Products (Update D)",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-25-128-03",
                       "source":  "CISA Cybersecurity Advisories",
@@ -185,7 +185,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-7ff3085484e642b0b98edfefa69b2c54",
+                      "id":  "rss-9b1bcbe5f58b419499bb6685e9386103",
                       "title":  "Rockwell Automation OTTO Fleet Manager",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-03",
                       "source":  "CISA Cybersecurity Advisories",
@@ -198,7 +198,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-f1df0c325bcc4a03b20e72c57ecf0832",
+                      "id":  "rss-4d6956a38bdf4cfd942aa60bcf59b630",
                       "title":  "Xiiaozet LK100W",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-01",
                       "source":  "CISA Cybersecurity Advisories",
@@ -212,7 +212,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-499d1629467a43b5a0e8b8aeabd0e846",
+                      "id":  "rss-ffcadbe39b364cd387a754629206dc26",
                       "title":  "After years of hardship, Texas agriculture faces a new threat: data centers",
                       "url":  "https://www.texastribune.org/2026/08/27/texas-agriculture-data-centers/",
                       "source":  "Texas Tribune",
@@ -228,7 +228,7 @@
                       "suggestedSector":  "AI / Data Centers"
                   },
                   {
-                      "id":  "rss-fb901df061364f60b2068d0e3b9dbab1",
+                      "id":  "rss-bb1c0a92eaf146a0afc085ac0c4c3b9f",
                       "title":  "Hereâs what Greg Abbott, Gina Hinojosa say about education priorities in Texas governorâs race",
                       "url":  "https://www.texastribune.org/2026/08/27/texas-governor-race-abbott-hinojosa-education/",
                       "source":  "Texas Tribune",
@@ -241,7 +241,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-ec27fd88ed644414993245f24f76b1e3",
+                      "id":  "rss-9982aa30b8914a2a86631f39792ff36d",
                       "title":  "Beneath the Surface: Overlooked Cyber Security Threats",
                       "url":  "https://warontherocks.com/beneath-the-surface-overlooked-cyber-security-threats/",
                       "source":  "War on the Rocks",
@@ -255,7 +255,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-ebdff6f75b4d478da3edafbbd4cbd7f0",
+                      "id":  "rss-ff8325b137624d71b115e954d40211cd",
                       "title":  "The Goldilocks Fallacy: The Undefined Limits of Korea’s Nuclear Role",
                       "url":  "https://warontherocks.com/the-goldilocks-fallacy-the-undefined-limits-of-koreas-nuclear-role/",
                       "source":  "War on the Rocks",
@@ -271,7 +271,7 @@
                       "suggestedSector":  "Defense Industrial Base"
                   },
                   {
-                      "id":  "rss-09e43509f0e44c519db0111455a172f1",
+                      "id":  "rss-5fe492c1af2146988343cf0c24e4ce83",
                       "title":  "CISA Vulnerability Review",
                       "url":  "https://www.cisa.gov/resources-tools/resources/cisa-vulnerability-review",
                       "source":  "CISA Cybersecurity Advisories",
@@ -284,7 +284,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-cd1bb5e7e7ef4460ab2d67d7a5a0cc37",
+                      "id":  "rss-b1bf9e5f471c4814bb3a8b74738b67dd",
                       "title":  "“Zero Problems” Abroad, Plenty at Home: Reassessing al Sharaa’s Leadership in Syria",
                       "url":  "https://warontherocks.com/zero-problems-abroad-plenty-at-home-reassessing-al-sharaas-leadership-in-syria/",
                       "source":  "War on the Rocks",
@@ -297,7 +297,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-309cc69fe9b54ba0b46650b357492a2f",
+                      "id":  "rss-74615ecb810a4ae2a799060229cb6159",
                       "title":  "From Hormuz to the Caucasus: The New Geography of Energy Security",
                       "url":  "https://warontherocks.com/from-hormuz-to-the-caucasus-the-new-geography-of-energy-security/",
                       "source":  "War on the Rocks",
@@ -312,7 +312,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-ff2d10f35ccc4102aa9d62ff25cfcba8",
+                      "id":  "rss-b6b9bafa64f944b5beacffcf638cde6b",
                       "title":  "Would Wartime Elections Save Democracy or End It?",
                       "url":  "https://warontherocks.com/would-wartime-elections-save-democracy-or-end-it/",
                       "source":  "War on the Rocks",
@@ -325,7 +325,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-e31347f1d2f6426db4fdebf496845683",
+                      "id":  "rss-959962b338df4437b0e03e671865e25f",
                       "title":  "A Tale of Two SOCs: Insights From Two Red Team Assessments",
                       "url":  "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a",
                       "source":  "CISA Cybersecurity Advisories",
@@ -338,7 +338,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-6d48f95ba0c149538ccb815062dc993b",
+                      "id":  "rss-85161063e7ca4bcabee80f7740866e53",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -351,7 +351,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-a697b73e8c584ddbbf692b7ee680eb82",
+                      "id":  "rss-e21b01d1b67f49eebe7ac0a0841217ce",
                       "title":  "FURUNO FA-50 Class B AIS Transponder",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-07",
                       "source":  "CISA Cybersecurity Advisories",
@@ -366,7 +366,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-e13bffdd3a8c4f0783bd82706be38223",
+                      "id":  "rss-e5d6f7ea5efc4371af5f45e256756010",
                       "title":  "PayRange API",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-04",
                       "source":  "CISA Cybersecurity Advisories",
@@ -379,7 +379,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-2277072391b9435995eeb1b2107a70e7",
+                      "id":  "rss-f3fc8fdfed5344ef8efdb94db463cb11",
                       "title":  "Rently Smart Home",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-01",
                       "source":  "CISA Cybersecurity Advisories",
@@ -392,7 +392,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-cd30be3e734a48ed929c48cc9a8f4368",
+                      "id":  "rss-9cc64a239c1742a397ddeab2c32c5f7f",
                       "title":  "Zoneminder",
                       "url":  "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-02",
                       "source":  "CISA Cybersecurity Advisories",
@@ -405,7 +405,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-0a95e8ea150c495597f0492570dd8061",
+                      "id":  "rss-dd1ee4a7b0f443bd983709993aea2247",
                       "title":  "The State of AI-Enabled Malware August 2026: From Brand Abuse to Agentic Execution",
                       "url":  "https://unit42.paloaltonetworks.com/ai-enabled-malware-analysis/",
                       "source":  "Palo Alto Unit 42",
@@ -418,7 +418,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-91ce91910c04469984aa81661e833127",
+                      "id":  "rss-6972cf5132db4f1dbe605da00244d23a",
                       "title":  "Russia’s Next Top General: Promotions in Russian Military Leadership",
                       "url":  "https://warontherocks.com/russias-next-top-general-promotions-in-russian-military-leadership/",
                       "source":  "War on the Rocks",
@@ -434,7 +434,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-76cc27a077dd40638cd2303e868ea4b4",
+                      "id":  "rss-76c252269b4c49dfbd32087f685be774",
                       "title":  "CISA Adds One Known Exploited Vulnerability to Catalog",
                       "url":  "https://www.cisa.gov/news-events/alerts/2026/08/24/cisa-adds-one-known-exploited-vulnerability-catalog",
                       "source":  "CISA Cybersecurity Advisories",
@@ -447,7 +447,7 @@
                       "suggestedSector":  "Cross-Sector"
                   },
                   {
-                      "id":  "rss-adfa13bccb044f6ea266de515869d538",
+                      "id":  "rss-32f9a1136c6d4b11ade3f6f1eb1f0e33",
                       "title":  "Betting on Autonomous Aircraft",
                       "url":  "https://warontherocks.com/cogs-of-war/betting-on-autonomous-aircraft/",
                       "source":  "War on the Rocks",
@@ -462,7 +462,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-6e7237e3156a4e8a97378ad2c72f04c8",
+                      "id":  "rss-ae61d3d2e37745239ae9fd85e2637e37",
                       "title":  "Command and Politics in the War Between Moscow and Kyiv",
                       "url":  "https://warontherocks.com/command-and-politics-in-the-war-between-moscow-and-kyiv/",
                       "source":  "War on the Rocks",
@@ -478,7 +478,7 @@
                       "suggestedSector":  "Energy"
                   },
                   {
-                      "id":  "rss-5a8b3eb0eea4458ba8222a78d5742aad",
+                      "id":  "rss-c1b5b67c9b9e40ae861d3747a615fcab",
                       "title":  "The Risks of Downplaying China’s Military",
                       "url":  "https://warontherocks.com/the-risks-of-downplaying-chinas-military/",
                       "source":  "War on the Rocks",
