@@ -8,5 +8,15 @@
     "dominant_theme": "Basic Hygiene Is The Battlespace",
     "threat_banner": "Elevated — 19-agency advisory confirms Russian FSB edge-device campaign across energy, finance, and DIB networks; second actively-exploited edge vulnerability and a CISA disclosure-governance failure reinforce a single pattern; Iran-U.S. combat losses sustain a separate retaliation watch",
     "preview_url": "/atb/2026/07-18-2026/",
-    "full_url": "/atb/2026/07-18-2026/full.html"
+    "full_url": "/atb/2026/07-18-2026/full.html",
+    "tags": [
+        "Russia",
+        "Energy",
+        "Finance",
+        "Defense",
+        "Iran",
+        "Texas"
+    ],
+    "data_tags": "russia energy finance defense iran texas weekly",
+    "sector": "all"
 }

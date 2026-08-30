@@ -8,5 +8,16 @@
     "dominant_theme": "Nation-State Access Brokers, Unknown Exposure",
     "threat_banner": "Elevated — DOJ dismantles an eight-year Chinese state-sponsored access-broker network spanning Energy, Finance, DIB, and Telecom with no victim list released, as Iran’s economic war intensifies alongside a first diplomatic opening and Texas moves to restrict Chinese tech in AI data centers",
     "preview_url": "/atb/2026/08-29-2026/",
-    "full_url": "/atb/2026/08-29-2026/full.html"
+    "full_url": "/atb/2026/08-29-2026/full.html",
+    "tags": [
+        "China",
+        "Iran",
+        "Energy",
+        "Finance",
+        "Defense",
+        "AI",
+        "Texas"
+    ],
+    "data_tags": "china iran energy finance defense ai texas weekly criminal",
+    "sector": "all"
 }

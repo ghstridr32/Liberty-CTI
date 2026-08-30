@@ -8,5 +8,13 @@
     "dominant_theme": "Known And Exploited Have Converged",
     "threat_banner": "Elevated — the interval between public disclosure and exploitation has compressed; a fix available since November remains unapplied while Russian intelligence continues to succeed against energy and defense targets",
     "preview_url": "/atb/2026/07-25-2026/",
-    "full_url": "/atb/2026/07-25-2026/full.html"
+    "full_url": "/atb/2026/07-25-2026/full.html",
+    "tags": [
+        "Russia",
+        "Energy",
+        "Defense",
+        "Texas"
+    ],
+    "data_tags": "russia energy defense texas weekly",
+    "sector": "all"
 }

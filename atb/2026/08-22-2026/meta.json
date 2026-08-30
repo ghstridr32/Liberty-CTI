@@ -8,5 +8,14 @@
     "dominant_theme": "Economic Warfare, Texas Exposure",
     "threat_banner": "Elevated — Washington escalates toward declared economic war on Iran as Texas absorbs a state-confirmed UTSA breach, a 1.2-million-record Heights Finance disclosure, and a new AI-enabled exploitation campaign against Siemens industrial controllers",
     "preview_url": "/atb/2026/08-22-2026/",
-    "full_url": "/atb/2026/08-22-2026/full.html"
+    "full_url": "/atb/2026/08-22-2026/full.html",
+    "tags": [
+        "Iran",
+        "Finance",
+        "AI",
+        "OT/ICS",
+        "Texas"
+    ],
+    "data_tags": "iran finance ai ot texas weekly",
+    "sector": "all"
 }

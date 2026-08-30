@@ -1,12 +1,21 @@
 {
-    "issue":  "ATB-2026-14",
-    "publish_date":  "14 Jun 2026",
-    "publish_date_iso":  "2026-06-14",
-    "week_of":  "Jun 7 – 13, 2026",
-    "year":  2026,
-    "slug":  "06-14-2026",
-    "dominant_theme":  "Retaliation Campaign Confirmed Active",
-    "threat_banner":  "Elevated — Iran-aligned proxy retaliatory cyber campaign against U.S. critical infrastructure now confirmed active; Texas Gulf Coast energy and water operators share the exposure profile under the federally confirmed AA26-097A PLC campaign",
-    "preview_url":  "/atb/2026/06-14-2026/",
-    "full_url":  "/atb/2026/06-14-2026/full.html"
+    "issue": "ATB-2026-14",
+    "publish_date": "14 Jun 2026",
+    "publish_date_iso": "2026-06-14",
+    "week_of": "Jun 7 – 13, 2026",
+    "year": 2026,
+    "slug": "06-14-2026",
+    "dominant_theme": "Retaliation Campaign Confirmed Active",
+    "threat_banner": "Elevated — Iran-aligned proxy retaliatory cyber campaign against U.S. critical infrastructure now confirmed active; Texas Gulf Coast energy and water operators share the exposure profile under the federally confirmed AA26-097A PLC campaign",
+    "preview_url": "/atb/2026/06-14-2026/",
+    "full_url": "/atb/2026/06-14-2026/full.html",
+    "tags": [
+        "Iran",
+        "Energy",
+        "Water",
+        "OT/ICS",
+        "Texas"
+    ],
+    "data_tags": "iran energy water ot texas weekly",
+    "sector": "all"
 }

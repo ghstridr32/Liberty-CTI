@@ -1,12 +1,22 @@
 {
-    "issue":  "ATB-2026-15",
-    "publish_date":  "21 Jun 2026",
-    "publish_date_iso":  "2026-06-21",
-    "week_of":  "Jun 14 – 20, 2026",
-    "year":  2026,
-    "slug":  "06-21-2026",
-    "dominant_theme":  "Pre-Positioning Is the New Baseline",
-    "threat_banner":  "Elevated — State-linked actors confirmed pre-positioning inside critical infrastructure for crisis leverage; fracturing Iran ceasefire, Russian refinery strikes, and dark-fleet tanker exposure raise Texas energy, finance, and maritime activation risk",
-    "preview_url":  "/atb/2026/06-21-2026/",
-    "full_url":  "/atb/2026/06-21-2026/full.html"
+    "issue": "ATB-2026-15",
+    "publish_date": "21 Jun 2026",
+    "publish_date_iso": "2026-06-21",
+    "week_of": "Jun 14 – 20, 2026",
+    "year": 2026,
+    "slug": "06-21-2026",
+    "dominant_theme": "Pre-Positioning Is the New Baseline",
+    "threat_banner": "Elevated — State-linked actors confirmed pre-positioning inside critical infrastructure for crisis leverage; fracturing Iran ceasefire, Russian refinery strikes, and dark-fleet tanker exposure raise Texas energy, finance, and maritime activation risk",
+    "preview_url": "/atb/2026/06-21-2026/",
+    "full_url": "/atb/2026/06-21-2026/full.html",
+    "tags": [
+        "Iran",
+        "Russia",
+        "Energy",
+        "Finance",
+        "Maritime",
+        "Texas"
+    ],
+    "data_tags": "iran russia energy finance maritime texas weekly",
+    "sector": "all"
 }

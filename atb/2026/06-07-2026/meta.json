@@ -1,12 +1,20 @@
 {
-    "issue":  "ATB-2026-13",
-    "publish_date":  "7 Jun 2026",
-    "publish_date_iso":  "2026-06-07",
-    "week_of":  "May 31 – Jun 6, 2026",
-    "year":  2026,
-    "slug":  "06-07-2026",
-    "dominant_theme":  "The Grid Is the Attack Surface",
-    "threat_banner":  "Elevated — Active adversary exploitation of fuel infrastructure OT confirmed; ERCOT voltage test failures reveal AI load as grid instability amplifier entering peak summer demand",
-    "preview_url":  "/atb/2026/06-07-2026/",
-    "full_url":  "/atb/2026/06-07-2026/full.html"
+    "issue": "ATB-2026-13",
+    "publish_date": "7 Jun 2026",
+    "publish_date_iso": "2026-06-07",
+    "week_of": "May 31 – Jun 6, 2026",
+    "year": 2026,
+    "slug": "06-07-2026",
+    "dominant_theme": "The Grid Is the Attack Surface",
+    "threat_banner": "Elevated — Active adversary exploitation of fuel infrastructure OT confirmed; ERCOT voltage test failures reveal AI load as grid instability amplifier entering peak summer demand",
+    "preview_url": "/atb/2026/06-07-2026/",
+    "full_url": "/atb/2026/06-07-2026/full.html",
+    "tags": [
+        "Energy",
+        "OT/ICS",
+        "AI",
+        "Texas"
+    ],
+    "data_tags": "energy ot ai texas weekly",
+    "sector": "energy"
 }

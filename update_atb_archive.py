@@ -173,6 +173,21 @@ def meta_text(root: Path, filename: str) -> tuple[str, str, list[str], str, str]
     Issues published after the hand-curated ISSUE_OVERRIDES list stopped being
     maintained still carry a per-issue dominant_theme and threat_banner written
     at publish time — prefer that over scraping a generic <h1> banner.
+
+    ISSUE_OVERRIDES itself should be treated as frozen/historical (03-16-2026
+    through 05-31-2026) — do not add new entries there. For every issue since,
+    meta.json is the single source of truth: it should also carry a "tags"
+    array (display labels, e.g. ["Iran","Energy","Texas"]), a "data_tags"
+    string (lowercase, matching the archive filter slugs — see the
+    data-filter attributes in atb/index.html: energy, healthcare, defense,
+    finance, iran, russia, china, north-korea, criminal, water, maritime, ot,
+    ai, texas), and optionally "sector". Without those fields, this function
+    falls back to a generic ["weekly","texas","cyber risk"] tag set that does
+    not reflect the issue's actual content — this happened for every issue
+    from 06-07-2026 through 08-29-2026 before it was caught and backfilled.
+    The weekly ATB production process should populate these fields in
+    meta.json at publish time, derived from that week's threat_banner /
+    dominant_theme, so this gap cannot silently reopen.
     """
     stem = Path(filename).stem
     try:
@@ -191,6 +206,11 @@ def meta_text(root: Path, filename: str) -> tuple[str, str, list[str], str, str]
     if not title:
         return None
     summary = (meta.get("threat_banner") or "").strip() or "Weekly executive warning intelligence for Texas critical infrastructure leaders."
+    tags = meta.get("tags")
+    data_tags = (meta.get("data_tags") or "").strip()
+    sector = (meta.get("sector") or "").strip()
+    if tags and data_tags:
+        return title, summary, list(tags), data_tags, sector or "all"
     return title, summary, ["weekly", "texas", "cyber risk"], "weekly texas cyber-risk", "all"
 
 
