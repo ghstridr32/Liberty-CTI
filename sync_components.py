@@ -594,7 +594,7 @@ def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: 
     </div>
   </div>
   <div class="lcti-footer-bottom">
-    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="/legal/">Legal &amp; Privacy</a></span></div>
+    <div class="lcti-footer-copy">© {datetime.now().year} Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="/legal/">Legal &amp; Privacy</a></span></div>
     <div class="lcti-footer-copy">All analysis follows structured analytic tradecraft informed by publicly available Intelligence Community standards</div>
     <div class="lcti-footer-copy">Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</div>
   </div>
