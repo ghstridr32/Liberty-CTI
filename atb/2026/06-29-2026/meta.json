@@ -15,8 +15,9 @@
         "Energy",
         "Water",
         "Healthcare",
+        "Ransomware",
         "Texas"
     ],
-    "data_tags": "iran russia energy water healthcare ot texas weekly",
+    "data_tags": "iran russia energy water healthcare ot ransomware texas weekly",
     "sector": "all"
 }

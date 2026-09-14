@@ -15,8 +15,9 @@
         "Finance",
         "Defense",
         "Iran",
+        "Ransomware",
         "Texas"
     ],
-    "data_tags": "russia energy finance defense iran texas weekly",
+    "data_tags": "russia energy finance defense iran ransomware texas weekly",
     "sector": "all"
 }

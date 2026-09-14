@@ -13,8 +13,9 @@
         "Energy",
         "OT/ICS",
         "AI",
+        "Ransomware",
         "Texas"
     ],
-    "data_tags": "energy ot ai texas weekly",
+    "data_tags": "energy ot ai ransomware texas weekly",
     "sector": "energy"
 }

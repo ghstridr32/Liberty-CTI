@@ -14,8 +14,9 @@
         "Energy",
         "Water",
         "OT/ICS",
+        "Ransomware",
         "Texas"
     ],
-    "data_tags": "iran energy water ot texas weekly",
+    "data_tags": "iran energy water ot ransomware texas weekly",
     "sector": "all"
 }
