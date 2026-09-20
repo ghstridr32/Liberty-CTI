@@ -1,0 +1,22 @@
+{
+    "issue": "ATB-2026-28",
+    "publish_date": "20 Sep 2026",
+    "publish_date_iso": "2026-09-20",
+    "week_of": "Sep 14–20, 2026",
+    "year": 2026,
+    "slug": "09-20-2026",
+    "dominant_theme": "Confirmed Breach Hits Texas Energy, Not Just A Claim",
+    "threat_banner": "Elevated — A confirmed, SEC-disclosed breach hits Texas's largest utility, a Texas-bound tanker sits at anchor off Galveston under an unresolved cyber investigation, and Cisco absorbs a second and third consecutive week of maximum-severity, actively exploited zero-days across its identity and email-security products",
+    "preview_url": "/atb/2026/09-20-2026/",
+    "full_url": "/atb/2026/09-20-2026/full.html",
+    "tags": [
+        "Iran",
+        "Russia",
+        "Energy",
+        "Ransomware",
+        "Maritime",
+        "Texas"
+    ],
+    "data_tags": "latest weekly iran russia china north-korea ransomware maritime water ercot ot-ics energy finance healthcare dib ai supply-chain texas ot hormuz dprk infrastructure",
+    "sector": "all"
+}
