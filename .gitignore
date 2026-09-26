@@ -6,3 +6,6 @@
 !.env.example
 
 .vercel
+
+__pycache__/
+*.pyc
