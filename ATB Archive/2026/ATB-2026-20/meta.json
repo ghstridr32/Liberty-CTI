@@ -1,0 +1,17 @@
+{
+  "issue_number": "ATB-2026-20",
+  "issue_date": "2026-07-25",
+  "source_filename": "07-25-2026.html",
+  "source_hash": "0c87a8d0d8247a40822227828e32ecdc0b14597e2f10181c047203331aef830d",
+  "built_at": "2026-09-19T21:06:55.482740+00:00",
+  "docx_file": "ATB-2026-20_2026-07-25_KNOWN_AND_EXPLOITED_HAVE_CONVERGED.docx",
+  "pdf_file": "ATB-2026-20_2026-07-25_KNOWN_AND_EXPLOITED_HAVE_CONVERGED.pdf",
+  "html_file": "2026-07-25_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [],
+  "validation_warnings": [],
+  "title_raw": "The Alamo Threat Brief ATB-2026-20 | Week of July 18-24, 2026 | Liberty CTI",
+  "dominant_theme": "KNOWN AND EXPLOITED HAVE CONVERGED",
+  "coverage_period": "18–24 JULY 2026"
+}

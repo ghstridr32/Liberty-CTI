@@ -1,0 +1,17 @@
+{
+  "issue_number": "ATB-2026-13",
+  "issue_date": "2026-06-07",
+  "source_filename": "06-07-2026.html",
+  "source_hash": "bc1bd13ba6eb60f509d13c22fa82ed61cd959226c7f45ca82957ca0203719691",
+  "built_at": "2026-09-19T21:06:52.254621+00:00",
+  "docx_file": "ATB-2026-13_2026-06-07_THE_GRID_IS_THE_ATTACK_SURFACE.docx",
+  "pdf_file": "ATB-2026-13_2026-06-07_THE_GRID_IS_THE_ATTACK_SURFACE.pdf",
+  "html_file": "2026-06-07_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [],
+  "validation_warnings": [],
+  "title_raw": "The Alamo Threat Brief ATB-2026-13 | Week of May 31 – Jun 6, 2026 | Liberty CTI",
+  "dominant_theme": "THE GRID IS THE ATTACK SURFACE",
+  "coverage_period": "31 MAY–6 JUN 2026"
+}

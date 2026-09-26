@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Alamo Threat Brief | Liberty CTI â€” 16 March 2026</title>
+  <title>The Alamo Threat Brief | Liberty CTI &mdash; 16 March 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -118,7 +118,7 @@
       color: var(--accent-2);
     }
 
-    /* â”€â”€â”€ TITLE BLOCK â€” Alamo behind the h1 â”€â”€â”€ */
+    /* â”€â”€â”€ TITLE BLOCK &mdash; Alamo behind the h1 â”€â”€â”€ */
     .title-block {
       position: relative;
       z-index: 2;
@@ -401,7 +401,7 @@
       .footer-brand { align-self: flex-end; }
     }
 
-    /* â”€â”€â”€ NARROW TABLET 601â€“760px â”€â”€â”€ */
+    /* â”€â”€â”€ NARROW TABLET 601&ndash;760px â”€â”€â”€ */
     @media (min-width: 601px) and (max-width: 760px) {
       .page    { padding: 14px 12px 44px; }
       .hero    { padding: 22px 18px 20px; }
@@ -1161,7 +1161,7 @@ body [style*="Instrument Sans"]{
   }
   .intel-item{
     display:grid !important;
-    grid-template-columns:minmax(5.8rem,auto) minmax(0,1fr) !important;
+    grid-template-columns:minmax(5.8rem,45%) minmax(0,1fr) !important;
     align-items:center !important;
     justify-content:initial !important;
     gap:1rem !important;
@@ -1173,8 +1173,9 @@ body [style*="Instrument Sans"]{
     border-bottom:0 !important;
   }
   .intel-num{
-    font-size:clamp(2.15rem,10vw,3rem) !important;
-    line-height:1 !important;
+    font-size:clamp(1.3rem,7vw,1.8rem) !important;
+    line-height:1.15 !important;
+    overflow-wrap:break-word !important;
   }
   .intel-desc{
     font-size:.9rem !important;
@@ -1241,8 +1242,9 @@ body [style*="Instrument Sans"]{
   }
 }
 .luis-hero{
-  height:100svh !important;
-  min-height:640px !important;
+  height:auto !important;
+  min-height:620px !important;
+  max-height:900px !important;
   align-items:flex-end !important;
 }
 .luis-hero .hero-content{
@@ -1290,8 +1292,8 @@ body [style*="Instrument Sans"]{
   .luis-stat-bar .stat-n{
     display:block !important;
     max-width:100% !important;
-    font-size:clamp(2.1rem,8vw,3.4rem) !important;
-    line-height:1.05 !important;
+    font-size:clamp(1.5rem,5.5vw,2.2rem) !important;
+    line-height:1.1 !important;
     overflow-wrap:anywhere !important;
     word-break:normal !important;
     hyphens:auto !important;
@@ -1345,25 +1347,17 @@ body [style*="Instrument Sans"]{
     overflow-wrap:break-word !important;
     white-space:normal !important;
   }
-  .luis-stat-bar{
-    grid-template-columns:1fr !important;
-  }
   .luis-stat-bar .stat{
-    border-right:0 !important;
-    border-top:1px solid var(--rule) !important;
-    padding:1.75rem 1.25rem !important;
-  }
-  .luis-stat-bar .stat:first-child{
-    border-top:0 !important;
+    padding:1.5rem 1rem !important;
   }
   .luis-stat-bar .stat-n{
-    font-size:clamp(2.4rem,13vw,3.25rem) !important;
+    font-size:clamp(1.3rem,7vw,1.8rem) !important;
     max-width:100% !important;
   }
   .luis-stat-bar .stat-l{
-    font-size:clamp(.9rem,4vw,1rem) !important;
-    line-height:1.55 !important;
-    letter-spacing:.07em !important;
+    font-size:clamp(.68rem,3vw,.78rem) !important;
+    line-height:1.5 !important;
+    letter-spacing:.06em !important;
   }
 }
 </style>
@@ -1399,8 +1393,12 @@ body [style*="Instrument Sans"]{
 .lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
 .lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
 .lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-mobile-menu a.lcti-track-record-link{color:#5abcf0 !important}
+.lcti-mobile-menu a.lcti-track-record-link:hover{color:#7bcaf3 !important}
 .lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
 .lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-drop-panel a.lcti-track-record-link{color:#5abcf0 !important}
+.lcti-drop-panel a.lcti-track-record-link:hover{color:#7bcaf3 !important;background:rgba(90,188,240,.08);border-left-color:#5abcf0}
 .lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}
 .lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
 .lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
@@ -1424,65 +1422,69 @@ body [style*="Instrument Sans"]{
 </style>
 
 <nav class="lcti-nav" role="navigation" aria-label="Main navigation">
-  <a href="../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+  <a href="../../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="../../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
     <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
     <div class="lcti-logo-rule"></div>
     <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
   </a>
 
   <ul class="lcti-links" role="list">
-    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../../index.html">Home</a></li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="../../about.html" role="menuitem">Company Overview</a>
-        <div class="drop-divider"></div>
-        <span class="drop-label">Founders</span>
-        <a href="../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
-      </div>
-    </li>
-
-    <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="../../decision-support.html" role="menuitem">Products &amp; Services</a>
-        <div class="drop-divider"></div>
-        <span class="drop-label">Core Products</span>
-        <a href="../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
-        <a href="../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="../../sector-assessments.html" role="menuitem">Sector Assessments</a>
-      </div>
-    </li>
-
-    <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="/atb/2026/05-31-2026/" role="menuitem">Latest Issue, Week of May 31, 2026</a>
+        <a href="../../../atb/2026/09-06-2026/" role="menuitem">Latest Issue, Week of Sep 6, 2026</a>
         <div class="drop-divider"></div>
-        <a href="../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+        <a href="../../../atb/calibration-record.html" role="menuitem" class="lcti-track-record-link">The Track Record</a>
+        <a href="../../../alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief (ATB)</a>
+        <a href="../../../atb/index.html" role="menuitem" class="lcti-archive-link">ATB Archive</a>
+        <div class="drop-divider"></div>
+        <a href="../../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="../../../sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../../../crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
+        <a href="../../../decision-support.html" role="menuitem">How We Advise</a>
+        <a href="../../../decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
+        <a href="../../../sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
       <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
       <div class="lcti-drop-panel" role="menu">
-        <a href="../../texas-focus.html" role="menuitem">Texas Overview</a>
+        <a href="../../../texas-focus.html" role="menuitem">Texas Overview</a>
         <div class="drop-divider"></div>
         <span class="drop-label">Priority Sectors</span>
-        <a href="../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
-        <a href="../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
-        <a href="../../financial.html" role="menuitem">Financial Services</a>
-        <a href="../../healthcare.html" role="menuitem">Healthcare</a>
+        <a href="../../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="../../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="../../../financial.html" role="menuitem">Financial Services</a>
+        <a href="../../../healthcare.html" role="menuitem">Healthcare</a>
         <div class="drop-divider"></div>
-        <a href="../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
+        <span class="drop-label">Cross-Sector Risk</span>
+        <a href="../../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
       </div>
     </li>
 
-    <li><a href="../../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../../../about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="../../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li><a href="../../../briefing-request.html?service=wargame" class="lcti-cta">Run a Wargame</a></li>
   </ul>
 
   <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -1491,41 +1493,49 @@ body [style*="Instrument Sans"]{
 </nav>
 
 <div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="../../index.html">Home</a>
+  <a href="../../../index.html">Home</a>
 
-  <span class="m-group-label">About</span>
+  <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
-    <a href="../../about.html">Company Overview</a>
-    <a href="../../luis-maldonado.html">Lou Maldonado</a>
-    <a href="../../angie-maldonado.html">Angie Maldonado</a>
+    <a href="../../../atb/2026/09-06-2026/">Latest Issue, Week of Sep 6, 2026</a>
+    <a href="../../../atb/calibration-record.html" class="lcti-track-record-link">The Track Record</a>
+    <a href="../../../alamo-threat-brief.html">About the Alamo Threat Brief (ATB)</a>
+    <a href="../../../atb/index.html" class="lcti-archive-link">ATB Archive</a>
+    <a href="../../../texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="../../../sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
-  <span class="m-group-label">Products</span>
+  <span class="m-group-label">Services</span>
   <div class="m-sub">
-    <a href="../../decision-support.html">Products &amp; Services</a>
-    <a href="../../alamo-threat-brief.html">Alamo Threat Brief</a>
-    <a href="../../texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="../../sector-assessments.html">Sector Assessments</a>
-  </div>
-
-  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
-  <div class="m-sub">
-    <a href="/atb/2026/05-31-2026/">Latest Issue, Week of May 31, 2026</a>
-    <a href="../index.html" class="lcti-archive-link">Archive</a>
+    <a href="../../../crisis-wargame.html">Executive Crisis Wargame</a>
+    <a href="../../../decision-support.html">How We Advise</a>
+    <a href="../../../decision-support.html#retainer">Standing Intelligence Advisory</a>
+    <a href="../../../sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
   <span class="m-group-label">Texas Focus</span>
   <div class="m-sub">
-    <a href="../../texas-focus.html">Texas Overview</a>
-    <a href="../../energy-ercot.html">Energy &amp; ERCOT</a>
-    <a href="../../defense-dib.html">Defense Industrial Base</a>
-    <a href="../../financial.html">Financial Services</a>
-    <a href="../../healthcare.html">Healthcare</a>
-    <a href="../../Energy_data_AI.html">AI Convergence</a>
+    <a href="../../../texas-focus.html">Texas Overview</a>
+    <a href="../../../energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="../../../defense-dib.html">Defense Industrial Base</a>
+    <a href="../../../financial.html">Financial Services</a>
+    <a href="../../../healthcare.html">Healthcare</a>
+  </div>
+
+  <span class="m-group-label">Cross-Sector Risk</span>
+  <div class="m-sub">
+    <a href="../../../Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="../../../about.html">Company Overview</a>
+    <a href="../../../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../../../angie-maldonado.html">Angie Maldonado</a>
   </div>
 
   <div class="m-cta-wrap">
-    <a href="../../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+    <a href="../../../briefing-request.html?service=wargame" class="m-cta">Run a Wargame</a>
   </div>
 </div>
 
@@ -1549,7 +1559,7 @@ body [style*="Instrument Sans"]{
 
   var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
   var aliases={
-    'alamo-threat-brief.html':['05-31-2026.html'],
+    'alamo-threat-brief.html':['09-06-2026.html'],
     'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
   };
   document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
@@ -1625,8 +1635,8 @@ body [style*="Instrument Sans"]{
           <rect x="740" y="242" width="25"  height="35" fill="var(--panel)"/>
         </svg>
 
-        <h1>The Alamo Threat Brief</h1>
-        <div class="brand-sub">Weekly cyber threat intelligence for Texas industry â€” designed for fast executive consumption with short, source-backed assessments.</div>
+        <h1>The Alamo Threat Brief&trade;</h1>
+        <div class="brand-sub">Weekly cyber threat intelligence for Texas industry &mdash; designed for fast executive consumption with short, source-backed assessments.</div>
       </div>
 
       <!-- Pills -->
@@ -1639,26 +1649,26 @@ body [style*="Instrument Sans"]{
       <!-- Threat level -->
       <div class="threat-banner">
         <div class="threat-dot"></div>
-        <div class="threat-label">Elevated â€” Iran-linked retaliation activity ongoing across all sectors</div>
+        <div class="threat-label">Elevated &mdash; Iran-linked retaliation activity ongoing across all sectors</div>
       </div>
 
     </header>
 
     <!-- INTEL CARDS -->
     <div class="content">
-      <div class="section-label">This Week's Threats â€” 10â€“16 March 2026</div>
+      <div class="section-label">This Week's Threats &mdash; 10&ndash;16 March 2026</div>
       <div class="grid">
 
         <article class="card energy">
           <div class="sector"><span class="dot energy"></span>Energy</div>
           <h2 class="headline">Qilin ransomware targets Texas electric cooperatives; ERCOT grid probing persists</h2>
           <p class="snippet">
-            <strong>Summary:</strong> The Qilin ransomware gang â€” with confirmed Russian ties â€” claimed attacks on San Bernard and Karnes Electric cooperatives, leaking financial records and board-director PII. Incident follows sustained probing of Texas LNG export infrastructure.<br><br>
-            <strong>Assessment:</strong> Qilin will almost certainly leverage exfiltrated director PII for targeted spearphishing against adjacent co-ops and upstream LNG operators. The gang's pattern â€” publish, then pivot â€” suggests a follow-on intrusion attempt against a larger Texas grid asset within 30â€“60 days, likely using stolen credentials from the initial breach as the entry vector.
+            <strong>Summary:</strong> The Qilin ransomware gang &mdash; with confirmed Russian ties &mdash; claimed attacks on San Bernard and Karnes Electric cooperatives, leaking financial records and board-director PII. Incident follows sustained probing of Texas LNG export infrastructure.<br><br>
+            <strong>Assessment:</strong> Qilin will almost certainly leverage exfiltrated director PII for targeted spearphishing against adjacent co-ops and upstream LNG operators. The gang's pattern &mdash; publish, then pivot &mdash; suggests a follow-on intrusion attempt against a larger Texas grid asset within 30&ndash;60 days, likely using stolen credentials from the initial breach as the entry vector.
           </p>
           <div class="source-row">
             <span class="source-label">Source:</span>
-            <a class="source-link" href="https://cybernews.com/security/texas-electric-coops-ransomware-attack/" target="_blank" rel="noopener noreferrer">Cybernews â€” Texas Electric Coop Ransomware</a>
+            <a class="source-link" href="https://cybernews.com/security/texas-electric-coops-ransomware-attack/" target="_blank" rel="noopener noreferrer">Cybernews &mdash; Texas Electric Coop Ransomware</a>
           </div>
         </article>
 
@@ -1667,11 +1677,11 @@ body [style*="Instrument Sans"]{
           <h2 class="headline">NY DFS warns financial sector of heightened Iranian cyber threats amid U.S.-Iran conflict</h2>
           <p class="snippet">
             <strong>Summary:</strong> NY DFS issued an emergency advisory on 3 March tied to ongoing U.S.-Israel operations against Iran. Iran-aligned Hydro Kitten has signaled intent to target U.S. financial infrastructure. AI-driven phishing against finance teams is accelerating.<br><br>
-            <strong>Assessment:</strong> Hydro Kitten will likely shift from reconnaissance to disruptive DDoS against U.S. financial platforms as Iran seeks visible retaliation options short of kinetic escalation. Texas-based payment processors and regional banks are probable secondary targets â€” large enough to generate political signal, small enough to lack enterprise-grade DDoS mitigation.
+            <strong>Assessment:</strong> Hydro Kitten will likely shift from reconnaissance to disruptive DDoS against U.S. financial platforms as Iran seeks visible retaliation options short of kinetic escalation. Texas-based payment processors and regional banks are probable secondary targets &mdash; large enough to generate political signal, small enough to lack enterprise-grade DDoS mitigation.
           </p>
           <div class="source-row">
             <span class="source-label">Source:</span>
-            <a class="source-link" href="https://www.dfs.ny.gov/industry-guidance/industry-letters/20260303-cybersecurity-advisory-heightened-cyber-threats-global-conflict" target="_blank" rel="noopener noreferrer">NY DFS â€” Cybersecurity Advisory 3 Mar 2026</a>
+            <a class="source-link" href="https://www.dfs.ny.gov/industry-guidance/industry-letters/20260303-cybersecurity-advisory-heightened-cyber-threats-global-conflict" target="_blank" rel="noopener noreferrer">NY DFS &mdash; Cybersecurity Advisory 3 Mar 2026</a>
           </div>
         </article>
 
@@ -1679,12 +1689,12 @@ body [style*="Instrument Sans"]{
           <div class="sector"><span class="dot health"></span>Healthcare</div>
           <h2 class="headline">Iran-linked Handala claims Stryker cyberattack; Senate advances healthcare cyber bill</h2>
           <p class="snippet">
-            <strong>Summary:</strong> Iran-affiliated hackers disrupted Stryker's global Microsoft environment â€” the first major U.S. healthcare supply-chain strike since U.S.-Iran hostilities escalated. Senate advanced bipartisan legislation requiring MFA, encryption, and HHS incident-response frameworks.<br><br>
-            <strong>Assessment:</strong> Handala will likely expand beyond Stryker to other U.S. medical device and pharma manufacturers to sustain political pressure during the conflict. The group has demonstrated a preference for targets with high public visibility and downstream hospital dependencies â€” expect additional supply-chain disruptions timed to U.S. military operational tempo against Iran.
+            <strong>Summary:</strong> Iran-affiliated hackers disrupted Stryker's global Microsoft environment &mdash; the first major U.S. healthcare supply-chain strike since U.S.-Iran hostilities escalated. Senate advanced bipartisan legislation requiring MFA, encryption, and HHS incident-response frameworks.<br><br>
+            <strong>Assessment:</strong> Handala will likely expand beyond Stryker to other U.S. medical device and pharma manufacturers to sustain political pressure during the conflict. The group has demonstrated a preference for targets with high public visibility and downstream hospital dependencies &mdash; expect additional supply-chain disruptions timed to U.S. military operational tempo against Iran.
           </p>
           <div class="source-row">
             <span class="source-label">Source:</span>
-            <a class="source-link" href="https://www.chiefhealthcareexecutive.com/view/the-stryker-cyberattack-and-what-hospitals-should-be-doing" target="_blank" rel="noopener noreferrer">Chief Healthcare Executive â€” Stryker Attack</a>
+            <a class="source-link" href="https://www.chiefhealthcareexecutive.com/view/the-stryker-cyberattack-and-what-hospitals-should-be-doing" target="_blank" rel="noopener noreferrer">Chief Healthcare Executive &mdash; Stryker Attack</a>
           </div>
         </article>
 
@@ -1693,11 +1703,11 @@ body [style*="Instrument Sans"]{
           <h2 class="headline">Salt Typhoon telecom espionage continues; Texas orders review of Chinese-made medical devices</h2>
           <p class="snippet">
             <strong>Summary:</strong> China's Salt Typhoon APT has compromised 200+ firms across 80 countries, focusing on wiretap systems and defense-adjacent communications. Texas ordered a cybersecurity review of state agencies' Chinese-manufactured medical devices after federal warnings.<br><br>
-            <strong>Assessment:</strong> Salt Typhoon will almost certainly use its persistent telecom access to map the communications patterns of Texas-based defense contractors and cleared personnel â€” building a targeting package for future collection rather than immediate disruption. The Chinese-device review is likely to surface undisclosed access points; MSS will move to deactivate or obfuscate implants before formal remediation orders are issued.
+            <strong>Assessment:</strong> Salt Typhoon will almost certainly use its persistent telecom access to map the communications patterns of Texas-based defense contractors and cleared personnel &mdash; building a targeting package for future collection rather than immediate disruption. The Chinese-device review is likely to surface undisclosed access points; MSS will move to deactivate or obfuscate implants before formal remediation orders are issued.
           </p>
           <div class="source-row">
             <span class="source-label">Source:</span>
-            <a class="source-link" href="https://industrialcyber.co/reports/healthcare-ransomware-attacks-surge-30-in-2025-as-cybercriminals-shift-focus-to-vendors-and-service-partners/" target="_blank" rel="noopener noreferrer">Industrial Cyber â€” TX Device Review &amp; Salt Typhoon</a>
+            <a class="source-link" href="https://industrialcyber.co/reports/healthcare-ransomware-attacks-surge-30-in-2025-as-cybercriminals-shift-focus-to-vendors-and-service-partners/" target="_blank" rel="noopener noreferrer">Industrial Cyber &mdash; TX Device Review &amp; Salt Typhoon</a>
           </div>
         </article>
 
@@ -1706,11 +1716,11 @@ body [style*="Instrument Sans"]{
           <h2 class="headline">FBI flags impersonation campaign targeting permit applicants; Texas municipalities remain exposed</h2>
           <p class="snippet">
             <strong>Summary:</strong> FBI warned of a U.S.-wide phishing campaign impersonating local officials to steal permit payments via publicly available zoning data. Texas cities including McKinney, Coppell, and Richardson disclosed attacks over the past year.<br><br>
-            <strong>Assessment:</strong> The impersonation operators behind this campaign will almost certainly expand their target set from permit applicants to utility payment portals and tax collection systems â€” higher-value transactions with the same OSINT-rich zoning and property records as a data source. Ransomware actors monitoring the Mission, TX incident will likely probe other border-region municipalities, anticipating that crisis-mode governments pay faster.
+            <strong>Assessment:</strong> The impersonation operators behind this campaign will almost certainly expand their target set from permit applicants to utility payment portals and tax collection systems &mdash; higher-value transactions with the same OSINT-rich zoning and property records as a data source. Ransomware actors monitoring the Mission, TX incident will likely probe other border-region municipalities, anticipating that crisis-mode governments pay faster.
           </p>
           <div class="source-row">
             <span class="source-label">Source:</span>
-            <a class="source-link" href="https://digitalforensicsmagazine.com/news-roundup-13th-march-2026/" target="_blank" rel="noopener noreferrer">Digital Forensics Magazine â€” 13 Mar 2026 Roundup</a>
+            <a class="source-link" href="https://digitalforensicsmagazine.com/news-roundup-13th-march-2026/" target="_blank" rel="noopener noreferrer">Digital Forensics Magazine &mdash; 13 Mar 2026 Roundup</a>
           </div>
         </article>
 
@@ -1719,16 +1729,28 @@ body [style*="Instrument Sans"]{
           <h2 class="headline">AI-generated "Slopoly" malware enables Interlock ransomware dwell; White House demands active defense</h2>
           <p class="snippet">
             <strong>Summary:</strong> AI-generated malware "Slopoly" gave Interlock ransomware operators undetected access for over a week before exfiltration. The White House's 6-pillar National Cybersecurity Strategy (6 March) formally calls on the private sector to actively hunt and disrupt adversary networks.<br><br>
-            <strong>Assessment:</strong> Interlock will use the Slopoly dwell-time advantage to replicate this playbook against additional managed service providers â€” AI-generated malware lowers their tooling cost while extending pre-exfiltration access windows. As the White House strategy increases private-sector threat-hunting pressure, Interlock and similar groups will likely accelerate their intrusion-to-extortion timelines to outpace newly mandated detection capabilities.
+            <strong>Assessment:</strong> Interlock will use the Slopoly dwell-time advantage to replicate this playbook against additional managed service providers &mdash; AI-generated malware lowers their tooling cost while extending pre-exfiltration access windows. As the White House strategy increases private-sector threat-hunting pressure, Interlock and similar groups will likely accelerate their intrusion-to-extortion timelines to outpace newly mandated detection capabilities.
           </p>
           <div class="source-row">
             <span class="source-label">Source:</span>
-            <a class="source-link" href="https://digitalforensicsmagazine.com/news-roundup-13th-march-2026/" target="_blank" rel="noopener noreferrer">Digital Forensics Magazine â€” Slopoly / Interlock</a>
+            <a class="source-link" href="https://digitalforensicsmagazine.com/news-roundup-13th-march-2026/" target="_blank" rel="noopener noreferrer">Digital Forensics Magazine &mdash; Slopoly / Interlock</a>
           </div>
         </article>
 
       </div>
     </div>
+  <p class="atb-copyright" style="font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:rgba(244,239,230,.56);text-align:center;margin:28px 0 4px;">&copy; 2026 Liberty CTI LLC. All rights reserved. The Alamo Threat Brief and its original analysis may not be reproduced or redistributed without permission.</p>
+
+  <p class="atb-disclaimer" style="font-family:'Instrument Sans',sans-serif;font-size:.76rem;font-weight:400;line-height:1.6;color:rgba(244,239,230,.5);text-align:center;max-width:640px;margin:0 auto 4px;">Liberty CTI assessments reflect analytical judgments based on information available at the time of publication. Forecasts and warning judgments involve uncertainty and may change as new information becomes available. The Alamo Threat Brief provides intelligence decision support and does not constitute legal, financial, investment, or technical cybersecurity advice. See <a href="../../terms/" style="color:rgba(212,175,98,.75);">Terms of Use</a>.</p>
+
+  <p class="atb-source-notice" style="font-family:'Instrument Sans',sans-serif;font-size:.76rem;font-weight:400;line-height:1.6;color:rgba(244,239,230,.5);text-align:center;max-width:640px;margin:0 auto 4px;">Third-party reporting cited in this brief remains the property of its respective owners; citation does not constitute endorsement. Liberty CTI&rsquo;s original analytical judgments remain Liberty CTI intellectual property.</p>
+
+  <!-- WARGAME CTA — CLOSING -->
+  <div class="wargame-cta-closing" style="margin:36px 0 8px;padding-top:22px;border-top:1px solid rgba(212,160,64,.15);text-align:center;">
+    <p style="color:#8aaece;font-size:.85rem;font-style:italic;margin:0 0 8px;">Test these decisions before they become real.</p>
+    <a href="../../crisis-wargame.html" style="font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:#d4a040;text-decoration:none;">EXECUTIVE CRISIS WARGAMING &rarr;</a>
+  </div>
+
 <!-- LCTI:ARCHIVE_FOOTER_FIX:START -->
 <style>
 .lcti-footer{background:#080c10!important;border-top:1px solid rgba(184,150,62,.2)!important;padding:4rem 2.5rem 2rem!important;font-family:'Instrument Sans',Arial,sans-serif!important;color:#f4efe6!important;clear:both!important}
@@ -1761,6 +1783,7 @@ body [style*="Instrument Sans"]{
 .lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
 .lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
 .lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-subcol-title{font-family:'Instrument Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:.55;margin:1.1rem 0 .6rem;display:block}
 .lcti-footer-links{list-style:none}
 .lcti-footer-links li{margin-bottom:.45rem}
 .lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
@@ -1769,6 +1792,10 @@ body [style*="Instrument Sans"]{
 .lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
 .lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 .lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+.lcti-footer-legal{display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.lcti-footer-legal a{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56);text-decoration:none;transition:color .2s}
+.lcti-footer-legal a:hover{color:#b8963e}
+.lcti-footer-legal span{color:rgba(244,239,230,.32)}
 @media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
 </style>
@@ -1777,41 +1804,45 @@ body [style*="Instrument Sans"]{
   <div class="lcti-footer-inner">
     <div>
       <div class="lcti-footer-brand-row">
-        <img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <img src="../../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
         <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
       </div>
-      <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
-      <div class="lcti-footer-slogan">Know what changed. Decide this week.</div>
+      <p class="lcti-footer-tagline">Strategic decision advisory for Texas critical infrastructure.</p>
+      <div class="lcti-footer-slogan">Know what changed. Decide with confidence.</div>
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Products</span>
+      <span class="lcti-footer-col-title">Insights</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../decision-support.html">Products &amp; Services</a></li>
-        <li><a href="../../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
-        <li><a href="../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="../../sector-assessments.html">Sector Assessments</a></li>
+        <li><a href="../../../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../../../decision-support.html">How We Advise</a></li>
+        <li><a href="../../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../../../sector-assessments.html">Strategic Exposure Assessment</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Texas Focus</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../texas-focus.html">Texas Overview</a></li>
-        <li><a href="../../energy-ercot.html">Energy &amp; ERCOT</a></li>
-        <li><a href="../../defense-dib.html">Defense Industrial Base</a></li>
-        <li><a href="../../financial.html">Financial Services</a></li>
-        <li><a href="../../healthcare.html">Healthcare</a></li>
-        <li><a href="../../Energy_data_AI.html">AI Convergence</a></li>
+        <li><a href="../../../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../../../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../../../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../../../financial.html">Financial Services</a></li>
+        <li><a href="../../../healthcare.html">Healthcare</a></li>
+      </ul>
+      <span class="lcti-footer-subcol-title">Cross-Sector Risk</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../../../Energy_data_AI.html">AI Convergence</a></li>
       </ul>
     </div>
 
     <div>
       <span class="lcti-footer-col-title">Connect</span>
       <ul class="lcti-footer-links">
-        <li><a href="../../briefing-request.html">Request an Executive Briefing</a></li>
-        <li><a href="../../briefing-request.html">Discuss a Retainer</a></li>
-        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="../../../briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
+        <li><a href="briefing-request.html?service=assessment">Assess Your Exposure</a></li>
+        <li><a href="../../../briefing-request.html?service=advisory">Discuss an Advisory Relationship</a></li>
+        <li><a href="../../../contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
         <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -1820,8 +1851,9 @@ body [style*="Instrument Sans"]{
     </div>
   </div>
   <div class="lcti-footer-bottom">
-    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
-    <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="../../../legal/index.html">Legal &amp; Privacy</a></span></div>
+    <div class="lcti-footer-copy">All analysis follows structured analytic tradecraft informed by publicly available Intelligence Community standards</div>
+    <div class="lcti-footer-copy">Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</div>
   </div>
 </footer>
 <!-- LCTI:FOOTER:END -->

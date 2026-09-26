@@ -1,0 +1,17 @@
+{
+  "issue_number": "ATB-2026-25",
+  "issue_date": "2026-08-29",
+  "source_filename": "08-29-2026.html",
+  "source_hash": "93df4314d587aa60077592735aec3a9260f74d5a6b37cee4b55b2fb8305e4246",
+  "built_at": "2026-09-19T21:06:57.628912+00:00",
+  "docx_file": "ATB-2026-25_2026-08-29_NATION-STATE_ACCESS_BROKERS_UNKNOWN_EXPOSURE.docx",
+  "pdf_file": "ATB-2026-25_2026-08-29_NATION-STATE_ACCESS_BROKERS_UNKNOWN_EXPOSURE.pdf",
+  "html_file": "2026-08-29_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [],
+  "validation_warnings": [],
+  "title_raw": "The Alamo Threat Brief ATB-2026-25 | Week of August 23-29, 2026 | Liberty CTI",
+  "dominant_theme": "NATION-STATE ACCESS BROKERS, UNKNOWN EXPOSURE",
+  "coverage_period": "23–29 AUG 2026"
+}

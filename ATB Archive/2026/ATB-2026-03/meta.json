@@ -1,0 +1,21 @@
+{
+  "issue_number": "ATB-2026-3",
+  "issue_date": "2026-03-29",
+  "source_filename": "03-29-2026.html",
+  "source_hash": "57daafca661afa4f23c732f196def024185d0162e27bbe8f1bd3a5cb52e84966",
+  "built_at": "2026-09-19T21:06:47.961306+00:00",
+  "docx_file": "ATB-2026-3_2026-03-29_Issue.docx",
+  "pdf_file": "ATB-2026-3_2026-03-29_Issue.pdf",
+  "html_file": "2026-03-29_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [
+    "DOCX: extracted text is 68% of source length -- review recommended."
+  ],
+  "validation_warnings": [
+    "No coverage period found (neither meta-cell 'Coverage' nor 'Week of' pill)."
+  ],
+  "title_raw": "Alamo Threat Brief ATB-2026-3 | 29 March 2026 | Liberty CTI",
+  "dominant_theme": null,
+  "coverage_period": null
+}

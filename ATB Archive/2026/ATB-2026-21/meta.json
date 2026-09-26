@@ -1,0 +1,17 @@
+{
+  "issue_number": "ATB-2026-21",
+  "issue_date": "2026-08-01",
+  "source_filename": "08-01-2026.html",
+  "source_hash": "fd111feca73376da0d7be9468bf079ef127651d71711d8f1987c2afa449e71de",
+  "built_at": "2026-09-19T21:06:55.878111+00:00",
+  "docx_file": "ATB-2026-21_2026-08-01_WARNING_BECAME_EVENT.docx",
+  "pdf_file": "ATB-2026-21_2026-08-01_WARNING_BECAME_EVENT.pdf",
+  "html_file": "2026-08-01_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [],
+  "validation_warnings": [],
+  "title_raw": "The Alamo Threat Brief ATB-2026-21 | Week of July 26–August 1, 2026 | Liberty CTI",
+  "dominant_theme": "WARNING BECAME EVENT",
+  "coverage_period": "26 JUL–1 AUG 2026"
+}

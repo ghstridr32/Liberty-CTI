@@ -1,0 +1,17 @@
+{
+  "issue_number": "ATB-2026-12",
+  "issue_date": "2026-05-31",
+  "source_filename": "05-31-2026.html",
+  "source_hash": "60fc50e4c23e8e1d9b1da3127acb3ab44a316d6d2a6bfd608964fa7edcd0adc0",
+  "built_at": "2026-09-19T21:06:51.910168+00:00",
+  "docx_file": "ATB-2026-12_2026-05-31_INFRASTRUCTURE_CONVERGENCE_THREE_ADVERSARIES_ONE_SUMMER.docx",
+  "pdf_file": "ATB-2026-12_2026-05-31_INFRASTRUCTURE_CONVERGENCE_THREE_ADVERSARIES_ONE_SUMMER.pdf",
+  "html_file": "2026-05-31_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [],
+  "validation_warnings": [],
+  "title_raw": "The Alamo Threat Brief ATB-2026-12 | Week of May 24–31, 2026 | Liberty CTI",
+  "dominant_theme": "INFRASTRUCTURE CONVERGENCE: THREE ADVERSARIES, ONE SUMMER",
+  "coverage_period": "24–31 MAY 2026"
+}

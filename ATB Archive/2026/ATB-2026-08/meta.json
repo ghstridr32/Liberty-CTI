@@ -1,0 +1,19 @@
+{
+  "issue_number": "ATB-2026-8",
+  "issue_date": "2026-05-03",
+  "source_filename": "05-03-2026.html",
+  "source_hash": "c2c1046031e9e4709f12ee6c832ebe32c1b71360bf1b760e709738e1a8ac23f8",
+  "built_at": "2026-09-19T21:06:50.113259+00:00",
+  "docx_file": "ATB-2026-8_2026-05-03_BUSINESS_DISRUPTION_HIDDEN_DEPENDENCIES.docx",
+  "pdf_file": "ATB-2026-8_2026-05-03_BUSINESS_DISRUPTION_HIDDEN_DEPENDENCIES.pdf",
+  "html_file": "2026-05-03_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [],
+  "validation_warnings": [
+    "No sources section detected (no source_list or intel_card blocks)."
+  ],
+  "title_raw": "The Alamo Threat Brief ATB-2026-8 | Week of April 26-May 2, 2026 | Liberty CTI",
+  "dominant_theme": "BUSINESS DISRUPTION / HIDDEN DEPENDENCIES",
+  "coverage_period": "26 APR–02 MAY 2026"
+}

@@ -1,0 +1,19 @@
+{
+  "issue_number": "ATB-2026-9",
+  "issue_date": "2026-05-10",
+  "source_filename": "05-10-2026.html",
+  "source_hash": "022baf35dfe8607d8aac38c19359be4fec4e44c395a34f237146428141dc1039",
+  "built_at": "2026-09-19T21:06:50.687677+00:00",
+  "docx_file": "ATB-2026-9_2026-05-10_THE_FEDERAL_POSTURE_JUST_CHANGED.docx",
+  "pdf_file": "ATB-2026-9_2026-05-10_THE_FEDERAL_POSTURE_JUST_CHANGED.pdf",
+  "html_file": "2026-05-10_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [
+    "DOCX: extracted text is 78% of source length -- review recommended."
+  ],
+  "validation_warnings": [],
+  "title_raw": "The Alamo Threat Brief ATB-2026-9 | Week of May 3-10, 2026 | Liberty CTI",
+  "dominant_theme": "THE FEDERAL POSTURE JUST CHANGED",
+  "coverage_period": "3–10 MAY 2026"
+}

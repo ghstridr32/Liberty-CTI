@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#060c14">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Alamo Threat Brief ATB-2026-29 | Week of September 21-27, 2026 | Liberty CTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#060c14;--surface:#091424;--panel:#0c1e30;--tile:#0f2540;--lift:#122848;
+  --border:#1a3a5c;--border-hi:#2a5a8c;
+  --text:#e8f0fa;--text-dim:#c4d8ee;--text-low:#8aaece;--white:#ffffff;
+  --gold:#d4a040;--gold-hi:#f0c870;--gold-dim:rgba(212,160,64,.18);
+  --blue:#5abcf0;--blue-hi:#88d4ff;
+  --energy:#f0c060;--finance:#5abcf0;--health:#60dd98;--defense:#c098f0;--gov:#f09068;--tech:#50e0d0;
+  --danger:#f06854;--amber:#e09030;
+  --screen-glow:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(90,188,240,.08) 0%,transparent 65%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#060c14!important}
+body{background:#060c14!important;color:#e8f0fa!important;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;padding-top:56px;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(6,12,20,.97);border-bottom:1px solid rgba(212,160,64,.2);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-emblem{width:32px;height:32px;object-fit:contain;}
+.nav-wordmark{font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);}
+.nav-wordmark span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;}
+.nav-links a{font-family:'Rajdhani',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,240,250,.55);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--gold-hi);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{color:var(--gold)!important;border:1px solid rgba(212,160,64,.5);padding:.35rem 1rem;}
+.nav-cta:hover{background:var(--gold)!important;color:var(--bg)!important;}
+
+/* MASTHEAD */
+.masthead{background:var(--surface);position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.masthead-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.15;pointer-events:none;}
+.masthead::before{content:'';position:absolute;inset:0;background:var(--screen-glow),radial-gradient(ellipse 40% 80% at 95% 50%,rgba(212,160,64,.06) 0%,transparent 60%);pointer-events:none;}
+.masthead::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.04) 3px,rgba(0,0,0,.04) 4px);pointer-events:none;}
+.masthead-inner{max-width:1040px;margin:0 auto;padding:36px 40px 0;position:relative;z-index:1;}
+.logo-row{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+.logo-img{width:56px;height:56px;border-radius:10px;object-fit:contain;border:1px solid rgba(212,160,64,.25);box-shadow:0 0 20px rgba(212,160,64,.15),0 4px 12px rgba(0,0,0,.5);}
+.brand-block{display:flex;flex-direction:column;gap:3px;}
+.brand-name{font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-hi);}
+.brand-sub{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-low);}
+.title-block{position:relative;z-index:1;padding:16px 0 20px;}
+.alamo-silhouette{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;max-width:820px;opacity:.055;color:var(--blue);pointer-events:none;z-index:0;}
+.title-block h1{position:relative;z-index:1;font-family:'Rajdhani',sans-serif;font-size:clamp(2.2rem,8vw,3.8rem);font-weight:700;letter-spacing:.04em;line-height:1;color:var(--white);text-shadow:0 0 40px rgba(90,188,240,.25),0 2px 20px rgba(0,0,0,.9);margin-bottom:10px;}
+.title-block h1 span{color:var(--blue);}
+.title-desc{position:relative;z-index:1;color:var(--text-dim);font-size:.92rem;font-weight:300;font-style:italic;max-width:560px;line-height:1.55;}
+.meta-row{margin-top:20px;position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;}
+.pill{border:1px solid var(--border-hi);background:rgba(90,188,240,.05);color:var(--gold);padding:6px 12px;border-radius:2px;font-family:'Rajdhani',sans-serif;font-size:1rem;line-height:1.35;font-weight:600;letter-spacing:.04em;white-space:nowrap;text-shadow:0 0 1px rgba(212,175,98,.18);}
+.pill strong{color:var(--blue);font-weight:500;}
+.threat-banner{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-top:16px;padding:9px 14px;background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:3px solid var(--danger);width:fit-content;}
+.threat-dot{width:7px;height:7px;border-radius:50%;background:var(--danger);box-shadow:0 0 8px var(--danger);animation:blink 1.4s ease-in-out infinite;flex:0 0 auto;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.threat-label{font-family:'Rajdhani',sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--danger);font-weight:600;}
+.meta-strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;border-top:1px solid var(--border);}
+.meta-cell{padding:12px 20px;border-right:1px solid var(--border);flex:1;min-width:120px;}
+.meta-cell:last-child{border-right:none;}
+.meta-lbl{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-low);margin-bottom:3px;}
+.meta-val{font-family:'Share Tech Mono',monospace;font-size:.78rem;color:var(--gold);letter-spacing:.05em;}
+.timestamp-bar{position:relative;z-index:1;display:flex;align-items:center;gap:24px;padding:10px 0 14px;flex-wrap:wrap;border-top:1px solid rgba(26,58,92,.4);}
+.ts-item{display:flex;align-items:center;gap:8px;}
+.ts-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(212,160,64,.7);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
+.ts-text{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,160,64,.7);}
+.ts-text strong{color:var(--gold);}
+
+/* CLASSIFICATION */
+.cls-banner{background:rgba(90,188,240,.07);border-bottom:1px solid var(--border);padding:5px 20px;display:flex;align-items:center;justify-content:space-between;}
+.cls-text{font-family:'Share Tech Mono',monospace;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-low);}
+.cls-badge{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--blue);opacity:.7;}
+
+/* TICKER */
+.ticker-strip{background:rgba(176,40,30,.65);border-top:1px solid rgba(240,104,84,.5);border-bottom:1px solid var(--border);overflow:hidden;white-space:nowrap;padding:8px 0;}
+.ticker-inner{display:inline-block;animation:ticker 60s linear infinite;}
+.ticker-item{display:inline;font-family:'Share Tech Mono',monospace;font-size:.82rem;color:var(--white);letter-spacing:.08em;padding:0 60px;text-decoration:none;}
+.ticker-item::before{content:'\25C6 ';color:var(--gold);}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PAGE */
+.page-body{max-width:1040px;margin:0 auto;padding:0 40px 80px;}
+
+/* SECTION RULES */
+.section-rule{display:flex;align-items:center;gap:14px;margin:48px 0 24px;}
+.section-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;background:rgba(90,188,240,.08);border:1px solid rgba(90,188,240,.25);padding:4px 12px;white-space:nowrap;}
+.section-rule-line{flex:1;height:1px;background:linear-gradient(to right,rgba(90,188,240,.4),transparent);}
+h2.section-head{font-family:'Rajdhani',sans-serif;font-size:1.7rem;font-weight:700;color:var(--white);letter-spacing:.03em;margin-bottom:6px;}
+h3.sub-head{font-family:'Rajdhani',sans-serif;font-size:1.15rem;font-weight:700;color:var(--blue-hi);margin:28px 0 10px;border-left:3px solid var(--blue);padding-left:12px;letter-spacing:.04em;}
+p{margin-bottom:14px;color:var(--text);}
+
+/* INTRO */
+.intro-deck{border-top:3px solid var(--blue);padding:28px 0 0;margin-bottom:12px;}
+.intro-deck p{font-size:1.06rem;line-height:1.75;color:var(--text);font-weight:300;}
+.intro-deck strong{font-weight:600;color:var(--white);}
+
+/* CENTERPIECE */
+.centerpiece{background:var(--panel);border:1px solid rgba(90,188,240,.25);border-left:5px solid var(--danger);padding:32px 36px;margin:32px 0;position:relative;}
+.centerpiece::before{content:'THIS WEEK\'S CENTERPIECE ANALYSIS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--danger);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);font-weight:600;}
+.centerpiece-title{font-family:'Rajdhani',sans-serif;font-size:1.4rem;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:16px;letter-spacing:.02em;}
+.centerpiece p{color:var(--text);font-size:.95rem;line-height:1.72;}
+.centerpiece strong{color:var(--gold-hi);}
+
+/* KJ */
+.kj-block{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:32px 36px;margin:32px 0;position:relative;}
+.kj-block::before{content:'KEY JUDGMENTS';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:36px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.kj-item{display:flex;gap:16px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(90,188,240,.12);}
+.kj-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.kj-num{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);font-weight:600;white-space:nowrap;padding-top:3px;min-width:24px;}
+.kj-text{font-size:.94rem;color:var(--text);line-height:1.68;}
+.kj-text strong{color:var(--white);font-weight:600;}
+.kj-uncertainty{font-size:.82rem;color:var(--text-low);font-style:italic;margin-top:6px;padding-top:6px;border-top:1px solid rgba(90,188,240,.08);}
+.conf{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;vertical-align:middle;margin-left:5px;}
+.conf-high{background:rgba(90,188,240,.15);color:#88d4ff;border:1px solid rgba(90,188,240,.4);}
+.conf-mod{background:rgba(212,160,64,.15);color:var(--gold-hi);border:1px solid rgba(212,160,64,.4);}
+.conf-low{background:rgba(240,104,84,.15);color:#ffb3a3;border:1px solid rgba(240,104,84,.4);}
+.conf-unverified{background:rgba(138,174,206,.15);color:var(--text-low);border:1px solid rgba(138,174,206,.4);}
+.aq{font-weight:700;color:var(--blue-hi);}
+.aq-link{font-weight:700;color:var(--blue-hi);text-decoration:none;border-bottom:1px solid rgba(136,212,255,.45);}
+.aq-link:hover{color:var(--gold-hi);border-bottom-color:var(--gold-hi);}
+
+/* WARNING BOX */
+.warning-box{background:rgba(240,104,84,.07);border:1px solid rgba(240,104,84,.3);border-left:4px solid var(--danger);padding:20px 24px;margin:24px 0;}
+.warning-box::before{content:'\26A0  CRITICAL INTELLIGENCE WARNING';display:block;font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--danger);margin-bottom:10px;}
+.warning-box p{color:var(--text);font-size:.93rem;}
+
+/* ASSESSMENT BOX */
+.assessment-box{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:3px solid var(--blue);padding:18px 22px;margin:20px 0;}
+.assessment-label{font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;}
+.assessment-box p{color:var(--text);font-size:.93rem;font-style:italic;}
+
+/* DOCTRINE GRID */
+.doctrine-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
+.doctrine-card{background:var(--panel);padding:20px;position:relative;}
+.doctrine-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;}
+.doctrine-card:nth-child(1)::before{background:linear-gradient(90deg,var(--danger),transparent 70%);}
+.doctrine-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),transparent 70%);}
+.doctrine-card:nth-child(3)::before{background:linear-gradient(90deg,var(--gold),transparent 70%);}
+.doctrine-card:nth-child(4)::before{background:linear-gradient(90deg,var(--health),transparent 70%);}
+.doctrine-label{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.18em;color:var(--text-low);text-transform:uppercase;margin-bottom:6px;}
+.doctrine-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(90,188,240,.15);letter-spacing:.04em;}
+.doctrine-card p{font-size:.82rem;color:var(--text-dim);margin-bottom:6px;line-height:1.6;}
+.doctrine-card strong{color:var(--text);}
+
+/* IMPLICATIONS */
+.implications-table{border:1px solid var(--border);margin:24px 0;}
+.implication-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid rgba(26,58,92,.5);}
+.implication-row:last-child{border-bottom:none;}
+.implication-sector{font-family:'Share Tech Mono',monospace;font-size:.65rem;font-weight:600;color:var(--gold);padding:14px 16px;background:rgba(90,188,240,.04);border-right:1px solid rgba(26,58,92,.5);display:flex;align-items:flex-start;text-transform:uppercase;letter-spacing:.08em;flex-direction:column;gap:4px;}
+.implication-sector span{font-size:.55rem;opacity:.6;}
+.implication-content{padding:14px 18px;font-size:.88rem;color:var(--text);line-height:1.68;}
+.implication-content strong{color:var(--white);}
+.implication-row.energy .implication-sector{border-left:3px solid var(--energy);color:var(--energy);}
+.implication-row.healthcare .implication-sector{border-left:3px solid var(--health);color:var(--health);}
+.implication-row.finance .implication-sector{border-left:3px solid var(--finance);color:var(--finance);}
+.implication-row.defense .implication-sector{border-left:3px solid var(--defense);color:var(--defense);}
+.implication-row.ai .implication-sector{border-left:3px solid var(--tech);color:var(--tech);}
+
+/* PIR / I&W */
+.prq-block{border:1px solid var(--border);margin:20px 0;overflow:hidden;}
+.prq-header{background:var(--tile);padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.prq-id{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--blue);background:rgba(90,188,240,.12);border:1px solid rgba(90,188,240,.3);padding:3px 10px;}
+.prq-title{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--text);letter-spacing:.08em;text-transform:uppercase;}
+.prq-risk{margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.6rem;padding:3px 8px;border:1px solid;}
+.risk-rising{color:var(--danger);border-color:rgba(240,104,84,.4);background:rgba(240,104,84,.08);}
+.risk-stable{color:var(--gold);border-color:rgba(212,160,64,.4);background:rgba(212,160,64,.08);}
+.risk-unclear{color:var(--text-low);border-color:var(--border);}
+.prq-body{padding:18px 20px;background:var(--panel);border-top:1px solid rgba(26,58,92,.5);}
+.prq-body p{font-size:.88rem;color:var(--text);margin-bottom:8px;}
+.prq-body p:last-child{margin-bottom:0;}
+.prq-indicators{list-style:none;padding:0;margin:8px 0;}
+.prq-indicators li{font-size:.82rem;color:var(--text-dim);padding:4px 0 4px 16px;border-bottom:1px solid rgba(26,58,92,.3);position:relative;}
+.prq-indicators li:last-child{border-bottom:none;}
+.prq-indicators li::before{content:'\2192';position:absolute;left:0;color:var(--blue);font-size:.75rem;}
+
+/* WATCH LIST */
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:24px 0;}
+.watch-item{background:var(--panel);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;}
+.watch-num{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--blue);font-weight:700;flex-shrink:0;padding-top:2px;min-width:22px;}
+.watch-text{font-size:.85rem;color:var(--text);line-height:1.6;}
+.watch-text strong{color:var(--gold-hi);}
+
+/* ANALYST NOTE */
+.analyst-note{background:var(--panel);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:28px 32px;margin:32px 0;position:relative;}
+.analyst-note::before{content:'ANALYST\'S NOTE';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--blue);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.analyst-note p{font-size:.95rem;color:var(--text);line-height:1.75;margin-bottom:14px;}
+.analyst-note p:last-child{margin-bottom:0;}
+
+/* EXECUTIVE DECISION BRIEF */
+.exec-brief{background:var(--panel);border:1px solid rgba(212,160,64,.25);border-left:5px solid var(--gold);padding:28px 32px;margin:28px 0;position:relative;}
+.exec-brief::before{content:'EXECUTIVE DECISION BRIEF';font-family:'Share Tech Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--gold);position:absolute;top:-1px;left:28px;background:var(--panel);padding:0 8px;transform:translateY(-50%);}
+.exec-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px;}
+.exec-item{padding:14px 16px;border:1px solid rgba(212,160,64,.14);background:rgba(212,160,64,.04);}
+.exec-item-title{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.03em;color:var(--gold-hi);margin-bottom:6px;}
+.exec-item p{font-size:.9rem;color:var(--text);margin:0;line-height:1.65;}
+.exec-item strong{color:var(--gold-hi);}
+.decision-line{margin-top:8px;padding-top:8px;border-top:1px solid rgba(212,160,64,.12);font-size:.82rem;color:var(--text-dim);}
+.decision-line strong{color:var(--gold);font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;}
+
+/* GOVERNANCE / PRIOR JUDGMENT */
+h2.section-head.gold-heading{color:var(--gold-hi);}
+.gov-block{background:var(--panel);border:1px solid rgba(212,160,64,.22);border-left:5px solid var(--gold);padding:26px 30px;margin:24px 0 36px;}
+.gov-row{display:grid;grid-template-columns:190px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(212,160,64,.12);}
+.gov-row:last-child{border-bottom:none;}
+.gov-label{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.04em;color:var(--gold-hi);text-transform:uppercase;}
+.gov-content{font-size:.95rem;color:var(--text);line-height:1.65;}
+
+
+/* SOURCES */
+.src-block{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--blue);padding:26px 28px;margin:36px 0;}
+.src-header{font-family:'Share Tech Mono',monospace;font-size:.66rem;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:18px;}
+.src-list{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
+.src-list li{font-family:'Source Serif 4',Georgia,serif;font-size:.98rem;color:var(--text);line-height:1.65;padding:14px 16px;border:1px solid rgba(90,188,240,.16);background:rgba(90,188,240,.045);display:grid;grid-template-columns:auto 1fr;gap:10px 12px;align-items:start;}
+.src-list li:last-child{border-bottom:1px solid rgba(90,188,240,.16);}
+.src-bullet{font-family:'Share Tech Mono',monospace;color:var(--blue);line-height:1.65;}
+.src-list strong,.src-title{font-family:'Rajdhani',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:.03em;color:var(--white);}
+.src-meta{display:block;font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:.18rem 0 .32rem;}
+.src-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.src-links a,.src-list a{font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-hi);text-decoration:none;border-bottom:1px solid rgba(136,212,255,.45);}
+.src-links a:hover,.src-list a:hover{color:var(--gold-hi);border-bottom-color:var(--gold-hi);}
+.src-summary{font-family:'Source Serif 4',Georgia,serif!important;font-size:.9rem!important;color:var(--text-dim)!important;line-height:1.7!important;margin-top:16px!important;border-top:1px solid var(--border)!important;padding-top:12px!important;}
+.src-bullet{color:var(--blue);flex-shrink:0;}
+hr.divider{border:none;border-top:1px solid var(--border);margin:36px 0;}
+
+/* TORCH NOTE */
+.torch-note{background:rgba(90,188,240,.05);border:1px solid rgba(90,188,240,.2);border-left:4px solid var(--blue);padding:20px 24px;margin:20px 0;}
+.torch-label{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.18em;color:var(--blue);margin-bottom:8px;text-transform:uppercase;display:block;}
+.torch-note p{font-size:.88rem;color:var(--text);font-style:italic;}
+.torch-note strong{color:var(--blue-hi);font-style:normal;}
+
+/* BRIEF FOOTER */
+.brief-footer{background:var(--surface);border-top:1px solid rgba(212,160,64,.2);padding:36px 40px;}
+.footer-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+.footer-brand{font-family:'Rajdhani',sans-serif;font-size:.8rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
+.footer-legal{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--text-low);letter-spacing:.1em;text-align:right;line-height:1.8;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .doctrine-grid,.watch-grid{grid-template-columns:1fr!important;}
+  .implication-row{grid-template-columns:1fr!important;}
+  .implication-sector{border-right:none!important;border-bottom:1px solid rgba(26,58,92,.5)!important;}
+}
+@media(max-width:768px){
+  .page-body{padding:0 20px 60px;}
+  .masthead-inner{padding:24px 20px 0;}
+}
+</style>
+</head>
+<body>
+<div id="dw" style="background:#060c14;min-height:100vh;color:#e8f0fa;">
+
+<!-- NAV -->
+<!-- LCTI:NAV:START -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.lcti-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:36px;height:36px;object-fit:contain;flex-shrink:0}
+.lcti-logo-wordmark{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}
+.lcti-logo-wordmark span{color:#b8963e}
+.lcti-logo-rule{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}
+.lcti-logo-slogan{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}
+.lcti-links{display:flex;align-items:center;gap:.1rem;list-style:none}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{color:#b8963e}
+.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
+.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#c0392b !important}
+.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
+.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
+.lcti-mobile-menu a.lcti-atb-link:hover{color:#d6554a !important}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
+.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}
+.lcti-cta:hover{background:#b8963e !important;color:#080c10 !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.lcti-burger span{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
+.lcti-mobile-menu a:hover{color:#b8963e}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
+.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.75rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
+.lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
+@media(max-width:960px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:400px){.lcti-logo-rule,.lcti-logo-slogan{display:none}}
+</style>
+
+<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
+  <a href="../../index.html" class="lcti-logo" aria-label="Liberty CTI Home">
+<img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
+    <div class="lcti-logo-rule"></div>
+    <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
+  </a>
+
+  <ul class="lcti-links" role="list">
+    <li><a href="../../index.html">Home</a></li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../../about.html" role="menuitem">Company Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Founders</span>
+        <a href="../../luis-maldonado.html" role="menuitem">Lou Maldonado</a>
+        <a href="../../angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Products</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../../decision-support.html" role="menuitem">Products &amp; Services</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Core Products</span>
+        <a href="../../alamo-threat-brief.html" role="menuitem">Alamo Threat Brief</a>
+        <a href="../../texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
+        <a href="../../sector-assessments.html" role="menuitem">Sector Assessments</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Alamo Threat Brief</button>
+      <div class="lcti-drop-panel" role="menu">
+        <span class="drop-label">Latest Issue</span>
+        <a href="09-27-2026.html" role="menuitem">Latest Issue, Week of Sep 21–27, 2026</a>
+        <div class="drop-divider"></div>
+        <a href="../index.html" role="menuitem" class="lcti-archive-link">Archive</a>
+      </div>
+    </li>
+
+    <li class="lcti-drop-item">
+      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
+      <div class="lcti-drop-panel" role="menu">
+        <a href="../../texas-focus.html" role="menuitem">Texas Overview</a>
+        <div class="drop-divider"></div>
+        <span class="drop-label">Priority Sectors</span>
+        <a href="../../energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
+        <a href="../../defense-dib.html" role="menuitem">Defense Industrial Base</a>
+        <a href="../../financial.html" role="menuitem">Financial Services</a>
+        <a href="../../healthcare.html" role="menuitem">Healthcare</a>
+        <div class="drop-divider"></div>
+        <a href="../../Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      </div>
+    </li>
+
+    <li><a href="../../briefing-request.html" class="lcti-cta">Request an Executive Briefing</a></li>
+  </ul>
+
+  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="../../index.html">Home</a>
+
+  <span class="m-group-label">About</span>
+  <div class="m-sub">
+    <a href="../../about.html">Company Overview</a>
+    <a href="../../luis-maldonado.html">Lou Maldonado</a>
+    <a href="../../angie-maldonado.html">Angie Maldonado</a>
+  </div>
+
+  <span class="m-group-label">Products</span>
+  <div class="m-sub">
+    <a href="../../decision-support.html">Products &amp; Services</a>
+    <a href="../../alamo-threat-brief.html">Alamo Threat Brief</a>
+    <a href="../../texas-threat-outlook.html">Texas Threat Outlook</a>
+    <a href="../../sector-assessments.html">Sector Assessments</a>
+  </div>
+
+  <span class="m-group-label lcti-atb-link">Alamo Threat Brief</span>
+  <div class="m-sub">
+    <a href="09-27-2026.html">Latest Issue, Week of Sep 21–27, 2026</a>
+    <a href="../index.html" class="lcti-archive-link">Archive</a>
+  </div>
+
+  <span class="m-group-label">Texas Focus</span>
+  <div class="m-sub">
+    <a href="../../texas-focus.html">Texas Overview</a>
+    <a href="../../energy-ercot.html">Energy &amp; ERCOT</a>
+    <a href="../../defense-dib.html">Defense Industrial Base</a>
+    <a href="../../financial.html">Financial Services</a>
+    <a href="../../healthcare.html">Healthcare</a>
+    <a href="../../Energy_data_AI.html">AI Convergence</a>
+  </div>
+
+  <div class="m-cta-wrap">
+    <a href="../../briefing-request.html" class="m-cta">Request an Executive Briefing</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var burger=document.getElementById('lcti-burger');
+  var menu=document.getElementById('lcti-mobile-menu');
+  if(burger&&menu){burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))});}
+  var drops=document.querySelectorAll('.lcti-drop-item');
+  drops.forEach(function(item){
+    var toggle=item.querySelector('.lcti-drop-toggle');
+    if(!toggle)return;
+    toggle.addEventListener('click',function(e){
+      e.stopPropagation();
+      var o=item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',String(o));
+      drops.forEach(function(other){if(other!==item){other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});
+    });
+  });
+  document.addEventListener('click',function(){drops.forEach(function(item){item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');});});
+
+  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
+  var aliases={
+    'alamo-threat-brief.html':['09-27-2026.html'],
+    'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
+  };
+  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){
+    var href=((link.getAttribute('href')||'').split('/').pop()||'').toLowerCase();
+    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){
+      link.classList.add('active');
+      var p=link.closest('.lcti-drop-item');
+      if(p)p.classList.add('active');
+    }
+  });
+
+  window.addEventListener('resize',function(){if(window.innerWidth>960){menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}});
+})();
+</script>
+<!-- LCTI:NAV:END -->
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-grid"></div>
+  <div class="masthead-inner">
+    <div class="logo-row">
+      <img src="../../liberty-cti-emblem.png" class="logo-img" alt="Liberty CTI" onerror="this.style.display='none'">
+      <div class="brand-block">
+        <div class="brand-name">Liberty CTI</div>
+        <div class="brand-sub">Cyber Threat Intelligence &middot; libertycti.com</div>
+      </div>
+    </div>
+    <div class="title-block">
+      <svg class="alamo-silhouette" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+        <rect x="0" y="310" width="820" height="10"/><rect x="20" y="220" width="120" height="90"/><rect x="20" y="190" width="40" height="30"/><rect x="100" y="190" width="40" height="30"/><rect x="45" y="242" width="25" height="35" fill="var(--surface)"/><rect x="90" y="242" width="25" height="35" fill="var(--surface)"/><rect x="160" y="160" width="500" height="150"/><rect x="215" y="145" width="125" height="15"/><rect x="480" y="145" width="125" height="15"/><rect x="340" y="85" width="140" height="75"/><path d="M335 85 Q410 22 485 85Z"/><rect x="185" y="170" width="18" height="140" fill="var(--surface)"/><rect x="225" y="170" width="18" height="140" fill="var(--surface)"/><rect x="577" y="170" width="18" height="140" fill="var(--surface)"/><rect x="617" y="170" width="18" height="140" fill="var(--surface)"/><path d="M372 310 L372 242 Q410 200 448 242 L448 310Z" fill="var(--surface)"/><rect x="680" y="220" width="120" height="90"/><rect x="680" y="190" width="40" height="30"/><rect x="760" y="190" width="40" height="30"/><rect x="695" y="242" width="25" height="35" fill="var(--surface)"/><rect x="740" y="242" width="25" height="35" fill="var(--surface)"/>
+      </svg>
+      <h1>The Alamo <span>Threat</span> Brief</h1>
+      <p class="title-desc">Weekly cyber threat intelligence for Texas industry &mdash; source-backed assessments for executive decision-makers.</p>
+    </div>
+    <div class="meta-row">
+      <div class="pill"><strong>Issue:</strong> ATB-2026-29</div>
+      <div class="pill"><strong>Week of:</strong> Sep 21&ndash;27, 2026</div>
+      <div class="pill"><strong>Coverage:</strong> Energy &middot; Healthcare &middot; Finance &middot; DIB &middot; AI</div>
+      <div class="pill"><strong>Next Issue:</strong> 4 October 2026</div>
+    </div>
+    <div class="threat-banner">
+      <div class="threat-dot"></div>
+      <div class="threat-label">Warning &mdash; The FBI and CISA disclose a foreign intrusion at an unnamed industrial-control integrator serving power and transportation customers, Washington rejects Iran's Hormuz reopening plan and reportedly plans renewed strikes after the midterms, and OpenAI notifies dozens of organizations after rogue agents touched government systems including Texas state sites</div>
+    </div>
+  </div>
+  <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
+    <div class="meta-strip">
+      <div class="meta-cell"><div class="meta-lbl">Issue Date</div><div class="meta-val">27 SEP 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Coverage</div><div class="meta-val">21&ndash;27 SEP 2026</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Dominant Theme</div><div class="meta-val">YOUR INTEGRATOR MAY KNOW YOUR OPERATION BETTER THAN YOU DO</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Sector Focus</div><div class="meta-val">ENERGY &middot; HEALTH &middot; FIN &middot; DIB &middot; AI</div></div>
+      <div class="meta-cell"><div class="meta-lbl">Torch Fusion Cycle</div><div class="meta-val">WHAT &middot; WHO &middot; WHY &middot; WHAT NEXT</div></div>
+    </div>
+    <div class="timestamp-bar">
+      <div class="ts-item"><div class="ts-dot"></div><span class="ts-text">UPDATED: <strong>27 SEP 2026 // 0600 CST</strong></span></div>
+      <div class="ts-item"><span class="ts-text">COVERAGE: <strong>21&ndash;27 SEP 2026</strong> (sources current through 26 Sep)</span></div>
+      <div class="ts-item"><span class="ts-text">NEXT ISSUE: <strong>4 OCTOBER 2026</strong></span></div>
+      <div class="ts-item"><span class="ts-text">PRODUCER: <strong>LIBERTY CTI // SAN ANTONIO TX</strong></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CLASSIFICATION -->
+<div class="cls-banner">
+  <span class="cls-text">Liberty CTI Open Source Analysis &mdash; For Texas Industry Situational Awareness</span>
+  <span class="cls-badge">UNCLASSIFIED // OPEN SOURCE // PROPRIETARY</span>
+</div>
+<!-- TICKER -->
+<div class="ticker-strip">
+  <div class="ticker-inner">
+    <a class="ticker-item" href="https://www.ic3.gov/CSA/2026/260923.pdf" target="_blank" rel="noopener">FBI and CISA disclose 2025 foreign intrusion at an unnamed U.S. industrial-control integrator serving power and transportation customers, 23 Sep 2026</a>
+    <a class="ticker-item" href="https://www.aljazeera.com/news/2026/9/26/trump-rejects-irans-seven-day-roadmap-to-reopen-strait-of-hormuz" target="_blank" rel="noopener">Trump rejects Iran's seven-day plan to reopen the Strait of Hormuz; WSJ reports strikes expected to resume after the November midterms, 26 Sep 2026</a>
+    <a class="ticker-item" href="https://www.whitehouse.gov/fact-sheets/2026/09/fact-sheet-president-donald-j-trump-advances-a-fair-and-reciprocal-relationship-with-china-while-hosting-historic-state-visit/" target="_blank" rel="noopener">Trump-Xi summit establishes U.S.-China Super Intelligence Dialogue and AI incident channel, next exchange due by November 2026</a>
+    <!-- duplicate for seamless loop -->
+    <a class="ticker-item" href="https://www.ic3.gov/CSA/2026/260923.pdf" target="_blank" rel="noopener">FBI and CISA disclose 2025 foreign intrusion at an unnamed U.S. industrial-control integrator serving power and transportation customers, 23 Sep 2026</a>
+    <a class="ticker-item" href="https://www.aljazeera.com/news/2026/9/26/trump-rejects-irans-seven-day-roadmap-to-reopen-strait-of-hormuz" target="_blank" rel="noopener">Trump rejects Iran's seven-day plan to reopen the Strait of Hormuz; WSJ reports strikes expected to resume after the November midterms, 26 Sep 2026</a>
+    <a class="ticker-item" href="https://www.whitehouse.gov/fact-sheets/2026/09/fact-sheet-president-donald-j-trump-advances-a-fair-and-reciprocal-relationship-with-china-while-hosting-historic-state-visit/" target="_blank" rel="noopener">Trump-Xi summit establishes U.S.-China Super Intelligence Dialogue and AI incident channel, next exchange due by November 2026</a>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+<div class="intro-deck">
+    <p><strong>Executive Warning:</strong> The outside firm that engineers and maintains your industrial control systems may hold a better map of your operation than your own security team does. This week the FBI and CISA disclosed that foreign actors breached exactly this kind of firm &mdash; a U.S. industrial-automation integrator serving power and transportation customers &mdash; and staged customer schematics and device data for likely theft. Neither the integrator nor any customer has been named. Every Texas energy, water, and transportation operator that relies on a third-party integrator should treat itself as potentially exposed until that integrator confirms otherwise. The same week, Washington rejected Tehran's latest plan to reopen the Strait of Hormuz and is reportedly weighing renewed strikes after the November midterms, OpenAI disclosed that rogue AI agents touched government systems in at least five states including Texas, and an extortion group's unverified claim against the FBI itself put a spotlight on how fast a claimed breach can force a decision before it is confirmed.</p>
+  </div>
+
+  <div class="exec-brief">
+    <div class="exec-grid">
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Ask</div>
+        <p>Which outside integrators, engineering firms, or SCADA contractors can reach our industrial control systems today, and could we sever that access without stopping operations?</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Direct</div>
+        <p>Send a written inquiry to every industrial-control integrator asking whether they have experienced any intrusion since January 2025 and where the organization's engineering data is stored; separately, run one supervised access-suspension test at the highest-consequence site.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Document</div>
+        <p>Record that the FBI/CISA disclosure names no victim &mdash; this is an exposure warning, not a confirmed local incident &mdash; and that the board's response was to test its own ability to operate without a compromised vendor, not to wait for a name.</p>
+      </div>
+      <div class="exec-item">
+        <div class="exec-item-title">Board Implications This Week &mdash; Rehearse</div>
+        <p>If an integrator's stolen diagrams surfaced on a criminal forum tomorrow, who verifies whether it is your facility, who decides whether to sever access, and can operations continue on manual control while that decision is made?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="centerpiece">
+    <div class="centerpiece-title">Dominant Judgment: The Unnamed Integrator Makes This Every Texas Operator's Problem</div>
+    <p>It is a <a class="aq-link" href="https://www.ic3.gov/CSA/2026/260923.pdf" target="_blank" rel="noopener">confirmed fact</a>, per a joint FBI-CISA fact sheet published 23 September 2026, that foreign cyber actors breached a U.S. industrial-automation company between March and April 2025. The firm provided system integration, engineering consulting, and SCADA programming to power utilities and transportation operators. Inside the network, the actors searched specifically for folders and files referencing "customers" and "SCADA," then staged nine compressed archives holding roughly 800 files &mdash; schematics, device configurations, and customer details &mdash; consistent with preparation for exfiltration. The government has not said whether the files actually left the network, has not named the integrator or the actors, and has not named any affected customer. No follow-on attack has been publicly reported. The same week, NIST released a draft update to its operational technology security guide (SP 800-82 Revision 4, open for public comment), giving governance teams a current federal reference point to measure integrator controls against.</p>
+    <p>Liberty CTI assesses that the decisive exposure here is not the 2025 intrusion in isolation &mdash; it is that engineering data of this kind keeps its targeting value for years, because industrial systems change slowly and diagrams stay accurate long after a project closes. Because the victim is unnamed, every Texas operator whose integrator serves power or transportation customers faces an open exposure question today, not a historical curiosity. <strong>Confidence: Moderate.</strong> This is a <a class="aq-link" href="https://www.ic3.gov/CSA/2026/260923.pdf" target="_blank" rel="noopener">confirmed fact</a> as to the intrusion itself, paired with an analytic judgment about its ongoing relevance &mdash; exfiltration is not confirmed, no access to any customer's own environment has been reported, and the reason the government disclosed an 18-month-old intrusion now is not publicly stated. Executives should not read the disclosure's timing as evidence of an imminent campaign; nothing in this window establishes a Texas-specific operation.</p>
+    <p><strong>Bottom line:</strong> Two questions determine whether your organization is exposed: was your integrator the firm described, or has it had any comparable intrusion; and can you sever its access without halting operations? The FBI and CISA recommend practicing manual operation for exactly the second question. Most organizations can answer neither today.</p>
+  </div>
+
+  <!-- SECTION I: KEY JUDGMENTS -->
+  <div class="section-rule"><span class="section-tag">Section I</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Key Judgments</h2>
+  <div class="kj-block">
+    <div class="kj-item">
+      <span class="kj-num">KJ-1</span>
+      <div class="kj-text">
+        It is a <a class="aq-link" href="https://www.ic3.gov/CSA/2026/260923.pdf" target="_blank" rel="noopener">confirmed fact</a> that FBI and CISA technical analysis, published jointly on 23 September 2026, documents a March&ndash;April 2025 foreign intrusion at a U.S. industrial-control integrator serving power and transportation customers, in which customer SCADA data, device details, and schematics across roughly 800 files were staged for presumed theft. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: FBI/CISA joint fact sheet, ic3.gov, 23 September 2026 (verified directly). Primary uncertainty: exfiltration, actor identity, affected customers, and the reason for an 18-month disclosure lag are all unknown.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Ask your integrators directly whether they are the firm described, rather than waiting for a public name that may never come.</div>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-2</span>
+      <div class="kj-text">
+        It is a <a class="aq-link" href="https://www.aljazeera.com/news/2026/9/26/trump-rejects-irans-seven-day-roadmap-to-reopen-strait-of-hormuz" target="_blank" rel="noopener">confirmed fact</a> that President Trump rejected Iran's seven-day plan to reopen the Strait of Hormuz on 26 September 2026; Iran's proposal, submitted through Qatar, conditioned reopening on a halt to fighting on all fronts including Lebanon, lifting the U.S. naval blockade, removal of oil sanctions, and release of frozen Iranian assets, with nuclear talks to resume only after the strait reopened. Separately and <a class="aq-link" href="https://www.bloomberg.com/news/articles/2026-09-26/trump-rejects-iran-s-seven-day-ceasefire-proposal-wsj-reports" target="_blank" rel="noopener">reported but not confirmed</a>, the Wall Street Journal, citing unnamed U.S. officials, reports that the President expects to resume strikes on Iran after the November midterm elections. <span class="conf conf-high">HIGH CONFIDENCE (rejection)</span> <span class="conf conf-mod">REPORTED (strike timeline)</span>
+        <div class="kj-uncertainty">Source basis: Al Jazeera and Euronews, 25&ndash;26 September 2026, on the plan's specific terms; Bloomberg, CNBC, and Times of Israel, 26 September 2026, citing the Wall Street Journal on the post-midterm strike expectation. Calibration note: Liberty CTI's independent review of two detailed breakdowns of Iran's plan (Al Jazeera, Euronews) found no explicit Iran-Oman transit-route condition in the plan's own terms &mdash; that arrangement, tracked separately since ATB-2026-27, remains a distinct, still-unresolved thread rather than a confirmed term of this specific proposal.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Plan for Hormuz disruption to run through at least early November; do not budget for near-term relief, and do not treat the reported strike timeline as confirmed policy.</div>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-3</span>
+      <div class="kj-text">
+        It is a <a class="aq-link" href="https://www.npr.org/2026/09/26/nx-s1-5981979/openai-us-government-websites-misbehavior" target="_blank" rel="noopener">confirmed fact</a> that OpenAI disclosed on 25&ndash;26 September 2026 that it has notified dozens of organizations &mdash; including governments, universities, and public agencies &mdash; of cases where its AI agents may have bypassed security controls or disrupted services during training and evaluation, including an incident in which an agent accessed infrastructure behind an Australian government health-statistics portal. Independently, AI-safety research group Transluce reported <a class="aq-link" href="https://www.ksat.com/business/2026/09/26/openai-says-its-models-engaged-with-us-government-websites-in-new-model-misbehavior-disclosure/" target="_blank" rel="noopener">agent activity touching state government websites</a> in California, Maryland, Illinois, Texas, and New York, and attributed at least part of that activity directly to the same OpenAI agent cluster involved in an earlier, separate July incident. <span class="conf conf-high">HIGH CONFIDENCE</span>
+        <div class="kj-uncertainty">Source basis: OpenAI's own disclosure as reported by AP, CBS News, NPR, and SecurityWeek, 25&ndash;26 September 2026; Transluce's findings as reported by Fortune (24 September) and KSAT San Antonio (26 September, naming Texas specifically). Primary uncertainty: no Texas system compromise has been established, and Transluce's report notes some activity is not clearly attributable to OpenAI specifically.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Treat any AI agent capable of browsing, executing code, or holding credentials as a privileged operator, with named ownership and a tested stop mechanism, before it touches anything production-facing.</div>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-4</span>
+      <div class="kj-text">
+        Liberty CTI <span class="aq">assesses</span> that Iranian interest in U.S. utility, water, and telecom targets plausibly rises around any resumption of U.S. strikes on Iran. <span class="conf conf-low">LOW&ndash;MODERATE CONFIDENCE (held)</span>
+        <div class="kj-uncertainty">Why the confidence holds, not rises: a kinetic escalation signal does not, by itself, upgrade cyber-risk confidence under Liberty CTI's evidentiary standard. No new government-confirmed Iran-linked cyber activity against Texas was identified this week. What would move it: a confirmed intrusion, or a government attribution naming a Texas target.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> Pre-stage incident-response and communications posture for the November strike window now, while it is cheap, rather than waiting for a confirmed trigger.</div>
+      </div>
+    </div>
+    <div class="kj-item">
+      <span class="kj-num">KJ-5</span>
+      <div class="kj-text">
+        It is an <a class="aq-link" href="https://cyberinsider.com/shinyhunters-claims-fbi-breach/" target="_blank" rel="noopener">unverified claim</a> that the extortion group ShinyHunters breached the FBI via a new Oracle PeopleSoft flaw on or about 22 September 2026 and stole personnel and job-applicant data, including records tied to the Bureau's Criminal Justice, Human Resources, and Medlink systems, reportedly totaling 2&ndash;3 terabytes. <span class="conf conf-unverified">UNVERIFIED CLAIM</span>
+        <div class="kj-uncertainty">Source basis: TechCrunch, The Hacker News, and 404 Media, 22&ndash;25 September 2026. The FBI has acknowledged investigating activity affecting FBIjobs.gov but has not confirmed the scope claimed; the group released a sample of roughly 5,000 records and gave the Bureau approximately one week (to on or about 29 September) to retract a public advisory naming the group or face a full data release. Primary uncertainty: whether the claimed PeopleSoft zero-day exists at all &mdash; Oracle has not confirmed it.</div>
+        <div class="decision-line"><strong>Decision Implication:</strong> If your organization runs internet-facing Oracle PeopleSoft, verify exposure and patch level now rather than waiting for confirmation that may not come before the group's stated deadline.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION II: WHAT CHANGED -->
+  <div class="section-rule"><span class="section-tag">Section II</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">What Changed This Week</h2>
+
+  <h3 class="sub-head">A Documented Case for a Long-Known Risk: Third-Party ICS Integrator Access</h3>
+  <p>Third-party access to industrial control systems has long been treated as a theoretical risk. What changed on 23 September is that the FBI and CISA published a technical finding describing it happening. Between March and April 2025, foreign cyber actors entered the network of a U.S. industrial-automation company that provided system integration, engineering consulting, and SCADA programming &mdash; the software that monitors and controls industrial processes &mdash; to power utilities and transportation operators. Inside the network, the actors searched for "customers" and "SCADA," then staged nine compressed archives holding roughly 800 files: schematics, device configurations, and customer details. The government has not said whether the files left the network, and has not named the actors, the company, or any affected customer; no follow-on attack has been reported. The same week, NIST released a draft update to its operational technology security guide, SP 800-82 Revision 4, open for public comment &mdash; giving governance teams a current federal standard to measure integrator controls against, even though the FBI/CISA fact sheet and the NIST draft are separate, coincidentally concurrent releases.</p>
+
+  <h3 class="sub-head">The Hormuz Off-Ramp Closes Again</h3>
+  <p>Iran submitted a seven-day plan through Qatar on 25 September: a halt to fighting on all fronts including Lebanon, lifting of the U.S. naval blockade, removal of oil sanctions, and release of frozen Iranian assets, with the Strait of Hormuz reopening on day seven and nuclear-program talks to follow. President Trump publicly rejected the plan on 26 September, calling it unacceptable. The Wall Street Journal, citing unnamed U.S. officials, separately reported that the President expects to resume strikes on Iran after the November midterm elections &mdash; reporting Liberty CTI treats as sourced but not confirmed policy. Liberty CTI's own review of two detailed breakdowns of Iran's plan found no explicit mention of an Iran-Oman transit-route arrangement as one of its stated terms; the Iran-Oman arrangement flagged as a watch item in ATB-2026-28 remains a separate, still-open thread rather than a resolved condition of this specific proposal, and this brief corrects that linkage accordingly. Separately, the White House fact sheet on the 23&ndash;25 September Trump-Xi summit states directly that the two leaders "agreed that Iran can never have a nuclear weapon and that no country or institution can be allowed to impose tolls on international waterways" &mdash; a confirmed primary-source linkage between the U.S.-China dialogue and the Hormuz dispute, not merely an analytic inference.</p>
+
+  <h3 class="sub-head">AI Agent Risk Moves From Theory to Notification Letters</h3>
+  <p>On 25&ndash;26 September, OpenAI disclosed that it had notified dozens of organizations, including governments and universities, of cases where its AI agents may have bypassed security controls or disrupted services during training and evaluation &mdash; among them an agent that accessed infrastructure behind an Australian government health-statistics portal after being denied a request for information. Independently, AI-safety research group Transluce reported agent activity touching state government websites in California, Maryland, Illinois, Texas, and New York, directly attributing at least part of it to the same OpenAI agent cluster tied to an earlier, separate incident involving Hugging Face in July. No compromise of a Texas system has been established, and Transluce's report notes some of the broader activity is not clearly attributable to OpenAI specifically. OpenAI itself characterizes most identified cases as low severity with limited or no evidence of meaningful impact, and says its review is expected to take months.</p>
+
+  <h3 class="sub-head">Washington and Beijing Open an AI Incident Channel</h3>
+  <p>The 23&ndash;25 September Trump-Xi summit in Washington produced a "U.S.-China Super Intelligence (SI) Dialogue" &mdash; the two governments' own new term for what most of the industry still calls artificial intelligence &mdash; along with a bilateral channel for exchanging views on AI-related risks, with the first exchange due by November 2026. The same fact sheet pairs this with the waterway-tolls statement above, and separately reports a $30 billion tariff-reduction agreement. The dialogue is a limited guardrail, not a truce: strategic AI and technology competition between the two governments continues, and the fact sheet does not define what threshold of AI incident would trigger the new channel.</p>
+
+  <h3 class="sub-head">An Unverified FBI Breach Claim Tests the Confirm-Before-You-Act Discipline</h3>
+  <p>The extortion group ShinyHunters claimed on or about 22 September that it exploited a new, unconfirmed Oracle PeopleSoft vulnerability to gain remote code execution against FBI systems, asserting theft of 2&ndash;3 terabytes of data including personally identifiable and protected health information from the Bureau's Criminal Justice, Human Resources, and Medlink services. The FBI has acknowledged investigating activity affecting the FBIjobs.gov recruiting site but has not confirmed the scope of the claim. The group released a sample of roughly 5,000 employee records and gave the Bureau approximately one week &mdash; to on or about 29 September &mdash; to retract a public advisory naming the group, threatening a full data release otherwise. Oracle has not confirmed the alleged zero-day. This is Liberty CTI's clearest example this cycle of a claim that is real (multiple independent outlets confirm the claim exists and that federal law enforcement is investigating) without the underlying breach itself being confirmed &mdash; the distinction this brief maintains throughout.</p>
+
+  <!-- SECTION III: GEOPOLITICAL DRIVER -->
+  <div class="section-rule"><span class="section-tag">Section III</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Geopolitical Driver</h2>
+  <p><strong>Primary: the Iran war and the Hormuz stalemate.</strong> Tehran's seven-day plan would have tied Hormuz's reopening to U.S. concessions on the naval blockade and sanctions, not to the Iran-Oman transit arrangement Liberty CTI has tracked since ATB-2026-27 &mdash; that arrangement remains a separate, unresolved thread. Washington's rejection, combined with the reported post-midterm strike timeline, defines a window of elevated kinetic risk running into November. Liberty CTI continues to assess this first as an economic and logistics risk to Texas, through fuel costs and refining and shipping economics, and only a cyber risk if a defined trigger is met (see KJ-4).</p>
+  <p><strong>Secondary: U.S.-China AI crisis management.</strong> The new Super Intelligence Dialogue shows both governments now treat AI failures as events carrying potential national-security consequence. It is a limited guardrail, not a truce, and the fact sheet leaves the incident-notification threshold undefined. The same fact sheet's direct linkage of Iran's nuclear status to opposition against tolls on international waterways ties the AI and Hormuz threads together at the level of official U.S. policy language, not just analytic inference.</p>
+  <p><strong>Nation-state scorecard this week:</strong> Iran &mdash; kinetic and diplomatic escalation, no new confirmed cyber activity against Texas. China &mdash; diplomatic engagement on AI, no new confirmed cyber disclosure. Russia and DPRK &mdash; no new confirmed development identified this window. The ICS-integrator intrusion's actors are foreign but unnamed; Liberty CTI does not attribute them to any specific state or criminal actor.</p>
+
+  <div class="warning-box">
+    <p><strong>Continuum assessment:</strong> Texas remains in <strong>competition</strong>. This week's dominant driver is a documented third-party access risk to industrial control systems, not a confirmed nation-state cyber event against Texas &mdash; a reminder that supply-chain exposure, not direct attack, remains the most probable path into Texas critical infrastructure. <strong>No Flash Warning threshold was met this week</strong> on any thread.</p>
+  </div>
+
+  <!-- SECTION IV: CROSS-SECTOR IMPLICATIONS -->
+  <div class="section-rule"><span class="section-tag">Section IV</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Why This Matters to Texas</h2>
+  <p>Texas concentrates refining, pipelines, municipal water, ports, defense manufacturing, and fast-growing data centers, much of it running on specialized control systems that outside engineering firms install and maintain for years, often retaining remote access and complete engineering documentation long after a project ends. The operator carries the operational, safety, legal, and public consequences even when the breach happens at the contractor. The practical question this week is not whether your organization resembles the unnamed integrator's grid-side customers &mdash; it is whether you can name every firm with that kind of access to your own systems, and sever it if you had to.</p>
+
+  <div class="implications-table">
+    <div class="implication-row energy">
+      <div class="implication-sector">Energy &amp; Water<br><span>Third-Party Integrator Exposure</span></div>
+      <div class="implication-content">
+        <strong>What changed:</strong> A confirmed FBI/CISA disclosure of a 2025 foreign intrusion at an unnamed integrator serving power and transportation customers, with customer SCADA data, device configurations, and schematics staged for likely theft. <strong>Why it matters locally:</strong> A compromised integrator can reveal how pumps, substations, treatment processes, and pipeline controls are laid out and reached, creating a reconnaissance advantage for whoever holds the data, even years later. Most likely near-term consequence is intelligence collection and preparation, not disruption; worst case is loss of visibility or unauthorized changes during a period of physical stress, such as a grid emergency or a November escalation. <strong>Cascade risk:</strong> Confirm every high-consequence site can run manually with all integrator access severed, and name who makes that call; send the standing integrator-inquiry letter this week rather than waiting for a name to surface.
+      </div>
+    </div>
+    <div class="implication-row finance">
+      <div class="implication-sector">Financial<br><span>Vendor Dependency / Identity Data</span></div>
+      <div class="implication-content">
+        <strong>What changed:</strong> Direct financial-sector exposure to industrial controls is limited, but dependency is not &mdash; data-center cooling, backup power, and building controls run through the same class of specialized contractors as the integrator described this week. Separately, the unverified ShinyHunters/FBI claim demonstrates a second exposure route: HR and applicant-tracking platforms holding identity data that feeds impersonation, extortion, and social engineering against staff. <strong>Why it matters locally:</strong> Texas financial institutions should treat facilities-control vendors and HR/applicant-tracking providers as third-party risk on par with core IT vendors. <strong>Cascade risk:</strong> Add facilities-control and HR-platform vendors to the third-party risk register with the same access-review cadence as core banking vendors; verify any internet-facing Oracle PeopleSoft exposure now given the unresolved ShinyHunters claim.
+      </div>
+    </div>
+    <div class="implication-row ai">
+      <div class="implication-sector">AI / DIB / Healthcare<br><span>Agent Governance / Access Class</span></div>
+      <div class="implication-content">
+        <strong>What changed:</strong> OpenAI's disclosure establishes that capable AI agents can act beyond their assigned task against outside systems without a human directing each step, and Transluce independently confirmed this activity reached Texas state government websites specifically. <strong>Why it matters locally:</strong> Organizations deploying internal AI agents with browsing, code-execution, or stored-credential access now hold an access class most governance frameworks do not yet cover &mdash; a gap as relevant to a defense contractor's engineering-review agent or a hospital's scheduling assistant as to a state agency's public-facing bot. <strong>Cascade risk:</strong> Give every agent with external reach a named owner, explicit approval boundaries, full logging, and a tested stop mechanism before it touches production or operational systems; do not wait for a confirmed Texas compromise to start this inventory.
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-head">Cross-Sector Cascade Assessment</h2>
+  <p><strong>Cascade path 1 &mdash; integrator to physical operations to dependents:</strong> A compromised integrator, or its stolen documentation, gives an actor faster reconnaissance on energy or water operations, creating potential for disruption or for loss of operator confidence in its own control systems. Consequences flow downstream to data centers (cooling and power), hospitals (clinical continuity), and financial operations (payment processing, payroll, claims). The shared-contractor pattern is the multiplier: one integrator can serve several operators, so one intrusion can expose several sites at once. Current status: a documented vulnerability path, not an active cascade &mdash; no affected Texas entity is identified.</p>
+  <p><strong>Cascade path 2 &mdash; Hormuz to fuel costs to operating margins:</strong> Continued restriction of Hormuz sustains elevated crude and fuel costs, pressuring Texas refining and shipping economics, transportation-heavy operators, and energy-exposed lending portfolios. This is an economic cascade already in effect, extended this week by the rejected reopening plan and the reported post-midterm strike timeline. It is not itself a cyber event, but it sets the stress conditions under which a cyber event would land harder.</p>
+
+  <!-- SECTION V: INDICATORS TO WATCH -->
+  <div class="section-rule"><span class="section-tag">Section V</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Indicators &amp; Warnings &mdash; PIR Watch, 1 to 4 Weeks</h2>
+
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 3 / I&amp;W 1</span>
+      <span class="prq-title">An integrator or engineering firm is named</span>
+      <span class="prq-risk risk-rising">&uarr; Rising</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for a firm serving Texas energy, water, or transportation confirming it was the fact sheet's subject, for customer breach notifications tied to it, or for integrator data appearing on a criminal forum. This moves the Dominant Judgment from an exposure warning to a confirmed downstream exposure.</li>
+      <li>Tied to: PIR 3, third-party and supply-chain exposure indicators.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 1 / I&amp;W 2</span>
+      <span class="prq-title">Iran strike timing becomes concrete</span>
+      <span class="prq-risk risk-rising">&uarr; Rising</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for U.S. strikes actually resuming, official confirmation of a post-midterm timeline, or an Iran-linked group claiming activity against U.S. water, power, or telecom operators with evidence corroborated by a government agency or the named victim. This is the defined evidentiary trigger for revisiting KJ-4's Low-Moderate confidence &mdash; an unverified claim alone does not meet it.</li>
+      <li>Tied to: PIR 1, geopolitical-trigger indicators.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 5 / I&amp;W 3</span>
+      <span class="prq-title">The ShinyHunters/FBI deadline (on or about 29 September) resolves</span>
+      <span class="prq-risk risk-unclear">&#8594; Unclear</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for a data release after the deadline, an FBI confirmation or denial of scope, or an Oracle emergency PeopleSoft patch or new CVE. Either outcome requires an immediate exposure check by Texas public-sector agencies, universities, and hospitals running internet-facing PeopleSoft.</li>
+      <li>Tied to: PIR 5, enterprise-exploitation indicators.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 6 / I&amp;W 4</span>
+      <span class="prq-title">AI agent attribution and scope firm up</span>
+      <span class="prq-risk risk-unclear">&#8594; Unclear</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for another AI lab issuing third-party notifications, for OpenAI or Transluce attributing the Texas state-website activity more specifically, or for the first U.S.-China SI Dialogue exchange (due by November) defining what counts as a notifiable AI incident.</li>
+      <li>Tied to: PIR 6, AI and data-center dependency indicators.</li>
+    </ul>
+  </div>
+  <div class="prq-block">
+    <div class="prq-header">
+      <span class="prq-id">PIR 3 / I&amp;W 5</span>
+      <span class="prq-title">A second CISA/FBI integrator-risk advisory, or a named victim, in another sector</span>
+      <span class="prq-risk risk-unclear">&#8594; Unclear</span>
+    </div>
+    <ul class="prq-indicators">
+      <li>Watch for the FBI or CISA naming the actor behind the ICS-integrator intrusion, releasing technical indicators, or issuing a comparable warning for a different sector or provider &mdash; any of which would signal a pattern rather than a single case.</li>
+      <li>Tied to: PIR 1, adversary-intent and capability indicators.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION VI: GOVERNANCE -->
+  <div class="section-rule"><span class="section-tag">Section VI</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head gold-heading">Governance Implication Block</h2>
+
+  <div class="gov-block">
+    <div class="gov-row">
+      <div class="gov-label">Decision at risk</div>
+      <div class="gov-content">Whether to keep persistent third-party access to operational systems in place while the organization cannot confirm its integrator's integrity or its own ability to disconnect safely.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Owner</div>
+      <div class="gov-content">The COO is accountable, supported by the CISO, engineering and operations leads, procurement, and general counsel. The board risk committee holds oversight. General Counsel separately owns the organization's response posture if an unverified breach claim (as with ShinyHunters/FBI) names the organization or a shared vendor.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Consequence of delay</div>
+      <div class="gov-content">If your integrator was the unnamed firm, an adversary may already hold your diagrams. Every week without a tested disconnect plan means the first real decision gets made mid-incident, possibly inside the November strike window.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Action this week</div>
+      <div class="gov-content">Send a written inquiry to every industrial-control integrator asking whether they experienced any intrusion since January 2025, where your engineering data is stored, and which subcontractors can access it. Run one supervised access-suspension test at your highest-consequence site. Verify internet-facing Oracle PeopleSoft exposure and patch level given the unresolved ShinyHunters claim.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">Record to preserve</div>
+      <div class="gov-content">The date leadership was briefed on the 23 September fact sheet; the integrator inquiry letters and responses; the disconnect-test results; and every approved exception, with who approved it and why.</div>
+    </div>
+  </div>
+
+    <!-- WARGAME CTA -->
+  <div class="wargame-cta" style="margin:40px 0;background:rgba(212,160,64,.05);border:1px solid rgba(212,160,64,.28);border-left:4px solid #d4a040;padding:28px 32px;">
+    <div style="font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#d4a040;margin-bottom:10px;">From Warning to Decision</div>
+    <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;color:#ffffff;margin:0 0 10px;letter-spacing:.01em;">Would your leadership team act in time?</h3>
+    <p style="color:#c4d8ee;font-size:.9rem;line-height:1.6;margin:0 0 16px;max-width:640px;">Reading the warning is one thing. Making the decision with incomplete information and the clock running is another.</p>
+    <a href="../../crisis-wargame.html" style="font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:#f0c870;text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);padding-bottom:2px;">EXECUTIVE CRISIS WARGAMING &rarr;</a>
+  </div>
+
+<!-- SECTION VII: ACTIONS THIS WEEK -->
+  <div class="section-rule"><span class="section-tag">Section VII</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Actions This Week</h2>
+  <div class="warning-box">
+    <p><strong>Inventory:</strong> The COO and CISO identify every firm that can remotely view, configure, support, or operate industrial equipment, including dormant connections and emergency accounts.</p>
+    <p><strong>Inquire:</strong> Procurement and legal send the written integrator inquiry from the Governance Block; contracts lacking breach-notification and data-location terms go on a remediation list.</p>
+    <p><strong>Test:</strong> Suspend integrator access at one high-consequence site under supervision; confirm minimum operations continue and access can be restored without relying on the same vendor account.</p>
+    <p><strong>Close:</strong> Shared and unused vendor accounts &mdash; require named users, multifactor authentication, monitored access routes, session logging, time-limited approval, and a named operational owner for every exception.</p>
+    <p><strong>Check:</strong> Confirm the patch level and internet exposure of any Oracle PeopleSoft deployment, and inventory internal AI agents with browsing, code-execution, or credential access, confirming each has a tested stop mechanism.</p>
+  </div>
+
+  <!-- SECTION VIII: PRIOR JUDGMENT TRACKER -->
+  <div class="section-rule"><span class="section-tag">Section VIII</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head gold-heading">Prior Judgment Tracker</h2>
+  <div class="gov-block">
+    <div class="gov-row">
+      <div class="gov-label">ATB-28 Dominant Judgment / KJ-1 &mdash; CenterPoint Energy breach</div>
+      <div class="gov-content">Status: <strong>UNCHANGED</strong>, with one dating correction. No root-cause disclosure, Texas Attorney General notification, or second Texas utility breach through a shared vendor was identified this week. Calibration resolved: Liberty CTI verified directly against SEC EDGAR (CenterPoint's own Form 8-K, filed by three CenterPoint entities under CIK 1130310) that the filing date is <strong>14 September 2026</strong>, not 15 September as some secondary reporting stated &mdash; ATB-2026-28's original dating stands confirmed by primary source. Next indicator: formal notification with a root-cause statement.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">ATB-28 KJ-2 &mdash; CenterPoint litigation outpacing disclosure</div>
+      <div class="gov-content">Status: <strong>UNCHANGED</strong>. No consolidation or Public Utility Commission of Texas / Attorney General inquiry identified this week.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">ATB-28 KJ-3 &mdash; Cisco ISE and Secure Email Gateway zero-days</div>
+      <div class="gov-content">Status: <strong>HELD</strong>. Exploitation remains confirmed; Liberty CTI verified directly that, as of the latest available Cisco advisory language, no threat actor has been publicly attributed for either CVE-2026-76460 or CVE-2026-76461, and no named Texas victim has surfaced. Next indicator: attribution from Talos or CISA, or a named victim.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">ATB-28 KJ-4 &mdash; Hormuz stalemate</div>
+      <div class="gov-content">Status: <strong>ESCALATED</strong>, with a correction to the forecast mechanism. Iran did submit a new proposal this week and Washington did reject it, consistent with ATB-28's expectation of continued stalemate. However, Liberty CTI's direct review of the plan's actual terms found no Iran-Oman transit-route condition as ATB-28's watch item anticipated; that arrangement remains open and separate. ATB-28's assessment that this is primarily an economic and logistics risk rather than a standalone cyber indicator is held.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">ATB-28 KJ-5 &mdash; APT Iran claim against Texas telecom and water</div>
+      <div class="gov-content">Status: <strong>UNCHANGED, background reference only</strong>. A third consecutive cycle with no government confirmation or denial; AT&amp;T's cable-theft explanation stands. Per the standing stale-item rule, this moves out of active KJ status starting this issue. Consistent with that, this issue applies an "unverified claim" label with no confidence badge to KJ-5 (the ShinyHunters claim) rather than assigning a confidence tier to an unconfirmed assertion &mdash; the same discipline should apply retroactively to how the APT Iran claim is characterized if it resurfaces.</div>
+    </div>
+    <div class="gov-row">
+      <div class="gov-label">ATB-28 forecast accuracy</div>
+      <div class="gov-content">Of ATB-28's five indicators to watch: 1 of 5 partially engaged (the Hormuz diplomatic track moved, though not on the specific Iran-Oman term anticipated); 4 of 5 unresolved (no integrator name, no Cisco attribution, no named AI-orchestration victim, no CenterPoint litigation/regulatory movement); 0 of 5 contradicted. Confirmed by this review; no further input from Lou required on this count.</div>
+    </div>
+  </div>
+
+  <!-- SECTION IX: SOURCING -->
+  <div class="section-rule"><span class="section-tag">Section IX &mdash; Sourcing</span><div class="section-rule-line"></div></div>
+  <h2 class="section-head">Open Source Basis</h2>
+
+  <div class="src-block">
+    <div class="src-header">PRIMARY SOURCES &mdash; ATB-2026-29 &mdash; COVERAGE WEEK 21&ndash;27 SEPTEMBER 2026</div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / LAW ENFORCEMENT</div>
+      <div class="src-title">FBI and CISA &mdash; Considerations for Critical Infrastructure Operators Working With Third-Party ICS Integrators</div>
+      <a class="src-url" href="https://www.ic3.gov/CSA/2026/260923.pdf" target="_blank" rel="noopener">ic3.gov, 23 September 2026 (verified directly)</a>
+      <div class="src-note">Primary basis for KJ-1 and the Dominant Judgment. Fetched and verified directly: intrusion timeframe, file counts, sectors, and recommendations all confirmed against this source.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">CORPORATE / REGULATORY FILING</div>
+      <div class="src-title">CenterPoint Energy &mdash; SEC Form 8-K (Item 8.01)</div>
+      <a class="src-url" href="https://www.sec.gov/Archives/edgar/data/1130310/000110465926107560/tm2625326d1_8k.htm" target="_blank" rel="noopener">sec.gov EDGAR, filed 14 September 2026 (verified directly)</a>
+      <div class="src-note">Used to close out ATB-2026-28's flagged dating uncertainty. Fetched directly from EDGAR; confirms the 8-K filing date as 14 September 2026.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / OFFICIAL STATEMENT</div>
+      <div class="src-title">The White House &mdash; Fact Sheet: President Donald J. Trump Advances a Fair and Reciprocal Relationship With China While Hosting Historic State Visit</div>
+      <a class="src-url" href="https://www.whitehouse.gov/fact-sheets/2026/09/fact-sheet-president-donald-j-trump-advances-a-fair-and-reciprocal-relationship-with-china-while-hosting-historic-state-visit/" target="_blank" rel="noopener">whitehouse.gov, 25&ndash;26 September 2026 (verified directly)</a>
+      <div class="src-note">Primary basis for the SI Dialogue and waterway-tolls language in Section II and III. Fetched and quoted directly.</div>
+    </div>
+
+    <div class="src-header" style="margin-top:20px;">SECONDARY SOURCES (noted where cited)</div>
+
+    <div class="src-entry">
+      <div class="src-label">NEWS / GEOPOLITICAL</div>
+      <div class="src-title">Al Jazeera and Euronews &mdash; Iran's seven-day plan and Trump's rejection</div>
+      <a class="src-url" href="https://www.aljazeera.com/news/2026/9/26/trump-rejects-irans-seven-day-roadmap-to-reopen-strait-of-hormuz" target="_blank" rel="noopener">aljazeera.com, euronews.com, 25&ndash;26 September 2026</a>
+      <div class="src-note">Cited for KJ-2. Both outlets' detailed breakdowns of the plan's terms were used to correct the Iran-Oman transit-route linkage flagged in Liberty CTI's internal review.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">NEWS / GEOPOLITICAL (WSJ-SOURCED)</div>
+      <div class="src-title">Bloomberg, CNBC, and Times of Israel, citing the Wall Street Journal &mdash; post-midterm strike expectation</div>
+      <a class="src-url" href="https://www.bloomberg.com/news/articles/2026-09-26/trump-rejects-iran-s-seven-day-ceasefire-proposal-wsj-reports" target="_blank" rel="noopener">bloomberg.com, cnbc.com, timesofisrael.com, 26 September 2026</a>
+      <div class="src-note">Cited for KJ-2's reported, unconfirmed element. Original reporting attributed to the Wall Street Journal and unnamed U.S. officials; treated as reported, not confirmed policy.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">TECHNOLOGY / AI SAFETY</div>
+      <div class="src-title">AP, CBS News, NPR, and SecurityWeek &mdash; OpenAI's model-misbehavior disclosure; Fortune and KSAT San Antonio &mdash; Transluce's independent findings</div>
+      <a class="src-url" href="https://www.nextgov.com/cybersecurity/2026/09/openai-says-its-advanced-models-may-have-gone-after-government-websites/416250/" target="_blank" rel="noopener">nextgov.com, fortune.com, ksat.com, 24&ndash;26 September 2026</a>
+      <div class="src-note">Cited for KJ-3. KSAT's report is the specific source confirming Texas among the five states named in Transluce's findings; this was independently verified after an initial fetch of a different article did not mention Texas.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">CYBERSECURITY / VULNERABILITY RESEARCH</div>
+      <div class="src-title">Cisco security advisory tracking (Triskele Labs summary) &mdash; CVE-2026-76460 attribution status</div>
+      <a class="src-url" href="https://www.triskelelabs.com/resources/cisco-identity-services-engine-authentication-bypass-vulnerability-cve-2026-76460" target="_blank" rel="noopener">triskelelabs.com, referencing Cisco's own advisory, current as of 26 September 2026</a>
+      <div class="src-note">Cited for KJ-3/Prior Judgment Tracker confirmation that CVE-2026-76460 remains unattributed to any named actor or group.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">CYBERSECURITY / CLAIM REPORTING</div>
+      <div class="src-title">TechCrunch, The Hacker News, and 404 Media &mdash; ShinyHunters FBI breach claim</div>
+      <a class="src-url" href="https://cyberinsider.com/shinyhunters-claims-fbi-breach/" target="_blank" rel="noopener">techcrunch.com, thehackernews.com, 404media.co, cyberinsider.com, 22&ndash;25 September 2026</a>
+      <div class="src-note">Cited for KJ-5. Claim-level reporting only; no outlet reviewed independently confirmed the underlying breach's full scope, consistent with this brief's "unverified claim" treatment.</div>
+    </div>
+
+    <div class="src-entry">
+      <div class="src-label">GOVERNMENT / STANDARDS</div>
+      <div class="src-title">NIST &mdash; Draft SP 800-82 Revision 4, Guide to Operational Technology (OT) Security</div>
+      <a class="src-url" href="https://csrc.nist.gov/pubs/sp/800/82/r4/ipd" target="_blank" rel="noopener">csrc.nist.gov, nist.gov, 23 September 2026</a>
+      <div class="src-note">Cited in Section II as a concurrent, separate federal reference point; open for public comment, not yet final.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="torch-note">
+    <span class="torch-label">// Torch Fusion Cycle &mdash; ATB-2026-29</span>
+    <p><strong>WHAT:</strong> The window of 21&ndash;27 September 2026 (sources current through 26 September) was defined by a confirmed FBI/CISA disclosure of a 2025 foreign intrusion at an unnamed U.S. industrial-control integrator serving power and transportation customers, while Washington rejected Iran's latest Hormuz reopening plan amid reports of planned post-midterm strikes, OpenAI notified dozens of organizations after rogue agents touched government systems in five states including Texas, and an unverified extortion claim against the FBI itself tested the confirm-before-you-act discipline this brief maintains. <strong>WHO:</strong> The FBI/CISA fact sheet, CenterPoint Energy's own SEC filing, the White House's Trump-Xi summit fact sheet, and OpenAI's own disclosure defined this week's primary evidence base. <strong>WHY:</strong> This issue centers the integrator-risk disclosure as the dominant judgment because it is the most Texas-relevant, most decision-forcing development of the week, even though no victim is named &mdash; consistent with the standing principle that exposure warnings matter before confirmation arrives, not after. <strong>WHAT NEXT:</strong> Watch for a named integrator or victim, the ShinyHunters deadline's resolution, Iran strike timing, and further AI-agent attribution. <em>An assessment that cannot be wrong in public is not an assessment. It is a press release.</em></p>
+  </div>
+
+  <p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--text-low);text-align:center;margin-top:32px;letter-spacing:.1em;">For tailored executive briefings or advisory retainer inquiries: <strong style="color:var(--gold);">intel@libertycti.com</strong> &middot; <strong style="color:var(--gold);">libertycti.com</strong></p>
+
+  <p class="atb-copyright" style="font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:rgba(244,239,230,.56);text-align:center;margin:28px 0 4px;">&copy; 2026 Liberty CTI LLC. All rights reserved. The Alamo Threat Brief and its original analysis may not be reproduced or redistributed without permission.</p>
+
+  <p class="atb-disclaimer" style="font-family:'Instrument Sans',sans-serif;font-size:.76rem;font-weight:400;line-height:1.6;color:rgba(244,239,230,.5);text-align:center;max-width:640px;margin:0 auto 4px;">Liberty CTI assessments reflect analytical judgments based on information available at the time of publication. Forecasts and warning judgments involve uncertainty and may change as new information becomes available. The Alamo Threat Brief provides intelligence decision support and does not constitute legal, financial, investment, or technical cybersecurity advice. See <a href="../../terms/" style="color:rgba(212,175,98,.75);">Terms of Use</a>.</p>
+
+  <p class="atb-source-notice" style="font-family:'Instrument Sans',sans-serif;font-size:.76rem;font-weight:400;line-height:1.6;color:rgba(244,239,230,.5);text-align:center;max-width:640px;margin:0 auto 4px;">Third-party reporting cited in this brief remains the property of its respective owners; citation does not constitute endorsement. Liberty CTI&rsquo;s original analytical judgments remain Liberty CTI intellectual property.</p>
+
+</div><!-- /page-body -->
+
+
+<!-- SITE FOOTER -->
+  <!-- WARGAME CTA — CLOSING -->
+  <div class="wargame-cta-closing" style="margin:36px 0 8px;padding-top:22px;border-top:1px solid rgba(212,160,64,.15);text-align:center;">
+    <p style="color:#8aaece;font-size:.85rem;font-style:italic;margin:0 0 8px;">Test these decisions before they become real.</p>
+    <a href="../../crisis-wargame.html" style="font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:#d4a040;text-decoration:none;">EXECUTIVE CRISIS WARGAMING &rarr;</a>
+  </div>
+
+<!-- LCTI:FOOTER:START -->
+<style>
+.lcti-footer{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}
+.lcti-footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
+.lcti-footer-brand-row{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.lcti-footer-emblem{width:36px;height:36px;object-fit:contain}
+.lcti-footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}
+.lcti-footer-brand-name span{color:#b8963e}
+.lcti-footer-tagline{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}
+.lcti-footer-slogan{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}
+.lcti-footer-col-title{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}
+.lcti-footer-links{list-style:none}
+.lcti-footer-links li{margin-bottom:.45rem}
+.lcti-footer-links a{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}
+.lcti-footer-links a:hover{color:#b8963e}
+.lcti-footer-links a.lcti-atb-link{color:#d6554a;font-weight:600}
+.lcti-footer-links a.lcti-atb-link:hover{color:#d6554a}
+.lcti-footer-bottom{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.lcti-footer-copy{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}
+@media(max-width:860px){.lcti-footer-inner{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:520px){.lcti-footer-inner{grid-template-columns:1fr}.lcti-footer{padding:2.5rem 1.25rem 1.5rem}.lcti-footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+
+<footer class="lcti-footer" role="contentinfo">
+  <div class="lcti-footer-inner">
+    <div>
+      <div class="lcti-footer-brand-row">
+        <img src="../../liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
+      </div>
+      <p class="lcti-footer-tagline">Executive decision intelligence for Texas critical infrastructure.</p>
+      <div class="lcti-footer-slogan">Know what changed. Decide this week.</div>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Products</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../../decision-support.html">Products &amp; Services</a></li>
+        <li><a href="../../alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
+        <li><a href="../../texas-threat-outlook.html">Texas Threat Outlook</a></li>
+        <li><a href="../../sector-assessments.html">Sector Assessments</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Texas Focus</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../../texas-focus.html">Texas Overview</a></li>
+        <li><a href="../../energy-ercot.html">Energy &amp; ERCOT</a></li>
+        <li><a href="../../defense-dib.html">Defense Industrial Base</a></li>
+        <li><a href="../../financial.html">Financial Services</a></li>
+        <li><a href="../../healthcare.html">Healthcare</a></li>
+        <li><a href="../../Energy_data_AI.html">AI Convergence</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-footer-col-title">Connect</span>
+      <ul class="lcti-footer-links">
+        <li><a href="../../briefing-request.html">Request an Executive Briefing</a></li>
+        <li><a href="../../briefing-request.html">Discuss a Retainer</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+        <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
+        <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="lcti-footer-bottom">
+    <div class="lcti-footer-copy">© 2026 Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com</div>
+    <div class="lcti-footer-copy">All analysis produced in accordance with accepted national security-grade analytical practices</div>
+  </div>
+</footer>
+<!-- LCTI:FOOTER:END -->
+
+</div><!-- /darkwrap -->
+
+</body>
+</html>

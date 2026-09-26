@@ -1,0 +1,17 @@
+{
+  "issue_number": "ATB-2026-18",
+  "issue_date": "2026-07-11",
+  "source_filename": "07-11-2026.html",
+  "source_hash": "16636bf3e17caab5ee655ad4d73a5860d77dcd509129360172fb25fafb7cfb5f",
+  "built_at": "2026-09-19T21:06:54.540797+00:00",
+  "docx_file": "ATB-2026-18_2026-07-11_CONFIRMED_CONFLICT_UNRESOLVED_COVERAGE.docx",
+  "pdf_file": "ATB-2026-18_2026-07-11_CONFIRMED_CONFLICT_UNRESOLVED_COVERAGE.pdf",
+  "html_file": "2026-07-11_source.html",
+  "qa_passed": true,
+  "qa_errors": [],
+  "qa_warnings": [],
+  "validation_warnings": [],
+  "title_raw": "The Alamo Threat Brief ATB-2026-18 | Week of July 5-11, 2026 | Liberty CTI",
+  "dominant_theme": "CONFIRMED CONFLICT, UNRESOLVED COVERAGE",
+  "coverage_period": "5–11 JULY 2026"
+}
