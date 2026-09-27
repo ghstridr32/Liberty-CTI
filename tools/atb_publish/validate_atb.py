@@ -7,6 +7,7 @@ for post-build comparison against the generated DOCX/PDF).
 """
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -35,6 +36,12 @@ def validate_issue(issue: dict, expected_issue_number: str | None = None) -> dic
 
     if not meta.get("title_raw") and not meta.get("brand_line"):
         warnings.append("No <title> or <h1> found for the issue.")
+
+    # Standing brand rule (see CLAUDE.md): "The Alamo Threat Brief" carries the
+    # trademark symbol in the <title> and masthead heading of every issue.
+    for label, text in (("<title>", meta.get("title_raw")), ("masthead <h1>", meta.get("brand_line"))):
+        if text and re.search(r"Alamo\s+Threat\s+Brief(?!\s*™)", text):
+            warnings.append(f'{label} has "Alamo Threat Brief" without the ™ symbol.')
 
     if not issue["blocks"]:
         errors.append("No content blocks extracted -- source HTML may be empty or unparseable.")

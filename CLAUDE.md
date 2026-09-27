@@ -48,6 +48,10 @@ To change the nav or footer, edit the templates inside `sync_components.py` and 
 - `atb-archive.html` — generated index; do not hand-edit (rebuilt by `update_atb_archive.py`).
 - Generating a new weekly ATB is handled by the `anthropic-skills:weekly-atb-generator` skill.
 
+### Standing rule: trademark symbol
+
+Every ATB issue writes **"The Alamo Threat Brief&trade;"** (™ immediately after "Brief") in two places: the `<title>` tag and the masthead heading (`<h1>The Alamo <span>Threat</span> Brief&trade;</h1>`). Apply it to every new issue and to its `atb/issues/`, `atb/<year>/<slug>/full.html`, and `index.html` copies before publishing, including when replacing an issue with a user-supplied draft that lacks it. Body text, nav/footer links, and the copyright/disclaimer lines do not need it; the footer already carries the trademark notice. `tools/atb_publish/validate_atb.py` warns when either placement is missing the ™.
+
 ## Deploy
 
 1. Make edits; run the build pipeline (or manually mirror to `dist/`).
