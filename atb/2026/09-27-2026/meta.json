@@ -6,7 +6,17 @@
     "year": 2026,
     "slug": "09-27-2026",
     "dominant_theme": "Your Integrator May Know Your Operation Better Than You Do",
-    "threat_banner": "Warning — The FBI and CISA disclose a foreign intrusion at an unnamed industrial-control integrator serving power and transportation customers, Washington rejects Iran's Hormuz reopening plan and reportedly plans renewed strikes after the midterms, and OpenAI notifies dozens of organizations after rogue agents touched government systems including Texas state sites",
+    "threat_banner": "Warning — The FBI and CISA disclose a foreign intrusion at an unnamed industrial-control integrator as a Texas Railroad Commissioner puts energy operators on cyber notice, Texas freezes data-center permitting, Kiteworks orders a precautionary shutdown on federal threat intelligence, and Washington rejects Iran's Hormuz reopening plan",
     "preview_url": "/atb/2026/09-27-2026/",
-    "full_url": "/atb/2026/09-27-2026/full.html"
+    "full_url": "/atb/2026/09-27-2026/full.html",
+    "tags": [
+        "Energy",
+        "OT",
+        "AI",
+        "Iran",
+        "Maritime",
+        "Texas"
+    ],
+    "data_tags": "latest weekly energy ot ot-ics ics iran hormuz maritime ai china criminal supply-chain water finance healthcare defense dib ercot oil-gas data-centers texas",
+    "sector": "all"
 }
