@@ -1781,14 +1781,14 @@ body [style*="Instrument Sans"]{
 .lcti-drop-item{position:relative}
 .lcti-drop-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}
 .lcti-drop-item.open .lcti-drop-panel{display:block}
-.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
+.lcti-drop-panel a{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.72);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}
 .lcti-drop-panel a:hover{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}
-.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
+.lcti-drop-panel .drop-label{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#d4af62;opacity:1;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}
 .lcti-drop-panel .drop-divider{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}
 .lcti-mobile-menu a.lcti-track-record-link{color:#5abcf0 !important}
 .lcti-mobile-menu a.lcti-track-record-link:hover{color:#7bcaf3 !important}
-.lcti-drop-panel a.lcti-archive-link{color:#8f3a32 !important}
-.lcti-drop-panel a.lcti-archive-link:hover{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}
+.lcti-drop-panel a.lcti-archive-link{color:#d0645a !important}
+.lcti-drop-panel a.lcti-archive-link:hover{color:#e07a70 !important;background:rgba(208,100,90,.08);border-left-color:#d0645a}
 .lcti-drop-panel a.lcti-track-record-link{color:#5abcf0 !important}
 .lcti-drop-panel a.lcti-track-record-link:hover{color:#7bcaf3 !important;background:rgba(90,188,240,.08);border-left-color:#5abcf0}
 .lcti-cta{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}
@@ -1800,12 +1800,15 @@ body [style*="Instrument Sans"]{
 .lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
 .lcti-mobile-menu.open{display:block}
-.lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
+.lcti-mobile-menu a{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.75);text-decoration:none;padding:.8rem 2rem;transition:color .18s}
 .lcti-mobile-menu a:hover{color:#b8963e}
-.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
-.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:.85}
-.lcti-mobile-menu a.lcti-archive-link{color:#8f3a32 !important}
-.lcti-mobile-menu a.lcti-archive-link:hover{color:#a94a40 !important}
+.lcti-mobile-menu .m-group-label{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#d4af62;opacity:1;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}
+.lcti-mobile-menu .m-sub a{padding-left:3rem;font-size:.8375rem;opacity:1}
+.lcti-mobile-menu a.lcti-archive-link{color:#d0645a !important}
+.lcti-mobile-menu a.lcti-archive-link:hover{color:#e07a70 !important}
+.lcti-mobile-menu .m-group-label.lcti-atb-link{color:#e06a5e !important}
+.lcti-drop-panel a.lcti-latest-link,.lcti-mobile-menu a.lcti-latest-link{color:#d4af62 !important}
+.lcti-drop-panel a.lcti-latest-link:hover,.lcti-mobile-menu a.lcti-latest-link:hover{color:#f0c870 !important}
 .lcti-mobile-menu .m-cta-wrap{padding:1rem 2rem 0}
 .lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.75rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}
 .lcti-mobile-menu .m-cta:hover{background:#b8963e;color:#080c10}
@@ -1828,7 +1831,7 @@ body [style*="Instrument Sans"]{
       <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
       <div class="lcti-drop-panel" role="menu">
         <span class="drop-label">Latest Issue</span>
-        <a href="atb/2026/09-27-2026/" role="menuitem">Latest Issue, Week of Sep 27, 2026</a>
+        <a href="atb/2026/09-27-2026/" role="menuitem" class="lcti-latest-link">Latest Issue, Week of Sep 27, 2026</a>
         <div class="drop-divider"></div>
         <a href="atb/calibration-record.html" role="menuitem" class="lcti-track-record-link">The Track Record</a>
         <a href="alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief (ATB)</a>
@@ -1889,7 +1892,7 @@ body [style*="Instrument Sans"]{
 
   <span class="m-group-label lcti-atb-link">Insights</span>
   <div class="m-sub">
-    <a href="atb/2026/09-27-2026/">Latest Issue, Week of Sep 27, 2026</a>
+    <a href="atb/2026/09-27-2026/" class="lcti-latest-link">Latest Issue, Week of Sep 27, 2026</a>
     <a href="atb/calibration-record.html" class="lcti-track-record-link">The Track Record</a>
     <a href="alamo-threat-brief.html">About the Alamo Threat Brief (ATB)</a>
     <a href="atb/index.html" class="lcti-archive-link">ATB Archive</a>
