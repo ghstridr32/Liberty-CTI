@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-19",
   "issue_date": "2026-07-18",
   "source_filename": "07-18-2026.html",
-  "source_hash": "906698b946fea290ff8715411fc8a638da5f88e6b23309ff18ed20b791bfa7ac",
-  "built_at": "2026-09-19T21:06:55.022178+00:00",
+  "source_hash": "0b106d3fd9ba23215c185c0d114e7c7c4f8513ba6ff3fc99e8dbd7d0b1c72277",
+  "built_at": "2026-09-27T14:00:23.079285+00:00",
   "docx_file": "ATB-2026-19_2026-07-18_BASIC_HYGIENE_IS_THE_BATTLESPACE.docx",
   "pdf_file": "ATB-2026-19_2026-07-18_BASIC_HYGIENE_IS_THE_BATTLESPACE.pdf",
   "html_file": "2026-07-18_source.html",
@@ -11,7 +11,7 @@
   "qa_errors": [],
   "qa_warnings": [],
   "validation_warnings": [],
-  "title_raw": "The Alamo Threat Brief ATB-2026-19 | Week of July 12-18, 2026 | Liberty CTI",
+  "title_raw": "The Alamo Threat Brief™ ATB-2026-19 | Week of July 12-18, 2026 | Liberty CTI",
   "dominant_theme": "BASIC HYGIENE IS THE BATTLESPACE",
   "coverage_period": "12–18 JULY 2026"
 }

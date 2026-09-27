@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-10",
   "issue_date": "2026-05-17",
   "source_filename": "05-17-2026.html",
-  "source_hash": "07c4cead9cb4af752bad0effa3fdaaee340fece223294943a81b8e6f114e2aff",
-  "built_at": "2026-09-19T21:06:51.094018+00:00",
+  "source_hash": "b62fa360d5e8db880d23151fa2ea82bc0927f9cafb46284998470cb7fa00b6b0",
+  "built_at": "2026-09-27T14:00:20.017658+00:00",
   "docx_file": "ATB-2026-10_2026-05-17_TEXAS_IS_THE_TARGET_SYSTEM.docx",
   "pdf_file": "ATB-2026-10_2026-05-17_TEXAS_IS_THE_TARGET_SYSTEM.pdf",
   "html_file": "2026-05-17_source.html",
@@ -11,7 +11,7 @@
   "qa_errors": [],
   "qa_warnings": [],
   "validation_warnings": [],
-  "title_raw": "The Alamo Threat Brief ATB-2026-10 | Week of May 10-16, 2026 | Liberty CTI",
+  "title_raw": "The Alamo Threat Brief™ ATB-2026-10 | Week of May 10-16, 2026 | Liberty CTI",
   "dominant_theme": "TEXAS IS THE TARGET SYSTEM",
   "coverage_period": "10–16 MAY 2026"
 }

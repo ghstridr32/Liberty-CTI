@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-17",
   "issue_date": "2026-07-04",
   "source_filename": "07-04-2026.html",
-  "source_hash": "206e6393b0b1911f1d967a795419414a0c9f1bbab08ea28fd961d75f6b2f05d6",
-  "built_at": "2026-09-19T21:06:54.096988+00:00",
+  "source_hash": "8bbbb3040681da18a1d7ca4a6273cd430c7d77d3abdfa0e1aa046538c5c6aa2f",
+  "built_at": "2026-09-27T14:00:22.300686+00:00",
   "docx_file": "ATB-2026-17_2026-07-04_DIVERGING_TRACKS_ONE_EXPOSURE.docx",
   "pdf_file": "ATB-2026-17_2026-07-04_DIVERGING_TRACKS_ONE_EXPOSURE.pdf",
   "html_file": "2026-07-04_source.html",
@@ -11,7 +11,7 @@
   "qa_errors": [],
   "qa_warnings": [],
   "validation_warnings": [],
-  "title_raw": "The Alamo Threat Brief ATB-2026-17 | Week of June 28-July 4, 2026 | Liberty CTI",
+  "title_raw": "The Alamo Threat Brief™ ATB-2026-17 | Week of June 28-July 4, 2026 | Liberty CTI",
   "dominant_theme": "DIVERGING TRACKS, ONE EXPOSURE",
   "coverage_period": "28 JUNE–4 JULY 2026"
 }

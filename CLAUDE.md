@@ -52,6 +52,15 @@ To change the nav or footer, edit the templates inside `sync_components.py` and 
 
 Every ATB issue writes **"The Alamo Threat Brief&trade;"** (™ immediately after "Brief") in two places: the `<title>` tag and the masthead heading (`<h1>The Alamo <span>Threat</span> Brief&trade;</h1>`). Apply it to every new issue and to its `atb/issues/`, `atb/<year>/<slug>/full.html`, and `index.html` copies before publishing, including when replacing an issue with a user-supplied draft that lacks it. Body text, nav/footer links, and the copyright/disclaimer lines do not need it; the footer already carries the trademark notice. `tools/atb_publish/validate_atb.py` warns when either placement is missing the ™.
 
+### Standing rule: keep the Word/PDF archive in sync
+
+`ATB Archive/<year>/ATB-<year>-NN/` holds a DOCX, PDF, and source-HTML copy of every issue, plus the year's master index. Whenever an issue's HTML changes (new issue, replaced content, or a sitewide edit such as the ™ rule), rebuild its companions in the same change and commit them alongside the HTML:
+
+- One issue: `python tools/atb_publish/publish_atb.py ATB-2026-NN --force`
+- Several or all issues: `python tools/atb_publish/archive_all.py` (rebuilds only issues whose source hash changed; add `--force` to rebuild everything)
+
+Both rebuild the master index. Check each issue's `meta.json` for `qa_passed: true`. Google Drive sync needs `GOOGLE_SERVICE_ACCOUNT_JSON`; pass `--no-drive` where it isn't configured and say that Drive was not synced. The scripts need `python-docx`, `reportlab`, `beautifulsoup4`, `lxml`, and `pypdf`.
+
 ## Deploy
 
 1. Make edits; run the build pipeline (or manually mirror to `dist/`).
