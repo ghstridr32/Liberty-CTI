@@ -28,8 +28,8 @@ CLOSING_RE = re.compile(
 )
 LOOSE_LINK_RE = re.compile(r'href="((?:\.\./)*)crisis-wargame\.html"')
 
-LINK_STYLE_PRIMARY = "font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:#f0c870;text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);padding-bottom:2px;"
-LINK_STYLE_CLOSING = "font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:#d4a040;text-decoration:none;"
+LINK_STYLE_PRIMARY = "font-family:'Share Tech Mono',monospace;font-size:.82rem;font-weight:700;letter-spacing:.1em;color:#ffd98a;text-decoration:none;border-bottom:1px solid rgba(255,217,138,.6);padding-bottom:3px;"
+LINK_STYLE_CLOSING = "font-family:'Share Tech Mono',monospace;font-size:.8rem;font-weight:700;letter-spacing:.1em;color:#ffd98a;text-decoration:none;border-bottom:1px solid rgba(255,217,138,.6);padding-bottom:3px;"
 LINK_TEXT = "EXECUTIVE INTELLIGENCE BASELINE + EXECUTIVE DECISION EXERCISE &rarr;"
 
 
@@ -37,7 +37,7 @@ def primary_block(prefix: str) -> str:
     return (
         '  <!-- READINESS CTA -->\n'
         '  <div class="readiness-cta" style="margin:40px 0;background:rgba(212,160,64,.05);border:1px solid rgba(212,160,64,.28);border-left:4px solid #d4a040;padding:28px 32px;">\n'
-        '    <div style="font-family:\'Share Tech Mono\',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#d4a040;margin-bottom:10px;">From Warning to Decision</div>\n'
+        '    <div style="font-family:\'Share Tech Mono\',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#f0c870;margin-bottom:10px;">From Warning to Decision</div>\n'
         '    <h3 style="font-family:\'Rajdhani\',sans-serif;font-size:1.3rem;font-weight:700;color:#ffffff;margin:0 0 10px;letter-spacing:.01em;">Test what this means for your organization.</h3>\n'
         '    <p style="color:#c4d8ee;font-size:.9rem;line-height:1.6;margin:0 0 16px;max-width:640px;">Reading the warning is one thing. Knowing whether your leadership would recognize it, decide in time, and document the call is another. Liberty CTI starts by establishing your decision environment, then tests it under pressure.</p>\n'
         f'    <a href="{prefix}decision-readiness.html" style="{LINK_STYLE_PRIMARY}">{LINK_TEXT}</a>\n'
@@ -49,7 +49,7 @@ def closing_block(prefix: str) -> str:
     return (
         '  <!-- READINESS CTA — CLOSING -->\n'
         '  <div class="readiness-cta-closing" style="margin:36px 0 8px;padding-top:22px;border-top:1px solid rgba(212,160,64,.15);text-align:center;">\n'
-        '    <p style="color:#8aaece;font-size:.85rem;font-style:italic;margin:0 0 8px;">Test what this means for your organization.</p>\n'
+        '    <p style="color:#c4d8ee;font-size:.95rem;font-style:italic;margin:0 0 10px;">Test what this means for your organization.</p>\n'
         f'    <a href="{prefix}decision-readiness.html" style="{LINK_STYLE_CLOSING}">{LINK_TEXT}</a>\n'
         '  </div>'
     )

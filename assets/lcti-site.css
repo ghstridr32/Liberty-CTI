@@ -15,8 +15,8 @@
   --ink:#1B2430;
   --muted:#4F5866;
   --gold:#AD8C47;
-  --gold-text:#7A5F28;      /* gold for small text on light (AA) */
-  --gold-on-dark:#CDB06F;   /* gold for small text on navy (AA) */
+  --gold-text:#6A511E;      /* gold for small text on light (AA) */
+  --gold-on-dark:#DCC285;   /* gold for small text on navy (AA) */
   --rule:#DED8CA;
   --rule-dark:rgba(205,176,111,.28);
   --on-dark:#F6F3EA;
@@ -60,7 +60,7 @@ ul,ol{margin:0;padding:0}
 @media(max-width:640px){.wrap{padding:0 16px}.section{padding:64px 0}.section--tight{padding:48px 0}.grid-2,.grid-4{grid-template-columns:1fr}}
 
 /* ---------- type ---------- */
-.kicker{display:flex;align-items:center;gap:.75rem;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin:0 0 1.25rem}
+.kicker{display:flex;align-items:center;gap:.75rem;font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-text);margin:0 0 1.25rem}
 .kicker::before{content:'';width:28px;height:1px;background:var(--gold);flex-shrink:0}
 .kicker--plain::before{display:none}
 .section--dark .kicker{color:var(--gold-on-dark)}
@@ -99,8 +99,8 @@ h3{font-size:1.2rem;line-height:1.35}
 .btn:hover{background:var(--navy-2);color:var(--white);border-color:var(--gold)}
 .btn--ghost{background:transparent;color:var(--navy)}
 .btn--ghost:hover{background:var(--navy);color:var(--on-dark)}
-.section--dark .btn,.btn--gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
-.section--dark .btn:hover,.btn--gold:hover{background:#C3A15A;border-color:#C3A15A;color:var(--navy)}
+.section--dark .btn,.btn--gold{background:#C9A862;border-color:#C9A862;color:var(--navy);font-weight:700}
+.section--dark .btn:hover,.btn--gold:hover{background:#D8BB78;border-color:#D8BB78;color:var(--navy)}
 .section--dark .btn--ghost{background:transparent;color:var(--on-dark);border-color:rgba(246,243,234,.45)}
 .section--dark .btn--ghost:hover{border-color:var(--gold);color:var(--gold-on-dark);background:transparent}
 .link-arrow{font-family:var(--sans);font-size:.88rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px}
