@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-2",
   "issue_date": "2026-03-22",
   "source_filename": "03-22-2026.html",
-  "source_hash": "36f219f632acfaf8a393bc754de3072db3f73eb5610bcc021b076e62e24311f6",
-  "built_at": "2026-09-19T21:06:47.601756+00:00",
+  "source_hash": "860e3b06fd236251f1071b35fe493896aa943b9014c2f339d141e042bce8d7fc",
+  "built_at": "2026-09-27T14:00:17.233142+00:00",
   "docx_file": "ATB-2026-2_2026-03-22_Issue.docx",
   "pdf_file": "ATB-2026-2_2026-03-22_Issue.pdf",
   "html_file": "2026-03-22_source.html",
@@ -14,7 +14,7 @@
     "No coverage period found (neither meta-cell 'Coverage' nor 'Week of' pill).",
     "No sources section detected (no source_list or intel_card blocks)."
   ],
-  "title_raw": "Alamo Threat Brief | 22 March 2026 | Liberty CTI",
+  "title_raw": "Alamo Threat Brief™ | 22 March 2026 | Liberty CTI",
   "dominant_theme": null,
   "coverage_period": null
 }

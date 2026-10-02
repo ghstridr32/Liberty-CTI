@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-7",
   "issue_date": "2026-04-26",
   "source_filename": "04-26-2026.html",
-  "source_hash": "7fa3f3ed26cb50f6cb487fa120f4bff471cb9eb0cdccaf6e5bf4c5d84effd6f9",
-  "built_at": "2026-09-19T21:06:49.797745+00:00",
+  "source_hash": "7a1954bfb878cd8b907063e93cf7f89b6356aef25c3d55b3ac720ed0c950216a",
+  "built_at": "2026-09-27T14:00:19.019644+00:00",
   "docx_file": "ATB-2026-7_2026-04-26_TEXAS_AS_STRATEGIC_CYBER_TERRAIN.docx",
   "pdf_file": "ATB-2026-7_2026-04-26_TEXAS_AS_STRATEGIC_CYBER_TERRAIN.pdf",
   "html_file": "2026-04-26_source.html",
@@ -11,7 +11,7 @@
   "qa_errors": [],
   "qa_warnings": [],
   "validation_warnings": [],
-  "title_raw": "The Alamo Threat Brief ATB-2026-7 | Week of April 19-25, 2026 | Liberty CTI",
+  "title_raw": "The Alamo Threat Brief™ ATB-2026-7 | Week of April 19-25, 2026 | Liberty CTI",
   "dominant_theme": "TEXAS AS STRATEGIC CYBER TERRAIN",
   "coverage_period": "19–25 APR 2026"
 }

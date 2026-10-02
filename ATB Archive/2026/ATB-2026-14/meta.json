@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-14",
   "issue_date": "2026-06-14",
   "source_filename": "06-14-2026.html",
-  "source_hash": "f723eab908347efa82cebd38ac1a81189d4e6f6dbf85f51114339ade93ca062e",
-  "built_at": "2026-09-19T21:06:52.720999+00:00",
+  "source_hash": "31c9fd5031f7875e1db9c2f74162a72355a4b37592031d8c41f73d0e3d5a7b0a",
+  "built_at": "2026-09-27T14:00:21.310095+00:00",
   "docx_file": "ATB-2026-14_2026-06-14_RETALIATION_CAMPAIGN_CONFIRMED_ACTIVE.docx",
   "pdf_file": "ATB-2026-14_2026-06-14_RETALIATION_CAMPAIGN_CONFIRMED_ACTIVE.pdf",
   "html_file": "2026-06-14_source.html",
@@ -11,7 +11,7 @@
   "qa_errors": [],
   "qa_warnings": [],
   "validation_warnings": [],
-  "title_raw": "The Alamo Threat Brief ATB-2026-14 | Week of June 7-13, 2026 | Liberty CTI",
+  "title_raw": "The Alamo Threat Brief™ ATB-2026-14 | Week of June 7-13, 2026 | Liberty CTI",
   "dominant_theme": "RETALIATION CAMPAIGN CONFIRMED ACTIVE",
   "coverage_period": "7–13 JUN 2026"
 }

@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-4",
   "issue_date": "2026-04-03",
   "source_filename": "04-03-2026.html",
-  "source_hash": "900b2121ddbeb3e4696740bd1fe4dbd98a035736adbe1aca6024a5b805464a2b",
-  "built_at": "2026-09-19T21:06:48.214559+00:00",
+  "source_hash": "a58c3fb52ad04fee0992d03180cfe0d70d116de24adf5048244548b75b1c1050",
+  "built_at": "2026-09-27T14:00:17.788934+00:00",
   "docx_file": "ATB-2026-4_2026-04-03_Issue.docx",
   "pdf_file": "ATB-2026-4_2026-04-03_Issue.pdf",
   "html_file": "2026-04-03_source.html",
@@ -11,7 +11,7 @@
   "qa_errors": [],
   "qa_warnings": [],
   "validation_warnings": [],
-  "title_raw": "Alamo Threat Brief — ATB-2026-4 | Liberty CTI",
+  "title_raw": "Alamo Threat Brief™ — ATB-2026-4 | Liberty CTI",
   "dominant_theme": null,
   "coverage_period": "28 MAR – 03 APR 2026"
 }
