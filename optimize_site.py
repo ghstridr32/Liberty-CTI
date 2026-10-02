@@ -21,6 +21,8 @@ BASE_URL = "https://libertycti.com"
 PUBLIC_PAGES = [
     "index.html",
     "about.html",
+    "decision-readiness.html",
+    "executive-decision-exercise.html",
     "decision-support.html",
     "alamo-threat-brief.html",
     "texas-threat-outlook.html",
@@ -39,20 +41,22 @@ PUBLIC_PAGES = [
 ]
 
 DESCRIPTIONS = {
-    "index.html": "Executive decision intelligence for Texas critical infrastructure leaders who need to know what changed, why it matters, and what to do this week.",
+    "index.html": "We tell leaders what is changing, why it matters, and what to do before it hits. Strategic Cyber Intelligence and executive decision support for Texas critical infrastructure.",
     "about.html": "Learn how Liberty CTI supports Texas executives with warning intelligence, operational context, and decision-ready analysis.",
-    "decision-support.html": "Explore Liberty CTI products and services, from the Alamo Threat Brief to executive briefings and intelligence retainers.",
+    "decision-readiness.html": "Liberty CTI's paid entry engagement: an Executive Intelligence Baseline paired with a facilitated Executive Decision Exercise that shows where your decision process is today and what should change next.",
+    "executive-decision-exercise.html": "A 90-minute facilitated exercise that tests leadership authorities, escalation, dependencies, communications, and documentation under pressure, built on the client's Executive Intelligence Baseline.",
+    "decision-support.html": "How Liberty CTI advises Texas leaders: Strategic Cyber Intelligence, the five-level Executive Decision Maturity model, and a paired Baseline + Exercise engagement.",
     "alamo-threat-brief.html": "The Alamo Threat Brief delivers weekly executive warning intelligence for Texas critical infrastructure leaders.",
-    "texas-threat-outlook.html": "Liberty CTI's Texas Threat Outlook tracks cyber risks, sector exposure, and decision points for Texas organizations.",
-    "sector-assessments.html": "Explore Liberty CTI sector assessments for energy, defense, financial services, healthcare, and AI-enabled operations.",
+    "texas-threat-outlook.html": "Liberty CTI's Texas Cyber Threat Outlook is the annual strategic frame for where cyber and geopolitical risk is moving across Texas critical infrastructure.",
+    "sector-assessments.html": "Strategic Exposure Assessments are focused follow-on work when a Liberty CTI Baseline + Exercise reveals a dependency, adversary, or cascade path that needs deeper analysis.",
     "texas-focus.html": "Liberty CTI focuses on the cyber threat environment affecting Texas infrastructure, industry, and public-sector decision makers.",
     "energy-ercot.html": "Cyber threat intelligence and decision advantage for Texas energy, ERCOT-adjacent operations, and critical infrastructure leaders.",
     "defense-dib.html": "Decision-ready warning intelligence for defense industrial base organizations and national security suppliers.",
     "financial.html": "Cyber threat intelligence for financial services leaders managing fraud, disruption, ransomware, and operational risk.",
     "healthcare.html": "Cyber threat intelligence for healthcare leaders protecting patient care, clinical operations, and sensitive data.",
     "Energy_data_AI.html": "Liberty CTI analyzes the convergence of energy, data, AI, and cyber risk for executive decision makers.",
-    "briefing-request.html": "Request an executive briefing, rapid threat assessment, or intelligence retainer from Liberty CTI.",
-    "contact.html": "Contact Liberty CTI for executive decision intelligence, briefings, and retainers.",
+    "briefing-request.html": "Start a conversation with Liberty CTI about the decision in front of your leadership team and whether a Decision Readiness Engagement is the right first step.",
+    "contact.html": "Contact Liberty CTI, Strategic Cyber Intelligence and executive decision support for Texas critical infrastructure.",
     "luis-maldonado.html": "Learn about Lou Maldonado, Liberty CTI co-founder and executive intelligence leader.",
     "angie-maldonado.html": "Learn about Angie Maldonado, Liberty CTI co-founder and national security intelligence leader.",
     "thank-you.html": "Liberty CTI has received your request and will follow up through the appropriate channel.",
@@ -75,6 +79,7 @@ LINK_REPLACEMENTS = {
     "request-briefing.html": "briefing-request.html",
     "threat-brief.html": "alamo-threat-brief.html",
     "intelligence.html": "decision-support.html",
+    "crisis-wargame.html": "executive-decision-exercise.html",
 }
 
 
@@ -1052,7 +1057,19 @@ body [style*="Instrument Sans"]{
 </style>"""
 
 
+def is_institutional(content: str) -> bool:
+    """Pages on the light institutional system (assets/lcti-site.css) opt out of
+    the legacy dark-theme legibility override, which forces light text colors."""
+    return 'data-lcti-theme="institutional"' in content[:600]
+
+
 def add_skip_link(content: str) -> str:
+    if is_institutional(content):
+        content = re.sub(r"\s*<style id=\"lcti-stat-legibility\">.*?</style>", "", content, count=1, flags=re.I | re.S)
+        content = re.sub(r"\s*<style id=\"lcti-accessibility\">.*?</style>", "", content, count=1, flags=re.I | re.S)
+        if "class=\"skip-link\"" not in content:
+            content = re.sub(r"(<body[^>]*>)", r'\1\n<a class="skip-link" href="#main-content">Skip to content</a>', content, count=1, flags=re.I)
+        return content
     if "id=\"lcti-accessibility\"" not in content:
         content = re.sub(r"</head>", SKIP_STYLE + "\n</head>", content, count=1, flags=re.I)
     content = apply_legibility_style(content)
@@ -1076,7 +1093,7 @@ def add_skip_link(content: str) -> str:
 
 
 def apply_legibility_style(content: str) -> str:
-    if not re.search(r"</head>", content, re.I):
+    if not re.search(r"</head>", content, re.I) or is_institutional(content):
         return content
     if "id=\"lcti-stat-legibility\"" in content:
         return re.sub(

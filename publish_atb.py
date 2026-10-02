@@ -176,20 +176,23 @@ def normalize_nav_label(html: str, new_label: str) -> str:
     )
 
 
-WARGAME_CTA_PRIMARY = '''  <!-- WARGAME CTA -->
-  <div class="wargame-cta" style="margin:40px 0;background:rgba(212,160,64,.05);border:1px solid rgba(212,160,64,.28);border-left:4px solid #d4a040;padding:28px 32px;">
+# Paid-entry CTA inserted into every new issue (same markup as
+# tools/atb_publish/migrate_readiness_cta.py). Hrefs are written at atb/issues/
+# depth (../../); make_deep_html fixes the depth for the atb/YEAR/SLUG/ copy.
+WARGAME_CTA_PRIMARY = '''  <!-- READINESS CTA -->
+  <div class="readiness-cta" style="margin:40px 0;background:rgba(212,160,64,.05);border:1px solid rgba(212,160,64,.28);border-left:4px solid #d4a040;padding:28px 32px;">
     <div style="font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#d4a040;margin-bottom:10px;">From Warning to Decision</div>
-    <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;color:#ffffff;margin:0 0 10px;letter-spacing:.01em;">Would your leadership team act in time?</h3>
-    <p style="color:#c4d8ee;font-size:.9rem;line-height:1.6;margin:0 0 16px;max-width:640px;">Reading the warning is one thing. Making the decision with incomplete information and the clock running is another.</p>
-    <a href="../../crisis-wargame.html" style="font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:#f0c870;text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);padding-bottom:2px;">EXECUTIVE CRISIS WARGAMING &rarr;</a>
+    <h3 style="font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:700;color:#ffffff;margin:0 0 10px;letter-spacing:.01em;">Test what this means for your organization.</h3>
+    <p style="color:#c4d8ee;font-size:.9rem;line-height:1.6;margin:0 0 16px;max-width:640px;">Reading the warning is one thing. Knowing whether your leadership would recognize it, decide in time, and document the call is another. Liberty CTI starts by establishing your decision environment, then tests it under pressure.</p>
+    <a href="../../decision-readiness.html" style="font-family:'Share Tech Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:#f0c870;text-decoration:none;border-bottom:1px solid rgba(212,160,64,.4);padding-bottom:2px;">EXECUTIVE INTELLIGENCE BASELINE + EXECUTIVE DECISION EXERCISE &rarr;</a>
   </div>
 
 '''
 
-WARGAME_CTA_CLOSING = '''  <!-- WARGAME CTA — CLOSING -->
-  <div class="wargame-cta-closing" style="margin:36px 0 8px;padding-top:22px;border-top:1px solid rgba(212,160,64,.15);text-align:center;">
-    <p style="color:#8aaece;font-size:.85rem;font-style:italic;margin:0 0 8px;">Test these decisions before they become real.</p>
-    <a href="../../crisis-wargame.html" style="font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:#d4a040;text-decoration:none;">EXECUTIVE CRISIS WARGAMING &rarr;</a>
+WARGAME_CTA_CLOSING = '''  <!-- READINESS CTA — CLOSING -->
+  <div class="readiness-cta-closing" style="margin:36px 0 8px;padding-top:22px;border-top:1px solid rgba(212,160,64,.15);text-align:center;">
+    <p style="color:#8aaece;font-size:.85rem;font-style:italic;margin:0 0 8px;">Test what this means for your organization.</p>
+    <a href="../../decision-readiness.html" style="font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:#d4a040;text-decoration:none;">EXECUTIVE INTELLIGENCE BASELINE + EXECUTIVE DECISION EXERCISE &rarr;</a>
   </div>
 
 '''
@@ -243,7 +246,7 @@ def insert_atb_copyright(src: str, year: str) -> str:
 
 
 def insert_wargame_cta(src: str) -> str:
-    """Insert the Executive Crisis Wargame CTA at the Decision-Impact -> Action
+    """Insert the Decision Readiness (Baseline + Exercise) CTA at the Decision-Impact -> Action
     transition (before 'Actions This Week'), and a quieter closing CTA at the
     end of the brief (before the site footer). Hrefs are written at atb/issues/
     depth (../../) — make_deep_html's generic href depth-fix rewrites them for

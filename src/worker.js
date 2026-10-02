@@ -3,9 +3,24 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
 const FULL_BRIEF_RE = /^\/atb\/2026\/\d{2}-\d{2}-\d{4}\/full(?:\.html)?\/?$/;
 const CANONICAL_ISSUE_RE = /^\/atb\/issues\/(\d{2}-\d{2}-(\d{4}))(?:\.html)?\/?$/;
 
+// Retired URLs kept alive with permanent redirects so existing links do not break.
+// These paths have no asset in dist/, so the request falls through to the Worker.
+const PERMANENT_REDIRECTS = {
+  "/crisis-wargame.html": "/executive-decision-exercise.html",
+  "/crisis-wargame": "/executive-decision-exercise.html",
+};
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    const moved = PERMANENT_REDIRECTS[url.pathname];
+    if (moved && (request.method === "GET" || request.method === "HEAD")) {
+      return new Response(null, {
+        status: 301,
+        headers: { Location: moved + url.search, "Cache-Control": "public, max-age=86400" },
+      });
+    }
 
     if (request.method === "POST" && url.pathname === "/api/atb/register") {
       return handleRegister(request, env, ctx);
@@ -71,9 +86,6 @@ async function handleRegister(request, env, ctx) {
   }
   if (!isEmail(email)) {
     return problem(request, "Enter a valid work email address.", 400, { field: "email" });
-  }
-  if (!organization) {
-    return problem(request, "Enter your organization.", 400, { field: "organization" });
   }
   if (!consent) {
     return problem(request, "Confirm the access terms to continue.", 400, { field: "consent" });

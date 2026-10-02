@@ -41,6 +41,14 @@ Nav and footer are **generated, not hand-edited**. Every managed page contains:
 
 To change the nav or footer, edit the templates inside `sync_components.py` and re-run it — do not edit the rendered nav/footer in individual pages (it will be overwritten on the next sync). Page-specific content lives outside the sentinels.
 
+Two more generated blocks: `<!-- LCTI:RECENT-ISSUES:START/END -->` (homepage) and `<!-- LCTI:LATEST-ATB:START/END -->` (latest-issue card). The **only** source for "latest ATB" (issue number, date, title, link) is the newest `atb/issues/MM-DD-YYYY.html` plus its `atb/<year>/<slug>/meta.json`; `sync_components.py` renders every latest reference from it and writes `assets/atb-latest.json`. Never hard-code a latest-issue label in page copy.
+
+## Positioning and design system
+
+- One paid entry point: the **Executive Decision Readiness Engagement** (Executive Intelligence Baseline + Executive Decision Exercise, sold together) at `decision-readiness.html`. Paid CTAs route there (`briefing-request.html?service=readiness`). Strategic Exposure Assessment, briefings, and crisis support are follow-on; Standing Intelligence Advisory is "Sustain". Do not add them to the main nav.
+- Corporate pages are light institutional and use `assets/lcti-site.css`; they carry `<html data-lcti-theme="institutional">`, which makes `optimize_site.py` skip the legacy dark "legibility" override. The ATB, archive, Track Record, and `members/` pages keep their dark operational styling on purpose.
+- `crisis-wargame.html` was retired; `src/worker.js` 301-redirects it to `executive-decision-exercise.html`. New ATB issues get the readiness CTA from `publish_atb.py`; `tools/atb_publish/migrate_readiness_cta.py` rewrites old wargame CTAs.
+
 ## ATB (Alamo Threat Brief) layout
 
 - `atb/issues/MM-DD-YYYY.html` — the canonical dated issue files; their dates drive nav, archive, and issue numbering. The **newest** dated file is the "Latest Issue."

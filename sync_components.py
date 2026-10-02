@@ -16,18 +16,15 @@ Examples:
 
 Behavior
 --------
-- The newest dated file under /atb/issues/ becomes the ATB "Latest Issue" link.
-- Older dated files are not listed individually in the nav dropdown.
-- The ATB dropdown keeps only:
-    * Latest Issue
-    * Archive
-- "Alamo Threat Brief" in the top nav stays red.
-- The dropdown links are gold, except "Archive" which is a darker red hue.
-- The footer also auto-links the newest issue as the ATB entry.
-- Active-link highlighting works for:
-    * alamo-threat-brief.html
-    * atb-archive.html
-    * any dated ATB issue like 03-16-2026.html
+- The newest dated file under /atb/issues/ is the single source for the "latest
+  ATB": issue number, publication date, and title come from its
+  atb/<year>/<slug>/meta.json (see latest_issue_info). Nav, footer, the
+  LCTI:LATEST-ATB and LCTI:RECENT-ISSUES blocks, and assets/atb-latest.json all
+  render from that one record, so no page can show a different "latest" issue.
+- Anchors whose text says "Latest Issue/Brief" or "Read the Alamo Threat Brief"
+  are re-pointed at the newest issue's public preview page.
+- Navigation: Insights / Decision Readiness / Texas / About / Start an Engagement.
+- Redirect stubs (meta refresh) are left untouched.
 
 USAGE
 -----
@@ -88,6 +85,8 @@ FOOTER_START = "<!-- LCTI:FOOTER:START -->"
 FOOTER_END   = "<!-- LCTI:FOOTER:END -->"
 ISSUES_START = "<!-- LCTI:RECENT-ISSUES:START -->"
 ISSUES_END   = "<!-- LCTI:RECENT-ISSUES:END -->"
+LATEST_START = "<!-- LCTI:LATEST-ATB:START -->"
+LATEST_END   = "<!-- LCTI:LATEST-ATB:END -->"
 
 NAV_PATTERN = re.compile(
     r"<!-- LCTI:NAV:START -->.*?<!-- LCTI:NAV:END -->",
@@ -99,6 +98,11 @@ FOOTER_PATTERN = re.compile(
 )
 ISSUES_PATTERN = re.compile(
     r"<!-- LCTI:RECENT-ISSUES:START -->.*?<!-- LCTI:RECENT-ISSUES:END -->",
+    re.DOTALL
+)
+
+LATEST_PATTERN = re.compile(
+    r"<!-- LCTI:LATEST-ATB:START -->.*?<!-- LCTI:LATEST-ATB:END -->",
     re.DOTALL
 )
 
@@ -129,6 +133,12 @@ def find_html_files(root: Path) -> list[Path]:
                 continue
             if any(rel == skip or p.name == skip for skip in SKIP_FILES):
                 continue
+            try:
+                body = p.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                body = ""
+            if re.search(r'<meta\s+http-equiv=["\']refresh["\']', body[:2000], re.I) and NAV_START not in body:
+                continue  # bare redirect stubs stay bare (no sentinels injected)
             results.append(p)
     return results
 
@@ -227,9 +237,12 @@ def relativize_component_links(html: str, current_page: Path, root: Path) -> str
         "about.html",
         "luis-maldonado.html",
         "angie-maldonado.html",
+        "decision-readiness.html",
+        "decision-readiness.html#baseline",
+        "executive-decision-exercise.html",
         "decision-support.html",
         "decision-support.html#retainer",
-        "crisis-wargame.html",
+        "decision-support.html#follow-on",
         "alamo-threat-brief.html",
         "texas-threat-outlook.html",
         "sector-assessments.html",
@@ -241,8 +254,9 @@ def relativize_component_links(html: str, current_page: Path, root: Path) -> str
         "healthcare.html",
         "Energy_data_AI.html",
         "briefing-request.html",
-        "briefing-request.html?service=wargame",
-        "briefing-request.html?service=advisory",
+        "briefing-request.html?service=readiness",
+        "briefing-request.html?service=follow-on",
+        "briefing-request.html?service=briefing",
         "contact.html",
         "liberty-cti-emblem.png",
     ]
@@ -289,187 +303,205 @@ def sync_latest_issue_links(content: str, latest_issue_file: Path | None, curren
     return updated, updated != content
 
 
+def latest_issue_info(root: Path, latest_issue_file: Path | None) -> dict | None:
+    """Single source of truth for the "latest ATB" everywhere on the site.
+
+    Derived from the newest dated atb/issues/MM-DD-YYYY.html file plus its
+    atb/<year>/<slug>/meta.json. Nav, footer, LATEST-ATB blocks, Recent Issues
+    and assets/atb-latest.json all render from this one record, so they cannot
+    disagree with each other or with the archive.
+    """
+    if not latest_issue_file:
+        return None
+    stem = latest_issue_file.stem
+    try:
+        dt = datetime.strptime(stem, "%m-%d-%Y")
+    except ValueError:
+        return None
+    meta = _issue_meta(root, latest_issue_file) or {}
+    dated = find_dated_atb_files(root)
+    issue = meta.get("issue") or f"ATB-{dt.year}-{len(dated)}"
+    date_label = meta.get("publish_date") or dt.strftime("%d %b %Y").lstrip("0")
+    return {
+        "issue": issue,
+        "publish_date": date_label,
+        "publish_date_iso": meta.get("publish_date_iso") or dt.strftime("%Y-%m-%d"),
+        "week_of": meta.get("week_of") or format_week_label(latest_issue_file.name),
+        "title": meta.get("dominant_theme") or "The Alamo Threat Brief",
+        "slug": stem,
+        "url": f"/atb/{dt.year}/{stem}/",
+    }
+
+
+NAV_CSS = """\
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+:root{--nav-h:68px}
+.lcti-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0 28px;margin:0;background:#FFFFFF;border-bottom:1px solid #DED8CA;box-shadow:0 1px 0 rgba(173,140,71,.28);font-family:'Inter','Segoe UI',system-ui,sans-serif;backdrop-filter:none;-webkit-backdrop-filter:none}
+.lcti-nav *{box-sizing:border-box}
+.lcti-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;flex-shrink:0}
+.lcti-logo-emblem{width:38px;height:auto;object-fit:contain;flex-shrink:0}
+.lcti-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.lcti-logo-word{font-family:'Libre Baskerville',Georgia,serif;font-size:1.08rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0B1D2F;white-space:nowrap}
+.lcti-logo-word b{color:#8C6F32;font-weight:700}
+.lcti-logo-tag{font-size:.66rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#4F5866;white-space:nowrap;margin-top:2px}
+.lcti-links{display:flex;align-items:center;gap:.25rem;list-style:none;margin:0;padding:0}
+.lcti-links>li{list-style:none;margin:0;padding:0;font-size:1rem !important;line-height:1.2 !important}
+.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#1B2430;text-decoration:none;padding:.55rem .7rem;border-radius:0;background:none;border:0;border-bottom:2px solid transparent;display:flex;align-items:center;gap:.4rem;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
+.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li.active>.lcti-drop-toggle,.lcti-drop-item.open>.lcti-drop-toggle{color:#0B1D2F;border-bottom-color:#AD8C47}
+.lcti-drop-toggle::after{content:'';display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #AD8C47;transition:transform .2s}
+.lcti-drop-item.open>.lcti-drop-toggle::after{transform:rotate(180deg)}
+.lcti-drop-item{position:relative}
+.lcti-drop-panel{display:none;position:absolute;top:calc(100% + 10px);left:0;min-width:300px;background:#FFFFFF;border:1px solid #DED8CA;border-top:2px solid #AD8C47;padding:.5rem 0;z-index:200;box-shadow:0 18px 40px rgba(11,29,47,.12)}
+.lcti-drop-item.open .lcti-drop-panel{display:block}
+.lcti-drop-panel a{display:block;font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:.92rem;font-weight:500;letter-spacing:0;text-transform:none;color:#1B2430 !important;text-decoration:none;padding:.6rem 1.15rem;border-left:2px solid transparent;transition:background .15s,border-color .15s;line-height:1.4}
+.lcti-drop-panel a:hover,.lcti-drop-panel a.active{background:#F6F3EA;border-left-color:#AD8C47;color:#0B1D2F !important}
+.lcti-drop-panel a.lcti-drop-feature{padding:.75rem 1.15rem .85rem;margin-bottom:.35rem;border-bottom:1px solid #DED8CA}
+.lcti-drop-k{display:block;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7A5F28 !important;margin-bottom:.2rem}
+.lcti-drop-t{display:block;font-family:'Libre Baskerville',Georgia,serif;font-size:.95rem;color:#0B1D2F;line-height:1.4}
+.lcti-nav .drop-label{display:block;font-size:.66rem !important;font-weight:600 !important;letter-spacing:.16em !important;text-transform:uppercase;color:#7A5F28 !important;padding:.7rem 1.15rem .25rem;pointer-events:none;text-shadow:none !important;line-height:1.4 !important}
+.lcti-nav .drop-divider{height:1px;background:#DED8CA;margin:.4rem 0}
+.lcti-links>li>a.lcti-cta,.lcti-cta{font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:.78rem !important;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F6F3EA !important;background:#0B1D2F;border:1px solid #0B1D2F !important;padding:.65rem 1.05rem !important;margin-left:.6rem;text-decoration:none;white-space:nowrap;transition:background .2s,border-color .2s}
+.lcti-links>li>a.lcti-cta:hover,.lcti-cta:hover{background:#122A42;border-color:#AD8C47 !important;color:#FFFFFF !important}
+.lcti-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:0}
+.lcti-burger span{display:block;width:22px;height:2px;background:#0B1D2F;transition:transform .25s,opacity .25s;transform-origin:center}
+.lcti-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.lcti-burger.open span:nth-child(2){opacity:0}
+.lcti-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.lcti-mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#FFFFFF;border-bottom:2px solid #AD8C47;padding:.5rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto;font-family:'Inter','Segoe UI',system-ui,sans-serif;box-shadow:0 18px 40px rgba(11,29,47,.14)}
+.lcti-mobile-menu.open{display:block}
+.lcti-mobile-menu a{display:block;font-size:1rem;font-weight:500;color:#1B2430 !important;text-decoration:none;padding:.7rem 1.25rem .7rem 2rem;line-height:1.4}
+.lcti-mobile-menu a:hover{background:#F6F3EA;color:#0B1D2F !important}
+.lcti-mobile-menu .m-group-label{display:block;font-size:.7rem !important;font-weight:600 !important;letter-spacing:.16em !important;text-transform:uppercase;color:#7A5F28 !important;padding:1.1rem 1.25rem .3rem;pointer-events:none;text-shadow:none !important;border-top:1px solid #DED8CA;margin-top:.4rem}
+.lcti-mobile-menu .m-group-label:first-child{border-top:0;margin-top:0}
+.lcti-mobile-menu .m-sub{color:inherit !important;font-size:1rem !important;letter-spacing:0 !important;text-transform:none !important}
+.lcti-mobile-menu .m-cta-wrap{padding:1.1rem 1.25rem 0}
+.lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#F6F3EA !important;background:#0B1D2F;padding:.9rem 1.25rem}
+.lcti-mobile-menu .m-cta:hover{background:#122A42;color:#FFFFFF !important}
+@media(max-width:1080px){.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{padding:.55rem .5rem;font-size:.74rem}.lcti-logo-tag{display:none}}
+@media(max-width:940px){.lcti-links{display:none}.lcti-burger{display:flex}}
+@media(max-width:640px){.lcti-nav{padding:0 16px}.lcti-logo-word{font-size:.98rem}}
+"""
+
+
 def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Path) -> str:
     latest_issue_href = latest_issue_href_for_page(latest_issue_file, current_page, root)
     archive_href = relative_href(current_page, "atb/index.html", root)
     calibration_href = relative_href(current_page, "atb/calibration-record.html", root)
-    latest_issue_label = f"Latest Issue, {format_week_label(str(latest_issue_file))}" if latest_issue_file else "Latest Issue"
+    info = latest_issue_info(root, latest_issue_file)
+    if info:
+        latest_k = html.escape(f"Latest Alamo Threat Brief · {info['issue']} · {info['publish_date']}")
+        latest_t = html.escape(info["title"])
+        latest_m = html.escape(f"Latest ATB · {info['issue']} · {info['publish_date']}")
+    else:
+        latest_k = "Latest Alamo Threat Brief"
+        latest_t = "The Alamo Threat Brief"
+        latest_m = "Latest Alamo Threat Brief"
 
-    aliases = [f"'{latest_issue_file.name.lower()}'"] if latest_issue_file else []
-    alias_block = ", ".join(aliases)
-
-    html = f"""\
+    out = f"""\
 <!-- LCTI:NAV:START -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Instrument+Sans:wght@300;400;500;600&display=swap');
-:root{{--nav-h:68px}}
-.lcti-nav{{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,12,16,.97);border-bottom:1px solid rgba(184,150,62,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}}
-.lcti-logo{{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}}
-.lcti-logo-emblem{{width:36px;height:36px;object-fit:contain;flex-shrink:0}}
-.lcti-logo-wordmark{{font-family:'Playfair Display',serif;font-size:1.125rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#f4efe6;white-space:nowrap;flex-shrink:0}}
-.lcti-logo-wordmark span{{color:#b8963e}}
-.lcti-logo-rule{{width:1px;height:24px;background:rgba(184,150,62,.3);flex-shrink:0}}
-.lcti-logo-slogan{{font-family:'Instrument Sans',sans-serif;font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:#b8963e;opacity:.85;line-height:1.45;white-space:normal;max-width:150px}}
-.lcti-links{{display:flex;align-items:center;gap:.1rem;list-style:none}}
-.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{{font-family:'Instrument Sans',sans-serif;font-size:.8125rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.38rem .55rem;border-radius:2px;transition:color .22s;display:flex;align-items:center;gap:.3rem;cursor:pointer;background:none;border:none;white-space:nowrap}}
-.lcti-links>li>a:hover,.lcti-links>li>.lcti-drop-toggle:hover,.lcti-links>li>a.active,.lcti-links>li.active>.lcti-drop-toggle{{color:#b8963e}}
-.lcti-links>li>a.lcti-atb-link,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link,
-.lcti-mobile-menu a.lcti-atb-link,.lcti-mobile-menu .m-group-label.lcti-atb-link{{color:#c0392b !important}}
-.lcti-links>li>a.lcti-atb-link:hover,.lcti-links>li>.lcti-drop-toggle.lcti-atb-link:hover,
-.lcti-links>li.active>.lcti-drop-toggle.lcti-atb-link,.lcti-links>li>a.lcti-atb-link.active,
-.lcti-mobile-menu a.lcti-atb-link:hover{{color:#d6554a !important}}
-.lcti-drop-toggle::after{{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;opacity:.55;transition:transform .2s;flex-shrink:0}}
-.lcti-drop-item.open>.lcti-drop-toggle::after{{transform:rotate(180deg)}}
-.lcti-drop-item{{position:relative}}
-.lcti-drop-panel{{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:260px;background:#080c10;border:1px solid rgba(184,150,62,.2);border-top:2px solid #b8963e;padding:.4rem 0;z-index:200;box-shadow:0 12px 32px rgba(0,0,0,.9)}}
-.lcti-drop-item.open .lcti-drop-panel{{display:block}}
-.lcti-drop-panel a{{display:block;font-family:'Instrument Sans',sans-serif;font-size:.825rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,239,230,.55);text-decoration:none;padding:.6rem 1.1rem;transition:color .18s,background .18s;border-left:2px solid transparent}}
-.lcti-drop-panel a:hover{{color:#b8963e;background:rgba(184,150,62,.07);border-left-color:#b8963e}}
-.lcti-drop-panel .drop-label{{font-family:'Instrument Sans',sans-serif;font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:#b8963e;opacity:.45;padding:.65rem 1.1rem .25rem;pointer-events:none;display:block}}
-.lcti-drop-panel .drop-divider{{height:1px;background:rgba(184,150,62,.2);margin:.3rem 0}}
-.lcti-mobile-menu a.lcti-track-record-link{{color:#5abcf0 !important}}
-.lcti-mobile-menu a.lcti-track-record-link:hover{{color:#7bcaf3 !important}}
-.lcti-drop-panel a.lcti-archive-link{{color:#8f3a32 !important}}
-.lcti-drop-panel a.lcti-archive-link:hover{{color:#a94a40 !important;background:rgba(143,58,50,.08);border-left-color:#8f3a32}}
-.lcti-drop-panel a.lcti-track-record-link{{color:#5abcf0 !important}}
-.lcti-drop-panel a.lcti-track-record-link:hover{{color:#7bcaf3 !important;background:rgba(90,188,240,.08);border-left-color:#5abcf0}}
-.lcti-cta{{font-family:'Instrument Sans',sans-serif;font-size:.775rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#b8963e !important;border:1px solid #b8963e;padding:.42rem .9rem !important;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;white-space:nowrap;margin-left:.35rem}}
-.lcti-cta:hover{{background:#b8963e !important;color:#080c10 !important}}
-.lcti-burger{{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}}
-.lcti-burger span{{display:block;width:22px;height:2px;background:#f4efe6;transition:transform .25s,opacity .25s;transform-origin:center}}
-.lcti-burger.open span:nth-child(1){{transform:translateY(7px) rotate(45deg)}}
-.lcti-burger.open span:nth-child(2){{opacity:0}}
-.lcti-burger.open span:nth-child(3){{transform:translateY(-7px) rotate(-45deg)}}
-.lcti-mobile-menu{{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:#080c10;border-bottom:1px solid rgba(184,150,62,.2);padding:1rem 0 1.5rem;z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}}
-.lcti-mobile-menu.open{{display:block}}
-.lcti-mobile-menu a{{display:block;font-size:.9rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,230,.6);text-decoration:none;padding:.8rem 2rem;transition:color .18s}}
-.lcti-mobile-menu a:hover{{color:#b8963e}}
-.lcti-mobile-menu .m-group-label{{font-family:'Instrument Sans',sans-serif;font-size:.675rem;letter-spacing:.24em;text-transform:uppercase;color:#b8963e;opacity:.5;padding:1.05rem 2rem .35rem;display:block;pointer-events:none}}
-.lcti-mobile-menu .m-sub a{{padding-left:3rem;font-size:.8375rem;opacity:.85}}
-.lcti-mobile-menu a.lcti-archive-link{{color:#8f3a32 !important}}
-.lcti-mobile-menu a.lcti-archive-link:hover{{color:#a94a40 !important}}
-.lcti-mobile-menu .m-cta-wrap{{padding:1rem 2rem 0}}
-.lcti-mobile-menu .m-cta{{display:block;text-align:center;font-size:.875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e;border:1px solid #b8963e;padding:.75rem 1.5rem;text-decoration:none;transition:background .2s,color .2s}}
-.lcti-mobile-menu .m-cta:hover{{background:#b8963e;color:#080c10}}
-@media(max-width:960px){{.lcti-links{{display:none}}.lcti-burger{{display:flex}}}}
-@media(max-width:400px){{.lcti-logo-rule,.lcti-logo-slogan{{display:none}}}}
-</style>
+{NAV_CSS}</style>
 
-<nav class="lcti-nav" role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI Home">
-<img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-logo-emblem" decoding="async" width="489" height="512">
-    <div class="lcti-logo-wordmark">Liberty <span>CTI</span></div>
-    <div class="lcti-logo-rule"></div>
-    <div class="lcti-logo-slogan">Decision intelligence<br>for Texas leaders.</div>
+<nav class="lcti-nav" aria-label="Main navigation">
+  <a href="index.html" class="lcti-logo" aria-label="Liberty CTI home">
+    <img src="liberty-cti-emblem.png" alt="" class="lcti-logo-emblem" decoding="async" width="489" height="512">
+    <span class="lcti-logo-text"><span class="lcti-logo-word">Liberty <b>CTI</b></span><span class="lcti-logo-tag">Strategic Cyber Intelligence</span></span>
   </a>
 
-  <ul class="lcti-links" role="list">
-    <li><a href="index.html">Home</a></li>
-
+  <ul class="lcti-links">
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle lcti-atb-link" aria-haspopup="true" aria-expanded="false">Insights</button>
-      <div class="lcti-drop-panel" role="menu">
-        <span class="drop-label">Latest Issue</span>
-        <a href="{latest_issue_href}" role="menuitem">{latest_issue_label}</a>
+      <button class="lcti-drop-toggle" type="button" aria-haspopup="true" aria-expanded="false">Insights</button>
+      <div class="lcti-drop-panel">
+        <a href="{latest_issue_href}" class="lcti-drop-feature"><span class="lcti-drop-k">{latest_k}</span><span class="lcti-drop-t">{latest_t}</span></a>
+        <a href="{archive_href}">ATB Archive</a>
+        <a href="{calibration_href}">The Track Record</a>
+        <a href="texas-threat-outlook.html">Texas Cyber Threat Outlook</a>
         <div class="drop-divider"></div>
-        <a href="{calibration_href}" role="menuitem" class="lcti-track-record-link">The Track Record</a>
-        <a href="alamo-threat-brief.html" role="menuitem">About the Alamo Threat Brief (ATB)</a>
-        <a href="{archive_href}" role="menuitem" class="lcti-archive-link">ATB Archive</a>
-        <div class="drop-divider"></div>
-        <a href="texas-threat-outlook.html" role="menuitem">Texas Threat Outlook</a>
-        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
+        <a href="alamo-threat-brief.html">About the ATB &amp; Free Access</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Services</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="crisis-wargame.html" role="menuitem">Executive Crisis Wargame</a>
-        <a href="decision-support.html" role="menuitem">How We Advise</a>
-        <a href="decision-support.html#retainer" role="menuitem">Standing Intelligence Advisory</a>
-        <a href="sector-assessments.html" role="menuitem">Strategic Exposure Assessment</a>
+      <button class="lcti-drop-toggle" type="button" aria-haspopup="true" aria-expanded="false">Decision Readiness</button>
+      <div class="lcti-drop-panel">
+        <a href="decision-readiness.html" class="lcti-drop-feature"><span class="lcti-drop-k">Where engagements begin</span><span class="lcti-drop-t">Executive Decision Readiness Engagement</span></a>
+        <a href="decision-readiness.html#baseline">Executive Intelligence Baseline</a>
+        <a href="executive-decision-exercise.html">Executive Decision Exercise</a>
+        <a href="decision-support.html">How We Advise</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">Texas Focus</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="texas-focus.html" role="menuitem">Texas Overview</a>
-        <div class="drop-divider"></div>
-        <span class="drop-label">Priority Sectors</span>
-        <a href="energy-ercot.html" role="menuitem">Energy &amp; ERCOT</a>
-        <a href="defense-dib.html" role="menuitem">Defense Industrial Base</a>
-        <a href="financial.html" role="menuitem">Financial Services</a>
-        <a href="healthcare.html" role="menuitem">Healthcare</a>
-        <div class="drop-divider"></div>
-        <span class="drop-label">Cross-Sector Risk</span>
-        <a href="Energy_data_AI.html" role="menuitem">AI Convergence</a>
+      <button class="lcti-drop-toggle" type="button" aria-haspopup="true" aria-expanded="false">Texas</button>
+      <div class="lcti-drop-panel">
+        <a href="texas-focus.html">Texas Operating Environment</a>
+        <a href="Energy_data_AI.html">Cascade Intelligence: Energy, AI &amp; Data Centers</a>
+        <span class="drop-label">Sectors</span>
+        <a href="energy-ercot.html">Energy &amp; ERCOT</a>
+        <a href="financial.html">Financial Services</a>
+        <a href="healthcare.html">Healthcare</a>
+        <a href="defense-dib.html">Defense Industrial Base</a>
       </div>
     </li>
 
     <li class="lcti-drop-item">
-      <button class="lcti-drop-toggle" aria-haspopup="true" aria-expanded="false">About</button>
-      <div class="lcti-drop-panel" role="menu">
-        <a href="about.html" role="menuitem">Company Overview</a>
-        <div class="drop-divider"></div>
+      <button class="lcti-drop-toggle" type="button" aria-haspopup="true" aria-expanded="false">About</button>
+      <div class="lcti-drop-panel">
+        <a href="about.html">Liberty CTI</a>
         <span class="drop-label">Founders</span>
-        <a href="luis-maldonado.html" role="menuitem">Lou Maldonado</a>
-        <a href="angie-maldonado.html" role="menuitem">Angie Maldonado</a>
+        <a href="luis-maldonado.html">Lou Maldonado</a>
+        <a href="angie-maldonado.html">Angie Maldonado</a>
+        <div class="drop-divider"></div>
+        <a href="contact.html">Contact</a>
       </div>
     </li>
 
-    <li><a href="briefing-request.html?service=wargame" class="lcti-cta">Run a Wargame</a></li>
+    <li><a href="briefing-request.html" class="lcti-cta">Start an Engagement</a></li>
   </ul>
 
-  <button class="lcti-burger" id="lcti-burger" aria-label="Toggle mobile menu" aria-expanded="false">
+  <button class="lcti-burger" id="lcti-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="lcti-mobile-menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="lcti-mobile-menu" id="lcti-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="index.html">Home</a>
-
-  <span class="m-group-label lcti-atb-link">Insights</span>
+<div class="lcti-mobile-menu" id="lcti-mobile-menu" aria-label="Mobile navigation">
+  <span class="m-group-label">Insights</span>
   <div class="m-sub">
-    <a href="{latest_issue_href}">{latest_issue_label}</a>
-    <a href="{calibration_href}" class="lcti-track-record-link">The Track Record</a>
-    <a href="alamo-threat-brief.html">About the Alamo Threat Brief (ATB)</a>
-    <a href="{archive_href}" class="lcti-archive-link">ATB Archive</a>
-    <a href="texas-threat-outlook.html">Texas Threat Outlook</a>
-    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
+    <a href="{latest_issue_href}">{latest_m}</a>
+    <a href="{archive_href}">ATB Archive</a>
+    <a href="{calibration_href}">The Track Record</a>
+    <a href="texas-threat-outlook.html">Texas Cyber Threat Outlook</a>
+    <a href="alamo-threat-brief.html">About the ATB &amp; Free Access</a>
   </div>
 
-  <span class="m-group-label">Services</span>
+  <span class="m-group-label">Decision Readiness</span>
   <div class="m-sub">
-    <a href="crisis-wargame.html">Executive Crisis Wargame</a>
+    <a href="decision-readiness.html">Executive Decision Readiness Engagement</a>
+    <a href="decision-readiness.html#baseline">Executive Intelligence Baseline</a>
+    <a href="executive-decision-exercise.html">Executive Decision Exercise</a>
     <a href="decision-support.html">How We Advise</a>
-    <a href="decision-support.html#retainer">Standing Intelligence Advisory</a>
-    <a href="sector-assessments.html">Strategic Exposure Assessment</a>
   </div>
 
-  <span class="m-group-label">Texas Focus</span>
+  <span class="m-group-label">Texas</span>
   <div class="m-sub">
-    <a href="texas-focus.html">Texas Overview</a>
+    <a href="texas-focus.html">Texas Operating Environment</a>
+    <a href="Energy_data_AI.html">Cascade Intelligence</a>
     <a href="energy-ercot.html">Energy &amp; ERCOT</a>
-    <a href="defense-dib.html">Defense Industrial Base</a>
     <a href="financial.html">Financial Services</a>
     <a href="healthcare.html">Healthcare</a>
-  </div>
-
-  <span class="m-group-label">Cross-Sector Risk</span>
-  <div class="m-sub">
-    <a href="Energy_data_AI.html">AI Convergence</a>
+    <a href="defense-dib.html">Defense Industrial Base</a>
   </div>
 
   <span class="m-group-label">About</span>
   <div class="m-sub">
-    <a href="about.html">Company Overview</a>
+    <a href="about.html">Liberty CTI</a>
     <a href="luis-maldonado.html">Lou Maldonado</a>
     <a href="angie-maldonado.html">Angie Maldonado</a>
+    <a href="contact.html">Contact</a>
   </div>
 
   <div class="m-cta-wrap">
-    <a href="briefing-request.html?service=wargame" class="m-cta">Run a Wargame</a>
+    <a href="briefing-request.html" class="m-cta">Start an Engagement</a>
   </div>
 </div>
 
@@ -477,8 +509,9 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
 (function(){{
   var burger=document.getElementById('lcti-burger');
   var menu=document.getElementById('lcti-mobile-menu');
-  if(burger&&menu){{burger.addEventListener('click',function(){{var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o))}});}}
+  if(burger&&menu){{burger.addEventListener('click',function(){{var o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',String(o));burger.setAttribute('aria-label',o?'Close menu':'Open menu')}});}}
   var drops=document.querySelectorAll('.lcti-drop-item');
+  function closeAll(except){{drops.forEach(function(item){{if(item!==except){{item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}}}});}}
   drops.forEach(function(item){{
     var toggle=item.querySelector('.lcti-drop-toggle');
     if(!toggle)return;
@@ -486,121 +519,146 @@ def build_nav_html(latest_issue_file: Path | None, current_page: Path, root: Pat
       e.stopPropagation();
       var o=item.classList.toggle('open');
       toggle.setAttribute('aria-expanded',String(o));
-      drops.forEach(function(other){{if(other!==item){{other.classList.remove('open');var t=other.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}}}});
+      closeAll(item);
     }});
   }});
-  document.addEventListener('click',function(){{drops.forEach(function(item){{item.classList.remove('open');var t=item.querySelector('.lcti-drop-toggle');if(t)t.setAttribute('aria-expanded','false');}});}});
+  document.addEventListener('click',function(){{closeAll(null);}});
+  document.addEventListener('keydown',function(e){{if(e.key==='Escape'){{closeAll(null);}}}});
 
-  var path=(window.location.pathname.split('/').pop()||'index.html').toLowerCase();
-  var aliases={{
-    'alamo-threat-brief.html':[{alias_block}],
-    'decision-support.html':['texas-threat-outlook.html','sector-assessments.html']
-  }};
-  document.querySelectorAll('.lcti-links a,.lcti-mobile-menu a').forEach(function(link){{
-    var href=((link.getAttribute('href')||'').split('/').pop()||'').toLowerCase();
-    if(href===path || (aliases[href] && aliases[href].indexOf(path)!==-1)){{
+  function norm(p){{return (p||'/').toLowerCase().replace(/index\\.html$/,'').replace(/\\.html$/,'');}}
+  var here=norm(window.location.pathname);
+  document.querySelectorAll('.lcti-drop-panel a,.lcti-mobile-menu a').forEach(function(link){{
+    if((link.getAttribute('href')||'').indexOf('#')!==-1)return;
+    if(norm(link.pathname)===here){{
       link.classList.add('active');
       var p=link.closest('.lcti-drop-item');
       if(p)p.classList.add('active');
     }}
   }});
 
-  window.addEventListener('resize',function(){{if(window.innerWidth>960){{menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}}}});
+  window.addEventListener('resize',function(){{if(window.innerWidth>940){{menu&&menu.classList.remove('open');burger&&burger.classList.remove('open');}}}});
 }})();
 </script>
 <!-- LCTI:NAV:END -->"""
-    return relativize_component_links(html, current_page, root)
+    return relativize_component_links(out, current_page, root)
 
 
 def build_footer_html(latest_issue_file: Path | None, current_page: Path, root: Path) -> str:
     latest_issue_href = latest_issue_href_for_page(latest_issue_file, current_page, root)
-    html = f"""\
+    archive_href = relative_href(current_page, "atb/index.html", root)
+    calibration_href = relative_href(current_page, "atb/calibration-record.html", root)
+    legal_href = relative_href(current_page, "legal/index.html", root)
+    info = latest_issue_info(root, latest_issue_file)
+    latest_label = "Latest Alamo Threat Brief"
+    out = f"""\
 <!-- LCTI:FOOTER:START -->
 <style>
-.lcti-footer{{background:#080c10;border-top:1px solid rgba(184,150,62,0.2);padding:4rem 2.5rem 2rem;font-family:'Instrument Sans',sans-serif}}
-.lcti-footer-inner{{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}}
-.lcti-footer-brand-row{{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}}
-.lcti-footer-emblem{{width:36px;height:36px;object-fit:contain}}
-.lcti-footer-brand-name{{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f4efe6}}
-.lcti-footer-brand-name span{{color:#b8963e}}
-.lcti-footer-tagline{{font-size:1rem;font-weight:500;color:rgba(244,239,230,.78);line-height:1.72;max-width:280px;margin-bottom:1.25rem}}
-.lcti-footer-slogan{{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1}}
-.lcti-footer-col-title{{font-family:'Instrument Sans',sans-serif;font-size:.94rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:1;margin-bottom:.9rem;display:block}}
-.lcti-footer-subcol-title{{font-family:'Instrument Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:#d4af62;opacity:.55;margin:1.1rem 0 .6rem;display:block}}
-.lcti-footer-links{{list-style:none}}
-.lcti-footer-links li{{margin-bottom:.45rem}}
-.lcti-footer-links a{{font-size:.98rem;font-weight:500;line-height:1.55;color:rgba(244,239,230,.74);text-decoration:none;transition:color .2s}}
-.lcti-footer-links a:hover{{color:#b8963e}}
-.lcti-footer-links a.lcti-atb-link{{color:#d6554a;font-weight:600}}
-.lcti-footer-links a.lcti-atb-link:hover{{color:#d6554a}}
-.lcti-footer-bottom{{max-width:1100px;margin:3rem auto 0;border-top:1px solid rgba(184,150,62,0.12);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}}
-.lcti-footer-copy{{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56)}}
-.lcti-footer-legal{{display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap}}
-.lcti-footer-legal a{{font-family:'Instrument Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;color:rgba(244,239,230,.56);text-decoration:none;transition:color .2s}}
-.lcti-footer-legal a:hover{{color:#b8963e}}
-.lcti-footer-legal span{{color:rgba(244,239,230,.32)}}
-@media(max-width:860px){{.lcti-footer-inner{{grid-template-columns:1fr 1fr;gap:2rem}}}}
-@media(max-width:520px){{.lcti-footer-inner{{grid-template-columns:1fr}}.lcti-footer{{padding:2.5rem 1.25rem 1.5rem}}.lcti-footer-bottom{{flex-direction:column;align-items:flex-start}}}}
+.lcti-ft{{background:#0B1D2F;color:#F6F3EA;border-top:2px solid #AD8C47;padding:72px 32px 32px;font-family:'Inter','Segoe UI',system-ui,sans-serif}}
+.lcti-ft *{{box-sizing:border-box}}
+.lcti-ft-inner{{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:40px}}
+.lcti-ft-brand{{display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;text-decoration:none}}
+.lcti-ft-emblem{{width:40px;height:auto}}
+.lcti-ft-name{{font-family:'Libre Baskerville',Georgia,serif;font-size:1.05rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#F6F3EA}}
+.lcti-ft-name b{{color:#CDB06F}}
+.lcti-ft-line{{font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:1rem;line-height:1.6;color:#F6F3EA;max-width:300px;margin:0 0 1rem}}
+.lcti-ft-sub{{font-size:.92rem;line-height:1.6;color:rgba(246,243,234,.72);max-width:300px;margin:0}}
+.lcti-ft-head{{display:block;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#CDB06F;margin:0 0 1rem}}
+.lcti-ft-head--sub{{margin-top:1.4rem}}
+.lcti-ft-links{{list-style:none;margin:0;padding:0}}
+.lcti-ft-links li{{margin:0 0 .55rem;padding:0;list-style:none;font-size:1rem !important;line-height:1.4 !important}}
+.lcti-ft-links a{{font-size:.93rem;line-height:1.45;color:rgba(246,243,234,.82);text-decoration:none;transition:color .2s}}
+.lcti-ft-links a:hover{{color:#CDB06F}}
+.lcti-ft-bottom{{max-width:1160px;margin:56px auto 0;border-top:1px solid rgba(205,176,111,.25);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem 2rem}}
+.lcti-ft-fine{{font-size:.82rem;line-height:1.6;color:rgba(246,243,234,.62);margin:0}}
+.lcti-ft-fine a{{color:rgba(246,243,234,.82);text-decoration:underline;text-decoration-color:rgba(205,176,111,.6);text-underline-offset:3px}}
+@media(max-width:1000px){{.lcti-ft-inner{{grid-template-columns:1fr 1fr 1fr}}.lcti-ft-inner>div:first-child{{grid-column:1/-1}}}}
+@media(max-width:640px){{.lcti-ft{{padding:56px 16px 28px}}.lcti-ft-inner{{grid-template-columns:1fr 1fr;gap:32px 20px}}}}
+@media(max-width:420px){{.lcti-ft-inner{{grid-template-columns:1fr}}}}
 </style>
 
-<footer class="lcti-footer" role="contentinfo">
-  <div class="lcti-footer-inner">
+<footer class="lcti-ft">
+  <div class="lcti-ft-inner">
     <div>
-      <div class="lcti-footer-brand-row">
-        <img src="liberty-cti-emblem.png" alt="Liberty CTI" class="lcti-footer-emblem" decoding="async" loading="lazy" width="489" height="512">
-        <div class="lcti-footer-brand-name">Liberty <span>CTI</span></div>
-      </div>
-      <p class="lcti-footer-tagline">Strategic decision advisory for Texas critical infrastructure.</p>
-      <div class="lcti-footer-slogan">Know what changed. Decide with confidence.</div>
+      <a class="lcti-ft-brand" href="index.html" aria-label="Liberty CTI home">
+        <img src="liberty-cti-emblem.png" alt="" class="lcti-ft-emblem" decoding="async" loading="lazy" width="489" height="512">
+        <span class="lcti-ft-name">Liberty <b>CTI</b></span>
+      </a>
+      <p class="lcti-ft-line">We tell leaders what is changing, why it matters, and what to do before it hits.</p>
+      <p class="lcti-ft-sub">Strategic Cyber Intelligence and executive decision support for Texas critical infrastructure. San Antonio, Texas.</p>
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Insights</span>
-      <ul class="lcti-footer-links">
-        <li><a href="/alamo-threat-brief.html" class="lcti-atb-link">Alamo Threat Brief</a></li>
-        <li><a href="decision-support.html">How We Advise</a></li>
-        <li><a href="texas-threat-outlook.html">Texas Threat Outlook</a></li>
-        <li><a href="sector-assessments.html">Strategic Exposure Assessment</a></li>
+      <span class="lcti-ft-head">Insights</span>
+      <ul class="lcti-ft-links">
+        <li><a href="{latest_issue_href}">{latest_label}</a></li>
+        <li><a href="{archive_href}">ATB Archive</a></li>
+        <li><a href="{calibration_href}">The Track Record</a></li>
+        <li><a href="texas-threat-outlook.html">Texas Cyber Threat Outlook</a></li>
+        <li><a href="alamo-threat-brief.html">About the ATB</a></li>
       </ul>
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Texas Focus</span>
-      <ul class="lcti-footer-links">
-        <li><a href="texas-focus.html">Texas Overview</a></li>
+      <span class="lcti-ft-head">Decision Readiness</span>
+      <ul class="lcti-ft-links">
+        <li><a href="decision-readiness.html">Baseline + Exercise Engagement</a></li>
+        <li><a href="executive-decision-exercise.html">Executive Decision Exercise</a></li>
+        <li><a href="decision-support.html">How We Advise</a></li>
+      </ul>
+      <span class="lcti-ft-head lcti-ft-head--sub">After the Engagement</span>
+      <ul class="lcti-ft-links">
+        <li><a href="sector-assessments.html">Strategic Exposure Assessment</a></li>
+        <li><a href="decision-support.html#retainer">Standing Intelligence Advisory</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <span class="lcti-ft-head">Texas</span>
+      <ul class="lcti-ft-links">
+        <li><a href="texas-focus.html">Operating Environment</a></li>
+        <li><a href="Energy_data_AI.html">Cascade Intelligence</a></li>
         <li><a href="energy-ercot.html">Energy &amp; ERCOT</a></li>
-        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
         <li><a href="financial.html">Financial Services</a></li>
         <li><a href="healthcare.html">Healthcare</a></li>
-      </ul>
-      <span class="lcti-footer-subcol-title">Cross-Sector Risk</span>
-      <ul class="lcti-footer-links">
-        <li><a href="Energy_data_AI.html">AI Convergence</a></li>
+        <li><a href="defense-dib.html">Defense Industrial Base</a></li>
       </ul>
     </div>
 
     <div>
-      <span class="lcti-footer-col-title">Connect</span>
-      <ul class="lcti-footer-links">
-        <li><a href="briefing-request.html?service=wargame">Run an Executive Crisis Wargame</a></li>
-        <li><a href="briefing-request.html?service=assessment">Assess Your Exposure</a></li>
-        <li><a href="briefing-request.html?service=advisory">Discuss an Advisory Relationship</a></li>
+      <span class="lcti-ft-head">Connect</span>
+      <ul class="lcti-ft-links">
+        <li><a href="briefing-request.html">Start an Engagement</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:intel@libertycti.com">intel@libertycti.com</a></li>
-        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
         <li><a href="https://www.linkedin.com/company/libertycti" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://libertycti.substack.com" target="_blank" rel="noopener">Substack</a></li>
         <li><a href="https://x.com/libertycti" target="_blank" rel="noopener">X / Twitter</a></li>
       </ul>
     </div>
   </div>
-  <div class="lcti-footer-bottom">
-    <div class="lcti-footer-copy">© {datetime.now().year} Liberty CTI LLC &nbsp;·&nbsp; San Antonio, Texas &nbsp;·&nbsp; libertycti.com &nbsp;·&nbsp; <span class="lcti-footer-legal"><a href="/legal/">Legal &amp; Privacy</a></span></div>
-    <div class="lcti-footer-copy">All analysis follows structured analytic tradecraft informed by publicly available Intelligence Community standards</div>
-    <div class="lcti-footer-copy">Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</div>
+  <div class="lcti-ft-bottom">
+    <p class="lcti-ft-fine">&copy; {datetime.now().year} Liberty CTI LLC &middot; San Antonio, Texas &middot; <a href="{legal_href}">Legal &amp; Privacy</a></p>
+    <p class="lcti-ft-fine">Analysis follows structured analytic tradecraft informed by publicly available Intelligence Community standards. Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</p>
   </div>
 </footer>
 <!-- LCTI:FOOTER:END -->"""
-    return relativize_component_links(html, current_page, root)
+    return relativize_component_links(out, current_page, root)
+
+
+def build_latest_atb_html(root: Path, latest_issue_file: Path | None, current_page: Path) -> str:
+    """Compact latest-issue card for institutional pages (styled by assets/lcti-site.css)."""
+    info = latest_issue_info(root, latest_issue_file)
+    if not info:
+        return f"{LATEST_START}\n{LATEST_END}"
+    href = latest_issue_href_for_page(latest_issue_file, current_page, root)
+    return (
+        f"{LATEST_START}\n"
+        f'<a class="lcti-latest" href="{href}">'
+        f'<span class="lcti-latest-tag">Latest Alamo Threat Brief<b>{html.escape(info["issue"])} &middot; {html.escape(info["publish_date"])}</b></span>'
+        f'<span class="lcti-latest-title">{html.escape(info["title"])}</span>'
+        f'<span class="lcti-latest-go">Read the brief &rarr;</span>'
+        f"</a>\n{LATEST_END}"
+    )
 
 
 def _issue_meta(root: Path, dated_rel_path: Path) -> dict | None:
@@ -661,24 +719,24 @@ def build_recent_issues_html(root: Path, current_page: Path, count: int = 3) -> 
 
     return f"""{ISSUES_START}
 <style>
-.lcti-issues{{padding:4rem 2.5rem;background:#0d1520;border-top:1px solid rgba(184,150,62,0.2);border-bottom:1px solid rgba(184,150,62,0.2)}}
-.lcti-issues-inner{{max-width:1100px;margin:0 auto}}
-.lcti-issues-head{{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}}
-.lcti-issues-head h2{{font-family:'Playfair Display',serif;color:#f4efe6;font-size:1.5rem;margin:0}}
-.lcti-issues-head a{{font-family:'Instrument Sans',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#b8963e;text-decoration:underline;text-underline-offset:3px}}
-.lcti-issues-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}}
-.lcti-issue-card{{display:flex;flex-direction:column;gap:.75rem;padding:1.75rem;border:1px solid rgba(184,150,62,0.22);background:#080c10;text-decoration:none;transition:border-color .25s,background .25s}}
-.lcti-issue-card:hover{{border-color:#b8963e;background:#0d1520}}
-.lcti-issue-kicker{{font-family:'Instrument Sans',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#b8963e}}
-.lcti-issue-title{{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:#f4efe6;margin:0;line-height:1.35}}
-.lcti-issue-link{{font-family:'Instrument Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#d4af62}}
+.lcti-issues{{padding:0;background:transparent;margin-top:56px}}
+.lcti-issues-inner{{max-width:1160px;margin:0 auto}}
+.lcti-issues-head{{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}}
+.lcti-issues-head h2{{font-family:'Libre Baskerville',Georgia,serif;font-weight:400;color:#F6F3EA;font-size:1.35rem;margin:0}}
+.lcti-issues-head a{{font-family:'Inter',system-ui,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#CDB06F;text-decoration:none;border-bottom:1px solid #AD8C47;padding-bottom:2px}}
+.lcti-issues-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}}
+.lcti-issue-card{{display:flex;flex-direction:column;gap:.7rem;padding:26px;border:1px solid rgba(205,176,111,.28);border-top:2px solid #AD8C47;background:rgba(255,255,255,.03);text-decoration:none;transition:border-color .2s,background .2s}}
+.lcti-issue-card:hover{{border-color:#AD8C47;background:rgba(255,255,255,.06)}}
+.lcti-issue-kicker{{font-family:'Inter',system-ui,sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#CDB06F}}
+.lcti-issue-title{{font-family:'Libre Baskerville',Georgia,serif;font-size:1.05rem;font-weight:400;color:#F6F3EA;margin:0;line-height:1.45}}
+.lcti-issue-link{{font-family:'Inter',system-ui,sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(246,243,234,.78);margin-top:auto}}
 @media(max-width:820px){{.lcti-issues-grid{{grid-template-columns:1fr}}}}
 </style>
 <section class="lcti-issues" aria-label="Recent Alamo Threat Brief issues">
   <div class="lcti-issues-inner">
     <div class="lcti-issues-head">
-      <h2>Recent Issues</h2>
-      <a href="{archive_href}">View the full archive &rarr;</a>
+      <h2>Recent Alamo Threat Briefs</h2>
+      <a href="{archive_href}">Full archive &rarr;</a>
     </div>
     <div class="lcti-issues-grid">
 {cards_html}
@@ -693,7 +751,7 @@ def has_sentinel(content: str, start: str, end: str) -> bool:
 
 
 def inject(content: str, pattern: re.Pattern, replacement: str) -> str:
-    return pattern.sub(replacement, content)
+    return pattern.sub(lambda _m: replacement, content)
 
 
 def backup(path: Path) -> Path:
@@ -703,7 +761,7 @@ def backup(path: Path) -> Path:
     return bak
 
 
-def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, footer_html: str, issues_html: str, latest_issue_file: Path | None, root: Path) -> dict:
+def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, footer_html: str, issues_html: str, latest_issue_file: Path | None, root: Path, latest_html: str = "") -> dict:
     result = {
         "path": str(path),
         "nav": False,
@@ -724,6 +782,7 @@ def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, foo
     has_nav = has_sentinel(content, NAV_START, NAV_END)
     has_footer = has_sentinel(content, FOOTER_START, FOOTER_END)
     has_issues = has_sentinel(content, ISSUES_START, ISSUES_END)
+    has_latest = has_sentinel(content, LATEST_START, LATEST_END)
 
     new_content = content
 
@@ -739,10 +798,14 @@ def process_file(path: Path, write: bool, backup_files: bool, nav_html: str, foo
         new_content = inject(new_content, ISSUES_PATTERN, issues_html)
         result["issues"] = True
 
+    if has_latest and latest_html:
+        new_content = LATEST_PATTERN.sub(lambda _m: latest_html, new_content)
+        result["issues"] = True
+
     new_content, latest_changed = sync_latest_issue_links(new_content, latest_issue_file, path, root)
     result["latest"] = latest_changed
 
-    if not has_nav and not has_footer and not has_issues and not latest_changed:
+    if not has_nav and not has_footer and not has_issues and not has_latest and not latest_changed:
         result["skipped"] = True
         return result
 
@@ -854,6 +917,17 @@ def main():
         print(f"  Issue count   : {len(dated_atb_files)}")
     print(f"{'━'*60}\n")
 
+    latest_info = latest_issue_info(root, latest_issue)
+    if latest_info:
+        print(f"  Latest label  : {latest_info['issue']} · {latest_info['publish_date']} · {latest_info['title']}")
+        if args.write and not args.add_sentinels:
+            import json
+            latest_json = root / "assets" / "atb-latest.json"
+            latest_json.parent.mkdir(exist_ok=True)
+            payload = json.dumps(latest_info, indent=2, ensure_ascii=False) + "\n"
+            if not latest_json.exists() or latest_json.read_text(encoding="utf-8") != payload:
+                latest_json.write_text(payload, encoding="utf-8")
+
     updated = 0
     skipped = 0
     errors = 0
@@ -882,7 +956,8 @@ def main():
             nav_html = build_nav_html(latest_issue, path, root)
             footer_html = build_footer_html(latest_issue, path, root)
             issues_html = build_recent_issues_html(root, path)
-            r = process_file(path, write=args.write, backup_files=backup_files, nav_html=nav_html, footer_html=footer_html, issues_html=issues_html, latest_issue_file=latest_issue, root=root)
+            latest_html = build_latest_atb_html(root, latest_issue, path)
+            r = process_file(path, write=args.write, backup_files=backup_files, nav_html=nav_html, footer_html=footer_html, issues_html=issues_html, latest_issue_file=latest_issue, root=root, latest_html=latest_html)
             if r["error"]:
                 print(f"  ✗  {rel}  —  ERROR: {r['error']}")
                 errors += 1
