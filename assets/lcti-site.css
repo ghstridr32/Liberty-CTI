@@ -252,14 +252,14 @@ a.card .link-arrow{display:inline-block;margin-top:1rem}
 @media(max-width:900px){.cascade{flex-direction:column}.cascade li+li{margin-left:0;margin-top:30px}.cascade li+li::before{content:'\2193';left:50%;top:-27px;transform:translateX(-50%)}}
 
 /* ---------- founders ---------- */
-.founder{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start;background:var(--white);border:1px solid var(--rule);padding:28px}
-.founder img{width:150px;height:180px;object-fit:cover;object-position:top;filter:grayscale(.15)}
+.founder{display:grid;grid-template-columns:160px 1fr;gap:28px;align-items:start;background:var(--white);border:1px solid var(--rule);padding:28px}
+.founder img{display:block;width:160px;height:auto;max-width:100%;filter:grayscale(.15)}
 .founder h3{font-size:1.35rem;margin-bottom:.15rem}
 .founder .role{display:block;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text);margin-bottom:.8rem}
 .founder p{font-size:.96rem;color:var(--muted)}
 .creds{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 1rem}
 .creds li{font-size:.76rem;font-weight:500;letter-spacing:.03em;color:var(--navy);border:1px solid var(--rule);padding:4px 9px;background:var(--paper)}
-@media(max-width:640px){.founder{grid-template-columns:1fr}.founder img{width:120px;height:144px}}
+@media(max-width:640px){.founder{grid-template-columns:1fr}.founder img{width:150px;height:auto}}
 
 /* ---------- profile pages ---------- */
 .profile-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}
@@ -267,8 +267,8 @@ a.card .link-arrow{display:inline-block;margin-top:1rem}
 .figure{margin:0}
 .figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:var(--white);padding:6px}
 .figure figcaption{font-size:.8rem;letter-spacing:.06em;color:var(--muted);margin-top:.5rem}
-.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.gallery img{aspect-ratio:4/3;object-fit:cover}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.gallery img{aspect-ratio:auto;height:auto;object-fit:initial}
 .milestones{list-style:none;border-top:1px solid var(--rule)}
 .milestones li{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--rule)}
 .milestones h3{font-size:1.05rem;margin:0}
