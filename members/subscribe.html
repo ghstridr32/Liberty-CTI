@@ -1124,6 +1124,7 @@ nav.lcti-nav .lcti-links>li>a.lcti-cta:hover,.lcti-cta:hover{background:#1A3654 
 .field-grid input:focus,.field-grid select:focus{outline:2px solid rgba(90,188,240,.36);border-color:var(--blue)}
 .checkbox-row{display:flex;gap:10px;align-items:flex-start;color:var(--text-dim);font-size:.94rem;line-height:1.45}
 .checkbox-row input{width:18px;height:18px;margin-top:2px;accent-color:var(--gold);flex:0 0 auto}
+.terms-row a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}.terms-row a:hover{color:var(--white)}
 .honeypot{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 .form-status{min-height:24px;margin-top:14px;font-family:'Share Tech Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-low)}
 .form-status.error{color:#ff8a7f}
@@ -1182,7 +1183,7 @@ nav.lcti-nav .lcti-links>li>a.lcti-cta:hover,.lcti-cta:hover{background:#1A3654 
         </details>
         <label class="checkbox-row"><input type="checkbox" name="updates"> Send the free weekly executive summary and Liberty CTI updates.</label>
         <label class="checkbox-row"><input type="checkbox" name="consent" required> I understand this access is for Liberty CTI readership.</label>
-        <p style="font-family:'Source Serif 4',Georgia,serif;font-size:.86rem;line-height:1.5;color:var(--text-low);margin:0;">By creating an account, you acknowledge the <a href="../legal/index.html#terms-acceptance" style="color:var(--gold);">Terms of Use</a> and <a href="../legal/index.html#privacy-info-provided" style="color:var(--gold);">Privacy Policy</a>.</p>
+        <label class="checkbox-row terms-row"><input type="checkbox" name="terms" required> <span>I agree to the <a href="/legal/#terms-acceptance" target="_blank" rel="noopener">Terms of Use</a> and <a href="/legal/#privacy-info-provided" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
         <button class="cta-primary" type="submit">Register and Continue</button>
         <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
       </form>

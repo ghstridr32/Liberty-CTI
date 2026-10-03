@@ -1,5 +1,9 @@
 const ACCESS_COOKIE = "lcti_atb_access";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
+// Version of the Terms of Use and Privacy Policy shown at registration. Change only here when /legal/ is revised.
+const TERMS_VERSION = "1.1";
+// Reader accounts with no sign-in for this many months are deleted (see Privacy Policy, Data Retention).
+const RETENTION_MONTHS = 36;
 const FULL_BRIEF_RE = /^\/atb\/2026\/\d{2}-\d{2}-\d{4}\/full(?:\.html)?\/?$/;
 const CANONICAL_ISSUE_RE = /^\/atb\/issues\/(\d{2}-\d{2}-(\d{4}))(?:\.html)?\/?$/;
 
@@ -56,6 +60,10 @@ export default {
 
     return env.ASSETS.fetch(request);
   },
+
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(enforceRetention(env));
+  },
 };
 
 async function handleRegister(request, env, ctx) {
@@ -80,12 +88,16 @@ async function handleRegister(request, env, ctx) {
   const sector = cleanText(form.sector, 80);
   const updates = form.updates === "on" || form.updates === "true" || form.updates === true;
   const consent = form.consent === "on" || form.consent === "true" || form.consent === true;
+  const termsAccepted = form.terms === "on" || form.terms === "true" || form.terms === true;
 
   if (!fullName || fullName.length < 2) {
     return problem(request, "Enter your name.", 400, { field: "fullName" });
   }
   if (!isEmail(email)) {
     return problem(request, "Enter a valid work email address.", 400, { field: "email" });
+  }
+  if (!termsAccepted) {
+    return problem(request, "Agree to the Terms of Use and Privacy Policy to continue.", 400, { field: "terms" });
   }
   if (!consent) {
     return problem(request, "Confirm the access terms to continue.", 400, { field: "consent" });
@@ -105,6 +117,8 @@ async function handleRegister(request, env, ctx) {
     createdAt: existing?.createdAt || now,
     updatedAt: now,
     lastLoginAt: now,
+    terms_version: TERMS_VERSION,
+    terms_accepted_at: now,
     registrationPath: safePath(new URL(request.url).pathname),
     referrer: cleanText(request.headers.get("Referer") || "", 500),
   };
@@ -418,4 +432,32 @@ function constantTimeEqual(a, b) {
   let diff = 0;
   for (let i = 0; i < a.length; i += 1) diff |= a[i] ^ b[i];
   return diff === 0;
+}
+
+// Monthly cron. Deletes reader records with no sign-in activity for RETENTION_MONTHS.
+// Deletes only when env.RETENTION_ENFORCE === "true"; otherwise it counts and logs a dry run.
+// Logs counts only, never personal data. Brevo and Formspree copies are removed separately.
+async function enforceRetention(env) {
+  if (!env.ATB_REGISTRATIONS) return;
+  const enforce = env.RETENTION_ENFORCE === "true";
+  const cutoff = new Date();
+  cutoff.setUTCMonth(cutoff.getUTCMonth() - RETENTION_MONTHS);
+  let scanned = 0;
+  let expired = 0;
+  let cursor;
+
+  do {
+    const page = await env.ATB_REGISTRATIONS.list({ prefix: "registrant:", cursor });
+    for (const { name } of page.keys) {
+      scanned += 1;
+      const record = await env.ATB_REGISTRATIONS.get(name, "json");
+      const last = Date.parse(record?.lastLoginAt || record?.updatedAt || record?.createdAt || "");
+      if (!Number.isFinite(last) || last >= cutoff.getTime()) continue;
+      expired += 1;
+      if (enforce) await env.ATB_REGISTRATIONS.delete(name);
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+
+  console.log(`retention: scanned=${scanned} expired=${expired} deleted=${enforce ? expired : 0} enforce=${enforce}`);
 }

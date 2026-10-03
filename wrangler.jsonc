@@ -19,6 +19,9 @@
       "/atb/issues/*"
     ]
   },
+  "triggers": {
+    "crons": ["0 9 1 * *"]
+  },
   "kv_namespaces": [
     {
       "binding": "ATB_REGISTRATIONS",
