@@ -60,6 +60,17 @@ Two more generated blocks: `<!-- LCTI:RECENT-ISSUES:START/END -->` (homepage) an
 
 Every ATB issue writes **"The Alamo Threat Brief&trade;"** (™ immediately after "Brief") in two places: the `<title>` tag and the masthead heading (`<h1>The Alamo <span>Threat</span> Brief&trade;</h1>`). Apply it to every new issue and to its `atb/issues/`, `atb/<year>/<slug>/full.html`, and `index.html` copies before publishing, including when replacing an issue with a user-supplied draft that lacks it. Body text, nav/footer links, and the copyright/disclaimer lines do not need it; the footer already carries the trademark notice. `tools/atb_publish/validate_atb.py` warns when either placement is missing the ™.
 
+### Standing rule: copyright and trademark marking (Oct 2026)
+
+Applies to every webpage, document, presentation, and marketing asset.
+
+- **First prominent textual use** of the brand reads **Liberty CTI&trade;** (™ immediately after "CTI"). Later mentions stay plain "Liberty CTI". On the site this is the nav wordmark (`lcti-logo-tm` in `sync_components.py`).
+- **First prominent emblem** in documents, decks, and graphics carries **© 2026 Liberty CTI LLC** as a separate, visually subordinate text element directly below or adjacent to it. **Website exception:** the nav lockup stays clean, with only a very small superscript © at the emblem's top-right (`lcti-logo-c` in `sync_components.py`), and the full "© 2026 Liberty CTI LLC. All rights reserved." in the global footer. Never redraw the emblem or put the notice in alt text.
+- **Copyright notices for works** use the legal name, with no ™: public site/footer and public publications "© 2026 Liberty CTI LLC. All rights reserved."; confidential documents "© 2026 Liberty CTI LLC | Confidential | Page X"; internal documents "© 2026 Liberty CTI LLC | INTERNAL PROPRIETARY | Page X"; client deliverables "© 2026 Liberty CTI LLC. Use subject to the applicable agreement."
+- **Never use ®** for Liberty CTI or Alamo Threat Brief until a federal registration issues. Use ™ only.
+- Do not add © to body-text mentions, and do not claim copyright in client, third-party, government, or open-source material.
+- The year is fixed at 2026 per counsel; do not switch it to a dynamic year without counsel's direction.
+
 ### Standing rule: keep the Word/PDF archive in sync
 
 `ATB Archive/<year>/ATB-<year>-NN/` holds a DOCX, PDF, and source-HTML copy of every issue, plus the year's master index. Whenever an issue's HTML changes (new issue, replaced content, or a sitewide edit such as the ™ rule), rebuild its companions in the same change and commit them alongside the HTML:

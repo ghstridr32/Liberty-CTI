@@ -2,8 +2,8 @@
   "issue_number": "ATB-2026-2",
   "issue_date": "2026-03-22",
   "source_filename": "03-22-2026.html",
-  "source_hash": "860e3b06fd236251f1071b35fe493896aa943b9014c2f339d141e042bce8d7fc",
-  "built_at": "2026-09-27T14:00:17.233142+00:00",
+  "source_hash": "d90aacf1fa13ff631c260c959a48e671d21a0c8d183091f7e4c19d271f4cb63e",
+  "built_at": "2026-10-03T16:31:43.588361+00:00",
   "docx_file": "ATB-2026-2_2026-03-22_Issue.docx",
   "pdf_file": "ATB-2026-2_2026-03-22_Issue.pdf",
   "html_file": "2026-03-22_source.html",
@@ -11,6 +11,7 @@
   "qa_errors": [],
   "qa_warnings": [],
   "validation_warnings": [
+    "In-page issue number 'ATB-2026-29' does not match date-sequence-derived number 'ATB-2026-2'.",
     "No coverage period found (neither meta-cell 'Coverage' nor 'Week of' pill).",
     "No sources section detected (no source_list or intel_card blocks)."
   ],

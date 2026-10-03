@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/lcti-site.css">
+<meta name="copyright" content="&copy; 2026 Liberty CTI LLC. All rights reserved.">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -34,7 +35,10 @@
 .lcti-logo-text{display:flex;flex-direction:column;line-height:1.15}
 .lcti-logo-word{font-family:'Libre Baskerville',Georgia,serif;font-size:1.08rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0B1D2F;white-space:nowrap}
 .lcti-logo-word b{color:#7A5F28;font-weight:700}
+.lcti-logo-tm{font-size:.5em;font-weight:400;letter-spacing:0;vertical-align:super;line-height:0;color:#7A5F28;margin-left:1px}
 .lcti-logo-tag{font-size:.66rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#4F5866;white-space:nowrap;margin-top:2px}
+.lcti-logo-mark{position:relative;display:flex;flex-shrink:0}
+.lcti-logo-c{position:absolute;top:-3px;right:-8px;font-size:.55rem;font-weight:400;line-height:1;color:#4F5866}
 .lcti-links{display:flex;align-items:center;gap:.25rem;list-style:none;margin:0;padding:0}
 .lcti-links>li{list-style:none;margin:0;padding:0;font-size:1rem !important;line-height:1.2 !important}
 .lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{font-family:'Inter','Segoe UI',system-ui,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#1B2430;text-decoration:none;padding:.55rem .7rem;border-radius:0;background:none;border:0;border-bottom:2px solid transparent;display:flex;align-items:center;gap:.4rem;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
@@ -68,15 +72,15 @@ nav.lcti-nav .lcti-links>li>a.lcti-cta:hover,.lcti-cta:hover{background:#1A3654 
 .lcti-mobile-menu .m-cta-wrap{padding:1.1rem 1.25rem 0}
 .lcti-mobile-menu .m-cta{display:block;text-align:center;font-size:.88rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#FFFFFF !important;background:#0B1D2F !important;border-bottom:2px solid #AD8C47;padding:.9rem 1.25rem}
 .lcti-mobile-menu .m-cta:hover{background:#122A42;color:#FFFFFF !important}
-@media(max-width:1080px){.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{padding:.55rem .5rem;font-size:.74rem}.lcti-logo-tag{display:none}}
+@media(max-width:1080px){.lcti-links>li>a,.lcti-links>li>.lcti-drop-toggle{padding:.55rem .5rem;font-size:.74rem}.lcti-logo-tag{font-size:.54rem;letter-spacing:.04em}}
 @media(max-width:940px){.lcti-links{display:none}.lcti-burger{display:flex}}
 @media(max-width:640px){.lcti-nav{padding:0 16px}.lcti-logo-word{font-size:.98rem}}
 </style>
 
 <nav class="lcti-nav" aria-label="Main navigation">
   <a href="index.html" class="lcti-logo" aria-label="Liberty CTI home">
-    <img src="liberty-cti-emblem.png" alt="" class="lcti-logo-emblem" decoding="async" width="425" height="512">
-    <span class="lcti-logo-text"><span class="lcti-logo-word">Liberty <b>CTI</b></span><span class="lcti-logo-tag">Strategic Cyber Intelligence</span></span>
+    <span class="lcti-logo-mark"><img src="liberty-cti-emblem.png" alt="" class="lcti-logo-emblem" decoding="async" width="425" height="512"><span class="lcti-logo-c">&copy;</span></span>
+    <span class="lcti-logo-text"><span class="lcti-logo-word">Liberty <b>CTI</b><span class="lcti-logo-tm">&trade;</span></span><span class="lcti-logo-tag">Strategic Cyber Intelligence</span></span>
   </a>
 
   <ul class="lcti-links">
@@ -393,7 +397,7 @@ nav.lcti-nav .lcti-links>li>a.lcti-cta:hover,.lcti-cta:hover{background:#1A3654 
     </div>
   </div>
   <div class="lcti-ft-bottom">
-    <p class="lcti-ft-fine">&copy; 2026 Liberty CTI LLC &middot; San Antonio, Texas &middot; <a href="legal/index.html">Legal &amp; Privacy</a></p>
+    <p class="lcti-ft-fine">&copy; 2026 Liberty CTI LLC. All rights reserved. &middot; San Antonio, Texas &middot; <a href="legal/index.html">Legal &amp; Privacy</a></p>
     <p class="lcti-ft-fine">Analysis follows structured analytic tradecraft informed by publicly available Intelligence Community standards. Alamo Threat Brief&trade; is a trademark of Liberty CTI LLC.</p>
   </div>
 </footer>
